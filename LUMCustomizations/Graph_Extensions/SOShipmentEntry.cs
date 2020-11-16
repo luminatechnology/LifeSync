@@ -13,8 +13,8 @@ namespace PX.Objects.SO
     {
         #region String  & Decimal Contants
         public const string CartonSize = "CARTONSIZE";
-        public const string QtyCarton  = "QTYCARTON";
-        public const string GrsWeight  = "GRSWEIGHT";
+        public const string QtyCarton = "QTYCARTON";
+        public const string GrsWeight = "GRSWEIGHT";
 
         public class CartonSizeAttr : PX.Data.BQL.BqlString.Constant<CartonSizeAttr>
         {
@@ -52,43 +52,43 @@ namespace PX.Objects.SO
 
         protected void _(Events.FieldUpdated<SOShipLineExt.usrCartonQty> e)
         {
-            SOShipLine    row    = e.Row as SOShipLine;
+            SOShipLine row = e.Row as SOShipLine;
             SOShipLineExt rowExt = row.GetExtension<SOShipLineExt>();
 
-            decimal? cartonQty   = rowExt.UsrCartonQty;
+            decimal? cartonQty = rowExt.UsrCartonQty;
             decimal? baseItemVol = rowExt.UsrBaseItemVolume;
-            decimal  oneHundK    = 1000000;
+            decimal oneHundK = 1000000;
 
-            Decimal? nullable2 = nullable1.HasValue & usrBaseItemVolume.HasValue ? new Decimal?(nullable1.GetValueOrDefault() * usrBaseItemVolume.GetValueOrDefault()) : new Decimal?();
-            
-            Decimal? nullable3 = nullable2.HasValue ? new Decimal?(nullable2.GetValueOrDefault() * num1) : new Decimal?();
-            nullable2 = nullable3;
-            Decimal num2 = 0M;
-            Decimal? nullable4;
-            if (!(nullable2.GetValueOrDefault() == num2 & nullable2.HasValue))
-            {
-                nullable2 = row.ShippedQty;
-                Decimal num3 = 0M;
-                if (!(nullable2.GetValueOrDefault() == num3 & nullable2.HasValue))
-                {
-                    nullable2 = nullable3;
-                    Decimal? shippedQty = row.ShippedQty;
-                    if (!(nullable2.HasValue & shippedQty.HasValue))
-                    {
-                        nullable1 = new Decimal?();
-                        nullable4 = nullable1;
-                        goto label_6;
-                    }
-                    else
-                    {
-                        nullable4 = new Decimal?(nullable2.GetValueOrDefault() / shippedQty.GetValueOrDefault());
-                        goto label_6;
-                    }
-                }
-            }
-            nullable4 = new Decimal?(0M);
-        label_6:
-            soShipLineExt.UsrDimWeight = nullable4;
+            //Decimal? nullable2 = nullable1.HasValue & usrBaseItemVolume.HasValue ? new Decimal?(nullable1.GetValueOrDefault() * usrBaseItemVolume.GetValueOrDefault()) : new Decimal?();
+
+            //Decimal? nullable3 = nullable2.HasValue ? new Decimal?(nullable2.GetValueOrDefault() * num1) : new Decimal?();
+            //nullable2 = nullable3;
+        //    Decimal num2 = 0M;
+        //    Decimal? nullable4;
+        //    if (!(nullable2.GetValueOrDefault() == num2 & nullable2.HasValue))
+        //    {
+        //        nullable2 = row.ShippedQty;
+        //        Decimal num3 = 0M;
+        //        if (!(nullable2.GetValueOrDefault() == num3 & nullable2.HasValue))
+        //        {
+        //            nullable2 = nullable3;
+        //            Decimal? shippedQty = row.ShippedQty;
+        //            if (!(nullable2.HasValue & shippedQty.HasValue))
+        //            {
+        //                nullable1 = new Decimal?();
+        //                nullable4 = nullable1;
+        //                goto label_6;
+        //            }
+        //            else
+        //            {
+        //                nullable4 = new Decimal?(nullable2.GetValueOrDefault() / shippedQty.GetValueOrDefault());
+        //                goto label_6;
+        //            }
+        //        }
+        //    }
+        //    nullable4 = new Decimal?(0M);
+        //label_6:
+        //    soShipLineExt.UsrDimWeight = nullable4;
         }
 
         #region Static Method
@@ -141,7 +141,7 @@ namespace PX.Objects.SO
             };
 
             contactAttribute.DefaultContact<SOShipmentContact, SOShipmentContact.contactID>(Base.Document.Cache, (object)current, (object)null);
-            
+
             Base.Document.Cache.Update((object)current);
         }
         #endregion
