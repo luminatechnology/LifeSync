@@ -1,7 +1,6 @@
 ﻿using JAMS.AM;
 using JAMS.AM.Attributes;
 using PX.Data;
-using PX.Data.BQL;
 using PX.Objects.CS;
 using PX.Objects.CR;
 using PX.Objects.IN;
@@ -14,29 +13,51 @@ namespace LumCustomizations.DAC
     [Serializable]
     public class LumShipmentPlan : IBqlTable
     {
-        #region SOLineNoteID
-        [PXGuid]
-        [PXUIField(DisplayName = "SO Ref.", Visible = false)]
-        [PXSelector(typeof(Search2<SOLine.noteID, InnerJoin<SOOrder, On<SOOrder.orderType, Equal<SOLine.orderType>, 
-                                                                        And<SOOrder.orderNbr, Equal<SOLine.orderNbr>>>, 
-                                                  InnerJoin<InventoryItem, On<InventoryItem.inventoryID, Equal<SOLine.inventoryID>>>>>), 
-                    typeof(SOOrder.orderType), 
-                    typeof(SOOrder.orderNbr), 
-                    typeof(SOLine.lineNbr), 
-                    typeof(SOLine.inventoryID), 
-                    typeof(InventoryItem.descr), 
-                    typeof(SOLine.orderQty), 
-                    typeof(SOLine.requestDate))]
-        public virtual Guid? SOLineNoteID { get; set; }
-        public abstract class sOLineNoteID : PX.Data.BQL.BqlGuid.Field<LumShipmentPlan.sOLineNoteID> { }
-        #endregion
+        //#region SOLineNoteID
+        //[PXGuid]
+        //[PXUIField(DisplayName = "SO Ref.", Visible = false)]
+        //[PXSelector(typeof(Search2<SOLine.noteID, InnerJoin<SOOrder, On<SOOrder.orderType, Equal<SOLine.orderType>, 
+        //                                                                And<SOOrder.orderNbr, Equal<SOLine.orderNbr>>>, 
+        //                                          InnerJoin<InventoryItem, On<InventoryItem.inventoryID, Equal<SOLine.inventoryID>>>>>), 
+        //            typeof(SOOrder.orderType), 
+        //            typeof(SOOrder.orderNbr), 
+        //            typeof(SOLine.lineNbr), 
+        //            typeof(SOLine.inventoryID), 
+        //            typeof(InventoryItem.descr), 
+        //            typeof(SOLine.orderQty), 
+        //            typeof(SOLine.requestDate))]
+        //public virtual Guid? SOLineNoteID { get; set; }
+        //public abstract class sOLineNoteID : PX.Data.BQL.BqlGuid.Field<LumShipmentPlan.sOLineNoteID> { }
+        //#endregion
 
         #region ShipmentPlanID
         [PXDBString(15, InputMask = "", IsKey = true, IsUnicode = true)]
-        [PXUIField(DisplayName = "Shipment Plan", Enabled = false)]
-        [AutoNumber(typeof(SOSetup.shipmentNumberingID), typeof(AccessInfo.businessDate))]
+        [PXUIField(DisplayName = "Shipment Plan")]
+        //[AutoNumber(typeof(SOSetup.shipmentNumberingID), typeof(AccessInfo.businessDate))]
         public virtual string ShipmentPlanID { get; set; }
         public abstract class shipmentPlanID : PX.Data.BQL.BqlString.Field<LumShipmentPlan.shipmentPlanID> { }
+        #endregion
+
+        #region OrderNbr
+        [PXDBString(15, InputMask = "", IsUnicode = true, IsKey = true)]
+        [PXUIField(DisplayName = "SO Order Nbr.", Enabled = false)]
+        [PXSelector(typeof(Search<SOOrder.orderNbr>), CacheGlobal = true)]
+        public virtual string OrderNbr { get; set; }
+        public abstract class orderNbr : PX.Data.BQL.BqlString.Field<LumShipmentPlan.orderNbr> { }
+        #endregion
+
+        #region LineNbr      
+        [PXDBInt(IsKey = true)]
+        [PXUIField(DisplayName = "Line Nbr.", Enabled = false)]
+        public virtual int? LineNbr { get; set; }
+        public abstract class lineNbr : PX.Data.BQL.BqlInt.Field<LumShipmentPlan.lineNbr> { }
+        #endregion
+
+        #region ProdOrdID
+        [ProductionNbr(IsKey = true)]
+        [PXSelector(typeof(Search<AMProdItem.prodOrdID, Where<AMProdItemExt.usrSOOrderNbr, IsNotNull>>))] //Equal<Current<LumShipmentPlan.inventoryID>>>>))]
+        public virtual string ProdOrdID { get; set; }
+        public abstract class prodOrdID : PX.Data.BQL.BqlString.Field<LumShipmentPlan.prodOrdID> { }
         #endregion
 
         #region Confirmed
@@ -45,14 +66,6 @@ namespace LumCustomizations.DAC
         [PXDefault(false)]
         public virtual bool? Confirmed { get; set; }
         public abstract class confirmed : PX.Data.BQL.BqlBool.Field<LumShipmentPlan.confirmed> { }
-        #endregion
-
-        #region OrderNbr
-        [PXDBString(15, InputMask = "", IsUnicode = true)]
-        [PXUIField(DisplayName = "SO Order Nbr.", Enabled = false)]
-        [PXSelector(typeof(Search<SOOrder.orderNbr>), CacheGlobal = true)]
-        public virtual string OrderNbr { get; set; }
-        public abstract class orderNbr : PX.Data.BQL.BqlString.Field<LumShipmentPlan.orderNbr> { }
         #endregion
 
         #region OrderType
@@ -93,13 +106,6 @@ namespace LumCustomizations.DAC
         public abstract class orderDate : PX.Data.BQL.BqlDateTime.Field<LumShipmentPlan.orderDate> { }
         #endregion
 
-        #region LineNbr      
-        [PXDBInt]
-        [PXUIField(DisplayName = "Line Nbr.", Enabled = false)]
-        public virtual int? LineNbr { get; set; }
-        public abstract class lineNbr : PX.Data.BQL.BqlInt.Field<LumShipmentPlan.lineNbr> { }
-        #endregion
-
         #region InventoryID
         [Inventory(Enabled = false)]
         public virtual int? InventoryID { get; set; }
@@ -135,7 +141,7 @@ namespace LumCustomizations.DAC
         #endregion
 
         #region PlannedShipQty
-        [PXDBQuantity]
+        [PXDBQuantity(0)]
         [PXUIField(DisplayName = "Planned Shipment Qty.")]
         public virtual Decimal? PlannedShipQty { get; set; }
         public abstract class plannedShipQty : PX.Data.BQL.BqlDecimal.Field<LumShipmentPlan.plannedShipQty> { }
@@ -159,13 +165,6 @@ namespace LumCustomizations.DAC
         public abstract class shipmentNbr : PX.Data.BQL.BqlString.Field<LumShipmentPlan.shipmentNbr> { }
         #endregion
 
-        #region ProdOrdID
-        [ProductionNbr]
-        [PXSelector(typeof(Search<AMProdItem.prodOrdID, Where<AMProdItem.inventoryID, Equal<Current<LumShipmentPlan.inventoryID>>>>))]
-        public virtual string ProdOrdID { get; set; }
-        public abstract class prodOrdID : PX.Data.BQL.BqlString.Field<LumShipmentPlan.prodOrdID> { }
-        #endregion
-
         #region ProdLine        
         [PXDBString(255, InputMask = "", IsUnicode = true)]
         [PXUIField(DisplayName = "Production Line", Enabled = false)]
@@ -183,19 +182,22 @@ namespace LumCustomizations.DAC
         #region BRNbr
         [PXDBString(255, InputMask = "", IsUnicode = true)]
         [PXUIField(DisplayName = "BR Nbr.", Enabled = false)]
+        [PXFormula(typeof(Default<shipmentNbr>))]
+        [PXDefault(typeof(Search<SOShipLineExt.usrBRNbr, Where<SOShipLine.shipmentNbr, Equal<Current<LumShipmentPlan.shipmentNbr>>>>),
+                   PersistingCheck = PXPersistingCheck.Nothing)]
         public virtual string BRNbr { get; set; }
         public abstract class bRNbr : PX.Data.BQL.BqlString.Field<LumShipmentPlan.bRNbr> { }
         #endregion
 
         #region QtyToProd
-        [PXDBQuantity]
+        [PXDBQuantity(0)]
         [PXUIField(DisplayName = "Qty. to Produce", Enabled = false)]
         public virtual Decimal? QtyToProd { get; set; }
         public abstract class qtyToProd : PX.Data.BQL.BqlDecimal.Field<LumShipmentPlan.qtyToProd> { }
         #endregion
 
         #region QtyComplete
-        [PXDBQuantity]
+        [PXDBQuantity(0)]
         [PXUIField(DisplayName = "Qty. Completed", Enabled = false)]
         public virtual Decimal? QtyComplete { get; set; }
         public abstract class qtyComplete : PX.Data.BQL.BqlDecimal.Field<LumShipmentPlan.qtyComplete> { }
@@ -256,32 +258,46 @@ namespace LumCustomizations.DAC
         public abstract class createdByID : PX.Data.BQL.BqlGuid.Field<createdByID> { }
         #endregion
 
+        #region CreatedByScreenID
         [PXDBCreatedByScreenID]
         public virtual string CreatedByScreenID { get; set; }
         public abstract class createdByScreenID : PX.Data.BQL.BqlString.Field<createdByScreenID> { }
+        #endregion
 
+        #region CreatedDateTime
         [PXDBCreatedDateTime]
         public virtual DateTime? CreatedDateTime { get; set; }
         public abstract class createdDateTime : PX.Data.BQL.BqlDateTime.Field<createdDateTime> { }
+        #endregion
 
+        #region LastModifiedByID
         [PXDBLastModifiedByID]
         public virtual Guid? LastModifiedByID { get; set; }
         public abstract class lastModifiedByID : PX.Data.BQL.BqlGuid.Field<lastModifiedByID> { }
+        #endregion
 
+        #region LastModifiedByScreenID
         [PXDBLastModifiedByScreenID]
         public virtual string LastModifiedByScreenID { get; set; }
         public abstract class lastModifiedByScreenID : PX.Data.BQL.BqlString.Field<lastModifiedByScreenID> { }
+        #endregion
 
+        #region LastModifiedDateTime
         [PXDBLastModifiedDateTime]
         public virtual DateTime? LastModifiedDateTime { get; set; }
         public abstract class lastModifiedDateTime : PX.Data.BQL.BqlDateTime.Field<lastModifiedDateTime> { }
+        #endregion
 
+        #region Tstamp
         [PXDBTimestamp]
         public virtual byte[] Tstamp { get; set; }
         public abstract class tstamp : PX.Data.BQL.BqlByteArray.Field<tstamp> { }
+        #endregion
 
+        #region NoteID
         [PXNote]
         public virtual Guid? NoteID { get; set; }
         public abstract class noteID : PX.Data.BQL.BqlGuid.Field<noteID> { }
+        #endregion
     }
 }
