@@ -1,1 +1,1 @@
-C:\Program Files\Acumatica ERP\LifeSync\App_Data\Projects\LUMCustomizations
+C:\Program Files\Acumatica ERP\ABA_AcumaticaDB1\App_Data\Projects\LUMCustomizations

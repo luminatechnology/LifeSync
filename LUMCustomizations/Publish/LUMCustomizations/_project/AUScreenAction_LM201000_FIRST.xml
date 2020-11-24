@@ -1,0 +1,3 @@
+﻿<AUScreenAction ScreenID="LM201000" ActionName="First" DataMember="LumCustomizations.DAC.LumShipmentPlan" MenuFolder="" MenuFolderType="" ActionFolderType="" IsTopLevel="False">
+    <Prop Name="IsVisible" DisplayName="Visible" IsCustomized="True" Value="False" />
+</AUScreenAction>

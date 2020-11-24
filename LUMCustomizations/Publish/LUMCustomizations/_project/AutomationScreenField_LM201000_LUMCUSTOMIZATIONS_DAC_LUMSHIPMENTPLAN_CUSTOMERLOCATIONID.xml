@@ -1,0 +1,3 @@
+﻿<AutomationScreenField ScreenID="LM201000" TableName="LUMCUSTOMIZATIONS.DAC.LUMSHIPMENTPLAN" FieldName="CUSTOMERLOCATIONID" IsUserDefinedField="False">
+    <Prop Name="DisplayName" DisplayName="Display Name" IsCustomized="True" Value="Customer Location" />
+</AutomationScreenField>

@@ -63,16 +63,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAC\LifeSyncPreference.cs" />
     <Compile Include="DAC\LumShipmentPlan.cs" />
     <Compile Include="DAC_Extensions\AMProdItemExtensions.cs" />
+    <Compile Include="DAC_Extensions\SOLineExtensions.cs" />
+    <Compile Include="DAC_Extensions\SOOrderExtensions.cs" />
     <Compile Include="DAC_Extensions\SOShipLineExtensions.cs" />
     <Compile Include="DAC_Extensions\SOShipmentExtensions.cs" />
     <Compile Include="Descriptor\Attribute.cs" />
+    <Compile Include="Graph\LifeSyncPreferenceMaint.cs" />
     <Compile Include="Graph\LumShipmentPlanMaint.cs" />
+    <Compile Include="Graph_Extensions\SOOrderEntry.cs" />
     <Compile Include="Graph_Extensions\SOShipmentEntry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="bin\Debug\LUMCustomizations.dll" />
+    <Content Include="bin\Debug\LUMCustomizations.pdb" />
+    <Content Include="bin\LumCustomizations.dll" />
+    <Content Include="bin\LumCustomizations.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

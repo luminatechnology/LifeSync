@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using LUMCustomizations.DAC;
 using PX.Common;
 using PX.Data;
 using PX.Data.BQL;
@@ -50,6 +54,23 @@ namespace PX.Objects.SO
         }
         #endregion
 
+        public override void Initialize()
+        {
+            base.Initialize();
+
+            // Get Visible
+            var _graph = PXGraph.CreateInstance<SOOrderEntry>();
+            var _PIPreference = from t in _graph.Select<LifeSyncPreference>()
+                                select t;
+            var _visible = _PIPreference.FirstOrDefault() == null ? false : _PIPreference.FirstOrDefault().ProformaInvoicePrinting.Value
+                                                                  ? true : false;
+            // Set Button Visible
+            ProformaInvoice.SetVisible(_visible);
+            // Add Button
+            if (_visible)
+                Base.report.AddMenuAction(ProformaInvoice);
+        }
+
         protected void _(Events.FieldUpdated<SOShipLineExt.usrCartonQty> e)
         {
             SOShipLine row = e.Row as SOShipLine;
@@ -63,32 +84,32 @@ namespace PX.Objects.SO
 
             //Decimal? nullable3 = nullable2.HasValue ? new Decimal?(nullable2.GetValueOrDefault() * num1) : new Decimal?();
             //nullable2 = nullable3;
-        //    Decimal num2 = 0M;
-        //    Decimal? nullable4;
-        //    if (!(nullable2.GetValueOrDefault() == num2 & nullable2.HasValue))
-        //    {
-        //        nullable2 = row.ShippedQty;
-        //        Decimal num3 = 0M;
-        //        if (!(nullable2.GetValueOrDefault() == num3 & nullable2.HasValue))
-        //        {
-        //            nullable2 = nullable3;
-        //            Decimal? shippedQty = row.ShippedQty;
-        //            if (!(nullable2.HasValue & shippedQty.HasValue))
-        //            {
-        //                nullable1 = new Decimal?();
-        //                nullable4 = nullable1;
-        //                goto label_6;
-        //            }
-        //            else
-        //            {
-        //                nullable4 = new Decimal?(nullable2.GetValueOrDefault() / shippedQty.GetValueOrDefault());
-        //                goto label_6;
-        //            }
-        //        }
-        //    }
-        //    nullable4 = new Decimal?(0M);
-        //label_6:
-        //    soShipLineExt.UsrDimWeight = nullable4;
+            //    Decimal num2 = 0M;
+            //    Decimal? nullable4;
+            //    if (!(nullable2.GetValueOrDefault() == num2 & nullable2.HasValue))
+            //    {
+            //        nullable2 = row.ShippedQty;
+            //        Decimal num3 = 0M;
+            //        if (!(nullable2.GetValueOrDefault() == num3 & nullable2.HasValue))
+            //        {
+            //            nullable2 = nullable3;
+            //            Decimal? shippedQty = row.ShippedQty;
+            //            if (!(nullable2.HasValue & shippedQty.HasValue))
+            //            {
+            //                nullable1 = new Decimal?();
+            //                nullable4 = nullable1;
+            //                goto label_6;
+            //            }
+            //            else
+            //            {
+            //                nullable4 = new Decimal?(nullable2.GetValueOrDefault() / shippedQty.GetValueOrDefault());
+            //                goto label_6;
+            //            }
+            //        }
+            //    }
+            //    nullable4 = new Decimal?(0M);
+            //label_6:
+            //    soShipLineExt.UsrDimWeight = nullable4;
         }
 
         #region Static Method
@@ -143,6 +164,23 @@ namespace PX.Objects.SO
             contactAttribute.DefaultContact<SOShipmentContact, SOShipmentContact.contactID>(Base.Document.Cache, (object)current, (object)null);
 
             Base.Document.Cache.Update((object)current);
+        }
+        #endregion
+
+        #region Action
+        public PXAction<SOShipment> ProformaInvoice;
+        [PXButton]
+        [PXUIField(DisplayName = "Print Proforma Invoice Report", Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        protected virtual IEnumerable proformaInvoice(PXAdapter adapter)
+        {
+            var _reportID = "so610000";
+            var parameters = new Dictionary<string, string>()
+            {
+                ["ShipmentNbr"] = (Base.Caches<SOShipment>().Current as SOShipment)?.ShipmentNbr
+            };
+            if (parameters["ShipmentNbr"] != null)
+                throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
+            return adapter.Get<SOShipment>().ToList();
         }
         #endregion
     }
