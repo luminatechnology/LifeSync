@@ -1,17 +1,13 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: LumCustomizations.Graph.LumShipmentPlanMaint
-// Assembly: LumCustomizations, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: CAF5AA38-83F0-40FF-909D-BF37C3B18F4B
-// Assembly location: C:\Program Files\Acumatica ERP\LifeSync\Bin\LumCustomizations.dll
-
-using JAMS.AM;
+﻿using JAMS.AM;
 using LumCustomizations.DAC;
 using PX.Common;
 using PX.Data;
 using PX.Data.BQL;
 using PX.Data.BQL.Fluent;
 using PX.Objects.CS;
+using PX.Objects.IN;
 using PX.Objects.SO;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +16,10 @@ namespace LumCustomizations.Graph
 {
     public class LumShipmentPlanMaint : PXGraph<LumShipmentPlanMaint, LumShipmentPlan>
     {
+        public const string NotDeleteConfirmed = "The Shipment Plan [{0}] Had Confirmed And Can't Be Deleted.";
+        public const string QtyCannotExceeded  = "The {0} Cannot Exceed The {1}.";
 
+        #region Ctor
         public LumShipmentPlanMaint()
         {
             Report.AddMenuAction(InnerLabelGenaral);
@@ -33,78 +32,15 @@ namespace LumCustomizations.Graph
             Report.AddMenuAction(OuterLabelMasimo);
             Report.MenuAutoOpen = true;
         }
+        #endregion
 
-        public const string NotDeleteConfirmed = "The Shipment Plan [{0}] Had Confirmed And Can't Be Deleted.";
-        [PXFilterable(new System.Type[] { })]
-        public FbqlSelect<SelectFromBase<LumShipmentPlan, TypeArrayOf<IFbqlJoin>.Empty>, LumShipmentPlan>.View ShipPlan;
-        public FbqlSelect<SelectFromBase<SOOrder, TypeArrayOf<IFbqlJoin>.Empty>.Where<BqlChainableConditionBase<TypeArrayOf<IBqlBinary>.FilledWith<And<Compare<SOOrder.orderType, Equal<LumShipmentPlan.orderType>>>>>.And<BqlOperand<SOOrder.orderNbr, IBqlString>.IsEqual<LumShipmentPlan.orderNbr>>>, SOOrder>.View Order;
+        #region Selects
+        [PXFilterable()]
+        public SelectFrom<LumShipmentPlan>.View ShipPlan;
+        public SelectFrom<SOOrder>.Where<SOOrder.orderType.IsEqual<LumShipmentPlan.orderType>.And<SOOrder.orderNbr.IsEqual<LumShipmentPlan.orderNbr>>>.View Order;
+        #endregion
 
-        protected void _(PX.Data.Events.RowDeleting<LumShipmentPlan> e)
-        {
-            int num;
-            if (e.Row != null)
-            {
-                bool? confirmed = e.Row.Confirmed;
-                bool flag = true;
-                num = confirmed.GetValueOrDefault() == flag & confirmed.HasValue ? 1 : 0;
-            }
-            else
-                num = 0;
-            if (num != 0)
-                throw new PXSetPropertyException<LumShipmentPlan.confirmed>("The Shipment Plan [{0}] Had Confirmed And Can't Be Deleted.", new object[1]
-                {
-          (object) e.Row.ShipmentPlanID
-                });
-        }
-
-        protected void _(PX.Data.Events.RowPersisting<LumShipmentPlan> e) => AutoNumberAttribute.SetNumberingId<LumShipmentPlan.shipmentPlanID>(e.Cache, "SHIPPLAN");
-
-        protected void _(
-          PX.Data.Events.FieldUpdated<LumShipmentPlan.sOLineNoteID> e)
-        {
-            if (!(e.Row is LumShipmentPlan row))
-                return;
-            SOLine soLine = (SOLine)PXSelectBase<SOLine, PXViewOf<SOLine>.BasedOn<SelectFromBase<SOLine, TypeArrayOf<IFbqlJoin>.Empty>.Where<BqlOperand<SOLine.noteID, IBqlGuid>.IsEqual<P.AsGuid>>>.Config>.Select((PXGraph)this, (object)row.SOLineNoteID);
-            SOOrder soOrder = (SOOrder)PXSelectBase<SOOrder, PXViewOf<SOOrder>.BasedOn<SelectFromBase<SOOrder, TypeArrayOf<IFbqlJoin>.Empty>.Where<BqlChainableConditionBase<TypeArrayOf<IBqlBinary>.FilledWith<And<Compare<SOOrder.orderType, Equal<P.AsString>>>>>.And<BqlOperand<SOOrder.orderNbr, IBqlString>.IsEqual<P.AsString>>>>.Config>.SelectSingleBound((PXGraph)this, (object[])null, (object)soLine.OrderType, (object)soLine.OrderNbr);
-            PXFieldState valueExt = this.Order.Cache.GetValueExt((object)soOrder, "AttributeENDC") as PXFieldState;
-            row.Customer = (string)valueExt.Value;
-            row.OrderNbr = soOrder.OrderNbr;
-            row.OrderType = soOrder.OrderType;
-            row.CustomerLocationID = soOrder.CustomerLocationID;
-            row.CustomerOrderNbr = soOrder.CustomerOrderNbr;
-            row.OrderDate = soOrder.OrderDate;
-            row.LineNbr = soLine.LineNbr;
-            row.InventoryID = soLine.InventoryID;
-            row.OpenQty = soLine.OpenQty;
-            row.OrderQty = soLine.OrderQty;
-            row.RequestDate = soLine.RequestDate;
-        }
-
-        protected void _(PX.Data.Events.FieldUpdated<LumShipmentPlan.prodOrdID> e)
-        {
-            if (!(e.Row is LumShipmentPlan row))
-                return;
-            AMProdItem amProdItem = (AMProdItem)PXSelectBase<AMProdItem, PXViewOf<AMProdItem>.BasedOn<SelectFromBase<AMProdItem, TypeArrayOf<IFbqlJoin>.Empty>.Where<BqlOperand<AMProdItem.prodOrdID, IBqlString>.IsEqual<P.AsString>>>.Config>.Select((PXGraph)this, (object)row.ProdOrdID);
-            row.QtyToProd = amProdItem.QtytoProd;
-            row.QtyComplete = amProdItem.QtyComplete;
-            foreach (PXResult<AMProdAttribute> pxResult in PXSelectBase<AMProdAttribute, PXViewOf<AMProdAttribute>.BasedOn<SelectFromBase<AMProdAttribute, TypeArrayOf<IFbqlJoin>.Empty>.Where<BqlOperand<AMProdAttribute.prodOrdID, IBqlString>.IsEqual<P.AsString>>>.Config>.Select((PXGraph)this, (object)amProdItem.ProdOrdID))
-            {
-                AMProdAttribute amProdAttribute = (AMProdAttribute)pxResult;
-                switch (amProdAttribute.AttributeID)
-                {
-                    case "PRODLINE":
-                        row.ProdLine = amProdAttribute.Value;
-                        break;
-                    case "LOTNO":
-                        row.LotSerialNbr = amProdAttribute.Value;
-                        break;
-                    case "BR":
-                        row.BRNbr = amProdAttribute.Value;
-                        break;
-                }
-            }
-        }
-
+        #region Actions
         public PXAction<LumShipmentPlan> Report;
         [PXUIField(DisplayName = "Reports", MapEnableRights = PXCacheRights.Select)]
         [PXButton]
@@ -133,7 +69,7 @@ namespace LumCustomizations.Graph
             var parameters = GetCurrentRowToParameter();
             if (parameters["ShipmentPlanID"] != null)
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
-            return adapter.Get<LumShipmentPlan>().ToList(); 
+            return adapter.Get<LumShipmentPlan>().ToList();
         }
 
         public PXAction<LumShipmentPlan> InnerLabelOsi;
@@ -224,6 +160,114 @@ namespace LumCustomizations.Graph
             };
             return parameters;
         }
+        #endregion
 
+        #region Event Handlers
+        protected void _(Events.RowDeleting<LumShipmentPlan> e)
+        {
+            if (e.Row.Confirmed == true)
+            {
+                throw new PXSetPropertyException<LumShipmentPlan.confirmed>(NotDeleteConfirmed, e.Row.ShipmentPlanID);
+            }
+        }
+
+        //protected void _(Events.RowPersisting<LumShipmentPlan> e)
+        //{
+        //    AutoNumberAttribute.SetNumberingId<LumShipmentPlan.shipmentPlanID>(e.Cache, "SHIPPLAN");
+        //}
+
+        protected void _(Events.FieldVerifying<LumShipmentPlan.plannedShipQty> e)
+        {
+            var row = e.Row as LumShipmentPlan;
+
+            if (row != null && (decimal)e.NewValue > row.QtyToProd)
+            {
+                throw new PXSetPropertyException<LumShipmentPlan.plannedShipQty>(QtyCannotExceeded, nameof(LumShipmentPlan.plannedShipQty), nameof(LumShipmentPlan.qtyToProd));
+            }
+        }
+
+        protected void _(Events.FieldUpdated<LumShipmentPlan.prodOrdID> e)
+        {
+            var row = e.Row as LumShipmentPlan;
+
+            if (row == null) { return; }
+
+            AMProdItem prodItem = SelectFrom<AMProdItem>.Where<AMProdItem.prodOrdID.IsEqual<@P.AsString>>.View.Select(this, row.ProdOrdID);
+            
+            row.QtyToProd   = prodItem.QtytoProd;
+            row.QtyComplete = prodItem.QtyComplete;
+
+            foreach (AMProdAttribute prodAttr in SelectFrom<AMProdAttribute>.Where<AMProdAttribute.prodOrdID.IsEqual<@P.AsString>>.View.Select(this, prodItem.ProdOrdID))
+            {
+                switch (prodAttr.AttributeID)
+                {
+                    case "PRODLINE":
+                        row.ProdLine = SelectFrom<CSAttributeDetail>.Where<CSAttributeDetail.attributeID.IsEqual<@P.AsString>
+                                                                           .And<CSAttributeDetail.valueID.IsEqual<@P.AsString>>>.View
+                                                                    .SelectSingleBound(this, null, prodAttr.AttributeID, prodAttr.Value).TopFirst?.Description;
+                        break;
+                    case "LOTNO":
+                        row.LotSerialNbr = prodAttr.Value;
+                        break;
+                    case "TOTSHIPWO":
+                        row.TotalShipNbr = Convert.ToInt32(prodAttr.Value);
+                        break;
+                }
+            }
+
+            AMProdItemExt prodItemExt = prodItem.GetExtension<AMProdItemExt>();
+
+            if (prodItemExt.UsrSOOrderNbr != null)
+            {
+                PXResult<SOOrder, SOLine> sOResult = (PXResult<SOOrder, SOLine>)SelectFrom<SOOrder>.InnerJoin<SOLine>.On<SOOrder.orderType.IsEqual<SOLine.orderType>
+                                                                                                                         .And<SOOrder.orderNbr.IsEqual<SOLine.orderNbr>>>
+                                                                                                   .Where<SOLine.orderType.IsEqual<@P.AsString>
+                                                                                                          .And<SOLine.orderNbr.IsEqual<@P.AsString>
+                                                                                                               .And<SOLine.lineNbr.IsEqual<@P.AsInt>>>>.View
+                                                                                                   .Select(this, prodItemExt.UsrSOOrderType, prodItemExt.UsrSOOrderNbr, prodItemExt.UsrSOLineNbr);
+                SOLine  soLine  = sOResult;
+                SOOrder soOrder = sOResult;
+
+                PXFieldState valueExt = Order.Cache.GetValueExt((object)soOrder, PX.Objects.CS.Messages.Attribute + "ENDC") as PXFieldState;
+
+                row.Customer           = (string)valueExt.Value;
+                row.OrderNbr           = soOrder.OrderNbr;
+                row.OrderType          = soOrder.OrderType;
+                row.CustomerLocationID = soOrder.CustomerLocationID;
+                row.CustomerOrderNbr   = soOrder.CustomerOrderNbr;
+                row.OrderDate          = soOrder.OrderDate;
+                row.LineNbr            = soLine.LineNbr;
+                row.InventoryID        = soLine.InventoryID;
+                row.OpenQty            = soLine.OpenQty;
+                row.OrderQty           = soLine.OrderQty;
+                row.RequestDate        = soLine.RequestDate;
+            }
+
+            LumShipmentPlan aggrShipPlan = SelectFrom<LumShipmentPlan>.Where<LumShipmentPlan.prodOrdID.IsEqual<@P.AsString>>
+                                                                      .AggregateTo<Max<LumShipmentPlan.nbrOfShipment,
+                                                                                       Max<LumShipmentPlan.endCartonNbr>>>.View.Select(this, row.ProdOrdID);
+
+            row.NbrOfShipment  = aggrShipPlan.NbrOfShipment == null ? 1 : aggrShipPlan.NbrOfShipment + 1;
+            row.StartCartonNbr = (aggrShipPlan.EndCartonNbr ?? 0) + 1;//aggrShipPlan.EndCartonNbr  == null ? 1 : aggrShipPlan.EndCartonNbr  + 1;
+
+            aggrShipPlan = SelectFrom<LumShipmentPlan>.Where<LumShipmentPlan.shipmentPlanID.IsEqual<@P.AsString>>
+                                                             .AggregateTo<Max<LumShipmentPlan.endLabelNbr>>.View.Select(this, row.ShipmentPlanID);
+
+            row.StartLabelNbr = aggrShipPlan.EndLabelNbr == null ? 1 : aggrShipPlan.EndLabelNbr + 1;
+        }
+
+        protected void _(Events.FieldUpdated<LumShipmentPlan.plannedShipQty> e)
+        {
+            var row = e.Row as LumShipmentPlan;
+
+            if (row != null)
+            {
+                CSAnswers answers = CSAnswers.PK.Find(this, InventoryItem.PK.Find(this, row.InventoryID).NoteID, "QTYCARTON");
+
+                row.EndCartonNbr = (int)(row.StartCartonNbr + (row.PlannedShipQty / Convert.ToDecimal(answers.Value)) ) + 1;
+                row.EndLabelNbr  = (int)(row.StartLabelNbr  + (row.PlannedShipQty / Convert.ToDecimal(answers.Value)) ) + 1;
+            }
+        }
+        #endregion
     }
 }

@@ -9,107 +9,121 @@ namespace PX.Objects.SO
 {
     public class SOShipLineExt : PXCacheExtension<SOShipLine>
     {
+        #region UsrCartonSize
         [PXDBString(20, IsUnicode = true)]
         [PXUIField(DisplayName = "Carton Size")]
-        [PXDefault(typeof(Search2<CSAnswers.value, InnerJoin<PX.Objects.IN.InventoryItem, On<PX.Objects.IN.InventoryItem.noteID, Equal<CSAnswers.refNoteID>, And<CSAnswers.attributeID, Equal<SOShipmentEntry_Extension.CartonSizeAttr>>>>, Where<PX.Objects.IN.InventoryItem.inventoryID, Equal<Current<SOShipLine.inventoryID>>>>), PersistingCheck = PXPersistingCheck.Nothing)]
+        [PXDefault(typeof(Search2<CSAnswers.value, InnerJoin<InventoryItem, On<InventoryItem.noteID, Equal<CSAnswers.refNoteID>, 
+                                                                               And<CSAnswers.attributeID, Equal<SOShipmentEntry_Extension.CartonSizeAttr>>>>, 
+                                                   Where<InventoryItem.inventoryID, Equal<Current<SOShipLine.inventoryID>>>>), 
+                   PersistingCheck = PXPersistingCheck.Nothing)]
         [PXFormula(typeof(Default<SOShipLine.inventoryID>))]
         public virtual string UsrCartonSize { get; set; }
+        public abstract class usrCartonSize : PX.Data.BQL.BqlString.Field<SOShipLineExt.usrCartonSize> { }
+        #endregion
 
+        #region UsrCartonQty
         [PXDBQuantity]
         [PXUIField(DisplayName = "Carton Qty.")]
-        [PXFormula(typeof(Switch<Case<Where<SOShipLineExt.usrQtyCarton, PX.Data.IsNotNull>, Div<SOShipLine.shippedQty, SOShipLineExt.usrQtyCarton>>, Case<Where<SOShipLineExt.usrQtyCarton, PX.Data.IsNull>, Div<SOShipLine.shippedQty, SOShipmentEntry_Extension.decimal5000>>>))]
-        public virtual Decimal? UsrCartonQty { get; set; }
+        [PXFormula(typeof(Switch<Case<Where<SOShipLineExt.usrQtyCarton, IsNotNull>, Div<SOShipLine.shippedQty, SOShipLineExt.usrQtyCarton>>, 
+                                 Case<Where<SOShipLineExt.usrQtyCarton, IsNull>, Div<SOShipLine.shippedQty, SOShipmentEntry_Extension.decimal5000>>>))]
+        public virtual decimal? UsrCartonQty { get; set; }
+        public abstract class usrCartonQty : PX.Data.BQL.BqlDecimal.Field<SOShipLineExt.usrCartonQty> { }
+        #endregion
 
+        #region UsrNetWeight
         [PXDBBaseCury]
         [PXDefault(TypeCode.Decimal, "0.0", PersistingCheck = PXPersistingCheck.Nothing)]
         [PXUIField(DisplayName = "Net Weight")]
         [PXFormula(typeof(Mult<SOShipLine.shippedQty, SOShipLineExt.usrBaseItemWeight>))]
-        public virtual Decimal? UsrNetWeight { get; set; }
+        public virtual decimal? UsrNetWeight { get; set; }
+        public abstract class usrNetWeight : PX.Data.BQL.BqlDecimal.Field<SOShipLineExt.usrNetWeight> { }
+        #endregion
 
+        #region UsrGrossWeight
         [PXDBBaseCury]
         [PXDefault(TypeCode.Decimal, "0.0", PersistingCheck = PXPersistingCheck.Nothing)]
         [PXUIField(DisplayName = "Gross Weight")]
         [PXFormula(typeof(Mult<SOShipLine.shippedQty, SOShipLineExt.usrGrsWeight>))]
-        public virtual Decimal? UsrGrossWeight { get; set; }
+        public virtual decimal? UsrGrossWeight { get; set; }
+        public abstract class usrGrossWeight : PX.Data.BQL.BqlDecimal.Field<SOShipLineExt.usrGrossWeight> { }
+        #endregion
 
+        #region UsrPalletWeight
         [PXDBBaseCury]
         [PXDefault(TypeCode.Decimal, "0.0", PersistingCheck = PXPersistingCheck.Nothing)]
         [PXUIField(DisplayName = "Pallet Weight")]
-        public virtual Decimal? UsrPalletWeight { get; set; }
+        public virtual decimal? UsrPalletWeight { get; set; }
+        public abstract class usrPalletWeight : PX.Data.BQL.BqlDecimal.Field<SOShipLineExt.usrPalletWeight> { }
+        #endregion
 
+        #region UsrMEAS
         [PXDBBaseCury]
         [PXDefault(TypeCode.Decimal, "0.0", PersistingCheck = PXPersistingCheck.Nothing)]
         [PXUIField(DisplayName = "MEA S")]
         [PXFormula(typeof(Mult<SOShipLineExt.usrCartonQty, SOShipLineExt.usrBaseItemVolume>))]
-        public virtual Decimal? UsrMEAS { get; set; }
+        public virtual decimal? UsrMEAS { get; set; }
+        public abstract class usrMEAS : PX.Data.BQL.BqlDecimal.Field<SOShipLineExt.usrMEAS> { }
+        #endregion
 
+        #region UsrDimWeight
         [PXDBBaseCury]
         [PXDefault(TypeCode.Decimal, "0.0", PersistingCheck = PXPersistingCheck.Nothing)]
         [PXUIField(DisplayName = "Dimensional Weight")]
-        public virtual Decimal? UsrDimWeight { get; set; }
+        public virtual decimal? UsrDimWeight { get; set; }
+        public abstract class usrDimWeight : PX.Data.BQL.BqlDecimal.Field<SOShipLineExt.usrDimWeight> { }
+        #endregion
 
+        #region UsrBRNbr
+        [PXDBString(255, InputMask = "", IsUnicode = true)]
+        [PXUIField(DisplayName = "BR Nbr.")]
+        public virtual string UsrBRNbr { get; set; }
+        public abstract class usrBRNbr : PX.Data.BQL.BqlString.Field<usrBRNbr> { }
+        #endregion
+
+        #region Unbound Custom Fields
+        #region UsrQtyCarton
         [PXString]
-        [PXDBScalar(typeof(Search2<CSAnswers.value, InnerJoin<PX.Objects.IN.InventoryItem, On<PX.Objects.IN.InventoryItem.noteID, Equal<CSAnswers.refNoteID>, And<CSAnswers.attributeID, Equal<SOShipmentEntry_Extension.QtyCartonAttr>>>>, Where<PX.Objects.IN.InventoryItem.inventoryID, Equal<SOShipLine.inventoryID>>>))]
-        [PXDefault(typeof(Search2<CSAnswers.value, InnerJoin<PX.Objects.IN.InventoryItem, On<PX.Objects.IN.InventoryItem.noteID, Equal<CSAnswers.refNoteID>, And<CSAnswers.attributeID, Equal<SOShipmentEntry_Extension.QtyCartonAttr>>>>, Where<PX.Objects.IN.InventoryItem.inventoryID, Equal<Current<SOShipLine.inventoryID>>>>), PersistingCheck = PXPersistingCheck.Nothing)]
-        public virtual string UsrQtyCarton { get; set; }
+            [PXDBScalar(typeof(Search2<CSAnswers.value, InnerJoin<InventoryItem, On<InventoryItem.noteID, Equal<CSAnswers.refNoteID>, 
+                                                                                    And<CSAnswers.attributeID, Equal<SOShipmentEntry_Extension.QtyCartonAttr>>>>, 
+                                                        Where<InventoryItem.inventoryID, Equal<SOShipLine.inventoryID>>>))]
+            [PXDefault(typeof(Search2<CSAnswers.value, InnerJoin<InventoryItem, On<InventoryItem.noteID, Equal<CSAnswers.refNoteID>, 
+                                                                                   And<CSAnswers.attributeID, Equal<SOShipmentEntry_Extension.QtyCartonAttr>>>>, 
+                                                       Where<InventoryItem.inventoryID, Equal<Current<SOShipLine.inventoryID>>>>), 
+                       PersistingCheck = PXPersistingCheck.Nothing)]
+            public virtual string UsrQtyCarton { get; set; }
+            public abstract class usrQtyCarton : PX.Data.BQL.BqlString.Field<SOShipLineExt.usrQtyCarton> { }
+            #endregion
 
-        [PXString]
-        [PXDBScalar(typeof(Search2<CSAnswers.value, InnerJoin<PX.Objects.IN.InventoryItem, On<PX.Objects.IN.InventoryItem.noteID, Equal<CSAnswers.refNoteID>, And<CSAnswers.attributeID, Equal<SOShipmentEntry_Extension.GrsWeightAttr>>>>, Where<PX.Objects.IN.InventoryItem.inventoryID, Equal<SOShipLine.inventoryID>>>))]
-        [PXDefault(typeof(Search2<CSAnswers.value, InnerJoin<PX.Objects.IN.InventoryItem, On<PX.Objects.IN.InventoryItem.noteID, Equal<CSAnswers.refNoteID>, And<CSAnswers.attributeID, Equal<SOShipmentEntry_Extension.GrsWeightAttr>>>>, Where<PX.Objects.IN.InventoryItem.inventoryID, Equal<Current<SOShipLine.inventoryID>>>>), PersistingCheck = PXPersistingCheck.Nothing)]
-        public virtual string UsrGrsWeight { get; set; }
+            #region UsrGrsWeight
+            [PXString]
+            [PXDBScalar(typeof(Search2<CSAnswers.value, InnerJoin<InventoryItem, On<InventoryItem.noteID, Equal<CSAnswers.refNoteID>, 
+                                                                                    And<CSAnswers.attributeID, Equal<SOShipmentEntry_Extension.GrsWeightAttr>>>>, 
+                                                        Where<InventoryItem.inventoryID, Equal<SOShipLine.inventoryID>>>))]
+            [PXDefault(typeof(Search2<CSAnswers.value, InnerJoin<InventoryItem, On<InventoryItem.noteID, Equal<CSAnswers.refNoteID>, 
+                                                                                   And<CSAnswers.attributeID, Equal<SOShipmentEntry_Extension.GrsWeightAttr>>>>, 
+                                                       Where<InventoryItem.inventoryID, Equal<Current<SOShipLine.inventoryID>>>>), 
+                       PersistingCheck = PXPersistingCheck.Nothing)]
+            public virtual string UsrGrsWeight { get; set; }
+            public abstract class usrGrsWeight : PX.Data.BQL.BqlString.Field<SOShipLineExt.usrGrsWeight> { }
+            #endregion
 
-        [PXQuantity(6)]
-        [PXDBScalar(typeof(Search<PX.Objects.IN.InventoryItem.baseItemWeight, Where<PX.Objects.IN.InventoryItem.inventoryID, Equal<SOShipLine.inventoryID>>>))]
-        [PXDefault(typeof(Search<PX.Objects.IN.InventoryItem.baseItemWeight, Where<PX.Objects.IN.InventoryItem.inventoryID, Equal<Current<SOShipLine.inventoryID>>>>), PersistingCheck = PXPersistingCheck.Nothing)]
-        public virtual Decimal? UsrBaseItemWeight { get; set; }
+            #region UsrBaseItemWeight
+            [PXQuantity(6)]
+            [PXDBScalar(typeof(Search<InventoryItem.baseItemWeight, Where<InventoryItem.inventoryID, Equal<SOShipLine.inventoryID>>>))]
+            [PXDefault(typeof(Search<InventoryItem.baseItemWeight, Where<InventoryItem.inventoryID, Equal<Current<SOShipLine.inventoryID>>>>), 
+                       PersistingCheck = PXPersistingCheck.Nothing)]
+            public virtual Decimal? UsrBaseItemWeight { get; set; }
+            public abstract class usrBaseItemWeight : PX.Data.BQL.BqlDecimal.Field<SOShipLineExt.usrBaseItemWeight> { }
+            #endregion
 
-        [PXQuantity(6)]
-        [PXDBScalar(typeof(Search<PX.Objects.IN.InventoryItem.baseItemVolume, Where<PX.Objects.IN.InventoryItem.inventoryID, Equal<SOShipLine.inventoryID>>>))]
-        [PXDefault(typeof(Search<PX.Objects.IN.InventoryItem.baseItemVolume, Where<PX.Objects.IN.InventoryItem.inventoryID, Equal<Current<SOShipLine.inventoryID>>>>), PersistingCheck = PXPersistingCheck.Nothing)]
-        public virtual Decimal? UsrBaseItemVolume { get; set; }
-
-        public abstract class usrCartonSize : BqlType<IBqlString, string>.Field<SOShipLineExt.usrCartonSize>
-        {
-        }
-
-        public abstract class usrCartonQty : BqlType<IBqlDecimal, Decimal>.Field<SOShipLineExt.usrCartonQty>
-        {
-        }
-
-        public abstract class usrNetWeight : BqlType<IBqlDecimal, Decimal>.Field<SOShipLineExt.usrNetWeight>
-        {
-        }
-
-        public abstract class usrGrossWeight : BqlType<IBqlDecimal, Decimal>.Field<SOShipLineExt.usrGrossWeight>
-        {
-        }
-
-        public abstract class usrPalletWeight : BqlType<IBqlDecimal, Decimal>.Field<SOShipLineExt.usrPalletWeight>
-        {
-        }
-
-        public abstract class usrMEAS : BqlType<IBqlDecimal, Decimal>.Field<SOShipLineExt.usrMEAS>
-        {
-        }
-
-        public abstract class usrDimWeight : BqlType<IBqlDecimal, Decimal>.Field<SOShipLineExt.usrDimWeight>
-        {
-        }
-
-        public abstract class usrQtyCarton : BqlType<IBqlString, string>.Field<SOShipLineExt.usrQtyCarton>
-        {
-        }
-
-        public abstract class usrGrsWeight : BqlType<IBqlString, string>.Field<SOShipLineExt.usrGrsWeight>
-        {
-        }
-
-        public abstract class usrBaseItemWeight : BqlType<IBqlDecimal, Decimal>.Field<SOShipLineExt.usrBaseItemWeight>
-        {
-        }
-
-        public abstract class usrBaseItemVolume : BqlType<IBqlDecimal, Decimal>.Field<SOShipLineExt.usrBaseItemVolume>
-        {
-        }
+            #region UsrBaseItemVolume
+            [PXQuantity(6)]
+            [PXDBScalar(typeof(Search<InventoryItem.baseItemVolume, Where<InventoryItem.inventoryID, Equal<SOShipLine.inventoryID>>>))]
+            [PXDefault(typeof(Search<InventoryItem.baseItemVolume, Where<InventoryItem.inventoryID, Equal<Current<SOShipLine.inventoryID>>>>), 
+                       PersistingCheck = PXPersistingCheck.Nothing)]
+            public virtual Decimal? UsrBaseItemVolume { get; set; }
+            public abstract class usrBaseItemVolume : PX.Data.BQL.BqlDecimal.Field<SOShipLineExt.usrBaseItemVolume> { }
+            #endregion
+        #endregion
     }
 }
