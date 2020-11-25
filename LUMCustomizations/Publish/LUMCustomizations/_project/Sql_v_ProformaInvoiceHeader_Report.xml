@@ -1,4 +1,4 @@
-﻿<Sql TableName="v_ProformaInvoiceHeader_Script" CustomScript="#CDATA">
+﻿<Sql TableName="v_ProformaInvoiceHeader_Report" CustomScript="#CDATA">
     <CDATA name="CustomScript"><![CDATA[IF EXISTS
 (
 	SELECT *

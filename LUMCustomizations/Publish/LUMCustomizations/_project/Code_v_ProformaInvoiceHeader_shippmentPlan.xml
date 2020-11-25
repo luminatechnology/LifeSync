@@ -1,22 +1,22 @@
-﻿<Graph ClassName="v_ProformaInvoiceHeader" Source="#CDATA" IsNew="True" FileType="NewDac">
+﻿<Graph ClassName="v_ProformaInvoiceHeader_shippmentPlan" Source="#CDATA" IsNew="True" FileType="NewDac">
     <CDATA name="Source"><![CDATA[using System;
 using PX.Data;
 
 namespace LUMCustomizations
 {
   [Serializable]
-  [PXCacheName("v_ProformaInvoiceHeader")]
-  public class v_ProformaInvoiceHeader : IBqlTable
+  [PXCacheName("v_ProformaInvoiceHeader_shippmentPlan")]
+  public class v_ProformaInvoiceHeader_shippmentPlan : IBqlTable
   {
-    #region ShipmentNbr
+    #region ShipmentPlanID
     [PXDBString(15, IsUnicode = true, InputMask = "", IsKey = true)]
-    [PXUIField(DisplayName = "Shipment Nbr")]
-    public virtual string ShipmentNbr { get; set; }
-    public abstract class shipmentNbr : PX.Data.BQL.BqlString.Field<shipmentNbr> { }
+    [PXUIField(DisplayName = "Shipment Plan ID")]
+    public virtual string ShipmentPlanID { get; set; }
+    public abstract class shipmentPlanID : PX.Data.BQL.BqlString.Field<shipmentPlanID> { }
     #endregion
 
     #region InvioceNo
-    [PXDBString(15, IsUnicode = true, InputMask = "")]
+    [PXDBString(15, IsUnicode = true, InputMask = "", IsKey = true)]
     [PXUIField(DisplayName = "Invioce No")]
     public virtual string InvioceNo { get; set; }
     public abstract class invioceNo : PX.Data.BQL.BqlString.Field<invioceNo> { }
@@ -128,10 +128,24 @@ namespace LUMCustomizations
     #endregion
 
     #region Remark
-    [PXDBString(IsUnicode = true, InputMask = "")]
+    [PXDBString(19, InputMask = "")]
     [PXUIField(DisplayName = "Remark")]
     public virtual string Remark { get; set; }
     public abstract class remark : PX.Data.BQL.BqlString.Field<remark> { }
+    #endregion
+
+    #region Endc
+    [PXDBString(256, IsUnicode = true, InputMask = "")]
+    [PXUIField(DisplayName = "Endc")]
+    public virtual string Endc { get; set; }
+    public abstract class endc : PX.Data.BQL.BqlString.Field<endc> { }
+    #endregion
+
+    #region CustAlternateID
+    [PXDBString(50, IsUnicode = true, InputMask = "")]
+    [PXUIField(DisplayName = "Cust Alternate ID")]
+    public virtual string CustAlternateID { get; set; }
+    public abstract class custAlternateID : PX.Data.BQL.BqlString.Field<custAlternateID> { }
     #endregion
   }
 }]]></CDATA>

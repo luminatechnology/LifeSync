@@ -1147,7 +1147,7 @@ mJPZWSffv1C2gs4GlEdQJ0w95+mwqN9JiHTnNujObdCd26A7t0F3boPu3AbduQ26cxt05zbozi2wWv0D
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Bottom</VerticalAlign>
                         </Style>
-                        <Value>=[LumShipmentPlan.ProdLine]</Value>
+                        <Value>=Left([LumShipmentPlan.ProdLine],1)</Value>
                     </TextBox>
                     <TextBox Name="textBox2">
                         <CanGrow>True</CanGrow>
