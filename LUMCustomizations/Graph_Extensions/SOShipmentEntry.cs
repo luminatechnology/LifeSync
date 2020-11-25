@@ -173,7 +173,7 @@ namespace PX.Objects.SO
         [PXUIField(DisplayName = "Print Proforma Invoice Report", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable proformaInvoice(PXAdapter adapter)
         {
-            var _reportID = "so610000";
+            var _reportID = "lm611000";
             var parameters = new Dictionary<string, string>()
             {
                 ["ShipmentNbr"] = (Base.Caches<SOShipment>().Current as SOShipment)?.ShipmentNbr

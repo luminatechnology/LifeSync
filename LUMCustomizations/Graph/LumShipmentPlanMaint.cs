@@ -1,5 +1,6 @@
 ﻿using JAMS.AM;
 using LumCustomizations.DAC;
+using LUMCustomizations.DAC;
 using PX.Common;
 using PX.Data;
 using PX.Data.BQL;
@@ -17,7 +18,7 @@ namespace LumCustomizations.Graph
     public class LumShipmentPlanMaint : PXGraph<LumShipmentPlanMaint, LumShipmentPlan>
     {
         public const string NotDeleteConfirmed = "The Shipment Plan [{0}] Had Confirmed And Can't Be Deleted.";
-        public const string QtyCannotExceeded  = "The {0} Cannot Exceed The {1}.";
+        public const string QtyCannotExceeded = "The {0} Cannot Exceed The {1}.";
 
         #region Ctor
         public LumShipmentPlanMaint()
@@ -30,6 +31,19 @@ namespace LumCustomizations.Graph
             Report.AddMenuAction(OuterLabelSjm);
             Report.AddMenuAction(InnerLabelMasimo);
             Report.AddMenuAction(OuterLabelMasimo);
+
+            // Get Visible
+            var _graph = PXGraph.CreateInstance<SOOrderEntry>();
+            var _PIPreference = from t in _graph.Select<LifeSyncPreference>()
+                                select t;
+            var _visible = _PIPreference.FirstOrDefault() == null ? false : _PIPreference.FirstOrDefault().ProformaInvoicePrinting.Value
+                                                                  ? true : false;
+            // Set Button Visible
+            ProformaInvoice.SetVisible(_visible);
+            // Add Button
+            if (_visible)
+                Report.AddMenuAction(ProformaInvoice);
+
             Report.MenuAutoOpen = true;
         }
         #endregion
@@ -150,15 +164,22 @@ namespace LumCustomizations.Graph
             return adapter.Get<LumShipmentPlan>().ToList();
         }
 
-        /// <summary> Get Current Value to Report Parameter </summary>
-        public Dictionary<string, string> GetCurrentRowToParameter()
+        public PXAction<SOShipment> ProformaInvoice;
+        [PXButton]
+        [PXUIField(DisplayName = "Print Proforma Invoice Report", Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        protected virtual IEnumerable proformaInvoice(PXAdapter adapter)
         {
-            var _CurrentRow = this.GetCacheCurrent<LumShipmentPlan>().Current;
-            Dictionary<string, string> parameters = new Dictionary<string, string>
+            var _reportID = "lm611001";
+            if (string.IsNullOrEmpty(this.GetCacheCurrent<LumShipmentPlan>().Current.ShipmentNbr))
+                throw new PXException("ShipmentNbr Can Not be null");
+            var parameters = new Dictionary<string, string>()
             {
-                ["ShipmentPlanID"] = _CurrentRow.ShipmentPlanID
+                ["ShipmentNbr"] = this.GetCacheCurrent<LumShipmentPlan>().Current.ShipmentNbr,
+                ["ShipmentPlanID"] = this.GetCacheCurrent<LumShipmentPlan>().Current.ShipmentPlanID
             };
-            return parameters;
+            if (parameters["ShipmentNbr"] != null && parameters["ShipmentPlanID"] != null)
+                throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
+            return adapter.Get<SOShipment>().ToList();
         }
         #endregion
 
@@ -193,8 +214,8 @@ namespace LumCustomizations.Graph
             if (row == null) { return; }
 
             AMProdItem prodItem = SelectFrom<AMProdItem>.Where<AMProdItem.prodOrdID.IsEqual<@P.AsString>>.View.Select(this, row.ProdOrdID);
-            
-            row.QtyToProd   = prodItem.QtytoProd;
+
+            row.QtyToProd = prodItem.QtytoProd;
             row.QtyComplete = prodItem.QtyComplete;
 
             foreach (AMProdAttribute prodAttr in SelectFrom<AMProdAttribute>.Where<AMProdAttribute.prodOrdID.IsEqual<@P.AsString>>.View.Select(this, prodItem.ProdOrdID))
@@ -225,29 +246,29 @@ namespace LumCustomizations.Graph
                                                                                                           .And<SOLine.orderNbr.IsEqual<@P.AsString>
                                                                                                                .And<SOLine.lineNbr.IsEqual<@P.AsInt>>>>.View
                                                                                                    .Select(this, prodItemExt.UsrSOOrderType, prodItemExt.UsrSOOrderNbr, prodItemExt.UsrSOLineNbr);
-                SOLine  soLine  = sOResult;
+                SOLine soLine = sOResult;
                 SOOrder soOrder = sOResult;
 
                 PXFieldState valueExt = Order.Cache.GetValueExt((object)soOrder, PX.Objects.CS.Messages.Attribute + "ENDC") as PXFieldState;
 
-                row.Customer           = (string)valueExt.Value;
-                row.OrderNbr           = soOrder.OrderNbr;
-                row.OrderType          = soOrder.OrderType;
+                row.Customer = (string)valueExt.Value;
+                row.OrderNbr = soOrder.OrderNbr;
+                row.OrderType = soOrder.OrderType;
                 row.CustomerLocationID = soOrder.CustomerLocationID;
-                row.CustomerOrderNbr   = soOrder.CustomerOrderNbr;
-                row.OrderDate          = soOrder.OrderDate;
-                row.LineNbr            = soLine.LineNbr;
-                row.InventoryID        = soLine.InventoryID;
-                row.OpenQty            = soLine.OpenQty;
-                row.OrderQty           = soLine.OrderQty;
-                row.RequestDate        = soLine.RequestDate;
+                row.CustomerOrderNbr = soOrder.CustomerOrderNbr;
+                row.OrderDate = soOrder.OrderDate;
+                row.LineNbr = soLine.LineNbr;
+                row.InventoryID = soLine.InventoryID;
+                row.OpenQty = soLine.OpenQty;
+                row.OrderQty = soLine.OrderQty;
+                row.RequestDate = soLine.RequestDate;
             }
 
             LumShipmentPlan aggrShipPlan = SelectFrom<LumShipmentPlan>.Where<LumShipmentPlan.prodOrdID.IsEqual<@P.AsString>>
                                                                       .AggregateTo<Max<LumShipmentPlan.nbrOfShipment,
                                                                                        Max<LumShipmentPlan.endCartonNbr>>>.View.Select(this, row.ProdOrdID);
 
-            row.NbrOfShipment  = aggrShipPlan.NbrOfShipment == null ? 1 : aggrShipPlan.NbrOfShipment + 1;
+            row.NbrOfShipment = aggrShipPlan.NbrOfShipment == null ? 1 : aggrShipPlan.NbrOfShipment + 1;
             row.StartCartonNbr = (aggrShipPlan.EndCartonNbr ?? 0) + 1;//aggrShipPlan.EndCartonNbr  == null ? 1 : aggrShipPlan.EndCartonNbr  + 1;
 
             aggrShipPlan = SelectFrom<LumShipmentPlan>.Where<LumShipmentPlan.shipmentPlanID.IsEqual<@P.AsString>>
@@ -264,9 +285,22 @@ namespace LumCustomizations.Graph
             {
                 CSAnswers answers = CSAnswers.PK.Find(this, InventoryItem.PK.Find(this, row.InventoryID).NoteID, "QTYCARTON");
 
-                row.EndCartonNbr = (int)(row.StartCartonNbr + (row.PlannedShipQty / Convert.ToDecimal(answers.Value)) ) + 1;
-                row.EndLabelNbr  = (int)(row.StartLabelNbr  + (row.PlannedShipQty / Convert.ToDecimal(answers.Value)) ) + 1;
+                row.EndCartonNbr = (int)(row.StartCartonNbr + (row.PlannedShipQty / Convert.ToDecimal(answers.Value))) + 1;
+                row.EndLabelNbr = (int)(row.StartLabelNbr + (row.PlannedShipQty / Convert.ToDecimal(answers.Value))) + 1;
             }
+        }
+        #endregion
+
+        #region Method
+        /// <summary> Get Current Value to Report Parameter </summary>
+        public Dictionary<string, string> GetCurrentRowToParameter()
+        {
+            var _CurrentRow = this.GetCacheCurrent<LumShipmentPlan>().Current;
+            Dictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                ["ShipmentPlanID"] = _CurrentRow.ShipmentPlanID
+            };
+            return parameters;
         }
         #endregion
     }
