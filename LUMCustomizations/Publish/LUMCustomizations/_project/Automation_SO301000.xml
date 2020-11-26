@@ -1,7 +1,0 @@
-﻿<Automation screen="SO301000">
-    <AUFields screen="SO301000">
-        <AutomationScreenField ScreenID="SO301000" TableName="PX.OBJECTS.SO.SOORDER" FieldName="PICUSTOMERID" IsUserDefinedField="False">
-            <Prop Name="DisplayName" DisplayName="Display Name" IsCustomized="True" Value="PICustomer" />
-        </AutomationScreenField>
-    </AUFields>
-</Automation>

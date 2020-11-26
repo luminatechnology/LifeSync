@@ -10,6 +10,6 @@ public class SOLineExt : PXCacheExtension<SOLine>
 	[PXDefault(TypeCode.Decimal, "0.0")]
 	[PXUIField(DisplayName = "PI Unit Price")]
 	public virtual decimal? UsrPIUnitPrice { get; set; }
-	public abstract class usrPIUnitPrice : PX.Data.BQL.BqlString.Field<usrPIUnitPrice> { }
+	public abstract class usrPIUnitPrice : PX.Data.BQL.BqlDecimal.Field<usrPIUnitPrice> { }
 
 }

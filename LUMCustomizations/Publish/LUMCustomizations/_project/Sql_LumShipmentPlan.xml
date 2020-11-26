@@ -42,6 +42,7 @@
   <index name="PK_LumShipmentPlan" clustered="true" primary="true" unique="true">
     <col name="CompanyID" />
     <col name="ShipmentPlanID" />
+    <col name="OrderNbr" />
     <col name="ProdOrdID" />
   </index>
 </table>]]></CDATA>
