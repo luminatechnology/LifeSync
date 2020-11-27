@@ -25,8 +25,21 @@
         </layout>
         <data>
             <SiteMap>
-                <row Position="5960" Title="LifeSync Preference" Url="~/Pages/LM/LM202000.aspx" ScreenID="LM202000" NodeID="5e496f29-c82a-4fa9-93a9-fe791c179bd3" ParentID="00000000-0000-0000-0000-000000000000" />
+                <row Title="LifeSync Preference" Url="~/Pages/LM/LM202000.aspx" ScreenID="LM202000" NodeID="07977e59-9919-44f5-a905-3fd5babcea34" ParentID="00000000-0000-0000-0000-000000000000">
+                    <MUIScreen IsPortal="0" WorkspaceID="3206e17e-8a34-4e3e-9648-5cee25defde5" Order="40" SubcategoryID="8a93637d-b507-4667-a739-adaf6fb5f7ea">
+                        <MUIPinnedScreen IsPortal="0" Username="" IsPinned="1" />
+                    </MUIScreen>
+                </row>
             </SiteMap>
+            <MUIWorkspace>
+                <row IsPortal="0" WorkspaceID="3206e17e-8a34-4e3e-9648-5cee25defde5" Order="784" Title="Configuration" Icon="settings" AreaID="3635ea7d-0975-48ff-b4ac-a870f7e1e8b5" ScreenID="WSCF0000" IsSystem="0" />
+            </MUIWorkspace>
+            <MUISubcategory>
+                <row IsPortal="0" SubcategoryID="8a93637d-b507-4667-a739-adaf6fb5f7ea" Order="1391.813" Name="Preferences" Icon="" IsSystem="0" />
+            </MUISubcategory>
+            <MUIArea>
+                <row IsPortal="0" AreaID="3635ea7d-0975-48ff-b4ac-a870f7e1e8b5" Order="30" Name="Configuration" />
+            </MUIArea>
         </data>
     </data-set>
 </SiteMapNode>

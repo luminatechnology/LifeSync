@@ -29,6 +29,6 @@ namespace PX.Objects.SO
             Required = false)]
         [PXForeignReference(typeof(Field<SOOrder.customerID>.IsRelatedTo<BAccount.bAccountID>))]
         public virtual int? UsrPICustomerID { get; set; }
-        public abstract class usrPICustomerID : PX.Data.BQL.BqlString.Field<SOOrderExt.usrPICustomerID> { }
+        public abstract class usrPICustomerID : PX.Data.BQL.BqlInt.Field<SOOrderExt.usrPICustomerID> { }
     }
 }
