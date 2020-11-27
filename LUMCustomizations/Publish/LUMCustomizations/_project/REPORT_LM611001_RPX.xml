@@ -3265,7 +3265,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=[SOLine.OrderNbr]+'{br}'+[SO.CustomerOrderNbr]+'{br}'+[lum.LotSerialNbr]</Value>
+                        <Value>=IIF([SOLine.OrderNbr] &lt;&gt; null,[SOLine.OrderNbr],'')+#010;'{br}'+#010;IIF([SO.CustomerOrderNbr] &lt;&gt; null,[SO.CustomerOrderNbr],'')+#010;'{br}'+#010;IIF([lum.LotSerialNbr] &lt;&gt; null, [lum.LotSerialNbr],'')</Value>
                     </TextBox>
                     <TextBox Name="textBox48">
                         <Location>64px, 24px</Location>
