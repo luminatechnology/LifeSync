@@ -6,6 +6,7 @@ using PX.Objects.CR;
 using PX.Objects.IN;
 using PX.Objects.SO;
 using System;
+using PX.Objects.CM;
 
 namespace LumCustomizations.DAC
 {
@@ -38,6 +39,13 @@ namespace LumCustomizations.DAC
         public abstract class shipmentPlanID : PX.Data.BQL.BqlString.Field<LumShipmentPlan.shipmentPlanID> { }
         #endregion
 
+        #region ProdOrdID
+        [ProductionNbr(IsKey = true)]
+        [PXSelector(typeof(Search<AMProdItem.prodOrdID, Where<AMProdItemExt.usrSOOrderNbr, IsNotNull>>))]
+        public virtual string ProdOrdID { get; set; }
+        public abstract class prodOrdID : PX.Data.BQL.BqlString.Field<LumShipmentPlan.prodOrdID> { }
+        #endregion
+
         #region OrderNbr
         [PXDBString(15, InputMask = "", IsUnicode = true, IsKey = true)]
         [PXUIField(DisplayName = "SO Order Nbr.", Enabled = false)]
@@ -51,13 +59,6 @@ namespace LumCustomizations.DAC
         [PXUIField(DisplayName = "Line Nbr.", Enabled = false)]
         public virtual int? LineNbr { get; set; }
         public abstract class lineNbr : PX.Data.BQL.BqlInt.Field<LumShipmentPlan.lineNbr> { }
-        #endregion
-
-        #region ProdOrdID
-        [ProductionNbr(IsKey = true)]
-        [PXSelector(typeof(Search<AMProdItem.prodOrdID, Where<AMProdItemExt.usrSOOrderNbr, IsNotNull>>))] //Equal<Current<LumShipmentPlan.inventoryID>>>>))]
-        public virtual string ProdOrdID { get; set; }
-        public abstract class prodOrdID : PX.Data.BQL.BqlString.Field<LumShipmentPlan.prodOrdID> { }
         #endregion
 
         #region Confirmed
@@ -181,10 +182,10 @@ namespace LumCustomizations.DAC
 
         #region BRNbr
         [PXDBString(255, InputMask = "", IsUnicode = true)]
-        [PXUIField(DisplayName = "BR Nbr.", Enabled = false)]
-        [PXFormula(typeof(Default<shipmentNbr>))]
-        [PXDefault(typeof(Search<SOShipLineExt.usrBRNbr, Where<SOShipLine.shipmentNbr, Equal<Current<LumShipmentPlan.shipmentNbr>>>>),
-                   PersistingCheck = PXPersistingCheck.Nothing)]
+        [PXUIField(DisplayName = "BR Nbr.", Enabled = true)]
+        //[PXFormula(typeof(Default<shipmentNbr>))]
+        //[PXDefault(typeof(Search<SOShipLineExt.usrBRNbr, Where<SOShipLine.shipmentNbr, Equal<Current<LumShipmentPlan.shipmentNbr>>>>),
+        //           PersistingCheck = PXPersistingCheck.Nothing)]
         public virtual string BRNbr { get; set; }
         public abstract class bRNbr : PX.Data.BQL.BqlString.Field<LumShipmentPlan.bRNbr> { }
         #endregion
@@ -250,6 +251,60 @@ namespace LumCustomizations.DAC
         [PXUIField(DisplayName = "Remarks")]
         public virtual string Remarks { get; set; }
         public abstract class remarks : PX.Data.BQL.BqlString.Field<LumShipmentPlan.remarks> { }
+        #endregion
+
+        #region CartonSize
+        [PXDBString(20, IsUnicode = true)]
+        [PXUIField(DisplayName = "Carton Size")]
+        public virtual string CartonSize { get; set; }
+        public abstract class cartonSize : PX.Data.BQL.BqlString.Field<cartonSize> { }
+        #endregion
+
+        #region CartonQty
+        [PXDBQuantity]
+        [PXUIField(DisplayName = "Carton Qty.")]
+        public virtual decimal? CartonQty { get; set; }
+        public abstract class cartonQty : PX.Data.BQL.BqlDecimal.Field<cartonQty> { }
+        #endregion
+
+        #region NetWeight
+        [PXDBBaseCury]
+        [PXDefault(TypeCode.Decimal, "0.0", PersistingCheck = PXPersistingCheck.Nothing)]
+        [PXUIField(DisplayName = "Net Weight")]
+        public virtual decimal? NetWeight { get; set; }
+        public abstract class netWeight : PX.Data.BQL.BqlDecimal.Field<netWeight> { }
+        #endregion
+
+        #region GrossWeight
+        [PXDBBaseCury]
+        [PXDefault(TypeCode.Decimal, "0.0", PersistingCheck = PXPersistingCheck.Nothing)]
+        [PXUIField(DisplayName = "Gross Weight")]
+        public virtual decimal? GrossWeight { get; set; }
+        public abstract class  grossWeight : PX.Data.BQL.BqlDecimal.Field<grossWeight> { }
+        #endregion
+
+        #region PalletWeight
+        [PXDBBaseCury]
+        [PXDefault(TypeCode.Decimal, "0.0", PersistingCheck = PXPersistingCheck.Nothing)]
+        [PXUIField(DisplayName = "Pallet Weight")]
+        public virtual decimal? PalletWeight { get; set; }
+        public abstract class palletWeight : PX.Data.BQL.BqlDecimal.Field<palletWeight> { }
+        #endregion
+
+        #region MEAS
+        [PXDBBaseCury]
+        [PXDefault(TypeCode.Decimal, "0.0", PersistingCheck = PXPersistingCheck.Nothing)]
+        [PXUIField(DisplayName = "MEA S")]
+        public virtual decimal? MEAS { get; set; }
+        public abstract class mEAS : PX.Data.BQL.BqlDecimal.Field<mEAS> { }
+        #endregion
+
+        #region DimWeight
+        [PXDBBaseCury]
+        [PXDefault(TypeCode.Decimal, "0.0", PersistingCheck = PXPersistingCheck.Nothing)]
+        [PXUIField(DisplayName = "Dimensional Weight")]
+        public virtual decimal? DimWeight { get; set; }
+        public abstract class dimWeight : PX.Data.BQL.BqlDecimal.Field<dimWeight> { }
         #endregion
 
         #region CreatedByID
