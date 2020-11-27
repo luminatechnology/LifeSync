@@ -81,8 +81,8 @@ namespace PX.Objects.SO
         #endregion
 
         #region Unbound Custom Fields
-        #region UsrQtyCarton
-        [PXString]
+            #region UsrQtyCarton
+            [PXString]
             [PXDBScalar(typeof(Search2<CSAnswers.value, InnerJoin<InventoryItem, On<InventoryItem.noteID, Equal<CSAnswers.refNoteID>, 
                                                                                     And<CSAnswers.attributeID, Equal<SOShipmentEntry_Extension.QtyCartonAttr>>>>, 
                                                         Where<InventoryItem.inventoryID, Equal<SOShipLine.inventoryID>>>))]
