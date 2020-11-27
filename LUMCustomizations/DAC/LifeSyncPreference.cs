@@ -3,7 +3,7 @@ using PX.Data.BQL;
 using System;
 using System.Runtime.CompilerServices;
 
-namespace LUMCustomizations.DAC
+namespace LumCustomizations.DAC
 {
     [PXCacheName("LifeSyncPreference")]
     [Serializable]
