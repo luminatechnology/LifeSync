@@ -1,6 +1,5 @@
 ﻿using JAMS.AM;
 using LumCustomizations.DAC;
-using LUMCustomizations.DAC;
 using PX.Common;
 using PX.Data;
 using PX.Data.BQL;
@@ -18,7 +17,7 @@ namespace LumCustomizations.Graph
     public class LumShipmentPlanMaint : PXGraph<LumShipmentPlanMaint, LumShipmentPlan>
     {
         public const string NotDeleteConfirmed = "The Shipment Plan [{0}] Had Confirmed And Can't Be Deleted.";
-        public const string QtyCannotExceeded = "The {0} Cannot Exceed The {1}.";
+        public const string QtyCannotExceeded  = "The {0} Cannot Exceed The {1}.";
 
         #region Ctor
         public LumShipmentPlanMaint()
@@ -31,7 +30,7 @@ namespace LumCustomizations.Graph
             Report.AddMenuAction(OuterLabelSjm);
             Report.AddMenuAction(InnerLabelMasimo);
             Report.AddMenuAction(OuterLabelMasimo);
-
+            
             // Get Visible
             var _graph = PXGraph.CreateInstance<SOOrderEntry>();
             var _PIPreference = from t in _graph.Select<LifeSyncPreference>()
@@ -45,6 +44,8 @@ namespace LumCustomizations.Graph
                 Report.AddMenuAction(ProformaInvoice);
 
             Report.MenuAutoOpen = true;
+
+            Report.AddMenuAction(printPackingList);
         }
         #endregion
 
@@ -181,6 +182,21 @@ namespace LumCustomizations.Graph
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
             return adapter.Get<SOShipment>().ToList();
         }
+
+        public PXAction<LumShipmentPlan> printPackingList;
+        [PXButton()]
+        [PXUIField(DisplayName = "Print Packing List", MapEnableRights = PXCacheRights.Select)]
+        protected virtual IEnumerable PrintPackingList(PXAdapter adapter)
+        {
+            var parameters = GetCurrentRowToParameter();
+
+            if (parameters.Values.Count > 0)
+            {
+                throw new PXReportRequiredException(parameters, "SO642011");
+            }
+
+            return adapter.Get();
+        }
         #endregion
 
         #region Event Handlers
@@ -191,11 +207,6 @@ namespace LumCustomizations.Graph
                 throw new PXSetPropertyException<LumShipmentPlan.confirmed>(NotDeleteConfirmed, e.Row.ShipmentPlanID);
             }
         }
-
-        //protected void _(Events.RowPersisting<LumShipmentPlan> e)
-        //{
-        //    AutoNumberAttribute.SetNumberingId<LumShipmentPlan.shipmentPlanID>(e.Cache, "SHIPPLAN");
-        //}
 
         protected void _(Events.FieldVerifying<LumShipmentPlan.plannedShipQty> e)
         {
@@ -251,17 +262,18 @@ namespace LumCustomizations.Graph
 
                 PXFieldState valueExt = Order.Cache.GetValueExt((object)soOrder, PX.Objects.CS.Messages.Attribute + "ENDC") as PXFieldState;
 
-                row.Customer = (string)valueExt.Value;
-                row.OrderNbr = soOrder.OrderNbr;
-                row.OrderType = soOrder.OrderType;
+                row.Customer           = (string)valueExt.Value;
+                row.OrderNbr           = soOrder.OrderNbr;
+                row.OrderType          = soOrder.OrderType;
                 row.CustomerLocationID = soOrder.CustomerLocationID;
-                row.CustomerOrderNbr = soOrder.CustomerOrderNbr;
-                row.OrderDate = soOrder.OrderDate;
-                row.LineNbr = soLine.LineNbr;
-                row.InventoryID = soLine.InventoryID;
-                row.OpenQty = soLine.OpenQty;
-                row.OrderQty = soLine.OrderQty;
-                row.RequestDate = soLine.RequestDate;
+                row.CustomerOrderNbr   = soOrder.CustomerOrderNbr;
+                row.OrderDate          = soOrder.OrderDate;
+                row.LineNbr            = soLine.LineNbr;
+                row.InventoryID        = soLine.InventoryID;
+                row.OpenQty            = soLine.OpenQty;
+                row.OrderQty           = soLine.OrderQty;
+                row.RequestDate        = soLine.RequestDate;
+                row.CartonSize         = CSAnswers.PK.Find(this, InventoryItem.PK.Find(this, row.InventoryID).NoteID, SOShipmentEntry_Extension.CartonSize).Value;
             }
 
             LumShipmentPlan aggrShipPlan = SelectFrom<LumShipmentPlan>.Where<LumShipmentPlan.prodOrdID.IsEqual<@P.AsString>>
@@ -283,10 +295,41 @@ namespace LumCustomizations.Graph
 
             if (row != null)
             {
-                CSAnswers answers = CSAnswers.PK.Find(this, InventoryItem.PK.Find(this, row.InventoryID).NoteID, "QTYCARTON");
+                decimal qtyCarton = 0;
+                decimal grsWeight = 0;
+                decimal cartonPal = 0;
+                decimal palletWgt = 0;
 
-                row.EndCartonNbr = (int)(row.StartCartonNbr + (row.PlannedShipQty / Convert.ToDecimal(answers.Value))) + 1;
-                row.EndLabelNbr = (int)(row.StartLabelNbr + (row.PlannedShipQty / Convert.ToDecimal(answers.Value))) + 1;
+                InventoryItem item = InventoryItem.PK.Find(this, row.InventoryID);
+
+                foreach (CSAnswers answers in SelectFrom<CSAnswers>.Where<CSAnswers.refNoteID.IsEqual<@P.AsGuid>>.View.Select(this, item.NoteID))
+                {
+                    switch (answers.AttributeID)
+                    {
+                        case SOShipmentEntry_Extension.QtyCarton:
+                            qtyCarton = Convert.ToDecimal(answers.Value);
+                            break;
+                        case SOShipmentEntry_Extension.GrsWeight:
+                            grsWeight = Convert.ToDecimal(answers.Value);
+                            break;
+                        case SOShipmentEntry_Extension.CartonPalt:
+                            cartonPal = Convert.ToDecimal(answers.Value);
+                            break;
+                        case SOShipmentEntry_Extension.PalletWgt:
+                            palletWgt = Convert.ToDecimal(answers.Value);
+                            break;
+                    }
+                }
+
+                row.EndCartonNbr = (int)(row.StartCartonNbr + (row.PlannedShipQty / qtyCarton)) + 1;
+                row.EndLabelNbr  = (int)(row.StartLabelNbr + (row.PlannedShipQty / qtyCarton)) + 1;
+                row.CartonQty    = qtyCarton == 0 ? 5000M : (decimal)e.NewValue / qtyCarton;
+                row.NetWeight    = (decimal)e.NewValue * item.BaseItemWeight;
+                row.GrossWeight  = (decimal)e.NewValue * grsWeight;
+                // Round(Carton Qty / CARTONPALT in item attribute) * (PALLETWGT in item attribute) 四捨五入
+                row.PalletWeight = Math.Round(row.CartonQty.Value / cartonPal * palletWgt, 0);
+                row.MEAS         = row.CartonQty * item.BaseItemVolume;
+                row.DimWeight    = row.CartonQty * item.BaseItemVolume * 1000000M / (decimal)e.NewValue / 5000M;
             }
         }
         #endregion
