@@ -1386,64 +1386,6 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 </Fields>
                 <FullName>PX.Objects.SO.SOShipLine</FullName>
             </ReportTable>
-            <ReportTable Name="v_ProformaInvoiceHeader">
-                <Fields>
-                    <ReportField Name="BranchAddress">
-                    </ReportField>
-                    <ReportField Name="BranchName">
-                    </ReportField>
-                    <ReportField Name="Currency">
-                    </ReportField>
-                    <ReportField Name="InvoiceDate">
-                        <DataType>DateTime</DataType>
-                    </ReportField>
-                    <ReportField Name="InvoiceDate_Day">
-                    </ReportField>
-                    <ReportField Name="InvoiceDate_Hour">
-                    </ReportField>
-                    <ReportField Name="InvoiceDate_Month">
-                    </ReportField>
-                    <ReportField Name="InvoiceDate_Quarter">
-                    </ReportField>
-                    <ReportField Name="PIAdddress">
-                    </ReportField>
-                    <ReportField Name="PIAttention">
-                    </ReportField>
-                    <ReportField Name="PICustomerID">
-                    </ReportField>
-                    <ReportField Name="PICustomerName">
-                    </ReportField>
-                    <ReportField Name="Pifax">
-                    </ReportField>
-                    <ReportField Name="Pitel">
-                    </ReportField>
-                    <ReportField Name="Remark">
-                    </ReportField>
-                    <ReportField Name="SellerFax">
-                    </ReportField>
-                    <ReportField Name="SellerFrom">
-                        <DataType>Object</DataType>
-                    </ReportField>
-                    <ReportField Name="SellerTel">
-                    </ReportField>
-                    <ReportField Name="ShipLate">
-                        <DataType>DateTime</DataType>
-                    </ReportField>
-                    <ReportField Name="ShipLate_Day">
-                    </ReportField>
-                    <ReportField Name="ShipLate_Hour">
-                    </ReportField>
-                    <ReportField Name="ShipLate_Month">
-                    </ReportField>
-                    <ReportField Name="ShipLate_Quarter">
-                    </ReportField>
-                    <ReportField Name="ShipmentNbr">
-                    </ReportField>
-                    <ReportField Name="Terms">
-                    </ReportField>
-                </Fields>
-                <FullName>LUMCustomizations.v_ProformaInvoiceHeader</FullName>
-            </ReportTable>
             <ReportTable Name="SOOrder">
                 <Fields>
                     <ReportField Name="AMCuryEstimateTotal">
@@ -2828,6 +2770,69 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 </Fields>
                 <FullName>PX.Objects.SO.SOLine</FullName>
             </ReportTable>
+            <ReportTable Name="v_ProformaInvoiceHeader_shippmentPlan">
+                <Fields>
+                    <ReportField Name="BranchAddress">
+                    </ReportField>
+                    <ReportField Name="BranchName">
+                    </ReportField>
+                    <ReportField Name="Currency">
+                    </ReportField>
+                    <ReportField Name="CustAlternateID">
+                    </ReportField>
+                    <ReportField Name="Endc">
+                    </ReportField>
+                    <ReportField Name="InvioceNo">
+                    </ReportField>
+                    <ReportField Name="InvoiceDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="InvoiceDate_Day">
+                    </ReportField>
+                    <ReportField Name="InvoiceDate_Hour">
+                    </ReportField>
+                    <ReportField Name="InvoiceDate_Month">
+                    </ReportField>
+                    <ReportField Name="InvoiceDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="PIAdddress">
+                    </ReportField>
+                    <ReportField Name="PIAttention">
+                    </ReportField>
+                    <ReportField Name="PICustomerID">
+                    </ReportField>
+                    <ReportField Name="PICustomerName">
+                    </ReportField>
+                    <ReportField Name="Pifax">
+                    </ReportField>
+                    <ReportField Name="Pitel">
+                    </ReportField>
+                    <ReportField Name="Remark">
+                    </ReportField>
+                    <ReportField Name="SellerFax">
+                    </ReportField>
+                    <ReportField Name="SellerFrom">
+                    </ReportField>
+                    <ReportField Name="SellerTel">
+                    </ReportField>
+                    <ReportField Name="ShipLate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="ShipLate_Day">
+                    </ReportField>
+                    <ReportField Name="ShipLate_Hour">
+                    </ReportField>
+                    <ReportField Name="ShipLate_Month">
+                    </ReportField>
+                    <ReportField Name="ShipLate_Quarter">
+                    </ReportField>
+                    <ReportField Name="ShipmentPlanID">
+                    </ReportField>
+                    <ReportField Name="Terms">
+                    </ReportField>
+                </Fields>
+                <FullName>LUMCustomizations.v_ProformaInvoiceHeader_shippmentPlan</FullName>
+            </ReportTable>
         </Tables>
         <TabularFreeze>128px</TabularFreeze>
         <Sections>
@@ -3000,16 +3005,6 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             <TextAlign>Left</TextAlign>
                         </Style>
                         <Value>=[_Title.BranchAddress]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox2">
-                        <Location>504px, 64px</Location>
-                        <Size>120px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Size>10px</Size>
-                            </Font>
-                        </Style>
-                        <Value>=[PageIndex]+'/'+[PageCount]</Value>
                     </TextBox>
                     <TextBox Name="textBox20">
                         <Location>344px, 192px</Location>

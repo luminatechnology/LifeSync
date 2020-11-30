@@ -1,4 +1,4 @@
-﻿using LUMCustomizations.DAC;
+﻿using LumCustomizations.DAC;
 using PX.Common;
 using PX.Data;
 using PX.Data.BQL.Fluent;

@@ -244,7 +244,7 @@
                 <ParentName>INTran</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/ABA_AcumaticaDB1/</SchemaUrl>
+        <SchemaUrl>http://dev01.clouderp.com.tw/LifeSync/</SchemaUrl>
         <Style>
             <Font>
                 <Name>Microsoft YaHei UI</Name>
@@ -1832,8 +1832,8 @@
                 <Height>1.79894cm</Height>
                 <Items>
                     <TextBox Name="textBox11">
-                        <Location>440px, 0px</Location>
-                        <Size>244px, 16px</Size>
+                        <Location>432px, 0px</Location>
+                        <Size>244px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -1842,7 +1842,7 @@
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <StyleName>Report Name</StyleName>
-                        <Value>='領料單 -'+IIF([ReasonCode.Descr] = null,'',[ReasonCode.Descr])</Value>
+                        <Value>=IIF([ReasonCode.Descr] = null,'',[ReasonCode.Descr])</Value>
                     </TextBox>
                     <TextBox Name="textBox12">
                         <Excel>
@@ -1972,7 +1972,7 @@
                             <column>7</column>
                             <row>2</row>
                         </Excel>
-                        <Location>536px, 56px</Location>
+                        <Location>592px, 56px</Location>
                         <Size>176px, 14px</Size>
                         <Style>
                             <Font>
@@ -1981,7 +1981,7 @@
                             <TextAlign>Left</TextAlign>
                         </Style>
                         <StyleName>Normal</StyleName>
-                        <Value>='交易說明:'+IIF([INRegister.TranDesc] = null, '', [INRegister.TranDesc])</Value>
+                        <Value>=[INRegister.TranDesc]</Value>
                         <VisibleExpr>=([@DocType] &lt;&gt; Null)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox50">
@@ -1989,7 +1989,7 @@
                             <column>7</column>
                             <row>2</row>
                         </Excel>
-                        <Location>536px, 40px</Location>
+                        <Location>592px, 40px</Location>
                         <Size>176px, 14px</Size>
                         <Style>
                             <Font>
@@ -1998,8 +1998,32 @@
                             <TextAlign>Left</TextAlign>
                         </Style>
                         <StyleName>Normal</StyleName>
-                        <Value>='參考號碼:'+IIF([INRegister.ExtRefNbr] = null, '', [INRegister.ExtRefNbr])</Value>
+                        <Value>=[INRegister.ExtRefNbr]</Value>
                         <VisibleExpr>=([@DocType] &lt;&gt; Null)</VisibleExpr>
+                    </TextBox>
+                    <TextBox Name="textBox65">
+                        <Excel>
+                            <row>2</row>
+                        </Excel>
+                        <Location>512px, 40px</Location>
+                        <Size>76px, 14px</Size>
+                        <Style>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <StyleName>Report Params</StyleName>
+                        <Value>External Ref:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox66">
+                        <Excel>
+                            <row>2</row>
+                        </Excel>
+                        <Location>512px, 56px</Location>
+                        <Size>76px, 14px</Size>
+                        <Style>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <StyleName>Report Params</StyleName>
+                        <Value>Description:</Value>
                     </TextBox>
                     <TextBox Name="textBox9">
                         <Excel>

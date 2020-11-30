@@ -80,7 +80,7 @@ SELECT DISTINCT
 	   BRaddr.AddressLine1 AS BranchAddress,
 	   BRcont.Phone1 AS SellerTel,
 	   BRcont.Fax AS SellerFax,
-	   sp.OwnerID AS SellerFrom,
+	   ur.FullName AS SellerFrom,
 	   rmk.Remark Remark,
 	   kvext.ValueString AS ENDC,
 	   xref.AlternateID AS CustAlternateID
@@ -109,6 +109,8 @@ LEFT JOIN Contact BRcont ON BRacct.DefContactID = BRcont.ContactID
 						 AND lumShip.CompanyID = BRcont.CompanyID
 LEFT JOIN SOShipment sp ON lumShip.ShipmentNbr = sp.ShipmentNbr
 						AND lumShip.CompanyID = sp.CompanyID
+LEFT JOIN Users ur ON ur.PKID = sp.OwnerID
+				  AND lumShip.CompanyID = ur.CompanyID
 LEFT JOIN SOOrderKvExt kvext ON so.NoteID = kvext.RecordID
 							 AND lumShip.CompanyID = kvext.CompanyID
 						     AND kvext.FieldName = 'AttributeENDC' 

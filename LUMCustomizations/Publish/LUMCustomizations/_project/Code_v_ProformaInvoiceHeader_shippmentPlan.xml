@@ -121,10 +121,10 @@ namespace LUMCustomizations
     #endregion
 
     #region SellerFrom
-    [PXDBGuid()]
+    [PXDBString(30)]
     [PXUIField(DisplayName = "Seller From")]
-    public virtual Guid? SellerFrom { get; set; }
-    public abstract class sellerFrom : PX.Data.BQL.BqlGuid.Field<sellerFrom> { }
+    public virtual string SellerFrom { get; set; }
+    public abstract class sellerFrom : PX.Data.BQL.BqlString.Field<sellerFrom> { }
     #endregion
 
     #region Remark

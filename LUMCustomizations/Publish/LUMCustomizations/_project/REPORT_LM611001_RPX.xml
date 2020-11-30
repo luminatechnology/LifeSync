@@ -2882,12 +2882,13 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Value>=[_Title.BranchAddress]</Value>
                     </TextBox>
                     <TextBox Name="textBox2">
-                        <Location>504px, 64px</Location>
+                        <Location>576px, 48px</Location>
                         <Size>120px, 16px</Size>
                         <Style>
                             <Font>
                                 <Size>10px</Size>
                             </Font>
+                            <TextAlign>Right</TextAlign>
                         </Style>
                         <Value>=[PageIndex]+'/'+[PageCount]</Value>
                     </TextBox>
