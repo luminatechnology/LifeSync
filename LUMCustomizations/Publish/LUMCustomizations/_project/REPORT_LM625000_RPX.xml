@@ -28,6 +28,22 @@
         <GridSize>4px, 4px</GridSize>
         <MailSettings>
             <ActivitySource>AMProdItem.NoteID</ActivitySource>
+            <Bcc>
+            </Bcc>
+            <Body>
+            </Body>
+            <Cc>
+            </Cc>
+            <Format>
+            </Format>
+            <ParentSource>
+            </ParentSource>
+            <Subject>
+            </Subject>
+            <TemplateID>
+            </TemplateID>
+            <To>
+            </To>
         </MailSettings>
         <Parameters>
             <ReportParameter>

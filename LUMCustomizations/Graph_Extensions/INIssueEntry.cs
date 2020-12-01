@@ -18,7 +18,7 @@ namespace PX.Objects.SO
         }
 
         #region Action
-        public PXAction<SOShipment> InventoryIssueReport;
+        public PXAction<INRegister> InventoryIssueReport;
         [PXButton]
         [PXUIField(DisplayName = "Inventory Issue Report", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable inventoryIssueReport(PXAdapter adapter)

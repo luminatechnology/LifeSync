@@ -62,8 +62,10 @@ LST : D075461
 DEV : 3007648309
 510(k) : K971540 
 items being imported are comported cables and final destination is USA' AS Remark
-)
-SELECT DISTINCT 
+),
+_Result as (
+SELECT  DISTINCT
+	   lumShip.CompanyID,
 	   lumShip.ShipmentPlanID,
 	   lumShip.ShipmentNbr AS InvioceNo,
 	   lumShip.PlannedShipDate AS InvoiceDate,
@@ -78,9 +80,9 @@ SELECT DISTINCT
 	   so.UsrPICuryID AS Currency,
 	   BRacct.LegalName AS BranchName,
 	   BRaddr.AddressLine1 AS BranchAddress,
-	   BRcont.Phone1 AS SellerTel,
-	   BRcont.Fax AS SellerFax,
-	   ur.FullName AS SellerFrom,
+	   OwnerCont.Phone1 AS SellerTel,
+	   OwnerCont.Fax AS SellerFax,
+	   Owneracct.LegalName AS SellerFrom,
 	   rmk.Remark Remark,
 	   kvext.ValueString AS ENDC,
 	   xref.AlternateID AS CustAlternateID
@@ -105,12 +107,14 @@ LEFT JOIN BAccount BRacct ON br.BAccountID = BRacct.BAccountID
 						  AND lumShip.CompanyID = BRacct.CompanyID
 LEFT JOIN Address BRaddr ON BRacct.DefAddressID = BRaddr.AddressID
 						 AND lumShip.CompanyID = BRaddr.CompanyID
-LEFT JOIN Contact BRcont ON BRacct.DefContactID = BRcont.ContactID
-						 AND lumShip.CompanyID = BRcont.CompanyID
 LEFT JOIN SOShipment sp ON lumShip.ShipmentNbr = sp.ShipmentNbr
 						AND lumShip.CompanyID = sp.CompanyID
-LEFT JOIN Users ur ON ur.PKID = sp.OwnerID
-				  AND lumShip.CompanyID = ur.CompanyID
+LEFT JOIN EPEmployee emp ON sp.ownerid = emp.UserID
+						AND lumShip.CompanyID = emp.CompanyID
+LEFT JOIN BAccount Owneracct ON emp.BAccountID = Owneracct.BAccountID
+							AND lumShip.CompanyID = Owneracct.CompanyID
+LEFT JOIN Contact OwnerCont ON Owneracct.DefContactID = OwnerCont.ContactID
+						 AND lumShip.CompanyID = OwnerCont.CompanyID
 LEFT JOIN SOOrderKvExt kvext ON so.NoteID = kvext.RecordID
 							 AND lumShip.CompanyID = kvext.CompanyID
 						     AND kvext.FieldName = 'AttributeENDC' 
@@ -125,8 +129,14 @@ LEFT JOIN RemarkTable rmk ON rmk.ENDC = CASE
 											WHEN kvext.ValueString = 'ABI' THEN kvext.ValueString
 											ELSE 'OTHER'
 										END
-						  AND rmk.CustAlternateID = CASE 
+						 AND rmk.CustAlternateID = CASE 
 														WHEN kvext.ValueString = 'ABI' THEN SUBSTRING (xref.AlternateID,1,1)
 														ELSE ''
-												     END]]></CDATA>
+												     END
+
+													 --where lumShip.ShipmentNbr = '20201100011' and shipmentplanid = '2020112701' and lumShip.CompanyID = 2
+)
+select RANK() OVER(PARTITION  BY t.invioceno,t.shipmentplanid ORDER BY t.PICustomerID DESC) AS MYNumber,
+	   t.*
+from _Result t]]></CDATA>
 </Sql>

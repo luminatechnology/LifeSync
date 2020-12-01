@@ -8,6 +8,13 @@ namespace LUMCustomizations
   [PXCacheName("v_ProformaInvoiceHeader_shippmentPlan")]
   public class v_ProformaInvoiceHeader_shippmentPlan : IBqlTable
   {
+    #region MYNumber
+    [PXDBLong()]
+    [PXUIField(DisplayName = "MYNumber")]
+    public virtual long? MYNumber{ get; set; }
+    public abstract class mYNumber: PX.Data.BQL.BqlLong.Field<mYNumber> { }
+    #endregion
+
     #region ShipmentPlanID
     [PXDBString(15, IsUnicode = true, InputMask = "", IsKey = true)]
     [PXUIField(DisplayName = "Shipment Plan ID")]
@@ -121,14 +128,14 @@ namespace LUMCustomizations
     #endregion
 
     #region SellerFrom
-    [PXDBString(30)]
+    [PXDBString(255, IsUnicode = true, InputMask = "")]
     [PXUIField(DisplayName = "Seller From")]
     public virtual string SellerFrom { get; set; }
     public abstract class sellerFrom : PX.Data.BQL.BqlString.Field<sellerFrom> { }
     #endregion
 
     #region Remark
-    [PXDBString(19, InputMask = "")]
+    [PXDBString(199, InputMask = "")]
     [PXUIField(DisplayName = "Remark")]
     public virtual string Remark { get; set; }
     public abstract class remark : PX.Data.BQL.BqlString.Field<remark> { }

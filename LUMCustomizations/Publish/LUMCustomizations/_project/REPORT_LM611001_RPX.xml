@@ -29,6 +29,10 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 <DataField>_Title.ShipmentPlanID</DataField>
                 <Value>@ShipmentPlanID</Value>
             </FilterExp>
+            <FilterExp>
+                <DataField>_Title.MYNumber</DataField>
+                <Value>1</Value>
+            </FilterExp>
         </Filters>
         <Parameters>
             <ReportParameter>
@@ -2015,70 +2019,6 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 </Fields>
                 <FullName>LumCustomizations.DAC.LumShipmentPlan</FullName>
             </ReportTable>
-            <ReportTable Name="v_ProformaInvoiceHeader_shippmentPlan">
-                <Fields>
-                    <ReportField Name="BranchAddress">
-                    </ReportField>
-                    <ReportField Name="BranchName">
-                    </ReportField>
-                    <ReportField Name="Currency">
-                    </ReportField>
-                    <ReportField Name="CustAlternateID">
-                    </ReportField>
-                    <ReportField Name="Endc">
-                    </ReportField>
-                    <ReportField Name="InvioceNo">
-                    </ReportField>
-                    <ReportField Name="InvoiceDate">
-                        <DataType>DateTime</DataType>
-                    </ReportField>
-                    <ReportField Name="InvoiceDate_Day">
-                    </ReportField>
-                    <ReportField Name="InvoiceDate_Hour">
-                    </ReportField>
-                    <ReportField Name="InvoiceDate_Month">
-                    </ReportField>
-                    <ReportField Name="InvoiceDate_Quarter">
-                    </ReportField>
-                    <ReportField Name="PIAdddress">
-                    </ReportField>
-                    <ReportField Name="PIAttention">
-                    </ReportField>
-                    <ReportField Name="PICustomerID">
-                    </ReportField>
-                    <ReportField Name="PICustomerName">
-                    </ReportField>
-                    <ReportField Name="Pifax">
-                    </ReportField>
-                    <ReportField Name="Pitel">
-                    </ReportField>
-                    <ReportField Name="Remark">
-                    </ReportField>
-                    <ReportField Name="SellerFax">
-                    </ReportField>
-                    <ReportField Name="SellerFrom">
-                        <DataType>Object</DataType>
-                    </ReportField>
-                    <ReportField Name="SellerTel">
-                    </ReportField>
-                    <ReportField Name="ShipLate">
-                        <DataType>DateTime</DataType>
-                    </ReportField>
-                    <ReportField Name="ShipLate_Day">
-                    </ReportField>
-                    <ReportField Name="ShipLate_Hour">
-                    </ReportField>
-                    <ReportField Name="ShipLate_Month">
-                    </ReportField>
-                    <ReportField Name="ShipLate_Quarter">
-                    </ReportField>
-                    <ReportField Name="ShipmentPlanID">
-                    </ReportField>
-                    <ReportField Name="Terms">
-                    </ReportField>
-                </Fields>
-                <FullName>LUMCustomizations.v_ProformaInvoiceHeader_shippmentPlan</FullName>
-            </ReportTable>
             <ReportTable Name="SOLine">
                 <Fields>
                     <ReportField Name="AlternateID">
@@ -2708,6 +2648,72 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 </Fields>
                 <FullName>PX.Objects.SO.SOLine</FullName>
             </ReportTable>
+            <ReportTable Name="v_ProformaInvoiceHeader_shippmentPlan">
+                <Fields>
+                    <ReportField Name="BranchAddress">
+                    </ReportField>
+                    <ReportField Name="BranchName">
+                    </ReportField>
+                    <ReportField Name="Currency">
+                    </ReportField>
+                    <ReportField Name="CustAlternateID">
+                    </ReportField>
+                    <ReportField Name="Endc">
+                    </ReportField>
+                    <ReportField Name="InvioceNo">
+                    </ReportField>
+                    <ReportField Name="InvoiceDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="InvoiceDate_Day">
+                    </ReportField>
+                    <ReportField Name="InvoiceDate_Hour">
+                    </ReportField>
+                    <ReportField Name="InvoiceDate_Month">
+                    </ReportField>
+                    <ReportField Name="InvoiceDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="MYNumber">
+                        <DataType>Int64</DataType>
+                    </ReportField>
+                    <ReportField Name="PIAdddress">
+                    </ReportField>
+                    <ReportField Name="PIAttention">
+                    </ReportField>
+                    <ReportField Name="PICustomerID">
+                    </ReportField>
+                    <ReportField Name="PICustomerName">
+                    </ReportField>
+                    <ReportField Name="Pifax">
+                    </ReportField>
+                    <ReportField Name="Pitel">
+                    </ReportField>
+                    <ReportField Name="Remark">
+                    </ReportField>
+                    <ReportField Name="SellerFax">
+                    </ReportField>
+                    <ReportField Name="SellerFrom">
+                    </ReportField>
+                    <ReportField Name="SellerTel">
+                    </ReportField>
+                    <ReportField Name="ShipLate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="ShipLate_Day">
+                    </ReportField>
+                    <ReportField Name="ShipLate_Hour">
+                    </ReportField>
+                    <ReportField Name="ShipLate_Month">
+                    </ReportField>
+                    <ReportField Name="ShipLate_Quarter">
+                    </ReportField>
+                    <ReportField Name="ShipmentPlanID">
+                    </ReportField>
+                    <ReportField Name="Terms">
+                    </ReportField>
+                </Fields>
+                <FullName>LUMCustomizations.v_ProformaInvoiceHeader_shippmentPlan</FullName>
+            </ReportTable>
         </Tables>
         <TabularFreeze>128px</TabularFreeze>
         <Sections>
@@ -2905,18 +2911,18 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                     </TextBox>
                     <TextBox Name="textBox21">
                         <Location>344px, 208px</Location>
-                        <Size>32px, 16px</Size>
+                        <Size>40px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial Black</Name>
                                 <Size>10px</Size>
                             </Font>
                         </Style>
-                        <Value>Tell:</Value>
+                        <Value>Tel:</Value>
                     </TextBox>
                     <TextBox Name="textBox22">
                         <Location>344px, 224px</Location>
-                        <Size>32px, 16px</Size>
+                        <Size>40px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial Black</Name>
@@ -2953,18 +2959,18 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                     </TextBox>
                     <TextBox Name="textBox25">
                         <Location>16px, 208px</Location>
-                        <Size>32px, 16px</Size>
+                        <Size>40px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial Black</Name>
                                 <Size>10px</Size>
                             </Font>
                         </Style>
-                        <Value>Tell:</Value>
+                        <Value>Tel:</Value>
                     </TextBox>
                     <TextBox Name="textBox26">
                         <Location>16px, 224px</Location>
-                        <Size>32px, 16px</Size>
+                        <Size>40px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial Black</Name>
@@ -2989,7 +2995,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Value>=[_Title.PIAttention]</Value>
                     </TextBox>
                     <TextBox Name="textBox28">
-                        <Location>48px, 208px</Location>
+                        <Location>56px, 208px</Location>
                         <Size>128px, 16px</Size>
                         <Style>
                             <Font>
@@ -3004,7 +3010,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Value>=[_Title.Pitel]</Value>
                     </TextBox>
                     <TextBox Name="textBox29">
-                        <Location>48px, 224px</Location>
+                        <Location>56px, 224px</Location>
                         <Size>128px, 16px</Size>
                         <Style>
                             <Font>
@@ -3030,7 +3036,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Value>Invoice No.: </Value>
                     </TextBox>
                     <TextBox Name="textBox30">
-                        <Location>376px, 208px</Location>
+                        <Location>384px, 208px</Location>
                         <Size>136px, 16px</Size>
                         <Style>
                             <Font>
@@ -3045,7 +3051,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Value>=[_Title.SellerTel]</Value>
                     </TextBox>
                     <TextBox Name="textBox31">
-                        <Location>376px, 224px</Location>
+                        <Location>384px, 224px</Location>
                         <Size>136px, 16px</Size>
                         <Style>
                             <Font>
@@ -3195,7 +3201,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Value>=[SOLine.AlternateID]</Value>
                     </TextBox>
                     <TextBox Name="textBox42">
-                        <Format>='0.0000'</Format>
+                        <Format>='0.00'</Format>
                         <Location>624px, 0px</Location>
                         <Size>64px, 64px</Size>
                         <Style>
