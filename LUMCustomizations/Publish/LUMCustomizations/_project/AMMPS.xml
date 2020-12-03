@@ -1,0 +1,4 @@
+﻿<Table TableName="AMMPS">
+    <Column TableName="AMMPS" ColumnName="UsrRemark" ColumnType="string" AllowNull="True" MaxLength="100" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+    <Column TableName="AMMPS" ColumnName="UsrWcID" ColumnType="string" AllowNull="True" MaxLength="20" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+</Table>
