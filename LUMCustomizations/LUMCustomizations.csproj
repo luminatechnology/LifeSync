@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="DAC\LifeSyncPreference.cs" />
     <Compile Include="DAC\LumShipmentPlan.cs" />
+    <Compile Include="DAC_Extensions\AMMPSExtension.cs" />
     <Compile Include="DAC_Extensions\AMProdItemExtensions.cs" />
     <Compile Include="DAC_Extensions\SOLineExtensions.cs" />
     <Compile Include="DAC_Extensions\SOOrderExtensions.cs" />
