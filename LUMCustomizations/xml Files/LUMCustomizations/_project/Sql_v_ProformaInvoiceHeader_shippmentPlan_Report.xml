@@ -1,0 +1,142 @@
+﻿<Sql TableName="v_ProformaInvoiceHeader_shippmentPlan_Report" CustomScript="#CDATA">
+    <CDATA name="CustomScript"><![CDATA[IF EXISTS
+(
+	SELECT *
+	FROM SYS.views
+	WHERE name = 'v_ProformaInvoiceHeader_shippmentPlan' AND SCHEMA_ID = SCHEMA_ID('dbo')
+)
+DROP VIEW [dbo].v_ProformaInvoiceHeader_shippmentPlan	
+GO
+CREATE VIEW v_ProformaInvoiceHeader_shippmentPlan AS
+with RemarkTable as(
+	SELECT 'OSI' AS ENDC,
+			'' AS CustAlternateID,
+			'' AS Remark
+	UNION
+	SELECT 'MASIMO' AS ENDC,
+		   '' AS CustAlternateID,
+		   'CPT-electrical cable,unfinished  
+DII:1061133
+There are unfinished cables that are going to be Completed in Mexico,CPT-electrical cable  ' AS Remark
+	UNION
+	SELECT 'OTHER' AS ENDC,
+			'' AS CustAlternateID,
+			'Bank information
+Bank Name：The Hongkong and Shanghai Banking Corporation Limited
+Company Name：American Biosurgical Asia Medical Technology Ltd
+Account Number：809-435084-838
+SWIFT Code：HSBCHKHHHKH'  AS Remark
+	UNION
+	SELECT 'ABI' AS ENDC,
+		    1 AS CustAlternateID,
+		   'USFDA Affirmation of compliance (A of C) codes:
+Dll : 1061133
+LST : D075463
+DEV : 3007648309
+510(k) : K953889
+The items being imported are comported cables and final destination is USA ' AS Remark
+	UNION
+	SELECT 'ABI' AS ENDC,
+		   2 AS CustAlternateID,
+		   'USFDA Affirmation of compliance (A of C) codes: 
+Dll : 1061133
+LST : D075461
+DEV : 3007648309
+510(k) : K972901 
+items being imported are comported cables and final destination is USA' AS Remark
+	UNION
+	SELECT 'ABI' AS ENDC,
+		   5 AS CustAlternateID,
+		   'USFDA Affirmation of compliance (A of C) codes: 
+Dll : 1061133
+LST : D075461
+DEV : 3007648309
+510(k) : K971540 
+items being imported are comported cables and final destination is USA' AS Remark
+	UNION
+	SELECT 'ABI' AS ENDC,
+		   6 AS CustAlternateID,
+		   'USFDA Affirmation of compliance (A of C) codes: 
+Dll : 1061133
+LST : D075461
+DEV : 3007648309
+510(k) : K971540 
+items being imported are comported cables and final destination is USA' AS Remark
+),
+_Result as (
+SELECT  DISTINCT
+	   lumShip.CompanyID,
+	   lumShip.ShipmentPlanID,
+	   lumShip.ShipmentNbr AS InvioceNo,
+	   lumShip.PlannedShipDate AS InvoiceDate,
+	   lumShip.PlannedShipDate AS ShipLate,
+	   PIacct.AcctCD AS PICustomerID,
+	   PIacct.LegalName AS PICustomerName,
+	   PIaddr.AddressLine1 AS PIAdddress,
+	   PICont.Attention AS PIAttention,
+	   PICont.Phone1 AS PITel,
+	   PICont.Fax AS PIFax,
+	   PIcst.TermsID AS Terms,
+	   so.UsrPICuryID AS Currency,
+	   BRacct.LegalName AS BranchName,
+	   BRaddr.AddressLine1 AS BranchAddress,
+	   OwnerCont.Phone1 AS SellerTel,
+	   OwnerCont.Fax AS SellerFax,
+	   Owneracct.LegalName AS SellerFrom,
+	   rmk.Remark Remark,
+	   kvext.ValueString AS ENDC,
+	   xref.AlternateID AS CustAlternateID
+FROM LumShipmentPlan lumShip
+CROSS APPLY(
+	SELECT TOP 1 *
+	FROM SOORDER sor
+	WHERE lumShip.OrderNbr = sor.OrderNbr
+	  AND lumShip.CompanyID = sor.CompanyID
+) so
+LEFT JOIN Customer PIcst ON so.UsrPICustomerID = PIcst.BAccountID
+						 AND lumShip.CompanyID = PIcst.CompanyID
+LEFT JOIN BAccount PIacct ON PIcst.BAccountID = PIacct.BAccountID
+						  AND lumShip.CompanyID = PIacct.CompanyID
+LEFT JOIN Address PIaddr ON PIacct.DefAddressID = PIaddr.AddressID
+						 AND lumShip.CompanyID = PIaddr.CompanyID
+LEFT JOIN Contact PICont ON PIacct.DefContactID = PICont.ContactID
+						 AND lumShip.CompanyID = PICont.CompanyID
+LEFT JOIN Branch br ON so.BranchID = br.BranchID
+				    AND lumShip.CompanyID = br.CompanyID
+LEFT JOIN BAccount BRacct ON br.BAccountID = BRacct.BAccountID
+						  AND lumShip.CompanyID = BRacct.CompanyID
+LEFT JOIN Address BRaddr ON BRacct.DefAddressID = BRaddr.AddressID
+						 AND lumShip.CompanyID = BRaddr.CompanyID
+LEFT JOIN SOShipment sp ON lumShip.ShipmentNbr = sp.ShipmentNbr
+						AND lumShip.CompanyID = sp.CompanyID
+LEFT JOIN EPEmployee emp ON sp.ownerid = emp.UserID
+						AND lumShip.CompanyID = emp.CompanyID
+LEFT JOIN BAccount Owneracct ON emp.BAccountID = Owneracct.BAccountID
+							AND lumShip.CompanyID = Owneracct.CompanyID
+LEFT JOIN Contact OwnerCont ON Owneracct.DefContactID = OwnerCont.ContactID
+						 AND lumShip.CompanyID = OwnerCont.CompanyID
+LEFT JOIN SOOrderKvExt kvext ON so.NoteID = kvext.RecordID
+							 AND lumShip.CompanyID = kvext.CompanyID
+						     AND kvext.FieldName = 'AttributeENDC' 
+LEFT JOIN SOLINE soLine ON so.OrderNbr = soLine.OrderNbr
+						AND lumShip.CompanyID = soLine.CompanyID
+LEFT JOIN INItemXRef xref ON soLine.InventoryID = xref.InventoryID
+						 AND lumShip.CompanyID = xref.CompanyID
+						 AND xref.AlternateID = '0CPN'
+LEFT JOIN RemarkTable rmk ON rmk.ENDC = CASE 
+											WHEN kvext.ValueString = 'OSI' THEN kvext.ValueString
+											WHEN kvext.ValueString = 'MASIMO' THEN kvext.ValueString
+											WHEN kvext.ValueString = 'ABI' THEN kvext.ValueString
+											ELSE 'OTHER'
+										END
+						 AND rmk.CustAlternateID = CASE 
+														WHEN kvext.ValueString = 'ABI' THEN SUBSTRING (xref.AlternateID,1,1)
+														ELSE ''
+												     END
+
+													 --where lumShip.ShipmentNbr = '20201100011' and shipmentplanid = '2020112701' and lumShip.CompanyID = 2
+)
+select RANK() OVER(PARTITION  BY t.invioceno,t.shipmentplanid ORDER BY t.PICustomerID DESC) AS MYNumber,
+	   t.*
+from _Result t]]></CDATA>
+</Sql>

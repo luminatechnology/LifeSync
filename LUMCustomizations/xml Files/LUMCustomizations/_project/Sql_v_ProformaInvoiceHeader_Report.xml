@@ -1,0 +1,58 @@
+﻿<Sql TableName="v_ProformaInvoiceHeader_Report" CustomScript="#CDATA">
+    <CDATA name="CustomScript"><![CDATA[IF EXISTS
+(
+	SELECT *
+	FROM SYS.views
+	WHERE name = 'v_ProformaInvoiceHeader' AND SCHEMA_ID = SCHEMA_ID('dbo')
+)
+DROP VIEW [dbo].v_ProformaInvoiceHeader	
+GO
+CREATE VIEW v_ProformaInvoiceHeader AS
+SELECT DISTINCT shp.ShipmentNbr,
+	   shp.ShipmentNbr AS InvioceNo,
+	   shp.ShipDate AS InvoiceDate,
+	   shp.ShipDate AS ShipLate,
+	   PIacct.AcctCD AS PICustomerID,
+	   PIacct.LegalName AS PICustomerName,
+	   PIaddr.AddressLine1 AS PIAdddress,
+	   PICont.Attention AS PIAttention,
+	   PICont.Phone1 AS PITel,
+	   PICont.Fax AS PIFax,
+	   PIcst.TermsID AS Terms,
+	   so.UsrPICuryID AS Currency,
+	   BRacct.LegalName AS BranchName,
+	   BRaddr.AddressLine1 AS BranchAddress,
+	   BRcont.Phone1 AS SellerTel,
+	   BRcont.Fax AS SellerFax,
+	   shp.OwnerID AS SellerFrom,
+	   note.NoteText AS Remark
+FROM SOSHIPMENT shp
+INNER JOIN SOSHIPLINE shpl ON shp.ShipmentNbr = shpl.ShipmentNbr
+						  AND shp.CompanyID = shpl.CompanyID
+CROSS APPLY(
+	SELECT TOP 1 *
+	FROM SOORDER sor
+	WHERE shpl.OrigOrderNbr = sor.OrderNbr
+	  AND shp.CompanyID = sor.CompanyID
+) so
+INNER JOIN Customer PIcst ON so.UsrPICustomerID = PIcst.BAccountID
+						 AND shp.CompanyID = PIcst.CompanyID
+INNER JOIN BAccount PIacct ON PIcst.BAccountID = PIacct.BAccountID
+						  AND shp.CompanyID = PIacct.CompanyID
+INNER JOIN Address PIaddr ON PIacct.DefAddressID = PIaddr.AddressID
+						 AND shp.CompanyID = PIaddr.CompanyID
+INNER JOIN Contact PICont ON PIacct.DefContactID = PICont.ContactID
+						 AND shp.CompanyID = PICont.CompanyID
+INNER JOIN Branch br ON so.BranchID = br.BranchID
+				    AND shp.CompanyID = br.CompanyID
+INNER JOIN BAccount BRacct ON br.BAccountID = BRacct.BAccountID
+						  AND shp.CompanyID = BRacct.CompanyID
+INNER JOIN Address BRaddr ON BRacct.DefAddressID = BRaddr.AddressID
+						 AND shp.CompanyID = BRaddr.CompanyID
+INNER JOIN Contact BRcont ON BRacct.DefContactID = BRcont.ContactID
+						 AND shp.CompanyID = BRcont.CompanyID
+LEFT JOIN NOTE note ON shp.NoteID = note.NoteID
+				   AND shp.CompanyID = note.CompanyID
+INNER JOIN SOShipLine line ON shp.ShipmentNbr = line.ShipmentNbr
+						  AND shp.CompanyID = line.CompanyID]]></CDATA>
+</Sql>

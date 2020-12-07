@@ -1,0 +1,138 @@
+﻿<Graph ClassName="v_ProformaInvoiceHeader" Source="#CDATA" IsNew="True" FileType="NewDac">
+    <CDATA name="Source"><![CDATA[using System;
+using PX.Data;
+
+namespace LUMCustomizations
+{
+  [Serializable]
+  [PXCacheName("v_ProformaInvoiceHeader")]
+  public class v_ProformaInvoiceHeader : IBqlTable
+  {
+    #region ShipmentNbr
+    [PXDBString(15, IsUnicode = true, InputMask = "", IsKey = true)]
+    [PXUIField(DisplayName = "Shipment Nbr")]
+    public virtual string ShipmentNbr { get; set; }
+    public abstract class shipmentNbr : PX.Data.BQL.BqlString.Field<shipmentNbr> { }
+    #endregion
+
+    #region InvioceNo
+    [PXDBString(15, IsUnicode = true, InputMask = "")]
+    [PXUIField(DisplayName = "Invioce No")]
+    public virtual string InvioceNo { get; set; }
+    public abstract class invioceNo : PX.Data.BQL.BqlString.Field<invioceNo> { }
+    #endregion
+
+    #region InvoiceDate
+    [PXDBDate()]
+    [PXUIField(DisplayName = "Invoice Date")]
+    public virtual DateTime? InvoiceDate { get; set; }
+    public abstract class invoiceDate : PX.Data.BQL.BqlDateTime.Field<invoiceDate> { }
+    #endregion
+
+    #region ShipLate
+    [PXDBDate()]
+    [PXUIField(DisplayName = "Ship Late")]
+    public virtual DateTime? ShipLate { get; set; }
+    public abstract class shipLate : PX.Data.BQL.BqlDateTime.Field<shipLate> { }
+    #endregion
+
+    #region PICustomerID
+    [PXDBString(30, IsUnicode = true, InputMask = "")]
+    [PXUIField(DisplayName = "PICustomer ID")]
+    public virtual string PICustomerID { get; set; }
+    public abstract class pICustomerID : PX.Data.BQL.BqlString.Field<pICustomerID> { }
+    #endregion
+
+    #region PICustomerName
+    [PXDBString(255, IsUnicode = true, InputMask = "")]
+    [PXUIField(DisplayName = "PICustomer Name")]
+    public virtual string PICustomerName { get; set; }
+    public abstract class pICustomerName : PX.Data.BQL.BqlString.Field<pICustomerName> { }
+    #endregion
+
+    #region PIAdddress
+    [PXDBString(50, IsUnicode = true, InputMask = "")]
+    [PXUIField(DisplayName = "PIAdddress")]
+    public virtual string PIAdddress { get; set; }
+    public abstract class pIAdddress : PX.Data.BQL.BqlString.Field<pIAdddress> { }
+    #endregion
+
+    #region PIAttention
+    [PXDBString(255, IsUnicode = true, InputMask = "")]
+    [PXUIField(DisplayName = "PIAttention")]
+    public virtual string PIAttention { get; set; }
+    public abstract class pIAttention : PX.Data.BQL.BqlString.Field<pIAttention> { }
+    #endregion
+
+    #region Pitel
+    [PXDBString(50, IsUnicode = true, InputMask = "")]
+    [PXUIField(DisplayName = "Pitel")]
+    public virtual string Pitel { get; set; }
+    public abstract class pitel : PX.Data.BQL.BqlString.Field<pitel> { }
+    #endregion
+
+    #region Pifax
+    [PXDBString(50, IsUnicode = true, InputMask = "")]
+    [PXUIField(DisplayName = "Pifax")]
+    public virtual string Pifax { get; set; }
+    public abstract class pifax : PX.Data.BQL.BqlString.Field<pifax> { }
+    #endregion
+
+    #region Terms
+    [PXDBString(10, IsUnicode = true, InputMask = "")]
+    [PXUIField(DisplayName = "Terms")]
+    public virtual string Terms { get; set; }
+    public abstract class terms : PX.Data.BQL.BqlString.Field<terms> { }
+    #endregion
+
+    #region Currency
+    [PXDBString(5, IsUnicode = true, InputMask = "")]
+    [PXUIField(DisplayName = "Currency")]
+    public virtual string Currency { get; set; }
+    public abstract class currency : PX.Data.BQL.BqlString.Field<currency> { }
+    #endregion
+
+    #region BranchName
+    [PXDBString(255, IsUnicode = true, InputMask = "")]
+    [PXUIField(DisplayName = "Branch Name")]
+    public virtual string BranchName { get; set; }
+    public abstract class branchName : PX.Data.BQL.BqlString.Field<branchName> { }
+    #endregion
+
+    #region BranchAddress
+    [PXDBString(50, IsUnicode = true, InputMask = "")]
+    [PXUIField(DisplayName = "Branch Address")]
+    public virtual string BranchAddress { get; set; }
+    public abstract class branchAddress : PX.Data.BQL.BqlString.Field<branchAddress> { }
+    #endregion
+
+    #region SellerTel
+    [PXDBString(50, IsUnicode = true, InputMask = "")]
+    [PXUIField(DisplayName = "Seller Tel")]
+    public virtual string SellerTel { get; set; }
+    public abstract class sellerTel : PX.Data.BQL.BqlString.Field<sellerTel> { }
+    #endregion
+
+    #region SellerFax
+    [PXDBString(50, IsUnicode = true, InputMask = "")]
+    [PXUIField(DisplayName = "Seller Fax")]
+    public virtual string SellerFax { get; set; }
+    public abstract class sellerFax : PX.Data.BQL.BqlString.Field<sellerFax> { }
+    #endregion
+
+    #region SellerFrom
+    [PXDBGuid()]
+    [PXUIField(DisplayName = "Seller From")]
+    public virtual Guid? SellerFrom { get; set; }
+    public abstract class sellerFrom : PX.Data.BQL.BqlGuid.Field<sellerFrom> { }
+    #endregion
+
+    #region Remark
+    [PXDBString(IsUnicode = true, InputMask = "")]
+    [PXUIField(DisplayName = "Remark")]
+    public virtual string Remark { get; set; }
+    public abstract class remark : PX.Data.BQL.BqlString.Field<remark> { }
+    #endregion
+  }
+}]]></CDATA>
+</Graph>

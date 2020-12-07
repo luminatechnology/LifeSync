@@ -1,0 +1,3 @@
+﻿<AutomationScreenField ScreenID="AM201000" TableName="JAMS.MRP.AMMPS" FieldName="USRWCID" IsUserDefinedField="False">
+    <Prop Name="DisplayName" DisplayName="Display Name" IsCustomized="True" Value="WcID" />
+</AutomationScreenField>

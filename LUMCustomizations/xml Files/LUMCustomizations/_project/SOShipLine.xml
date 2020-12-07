@@ -1,0 +1,10 @@
+﻿<Table TableName="SOShipLine">
+    <Column TableName="SOShipLine" ColumnName="UsrCartonSize" ColumnType="string" AllowNull="True" MaxLength="20" DecimalPrecision="2" DecimalLength="20" IsNewColumn="True" IsUnicode="True" />
+    <Column TableName="SOShipLine" ColumnName="UsrCartonQty" ColumnType="decimal" AllowNull="True" MaxLength="25" DecimalPrecision="6" DecimalLength="25" IsNewColumn="True" IsUnicode="True" />
+    <Column TableName="SOShipLine" ColumnName="UsrNetWeight" ColumnType="decimal" AllowNull="True" MaxLength="19" DecimalPrecision="6" DecimalLength="19" IsNewColumn="True" IsUnicode="True" />
+    <Column TableName="SOShipLine" ColumnName="UsrGrossWeight" ColumnType="decimal" AllowNull="True" MaxLength="19" DecimalPrecision="6" DecimalLength="19" IsNewColumn="True" IsUnicode="True" />
+    <Column TableName="SOShipLine" ColumnName="UsrPalletWeight" ColumnType="decimal" AllowNull="True" MaxLength="19" DecimalPrecision="6" DecimalLength="19" IsNewColumn="True" IsUnicode="True" />
+    <Column TableName="SOShipLine" ColumnName="UsrMEAS" ColumnType="decimal" AllowNull="True" MaxLength="19" DecimalPrecision="6" DecimalLength="19" IsNewColumn="True" IsUnicode="True" />
+    <Column TableName="SOShipLine" ColumnName="UsrDimWeight" ColumnType="decimal" AllowNull="True" MaxLength="19" DecimalPrecision="6" DecimalLength="19" IsNewColumn="True" IsUnicode="True" />
+    <Column TableName="SOShipLine" ColumnName="UsrBRNbr" ColumnType="string" AllowNull="True" MaxLength="255" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+</Table>
