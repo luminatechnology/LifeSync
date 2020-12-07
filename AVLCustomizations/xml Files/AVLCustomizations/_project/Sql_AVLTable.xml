@@ -1,0 +1,21 @@
+﻿<Sql TableName="AVLTable" TableSchemaXml="#CDATA">
+    <CDATA name="TableSchemaXml"><![CDATA[<table name="AVLTable">
+  <col name="AVLNbr" type="NVarChar(20)" />
+  <col name="CompanyID" type="Int" default="Zero" />
+  <col name="AVLAction" type="NVarChar(10)" />
+  <col name="AVLStatus" type="NVarChar(2)" />
+  <col name="AVLDate" type="DateTime" default="CurrentDateTime" />
+  <col name="Descripton" type="NVarChar(256)" nullable="true" />
+  <col name="LineCntr" type="Int" />
+  <col name="CreatedByID" type="UniqueIdentifier" />
+  <col name="CreatedByScreenID" type="Char(8)" />
+  <col name="CreatedDateTime" type="DateTime" />
+  <col name="LastModifiedByID" type="UniqueIdentifier" />
+  <col name="LastModifiedByScreenID" type="Char(8)" />
+  <col name="LastModifiedDateTime" type="DateTime" />
+  <index name="PK__AVLTable__945731264D782973" clustered="true" primary="true" unique="true">
+    <col name="AVLNbr" />
+    <col name="CompanyID" />
+  </index>
+</table>]]></CDATA>
+</Sql>
