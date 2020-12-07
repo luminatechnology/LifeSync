@@ -1,1 +1,0 @@
-"C:\Program Files\Acumatica ERP\LifeSync\App_Data\Projects\LUMCustomizations\LUMCustomizations.sln"
