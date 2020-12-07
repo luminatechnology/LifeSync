@@ -1,0 +1,1243 @@
+﻿<Report Name="lm601100.rpx">
+    <Report Name="report1">
+        <EmbeddedImages>
+            <EmbeddedImage>
+                <ImageData>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</ImageData>
+                <MimeType>image/jpeg</MimeType>
+                <Name>aba_dg_logo</Name>
+            </EmbeddedImage>
+        </EmbeddedImages>
+        <Filters>
+            <FilterExp>
+                <DataField>LumShipmentPlan.ShipmentPlanID</DataField>
+                <Value>@ShipmentPlanID</Value>
+            </FilterExp>
+            <FilterExp>
+                <DataField>LumShipmentPlan.ProdOrdID</DataField>
+                <Value>@ProductionID</Value>
+            </FilterExp>
+            <FilterExp>
+                <DataField>LumShipmentPlan.OrderNbr</DataField>
+                <Value>@OrderNbr</Value>
+            </FilterExp>
+            <FilterExp>
+                <DataField>LumShipmentPlan.LineNbr</DataField>
+                <Value>@LineNbr</Value>
+            </FilterExp>
+        </Filters>
+        <Parameters>
+            <ReportParameter>
+                <DefaultValue>IOP00001</DefaultValue>
+                <Name>ShipmentPlanID</Name>
+                <Prompt>ShipmentPlanID</Prompt>
+            </ReportParameter>
+            <ReportParameter>
+                <DefaultValue>2020090057</DefaultValue>
+                <Name>ProductionID</Name>
+                <Prompt>ProductionID</Prompt>
+            </ReportParameter>
+            <ReportParameter>
+                <DefaultValue>S202010003</DefaultValue>
+                <Name>OrderNbr</Name>
+                <Prompt>OrderNbr</Prompt>
+            </ReportParameter>
+            <ReportParameter>
+                <DefaultValue>1</DefaultValue>
+                <Name>LineNbr</Name>
+                <Prompt>LineNbr</Prompt>
+            </ReportParameter>
+        </Parameters>
+        <Relations>
+            <ReportRelation>
+                <ChildName>v_COCReport</ChildName>
+                <Links>
+                    <RelationRow>
+                        <ChildField>InventoryID</ChildField>
+                        <ParentField>InventoryID</ParentField>
+                    </RelationRow>
+                </Links>
+                <ParentName>LumShipmentPlan</ParentName>
+            </ReportRelation>
+            <ReportRelation>
+                <ChildName>SOLine</ChildName>
+                <Links>
+                    <RelationRow>
+                        <ChildField>OrderType</ChildField>
+                        <ParentField>OrderType</ParentField>
+                    </RelationRow>
+                    <RelationRow>
+                        <ChildField>OrderNbr</ChildField>
+                        <ParentField>OrderNbr</ParentField>
+                    </RelationRow>
+                    <RelationRow>
+                        <ChildField>LineNbr</ChildField>
+                        <ParentField>LineNbr</ParentField>
+                    </RelationRow>
+                </Links>
+                <ParentName>LumShipmentPlan</ParentName>
+            </ReportRelation>
+        </Relations>
+        <SchemaUrl>http://localhost/ABA_AcumaticaDB1/</SchemaUrl>
+        <Sorting>
+            <SortExp>
+                <DataField>v_COCReport.OrderNbr</DataField>
+            </SortExp>
+        </Sorting>
+        <Style>
+            <Font>
+                <Style>Bold</Style>
+            </Font>
+        </Style>
+        <StylesTemplate>TemplateReport.rpx</StylesTemplate>
+        <Tables>
+            <ReportTable Name="LumShipmentPlan">
+                <Fields>
+                    <ReportField Name="BRNbr">
+                    </ReportField>
+                    <ReportField Name="CartonQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="CartonSize">
+                    </ReportField>
+                    <ReportField Name="Confirmed">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="CreatedByID">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_displayName">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_Username">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_description">
+                    </ReportField>
+                    <ReportField Name="CreatedByScreenID">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="Customer">
+                    </ReportField>
+                    <ReportField Name="CustomerLocationID">
+                    </ReportField>
+                    <ReportField Name="CustomerLocationID_description">
+                    </ReportField>
+                    <ReportField Name="CustomerLocationID_Location_descr">
+                    </ReportField>
+                    <ReportField Name="CustomerLocationID_Segment1">
+                    </ReportField>
+                    <ReportField Name="CustomerOrderNbr">
+                    </ReportField>
+                    <ReportField Name="DimWeight">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="EndCartonNbr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="EndLabelNbr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="GrossWeight">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="InventoryID">
+                    </ReportField>
+                    <ReportField Name="InventoryID_description">
+                    </ReportField>
+                    <ReportField Name="InventoryID_InventoryItem_descr">
+                    </ReportField>
+                    <ReportField Name="InventoryID_Segment1">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_description">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_displayName">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_Username">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByScreenID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="LineNbr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="LotSerialNbr">
+                    </ReportField>
+                    <ReportField Name="MEAS">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="NbrOfShipment">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="NetWeight">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="NoteActivity">
+                    </ReportField>
+                    <ReportField Name="NoteFiles">
+                    </ReportField>
+                    <ReportField Name="NoteID">
+                        <DataType>Object</DataType>
+                    </ReportField>
+                    <ReportField Name="NoteImages">
+                    </ReportField>
+                    <ReportField Name="NoteText">
+                    </ReportField>
+                    <ReportField Name="OpenQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="OrderDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="OrderDate_Day">
+                    </ReportField>
+                    <ReportField Name="OrderDate_Hour">
+                    </ReportField>
+                    <ReportField Name="OrderDate_Month">
+                    </ReportField>
+                    <ReportField Name="OrderDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="OrderNbr">
+                    </ReportField>
+                    <ReportField Name="OrderQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="OrderType">
+                    </ReportField>
+                    <ReportField Name="PalletWeight">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="PlannedShipDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="PlannedShipDate_Day">
+                    </ReportField>
+                    <ReportField Name="PlannedShipDate_Hour">
+                    </ReportField>
+                    <ReportField Name="PlannedShipDate_Month">
+                    </ReportField>
+                    <ReportField Name="PlannedShipDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="PlannedShipQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="ProdLine">
+                    </ReportField>
+                    <ReportField Name="ProdOrdID">
+                    </ReportField>
+                    <ReportField Name="QtyComplete">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyToProd">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="Remarks">
+                    </ReportField>
+                    <ReportField Name="RequestDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="RequestDate_Day">
+                    </ReportField>
+                    <ReportField Name="RequestDate_Hour">
+                    </ReportField>
+                    <ReportField Name="RequestDate_Month">
+                    </ReportField>
+                    <ReportField Name="RequestDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="ShipmentNbr">
+                    </ReportField>
+                    <ReportField Name="ShipmentPlanID">
+                    </ReportField>
+                    <ReportField Name="ShipVia">
+                    </ReportField>
+                    <ReportField Name="ShipVia_Carrier_description">
+                    </ReportField>
+                    <ReportField Name="ShipVia_description">
+                    </ReportField>
+                    <ReportField Name="StartCartonNbr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="StartLabelNbr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="TotalShipNbr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="Tstamp">
+                    </ReportField>
+                </Fields>
+                <FullName>LumCustomizations.DAC.LumShipmentPlan</FullName>
+            </ReportTable>
+            <ReportTable Name="SOLine">
+                <Fields>
+                    <ReportField Name="AlternateID">
+                    </ReportField>
+                    <ReportField Name="AMConfigKeyID">
+                    </ReportField>
+                    <ReportField Name="AMConfigKeyID_AMConfigurationKeys_keyDescription">
+                    </ReportField>
+                    <ReportField Name="AMConfigKeyID_description">
+                    </ReportField>
+                    <ReportField Name="AMConfigurationID">
+                    </ReportField>
+                    <ReportField Name="AMEstimateID">
+                    </ReportField>
+                    <ReportField Name="AMEstimateRevisionID">
+                    </ReportField>
+                    <ReportField Name="AMIsSupplemental">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="AMOrderType">
+                    </ReportField>
+                    <ReportField Name="AMOrderType_AMOrderType_descr">
+                    </ReportField>
+                    <ReportField Name="AMOrderType_description">
+                    </ReportField>
+                    <ReportField Name="AMOrigParentLineNbr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="AMParentLineNbr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="AMProdBaseQtyComplete">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="AMProdCreate">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="AMProdOrdID">
+                    </ReportField>
+                    <ReportField Name="AMProdOrdID_AMProdItem_descr">
+                    </ReportField>
+                    <ReportField Name="AMProdOrdID_description">
+                    </ReportField>
+                    <ReportField Name="AMProdQtyComplete">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="AMProdStatusID">
+                    </ReportField>
+                    <ReportField Name="AMQtyReadOnly">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="AMSelected">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="AMUOMReadOnly">
+                    </ReportField>
+                    <ReportField Name="AutoCreateIssueLine">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="AvgCost">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="BaseBilledQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="BaseClosedQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="BaseOpenQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="BaseOrderQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="BaseQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="BaseShippedQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="BaseUnbilledQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="Behavior">
+                    </ReportField>
+                    <ReportField Name="BilledAmt">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="BilledQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="BranchID">
+                    </ReportField>
+                    <ReportField Name="BranchID_Branch_acctName">
+                    </ReportField>
+                    <ReportField Name="BranchID_description">
+                    </ReportField>
+                    <ReportField Name="BranchID_Segment1">
+                    </ReportField>
+                    <ReportField Name="CalculateDiscountsOnImport">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="CancelDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="CancelDate_Day">
+                    </ReportField>
+                    <ReportField Name="CancelDate_Hour">
+                    </ReportField>
+                    <ReportField Name="CancelDate_Month">
+                    </ReportField>
+                    <ReportField Name="CancelDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="ClosedQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="Commissionable">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="CommitmentID">
+                        <DataType>Object</DataType>
+                    </ReportField>
+                    <ReportField Name="CommnAmt">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="CommnPct">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="Completed">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="CompleteQtyMax">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="CompleteQtyMin">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="CostCodeID">
+                    </ReportField>
+                    <ReportField Name="CostCodeID_description">
+                    </ReportField>
+                    <ReportField Name="CostCodeID_PMCostCode_description">
+                    </ReportField>
+                    <ReportField Name="CostCodeID_Segment1">
+                    </ReportField>
+                    <ReportField Name="CreatedByID">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_displayName">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_Username">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_description">
+                    </ReportField>
+                    <ReportField Name="CreatedByScreenID">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="CuryBilledAmt">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="CuryCommnAmt">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="CuryDiscAmt">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="CuryDiscPrice">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="CuryExtCost">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="CuryExtPrice">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="CuryInfoID">
+                        <DataType>Int64</DataType>
+                    </ReportField>
+                    <ReportField Name="CuryLineAmt">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="CuryOpenAmt">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="CuryRate">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="CuryUnbilledAmt">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="CuryUnitCost">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="CuryUnitPrice">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="CuryUnitPriceDR">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="CuryViewState">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="CustomerID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="DefScheduleID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="DiscAmt">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="DiscountID">
+                    </ReportField>
+                    <ReportField Name="DiscountSequenceID">
+                    </ReportField>
+                    <ReportField Name="DiscPct">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="DiscPctDR">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="DiscPrice">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="DocumentDiscountRate">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="DRTermEndDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="DRTermEndDate_Day">
+                    </ReportField>
+                    <ReportField Name="DRTermEndDate_Hour">
+                    </ReportField>
+                    <ReportField Name="DRTermEndDate_Month">
+                    </ReportField>
+                    <ReportField Name="DRTermEndDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="DRTermStartDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="DRTermStartDate_Day">
+                    </ReportField>
+                    <ReportField Name="DRTermStartDate_Hour">
+                    </ReportField>
+                    <ReportField Name="DRTermStartDate_Month">
+                    </ReportField>
+                    <ReportField Name="DRTermStartDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="ExpireDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="ExpireDate_Day">
+                    </ReportField>
+                    <ReportField Name="ExpireDate_Hour">
+                    </ReportField>
+                    <ReportField Name="ExpireDate_Month">
+                    </ReportField>
+                    <ReportField Name="ExpireDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="ExtCost">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="ExtPrice">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="ExtVolume">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="ExtWeight">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="FreezeManualDisc">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="GroupDiscountRate">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="HasMixedProjectTasks">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="InventoryID">
+                    </ReportField>
+                    <ReportField Name="InventoryID_description">
+                    </ReportField>
+                    <ReportField Name="InventoryID_InventoryItem_descr">
+                    </ReportField>
+                    <ReportField Name="InventoryID_Segment1">
+                    </ReportField>
+                    <ReportField Name="InvoiceDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="InvoiceDate_Day">
+                    </ReportField>
+                    <ReportField Name="InvoiceDate_Hour">
+                    </ReportField>
+                    <ReportField Name="InvoiceDate_Month">
+                    </ReportField>
+                    <ReportField Name="InvoiceDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="InvoiceLineNbr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="InvoiceNbr">
+                    </ReportField>
+                    <ReportField Name="InvoiceType">
+                    </ReportField>
+                    <ReportField Name="InvtMult">
+                        <DataType>Int16</DataType>
+                    </ReportField>
+                    <ReportField Name="IsConfigurable">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="IsCut">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="IsFree">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="IsKit">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="IsOrderTypeConfigurable">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="IsPromotionalPrice">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="IsStockItem">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="ItemHasResidual">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="ItemRequiresTerms">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_description">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_displayName">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_Username">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByScreenID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="LineAmt">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="LineNbr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="LineQtyAvail">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="LineQtyHardAvail">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="LineType">
+                    </ReportField>
+                    <ReportField Name="LocationID">
+                    </ReportField>
+                    <ReportField Name="LocationID_description">
+                    </ReportField>
+                    <ReportField Name="LocationID_INLocation_descr">
+                    </ReportField>
+                    <ReportField Name="LocationID_Segment1">
+                    </ReportField>
+                    <ReportField Name="LotSerialNbr">
+                    </ReportField>
+                    <ReportField Name="ManualDisc">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="ManualPrice">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="NoteActivity">
+                    </ReportField>
+                    <ReportField Name="NoteFiles">
+                    </ReportField>
+                    <ReportField Name="NoteID">
+                        <DataType>Object</DataType>
+                    </ReportField>
+                    <ReportField Name="NoteImages">
+                    </ReportField>
+                    <ReportField Name="NoteText">
+                    </ReportField>
+                    <ReportField Name="OpenAmt">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="OpenLine">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="OpenQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="Operation">
+                    </ReportField>
+                    <ReportField Name="OrderDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="OrderDate_Day">
+                    </ReportField>
+                    <ReportField Name="OrderDate_Hour">
+                    </ReportField>
+                    <ReportField Name="OrderDate_Month">
+                    </ReportField>
+                    <ReportField Name="OrderDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="OrderNbr">
+                    </ReportField>
+                    <ReportField Name="OrderQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="OrderType">
+                    </ReportField>
+                    <ReportField Name="OrigLineNbr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="OrigOrderNbr">
+                    </ReportField>
+                    <ReportField Name="OrigOrderType">
+                    </ReportField>
+                    <ReportField Name="OrigPlanType">
+                    </ReportField>
+                    <ReportField Name="PlanType">
+                    </ReportField>
+                    <ReportField Name="POCreate">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="POCreated">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="POSiteID">
+                    </ReportField>
+                    <ReportField Name="POSiteID_description">
+                    </ReportField>
+                    <ReportField Name="POSiteID_INSite_descr">
+                    </ReportField>
+                    <ReportField Name="POSiteID_Segment1">
+                    </ReportField>
+                    <ReportField Name="POSource">
+                    </ReportField>
+                    <ReportField Name="PriceType">
+                    </ReportField>
+                    <ReportField Name="ProjectID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="Qty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyOnHand">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="ReasonCode">
+                    </ReportField>
+                    <ReportField Name="ReasonCode_description">
+                    </ReportField>
+                    <ReportField Name="ReasonCode_ReasonCode_descr">
+                    </ReportField>
+                    <ReportField Name="RequestDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="RequestDate_Day">
+                    </ReportField>
+                    <ReportField Name="RequestDate_Hour">
+                    </ReportField>
+                    <ReportField Name="RequestDate_Month">
+                    </ReportField>
+                    <ReportField Name="RequestDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="RequireAllocation">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="RequireLocation">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="RequireReasonCode">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="RequireShipping">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="SalesAcctID">
+                    </ReportField>
+                    <ReportField Name="SalesAcctID_Account_description">
+                    </ReportField>
+                    <ReportField Name="SalesAcctID_description">
+                    </ReportField>
+                    <ReportField Name="SalesAcctID_Segment1">
+                    </ReportField>
+                    <ReportField Name="SalesPersonID">
+                    </ReportField>
+                    <ReportField Name="SalesPersonID_description">
+                    </ReportField>
+                    <ReportField Name="SalesPersonID_SalesPerson_descr">
+                    </ReportField>
+                    <ReportField Name="SalesPersonID_Segment1">
+                    </ReportField>
+                    <ReportField Name="SalesSubID">
+                    </ReportField>
+                    <ReportField Name="SalesSubID_description">
+                    </ReportField>
+                    <ReportField Name="SalesSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="SalesSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="SalesSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="ShipComplete">
+                    </ReportField>
+                    <ReportField Name="ShipDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="ShipDate_Day">
+                    </ReportField>
+                    <ReportField Name="ShipDate_Hour">
+                    </ReportField>
+                    <ReportField Name="ShipDate_Month">
+                    </ReportField>
+                    <ReportField Name="ShipDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="ShippedQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="SiteID">
+                    </ReportField>
+                    <ReportField Name="SiteID_description">
+                    </ReportField>
+                    <ReportField Name="SiteID_INSite_descr">
+                    </ReportField>
+                    <ReportField Name="SiteID_Segment1">
+                    </ReportField>
+                    <ReportField Name="SkipDisc">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="SortOrder">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="SubItemID">
+                    </ReportField>
+                    <ReportField Name="SubItemID_Segment1">
+                    </ReportField>
+                    <ReportField Name="TaskID">
+                    </ReportField>
+                    <ReportField Name="TaskID_description">
+                    </ReportField>
+                    <ReportField Name="TaskID_PMTask_description">
+                    </ReportField>
+                    <ReportField Name="TaskID_Segment1">
+                    </ReportField>
+                    <ReportField Name="TaxCategoryID">
+                    </ReportField>
+                    <ReportField Name="TaxCategoryID_description">
+                    </ReportField>
+                    <ReportField Name="TaxCategoryID_TaxCategory_descr">
+                    </ReportField>
+                    <ReportField Name="TotalCost">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="TranDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="TranDesc">
+                    </ReportField>
+                    <ReportField Name="TranType">
+                    </ReportField>
+                    <ReportField Name="tstamp">
+                    </ReportField>
+                    <ReportField Name="UnassignedQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="UnbilledAmt">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="UnbilledQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="UnitCost">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="UnitPrice">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="UnitVolume">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="UnitWeigth">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="UOM">
+                    </ReportField>
+                    <ReportField Name="UsrPIUnitPrice">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="VendorID">
+                    </ReportField>
+                    <ReportField Name="VendorID_BAccountR_acctName">
+                    </ReportField>
+                    <ReportField Name="VendorID_description">
+                    </ReportField>
+                    <ReportField Name="VendorID_Segment1">
+                    </ReportField>
+                    <ReportField Name="VendorID_Vendor_acctName">
+                    </ReportField>
+                </Fields>
+                <FullName>PX.Objects.SO.SOLine</FullName>
+            </ReportTable>
+            <ReportTable Name="v_COCReport">
+                <Fields>
+                    <ReportField Name="DetailedDesc">
+                    </ReportField>
+                    <ReportField Name="EndCustomer">
+                    </ReportField>
+                    <ReportField Name="InventoryID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="OrderNbr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="ProductDesc">
+                    </ReportField>
+                    <ReportField Name="Title">
+                    </ReportField>
+                </Fields>
+                <FullName>LUMCustomizations.v_COCReport</FullName>
+            </ReportTable>
+        </Tables>
+        <Sections>
+            <PageHeader Name="pageHeaderSection1">
+                <Height>0px</Height>
+                <Visible>False</Visible>
+            </PageHeader>
+            <Detail Name="detailSection1">
+                <Height>11.64021cm</Height>
+                <Items>
+                    <TextBox Name="textBox17">
+                        <Location>184px, 0px</Location>
+                        <Size>328px, 48px</Size>
+                        <Style>
+                            <Font>
+                                <Size>20px</Size>
+                                <Style>Underline</Style>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>=[v_COCReport.Title]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox2">
+                        <CanGrow>True</CanGrow>
+                        <CanSplit>True</CanSplit>
+                        <Location>24px, 64px</Location>
+                        <Size>640px, 176px</Size>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>=[v_COCReport.ProductDesc]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox3">
+                        <CanGrow>True</CanGrow>
+                        <CanSplit>True</CanSplit>
+                        <Location>24px, 240px</Location>
+                        <Size>640px, 200px</Size>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>=[v_COCReport.DetailedDesc]</Value>
+                    </TextBox>
+                </Items>
+            </Detail>
+            <PageFooter Name="pageFooterSection1">
+                <Height>0px</Height>
+                <Visible>False</Visible>
+            </PageFooter>
+        </Sections>
+        <Items />
+        <Groups>
+            <Group Name="TitleGrp">
+                <Grouping>
+                    <GroupExp>
+                        <DataField>=[v_COCReport.InventoryID]</DataField>
+                    </GroupExp>
+                    <GroupExp>
+                        <DataField>=[v_COCReport.OrderNbr]</DataField>
+                    </GroupExp>
+                </Grouping>
+                <Headers>
+                    <Header Name="groupHeaderSection1">
+                        <Height>1.90476cm</Height>
+                        <Items>
+                            <Panel Name="panel1">
+                                <Location>24px, 0px</Location>
+                                <Size>640px, 72px</Size>
+                                <Style>
+                                    <BorderColor>
+                                        <Default>Black</Default>
+                                    </BorderColor>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Default>1px</Default>
+                                    </BorderWidth>
+                                </Style>
+                                <Items>
+                                    <PictureBox Name="pictureBox1">
+                                        <Location>0px, 0px</Location>
+                                        <MimeType>image/jpeg</MimeType>
+                                        <QRCodeSettings />
+                                        <Size>280px, 72px</Size>
+                                        <Source>Embedded</Source>
+                                        <Value>aba_dg_logo</Value>
+                                    </PictureBox>
+                                    <TextBox Name="textBox1">
+                                        <Location>304px, 0px</Location>
+                                        <Size>336px, 72px</Size>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>='Address: Sha Bu Industrial park 32#, Qiao Long, Tang Xia,#010;                 Dong Guan, Guang Dong, China  #010;Tel: 86-769-82005983#010;Fax: 86-769-82005981 Website: www.americanbiosurgical.com'</Value>
+                                    </TextBox>
+                                </Items>
+                            </Panel>
+                        </Items>
+                    </Header>
+                </Headers>
+                <Footers>
+                    <Footer Name="groupFooterSection1">
+                        <Height>13.54497cm</Height>
+                        <PageBreak>After</PageBreak>
+                        <ProcessOrder>Always</ProcessOrder>
+                        <Items>
+                            <Panel Name="panel2">
+                                <Location>144px, 40px</Location>
+                                <Size>176px, 16px</Size>
+                                <Style>
+                                    <BorderColor>
+                                        <Default>Black</Default>
+                                    </BorderColor>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Default>1px</Default>
+                                    </BorderWidth>
+                                </Style>
+                                <Items>
+                                    <TextBox Name="textBox9">
+                                        <Location>0px, 0px</Location>
+                                        <Size>176px, 16px</Size>
+                                        <Style>
+                                            <TextAlign>Center</TextAlign>
+                                        </Style>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>=[LumShipmentPlan.CustomerOrderNbr]</Value>
+                                    </TextBox>
+                                </Items>
+                            </Panel>
+                            <Panel Name="panel3">
+                                <Location>144px, 112px</Location>
+                                <Size>176px, 16px</Size>
+                                <Style>
+                                    <BorderColor>
+                                        <Default>Black</Default>
+                                    </BorderColor>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Default>1px</Default>
+                                    </BorderWidth>
+                                </Style>
+                                <Items>
+                                    <TextBox Name="textBox12">
+                                        <Location>0px, 0px</Location>
+                                        <Size>176px, 16px</Size>
+                                        <Style>
+                                            <TextAlign>Center</TextAlign>
+                                        </Style>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>=[LumShipmentPlan.PlannedShipQty]+[SOLine.UOM]</Value>
+                                    </TextBox>
+                                </Items>
+                            </Panel>
+                            <Panel Name="panel4">
+                                <Location>144px, 64px</Location>
+                                <Size>176px, 16px</Size>
+                                <Style>
+                                    <BorderColor>
+                                        <Default>Black</Default>
+                                    </BorderColor>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Default>1px</Default>
+                                    </BorderWidth>
+                                </Style>
+                                <Items>
+                                    <TextBox Name="textBox10">
+                                        <Location>0px, 0px</Location>
+                                        <Size>176px, 16px</Size>
+                                        <Style>
+                                            <TextAlign>Center</TextAlign>
+                                        </Style>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>=[SOLine.AlternateID]</Value>
+                                    </TextBox>
+                                </Items>
+                            </Panel>
+                            <Panel Name="panel5">
+                                <Location>144px, 88px</Location>
+                                <Size>176px, 16px</Size>
+                                <Style>
+                                    <BorderColor>
+                                        <Default>Black</Default>
+                                    </BorderColor>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Default>1px</Default>
+                                    </BorderWidth>
+                                </Style>
+                                <Items>
+                                    <TextBox Name="textBox11">
+                                        <Location>0px, 0px</Location>
+                                        <Size>176px, 16px</Size>
+                                        <Style>
+                                            <TextAlign>Center</TextAlign>
+                                        </Style>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>=[LumShipmentPlan.LotSerialNbr]</Value>
+                                    </TextBox>
+                                </Items>
+                            </Panel>
+                            <Panel Name="panel6">
+                                <Location>448px, 224px</Location>
+                                <Size>184px, 16px</Size>
+                                <StyleName>Top Line</StyleName>
+                                <Items>
+                                    <TextBox Name="textBox14">
+                                        <Location>0px, 0px</Location>
+                                        <Size>184px, 16px</Size>
+                                        <Style>
+                                            <TextAlign>Left</TextAlign>
+                                        </Style>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>DATE</Value>
+                                    </TextBox>
+                                </Items>
+                            </Panel>
+                            <Panel Name="panel7">
+                                <Location>24px, 224px</Location>
+                                <Size>184px, 32px</Size>
+                                <StyleName>Top Line</StyleName>
+                                <Items>
+                                    <TextBox Name="textBox13">
+                                        <Location>0px, 0px</Location>
+                                        <Size>184px, 32px</Size>
+                                        <Style>
+                                            <TextAlign>Center</TextAlign>
+                                        </Style>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>='Sally{br}Quality Supervisor'</Value>
+                                    </TextBox>
+                                </Items>
+                            </Panel>
+                            <Panel Name="panel8">
+                                <Location>24px, 384px</Location>
+                                <ProcessOrder>Always</ProcessOrder>
+                                <Size>616px, 120px</Size>
+                                <StyleName>Top Line</StyleName>
+                                <Items>
+                                    <TextBox Name="textBox15">
+                                        <Location>0px, 0px</Location>
+                                        <Size>568px, 120px</Size>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>='东莞美博电子有限公司 #010;地址：中国.广东.东莞市塘厦镇桥陇沙布工业区32号 电话：+86 769 82005983 传真：+86 769 82005981 网址：www.americanbiosurgical.com #010;Form number: FQC-092/Rev.01 '</Value>
+                                    </TextBox>
+                                    <TextBox Name="textBox16">
+                                        <Location>568px, 40px</Location>
+                                        <ProcessOrder>WhilePrint</ProcessOrder>
+                                        <Size>48px, 16px</Size>
+                                        <Value>=[PageIndex]+'/'+[PageCount]</Value>
+                                    </TextBox>
+                                </Items>
+                            </Panel>
+                            <TextBox Name="textBox4">
+                                <Location>24px, 16px</Location>
+                                <Size>168px, 16px</Size>
+                                <StyleName>ChineseFont</StyleName>
+                                <Value>For the following shipment:</Value>
+                            </TextBox>
+                            <TextBox Name="textBox5">
+                                <Location>24px, 40px</Location>
+                                <Size>112px, 16px</Size>
+                                <StyleName>ChineseFont</StyleName>
+                                <Value>1.P/O</Value>
+                            </TextBox>
+                            <TextBox Name="textBox6">
+                                <Location>24px, 64px</Location>
+                                <Size>112px, 16px</Size>
+                                <StyleName>ChineseFont</StyleName>
+                                <Value>2.Customer P/N</Value>
+                            </TextBox>
+                            <TextBox Name="textBox7">
+                                <Location>24px, 88px</Location>
+                                <Size>112px, 16px</Size>
+                                <StyleName>ChineseFont</StyleName>
+                                <Value>3.Lot No</Value>
+                            </TextBox>
+                            <TextBox Name="textBox8">
+                                <Location>24px, 112px</Location>
+                                <Size>112px, 16px</Size>
+                                <StyleName>ChineseFont</StyleName>
+                                <Value>4.Lot Size</Value>
+                            </TextBox>
+                        </Items>
+                    </Footer>
+                </Footers>
+            </Group>
+        </Groups>
+    </Report>
+</Report>

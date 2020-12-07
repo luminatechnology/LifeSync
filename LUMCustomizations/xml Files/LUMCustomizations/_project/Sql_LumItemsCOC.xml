@@ -1,0 +1,32 @@
+﻿<Sql TableName="LumItemsCOC" TableSchemaXml="#CDATA">
+    <CDATA name="TableSchemaXml"><![CDATA[<table name="LumItemsCOC">
+  <col name="CompanyID" type="Int" default="Zero" />
+  <col name="InventoryID" type="Int" />
+  <col name="EndCustomer" type="NVarChar(256)" />
+  <col name="MaterialProductDesc" type="NVarChar(MAX)" nullable="true" />
+  <col name="MaterialDetailedDesc" type="NVarChar(MAX)" nullable="true" />
+  <col name="COCProductDesc" type="NVarChar(MAX)" nullable="true" />
+  <col name="COCDetailedDesc" type="NVarChar(MAX)" nullable="true" />
+  <col name="TESTProductDesc" type="NVarChar(MAX)" nullable="true" />
+  <col name="TESTDetailedDesc" type="NVarChar(MAX)" nullable="true" />
+  <col name="REROHSProductDesc" type="NVarChar(MAX)" nullable="true" />
+  <col name="REROHSDetailedDesc" type="NVarChar(MAX)" nullable="true" />
+  <col name="REACHProductDesc" type="NVarChar(MAX)" nullable="true" />
+  <col name="REACHDetailedDesc" type="NVarChar(MAX)" nullable="true" />
+  <col name="COMPLIANTProductDesc" type="NVarChar(MAX)" nullable="true" />
+  <col name="COMPLIANTDetailedDesc" type="NVarChar(MAX)" nullable="true" />
+  <col name="QCProductDesc" type="NVarChar(MAX)" nullable="true" />
+  <col name="QCDetailedDesc" type="NVarChar(MAX)" nullable="true" />
+  <col name="CreatedByID" type="UniqueIdentifier" />
+  <col name="CreatedByScreenID" type="Char(8)" />
+  <col name="CreatedDateTime" type="DateTime" />
+  <col name="LastModifiedByID" type="UniqueIdentifier" />
+  <col name="LastModifiedByScreenID" type="Char(8)" />
+  <col name="LastModifiedDateTime" type="DateTime" />
+  <col name="tstamp" type="Timestamp" />
+  <index name="PK_LumItemsCOC" clustered="true" primary="true" unique="true">
+    <col name="CompanyID" />
+    <col name="InventoryID" />
+  </index>
+</table>]]></CDATA>
+</Sql>

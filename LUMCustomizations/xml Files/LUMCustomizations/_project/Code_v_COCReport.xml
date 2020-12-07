@@ -1,0 +1,54 @@
+﻿<Graph ClassName="v_COCReport" Source="#CDATA" IsNew="True" FileType="NewDac">
+    <CDATA name="Source"><![CDATA[using System;
+using PX.Data;
+
+namespace LUMCustomizations
+{
+  [Serializable]
+  [PXCacheName("v_COCReport")]
+  public class v_COCReport : IBqlTable
+  {
+    #region InventoryID
+    [PXDBInt(IsKey = true)]
+    [PXUIField(DisplayName = "Inventory ID")]
+    public virtual int? InventoryID { get; set; }
+    public abstract class inventoryID : PX.Data.BQL.BqlInt.Field<inventoryID> { }
+    #endregion
+
+    #region EndCustomer
+    [PXDBString(256, IsUnicode = true, InputMask = "")]
+    [PXUIField(DisplayName = "End Customer")]
+    public virtual string EndCustomer { get; set; }
+    public abstract class endCustomer : PX.Data.BQL.BqlString.Field<endCustomer> { }
+    #endregion
+
+    #region Title
+    [PXDBString(36, InputMask = "",IsKey = true)]
+    [PXUIField(DisplayName = "Title")]
+    public virtual string Title { get; set; }
+    public abstract class title : PX.Data.BQL.BqlString.Field<title> { }
+    #endregion
+
+    #region ProductDesc
+    [PXDBString(IsUnicode = true, InputMask = "")]
+    [PXUIField(DisplayName = "Product Desc")]
+    public virtual string ProductDesc { get; set; }
+    public abstract class productDesc : PX.Data.BQL.BqlString.Field<productDesc> { }
+    #endregion
+
+    #region DetailedDesc
+    [PXDBString(IsUnicode = true, InputMask = "")]
+    [PXUIField(DisplayName = "Detailed Desc")]
+    public virtual string DetailedDesc { get; set; }
+    public abstract class detailedDesc : PX.Data.BQL.BqlString.Field<detailedDesc> { }
+    #endregion
+
+    #region OrderNbr
+    [PXDBInt()]
+    [PXUIField(DisplayName = "Order Nbr")]
+    public virtual int? OrderNbr { get; set; }
+    public abstract class orderNbr : PX.Data.BQL.BqlInt.Field<orderNbr> { }
+    #endregion
+  }
+}]]></CDATA>
+</Graph>

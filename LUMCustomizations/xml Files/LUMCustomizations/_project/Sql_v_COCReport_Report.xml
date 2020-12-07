@@ -1,0 +1,87 @@
+﻿<Sql TableName="v_COCReport_Report" CustomScript="#CDATA">
+    <CDATA name="CustomScript"><![CDATA[IF EXISTS
+(
+	SELECT *
+	FROM SYS.views
+	WHERE name = 'v_COCReport' AND SCHEMA_ID = SCHEMA_ID('dbo')
+)
+DROP VIEW [dbo].v_COCReport	
+GO
+CREATE VIEW v_COCReport AS
+	select Companyid,
+		   InventoryID,
+		   EndCustomer,
+		   'MATERIAL CERTIFICATE' AS Title,
+		   MaterialProductDesc AS ProductDesc,
+		   MaterialDetailedDesc AS DetailedDesc,
+		   1 AS OrderNbr
+	from LumItemsCOC
+	where MaterialProductDesc is not null
+	   OR MaterialDetailedDesc is not null
+	union
+	select Companyid,
+		   InventoryID,
+		   EndCustomer,
+		   'CERTIFICATE OF CONFORMANCE' AS Title,
+		   COCProductDesc AS ProductDesc,
+		   COCDetailedDesc AS DetailedDesc,
+		   2 AS OrderNbr
+	from LumItemsCOC
+	where COCProductDesc is not null
+	   OR COCDetailedDesc is not null
+	union
+	select Companyid,
+		   InventoryID,
+		   EndCustomer,
+		   'TEST CERTIFICATE' AS Title,
+		   TESTProductDesc AS ProductDesc,
+		   TESTDetailedDesc AS DetailedDesc,
+		   3 AS OrderNbr
+	from LumItemsCOC
+	where TESTProductDesc is not null
+	   OR TESTDetailedDesc is not null
+	union
+	select Companyid,
+		   InventoryID,
+		   EndCustomer,
+		   'ROHS COMPLIANT CERTIFICATE' AS Title,
+		   REROHSProductDesc AS ProductDesc,
+		   REROHSDetailedDesc AS DetailedDesc,
+		   4 AS OrderNbr
+	from LumItemsCOC
+	where REROHSProductDesc is not null
+	   OR REROHSDetailedDesc is not null
+	union
+	select Companyid,
+		   InventoryID,
+		   EndCustomer,
+		   'ROHS AND REACH COMPLIANT CERTIFICATE' AS Title,
+		   REACHProductDesc AS ProductDesc,
+		   REACHDetailedDesc AS DetailedDesc,
+		   5 AS OrderNbr
+	from LumItemsCOC
+	where REACHProductDesc is not null
+	   OR REACHDetailedDesc is not null
+	union
+	select Companyid,
+		   InventoryID,
+		   EndCustomer,
+		   'MATERIAL COMPLIANT CERTIFICATE' AS Title,
+		   COMPLIANTProductDesc AS ProductDesc,
+		   COMPLIANTDetailedDesc AS DetailedDesc,
+		   6 AS OrderNbr
+	from LumItemsCOC
+	where COMPLIANTProductDesc is not null
+	   OR COMPLIANTDetailedDesc is not null
+	union
+	select Companyid,
+		   InventoryID,
+		   EndCustomer,
+		   'QC CERTIFICATE' AS Title,
+		   QCProductDesc AS ProductDesc,
+		   QCDetailedDesc AS DetailedDesc,
+		   7 AS OrderNbr
+	from LumItemsCOC
+	where QCProductDesc is not null
+	   OR QCDetailedDesc is not null]]></CDATA>
+</Sql>
