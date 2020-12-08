@@ -1,0 +1,24 @@
+﻿<Sql TableName="AVLLine" TableSchemaXml="#CDATA">
+    <CDATA name="TableSchemaXml"><![CDATA[<table name="AVLLine">
+  <col name="AVLNbr" type="NVarChar(20)" />
+  <col name="OrigAVLNbr" type="NVarChar(20)" nullable="true" />
+  <col name="LineNbr" type="Int" />
+  <col name="CompanyID" type="Int" default="Zero" />
+  <col name="VendorID" type="Int" />
+  <col name="VendorName" type="NVarChar(60)" />
+  <col name="InventoryID" type="Int" />
+  <col name="InventoryDesc" type="NVarChar(256)" nullable="true" />
+  <col name="Remark" type="NVarChar(255)" nullable="true" />
+  <col name="CreatedByID" type="UniqueIdentifier" />
+  <col name="CreatedByScreenID" type="Char(8)" />
+  <col name="CreatedDateTime" type="DateTime" />
+  <col name="LastModifiedByID" type="UniqueIdentifier" />
+  <col name="LastModifiedByScreenID" type="Char(8)" />
+  <col name="LastModifiedDateTime" type="DateTime" />
+  <index name="PK__AVLLine__ECB170B6023CA88F" clustered="true" primary="true" unique="true">
+    <col name="AVLNbr" />
+    <col name="LineNbr" />
+    <col name="CompanyID" />
+  </index>
+</table>]]></CDATA>
+</Sql>

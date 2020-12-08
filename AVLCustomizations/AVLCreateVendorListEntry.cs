@@ -1,6 +1,9 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Web;
 using PX.Data;
+using PX.Data.BQL;
 using PX.Data.BQL.Fluent;
 using PX.Objects.AP;
 using PX.Objects.CS;
@@ -20,11 +23,16 @@ namespace AVLCustomizations
 
         /* Declaration of the data view */
         public PXSelect<AVLTable> AVLTableView;
-        public PXSelect<AVLEvent> AVLEventView;
         public SelectFrom<AVLLine>.Where<AVLLine.avlnbr.IsEqual<AVLTable.avlnbr.FromCurrent>>.View AVLLineView;
         public SelectFrom<AVLEvent>.Where<AVLEvent.avlnbr.IsEqual<AVLTable.avlnbr.FromCurrent>
-                                          .And<AVLEvent.action.IsEqual<constCurrentPage>>>
+                                     .And<AVLEvent.action.IsEqual<constCurrentPage>>>
                                    .OrderBy<Desc<AVLEvent.eventID>>.View EventHistoryView;
+
+        /* Override SetNumberingId<> by event */
+        public void _(Events.RowPersisting<AVLTable> eAVLTable)
+        {
+            AutoNumberAttribute.SetNumberingId<AVLTable.avlnbr>(eAVLTable.Cache, "AVL"); //AVL is the numbering sequence setting in system
+        }
 
         public void Initialize()
         {
@@ -135,30 +143,33 @@ namespace AVLCustomizations
         [PXUIField(DisplayName = "Submit", Enabled = false)]
         protected void submitAction()
         {
-            Actions.PressSave(); // get AVLTable number
-            //Previous.PressButton();
+            if ((AVLLine)this.Caches[typeof(AVLLine)].Current == null)
+            {
+                throw new PXException($"Please add a row in DOCUMENT DEATIAL at least.");
+            }
 
+            this.Save.Press();
+            var curAVLTableCache = (AVLTable)this.Caches[typeof(AVLTable)].Current;
+            string url = $"{PX.Common.PXUrl.SiteUrlWithPath()}/Main?ScreenId={PXSiteMap.CurrentScreenID}&{nameof(AVLTable.avlnbr)}={curAVLTableCache.Avlnbr}";
+
+            doSubmit();
+            PX.Data.Redirector.RefreshPage(System.Web.HttpContext.Current, url);
+        }
+        #endregion
+
+        #region
+        protected void doSubmit()
+        {
             var curAVLTableCache = (AVLTable)this.Caches[typeof(AVLTable)].Current;
             if (curAVLTableCache.AVLStatus.Trim().Equals(dicAVLTableStatus["OnHold"]))
             {
-                
-                //AVLTableView.UpdateCurrent();
-                
-                var curAVLLineCache = (AVLLine)this.Caches[typeof(AVLLine)].Current;
-                if (curAVLLineCache == null)
-                {
-                    //SubmitAction.SetEnabled(false);
-                }
-                else
-                {
-                        curAVLTableCache.AVLStatus = dicAVLTableStatus["Submitted"];
-                        AVLTableView.UpdateCurrent(); // reload the AVLTable Form
-                        Actions.PressSave();
-                        insertAVLEvent(currentPage);
+                curAVLTableCache.AVLStatus = dicAVLTableStatus["Submitted"];
+                AVLTableView.UpdateCurrent(); // reload the AVLTable Form
+                Actions.PressSave();
+                insertAVLEvent(currentPage);
 
-                        //Layout
-                        //buttonEnable(curAVLTableCache.AVLStatus);
-                }
+                //Layout
+                buttonEnable(curAVLTableCache.AVLStatus);
             }
         }
         #endregion
@@ -220,24 +231,12 @@ namespace AVLCustomizations
         #endregion
 
         #region Event Handlers
-        /* Override SetNumberingId<> by event */
-        protected void _(Events.RowPersisting<AVLTable> e)
-        {
-            AutoNumberAttribute.SetNumberingId<AVLTable.avlnbr>(e.Cache, "AVL"); //AVL is the numbering sequence setting in system
-        }
 
         protected void AVLTable_AVLAction_FieldDefaulting(PXCache cache, PXFieldDefaultingEventArgs e)
         {
             var row = (AVLTable)e.Row;
             row.AVLAction = "Create";
         }
-
-        //protected void AVLLine_RowSelected(PXCache cache, PXRowSelectedEventArgs e)
-        //{
-        //    var row = (AVLLine)e.Row;
-        //    if (row != null)
-        //        SubmitAction.SetEnabled(true);
-        //}
 
         protected void AVLLine_VendorID_FieldUpdated(PXCache cache, PXFieldUpdatedEventArgs e)
         {

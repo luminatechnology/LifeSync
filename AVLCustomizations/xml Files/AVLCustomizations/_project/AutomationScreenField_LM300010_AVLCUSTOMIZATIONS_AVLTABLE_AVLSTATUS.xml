@@ -1,0 +1,3 @@
+﻿<AutomationScreenField ScreenID="LM300010" TableName="AVLCUSTOMIZATIONS.AVLTABLE" FieldName="AVLSTATUS" IsUserDefinedField="False">
+    <Prop Name="DisplayName" DisplayName="Display Name" IsCustomized="True" Value="Status" />
+</AutomationScreenField>

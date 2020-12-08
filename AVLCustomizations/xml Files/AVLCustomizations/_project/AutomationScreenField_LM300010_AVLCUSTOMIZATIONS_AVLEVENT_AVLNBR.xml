@@ -1,0 +1,5 @@
+﻿<AutomationScreenField ScreenID="LM300010" TableName="AVLCUSTOMIZATIONS.AVLEVENT" FieldName="AVLNBR" IsUserDefinedField="False">
+    <Prop Name="IsVisible" DisplayName="Visible" IsCustomized="True" Value="False" />
+    <Prop Name="DisplayName" DisplayName="Display Name" IsCustomized="True" Value="AVL Nbr" />
+    <Prop Name="IsEnabled" DisplayName="Enabled" IsCustomized="True" Value="False" />
+</AutomationScreenField>

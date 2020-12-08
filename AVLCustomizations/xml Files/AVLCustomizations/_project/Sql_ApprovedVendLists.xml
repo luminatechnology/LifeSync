@@ -1,0 +1,28 @@
+﻿<Sql TableName="ApprovedVendLists" TableSchemaXml="#CDATA">
+    <CDATA name="TableSchemaXml"><![CDATA[<table name="ApprovedVendLists">
+  <col name="AVLNbr" type="NVarChar(20)" />
+  <col name="LineNbr" type="Int" />
+  <col name="CompanyID" type="Int" default="Zero" />
+  <col name="AVLStatus" type="NVarChar(2)" />
+  <col name="AVLDate" type="DateTime" />
+  <col name="Descripton" type="NVarChar(256)" nullable="true" />
+  <col name="VendorID" type="Int" />
+  <col name="VendorName" type="NVarChar(255)" />
+  <col name="InventoryID" type="Int" />
+  <col name="InventoryDesc" type="NVarChar(256)" nullable="true" />
+  <col name="Remark" type="NVarChar(255)" nullable="true" />
+  <col name="ApprovedByID" type="UniqueIdentifier" />
+  <col name="ApprovedDateTime" type="DateTime" default="CurrentDateTime" />
+  <col name="CreatedByID" type="UniqueIdentifier" />
+  <col name="CreatedByScreenID" type="Char(8)" />
+  <col name="CreatedDateTime" type="DateTime" />
+  <col name="LastModifiedByID" type="UniqueIdentifier" />
+  <col name="LastModifiedByScreenID" type="Char(8)" />
+  <col name="LastModifiedDateTime" type="DateTime" />
+  <index name="PK__Approved__ECB170B6A12C92E1" clustered="true" primary="true" unique="true">
+    <col name="AVLNbr" />
+    <col name="LineNbr" />
+    <col name="CompanyID" />
+  </index>
+</table>]]></CDATA>
+</Sql>

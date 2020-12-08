@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using PX.Data;
+using PX.Data.BQL;
 using PX.Data.BQL.Fluent;
 using PX.Objects.AP;
 using PX.Objects.CS;
@@ -23,16 +24,16 @@ namespace AVLCustomizations
             public constStatusApproved() : base(statusIsApproved) { }
         }
 
-        public PXFilter<ApprVendListsFilter> Filter;
 
         public PXSetup<APSetup> apSetup;
 
         /* Declaration of the data view */
         public SelectFrom<AVLTable>.View AVLTableView;
-        
+
+        public PXFilter<ApprVendListsFilter> Filter;
         public SelectFrom<ApprovedVendLists>.Where<ApprovedVendLists.avlnbr.IsEqual<ApprVendListsFilter.avlnbr.FromCurrent>.
                                                And<ApprovedVendLists.aVLStatus.IsEqual<constStatusApproved>>>.View ApprovedVendListsDialogView;
-
+        
         public SelectFrom<AVLLine>.
                  LeftJoin<ApprovedVendLists>.On<AVLLine.avlnbr.IsEqual<ApprovedVendLists.avlnbr>.
                       And<AVLLine.lineNbr.IsEqual<ApprovedVendLists.lineNbr>>>.
@@ -159,29 +160,56 @@ namespace AVLCustomizations
         [PXUIField(DisplayName = "Submit", Enabled = false)]
         protected void submitAction()
         {
-            Actions.PressSave(); // get AVLTable number
+            
+            if ((AVLLine)this.Caches[typeof(AVLLine)].Current == null)
+            {
+                throw new PXException($"Please add a row in DOCUMENT DEATIAL at least.");
+            }
 
+
+            this.Save.Press();
+            var curAVLTableCache = (AVLTable)this.Caches[typeof(AVLTable)].Current;
+            string url = $"{PX.Common.PXUrl.SiteUrlWithPath()}/Main?ScreenId={PXSiteMap.CurrentScreenID}&{nameof(AVLTable.avlnbr)}={curAVLTableCache.Avlnbr}";
+            
+            doSubmit();
+            PX.Data.Redirector.RefreshPage(System.Web.HttpContext.Current, url);
+
+            #region backup solution
+            //else
+            //{
+            //    var curAVLTableCache = (AVLTable)this.Caches[typeof(AVLTable)].Current;
+
+            //    if (curAVLTableCache.Avlnbr == PX.Objects.CR.Messages.New)//(curAVLTableCache.Avlnbr.Contains("<") && curAVLTableCache.Avlnbr.Contains(">"))
+            //        throw new PXException($"Please save the record first.");
+            //    else
+            //    {
+            //        var avlnbrChecker = SelectFrom<AVLTable>.
+            //                             Where<AVLTable.avlnbr.IsEqual<@P.AsString>>.View.
+            //                             Select(this, curAVLTableCache.Avlnbr);
+
+            //    if (avlnbrChecker.Count > 0)
+            //        doSubmit();
+            //    else
+            //        throw new PXException($"Please save the record first.");
+            //}
+            //}
+            #endregion
+        }
+        #endregion
+
+        #region
+        protected void doSubmit()
+        {
             var curAVLTableCache = (AVLTable)this.Caches[typeof(AVLTable)].Current;
             if (curAVLTableCache.AVLStatus.Trim().Equals(dicAVLTableStatus["OnHold"]))
             {
+                curAVLTableCache.AVLStatus = dicAVLTableStatus["Submitted"];
+                AVLTableView.UpdateCurrent(); // reload the AVLTable Form
+                Actions.PressSave();
+                insertAVLEvent(currentPage);
 
-                //AVLTableView.UpdateCurrent();
-
-                var curAVLLineCache = (AVLLine)this.Caches[typeof(AVLLine)].Current;
-                if (curAVLLineCache == null)
-                {
-                    //SubmitAction.SetEnabled(false);
-                }
-                else
-                {
-                    curAVLTableCache.AVLStatus = dicAVLTableStatus["Submitted"];
-                    AVLTableView.UpdateCurrent(); // reload the AVLTable Form
-                    Actions.PressSave();
-                    insertAVLEvent(currentPage);
-
-                    //Layout
-                    //buttonEnable(curAVLTableCache.AVLStatus);
-                }
+                //Layout
+                buttonEnable(curAVLTableCache.AVLStatus);
             }
         }
         #endregion
@@ -239,12 +267,11 @@ namespace AVLCustomizations
             else return;
         }
         #endregion
-
+        
         #region ADD button
         public PXAction<ApprovedVendLists> Add;
         [PXButton(CommitChanges = true)]
-        [PXUIField(DisplayName = "Add", MapEnableRights = PXCacheRights.Select)]
-        public IEnumerable add(PXAdapter adapter)
+        protected void add()
         {
             foreach (ApprovedVendLists aVLrow in ApprovedVendListsDialogView.Cache.Updated)
             {
@@ -261,13 +288,11 @@ namespace AVLCustomizations
                     AVLLineView.Cache.Insert(avllineCache);
                 }
             }
-
-            return adapter.Get();
         }
-
         #endregion
 
         #endregion
+
 
         #region check dupilcate AVLLine record
         private bool isDupilcateInAVLLineCache(ApprovedVendLists aVLrow)
@@ -281,6 +306,7 @@ namespace AVLCustomizations
         }
         #endregion
 
+
         #region Event Handlers
 
         protected void AVLTable_AVLAction_FieldDefaulting(PXCache cache, PXFieldDefaultingEventArgs e)
@@ -288,13 +314,6 @@ namespace AVLCustomizations
             var row = (AVLTable)e.Row;
             row.AVLAction = "Cancel";
         }
-
-        //protected void AVLLine_RowSelected(PXCache cache, PXRowSelectedEventArgs e)
-        //{
-        //    var row = (AVLLine)e.Row;
-        //    if (row != null)
-        //        SubmitAction.SetEnabled(true);
-        //}
 
         protected void AVLLine_VendorID_FieldUpdated(PXCache cache, PXFieldUpdatedEventArgs e)
         {
