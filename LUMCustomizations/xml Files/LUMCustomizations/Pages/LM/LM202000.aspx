@@ -13,9 +13,11 @@
 <asp:Content ID="cont2" ContentPlaceHolderID="phF" Runat="Server">
 	<px:PXFormView ID="form" runat="server" DataSourceID="ds" DataMember="MasterView" Width="100%" AllowAutoHide="false">
 		<Template>
-			<%--<px:PXLayoutRule ID="PXLayoutRule1" runat="server" StartRow="True"/>--%>
+			<px:PXLayoutRule ID="PXLayoutRule1" runat="server" StartRow="True"/>
 			<px:PXPanel runat="server" ID="PnlCust1" Caption="Proforma Invoice" RenderStyle="Fieldset">
 				<px:PXCheckBox runat="server" ID="chkProformaInvoice" DataField="ProformaInvoicePrinting"></px:PXCheckBox>
+				<px:PXCheckBox runat="server" ID="chkBubbleNumberPrinting" DataField="BubbleNumberPrinting"></px:PXCheckBox>
+				<px:PXDropDown runat="server" ID="ddlInternalCostModelRateType" DataField="InternalCostModelRateType" Width="100px"></px:PXDropDown>
 			</px:PXPanel>
 		</Template>
 		<AutoSize Container="Window" Enabled="True" MinHeight="200" />

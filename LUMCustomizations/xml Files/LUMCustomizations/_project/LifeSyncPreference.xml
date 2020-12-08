@@ -1,0 +1,4 @@
+﻿<Table TableName="LifeSyncPreference">
+    <Column TableName="LifeSyncPreference" ColumnName="InternalCostModelRateType" ColumnType="string" AllowNull="True" MaxLength="6" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+    <Column TableName="LifeSyncPreference" ColumnName="BubbleNumberPrinting" ColumnType="bool" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+</Table>
