@@ -3,7 +3,7 @@
 
 <asp:Content ID="cont1" ContentPlaceHolderID="phDS" Runat="Server">
 	<px:PXDataSource ID="ds" runat="server" Visible="True" Width="100%"
-        TypeName="LUMCustomizations.Graph.LifeSyncPreferenceMaint"
+        TypeName="LumCustomizations.Graph.LifeSyncPreferenceMaint"
         PrimaryView="MasterView">
 		<CallbackCommands>
 
