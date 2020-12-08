@@ -37,5 +37,16 @@ namespace LumCustomizations.DAC
         [PXUIField(DisplayName = "Proforma Invoice Printing")]
         public virtual bool? ProformaInvoicePrinting { get; set; }
         public abstract class proformaInvoicePrinting : PX.Data.BQL.BqlBool.Field<LifeSyncPreference.proformaInvoicePrinting> { }
+
+        [PXDBBool]
+        [PXUIField(DisplayName = "Enable Bubble Number Printing")]
+        public virtual bool? BubbleNumberPrinting { get; set; }
+        public abstract class bubbleNumberPrinting : PX.Data.BQL.BqlBool.Field<LifeSyncPreference.bubbleNumberPrinting> { }
+
+        [PXDBString(6)]
+        [PXStringList()]
+        [PXUIField(DisplayName = "Rate Type for Internal Cost Model")]
+        public virtual string InternalCostModelRateType { get; set; }
+        public abstract class internalCostModelRateType : PX.Data.BQL.BqlString.Field<LifeSyncPreference.internalCostModelRateType> { }
     }
 }

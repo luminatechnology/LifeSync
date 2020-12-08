@@ -46,6 +46,7 @@ namespace LumCustomizations.Graph
             Report.MenuAutoOpen = true;
 
             Report.AddMenuAction(printPackingList);
+            Report.AddMenuAction(COCReport);
         }
         #endregion
 
@@ -197,6 +198,25 @@ namespace LumCustomizations.Graph
 
             return adapter.Get();
         }
+
+        public PXAction<LumShipmentPlan> COCReport;
+        [PXButton]
+        [PXUIField(DisplayName = "Print COC Report", Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        protected virtual IEnumerable cOCReport(PXAdapter adapter)
+        {
+            var _reportID = "lm601100";
+            var parameters = new Dictionary<string, string>()
+            {
+                ["ProductionID"] = this.GetCacheCurrent<LumShipmentPlan>().Current.ProdOrdID,
+                ["ShipmentPlanID"] = this.GetCacheCurrent<LumShipmentPlan>().Current.ShipmentPlanID,
+                ["OrderNbr"] = this.GetCacheCurrent<LumShipmentPlan>().Current.OrderNbr,
+                ["LineNbr"] = this.GetCacheCurrent<LumShipmentPlan>().Current.LineNbr.ToString()
+            };
+            if (parameters["ProductionID"] != null && parameters["ShipmentPlanID"] != null && parameters["LineNbr"] != null && parameters["OrderNbr"] != null)
+                throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
+            return adapter.Get<SOShipment>().ToList();
+        }
+
         #endregion
 
         #region Event Handlers

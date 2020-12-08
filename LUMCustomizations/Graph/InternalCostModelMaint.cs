@@ -8,7 +8,7 @@ using PX.Data;
 
 namespace LumCustomizations.Graph
 {
-    public class InternalCostModelMaint : ProdMaint
+    public class InternalCostModelMaint : ProdDetail
     {
     }
 }
