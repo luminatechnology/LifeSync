@@ -1,4 +1,9 @@
-﻿using PX.Data;
+﻿using LumCustomizations.DAC;
+using PX.Data;
+using PX.Data.BQL;
+using PX.Data.BQL.Fluent;
+using PX.Objects.CS;
+using PX.Objects.IN;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,6 +15,11 @@ namespace PX.Objects.PO
 {
     public class POOrderEntry_Extensions : PXGraphExtension<POOrderEntry>
     {
+        private const string bubbleNumber = "BUBBLENO";
+        public class constBubbleNumber : PX.Data.BQL.BqlString.Constant<constBubbleNumber>
+        {
+            public constBubbleNumber() : base(bubbleNumber) { }
+        }
 
         public override void Initialize()
         {
@@ -28,6 +38,32 @@ namespace PX.Objects.PO
             var _poOrder = adapter.Get<POOrder>().ToList().FirstOrDefault();
             parameters["OrderNbr"] = _poOrder.OrderNbr;
             throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
+        }
+        #endregion
+
+        #region Bubble Number Setting Event
+        protected virtual void _(Events.RowSelected<POLine> e)
+        {
+            // Control Header PI Column Visible
+            var _graph = PXGraph.CreateInstance<POOrderEntry>();
+            var _PIPreference = from t in _graph.Select<LifeSyncPreference>()
+                                select t;
+            var _visible = _PIPreference.FirstOrDefault() == null ? false : _PIPreference.FirstOrDefault().BubbleNumberPrinting.Value
+                                                                  ? true : false;
+
+            PXUIFieldAttribute.SetVisible<POLineExt.usrBubbleNumber>(e.Cache, null, _visible);
+        }
+        #endregion
+
+        #region Update Bubble Number
+        protected virtual void _(Events.FieldUpdated<POLine.inventoryID> e)
+        {
+            PXResult _bubbleNumber = SelectFrom<InventoryItem>.
+                                LeftJoin<CSAnswers>.On<InventoryItem.noteID.IsEqual<CSAnswers.refNoteID>.
+                                                    And<CSAnswers.attributeID.IsEqual<constBubbleNumber>>>.
+                                Where<InventoryItem.inventoryID.IsEqual<@P.AsInt>>.View.
+                                Select(Base, ((POLine)e.Row).InventoryID);
+            e.Cache.SetValue<POLineExt.usrBubbleNumber>(e.Row, _bubbleNumber.GetItem<CSAnswers>().Value);
         }
         #endregion
     }

@@ -70,6 +70,7 @@
     <Compile Include="DAC_Extensions\AMProdItemExtensions.cs" />
     <Compile Include="DAC_Extensions\SOLineExtensions.cs" />
     <Compile Include="DAC_Extensions\SOOrderExtensions.cs" />
+    <Compile Include="DAC_Extensions\POLineExtensions.cs" />
     <Compile Include="DAC_Extensions\SOShipLineExtensions.cs" />
     <Compile Include="DAC_Extensions\SOShipmentExtensions.cs" />
     <Compile Include="Descriptor\Attribute.cs" />
