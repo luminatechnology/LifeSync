@@ -1933,7 +1933,7 @@
                         <Size>976px, 16px</Size>
                         <Items>
                             <TextBox Name="textBox10">
-                                <Location>416px, 0px</Location>
+                                <Location>424px, 0px</Location>
                                 <Size>40px, 16px</Size>
                                 <Style>
                                     <Font>
@@ -1943,7 +1943,7 @@
                                 <Value>生管:</Value>
                             </TextBox>
                             <TextBox Name="textBox11">
-                                <Location>608px, 0px</Location>
+                                <Location>624px, 0px</Location>
                                 <Size>32px, 16px</Size>
                                 <Style>
                                     <Font>
@@ -1953,8 +1953,13 @@
                                 <Value>仓管:</Value>
                             </TextBox>
                             <TextBox Name="textBox2">
-                                <Location>792px, 0px</Location>
+                                <Location>824px, 0px</Location>
                                 <Size>32px, 16px</Size>
+                                <Style>
+                                    <Font>
+                                        <Name>Microsoft JhengHei UI</Name>
+                                    </Font>
+                                </Style>
                                 <Value>制单:</Value>
                             </TextBox>
                             <TextBox Name="textBox8">
