@@ -44,7 +44,7 @@ namespace LumCustomizations.DAC
         public virtual string COCProductDesc { get; set; }
         public abstract class cOCProductDesc : PX.Data.BQL.BqlString.Field<cOCProductDesc> { }
         #endregion
-
+         
         #region TESTroductDesc
         [PXDBString(IsUnicode = true, InputMask = "")]
         [PXUIField(DisplayName = "TESTProduct Desc")]
