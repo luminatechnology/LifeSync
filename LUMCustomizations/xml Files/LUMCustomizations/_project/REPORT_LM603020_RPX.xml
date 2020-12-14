@@ -1763,7 +1763,7 @@
                                 <Name>Microsoft JhengHei UI</Name>
                             </Font>
                         </Style>
-                        <Value>领料单号:</Value>
+                        <Value>入庫单号:</Value>
                     </TextBox>
                     <TextBox Name="textBox4">
                         <Location>440px, 80px</Location>
