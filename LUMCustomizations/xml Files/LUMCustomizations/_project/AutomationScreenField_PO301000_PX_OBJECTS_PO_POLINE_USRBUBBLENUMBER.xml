@@ -1,0 +1,3 @@
+﻿<AutomationScreenField ScreenID="PO301000" TableName="PX.OBJECTS.PO.POLINE" FieldName="USRBUBBLENUMBER" IsUserDefinedField="False">
+    <Prop Name="DisplayName" DisplayName="Display Name" IsCustomized="True" Value="Bubble Number" />
+</AutomationScreenField>

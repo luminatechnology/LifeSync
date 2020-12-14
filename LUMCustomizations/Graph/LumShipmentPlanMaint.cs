@@ -277,7 +277,7 @@ namespace LumCustomizations.Graph
                                                                                                           .And<SOLine.orderNbr.IsEqual<@P.AsString>
                                                                                                                .And<SOLine.lineNbr.IsEqual<@P.AsInt>>>>.View
                                                                                                    .Select(this, prodItemExt.UsrSOOrderType, prodItemExt.UsrSOOrderNbr, prodItemExt.UsrSOLineNbr);
-                SOLine soLine = sOResult;
+                SOLine  soLine = sOResult;
                 SOOrder soOrder = sOResult;
 
                 PXFieldState valueExt = Order.Cache.GetValueExt((object)soOrder, PX.Objects.CS.Messages.Attribute + "ENDC") as PXFieldState;
@@ -293,18 +293,19 @@ namespace LumCustomizations.Graph
                 row.OpenQty            = soLine.OpenQty;
                 row.OrderQty           = soLine.OrderQty;
                 row.RequestDate        = soLine.RequestDate;
-                row.CartonSize         = CSAnswers.PK.Find(this, InventoryItem.PK.Find(this, row.InventoryID).NoteID, SOShipmentEntry_Extension.CartonSize).Value;
+                row.CustomerPN         = soLine.AlternateID;
+                row.CartonSize         = CSAnswers.PK.Find(this, InventoryItem.PK.Find(this, row.InventoryID).NoteID, SOShipmentEntry_Extension.CartonSize)?.Value;
             }
 
             LumShipmentPlan aggrShipPlan = SelectFrom<LumShipmentPlan>.Where<LumShipmentPlan.prodOrdID.IsEqual<@P.AsString>>
                                                                       .AggregateTo<Max<LumShipmentPlan.nbrOfShipment,
                                                                                        Max<LumShipmentPlan.endCartonNbr>>>.View.Select(this, row.ProdOrdID);
 
-            row.NbrOfShipment = aggrShipPlan.NbrOfShipment == null ? 1 : aggrShipPlan.NbrOfShipment + 1;
-            row.StartCartonNbr = (aggrShipPlan.EndCartonNbr ?? 0) + 1;//aggrShipPlan.EndCartonNbr  == null ? 1 : aggrShipPlan.EndCartonNbr  + 1;
+            row.NbrOfShipment  = aggrShipPlan.NbrOfShipment == null ? 1 : aggrShipPlan.NbrOfShipment + 1;
+            row.StartCartonNbr = (aggrShipPlan.EndCartonNbr ?? 0) + 1;
 
-            aggrShipPlan = SelectFrom<LumShipmentPlan>.Where<LumShipmentPlan.shipmentPlanID.IsEqual<@P.AsString>>
-                                                             .AggregateTo<Max<LumShipmentPlan.endLabelNbr>>.View.Select(this, row.ShipmentPlanID);
+            aggrShipPlan = SelectFrom<LumShipmentPlan>.Where<LumShipmentPlan.orderNbr.IsEqual<@P.AsString>>
+                                                             .AggregateTo<Max<LumShipmentPlan.endLabelNbr>>.View.Select(this, row.OrderNbr);
 
             row.StartLabelNbr = aggrShipPlan.EndLabelNbr == null ? 1 : aggrShipPlan.EndLabelNbr + 1;
         }
@@ -315,9 +316,9 @@ namespace LumCustomizations.Graph
 
             if (row != null)
             {
-                decimal qtyCarton = 0;
+                decimal qtyCarton = 1;
                 decimal grsWeight = 0;
-                decimal cartonPal = 0;
+                decimal cartonPal = 1;
                 decimal palletWgt = 0;
 
                 InventoryItem item = InventoryItem.PK.Find(this, row.InventoryID);

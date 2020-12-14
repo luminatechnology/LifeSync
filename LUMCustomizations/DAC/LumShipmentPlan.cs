@@ -307,6 +307,13 @@ namespace LumCustomizations.DAC
         public abstract class dimWeight : PX.Data.BQL.BqlDecimal.Field<dimWeight> { }
         #endregion
 
+        #region CustomerPN
+        [PXDBString(50, IsUnicode = true)]
+        [PXUIField(DisplayName = "Customer P/N", Enabled = false)]
+        public virtual string CustomerPN { get; set; }
+        public abstract class customerPN : PX.Data.BQL.BqlString.Field<customerPN> { }
+        #endregion
+
         #region CreatedByID
         [PXDBCreatedByID]
         public virtual Guid? CreatedByID { get; set; }
