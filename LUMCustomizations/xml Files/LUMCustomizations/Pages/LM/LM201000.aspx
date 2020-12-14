@@ -28,21 +28,22 @@
                     <px:PXGridColumn DataField="OrderDate" Width="90"></px:PXGridColumn>
                     <px:PXGridColumn DataField="LineNbr" Width="70"></px:PXGridColumn>
                     <px:PXGridColumn DataField="InventoryID" Width="70"></px:PXGridColumn>
+	<px:PXGridColumn DataField="CustomerPN" Width="180" />
                     <px:PXGridColumn DataField="OrderQty" Width="100"></px:PXGridColumn>
                     <px:PXGridColumn DataField="OpenQty" Width="100"></px:PXGridColumn>
                     <px:PXGridColumn DataField="RequestDate" Width="90"></px:PXGridColumn>
                     <px:PXGridColumn DataField="PlannedShipDate" Width="90"></px:PXGridColumn>
-                    <px:PXGridColumn DataField="PlannedShipQty" Width="100"></px:PXGridColumn>
+                    <px:PXGridColumn CommitChanges="True" DataField="PlannedShipQty" Width="100"></px:PXGridColumn>
                     <px:PXGridColumn CommitChanges="True" DataField="ShipVia" Width="220"></px:PXGridColumn>
                     <px:PXGridColumn DataField="ShipVia_Carrier_description" Width="220"></px:PXGridColumn>
                     <px:PXGridColumn DataField="ShipmentNbr" Width="140"></px:PXGridColumn>
-	<px:PXGridColumn DataField="CartonSize" Width="140" />
-	<px:PXGridColumn DataField="CartonQty" Width="100" />
-	<px:PXGridColumn DataField="NetWeight" Width="100" />
-	<px:PXGridColumn DataField="GrossWeight" Width="100" />
-	<px:PXGridColumn DataField="PalletWeight" Width="100" />
-	<px:PXGridColumn DataField="MEAS" Width="100" />
-	<px:PXGridColumn DataField="DimWeight" Width="100" />
+	<px:PXGridColumn DataField="CartonSize" Width="140" ></px:PXGridColumn>
+	<px:PXGridColumn DataField="CartonQty" Width="100" ></px:PXGridColumn>
+	<px:PXGridColumn DataField="NetWeight" Width="100" ></px:PXGridColumn>
+	<px:PXGridColumn DataField="GrossWeight" Width="100" ></px:PXGridColumn>
+	<px:PXGridColumn DataField="PalletWeight" Width="100" ></px:PXGridColumn>
+	<px:PXGridColumn DataField="MEAS" Width="100" ></px:PXGridColumn>
+	<px:PXGridColumn DataField="DimWeight" Width="100" ></px:PXGridColumn>
                     <px:PXGridColumn DataField="BRNbr" Width="280"></px:PXGridColumn>
                     <px:PXGridColumn DataField="QtytoProd" Width="100"></px:PXGridColumn>
                     <px:PXGridColumn DataField="QtyComplete" Width="100"></px:PXGridColumn>
