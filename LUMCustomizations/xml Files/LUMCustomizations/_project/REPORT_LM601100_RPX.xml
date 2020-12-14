@@ -930,9 +930,9 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
             </ReportTable>
             <ReportTable Name="v_COCReport">
                 <Fields>
-                    <ReportField Name="DetailedDesc">
-                    </ReportField>
                     <ReportField Name="EndCustomer">
+                    </ReportField>
+                    <ReportField Name="ImageID">
                     </ReportField>
                     <ReportField Name="InventoryID">
                         <DataType>Int32</DataType>
@@ -948,6 +948,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 <FullName>LUMCustomizations.v_COCReport</FullName>
             </ReportTable>
         </Tables>
+        <Width>18.46cm</Width>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
                 <Height>0px</Height>
@@ -956,6 +957,14 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
             <Detail Name="detailSection1">
                 <Height>11.64021cm</Height>
                 <Items>
+                    <PictureBox Name="pictureBox2">
+                        <Location>40px, 64px</Location>
+                        <MimeType>image/jpeg</MimeType>
+                        <QRCodeSettings />
+                        <Size>616px, 360px</Size>
+                        <Source>Database</Source>
+                        <Value>=[v_COCReport.ImageID]</Value>
+                    </PictureBox>
                     <TextBox Name="textBox17">
                         <Location>184px, 0px</Location>
                         <Size>328px, 48px</Size>
@@ -969,22 +978,6 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         </Style>
                         <StyleName>ChineseFont</StyleName>
                         <Value>=[v_COCReport.Title]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox2">
-                        <CanGrow>True</CanGrow>
-                        <CanSplit>True</CanSplit>
-                        <Location>24px, 64px</Location>
-                        <Size>640px, 176px</Size>
-                        <StyleName>ChineseFont</StyleName>
-                        <Value>=[v_COCReport.ProductDesc]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox3">
-                        <CanGrow>True</CanGrow>
-                        <CanSplit>True</CanSplit>
-                        <Location>24px, 240px</Location>
-                        <Size>640px, 200px</Size>
-                        <StyleName>ChineseFont</StyleName>
-                        <Value>=[v_COCReport.DetailedDesc]</Value>
                     </TextBox>
                 </Items>
             </Detail>

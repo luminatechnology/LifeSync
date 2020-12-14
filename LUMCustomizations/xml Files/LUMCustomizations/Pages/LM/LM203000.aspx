@@ -25,51 +25,74 @@
         <Items>
             <px:PXTabItem Text="Material">
                 <Template>
-                    <px:PXLayoutRule runat="server" StartColumn="True" LabelsWidth="SM" ControlSize="XM" />
-                    <px:PXTextEdit ID="edMaterialProductDesc" TextMode="MultiLine" runat="server" DataField="MaterialProductDesc" Height="250px" Width="400px"></px:PXTextEdit>
-                    <px:PXTextEdit ID="edMaterialDetailedDesc" TextMode="MultiLine" runat="server" DataField="MaterialDetailedDesc" Height="250px" Width="400px"></px:PXTextEdit>
+                    <px:PXRichTextEdit ID="edMaterialProductDesc" runat="server" DataField="MaterialProductDesc" Style="border-width: 0px; border-top-width: 1px; width: 100%;"
+                        AllowAttached="true" AllowSearch="true" AllowLoadTemplate="false" AllowSourceMode="true">
+                        <AutoSize Enabled="True" MinHeight="216"></AutoSize>
+                    </px:PXRichTextEdit>
+                </Template>
+            </px:PXTabItem>
+            <px:PXTabItem Text="Material2">
+                <Template>
+                    <px:PXRichTextEdit ID="edMaterialProductDesc2" runat="server" DataField="MaterialProductDesc2" Style="border-width: 0px; border-top-width: 1px; width: 100%;"
+                        AllowAttached="true" AllowSearch="true" AllowLoadTemplate="false" AllowSourceMode="true">
+                        <AutoSize Enabled="True" MinHeight="216"></AutoSize>
+                    </px:PXRichTextEdit>
                 </Template>
             </px:PXTabItem>
             <px:PXTabItem Text="COC">
                 <Template>
-                    <px:PXLayoutRule runat="server" StartColumn="True" LabelsWidth="SM" ControlSize="XM" />
-                    <px:PXTextEdit ID="edCOCProductDesc" TextMode="MultiLine" runat="server" DataField="COCProductDesc" Height="250px" Width="400px"></px:PXTextEdit>
-                    <px:PXTextEdit ID="edCOCDetailedDesc" TextMode="MultiLine" runat="server" DataField="COCDetailedDesc" Height="250px" Width="400px"></px:PXTextEdit>
+                    <px:PXRichTextEdit ID="edCOCProductDesc" runat="server" DataField="COCProductDesc" Style="border-width: 0px; border-top-width: 1px; width: 100%;"
+                        AllowAttached="true" AllowSearch="true" AllowLoadTemplate="false" AllowSourceMode="true">
+                        <AutoSize Enabled="True" MinHeight="216"></AutoSize>
+                    </px:PXRichTextEdit>
                 </Template>
             </px:PXTabItem>
             <px:PXTabItem Text="Test">
                 <Template>
-                    <px:PXLayoutRule runat="server" StartColumn="True" LabelsWidth="SM" ControlSize="XM" />
-                    <px:PXTextEdit ID="edTESTProductDesc" TextMode="MultiLine" runat="server" DataField="TESTProductDesc" Height="250px" Width="400px"></px:PXTextEdit>
-                    <px:PXTextEdit ID="edTESTDetailedDesc" TextMode="MultiLine" runat="server" DataField="TESTDetailedDesc" Height="250px" Width="400px"></px:PXTextEdit>
+                    <px:PXRichTextEdit ID="edTestProductDesc" runat="server" DataField="TestProductDesc" Style="border-width: 0px; border-top-width: 1px; width: 100%;"
+                        AllowAttached="true" AllowSearch="true" AllowLoadTemplate="false" AllowSourceMode="true">
+                        <AutoSize Enabled="True" MinHeight="216"></AutoSize>
+                    </px:PXRichTextEdit>
                 </Template>
             </px:PXTabItem>
             <px:PXTabItem Text="Re:ROHS">
                 <Template>
-                    <px:PXLayoutRule runat="server" StartColumn="True" LabelsWidth="SM" ControlSize="XM" />
-                    <px:PXTextEdit ID="edREROHSProductDesc" TextMode="MultiLine" runat="server" DataField="REROHSProductDesc" Height="250px" Width="400px"></px:PXTextEdit>
-                    <px:PXTextEdit ID="edREROHSDetailedDesc" TextMode="MultiLine" runat="server" DataField="REROHSDetailedDesc" Height="250px" Width="400px"></px:PXTextEdit>
+                    <px:PXRichTextEdit ID="edREROHSProductDesc" runat="server" DataField="REROHSProductDesc" Style="border-width: 0px; border-top-width: 1px; width: 100%;"
+                        AllowAttached="true" AllowSearch="true" AllowLoadTemplate="false" AllowSourceMode="true">
+                        <AutoSize Enabled="True" MinHeight="216"></AutoSize>
+                    </px:PXRichTextEdit>
                 </Template>
             </px:PXTabItem>
             <px:PXTabItem Text="ROHS and REACH">
                 <Template>
-                    <px:PXLayoutRule runat="server" StartColumn="True" LabelsWidth="SM" ControlSize="XM" />
-                    <px:PXTextEdit ID="edREACHProductDesc" TextMode="MultiLine" runat="server" DataField="REACHProductDesc" Height="250px" Width="400px"></px:PXTextEdit>
-                    <px:PXTextEdit ID="edREACHDetailedDesc" TextMode="MultiLine" runat="server" DataField="REACHDetailedDesc" Height="250px" Width="400px"></px:PXTextEdit>
+                    <px:PXRichTextEdit ID="edREACHProductDesc" runat="server" DataField="REACHProductDesc" Style="border-width: 0px; border-top-width: 1px; width: 100%;"
+                        AllowAttached="true" AllowSearch="true" AllowLoadTemplate="false" AllowSourceMode="true">
+                        <AutoSize Enabled="True" MinHeight="216"></AutoSize>
+                    </px:PXRichTextEdit>
+                </Template>
+            </px:PXTabItem>
+            <px:PXTabItem Text="ROHS and REACH2">
+                <Template>
+                    <px:PXRichTextEdit ID="edREACHProductDesc2" runat="server" DataField="REACHProductDesc2" Style="border-width: 0px; border-top-width: 1px; width: 100%;"
+                        AllowAttached="true" AllowSearch="true" AllowLoadTemplate="false" AllowSourceMode="true">
+                        <AutoSize Enabled="True" MinHeight="216"></AutoSize>
+                    </px:PXRichTextEdit>
                 </Template>
             </px:PXTabItem>
             <px:PXTabItem Text="Material Compliant">
                 <Template>
-                    <px:PXLayoutRule runat="server" StartColumn="True" LabelsWidth="SM" ControlSize="XM" />
-                    <px:PXTextEdit ID="edCompliantproductdesc" TextMode="MultiLine" runat="server" DataField="Compliantproductdesc" Height="250px" Width="400px"></px:PXTextEdit>
-                    <px:PXTextEdit ID="edCompliantdetaileddesc" TextMode="MultiLine" runat="server" DataField="Compliantdetaileddesc" Height="250px" Width="400px"></px:PXTextEdit>
+                    <px:PXRichTextEdit ID="edCompliantProductDesc" runat="server" DataField="CompliantProductDesc" Style="border-width: 0px; border-top-width: 1px; width: 100%;"
+                        AllowAttached="true" AllowSearch="true" AllowLoadTemplate="false" AllowSourceMode="true">
+                        <AutoSize Enabled="True" MinHeight="216"></AutoSize>
+                    </px:PXRichTextEdit>
                 </Template>
             </px:PXTabItem>
             <px:PXTabItem Text="QC Manager">
                 <Template>
-                    <px:PXLayoutRule runat="server" StartColumn="True" LabelsWidth="SM" ControlSize="XM" />
-                    <px:PXTextEdit ID="edQCProductDesc" TextMode="MultiLine" runat="server" DataField="QCProductDesc" Height="250px" Width="400px"></px:PXTextEdit>
-                    <px:PXTextEdit ID="edQCDetailedDesc" TextMode="MultiLine" runat="server" DataField="QCDetailedDesc" Height="250px" Width="400px"></px:PXTextEdit>
+                    <px:PXRichTextEdit ID="edQCProductDesc" runat="server" DataField="QCProductDesc" Style="border-width: 0px; border-top-width: 1px; width: 100%;"
+                        AllowAttached="true" AllowSearch="true" AllowLoadTemplate="false" AllowSourceMode="true">
+                        <AutoSize Enabled="True" MinHeight="216"></AutoSize>
+                    </px:PXRichTextEdit>
                 </Template>
             </px:PXTabItem>
         </Items>

@@ -21,8 +21,14 @@ mJPZWSffv1C2gs4GlEdQJ0w95+mwqN9JiHTnNujObdCd26A7t0F3boPu3AbduQ26cxt05zbozi2wWv0D
             </FilterExp>
         </Filters>
         <PageSettings>
+            <Margins>
+                <Bottom>0px</Bottom>
+                <Left>0px</Left>
+                <Right>0px</Right>
+                <Top>0px</Top>
+            </Margins>
             <PaperKind>Custom</PaperKind>
-            <PaperSize>7.6cm, 10.1cm</PaperSize>
+            <PaperSize>10cm, 7.5cm</PaperSize>
         </PageSettings>
         <Parameters>
             <ReportParameter>
@@ -1016,17 +1022,18 @@ mJPZWSffv1C2gs4GlEdQJ0w95+mwqN9JiHTnNujObdCd26A7t0F3boPu3AbduQ26cxt05zbozi2wWv0D
                 <FullName>PX.Objects.IN.INItemXRef</FullName>
             </ReportTable>
         </Tables>
-        <Width>7.6cm</Width>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
                 <Height>0.63492cm</Height>
                 <Items>
                     <TextBox Name="textBox9">
                         <Location>0px, 0px</Location>
-                        <Size>232px, 16px</Size>
+                        <Size>328px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
+                                <Name>Arial</Name>
+                                <Size>12px</Size>
+                                <Style>Bold</Style>
                             </Font>
                         </Style>
                         <Value>=Report.GetDefUI(’RowCompanyBAccount.AcctName’)</Value>
@@ -1035,36 +1042,45 @@ mJPZWSffv1C2gs4GlEdQJ0w95+mwqN9JiHTnNujObdCd26A7t0F3boPu3AbduQ26cxt05zbozi2wWv0D
             </PageHeader>
             <Detail Name="detailSection1">
                 <Height>5.71429cm</Height>
+                <Style>
+                    <Font>
+                        <Name>Arial</Name>
+                        <Size>12px</Size>
+                    </Font>
+                </Style>
                 <Items>
                     <TextBox Name="textBox1">
                         <Location>0px, 40px</Location>
-                        <Size>48px, 16px</Size>
+                        <Size>64px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
+                                <Name>Arial</Name>
+                                <Size>12px</Size>
+                                <Style>Bold</Style>
                             </Font>
                         </Style>
                         <Value>Customer:</Value>
                     </TextBox>
                     <TextBox Name="textBox10">
                         <Location>0px, 112px</Location>
-                        <Size>64px, 16px</Size>
+                        <Size>80px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
+                                <Name>Arial</Name>
+                                <Size>12px</Size>
+                                <Style>Bold</Style>
                             </Font>
                         </Style>
                         <Value>ABA Part NO:</Value>
                     </TextBox>
                     <TextBox Name="textBox11">
-                        <Location>64px, 112px</Location>
+                        <Location>80px, 112px</Location>
                         <Size>160px, 24px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
+                                <Name>Arial</Name>
+                                <Size>12px</Size>
+                                <Style>Bold</Style>
                             </Font>
                         </Style>
                         <Value>=[LumShipmentPlan.InventoryID]</Value>
@@ -1072,23 +1088,25 @@ mJPZWSffv1C2gs4GlEdQJ0w95+mwqN9JiHTnNujObdCd26A7t0F3boPu3AbduQ26cxt05zbozi2wWv0D
                     <TextBox Name="textBox12">
                         <CanGrow>True</CanGrow>
                         <Location>0px, 136px</Location>
-                        <Size>64px, 16px</Size>
+                        <Size>80px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
+                                <Name>Arial</Name>
+                                <Size>12px</Size>
+                                <Style>Bold</Style>
                             </Font>
                         </Style>
                         <Value>ABA LOT NO:</Value>
                     </TextBox>
                     <TextBox Name="textBox13">
                         <CanGrow>True</CanGrow>
-                        <Location>64px, 136px</Location>
-                        <Size>152px, 24px</Size>
+                        <Location>80px, 136px</Location>
+                        <Size>160px, 24px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
+                                <Name>Arial</Name>
+                                <Size>12px</Size>
+                                <Style>Bold</Style>
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
@@ -1106,30 +1124,32 @@ mJPZWSffv1C2gs4GlEdQJ0w95+mwqN9JiHTnNujObdCd26A7t0F3boPu3AbduQ26cxt05zbozi2wWv0D
                     </TextBox>
                     <TextBox Name="textBox15">
                         <Location>0px, 160px</Location>
-                        <Size>88px, 16px</Size>
+                        <Size>112px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
+                                <Name>Arial</Name>
+                                <Size>12px</Size>
+                                <Style>Bold</Style>
                             </Font>
                         </Style>
                         <Value>QTY IN Container :</Value>
                     </TextBox>
                     <TextBox Name="textBox16">
                         <CanGrow>True</CanGrow>
-                        <Location>88px, 160px</Location>
-                        <Size>72px, 24px</Size>
+                        <Location>112px, 160px</Location>
+                        <Size>184px, 24px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
+                                <Name>Arial</Name>
+                                <Size>12px</Size>
+                                <Style>Bold</Style>
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
                         <Value>=[InventoryItem.QTYSBOX_Attributes]+' PCS'</Value>
                     </TextBox>
                     <TextBox Name="textBox18">
-                        <Location>208px, 56px</Location>
+                        <Location>240px, 64px</Location>
                         <Size>64px, 56px</Size>
                         <Style>
                             <BackImage>
@@ -1152,81 +1172,77 @@ mJPZWSffv1C2gs4GlEdQJ0w95+mwqN9JiHTnNujObdCd26A7t0F3boPu3AbduQ26cxt05zbozi2wWv0D
                     <TextBox Name="textBox2">
                         <CanGrow>True</CanGrow>
                         <Location>0px, 0px</Location>
-                        <Size>64px, 16px</Size>
+                        <Size>72px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
+                                <Name>Arial</Name>
+                                <Size>12px</Size>
+                                <Style>Bold</Style>
                             </Font>
                         </Style>
                         <Value>Description:</Value>
                     </TextBox>
                     <TextBox Name="textBox3">
                         <CanGrow>True</CanGrow>
-                        <Location>64px, 0px</Location>
-                        <Size>160px, 40px</Size>
+                        <Location>72px, 0px</Location>
+                        <Size>264px, 40px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
+                                <Name>Arial</Name>
+                                <Size>12px</Size>
+                                <Style>Bold</Style>
                             </Font>
                         </Style>
                         <Value>=[LumShipmentPlan.InventoryID_description]</Value>
                     </TextBox>
                     <TextBox Name="textBox4">
-                        <Location>48px, 40px</Location>
-                        <Size>104px, 24px</Size>
+                        <Location>64px, 40px</Location>
+                        <Size>168px, 24px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
+                                <Name>Arial</Name>
+                                <Size>12px</Size>
+                                <Style>Bold</Style>
                             </Font>
+                            <VerticalAlign>Top</VerticalAlign>
                         </Style>
                         <Value>=[LumShipmentPlan.Customer]</Value>
                     </TextBox>
                     <TextBox Name="textBox5">
                         <Location>0px, 64px</Location>
-                        <Size>72px, 16px</Size>
+                        <Size>96px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
+                                <Name>Arial</Name>
+                                <Size>12px</Size>
+                                <Style>Bold</Style>
                             </Font>
                         </Style>
                         <Value>CustomerP/O# :</Value>
                     </TextBox>
                     <TextBox Name="textBox6">
-                        <Location>72px, 64px</Location>
-                        <Size>104px, 24px</Size>
+                        <Location>96px, 64px</Location>
+                        <Size>144px, 24px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
+                                <Name>Arial</Name>
+                                <Size>12px</Size>
+                                <Style>Bold</Style>
                             </Font>
                         </Style>
                         <Value>=[LumShipmentPlan.CustomerOrderNbr]</Value>
                     </TextBox>
                     <TextBox Name="textBox7">
                         <Location>0px, 88px</Location>
-                        <Size>88px, 16px</Size>
+                        <Size>240px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
+                                <Name>Arial</Name>
+                                <Size>12px</Size>
+                                <Style>Bold, Underline</Style>
                             </Font>
                         </Style>
-                        <Value>Customer Part No.:</Value>
-                    </TextBox>
-                    <TextBox Name="textBox8">
-                        <Location>88px, 88px</Location>
-                        <Size>104px, 24px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
-                            </Font>
-                        </Style>
-                        <Value>=[INItemXRef.AlternateID]</Value>
+                        <Value>='Customer Part No.:'+[INItemXRef.AlternateID]</Value>
                     </TextBox>
                 </Items>
             </Detail>

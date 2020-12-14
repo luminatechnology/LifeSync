@@ -9,7 +9,7 @@ namespace LUMCustomizations
   public class v_COCReport : IBqlTable
   {
     #region InventoryID
-    [PXDBInt(IsKey = true)]
+    [PXDBInt()]
     [PXUIField(DisplayName = "Inventory ID")]
     public virtual int? InventoryID { get; set; }
     public abstract class inventoryID : PX.Data.BQL.BqlInt.Field<inventoryID> { }
@@ -23,7 +23,7 @@ namespace LUMCustomizations
     #endregion
 
     #region Title
-    [PXDBString(36, InputMask = "",IsKey = true)]
+    [PXDBString(36, InputMask = "")]
     [PXUIField(DisplayName = "Title")]
     public virtual string Title { get; set; }
     public abstract class title : PX.Data.BQL.BqlString.Field<title> { }
@@ -36,15 +36,15 @@ namespace LUMCustomizations
     public abstract class productDesc : PX.Data.BQL.BqlString.Field<productDesc> { }
     #endregion
 
-    #region DetailedDesc
-    [PXDBString(IsUnicode = true, InputMask = "")]
-    [PXUIField(DisplayName = "Detailed Desc")]
-    public virtual string DetailedDesc { get; set; }
-    public abstract class detailedDesc : PX.Data.BQL.BqlString.Field<detailedDesc> { }
+    #region ImageID
+    [PXDBString(40, IsUnicode = true, InputMask = "")]
+    [PXUIField(DisplayName = "Image ID")]
+    public virtual string ImageID { get; set; }
+    public abstract class imageID : PX.Data.BQL.BqlString.Field<imageID> { }
     #endregion
 
     #region OrderNbr
-    [PXDBInt()]
+    [PXDBInt(IsKey = true)]
     [PXUIField(DisplayName = "Order Nbr")]
     public virtual int? OrderNbr { get; set; }
     public abstract class orderNbr : PX.Data.BQL.BqlInt.Field<orderNbr> { }

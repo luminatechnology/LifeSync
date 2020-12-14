@@ -8,80 +8,102 @@
 DROP VIEW [dbo].v_COCReport	
 GO
 CREATE VIEW v_COCReport AS
+	--MATERIAL CERTIFICATE
 	select Companyid,
 		   InventoryID,
 		   EndCustomer,
 		   'MATERIAL CERTIFICATE' AS Title,
 		   MaterialProductDesc AS ProductDesc,
-		   MaterialDetailedDesc AS DetailedDesc,
+		   'COC_' +  CAST(InventoryID AS nvarchar(10)) + '_MaterialProductDesc.jpeg' AS ImageID,
 		   1 AS OrderNbr
 	from LumItemsCOC
 	where MaterialProductDesc is not null
-	   OR MaterialDetailedDesc is not null
 	union
+	--MATERIAL CERTIFICATE2
+	select Companyid,
+		   InventoryID,
+		   EndCustomer,
+		   'MATERIAL CERTIFICATE' AS Title,
+		   MaterialProductDesc2 AS ProductDesc,
+		    'COC_' +  CAST(InventoryID AS nvarchar(10)) + '_MaterialProductDesc2.jpeg' AS ImageID,
+		   2 AS OrderNbr
+	from LumItemsCOC
+	where MaterialProductDesc2 is not null
+	union
+	--CERTIFICATE OF CONFORMANCE
 	select Companyid,
 		   InventoryID,
 		   EndCustomer,
 		   'CERTIFICATE OF CONFORMANCE' AS Title,
 		   COCProductDesc AS ProductDesc,
-		   COCDetailedDesc AS DetailedDesc,
-		   2 AS OrderNbr
+		   'COC_' +  CAST(InventoryID AS nvarchar(10)) + '_COCProductDesc.jpeg' AS ImageID,
+		   3 AS OrderNbr
 	from LumItemsCOC
 	where COCProductDesc is not null
-	   OR COCDetailedDesc is not null
 	union
+	--TEST CERTIFICATE
 	select Companyid,
 		   InventoryID,
 		   EndCustomer,
 		   'TEST CERTIFICATE' AS Title,
 		   TESTProductDesc AS ProductDesc,
-		   TESTDetailedDesc AS DetailedDesc,
-		   3 AS OrderNbr
+		   'COC_' +  CAST(InventoryID AS nvarchar(10)) + '_TESTProductDesc.jpeg' AS ImageID,
+		   4 AS OrderNbr
 	from LumItemsCOC
 	where TESTProductDesc is not null
-	   OR TESTDetailedDesc is not null
 	union
+	--ROHS COMPLIANT CERTIFICATE
 	select Companyid,
 		   InventoryID,
 		   EndCustomer,
 		   'ROHS COMPLIANT CERTIFICATE' AS Title,
 		   REROHSProductDesc AS ProductDesc,
-		   REROHSDetailedDesc AS DetailedDesc,
-		   4 AS OrderNbr
+		   'COC_' +  CAST(InventoryID AS nvarchar(10)) + '_REROHSProductDesc.jpeg' AS ImageID,
+		   5 AS OrderNbr
 	from LumItemsCOC
 	where REROHSProductDesc is not null
-	   OR REROHSDetailedDesc is not null
 	union
+	--ROHS AND REACH COMPLIANT CERTIFICATE
 	select Companyid,
 		   InventoryID,
 		   EndCustomer,
 		   'ROHS AND REACH COMPLIANT CERTIFICATE' AS Title,
 		   REACHProductDesc AS ProductDesc,
-		   REACHDetailedDesc AS DetailedDesc,
-		   5 AS OrderNbr
+		   'COC_' +  CAST(InventoryID AS nvarchar(10)) + '_REACHProductDesc.jpeg' AS ImageID,
+		   6 AS OrderNbr
 	from LumItemsCOC
 	where REACHProductDesc is not null
-	   OR REACHDetailedDesc is not null
 	union
+	--ROHS AND REACH COMPLIANT CERTIFICATE2
+	select Companyid,
+		   InventoryID,
+		   EndCustomer,
+		   'ROHS AND REACH COMPLIANT CERTIFICATE' AS Title,
+		   REACHProductDesc2 AS ProductDesc,
+		   'COC_' +  CAST(InventoryID AS nvarchar(10)) + '_REACHProductDesc2.jpeg' AS ImageID,
+		   7 AS OrderNbr
+	from LumItemsCOC
+	where REACHProductDesc2 is not null
+	union
+	--MATERIAL COMPLIANT CERTIFICATE
 	select Companyid,
 		   InventoryID,
 		   EndCustomer,
 		   'MATERIAL COMPLIANT CERTIFICATE' AS Title,
 		   COMPLIANTProductDesc AS ProductDesc,
-		   COMPLIANTDetailedDesc AS DetailedDesc,
-		   6 AS OrderNbr
+		   'COC_' + CAST(InventoryID AS nvarchar(10)) + '_Compliantproductdesc.jpeg' AS ImageID,
+		   8 AS OrderNbr
 	from LumItemsCOC
 	where COMPLIANTProductDesc is not null
-	   OR COMPLIANTDetailedDesc is not null
 	union
+	--QC CERTIFICATE
 	select Companyid,
 		   InventoryID,
 		   EndCustomer,
 		   'QC CERTIFICATE' AS Title,
 		   QCProductDesc AS ProductDesc,
-		   QCDetailedDesc AS DetailedDesc,
-		   7 AS OrderNbr
+		   'COC_' + CAST(InventoryID AS nvarchar(10)) + '_QCProductDesc.jpeg' AS ImageID,
+		   9 AS OrderNbr
 	from LumItemsCOC
-	where QCProductDesc is not null
-	   OR QCDetailedDesc is not null]]></CDATA>
+	where QCProductDesc is not null]]></CDATA>
 </Sql>
