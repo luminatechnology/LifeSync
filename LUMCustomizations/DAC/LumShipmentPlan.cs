@@ -157,11 +157,12 @@ namespace LumCustomizations.DAC
         #endregion
 
         #region ShipmentNbr
-        [PXDBString(15, InputMask = "", IsUnicode = true)]
+        [PXDBString(15, IsUnicode = true)]
         [PXUIField(DisplayName = "Actual Shipment Nbr.")]
-        [PXSelector(typeof(Search2<SOShipment.shipmentNbr, InnerJoin<SOShipLine, On<SOShipLine.shipmentType, Equal<SOShipment.shipmentType>, 
-                                                                                    And<SOShipLine.shipmentNbr, Equal<SOShipment.shipmentNbr>>>>, 
-                                                           Where<SOShipLine.inventoryID, Equal<Current<LumShipmentPlan.inventoryID>>>>))]
+        //[PXSelector(typeof(Search2<SOShipment.shipmentNbr, InnerJoin<SOShipLine, On<SOShipLine.shipmentType, Equal<SOShipment.shipmentType>, 
+        //                                                                            And<SOShipLine.shipmentNbr, Equal<SOShipment.shipmentNbr>>>>, 
+        //                                                   Where<SOShipLine.inventoryID, Equal<Current<LumShipmentPlan.inventoryID>>>>))]
+        [PXSelector(typeof(Search<SOShipment.shipmentNbr, Where<SOShipment.status, NotEqual<SOShipmentStatus.invoiced>>>))]
         public virtual string ShipmentNbr { get; set; }
         public abstract class shipmentNbr : PX.Data.BQL.BqlString.Field<LumShipmentPlan.shipmentNbr> { }
         #endregion
