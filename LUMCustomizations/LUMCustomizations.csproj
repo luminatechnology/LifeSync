@@ -102,12 +102,14 @@
     <Compile Include="Graph\LifeSyncPreferenceMaint.cs" />
     <Compile Include="Graph\LumItemsCOCMaint.cs" />
     <Compile Include="Graph\LumShipmentPlanMaint.cs" />
+    <Compile Include="Graph_Extensions\ARInvoiceEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\INIssueEntry.cs" />
     <Compile Include="Graph_Extensions\INReceiptEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\MaterialEntry.cs" />
     <Compile Include="Graph_Extensions\MoveEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\POOrderEntry_Extensions.cs" />
     <Compile Include="Graph_Extensions\ProdMaint_Extension.cs" />
+    <Compile Include="Graph_Extensions\SOInvoiceEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\SOOrderEntry.cs" />
     <Compile Include="Graph_Extensions\SOShipmentEntry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
