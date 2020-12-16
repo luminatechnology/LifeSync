@@ -89,8 +89,6 @@
                         <ParentField>BAccount.DefContactID</ParentField>
                     </RelationRow>
                 </Links>
-                <ParentAlias>
-                </ParentAlias>
                 <ParentName>BAccount</ParentName>
             </ReportRelation>
             <ReportRelation>
@@ -3712,7 +3710,7 @@
                                 <Name>Arial</Name>
                                 <Size>10px</Size>
                             </Font>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Right</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <Value>=[ARTran.Qty]</Value>
@@ -3744,10 +3742,11 @@
                             <BorderColor>
                                 <Default>Black</Default>
                             </BorderColor>
-                            <BorderStyle>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <TextAlign>Center</TextAlign>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>10px</Size>
+                            </Font>
+                            <TextAlign>Right</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <Value>=[ARTran.CuryExtPrice]</Value>
@@ -3785,7 +3784,7 @@
                                 <Name>Arial</Name>
                                 <Size>10px</Size>
                             </Font>
-                            <TextAlign>Left</TextAlign>
+                            <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <Value>=[SOShipLine.LotSerialNbr]</Value>
@@ -3824,7 +3823,7 @@
                                 <Name>Arial</Name>
                                 <Size>10px</Size>
                             </Font>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Right</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <Value>=[ARTran.CuryUnitPrice]</Value>
@@ -4046,7 +4045,7 @@
                                         <Name>Arial Black</Name>
                                         <Size>8px</Size>
                                     </Font>
-                                    <TextAlign>Left</TextAlign>
+                                    <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
                                 </Style>
                                 <Value>Lot Number</Value>

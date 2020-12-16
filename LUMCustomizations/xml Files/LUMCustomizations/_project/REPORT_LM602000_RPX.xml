@@ -3129,18 +3129,19 @@
                     <TextBox Name="textBox42">
                         <Format>='0.00'</Format>
                         <Location>624px, 0px</Location>
-                        <Size>64px, 64px</Size>
+                        <Size>56px, 64px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
                             </BorderColor>
-                            <BorderStyle>
-                                <Right>Solid</Right>
-                            </BorderStyle>
                             <BorderWidth>
                                 <Default>1px</Default>
                             </BorderWidth>
-                            <TextAlign>Center</TextAlign>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>10px</Size>
+                            </Font>
+                            <TextAlign>Right</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <Value>=[ARTran.CuryExtPrice]</Value>
@@ -3222,7 +3223,7 @@
                     <TextBox Name="textBox50">
                         <Format>='0.00'</Format>
                         <Location>488px, 0px</Location>
-                        <Size>64px, 64px</Size>
+                        <Size>56px, 64px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3234,7 +3235,7 @@
                                 <Name>Arial</Name>
                                 <Size>10px</Size>
                             </Font>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Right</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <Value>=[ARTran.Qty]</Value>
@@ -3242,7 +3243,7 @@
                     <TextBox Name="textBox51">
                         <Format>='0.00'</Format>
                         <Location>552px, 0px</Location>
-                        <Size>64px, 64px</Size>
+                        <Size>56px, 64px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3254,7 +3255,7 @@
                                 <Name>Arial</Name>
                                 <Size>10px</Size>
                             </Font>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Right</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <Value>=[ARTran.CuryUnitPrice]</Value>
