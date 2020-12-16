@@ -47,6 +47,7 @@ namespace LumCustomizations.Graph
 
             Report.AddMenuAction(printPackingList);
             Report.AddMenuAction(COCReport);
+            Report.AddMenuAction(CommericalInvoice);
         }
         #endregion
 
@@ -213,6 +214,24 @@ namespace LumCustomizations.Graph
                 ["LineNbr"] = this.GetCacheCurrent<LumShipmentPlan>().Current.LineNbr.ToString()
             };
             if (parameters["ProductionID"] != null && parameters["ShipmentPlanID"] != null && parameters["LineNbr"] != null && parameters["OrderNbr"] != null)
+                throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
+            return adapter.Get<SOShipment>().ToList();
+        }
+
+        public PXAction<SOShipment> CommericalInvoice;
+        [PXButton]
+        [PXUIField(DisplayName = "Print Commerical Invoice Report", Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        protected virtual IEnumerable commericalInvoice(PXAdapter adapter)
+        {
+            var _reportID = "lm611002";
+            if (string.IsNullOrEmpty(this.GetCacheCurrent<LumShipmentPlan>().Current.ShipmentNbr))
+                throw new PXException("ShipmentNbr Can Not be null");
+            var parameters = new Dictionary<string, string>()
+            {
+                ["ShipmentNbr"] = this.GetCacheCurrent<LumShipmentPlan>().Current.ShipmentNbr,
+                ["ShipmentPlanID"] = this.GetCacheCurrent<LumShipmentPlan>().Current.ShipmentPlanID
+            };
+            if (parameters["ShipmentNbr"] != null && parameters["ShipmentPlanID"] != null)
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
             return adapter.Get<SOShipment>().ToList();
         }
