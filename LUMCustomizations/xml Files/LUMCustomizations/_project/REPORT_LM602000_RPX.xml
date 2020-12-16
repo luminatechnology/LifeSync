@@ -40,14 +40,13 @@
             </ReportRelation>
             <ReportRelation>
                 <ChildName>SOOrder</ChildName>
-                <JoinType>Inner</JoinType>
                 <Links>
                     <RelationRow>
                         <ChildField>SOOrder.OrderNbr</ChildField>
-                        <ParentField>ARInvoice.RefNbr</ParentField>
+                        <ParentField>ARTran.SOOrderNbr</ParentField>
                     </RelationRow>
                 </Links>
-                <ParentName>ARInvoice</ParentName>
+                <ParentName>ARTran</ParentName>
             </ReportRelation>
             <ReportRelation>
                 <ChildName>Branch</ChildName>
@@ -3221,6 +3220,7 @@
                         <Value>=[ARTran.UOM]</Value>
                     </TextBox>
                     <TextBox Name="textBox50">
+                        <Format>='0.00'</Format>
                         <Location>488px, 0px</Location>
                         <Size>64px, 64px</Size>
                         <Style>
@@ -3240,6 +3240,7 @@
                         <Value>=[ARTran.Qty]</Value>
                     </TextBox>
                     <TextBox Name="textBox51">
+                        <Format>='0.00'</Format>
                         <Location>552px, 0px</Location>
                         <Size>64px, 64px</Size>
                         <Style>

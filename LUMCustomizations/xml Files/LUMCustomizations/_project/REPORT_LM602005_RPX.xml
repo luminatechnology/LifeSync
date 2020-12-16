@@ -40,14 +40,13 @@
             </ReportRelation>
             <ReportRelation>
                 <ChildName>SOOrder</ChildName>
-                <JoinType>Inner</JoinType>
                 <Links>
                     <RelationRow>
                         <ChildField>SOOrder.OrderNbr</ChildField>
-                        <ParentField>ARInvoice.RefNbr</ParentField>
+                        <ParentField>ARTran.SOOrderNbr</ParentField>
                     </RelationRow>
                 </Links>
-                <ParentName>ARInvoice</ParentName>
+                <ParentName>ARTran</ParentName>
             </ReportRelation>
             <ReportRelation>
                 <ChildName>Branch</ChildName>
@@ -84,7 +83,6 @@
             </ReportRelation>
             <ReportRelation>
                 <ChildName>Contact</ChildName>
-                <JoinType>Inner</JoinType>
                 <Links>
                     <RelationRow>
                         <ChildField>Contact.ContactID</ChildField>
@@ -97,14 +95,17 @@
             </ReportRelation>
             <ReportRelation>
                 <ChildName>SOShipLine</ChildName>
-                <JoinType>Inner</JoinType>
                 <Links>
                     <RelationRow>
-                        <ChildField>SOShipLine.OrigLineNbr</ChildField>
-                        <ParentField>SOOrder.OrderNbr</ParentField>
+                        <ChildField>SOShipLine.ShipmentNbr</ChildField>
+                        <ParentField>ARTran.SOShipmentNbr</ParentField>
+                    </RelationRow>
+                    <RelationRow>
+                        <ChildField>LineNbr</ChildField>
+                        <ParentField>ARTran.SOShipmentLineNbr</ParentField>
                     </RelationRow>
                 </Links>
-                <ParentName>SOOrder</ParentName>
+                <ParentName>ARTran</ParentName>
             </ReportRelation>
         </Relations>
         <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
@@ -3694,11 +3695,12 @@
                 </Items>
             </PageHeader>
             <Detail Name="detailSection1">
-                <Height>1.69312cm</Height>
+                <Height>1.26984cm</Height>
                 <Items>
                     <TextBox Name="textBox3">
+                        <Format>='0.00'</Format>
                         <Location>200px, 0px</Location>
-                        <Size>72px, 64px</Size>
+                        <Size>72px, 48px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3717,7 +3719,7 @@
                     </TextBox>
                     <TextBox Name="textBox33">
                         <Location>16px, 0px</Location>
-                        <Size>48px, 64px</Size>
+                        <Size>48px, 48px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3736,8 +3738,8 @@
                     </TextBox>
                     <TextBox Name="textBox4">
                         <Format>='0.00'</Format>
-                        <Location>552px, 0px</Location>
-                        <Size>64px, 64px</Size>
+                        <Location>496px, 0px</Location>
+                        <Size>64px, 48px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3753,7 +3755,7 @@
                     <TextBox Name="textBox41">
                         <CanGrow>True</CanGrow>
                         <Location>64px, 0px</Location>
-                        <Size>136px, 56px</Size>
+                        <Size>136px, 48px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3771,7 +3773,7 @@
                     </TextBox>
                     <TextBox Name="textBox45">
                         <Location>400px, 0px</Location>
-                        <Size>152px, 64px</Size>
+                        <Size>96px, 48px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3790,7 +3792,7 @@
                     </TextBox>
                     <TextBox Name="textBox49">
                         <Location>272px, 0px</Location>
-                        <Size>64px, 64px</Size>
+                        <Size>64px, 48px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3808,8 +3810,9 @@
                         <Value>=[ARTran.UOM]</Value>
                     </TextBox>
                     <TextBox Name="textBox5">
+                        <Format>='0.00'</Format>
                         <Location>336px, 0px</Location>
-                        <Size>64px, 64px</Size>
+                        <Size>64px, 48px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3827,8 +3830,8 @@
                         <Value>=[ARTran.CuryUnitPrice]</Value>
                     </TextBox>
                     <TextBox Name="textBox51">
-                        <Location>616px, 0px</Location>
-                        <Size>64px, 64px</Size>
+                        <Location>560px, 0px</Location>
+                        <Size>120px, 48px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3921,19 +3924,19 @@
             <Group Name="ItemList">
                 <Headers>
                     <Header Name="groupHeaderSection1">
-                        <Height>1.69312cm</Height>
+                        <Height>1.0582cm</Height>
                         <Items>
                             <Line Name="line3">
                                 <Location>16px, 0px</Location>
                                 <Size>672px, 8px</Size>
                             </Line>
                             <Line Name="line4">
-                                <Location>16px, 54px</Location>
+                                <Location>16px, 32px</Location>
                                 <Size>672px, 8px</Size>
                             </Line>
                             <TextBox Name="textBox2">
                                 <Location>336px, 8px</Location>
-                                <Size>64px, 40px</Size>
+                                <Size>64px, 24px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -3956,7 +3959,7 @@
                             </TextBox>
                             <TextBox Name="textBox32">
                                 <Location>16px, 8px</Location>
-                                <Size>48px, 40px</Size>
+                                <Size>48px, 24px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -3981,7 +3984,7 @@
                             </TextBox>
                             <TextBox Name="textBox34">
                                 <Location>64px, 8px</Location>
-                                <Size>136px, 40px</Size>
+                                <Size>136px, 24px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -4004,7 +4007,7 @@
                             </TextBox>
                             <TextBox Name="textBox35">
                                 <Location>200px, 8px</Location>
-                                <Size>72px, 40px</Size>
+                                <Size>72px, 24px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -4027,7 +4030,7 @@
                             </TextBox>
                             <TextBox Name="textBox36">
                                 <Location>400px, 8px</Location>
-                                <Size>152px, 40px</Size>
+                                <Size>96px, 24px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -4050,7 +4053,7 @@
                             </TextBox>
                             <TextBox Name="textBox37">
                                 <Location>272px, 8px</Location>
-                                <Size>64px, 40px</Size>
+                                <Size>64px, 24px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -4072,8 +4075,8 @@
                                 <Value>Unit</Value>
                             </TextBox>
                             <TextBox Name="textBox38">
-                                <Location>552px, 8px</Location>
-                                <Size>64px, 40px</Size>
+                                <Location>496px, 8px</Location>
+                                <Size>64px, 24px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -4095,8 +4098,8 @@
                                 <Value>Sub_amount</Value>
                             </TextBox>
                             <TextBox Name="textBox39">
-                                <Location>616px, 8px</Location>
-                                <Size>64px, 40px</Size>
+                                <Location>560px, 8px</Location>
+                                <Size>120px, 24px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -4125,7 +4128,7 @@
                         <Height>0.21164cm</Height>
                         <Items>
                             <Line Name="line1">
-                                <Location>16px, 0px</Location>
+                                <Location>16px, 6px</Location>
                                 <Size>672px, 8px</Size>
                             </Line>
                         </Items>
