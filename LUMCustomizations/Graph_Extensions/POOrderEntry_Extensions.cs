@@ -25,6 +25,7 @@ namespace PX.Objects.PO
         {
             base.Initialize();
             Base.report.AddMenuAction(DomesticPO);
+            Base.report.AddMenuAction(OverseasPO);
         }
 
         #region Action
@@ -37,6 +38,19 @@ namespace PX.Objects.PO
             Dictionary<string, string> parameters = new Dictionary<string, string>();
             var _poOrder = adapter.Get<POOrder>().ToList().FirstOrDefault();
             parameters["OrderNbr"] = _poOrder.OrderNbr;
+            throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
+        }
+        #endregion
+
+        #region Action
+        public PXAction<POOrder> OverseasPO;
+        [PXButton]
+        [PXUIField(DisplayName = "Print Overseas PO", Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        protected virtual IEnumerable overseasPO(PXAdapter adapter)
+        {
+            var _reportID = "lm603010";
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters["OrderNbr"] = Base.Document.Current.OrderNbr;
             throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
         }
         #endregion
