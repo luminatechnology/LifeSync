@@ -3129,14 +3129,11 @@
                     <TextBox Name="textBox42">
                         <Format>='0.00'</Format>
                         <Location>624px, 0px</Location>
-                        <Size>64px, 64px</Size>
+                        <Size>56px, 64px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
                             </BorderColor>
-                            <BorderStyle>
-                                <Right>Solid</Right>
-                            </BorderStyle>
                             <BorderWidth>
                                 <Default>1px</Default>
                             </BorderWidth>

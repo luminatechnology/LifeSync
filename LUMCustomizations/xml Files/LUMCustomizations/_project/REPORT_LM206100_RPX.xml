@@ -2152,14 +2152,13 @@
                         <Value>美博电子有限公司</Value>
                     </TextBox>
                     <TextBox Name="textBox12">
-                        <Location>288px, 32px</Location>
-                        <Size>96px, 24px</Size>
+                        <Location>296px, 32px</Location>
+                        <Size>88px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
                                 <Size>16px</Size>
                             </Font>
-                            <TextAlign>Center</TextAlign>
                         </Style>
                         <Value>=IIF([AMMTran.OrderType] = 'MO', '厂内领料单', '国内厂内领料')</Value>
                     </TextBox>
@@ -2331,13 +2330,12 @@
                                     <Font>
                                         <Size>10px</Size>
                                     </Font>
-                                    <TextAlign>Center</TextAlign>
                                 </Style>
                                 <Value>=[AMMTran.UOM]</Value>
                             </TextBox>
                             <TextBox Name="textBox34">
                                 <Location>472px, 0px</Location>
-                                <Size>32px, 40px</Size>
+                                <Size>32px, 16px</Size>
                                 <Style>
                                     <Font>
                                         <Size>10px</Size>
@@ -2347,7 +2345,7 @@
                             </TextBox>
                             <TextBox Name="textBox35">
                                 <Location>504px, 0px</Location>
-                                <Size>40px, 40px</Size>
+                                <Size>40px, 16px</Size>
                                 <Style>
                                     <Font>
                                         <Size>10px</Size>
