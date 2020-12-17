@@ -70,6 +70,8 @@ namespace PX.Objects.SO
             // Add Button
             if (_visible)
                 Base.report.AddMenuAction(ProformaInvoice);
+
+            Base.report.AddMenuAction(DeliveryOrderReport);
         }
         #endregion
 
@@ -152,6 +154,20 @@ namespace PX.Objects.SO
             if (parameters["ShipmentNbr"] != null)
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
             return adapter.Get<SOShipment>().ToList();
+        }
+
+        public PXAction<SOShipment> DeliveryOrderReport;
+        [PXButton]
+        [PXUIField(DisplayName = "Print Delivery Order", Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        protected virtual IEnumerable deliveryOrderReport(PXAdapter adapter)
+        {
+            if (Base.Document.Current != null)
+            {
+                Dictionary<string, string> parameters = new Dictionary<string, string>();
+                parameters["ShipmentNbr"] = Base.Document.Current.ShipmentNbr;
+                throw new PXReportRequiredException(parameters, "LM611005", "Report LM611005");
+            }
+            return adapter.Get();
         }
         #endregion
     }
