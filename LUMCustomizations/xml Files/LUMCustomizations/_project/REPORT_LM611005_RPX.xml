@@ -2301,7 +2301,7 @@
                         <Value>=[SOShipment.ShipDate]</Value>
                     </TextBox>
                     <TextBox Name="textBox17">
-                        <Location>624px, 208px</Location>
+                        <Location>488px, 208px</Location>
                         <Size>168px, 24px</Size>
                         <Style>
                             <BorderColor>
@@ -2325,7 +2325,7 @@
                     </TextBox>
                     <TextBox Name="textBox18">
                         <Location>128px, 208px</Location>
-                        <Size>416px, 24px</Size>
+                        <Size>272px, 24px</Size>
                         <Style>
                             <BorderColor>
                                 <Bottom>Black</Bottom>
@@ -2370,7 +2370,7 @@
                         <Value>=IIf([Branch.CountryID] &lt;&gt; 'HK',#010;'地址: 广东省东莞市塘厦镇桥陇沙布工业区 32号 邮编 523730' + '{br}     ' +#010;'Qiao Long Sha Bu Industrial park 32#, Tang Xia, Dong Guan, Guang Dong, China, 523730' + '{br}' +#010;'电话:(Tel)0769-82005983  传真:(Fax)0769-82005981',#010;'')#010;</Value>
                     </TextBox>
                     <TextBox Name="textBox3">
-                        <Location>544px, 208px</Location>
+                        <Location>408px, 208px</Location>
                         <Size>80px, 24px</Size>
                         <Style>
                             <BorderColor>
