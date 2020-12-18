@@ -36,13 +36,17 @@
 							    <Columns>
 								<px:PXGridColumn DataField="Avlnbr" Width="140" ></px:PXGridColumn>
 								<px:PXGridColumn DataField="LineNbr" Width="50" ></px:PXGridColumn>
-								<px:PXGridColumn CommitChanges="True" DataField="VendorID" Width="220" ></px:PXGridColumn>
+								<px:PXGridColumn AllowFilter="True" CommitChanges="True" DataField="VendorID" Width="220" ></px:PXGridColumn>
 								<px:PXGridColumn DataField="VendorName" Width="220" ></px:PXGridColumn>
 								<px:PXGridColumn CommitChanges="True" DataField="InventoryID" Width="100" ></px:PXGridColumn>
 								<px:PXGridColumn DataField="InventoryDesc" Width="450" ></px:PXGridColumn>
 								<px:PXGridColumn DataField="Remark" Width="280" ></px:PXGridColumn>
 								<px:PXGridColumn DataField="OrigAVLNbr" Width="140" ></px:PXGridColumn></Columns>
-							</px:PXGridLevel>
+							
+								<RowTemplate>
+									<px:PXSegmentMask CommitChanges="True" runat="server" ID="CstPXSegmentMask13" DataField="VendorID" FilterByAllFields="True" >
+										<AutoCallBack Enabled="" ></AutoCallBack></px:PXSegmentMask>
+																<px:PXSelector runat="server" ID="CstPXSelector14" DataField="InventoryID" FilterByAllFields="True" /></RowTemplate></px:PXGridLevel>
 						</Levels>
 						<AutoSize Container="Window" Enabled="True" MinHeight="150" ></AutoSize>
 						<ActionBar >

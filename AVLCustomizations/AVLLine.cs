@@ -43,7 +43,8 @@ namespace AVLCustomizations
                                                         Where<VendorR.type, Equal<BAccountType.vendorType>,
                                                         And<VendorR.status, Equal<BAccount.status.active>>>>),
                                                 typeof(VendorR.acctCD),
-                                                new Type[] { typeof(VendorR.bAccountID), typeof(VendorR.acctCD), typeof(VendorR.acctName) })]
+                                                new Type[] { typeof(VendorR.bAccountID), typeof(VendorR.acctCD), typeof(VendorR.acctName) }, 
+                                      IsDirty = true)]
         public virtual int? VendorID { get; set; }
         public abstract class vendorid : PX.Data.BQL.BqlString.Field<vendorid> { }
         #endregion

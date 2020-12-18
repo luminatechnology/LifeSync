@@ -40,14 +40,18 @@
 								<px:PXGridColumn DataField="InventoryDesc" Width="450" ></px:PXGridColumn>
 								<px:PXGridColumn DataField="Remark" Width="280" ></px:PXGridColumn>
 								<px:PXGridColumn DataField="OrigAVLNbr" Width="140" ></px:PXGridColumn></Columns>
-							</px:PXGridLevel>
+							
+								<RowTemplate>
+									<px:PXSelector FilterByAllFields="True" runat="server" ID="CstPXSelector11" DataField="InventoryID" ></px:PXSelector>
+									<px:PXSegmentMask runat="server" ID="CstPXSegmentMask12" DataField="VendorID" FilterByAllFields="True" ></px:PXSegmentMask></RowTemplate></px:PXGridLevel>
 						</Levels>
 						<AutoSize Container="Window" Enabled="True" MinHeight="150" ></AutoSize>
 						<ActionBar >
                                                 
 							<CustomItems>
 								<px:PXToolBarButton CommandName="" CommandSourceID="" PopupPanel="CstAVLDialog" Text="Add AVL Nbr" ></px:PXToolBarButton></CustomItems></ActionBar>
-					</px:PXGrid></Template>
+					
+						<Mode AllowAddNew="False" /></px:PXGrid></Template>
     		</px:PXTabItem>
     		<px:PXTabItem Text="Event History" runat="server">
                 <Template>
