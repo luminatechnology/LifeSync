@@ -113,6 +113,7 @@
     <Compile Include="Graph_Extensions\SOInvoiceEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\SOOrderEntry.cs" />
     <Compile Include="Graph_Extensions\SOShipmentEntry.cs" />
+    <Compile Include="Graph_Extensions\VendorShipmentEntry_Extension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
