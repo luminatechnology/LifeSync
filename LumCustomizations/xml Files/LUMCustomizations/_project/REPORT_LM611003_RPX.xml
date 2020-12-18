@@ -1,9 +1,9 @@
-﻿<Report Name="lm615000.rpx">
+﻿<Report Name="lm611003.rpx">
     <Report Name="report1">
         <Filters>
             <FilterExp>
-                <DataField>INPIHeader.PIID</DataField>
-                <Value>@PIID</Value>
+                <DataField>AMVendorShipment.ShipmentNbr</DataField>
+                <Value>@ShipmentID</Value>
             </FilterExp>
         </Filters>
         <PageSettings>
@@ -11,54 +11,71 @@
         </PageSettings>
         <Parameters>
             <ReportParameter>
-                <Name>PIID</Name>
-                <Prompt>PIID</Prompt>
+                <Name>ShipmentID</Name>
+                <Prompt>ShipmentID</Prompt>
+                <ViewName>=[AMVendorShipment.ShipmentNbr]</ViewName>
             </ReportParameter>
         </Parameters>
         <Relations>
             <ReportRelation>
-                <ChildName>INPIDetail</ChildName>
+                <ChildAlias>WIPShipLine</ChildAlias>
+                <ChildName>AMVendorShipLine</ChildName>
                 <Links>
                     <RelationRow>
-                        <ChildField>PIID</ChildField>
-                        <ParentField>PIID</ParentField>
+                        <ChildField>WIPShipLine.ShipmentNbr</ChildField>
+                        <ParentField>ShipmentNbr</ParentField>
                     </RelationRow>
                     <RelationRow>
-                        <ChildField>VarQty</ChildField>
-                        <Condition>NotEqual</Condition>
-                        <ParentField>=0</ParentField>
+                        <ChildField>WIPShipLine.LineType</ChildField>
+                        <ParentField>='W'</ParentField>
                     </RelationRow>
                 </Links>
-                <ParentName>INPIHeader</ParentName>
+                <ParentName>AMVendorShipment</ParentName>
             </ReportRelation>
             <ReportRelation>
+                <ChildAlias>MATShipLine</ChildAlias>
+                <ChildName>AMVendorShipLine</ChildName>
+                <Links>
+                    <RelationRow>
+                        <ChildField>MATShipLine.ShipmentNbr</ChildField>
+                        <ParentField>ShipmentNbr</ParentField>
+                    </RelationRow>
+                    <RelationRow>
+                        <ChildField>MATShipLine.LineType</ChildField>
+                        <ParentField>='M'</ParentField>
+                    </RelationRow>
+                </Links>
+                <ParentName>AMVendorShipment</ParentName>
+            </ReportRelation>
+            <ReportRelation>
+                <ChildAlias>MATItem</ChildAlias>
                 <ChildName>InventoryItem</ChildName>
                 <Links>
                     <RelationRow>
-                        <ChildField>InventoryID</ChildField>
-                        <ParentField>InventoryID</ParentField>
+                        <ChildField>MATItem.InventoryID</ChildField>
+                        <ParentField>MATShipLine.InventoryID</ParentField>
                     </RelationRow>
                 </Links>
-                <ParentName>INPIDetail</ParentName>
+                <ParentName>AMVendorShipLine</ParentName>
             </ReportRelation>
         </Relations>
         <SchemaUrl>http://localhost/ABA_AcumaticaDB1/</SchemaUrl>
         <StylesTemplate>TemplateReport.rpx</StylesTemplate>
         <Tables>
-            <ReportTable Name="INPIHeader">
+            <ReportTable Name="AMVendorShipment">
                 <Fields>
-                    <ReportField Name="AttributeDEPARTMENT">
+                    <ReportField Name="BatNbr">
                     </ReportField>
-                    <ReportField Name="CountDate">
-                        <DataType>DateTime</DataType>
+                    <ReportField Name="BranchID">
                     </ReportField>
-                    <ReportField Name="CountDate_Day">
+                    <ReportField Name="BranchID_Branch_acctName">
                     </ReportField>
-                    <ReportField Name="CountDate_Hour">
+                    <ReportField Name="BranchID_description">
                     </ReportField>
-                    <ReportField Name="CountDate_Month">
+                    <ReportField Name="BranchID_Segment1">
                     </ReportField>
-                    <ReportField Name="CountDate_Quarter">
+                    <ReportField Name="ControlQty">
+                        <DataType>Decimal</DataType>
                     </ReportField>
                     <ReportField Name="CreatedByID">
                     </ReportField>
@@ -81,12 +98,53 @@
                     </ReportField>
                     <ReportField Name="CreatedDateTime_Quarter">
                     </ReportField>
-                    <ReportField Name="Descr">
+                    <ReportField Name="CuryFreightAmt">
+                        <DataType>Decimal</DataType>
                     </ReportField>
-                    <ReportField Name="FinPeriodID">
+                    <ReportField Name="CuryFreightCost">
+                        <DataType>Decimal</DataType>
                     </ReportField>
-                    <ReportField Name="FirstTagNbr">
-                        <DataType>Int32</DataType>
+                    <ReportField Name="CuryID">
+                    </ReportField>
+                    <ReportField Name="CuryInfoID">
+                        <DataType>Int64</DataType>
+                    </ReportField>
+                    <ReportField Name="CuryRate">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="CuryViewState">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="EmployeeID">
+                    </ReportField>
+                    <ReportField Name="EmployeeID_CREmployee_acctName">
+                    </ReportField>
+                    <ReportField Name="EmployeeID_description">
+                    </ReportField>
+                    <ReportField Name="EmployeeID_Segment1">
+                    </ReportField>
+                    <ReportField Name="FOBPoint">
+                    </ReportField>
+                    <ReportField Name="FOBPoint_description">
+                    </ReportField>
+                    <ReportField Name="FOBPoint_FOBPoint_description">
+                    </ReportField>
+                    <ReportField Name="FreightAmountSource">
+                    </ReportField>
+                    <ReportField Name="FreightAmt">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="FreightCost">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="GroundCollect">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="Hold">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="Insurance">
+                        <DataType>Boolean</DataType>
                     </ReportField>
                     <ReportField Name="LastModifiedByID">
                     </ReportField>
@@ -123,31 +181,64 @@
                     </ReportField>
                     <ReportField Name="NoteText">
                     </ReportField>
-                    <ReportField Name="PIAdjAcctID">
+                    <ReportField Name="OrderCntr">
+                        <DataType>Int32</DataType>
                     </ReportField>
-                    <ReportField Name="PIAdjAcctID_Account_description">
+                    <ReportField Name="OverrideFreightAmount">
+                        <DataType>Boolean</DataType>
                     </ReportField>
-                    <ReportField Name="PIAdjAcctID_description">
+                    <ReportField Name="Released">
+                        <DataType>Boolean</DataType>
                     </ReportField>
-                    <ReportField Name="PIAdjAcctID_Segment1">
+                    <ReportField Name="Residential">
+                        <DataType>Boolean</DataType>
                     </ReportField>
-                    <ReportField Name="PIAdjRefNbr">
+                    <ReportField Name="SaturdayDelivery">
+                        <DataType>Boolean</DataType>
                     </ReportField>
-                    <ReportField Name="PIAdjSubID">
+                    <ReportField Name="ShipAddressID">
+                        <DataType>Int32</DataType>
                     </ReportField>
-                    <ReportField Name="PIAdjSubID_description">
+                    <ReportField Name="ShipContactID">
+                        <DataType>Int32</DataType>
                     </ReportField>
-                    <ReportField Name="PIAdjSubID_Segment1">
+                    <ReportField Name="ShipDestType">
                     </ReportField>
-                    <ReportField Name="PIAdjSubID_Segment2">
+                    <ReportField Name="ShipmentDate">
+                        <DataType>DateTime</DataType>
                     </ReportField>
-                    <ReportField Name="PIAdjSubID_Sub_description">
+                    <ReportField Name="ShipmentDate_Day">
                     </ReportField>
-                    <ReportField Name="PIClassID">
+                    <ReportField Name="ShipmentDate_Hour">
                     </ReportField>
-                    <ReportField Name="PIID">
+                    <ReportField Name="ShipmentDate_Month">
                     </ReportField>
-                    <ReportField Name="PIRcptRefNbr">
+                    <ReportField Name="ShipmentDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="ShipmentNbr">
+                    </ReportField>
+                    <ReportField Name="ShipmentQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="ShipmentType">
+                    </ReportField>
+                    <ReportField Name="ShipTermsID">
+                    </ReportField>
+                    <ReportField Name="ShipTermsID_description">
+                    </ReportField>
+                    <ReportField Name="ShipTermsID_ShipTerms_description">
+                    </ReportField>
+                    <ReportField Name="ShipVia">
+                    </ReportField>
+                    <ReportField Name="ShipVia_Carrier_description">
+                    </ReportField>
+                    <ReportField Name="ShipVia_description">
+                    </ReportField>
+                    <ReportField Name="ShipZoneID">
+                    </ReportField>
+                    <ReportField Name="ShipZoneID_description">
+                    </ReportField>
+                    <ReportField Name="ShipZoneID_ShippingZone_description">
                     </ReportField>
                     <ReportField Name="SiteID">
                     </ReportField>
@@ -159,33 +250,38 @@
                     </ReportField>
                     <ReportField Name="Status">
                     </ReportField>
-                    <ReportField Name="TagNumbered">
-                        <DataType>Boolean</DataType>
-                    </ReportField>
-                    <ReportField Name="TotalNbrOfTags">
-                        <DataType>Int32</DataType>
-                    </ReportField>
-                    <ReportField Name="TotalPhysicalQty">
-                        <DataType>Decimal</DataType>
-                    </ReportField>
-                    <ReportField Name="TotalVarCost">
-                        <DataType>Decimal</DataType>
-                    </ReportField>
-                    <ReportField Name="TotalVarQty">
-                        <DataType>Decimal</DataType>
-                    </ReportField>
-                    <ReportField Name="TranPeriodID">
-                    </ReportField>
                     <ReportField Name="tstamp">
                     </ReportField>
-                </Fields>
-                <FullName>PX.Objects.IN.INPIHeader</FullName>
-            </ReportTable>
-            <ReportTable Name="INPIDetail">
-                <Fields>
-                    <ReportField Name="BaseUnit">
+                    <ReportField Name="VendorID">
                     </ReportField>
-                    <ReportField Name="BookQty">
+                    <ReportField Name="VendorID_BAccountR_acctName">
+                    </ReportField>
+                    <ReportField Name="VendorID_description">
+                    </ReportField>
+                    <ReportField Name="VendorID_Segment1">
+                    </ReportField>
+                    <ReportField Name="VendorID_Vendor_acctName">
+                    </ReportField>
+                    <ReportField Name="VendorLocationID">
+                    </ReportField>
+                    <ReportField Name="VendorLocationID_description">
+                    </ReportField>
+                    <ReportField Name="VendorLocationID_Location_descr">
+                    </ReportField>
+                    <ReportField Name="VendorLocationID_Segment1">
+                    </ReportField>
+                    <ReportField Name="WorkgroupID">
+                    </ReportField>
+                    <ReportField Name="WorkgroupID_description">
+                    </ReportField>
+                    <ReportField Name="WorkgroupID_EPCompanyTree_description">
+                    </ReportField>
+                </Fields>
+                <FullName>JAMS.AM.AMVendorShipment</FullName>
+            </ReportTable>
+            <ReportTable Name="AMVendorShipLine">
+                <Fields>
+                    <ReportField Name="BaseQty">
                         <DataType>Decimal</DataType>
                     </ReportField>
                     <ReportField Name="CreatedByID">
@@ -220,11 +316,8 @@
                     </ReportField>
                     <ReportField Name="ExpireDate_Quarter">
                     </ReportField>
-                    <ReportField Name="ExtVarCost">
-                        <DataType>Decimal</DataType>
-                    </ReportField>
-                    <ReportField Name="FinalExtVarCost">
-                        <DataType>Decimal</DataType>
+                    <ReportField Name="HasMixedProjectTasks">
+                        <DataType>Boolean</DataType>
                     </ReportField>
                     <ReportField Name="InventoryID">
                     </ReportField>
@@ -234,8 +327,8 @@
                     </ReportField>
                     <ReportField Name="InventoryID_Segment1">
                     </ReportField>
-                    <ReportField Name="IsCostDefaulting">
-                        <DataType>Boolean</DataType>
+                    <ReportField Name="InvtMult">
+                        <DataType>Int16</DataType>
                     </ReportField>
                     <ReportField Name="LastModifiedByID">
                     </ReportField>
@@ -271,10 +364,13 @@
                     </ReportField>
                     <ReportField Name="LocationID_Segment1">
                     </ReportField>
+                    <ReportField Name="LotSerCntr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
                     <ReportField Name="LotSerialNbr">
                     </ReportField>
-                    <ReportField Name="ManualCost">
-                        <DataType>Boolean</DataType>
+                    <ReportField Name="MatlLineID">
+                        <DataType>Int32</DataType>
                     </ReportField>
                     <ReportField Name="NoteActivity">
                     </ReportField>
@@ -287,16 +383,40 @@
                     </ReportField>
                     <ReportField Name="NoteText">
                     </ReportField>
-                    <ReportField Name="PhysicalQty">
+                    <ReportField Name="OperationID">
+                    </ReportField>
+                    <ReportField Name="OrderType">
+                    </ReportField>
+                    <ReportField Name="OrderType_AMOrderType_descr">
+                    </ReportField>
+                    <ReportField Name="OrderType_description">
+                    </ReportField>
+                    <ReportField Name="POLineNbr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="POOrderNbr">
+                    </ReportField>
+                    <ReportField Name="ProdOrdID">
+                    </ReportField>
+                    <ReportField Name="ProdOrdID_AMProdItem_descr">
+                    </ReportField>
+                    <ReportField Name="ProdOrdID_description">
+                    </ReportField>
+                    <ReportField Name="ProjectID">
+                    </ReportField>
+                    <ReportField Name="ProjectID_description">
+                    </ReportField>
+                    <ReportField Name="ProjectID_PMProject_description">
+                    </ReportField>
+                    <ReportField Name="ProjectID_Segment1">
+                    </ReportField>
+                    <ReportField Name="Qty">
                         <DataType>Decimal</DataType>
                     </ReportField>
-                    <ReportField Name="PIID">
+                    <ReportField Name="Released">
+                        <DataType>Boolean</DataType>
                     </ReportField>
-                    <ReportField Name="ReasonCode">
-                    </ReportField>
-                    <ReportField Name="ReasonCode_description">
-                    </ReportField>
-                    <ReportField Name="ReasonCode_ReasonCode_descr">
+                    <ReportField Name="ShipmentNbr">
                     </ReportField>
                     <ReportField Name="SiteID">
                     </ReportField>
@@ -306,25 +426,42 @@
                     </ReportField>
                     <ReportField Name="SiteID_Segment1">
                     </ReportField>
-                    <ReportField Name="Status">
-                    </ReportField>
                     <ReportField Name="SubItemID">
                     </ReportField>
                     <ReportField Name="SubItemID_Segment1">
                     </ReportField>
-                    <ReportField Name="TagNumber">
-                        <DataType>Int32</DataType>
+                    <ReportField Name="TaskID">
+                    </ReportField>
+                    <ReportField Name="TaskID_description">
+                    </ReportField>
+                    <ReportField Name="TaskID_PMTask_description">
+                    </ReportField>
+                    <ReportField Name="TaskID_Segment1">
+                    </ReportField>
+                    <ReportField Name="TranDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="TranDate_Day">
+                    </ReportField>
+                    <ReportField Name="TranDate_Hour">
+                    </ReportField>
+                    <ReportField Name="TranDate_Month">
+                    </ReportField>
+                    <ReportField Name="TranDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="TranDesc">
+                    </ReportField>
+                    <ReportField Name="TranType">
                     </ReportField>
                     <ReportField Name="tstamp">
                     </ReportField>
-                    <ReportField Name="UnitCost">
+                    <ReportField Name="UnassignedQty">
                         <DataType>Decimal</DataType>
                     </ReportField>
-                    <ReportField Name="VarQty">
-                        <DataType>Decimal</DataType>
+                    <ReportField Name="UOM">
                     </ReportField>
                 </Fields>
-                <FullName>PX.Objects.IN.INPIDetail</FullName>
+                <FullName>JAMS.AM.AMVendorShipLine</FullName>
             </ReportTable>
             <ReportTable Name="InventoryItem">
                 <Fields>
@@ -1035,11 +1172,15 @@
         </Tables>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
-                <Height>2.32804cm</Height>
+                <Height>3.38624cm</Height>
                 <Items>
+                    <Line Name="line1">
+                        <Location>0px, 118px</Location>
+                        <Size>1016px, 8px</Size>
+                    </Line>
                     <TextBox Name="textBox1">
-                        <Location>376px, 0px</Location>
-                        <Size>272px, 32px</Size>
+                        <Location>416px, 0px</Location>
+                        <Size>232px, 40px</Size>
                         <Style>
                             <Font>
                                 <Size>20px</Size>
@@ -1051,61 +1192,95 @@
                         <StyleName>ChineseFont</StyleName>
                         <Value>美 博 电 子 有 限 公 司</Value>
                     </TextBox>
-                    <TextBox Name="textBox2">
-                        <Location>40px, 64px</Location>
-                        <Size>32px, 24px</Size>
+                    <TextBox Name="textBox10">
+                        <Location>776px, 88px</Location>
+                        <Size>64px, 24px</Size>
                         <StyleName>ChineseFont</StyleName>
-                        <Value>单号：</Value>
+                        <Value>工作中心：</Value>
                     </TextBox>
-                    <TextBox Name="textBox3">
-                        <Location>472px, 32px</Location>
-                        <Size>80px, 24px</Size>
+                    <TextBox Name="textBox11">
+                        <Format>='0.0000'</Format>
+                        <Location>840px, 40px</Location>
+                        <Size>3.1746cm, 24px</Size>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>=[WIPShipLine.Qty]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox12">
+                        <Format>='yyyy-MM-dd'</Format>
+                        <Location>840px, 64px</Location>
+                        <Size>3.1746cm, 24px</Size>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>=[AMVendorShipment.ShipmentDate]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox13">
+                        <Location>840px, 88px</Location>
+                        <Size>3.1746cm, 24px</Size>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>=[WIPShipLine.OperationID]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox14">
+                        <Location>488px, 40px</Location>
+                        <Size>96px, 24px</Size>
                         <Style>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <StyleName>ChineseFont</StyleName>
-                        <Value>盘点调整单</Value>
+                        <Value>外发领料单</Value>
+                    </TextBox>
+                    <TextBox Name="textBox15">
+                        <Location>944px, 16px</Location>
+                        <Size>56px, 24px</Size>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>=[PageIndex]+'/'+[PageCount]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox2">
+                        <Location>32px, 40px</Location>
+                        <Size>64px, 24px</Size>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>领料工单：</Value>
+                    </TextBox>
+                    <TextBox Name="textBox3">
+                        <Location>32px, 64px</Location>
+                        <Size>64px, 24px</Size>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>工单单号：</Value>
                     </TextBox>
                     <TextBox Name="textBox4">
-                        <Location>72px, 64px</Location>
-                        <Size>144px, 24px</Size>
-                        <Style>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
+                        <Location>32px, 88px</Location>
+                        <Size>64px, 24px</Size>
                         <StyleName>ChineseFont</StyleName>
-                        <Value>=[INPIHeader.PIID]</Value>
+                        <Value>产品型号：</Value>
                     </TextBox>
                     <TextBox Name="textBox5">
-                        <Location>512px, 64px</Location>
-                        <Size>144px, 24px</Size>
-                        <Style>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
+                        <Location>96px, 40px</Location>
+                        <Size>3.1746cm, 24px</Size>
                         <StyleName>ChineseFont</StyleName>
-                        <Value>=[INPIHeader.AttributeDEPARTMENT]</Value>
+                        <Value>=[AMVendorShipment.ShipmentNbr]</Value>
                     </TextBox>
                     <TextBox Name="textBox6">
-                        <Location>480px, 64px</Location>
-                        <Size>32px, 24px</Size>
+                        <Location>96px, 64px</Location>
+                        <Size>3.1746cm, 24px</Size>
                         <StyleName>ChineseFont</StyleName>
-                        <Value>部门：</Value>
+                        <Value>=[WIPShipLine.ProdOrdID]</Value>
                     </TextBox>
                     <TextBox Name="textBox7">
-                        <Format>='yyyy-MM-dd'</Format>
-                        <Location>872px, 64px</Location>
-                        <Size>144px, 24px</Size>
-                        <Style>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
+                        <Location>96px, 88px</Location>
+                        <Size>3.1746cm, 24px</Size>
                         <StyleName>ChineseFont</StyleName>
-                        <Value>=[INPIHeader.CountDate]</Value>
+                        <Value>=[WIPShipLine.InventoryID]</Value>
                     </TextBox>
                     <TextBox Name="textBox8">
-                        <Location>840px, 64px</Location>
-                        <Size>32px, 24px</Size>
+                        <Location>776px, 40px</Location>
+                        <Size>64px, 24px</Size>
                         <StyleName>ChineseFont</StyleName>
-                        <Value>日期:</Value>
+                        <Value>生产套数：</Value>
+                    </TextBox>
+                    <TextBox Name="textBox9">
+                        <Location>776px, 64px</Location>
+                        <Size>64px, 24px</Size>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>领料日期：</Value>
                     </TextBox>
                 </Items>
             </PageHeader>
@@ -1118,433 +1293,233 @@
                     </ReportVariable>
                 </Variables>
                 <Items>
-                    <TextBox Name="textBox18">
-                        <Location>24px, 0px</Location>
-                        <Size>56px, 48px</Size>
+                    <TextBox Name="textBox24">
+                        <Location>32px, 0px</Location>
+                        <Size>72px, 48px</Size>
                         <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Left>Solid</Left>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Default>1px</Default>
-                            </BorderWidth>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <StyleName>ChineseFont</StyleName>
                         <Value>=PadLeft(CStr($LineNbr), 4, '0')</Value>
                     </TextBox>
-                    <TextBox Name="textBox19">
-                        <Location>80px, 0px</Location>
-                        <Size>96px, 48px</Size>
-                        <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Default>1px</Default>
-                            </BorderWidth>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <StyleName>ChineseFont</StyleName>
-                        <Value>=[INPIDetail.InventoryID]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox20">
-                        <Location>176px, 0px</Location>
-                        <Size>152px, 48px</Size>
-                        <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Default>1px</Default>
-                            </BorderWidth>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <StyleName>ChineseFont</StyleName>
-                        <Value>=[InventoryItem.Descr]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox21">
-                        <Format>='0.0000'</Format>
-                        <Location>328px, 0px</Location>
-                        <Size>112px, 48px</Size>
-                        <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Default>1px</Default>
-                            </BorderWidth>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <StyleName>ChineseFont</StyleName>
-                        <Value>=[INPIDetail.VarQty]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox22">
-                        <Location>440px, 0px</Location>
-                        <Size>112px, 48px</Size>
-                        <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Default>1px</Default>
-                            </BorderWidth>
-                            <TextAlign>Left</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <StyleName>ChineseFont</StyleName>
-                        <Value>=[INPIDetail.LotSerialNbr]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox23">
-                        <Location>552px, 0px</Location>
-                        <Size>112px, 48px</Size>
-                        <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Default>1px</Default>
-                            </BorderWidth>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <StyleName>ChineseFont</StyleName>
-                        <Value>=[InventoryItem.BaseUnit]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox24">
-                        <Location>664px, 0px</Location>
-                        <Size>112px, 48px</Size>
-                        <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Default>1px</Default>
-                            </BorderWidth>
-                            <TextAlign>Left</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <StyleName>ChineseFont</StyleName>
-                        <Value>=[INPIHeader.SiteID]+'-'+[INPIHeader.SiteID_description]</Value>
-                    </TextBox>
                     <TextBox Name="textBox25">
-                        <Location>776px, 0px</Location>
-                        <Size>88px, 48px</Size>
+                        <Location>104px, 0px</Location>
+                        <Size>136px, 48px</Size>
                         <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Default>1px</Default>
-                            </BorderWidth>
-                            <TextAlign>Left</TextAlign>
+                            <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <StyleName>ChineseFont</StyleName>
-                        <Value>=[INPIDetail.LocationID]</Value>
+                        <Value>=[MATShipLine.InventoryID]</Value>
                     </TextBox>
                     <TextBox Name="textBox26">
-                        <Location>864px, 0px</Location>
-                        <Size>112px, 48px</Size>
+                        <Location>240px, 0px</Location>
+                        <Size>192px, 48px</Size>
                         <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Default>1px</Default>
-                            </BorderWidth>
-                            <TextAlign>Left</TextAlign>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <StyleName>ChineseFont</StyleName>
-                        <Value>=[INPIDetail.NoteText]</Value>
+                        <Value>=[MATItem.Descr]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox27">
+                        <Format>='0.0000'</Format>
+                        <Location>432px, 0px</Location>
+                        <Size>112px, 48px</Size>
+                        <Style>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>=[MATShipLine.Qty]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox28">
+                        <Location>640px, 0px</Location>
+                        <Size>96px, 48px</Size>
+                        <Style>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>=[MATShipLine.UOM]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox29">
+                        <Location>736px, 0px</Location>
+                        <Size>88px, 48px</Size>
+                        <Style>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>=[MATShipLine.SiteID_description]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox31">
+                        <Location>824px, 0px</Location>
+                        <Size>88px, 48px</Size>
+                        <Style>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>=[MATShipLine.LocationID_description]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox32">
+                        <Location>912px, 0px</Location>
+                        <Size>104px, 48px</Size>
+                        <Style>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>=[MATShipLine.NoteText]</Value>
                     </TextBox>
                 </Items>
             </Detail>
             <PageFooter Name="pageFooterSection1">
-                <Height>0cm</Height>
-                <Visible>False</Visible>
+                <Items>
+                    <TextBox Name="textBox33">
+                        <Location>64px, 0px</Location>
+                        <Size>64px, 24px</Size>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>生管：</Value>
+                    </TextBox>
+                    <TextBox Name="textBox34">
+                        <Location>304px, 0px</Location>
+                        <Size>64px, 24px</Size>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>仓管：</Value>
+                    </TextBox>
+                    <TextBox Name="textBox35">
+                        <Location>552px, 0px</Location>
+                        <Size>64px, 24px</Size>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>领料员：</Value>
+                    </TextBox>
+                    <TextBox Name="textBox36">
+                        <Location>824px, 0px</Location>
+                        <Size>64px, 24px</Size>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>批准：</Value>
+                    </TextBox>
+                    <TextBox Name="textBox37">
+                        <Location>64px, 48px</Location>
+                        <Size>448px, 24px</Size>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>Form number:FWH-002/Rev.01</Value>
+                    </TextBox>
+                </Items>
             </PageFooter>
         </Sections>
         <Items />
         <Groups>
-            <Group Name="GrpPIID">
+            <Group Name="GRP_shipmentNbr">
                 <Grouping>
                     <GroupExp>
-                        <DataField>=[INPIHeader.PIID]</DataField>
+                        <DataField>=[AMVendorShipment.ShipmentNbr]</DataField>
                     </GroupExp>
                 </Grouping>
                 <Headers>
                     <Header Name="groupHeaderSection1">
                         <Height>0.63492cm</Height>
                         <Items>
-                            <TextBox Name="textBox10">
-                                <Location>80px, 0px</Location>
-                                <Size>96px, 24px</Size>
-                                <Style>
-                                    <BorderColor>
-                                        <Default>Black</Default>
-                                    </BorderColor>
-                                    <BorderStyle>
-                                        <Bottom>Solid</Bottom>
-                                        <Right>Solid</Right>
-                                        <Top>Solid</Top>
-                                    </BorderStyle>
-                                    <BorderWidth>
-                                        <Default>1px</Default>
-                                    </BorderWidth>
-                                    <TextAlign>Center</TextAlign>
-                                    <VerticalAlign>Middle</VerticalAlign>
-                                </Style>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>物料品号</Value>
-                            </TextBox>
-                            <TextBox Name="textBox11">
-                                <Location>176px, 0px</Location>
-                                <Size>152px, 24px</Size>
-                                <Style>
-                                    <BorderColor>
-                                        <Default>Black</Default>
-                                    </BorderColor>
-                                    <BorderStyle>
-                                        <Bottom>Solid</Bottom>
-                                        <Right>Solid</Right>
-                                        <Top>Solid</Top>
-                                    </BorderStyle>
-                                    <BorderWidth>
-                                        <Default>1px</Default>
-                                    </BorderWidth>
-                                    <TextAlign>Center</TextAlign>
-                                    <VerticalAlign>Middle</VerticalAlign>
-                                </Style>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>品名规格</Value>
-                            </TextBox>
-                            <TextBox Name="textBox12">
-                                <Location>328px, 0px</Location>
-                                <Size>112px, 24px</Size>
-                                <Style>
-                                    <BorderColor>
-                                        <Default>Black</Default>
-                                    </BorderColor>
-                                    <BorderStyle>
-                                        <Bottom>Solid</Bottom>
-                                        <Right>Solid</Right>
-                                        <Top>Solid</Top>
-                                    </BorderStyle>
-                                    <BorderWidth>
-                                        <Default>1px</Default>
-                                    </BorderWidth>
-                                    <TextAlign>Center</TextAlign>
-                                    <VerticalAlign>Middle</VerticalAlign>
-                                </Style>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>数量</Value>
-                            </TextBox>
-                            <TextBox Name="textBox13">
-                                <Location>440px, 0px</Location>
-                                <Size>112px, 24px</Size>
-                                <Style>
-                                    <BorderColor>
-                                        <Default>Black</Default>
-                                    </BorderColor>
-                                    <BorderStyle>
-                                        <Bottom>Solid</Bottom>
-                                        <Right>Solid</Right>
-                                        <Top>Solid</Top>
-                                    </BorderStyle>
-                                    <BorderWidth>
-                                        <Default>1px</Default>
-                                    </BorderWidth>
-                                    <TextAlign>Center</TextAlign>
-                                    <VerticalAlign>Middle</VerticalAlign>
-                                </Style>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>批号</Value>
-                            </TextBox>
-                            <TextBox Name="textBox14">
-                                <Location>552px, 0px</Location>
-                                <Size>112px, 24px</Size>
-                                <Style>
-                                    <BorderColor>
-                                        <Default>Black</Default>
-                                    </BorderColor>
-                                    <BorderStyle>
-                                        <Bottom>Solid</Bottom>
-                                        <Right>Solid</Right>
-                                        <Top>Solid</Top>
-                                    </BorderStyle>
-                                    <BorderWidth>
-                                        <Default>1px</Default>
-                                    </BorderWidth>
-                                    <TextAlign>Center</TextAlign>
-                                    <VerticalAlign>Middle</VerticalAlign>
-                                </Style>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>单位</Value>
-                            </TextBox>
-                            <TextBox Name="textBox15">
-                                <Location>664px, 0px</Location>
-                                <Size>112px, 24px</Size>
-                                <Style>
-                                    <BorderColor>
-                                        <Default>Black</Default>
-                                    </BorderColor>
-                                    <BorderStyle>
-                                        <Bottom>Solid</Bottom>
-                                        <Right>Solid</Right>
-                                        <Top>Solid</Top>
-                                    </BorderStyle>
-                                    <BorderWidth>
-                                        <Default>1px</Default>
-                                    </BorderWidth>
-                                    <TextAlign>Center</TextAlign>
-                                    <VerticalAlign>Middle</VerticalAlign>
-                                </Style>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>仓库</Value>
-                            </TextBox>
                             <TextBox Name="textBox16">
-                                <Location>776px, 0px</Location>
-                                <Size>88px, 24px</Size>
+                                <Location>32px, 0px</Location>
+                                <Size>72px, 24px</Size>
                                 <Style>
-                                    <BorderColor>
-                                        <Default>Black</Default>
-                                    </BorderColor>
-                                    <BorderStyle>
-                                        <Bottom>Solid</Bottom>
-                                        <Right>Solid</Right>
-                                        <Top>Solid</Top>
-                                    </BorderStyle>
-                                    <BorderWidth>
-                                        <Default>1px</Default>
-                                    </BorderWidth>
-                                    <TextAlign>Center</TextAlign>
-                                    <VerticalAlign>Middle</VerticalAlign>
-                                </Style>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>库位</Value>
-                            </TextBox>
-                            <TextBox Name="textBox17">
-                                <Location>864px, 0px</Location>
-                                <Size>112px, 24px</Size>
-                                <Style>
-                                    <BorderColor>
-                                        <Default>Black</Default>
-                                    </BorderColor>
-                                    <BorderStyle>
-                                        <Bottom>Solid</Bottom>
-                                        <Right>Solid</Right>
-                                        <Top>Solid</Top>
-                                    </BorderStyle>
-                                    <BorderWidth>
-                                        <Default>1px</Default>
-                                    </BorderWidth>
-                                    <TextAlign>Center</TextAlign>
-                                    <VerticalAlign>Middle</VerticalAlign>
-                                </Style>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>备注</Value>
-                            </TextBox>
-                            <TextBox Name="textBox9">
-                                <Location>24px, 0px</Location>
-                                <Size>56px, 24px</Size>
-                                <Style>
-                                    <BorderColor>
-                                        <Default>Black</Default>
-                                    </BorderColor>
-                                    <BorderStyle>
-                                        <Bottom>Solid</Bottom>
-                                        <Left>Solid</Left>
-                                        <Right>Solid</Right>
-                                        <Top>Solid</Top>
-                                    </BorderStyle>
-                                    <BorderWidth>
-                                        <Default>1px</Default>
-                                    </BorderWidth>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
                                 </Style>
                                 <StyleName>ChineseFont</StyleName>
                                 <Value>序号</Value>
                             </TextBox>
+                            <TextBox Name="textBox17">
+                                <Location>104px, 0px</Location>
+                                <Size>136px, 24px</Size>
+                                <Style>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <StyleName>ChineseFont</StyleName>
+                                <Value>品号</Value>
+                            </TextBox>
+                            <TextBox Name="textBox18">
+                                <Location>240px, 0px</Location>
+                                <Size>192px, 24px</Size>
+                                <Style>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <StyleName>ChineseFont</StyleName>
+                                <Value>品名规格</Value>
+                            </TextBox>
+                            <TextBox Name="textBox19">
+                                <Location>432px, 0px</Location>
+                                <Size>112px, 24px</Size>
+                                <Style>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <StyleName>ChineseFont</StyleName>
+                                <Value>需领数量</Value>
+                            </TextBox>
+                            <TextBox Name="textBox20">
+                                <Location>544px, 0px</Location>
+                                <Size>96px, 24px</Size>
+                                <Style>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <StyleName>ChineseFont</StyleName>
+                                <Value>实领数量</Value>
+                            </TextBox>
+                            <TextBox Name="textBox21">
+                                <Location>640px, 0px</Location>
+                                <Size>96px, 24px</Size>
+                                <Style>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <StyleName>ChineseFont</StyleName>
+                                <Value>单位</Value>
+                            </TextBox>
+                            <TextBox Name="textBox22">
+                                <Location>736px, 0px</Location>
+                                <Size>88px, 24px</Size>
+                                <Style>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <StyleName>ChineseFont</StyleName>
+                                <Value>仓库</Value>
+                            </TextBox>
+                            <TextBox Name="textBox23">
+                                <Location>912px, 0px</Location>
+                                <Size>104px, 24px</Size>
+                                <Style>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <StyleName>ChineseFont</StyleName>
+                                <Value>备注</Value>
+                            </TextBox>
+                            <TextBox Name="textBox30">
+                                <Location>824px, 0px</Location>
+                                <Size>88px, 24px</Size>
+                                <Style>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <StyleName>ChineseFont</StyleName>
+                                <Value>库位</Value>
+                            </TextBox>
                         </Items>
                     </Header>
                 </Headers>
                 <Footers>
                     <Footer Name="groupFooterSection1">
-                        <Items>
-                            <TextBox Name="textBox27">
-                                <Location>72px, 8px</Location>
-                                <Size>48px, 24px</Size>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>货仓:</Value>
-                            </TextBox>
-                            <TextBox Name="textBox28">
-                                <Location>312px, 8px</Location>
-                                <Size>48px, 24px</Size>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>领料：</Value>
-                            </TextBox>
-                            <TextBox Name="textBox29">
-                                <Location>552px, 8px</Location>
-                                <Size>48px, 24px</Size>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>生管：</Value>
-                            </TextBox>
-                            <TextBox Name="textBox30">
-                                <Location>816px, 8px</Location>
-                                <Size>48px, 24px</Size>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>核准：</Value>
-                            </TextBox>
-                            <TextBox Name="textBox31">
-                                <Location>40px, 64px</Location>
-                                <Size>336px, 24px</Size>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>Form number:FWH-026/Rev.00</Value>
-                            </TextBox>
-                        </Items>
+                        <Height>0cm</Height>
+                        <Visible>False</Visible>
                     </Footer>
                 </Footers>
             </Group>
