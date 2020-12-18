@@ -82,7 +82,7 @@
         </CallbackCommands>
         <AutoSize Enabled="True" Container="Window" ></AutoSize>
     </px:PXTab>
-	<px:PXSmartPanel CommandSourceID="ds" CommandName="Add" Key="ApprovedVendListsDialogView" CaptionVisible="True" Caption="Approved Vendor List" Height="60%" Width="70%" runat="server" ID="CstAVLDialog">
+	<px:PXSmartPanel CommandSourceID="ds" CommandName="Add" Key="ApprovedVendListsDialogView" CaptionVisible="True" Caption="Approved Vendor List" Height="400px" Width="70%" runat="server" ID="CstAVLDialog">
 		<px:PXFormView DataMember="Filter" runat="server" ID="CstFormView3" >
 			<Template>
 				<px:PXSelector FilterByAllFields="" CommitChanges="True" runat="server" ID="CstPXSelector9" DataField="Avlnbr" ></px:PXSelector></Template></px:PXFormView>
