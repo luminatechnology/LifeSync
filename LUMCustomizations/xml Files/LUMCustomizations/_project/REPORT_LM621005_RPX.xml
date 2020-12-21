@@ -652,7 +652,7 @@
             </PageHeader>
             <Detail Name="detailSection1">
                 <GridSize>8px, 8px</GridSize>
-                <Height>14px</Height>
+                <Height>32px</Height>
                 <PrintEmpty>False</PrintEmpty>
                 <Variables>
                     <ReportVariable>
@@ -703,7 +703,7 @@
                             <column>2</column>
                         </Excel>
                         <Location>80px, 0px</Location>
-                        <Size>124px, 14px</Size>
+                        <Size>124px, 32px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
@@ -783,12 +783,7 @@
             </Detail>
             <PageFooter Name="pageFooterSection1">
                 <GridSize>8px, 8px</GridSize>
-                <Height>7.99999px</Height>
-                <Visible>False</Visible>
-            </PageFooter>
-            <ReportFooter Name="reportFooterSection1">
-                <GridSize>8px, 8px</GridSize>
-                <Height>124px</Height>
+                <Height>96px</Height>
                 <Items>
                     <Line Name="line4">
                         <Excel>
@@ -854,7 +849,7 @@
                         <Value>=[Ledger.BaseCuryID]</Value>
                     </TextBox>
                     <TextBox Name="textBox63">
-                        <Location>32px, 56px</Location>
+                        <Location>32px, 40px</Location>
                         <Size>32px, 16px</Size>
                         <Style>
                             <Font>
@@ -864,7 +859,7 @@
                         <Value>合计 :</Value>
                     </TextBox>
                     <TextBox Name="textBox64">
-                        <Location>32px, 88px</Location>
+                        <Location>32px, 72px</Location>
                         <Size>32px, 16px</Size>
                         <Style>
                             <Font>
@@ -874,7 +869,7 @@
                         <Value>核准 :</Value>
                     </TextBox>
                     <TextBox Name="textBox65">
-                        <Location>272px, 88px</Location>
+                        <Location>272px, 72px</Location>
                         <Size>32px, 16px</Size>
                         <Style>
                             <Font>
@@ -884,7 +879,7 @@
                         <Value>审核 :</Value>
                     </TextBox>
                     <TextBox Name="textBox66">
-                        <Location>528px, 88px</Location>
+                        <Location>528px, 72px</Location>
                         <Size>32px, 16px</Size>
                         <Style>
                             <Font>
@@ -894,7 +889,7 @@
                         <Value>过帐 :</Value>
                     </TextBox>
                     <TextBox Name="textBox67">
-                        <Location>792px, 88px</Location>
+                        <Location>792px, 72px</Location>
                         <Size>32px, 16px</Size>
                         <Style>
                             <Font>
@@ -904,7 +899,7 @@
                         <Value>制单 :</Value>
                     </TextBox>
                     <TextBox Name="textBox68">
-                        <Location>64px, 56px</Location>
+                        <Location>64px, 40px</Location>
                         <Size>416px, 16px</Size>
                         <Style>
                             <Font>
@@ -914,6 +909,10 @@
                         <Value>=[Batch.UsrSwitchFromNumToCN]</Value>
                     </TextBox>
                 </Items>
+            </PageFooter>
+            <ReportFooter Name="reportFooterSection1">
+                <GridSize>8px, 8px</GridSize>
+                <Height>0px</Height>
             </ReportFooter>
             <Detail Name="detailSection2">
                 <GridSize>8px, 8px</GridSize>
