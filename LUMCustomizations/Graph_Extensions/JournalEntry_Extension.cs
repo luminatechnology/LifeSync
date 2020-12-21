@@ -25,6 +25,7 @@ namespace PX.Objects.GL
             var curBatchCache = (Batch)Base.BatchModule.Cache.Current;
             // create the parameter for report
             Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters["BatchNbr"] = curBatchCache.BatchNbr;
             parameters["PeriodFrom"] = period;
             parameters["PeriodTo"] = period;
 

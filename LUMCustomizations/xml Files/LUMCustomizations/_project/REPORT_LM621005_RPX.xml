@@ -15,6 +15,12 @@
         <ExcelMode>Manual</ExcelMode>
         <Filters>
             <FilterExp>
+                <CloseBraces>1</CloseBraces>
+                <DataField>Batch.BatchNbr</DataField>
+                <OpenBraces>1</OpenBraces>
+                <Value>@BatchNbr</Value>
+            </FilterExp>
+            <FilterExp>
                 <DataField>Batch.Released</DataField>
                 <Value>True</Value>
             </FilterExp>
@@ -173,6 +179,9 @@
                 <Name>FeaturesSetActive</Name>
                 <Type>Integer</Type>
                 <Visible>False</Visible>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>BatchNbr</Name>
             </ReportParameter>
         </Parameters>
         <Relations>
