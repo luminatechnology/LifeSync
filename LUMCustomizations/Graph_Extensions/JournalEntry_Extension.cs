@@ -21,13 +21,13 @@ namespace PX.Objects.GL
         [PXUIField(DisplayName = "GL Journal Report", MapEnableRights = PXCacheRights.Select)]
         protected void gLJournalAction()
         {
-            var period = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-01")).AddDays(-1).ToString("MMyyyy");
             var curBatchCache = (Batch)Base.BatchModule.Cache.Current;
+            var postPeriod = curBatchCache.FinPeriodID.Substring(4, 2) + curBatchCache.FinPeriodID.Substring(0, 4); //MMyyyy
             // create the parameter for report
             Dictionary<string, string> parameters = new Dictionary<string, string>();
             parameters["BatchNbr"] = curBatchCache.BatchNbr;
-            parameters["PeriodFrom"] = period;
-            parameters["PeriodTo"] = period;
+            parameters["PeriodFrom"] = postPeriod;
+            parameters["PeriodTo"] = postPeriod;
 
             // using Report Required Exception to call the report
             throw new PXReportRequiredException(parameters, "LM621005", "LM621005");
