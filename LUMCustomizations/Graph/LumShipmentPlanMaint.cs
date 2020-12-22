@@ -1,5 +1,4 @@
 ﻿using JAMS.AM;
-using LumCustomizations.DAC;
 using PX.Common;
 using PX.Data;
 using PX.Data.BQL;
@@ -11,6 +10,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using LumCustomizations.DAC;
 
 namespace LumCustomizations.Graph
 {
@@ -369,7 +369,7 @@ namespace LumCustomizations.Graph
                 // Round(Carton Qty / CARTONPALT in item attribute) * (PALLETWGT in item attribute) 四捨五入
                 row.PalletWeight = Math.Round(row.CartonQty.Value / cartonPal * palletWgt, 0);
                 row.MEAS         = row.CartonQty * item.BaseItemVolume;
-                row.DimWeight    = row.CartonQty * item.BaseItemVolume * 1000000M / (decimal)e.NewValue / 5000M;
+                row.DimWeight    = row.CartonQty * item.BaseItemVolume * 1000000M / 5000M;
             }
         }
         #endregion
