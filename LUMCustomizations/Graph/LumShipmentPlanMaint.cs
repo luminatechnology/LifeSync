@@ -1,23 +1,27 @@
 ﻿using JAMS.AM;
+using LumCustomizations.DAC;
+using LUMCustomizations.DAC;
 using PX.Common;
 using PX.Data;
 using PX.Data.BQL;
 using PX.Data.BQL.Fluent;
+using PX.Objects.CR;
+using PX.Objects.CR.DAC;
 using PX.Objects.CS;
 using PX.Objects.IN;
 using PX.Objects.SO;
+using PX.SM;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using LumCustomizations.DAC;
 
 namespace LumCustomizations.Graph
 {
     public class LumShipmentPlanMaint : PXGraph<LumShipmentPlanMaint, LumShipmentPlan>
     {
         public const string NotDeleteConfirmed = "The Shipment Plan [{0}] Had Confirmed And Can't Be Deleted.";
-        public const string QtyCannotExceeded  = "The {0} Cannot Exceed The {1}.";
+        public const string QtyCannotExceeded = "The {0} Cannot Exceed The {1}.";
 
         #region Ctor
         public LumShipmentPlanMaint()
@@ -30,7 +34,7 @@ namespace LumCustomizations.Graph
             Report.AddMenuAction(OuterLabelSjm);
             Report.AddMenuAction(InnerLabelMasimo);
             Report.AddMenuAction(OuterLabelMasimo);
-            
+
             // Get Visible
             var _graph = PXGraph.CreateInstance<SOOrderEntry>();
             var _PIPreference = from t in _graph.Select<LifeSyncPreference>()
@@ -64,15 +68,33 @@ namespace LumCustomizations.Graph
         protected void report() { }
 
         public PXAction<LumShipmentPlan> InnerLabelGenaral;
-        [PXButton]
+        [PXButton(CommitChanges = true)]
         [PXUIField(DisplayName = "Print Inner Label-General", MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable innerLabelGenaral(PXAdapter adapter)
         {
             this.Save.Press();
             var _reportID = "lm601000";
             var parameters = GetCurrentRowToParameter();
-            if (parameters["ShipmentPlanID"] != null)
-                throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
+            //if (parameters["ShipmentPlanID"] != null)
+            //    throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
+
+            // Get Printer Info
+            var printer = PXGraph.CreateInstance<SMPrinterMaint>();
+            var printerID = printer.Printers.Select().FirstTableItems.Where(x => x.PrinterName == "ZEBER105").FirstOrDefault().PrinterID;
+
+            PrintSettings printSettings = new PrintSettings()
+            {
+                PrinterID = printerID,
+                NumberOfCopies = 1,
+                PrintWithDeviceHub = true,
+                DefinePrinterManually = false
+            };
+            PXGraph.CreateInstance<SMPrintJobMaint>().CreatePrintJob(
+                printSettings,
+                _reportID,
+                parameters,
+                $"Report {_reportID}");
+
             return adapter.Get<LumShipmentPlan>().ToList();
         }
 
@@ -235,7 +257,6 @@ namespace LumCustomizations.Graph
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
             return adapter.Get<SOShipment>().ToList();
         }
-
         #endregion
 
         #region Event Handlers

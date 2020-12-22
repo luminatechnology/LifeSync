@@ -72,6 +72,9 @@ namespace PX.Objects.SO
                 Base.report.AddMenuAction(ProformaInvoice);
 
             Base.report.AddMenuAction(DeliveryOrderReport);
+
+            Base.action.AddMenuAction(DispatchNoteReport);
+            Base.action.MenuAutoOpen = true;
         }
         #endregion
 
@@ -166,6 +169,20 @@ namespace PX.Objects.SO
                 Dictionary<string, string> parameters = new Dictionary<string, string>();
                 parameters["ShipmentNbr"] = Base.Document.Current.ShipmentNbr;
                 throw new PXReportRequiredException(parameters, "LM611005", "Report LM611005");
+            }
+            return adapter.Get();
+        }
+
+        public PXAction<SOShipment> DispatchNoteReport;
+        [PXButton]
+        [PXUIField(DisplayName = "Print Dispatch Note", Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        protected virtual IEnumerable dispatchNoteReport(PXAdapter adapter)
+        {
+            if (Base.Document.Current != null)
+            {
+                Dictionary<string, string> parameters = new Dictionary<string, string>();
+                parameters["ShipmentNbr"] = Base.Document.Current.ShipmentNbr;
+                throw new PXReportRequiredException(parameters, "LM644005", "Report LM644005");
             }
             return adapter.Get();
         }

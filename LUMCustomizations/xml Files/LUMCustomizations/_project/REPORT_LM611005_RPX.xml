@@ -2367,7 +2367,7 @@
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=IIf([Branch.CountryID] &lt;&gt; 'HK',#010;'地址: 广东省东莞市塘厦镇桥陇沙布工业区 32号 邮编 523730' + '{br}     ' +#010;'Qiao Long Sha Bu Industrial park 32#, Tang Xia, Dong Guan, Guang Dong, China, 523730' + '{br}' +#010;'电话:(Tel)0769-82005983  传真:(Fax)0769-82005981',#010;'')#010;</Value>
+                        <Value>=IIf([Branch.CountryID] &lt;&gt; 'HK',#010;'地址: 广东省东莞市塘厦镇桥陇沙布工业区 32号 邮编 523730' + '{br}' +#010;'Qiao Long Sha Bu Industrial park 32#, Tang Xia, Dong Guan, Guang Dong, China, 523730' + '{br}' +#010;'电话:(Tel)0769-82005983  传真:(Fax)0769-82005981',#010;'')#010;</Value>
                     </TextBox>
                     <TextBox Name="textBox3">
                         <Location>408px, 208px</Location>
@@ -2521,7 +2521,7 @@
                                 <Name>Arial</Name>
                                 <Size>10px</Size>
                             </Font>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <Value>=[SOShipLine.ShippedQty]</Value>
