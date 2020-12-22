@@ -339,3 +339,5 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 /LUMCustomizations/packages.config
+/LUMCustomizations/xml Files/LUMCustomizations/Pages/LM/LM209000.aspx.cs
+/LUMCustomizations/xml Files/LUMCustomizations/Pages/LM/LM209000.aspx
