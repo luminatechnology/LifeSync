@@ -90,6 +90,7 @@
     <Compile Include="DAC\LifeSyncPreference.cs" />
     <Compile Include="DAC\LumItemsCOC.cs" />
     <Compile Include="DAC\LumShipmentPlan.cs" />
+    <Compile Include="DAC\PrintParameters.cs" />
     <Compile Include="DAC_Extensions\AMMPSExtension.cs" />
     <Compile Include="DAC_Extensions\AMProdItemExtensions.cs" />
     <Compile Include="DAC_Extensions\POLineExtensions.cs" />
