@@ -20,6 +20,7 @@
                     <px:PXGridColumn DataField="ProdOrdID" Width="140" CommitChanges="True"></px:PXGridColumn>
                     <px:PXGridColumn DataField="ProdLine" Width="280"></px:PXGridColumn>
                     <px:PXGridColumn DataField="LotSerialNbr" Width="280"></px:PXGridColumn>
+	<px:PXGridColumn CommitChanges="True" DataField="SOLineNoteID" Width="70" ></px:PXGridColumn>
                     <px:PXGridColumn DataField="OrderNbr" Width="140"></px:PXGridColumn>
                     <px:PXGridColumn DataField="OrderType" Width="70"></px:PXGridColumn>
                     <px:PXGridColumn DataField="Customer" Width="180"></px:PXGridColumn>
@@ -28,7 +29,7 @@
                     <px:PXGridColumn DataField="OrderDate" Width="90"></px:PXGridColumn>
                     <px:PXGridColumn DataField="LineNbr" Width="70"></px:PXGridColumn>
                     <px:PXGridColumn DataField="InventoryID" Width="70"></px:PXGridColumn>
-	<px:PXGridColumn DataField="CustomerPN" Width="180" />
+	<px:PXGridColumn DataField="CustomerPN" Width="180" ></px:PXGridColumn>
                     <px:PXGridColumn DataField="OrderQty" Width="100"></px:PXGridColumn>
                     <px:PXGridColumn DataField="OpenQty" Width="100"></px:PXGridColumn>
                     <px:PXGridColumn DataField="RequestDate" Width="90"></px:PXGridColumn>
