@@ -5080,12 +5080,12 @@
                 </Grouping>
                 <Headers>
                     <Header Name="groupHeaderSection1">
-                        <Height>2.66667in</Height>
+                        <Height>2.96in</Height>
                         <PrintForEmptyGroup>True</PrintForEmptyGroup>
                         <PrintOnEveryPage>True</PrintOnEveryPage>
                         <Items>
                             <Panel Name="panel1">
-                                <Location>0px, 208px</Location>
+                                <Location>0px, 224px</Location>
                                 <Size>1024px, 56px</Size>
                                 <StyleName>Bottom Line</StyleName>
                                 <Items>
@@ -5225,36 +5225,42 @@
                             </Panel>
                             <Panel Name="panel6">
                                 <Location>0px, 88px</Location>
-                                <Size>1024px, 120px</Size>
+                                <Size>1024px, 136px</Size>
                                 <StyleName>Bottom Line</StyleName>
                                 <Items>
                                     <TextBox Name="textBox1">
-                                        <Location>8px, 32px</Location>
-                                        <Size>120px, 16px</Size>
+                                        <Location>8px, 8px</Location>
+                                        <Size>120px, 64px</Size>
+                                        <Style>
+                                            <VerticalAlign>Middle</VerticalAlign>
+                                        </Style>
                                         <StyleName>Item Normal</StyleName>
                                         <Value>TO:</Value>
                                     </TextBox>
                                     <TextBox Name="textBox12">
-                                        <Location>760px, 24px</Location>
-                                        <Size>248px, 88px</Size>
+                                        <Location>760px, 16px</Location>
+                                        <Size>248px, 104px</Size>
                                         <StyleName>Item Normal</StyleName>
-                                        <Value>=IIf([Location.LocationCD] &lt;&gt; null, [Location.LocationCD], '') + '{br}'#010;+IIf([ShippingContact.Attention] &lt;&gt; null, [ShippingContact.Attention] + '{br}','')#010;+[SOShipment.NoteText]</Value>
+                                        <Value>=IIf([ShippingContact.Attention] &lt;&gt; null, [ShippingContact.Attention] + '{br}','')#010;+[SOShipment.NoteText]</Value>
                                     </TextBox>
                                     <TextBox Name="textBox18">
                                         <Location>128px, 80px</Location>
-                                        <Size>616px, 32px</Size>
+                                        <Size>616px, 48px</Size>
                                         <StyleName>Item Normal</StyleName>
-                                        <Value>=IIf([BAccount.AcctName]&lt;&gt; null, [BAccount.AcctName],'')#010;+IIf([CompanyAddress.AddressLine1]&lt;&gt; null, [CompanyAddress.AddressLine1], '')#010;+IIf([CompanyAddress.AddressLine2]&lt;&gt;null,[CompanyAddress.AddressLine2],'')#010;+IIf([CompanyAddress.City]&lt;&gt;null, [CompanyAddress.City],'')#010;+IIf([CompanyAddress.City]&lt;&gt;null And [CompanyAddress.State]&lt;&gt;null, ', ', '')#010;+IIf([CompanyAddress.State]&lt;&gt;null,[CompanyAddress.State],'')#010;+IIf([CompanyAddress.PostalCode]&lt;&gt;null And [CompanyAddress.State]&lt;&gt;null, ', ', ' ')#010;+IIf([CompanyAddress.PostalCode]&lt;&gt;null,[CompanyAddress.PostalCode],'')#010;+IIf([CompanyContact.Phone1] &lt;&gt;null,'Phone: ' + [CompanyContact.Phone1],'')</Value>
+                                        <Value>=IIf([BAccount.AcctName]&lt;&gt; null, [BAccount.AcctName] + '{br}','')#010;+IIf([CompanyAddress.AddressLine1]&lt;&gt; null, [CompanyAddress.AddressLine1], '')#010;+IIf([CompanyAddress.AddressLine2]&lt;&gt;null,[CompanyAddress.AddressLine2],'')#010;+IIf([CompanyAddress.City]&lt;&gt;null, [CompanyAddress.City],'')#010;+IIf([CompanyAddress.City]&lt;&gt;null And [CompanyAddress.State]&lt;&gt;null, ', ', '')#010;+IIf([CompanyAddress.State]&lt;&gt;null,[CompanyAddress.State],'')#010;+IIf([CompanyAddress.PostalCode]&lt;&gt;null And [CompanyAddress.State]&lt;&gt;null, ', ', ' ')#010;+IIf([CompanyAddress.PostalCode]&lt;&gt;null,[CompanyAddress.PostalCode],'')#010;+IIf([CompanyContact.Phone1] &lt;&gt;null, '{br}' + 'Phone: ' + [CompanyContact.Phone1],'')</Value>
                                     </TextBox>
                                     <TextBox Name="textBox27">
                                         <Location>128px, 8px</Location>
                                         <Size>616px, 64px</Size>
                                         <StyleName>Item Normal</StyleName>
-                                        <Value>=IIf([ShippingContact.FullName]&lt;&gt;null,    [ShippingContact.FullName]+'{br}','') #010;+IIf([ShippingAddress.AddressLine1]&lt;&gt;null,[ShippingAddress.AddressLine1]+'{br}','')#010;+IIf([ShippingAddress.AddressLine2]&lt;&gt;null,[ShippingAddress.AddressLine2]+'{br}','')#010;+IIf([ShippingAddress.AddressLine3]&lt;&gt;null,[ShippingAddress.AddressLine3]+'{br}','')#010;+IIf([ShippingAddress.City]&lt;&gt;null,        [ShippingAddress.City]+' ','')#010;+IIf([ShippingAddress.State]&lt;&gt;null,       [ShippingAddress.State]+' ','')#010;+IIf([ShippingAddress.PostalCode]&lt;&gt;null,  [ShippingAddress.PostalCode],'')#010;+IIf([ShippingAddress.City]&lt;&gt;null OR [ShippingAddress.State]&lt;&gt;null OR [ShippingAddress.PostalCode]&lt;&gt;null, '','')#010;+IIf([ShippingAddress.CountryID]&lt;&gt;null,[ShippingAddress.CountryID_Country_description],'')</Value>
+                                        <Value>=IIf([ShippingContact.FullName]&lt;&gt;null,    [ShippingContact.FullName]+'{br}','') #010;+IIf([ShippingAddress.AddressLine1]&lt;&gt;null,[ShippingAddress.AddressLine1]+ ', ','')#010;+IIf([ShippingAddress.AddressLine2]&lt;&gt;null,[ShippingAddress.AddressLine2]+ ', ','')#010;+IIf([ShippingAddress.City]&lt;&gt;null,        [ShippingAddress.City] + ', '+' ','')#010;+IIf([ShippingAddress.State]&lt;&gt;null,       [ShippingAddress.State] + ', '+' ','')#010;+IIf([ShippingAddress.PostalCode]&lt;&gt;null,  [ShippingAddress.PostalCode] + ', ','')#010;+IIf([ShippingAddress.CountryID]&lt;&gt;null,[ShippingAddress.CountryID_Country_description],'')#010;+IIf([ShippingAddress.City]&lt;&gt;null OR [ShippingAddress.State]&lt;&gt;null OR [ShippingAddress.PostalCode]&lt;&gt;null, '','')</Value>
                                     </TextBox>
                                     <TextBox Name="textBox3">
                                         <Location>8px, 80px</Location>
-                                        <Size>120px, 16px</Size>
+                                        <Size>120px, 48px</Size>
+                                        <Style>
+                                            <VerticalAlign>Middle</VerticalAlign>
+                                        </Style>
                                         <StyleName>Item Normal</StyleName>
                                         <Value>Seller:</Value>
                                     </TextBox>
@@ -5290,7 +5296,7 @@
                                 <Items>
                                     <TextBox Name="textBox28">
                                         <Format>N0</Format>
-                                        <Location>458px, 8px</Location>
+                                        <Location>490px, 8px</Location>
                                         <Size>60px, 20px</Size>
                                         <Style>
                                             <TextAlign>Center</TextAlign>
@@ -5300,7 +5306,7 @@
                                     </TextBox>
                                     <TextBox Name="textBox29">
                                         <Format>N2</Format>
-                                        <Location>518px, 8px</Location>
+                                        <Location>550px, 8px</Location>
                                         <Size>70px, 20px</Size>
                                         <Style>
                                             <TextAlign>Center</TextAlign>
@@ -5310,7 +5316,7 @@
                                     </TextBox>
                                     <TextBox Name="textBox30">
                                         <Format>N2</Format>
-                                        <Location>592px, 8px</Location>
+                                        <Location>620px, 8px</Location>
                                         <Size>70px, 20px</Size>
                                         <Style>
                                             <TextAlign>Center</TextAlign>
@@ -5320,7 +5326,7 @@
                                     </TextBox>
                                     <TextBox Name="textBox31">
                                         <Format>N2</Format>
-                                        <Location>666px, 8px</Location>
+                                        <Location>690px, 8px</Location>
                                         <Size>70px, 20px</Size>
                                         <Style>
                                             <TextAlign>Center</TextAlign>
@@ -5330,7 +5336,7 @@
                                     </TextBox>
                                     <TextBox Name="textBox32">
                                         <Format>N2</Format>
-                                        <Location>740px, 8px</Location>
+                                        <Location>760px, 8px</Location>
                                         <Size>104px, 20px</Size>
                                         <Style>
                                             <TextAlign>Center</TextAlign>
@@ -5339,7 +5345,7 @@
                                         <Value>=Sum([LumShipmentPlan.DimWeight])</Value>
                                     </TextBox>
                                     <TextBox Name="textBox6">
-                                        <Location>360px, 8px</Location>
+                                        <Location>394px, 8px</Location>
                                         <Size>96px, 16px</Size>
                                         <Style>
                                             <TextAlign>Right</TextAlign>
