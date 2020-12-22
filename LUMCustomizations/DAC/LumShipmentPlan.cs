@@ -1,11 +1,11 @@
 ﻿using JAMS.AM;
 using JAMS.AM.Attributes;
+using System;
 using PX.Data;
 using PX.Objects.CS;
 using PX.Objects.CR;
 using PX.Objects.IN;
 using PX.Objects.SO;
-using System;
 using PX.Objects.CM;
 
 namespace LumCustomizations.DAC
@@ -14,22 +14,22 @@ namespace LumCustomizations.DAC
     [Serializable]
     public class LumShipmentPlan : IBqlTable
     {
-        //#region SOLineNoteID
-        //[PXGuid]
-        //[PXUIField(DisplayName = "SO Ref.", Visible = false)]
-        //[PXSelector(typeof(Search2<SOLine.noteID, InnerJoin<SOOrder, On<SOOrder.orderType, Equal<SOLine.orderType>, 
-        //                                                                And<SOOrder.orderNbr, Equal<SOLine.orderNbr>>>, 
-        //                                          InnerJoin<InventoryItem, On<InventoryItem.inventoryID, Equal<SOLine.inventoryID>>>>>), 
-        //            typeof(SOOrder.orderType), 
-        //            typeof(SOOrder.orderNbr), 
-        //            typeof(SOLine.lineNbr), 
-        //            typeof(SOLine.inventoryID), 
-        //            typeof(InventoryItem.descr), 
-        //            typeof(SOLine.orderQty), 
-        //            typeof(SOLine.requestDate))]
-        //public virtual Guid? SOLineNoteID { get; set; }
-        //public abstract class sOLineNoteID : PX.Data.BQL.BqlGuid.Field<LumShipmentPlan.sOLineNoteID> { }
-        //#endregion
+        #region SOLineNoteID
+        [PXGuid]
+        [PXUIField(DisplayName = "SO Search", Visible = true)]
+        [PXSelector(typeof(Search2<SOLine.noteID, InnerJoin<SOOrder, On<SOOrder.orderType, Equal<SOLine.orderType>,
+                                                                        And<SOOrder.orderNbr, Equal<SOLine.orderNbr>>>,
+                                                  InnerJoin<InventoryItem, On<InventoryItem.inventoryID, Equal<SOLine.inventoryID>>>>>),
+                    typeof(SOOrder.orderType),
+                    typeof(SOOrder.orderNbr),
+                    typeof(SOLine.lineNbr),
+                    typeof(SOLine.inventoryID),
+                    typeof(InventoryItem.descr),
+                    typeof(SOLine.orderQty),
+                    typeof(SOLine.requestDate))]
+        public virtual Guid? SOLineNoteID { get; set; }
+        public abstract class sOLineNoteID : PX.Data.BQL.BqlGuid.Field<LumShipmentPlan.sOLineNoteID> { }
+        #endregion
 
         #region ShipmentPlanID
         [PXDBString(15, InputMask = "", IsKey = true, IsUnicode = true)]
