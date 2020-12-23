@@ -18,7 +18,7 @@ using System.Linq;
 
 namespace LumCustomizations.Graph
 {
-    public class LumShipmentPlanMaint : PXGraph<LumShipmentPlanMaint, LumShipmentPlan>
+    public class LumShipmentPlanMaint : PXGraph<LumShipmentPlanMaint>
     {
         public const string NotDeleteConfirmed = "The Shipment Plan [{0}] Had Confirmed And Can't Be Deleted.";
         public const string QtyCannotExceeded = "The {0} Cannot Exceed The {1}.";
@@ -55,10 +55,13 @@ namespace LumCustomizations.Graph
         }
         #endregion
 
-        #region Selects
+        #region Selects & Features
         [PXFilterable()]
         public SelectFrom<LumShipmentPlan>.View ShipPlan;
         public SelectFrom<SOOrder>.Where<SOOrder.orderType.IsEqual<LumShipmentPlan.orderType>.And<SOOrder.orderNbr.IsEqual<LumShipmentPlan.orderNbr>>>.View Order;
+
+        public PXSave<LumShipmentPlan> Save;
+        public PXCancel<LumShipmentPlan> Cancel;
         #endregion
 
         #region Actions
