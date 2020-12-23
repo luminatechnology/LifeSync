@@ -84,7 +84,7 @@ namespace PX.Objects.SO
             SOShipLine row = e.Row as SOShipLine;
             SOShipLineExt rowExt = row.GetExtension<SOShipLineExt>();
 
-            rowExt.UsrDimWeight = rowExt.UsrCartonQty * rowExt.UsrBaseItemVolume * 1000000M / row.ShippedQty / 5000M;
+            rowExt.UsrDimWeight = rowExt.UsrCartonQty * rowExt.UsrBaseItemVolume * 1000000M / 5000M;
         }
         #endregion
 
