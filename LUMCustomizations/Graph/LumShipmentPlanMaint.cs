@@ -89,11 +89,16 @@ namespace LumCustomizations.Graph
                 PrintWithDeviceHub = true,
                 DefinePrinterManually = false
             };
-            PXGraph.CreateInstance<SMPrintJobMaint>().CreatePrintJob(
-                printSettings,
-                _reportID,
-                parameters,
-                $"Report {_reportID}");
+            //PXGraph.CreateInstance<SMPrintJobMaint>().CreatePrintJob(
+            //    printSettings,
+            //    _reportID,
+            //    parameters,
+            //    $"Report {_reportID}");
+
+            PXReportRequiredException ex = null;
+            ex = PXReportRequiredException.CombineReport(ex, _reportID, parameters);
+
+            PX.SM.SMPrintJobMaint.CreatePrintJobGroup(printSettings, ex, $"Print Report {_reportID}");
 
             return adapter.Get<LumShipmentPlan>().ToList();
         }
