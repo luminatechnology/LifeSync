@@ -28,6 +28,22 @@
         <GridSize>4px, 4px</GridSize>
         <MailSettings>
             <ActivitySource>AMProdItem.NoteID</ActivitySource>
+            <Bcc>
+            </Bcc>
+            <Body>
+            </Body>
+            <Cc>
+            </Cc>
+            <Format>
+            </Format>
+            <ParentSource>
+            </ParentSource>
+            <Subject>
+            </Subject>
+            <TemplateID>
+            </TemplateID>
+            <To>
+            </To>
         </MailSettings>
         <Parameters>
             <ReportParameter>
@@ -2540,273 +2556,12 @@
         <Sections>
             <PageHeader Name="pageHeaderSection1">
                 <GridSize>8px, 8px</GridSize>
-                <Height>5.50265cm</Height>
-                <Items>
-                    <Panel Name="panel1">
-                        <Location>16px, 64px</Location>
-                        <Size>664px, 144px</Size>
-                        <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Default>Solid</Default>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Default>1px</Default>
-                            </BorderWidth>
-                        </Style>
-                        <StyleName>PanelTopLine</StyleName>
-                        <Items>
-                            <TextBox Name="textBox10">
-                                <Location>432px, 32px</Location>
-                                <Size>56px, 14px</Size>
-                                <Style>
-                                    <TextAlign>Left</TextAlign>
-                                    <VerticalAlign>Middle</VerticalAlign>
-                                </Style>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>预计开工：</Value>
-                            </TextBox>
-                            <TextBox Name="textBox11">
-                                <Location>432px, 56px</Location>
-                                <Size>56px, 14px</Size>
-                                <Style>
-                                    <TextAlign>Left</TextAlign>
-                                    <VerticalAlign>Middle</VerticalAlign>
-                                </Style>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>完工日期：</Value>
-                            </TextBox>
-                            <TextBox Name="textBox12">
-                                <Location>432px, 80px</Location>
-                                <Size>56px, 14px</Size>
-                                <Style>
-                                    <TextAlign>Left</TextAlign>
-                                    <VerticalAlign>Middle</VerticalAlign>
-                                </Style>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>工作中心：</Value>
-                            </TextBox>
-                            <TextBox Name="textBox13">
-                                <Location>432px, 104px</Location>
-                                <Size>56px, 14px</Size>
-                                <Style>
-                                    <TextAlign>Left</TextAlign>
-                                    <VerticalAlign>Middle</VerticalAlign>
-                                </Style>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>预计产量：</Value>
-                            </TextBox>
-                            <TextBox Name="textBox16">
-                                <Location>112px, 8px</Location>
-                                <Size>184px, 16px</Size>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>=[AMProdItem.OrderType]+#010;'  '+#010;[AMProdItem.ProdOrdID]</Value>
-                            </TextBox>
-                            <TextBox Name="textBox18">
-                                <Location>112px, 32px</Location>
-                                <Size>184px, 16px</Size>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>=[AMProdItem.InventoryID]</Value>
-                            </TextBox>
-                            <TextBox Name="textBox2">
-                                <Location>48px, 8px</Location>
-                                <Size>56px, 14px</Size>
-                                <Style>
-                                    <TextAlign>Left</TextAlign>
-                                    <VerticalAlign>Middle</VerticalAlign>
-                                </Style>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>工单单号:</Value>
-                            </TextBox>
-                            <TextBox Name="textBox20">
-                                <Location>112px, 56px</Location>
-                                <Size>184px, 16px</Size>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>=[InventoryItem.Descr]</Value>
-                            </TextBox>
-                            <TextBox Name="textBox21">
-                                <Location>112px, 80px</Location>
-                                <Size>184px, 16px</Size>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>=[INItemXRef.AlternateID]</Value>
-                            </TextBox>
-                            <TextBox Name="textBox22">
-                                <Location>112px, 104px</Location>
-                                <Size>184px, 16px</Size>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>=[AMProdItem.UsrSOOrderNbr]</Value>
-                            </TextBox>
-                            <TextBox Name="textBox23">
-                                <Location>112px, 128px</Location>
-                                <Size>184px, 16px</Size>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>=[ENDC.Value]</Value>
-                            </TextBox>
-                            <TextBox Name="textBox24">
-                                <Location>496px, 8px</Location>
-                                <Size>168px, 16px</Size>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>=[AMProdAttribute.Value]</Value>
-                            </TextBox>
-                            <TextBox Name="textBox25">
-                                <Format>='yyyy-MM-dd'</Format>
-                                <Location>496px, 32px</Location>
-                                <Size>168px, 16px</Size>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>=[AMProdItem.StartDate]</Value>
-                            </TextBox>
-                            <TextBox Name="textBox26">
-                                <Format>='yyyy-MM-dd'</Format>
-                                <Location>496px, 56px</Location>
-                                <Size>168px, 16px</Size>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>=[AMProdItem.EndDate]</Value>
-                            </TextBox>
-                            <TextBox Name="textBox27">
-                                <Location>496px, 80px</Location>
-                                <Size>168px, 16px</Size>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>=[ProdLine.Value]</Value>
-                            </TextBox>
-                            <TextBox Name="textBox28">
-                                <Format>='0.0000'</Format>
-                                <Location>496px, 104px</Location>
-                                <Size>168px, 16px</Size>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>=[AMProdItem.QtytoProd]</Value>
-                            </TextBox>
-                            <TextBox Name="textBox3">
-                                <Location>48px, 32px</Location>
-                                <Size>56px, 14px</Size>
-                                <Style>
-                                    <TextAlign>Left</TextAlign>
-                                    <VerticalAlign>Middle</VerticalAlign>
-                                </Style>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>产品品号:</Value>
-                            </TextBox>
-                            <TextBox Name="textBox4">
-                                <Location>48px, 56px</Location>
-                                <Size>56px, 14px</Size>
-                                <Style>
-                                    <TextAlign>Left</TextAlign>
-                                    <VerticalAlign>Middle</VerticalAlign>
-                                </Style>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>产品品名:</Value>
-                            </TextBox>
-                            <TextBox Name="textBox5">
-                                <Location>48px, 80px</Location>
-                                <Size>56px, 14px</Size>
-                                <Style>
-                                    <TextAlign>Left</TextAlign>
-                                    <VerticalAlign>Middle</VerticalAlign>
-                                </Style>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>客户品号:</Value>
-                            </TextBox>
-                            <TextBox Name="textBox6">
-                                <Location>48px, 104px</Location>
-                                <Size>56px, 14px</Size>
-                                <Style>
-                                    <TextAlign>Left</TextAlign>
-                                    <VerticalAlign>Middle</VerticalAlign>
-                                </Style>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>订单单号:</Value>
-                            </TextBox>
-                            <TextBox Name="textBox7">
-                                <Location>48px, 128px</Location>
-                                <Size>56px, 14px</Size>
-                                <Style>
-                                    <TextAlign>Left</TextAlign>
-                                    <VerticalAlign>Middle</VerticalAlign>
-                                </Style>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>订单备注:</Value>
-                            </TextBox>
-                            <TextBox Name="textBox8">
-                                <Location>432px, 8px</Location>
-                                <Size>56px, 14px</Size>
-                                <Style>
-                                    <TextAlign>Left</TextAlign>
-                                    <VerticalAlign>Middle</VerticalAlign>
-                                </Style>
-                                <StyleName>ChineseFont</StyleName>
-                                <Value>客户单号：</Value>
-                            </TextBox>
-                        </Items>
-                    </Panel>
-                    <TextBox Name="textBox1">
-                        <Location>224px, 32px</Location>
-                        <Size>240px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Microsoft JhengHei UI</Name>
-                            </Font>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <Value>=IIF([AMOrderType.OrderType] = 'MO', '生产指令单','') +#010;IIF([AMOrderType.OrderType] = 'RO', '国内生产指令单','')</Value>
-                    </TextBox>
-                    <TextBox Name="textBox14">
-                        <Location>16px, 48px</Location>
-                        <Size>56px, 14px</Size>
-                        <Style>
-                            <TextAlign>Left</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <StyleName>ChineseFont</StyleName>
-                        <Value>单据日期:</Value>
-                    </TextBox>
-                    <TextBox Name="textBox15">
-                        <Location>568px, 48px</Location>
-                        <Size>32px, 14px</Size>
-                        <Style>
-                            <TextAlign>Left</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <StyleName>ChineseFont</StyleName>
-                        <Value>页次:</Value>
-                    </TextBox>
-                    <TextBox Name="textBox17">
-                        <Location>608px, 48px</Location>
-                        <Size>84px, 14px</Size>
-                        <Style>
-                            <TextAlign>Left</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <StyleName>Report Params</StyleName>
-                        <Value>=[PageIndex]+'/'+[PageCount]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox19">
-                        <Format>='yyyy-MM-dd'</Format>
-                        <Location>72px, 48px</Location>
-                        <Size>60px, 14px</Size>
-                        <Style>
-                            <TextAlign>Left</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <StyleName>Report Params</StyleName>
-                        <Value>=Today()</Value>
-                    </TextBox>
-                    <TextBox Name="textBox9">
-                        <Location>224px, 8px</Location>
-                        <Size>236px, 16px</Size>
-                        <Style>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <StyleName>Report Name</StyleName>
-                        <Value>ABA Medaical Technology(DG)</Value>
-                    </TextBox>
-                </Items>
+                <Height>0.21164cm</Height>
+                <Visible>False</Visible>
             </PageHeader>
             <Detail Name="detailSection1">
                 <GridSize>8px, 8px</GridSize>
-                <Height>2.01058cm</Height>
+                <Height>0.84656cm</Height>
                 <Variables>
                     <ReportVariable>
                         <Name>LineNbr</Name>
@@ -2816,7 +2571,7 @@
                 <Items>
                     <TextBox Name="textBox29">
                         <Location>16px, 0px</Location>
-                        <Size>56px, 80px</Size>
+                        <Size>56px, 32px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -2837,7 +2592,7 @@
                     </TextBox>
                     <TextBox Name="textBox30">
                         <Location>72px, 0px</Location>
-                        <Size>72px, 80px</Size>
+                        <Size>72px, 32px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -2855,8 +2610,9 @@
                         <Value>=[AMProdMatl.InventoryID]</Value>
                     </TextBox>
                     <TextBox Name="textBox38">
+                        <CanGrow>True</CanGrow>
                         <Location>144px, 0px</Location>
-                        <Size>144px, 80px</Size>
+                        <Size>176px, 32px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -2874,8 +2630,8 @@
                         <Value>=[AMProdMatl.Descr]</Value>
                     </TextBox>
                     <TextBox Name="textBox39">
-                        <Location>288px, 0px</Location>
-                        <Size>56px, 80px</Size>
+                        <Location>320px, 0px</Location>
+                        <Size>56px, 32px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -2894,9 +2650,9 @@
                         <Value>=[AMProdMatl.UOM]</Value>
                     </TextBox>
                     <TextBox Name="textBox40">
-                        <Format>='0.0000'</Format>
-                        <Location>344px, 0px</Location>
-                        <Size>72px, 80px</Size>
+                        <Format>='N2'</Format>
+                        <Location>376px, 0px</Location>
+                        <Size>64px, 32px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -2915,9 +2671,9 @@
                         <Value>=[AMProdMatl.TotalQtyRequired]</Value>
                     </TextBox>
                     <TextBox Name="textBox41">
-                        <Format>='0.0000'</Format>
-                        <Location>552px, 0px</Location>
-                        <Size>64px, 80px</Size>
+                        <Format>='N2'</Format>
+                        <Location>560px, 0px</Location>
+                        <Size>56px, 32px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -2933,11 +2689,11 @@
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <StyleName>ChineseFont</StyleName>
-                        <Value>=[AMProdMatl.QtyActual]</Value>
+                        <Value>=IIF([AMProdMatl.QtyActual] = 0,'',[AMProdMatl.QtyActual])</Value>
                     </TextBox>
                     <TextBox Name="textBox42">
                         <Location>616px, 0px</Location>
-                        <Size>64px, 80px</Size>
+                        <Size>64px, 32px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -2955,9 +2711,9 @@
                         <Value>=[Note.NoteText]</Value>
                     </TextBox>
                     <TextBox Name="textBox44">
-                        <Format>='0.0000'</Format>
-                        <Location>416px, 0px</Location>
-                        <Size>64px, 80px</Size>
+                        <Format>='N2'</Format>
+                        <Location>440px, 0px</Location>
+                        <Size>56px, 32px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -2976,9 +2732,9 @@
                         <Value>=[AMProdMatl.ScrapFactor]</Value>
                     </TextBox>
                     <TextBox Name="textBox46">
-                        <Format>='0.0000'</Format>
-                        <Location>480px, 0px</Location>
-                        <Size>72px, 80px</Size>
+                        <Format>='N2'</Format>
+                        <Location>496px, 0px</Location>
+                        <Size>64px, 32px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3000,8 +2756,27 @@
             </Detail>
             <PageFooter Name="pageFooterSection1">
                 <GridSize>8px, 8px</GridSize>
-                <Height>4.33862cm</Height>
+                <Height>0px</Height>
+                <Visible>False</Visible>
             </PageFooter>
+            <ReportFooter Name="reportFooterSection1">
+                <GridSize>8px, 8px</GridSize>
+                <Height>3.91534cm</Height>
+                <PrintAtBottom>True</PrintAtBottom>
+                <Items>
+                    <TextBox Name="textBox49">
+                        <Location>16px, 120px</Location>
+                        <Size>168px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Size>10px</Size>
+                            </Font>
+                        </Style>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>Form number:FPC-001/Rev.01</Value>
+                    </TextBox>
+                </Items>
+            </ReportFooter>
         </Sections>
         <Items />
         <Groups>
@@ -3017,10 +2792,260 @@
                 <Headers>
                     <Header Name="groupHeaderSection1">
                         <GridSize>8px, 8px</GridSize>
-                        <Height>0.63492cm</Height>
+                        <Height>5.92593cm</Height>
                         <Items>
+                            <Panel Name="panel1">
+                                <Location>16px, 56px</Location>
+                                <Size>664px, 144px</Size>
+                                <Style>
+                                    <BorderColor>
+                                        <Default>Black</Default>
+                                    </BorderColor>
+                                    <BorderStyle>
+                                        <Default>Solid</Default>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Default>1px</Default>
+                                    </BorderWidth>
+                                </Style>
+                                <StyleName>PanelTopLine</StyleName>
+                                <Items>
+                                    <TextBox Name="textBox10">
+                                        <Location>392px, 32px</Location>
+                                        <Size>56px, 14px</Size>
+                                        <Style>
+                                            <TextAlign>Left</TextAlign>
+                                            <VerticalAlign>Middle</VerticalAlign>
+                                        </Style>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>预计开工：</Value>
+                                    </TextBox>
+                                    <TextBox Name="textBox11">
+                                        <Location>392px, 56px</Location>
+                                        <Size>56px, 14px</Size>
+                                        <Style>
+                                            <TextAlign>Left</TextAlign>
+                                            <VerticalAlign>Middle</VerticalAlign>
+                                        </Style>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>完工日期：</Value>
+                                    </TextBox>
+                                    <TextBox Name="textBox12">
+                                        <Location>392px, 80px</Location>
+                                        <Size>56px, 14px</Size>
+                                        <Style>
+                                            <TextAlign>Left</TextAlign>
+                                            <VerticalAlign>Middle</VerticalAlign>
+                                        </Style>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>工作中心：</Value>
+                                    </TextBox>
+                                    <TextBox Name="textBox13">
+                                        <Location>392px, 104px</Location>
+                                        <Size>56px, 14px</Size>
+                                        <Style>
+                                            <TextAlign>Left</TextAlign>
+                                            <VerticalAlign>Middle</VerticalAlign>
+                                        </Style>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>预计产量：</Value>
+                                    </TextBox>
+                                    <TextBox Name="textBox16">
+                                        <Location>64px, 8px</Location>
+                                        <Size>184px, 16px</Size>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>=[AMProdItem.OrderType]+#010;'  '+#010;[AMProdItem.ProdOrdID]</Value>
+                                    </TextBox>
+                                    <TextBox Name="textBox18">
+                                        <Location>64px, 32px</Location>
+                                        <Size>184px, 16px</Size>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>=[AMProdItem.InventoryID]</Value>
+                                    </TextBox>
+                                    <TextBox Name="textBox2">
+                                        <Location>8px, 8px</Location>
+                                        <Size>56px, 14px</Size>
+                                        <Style>
+                                            <TextAlign>Left</TextAlign>
+                                            <VerticalAlign>Middle</VerticalAlign>
+                                        </Style>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>工单单号:</Value>
+                                    </TextBox>
+                                    <TextBox Name="textBox20">
+                                        <Location>64px, 56px</Location>
+                                        <Size>184px, 16px</Size>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>=[InventoryItem.Descr]</Value>
+                                    </TextBox>
+                                    <TextBox Name="textBox21">
+                                        <Location>64px, 80px</Location>
+                                        <Size>184px, 16px</Size>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>=[INItemXRef.AlternateID]</Value>
+                                    </TextBox>
+                                    <TextBox Name="textBox22">
+                                        <Location>64px, 104px</Location>
+                                        <Size>184px, 16px</Size>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>=[AMProdItem.UsrSOOrderNbr]</Value>
+                                    </TextBox>
+                                    <TextBox Name="textBox23">
+                                        <Location>64px, 128px</Location>
+                                        <Size>184px, 16px</Size>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>=[ENDC.Value]</Value>
+                                    </TextBox>
+                                    <TextBox Name="textBox24">
+                                        <Location>448px, 8px</Location>
+                                        <Size>168px, 16px</Size>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>=[AMProdItem.UsrSOCustomerPO]</Value>
+                                    </TextBox>
+                                    <TextBox Name="textBox25">
+                                        <Format>='yyyy-MM-dd'</Format>
+                                        <Location>448px, 32px</Location>
+                                        <Size>168px, 16px</Size>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>=[AMProdItem.StartDate]</Value>
+                                    </TextBox>
+                                    <TextBox Name="textBox26">
+                                        <Format>='yyyy-MM-dd'</Format>
+                                        <Location>448px, 56px</Location>
+                                        <Size>168px, 16px</Size>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>=[AMProdItem.EndDate]</Value>
+                                    </TextBox>
+                                    <TextBox Name="textBox27">
+                                        <Location>448px, 80px</Location>
+                                        <Size>168px, 16px</Size>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>=[ProdLine.Value]</Value>
+                                    </TextBox>
+                                    <TextBox Name="textBox28">
+                                        <Format>='0.0000'</Format>
+                                        <Location>448px, 104px</Location>
+                                        <Size>168px, 16px</Size>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>=[AMProdItem.QtytoProd]</Value>
+                                    </TextBox>
+                                    <TextBox Name="textBox3">
+                                        <Location>8px, 32px</Location>
+                                        <Size>56px, 14px</Size>
+                                        <Style>
+                                            <TextAlign>Left</TextAlign>
+                                            <VerticalAlign>Middle</VerticalAlign>
+                                        </Style>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>产品品号:</Value>
+                                    </TextBox>
+                                    <TextBox Name="textBox4">
+                                        <Location>8px, 56px</Location>
+                                        <Size>56px, 14px</Size>
+                                        <Style>
+                                            <TextAlign>Left</TextAlign>
+                                            <VerticalAlign>Middle</VerticalAlign>
+                                        </Style>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>产品品名:</Value>
+                                    </TextBox>
+                                    <TextBox Name="textBox5">
+                                        <Location>8px, 80px</Location>
+                                        <Size>56px, 14px</Size>
+                                        <Style>
+                                            <TextAlign>Left</TextAlign>
+                                            <VerticalAlign>Middle</VerticalAlign>
+                                        </Style>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>客户品号:</Value>
+                                    </TextBox>
+                                    <TextBox Name="textBox6">
+                                        <Location>8px, 104px</Location>
+                                        <Size>56px, 14px</Size>
+                                        <Style>
+                                            <TextAlign>Left</TextAlign>
+                                            <VerticalAlign>Middle</VerticalAlign>
+                                        </Style>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>订单单号:</Value>
+                                    </TextBox>
+                                    <TextBox Name="textBox7">
+                                        <Location>8px, 128px</Location>
+                                        <Size>56px, 14px</Size>
+                                        <Style>
+                                            <TextAlign>Left</TextAlign>
+                                            <VerticalAlign>Middle</VerticalAlign>
+                                        </Style>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>订单备注:</Value>
+                                    </TextBox>
+                                    <TextBox Name="textBox8">
+                                        <Location>392px, 8px</Location>
+                                        <Size>56px, 14px</Size>
+                                        <Style>
+                                            <TextAlign>Left</TextAlign>
+                                            <VerticalAlign>Middle</VerticalAlign>
+                                        </Style>
+                                        <StyleName>ChineseFont</StyleName>
+                                        <Value>客户单号：</Value>
+                                    </TextBox>
+                                </Items>
+                            </Panel>
+                            <TextBox Name="textBox1">
+                                <Location>224px, 24px</Location>
+                                <Size>240px, 16px</Size>
+                                <Style>
+                                    <Font>
+                                        <Name>Microsoft JhengHei UI</Name>
+                                    </Font>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>=IIF([AMOrderType.OrderType] = 'MO', '生产指令单','') +#010;IIF([AMOrderType.OrderType] = 'RO', '国内生产指令单','')</Value>
+                            </TextBox>
+                            <TextBox Name="textBox14">
+                                <Location>16px, 40px</Location>
+                                <Size>56px, 14px</Size>
+                                <Style>
+                                    <TextAlign>Left</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <StyleName>ChineseFont</StyleName>
+                                <Value>单据日期:</Value>
+                            </TextBox>
+                            <TextBox Name="textBox15">
+                                <Location>568px, 40px</Location>
+                                <Size>32px, 14px</Size>
+                                <Style>
+                                    <TextAlign>Left</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <StyleName>ChineseFont</StyleName>
+                                <Value>页次:</Value>
+                            </TextBox>
+                            <TextBox Name="textBox17">
+                                <Location>608px, 40px</Location>
+                                <Size>84px, 14px</Size>
+                                <Style>
+                                    <TextAlign>Left</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <StyleName>Report Params</StyleName>
+                                <Value>=[PageIndex]+'/'+[PageCount]</Value>
+                            </TextBox>
+                            <TextBox Name="textBox19">
+                                <Format>='yyyy-MM-dd'</Format>
+                                <Location>72px, 40px</Location>
+                                <Size>60px, 14px</Size>
+                                <Style>
+                                    <TextAlign>Left</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <StyleName>Report Params</StyleName>
+                                <Value>=Today()</Value>
+                            </TextBox>
                             <TextBox Name="textBox31">
-                                <Location>16px, 0px</Location>
+                                <Location>16px, 200px</Location>
                                 <Size>56px, 24px</Size>
                                 <Style>
                                     <BorderColor>
@@ -3041,7 +3066,7 @@
                                 <Value>序号</Value>
                             </TextBox>
                             <TextBox Name="textBox32">
-                                <Location>72px, 0px</Location>
+                                <Location>72px, 200px</Location>
                                 <Size>72px, 24px</Size>
                                 <Style>
                                     <BorderColor>
@@ -3061,8 +3086,8 @@
                                 <Value>品号</Value>
                             </TextBox>
                             <TextBox Name="textBox33">
-                                <Location>144px, 0px</Location>
-                                <Size>144px, 24px</Size>
+                                <Location>144px, 200px</Location>
+                                <Size>176px, 24px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Default>Black</Default>
@@ -3081,7 +3106,7 @@
                                 <Value>规格</Value>
                             </TextBox>
                             <TextBox Name="textBox34">
-                                <Location>288px, 0px</Location>
+                                <Location>320px, 200px</Location>
                                 <Size>56px, 24px</Size>
                                 <Style>
                                     <BorderColor>
@@ -3101,8 +3126,8 @@
                                 <Value>单位</Value>
                             </TextBox>
                             <TextBox Name="textBox35">
-                                <Location>344px, 0px</Location>
-                                <Size>72px, 24px</Size>
+                                <Location>376px, 200px</Location>
+                                <Size>64px, 24px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Default>Black</Default>
@@ -3121,8 +3146,8 @@
                                 <Value>需领用量</Value>
                             </TextBox>
                             <TextBox Name="textBox36">
-                                <Location>552px, 0px</Location>
-                                <Size>64px, 24px</Size>
+                                <Location>560px, 200px</Location>
+                                <Size>56px, 24px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Default>Black</Default>
@@ -3141,7 +3166,7 @@
                                 <Value>已领用量</Value>
                             </TextBox>
                             <TextBox Name="textBox37">
-                                <Location>616px, 0px</Location>
+                                <Location>616px, 200px</Location>
                                 <Size>64px, 24px</Size>
                                 <Style>
                                     <BorderColor>
@@ -3161,8 +3186,8 @@
                                 <Value>备注</Value>
                             </TextBox>
                             <TextBox Name="textBox43">
-                                <Location>416px, 0px</Location>
-                                <Size>64px, 24px</Size>
+                                <Location>440px, 200px</Location>
+                                <Size>56px, 24px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Default>Black</Default>
@@ -3181,8 +3206,8 @@
                                 <Value>耗损</Value>
                             </TextBox>
                             <TextBox Name="textBox45">
-                                <Location>480px, 0px</Location>
-                                <Size>72px, 24px</Size>
+                                <Location>496px, 200px</Location>
+                                <Size>64px, 24px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Default>Black</Default>
@@ -3200,14 +3225,47 @@
                                 <StyleName>ChineseFont</StyleName>
                                 <Value>标准用量</Value>
                             </TextBox>
+                            <TextBox Name="textBox9">
+                                <Location>224px, 0px</Location>
+                                <Size>236px, 16px</Size>
+                                <Style>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <StyleName>Report Name</StyleName>
+                                <Value>ABA Medaical Technology(DG)</Value>
+                            </TextBox>
                         </Items>
                     </Header>
                 </Headers>
                 <Footers>
                     <Footer Name="groupFooterSection1">
                         <GridSize>8px, 8px</GridSize>
-                        <Height>0px</Height>
-                        <Visible>False</Visible>
+                        <Height>0.5291cm</Height>
+                        <Items>
+                            <TextBox Name="textBox47">
+                                <Location>32px, 8px</Location>
+                                <Size>120px, 16px</Size>
+                                <Style>
+                                    <Font>
+                                        <Size>12px</Size>
+                                    </Font>
+                                </Style>
+                                <StyleName>ChineseFont</StyleName>
+                                <Value>申请人：</Value>
+                            </TextBox>
+                            <TextBox Name="textBox48">
+                                <Location>512px, 8px</Location>
+                                <Size>120px, 16px</Size>
+                                <Style>
+                                    <Font>
+                                        <Size>12px</Size>
+                                    </Font>
+                                </Style>
+                                <StyleName>ChineseFont</StyleName>
+                                <Value>批准：</Value>
+                            </TextBox>
+                        </Items>
                     </Footer>
                 </Footers>
             </Group>

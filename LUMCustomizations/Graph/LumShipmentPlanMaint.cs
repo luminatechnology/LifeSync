@@ -80,14 +80,14 @@ namespace LumCustomizations.Graph
 
             // Get Printer Info
             var printer = PXGraph.CreateInstance<SMPrinterMaint>();
-            var printerID = printer.Printers.Select().FirstTableItems.Where(x => x.PrinterName == "ZEBER105").FirstOrDefault().PrinterID;
+            var printerID = printer.Printers.Select().FirstTableItems.Where(x => x.PrinterName == "TR4500").FirstOrDefault().PrinterID;
 
             PrintSettings printSettings = new PrintSettings()
             {
                 PrinterID = printerID,
                 NumberOfCopies = 1,
                 PrintWithDeviceHub = true,
-                DefinePrinterManually = false
+                DefinePrinterManually = true
             };
             //PXGraph.CreateInstance<SMPrintJobMaint>().CreatePrintJob(
             //    printSettings,
@@ -98,8 +98,7 @@ namespace LumCustomizations.Graph
             PXReportRequiredException ex = null;
             ex = PXReportRequiredException.CombineReport(ex, _reportID, parameters);
 
-            PX.SM.SMPrintJobMaint.CreatePrintJobGroup(printSettings, ex, $"Print Report {_reportID}");
-
+            PX.SM.SMPrintJobMaint.CreatePrintJobGroup(printSettings, ex, $"(New Method)Print Report {_reportID}");
             return adapter.Get<LumShipmentPlan>().ToList();
         }
 

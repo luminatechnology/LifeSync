@@ -2718,8 +2718,428 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
         <TabularFreeze>128px</TabularFreeze>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
-                <Height>0cm</Height>
-                <Visible>False</Visible>
+                <Height>7.40741cm</Height>
+                <Items>
+                    <PictureBox Name="pictureBox1">
+                        <Location>24px, 0px</Location>
+                        <MimeType>image/jpeg</MimeType>
+                        <QRCodeSettings />
+                        <Size>296px, 64px</Size>
+                        <Source>Embedded</Source>
+                        <Value>aba_dg_logo</Value>
+                    </PictureBox>
+                    <TextBox Name="textBox1">
+                        <Location>336px, 64px</Location>
+                        <Size>120px, 32px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial Black</Name>
+                                <Size>14px</Size>
+                            </Font>
+                        </Style>
+                        <Value>INVOICE</Value>
+                    </TextBox>
+                    <TextBox Name="textBox10">
+                        <Format>='yyyy-MM-dd'</Format>
+                        <Location>440px, 104px</Location>
+                        <Size>64px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>12px</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <Padding>
+                                <Top>2px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <Value>=[_Title.InvoiceDate]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox11">
+                        <Format>='yyyy-MM-dd'</Format>
+                        <Location>440px, 128px</Location>
+                        <Size>64px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>12px</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <Padding>
+                                <Top>2px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <Value>=[_Title.ShipLate]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox12">
+                        <CanGrow>True</CanGrow>
+                        <Location>112px, 152px</Location>
+                        <Size>152px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>12px</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <Padding>
+                                <Top>2px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <Value>=[_Title.PICustomerID]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox13">
+                        <CanGrow>True</CanGrow>
+                        <Location>112px, 168px</Location>
+                        <Size>152px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>12px</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <Padding>
+                                <Top>2px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <Value>=[_Title.PICustomerName]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox14">
+                        <CanGrow>True</CanGrow>
+                        <Location>112px, 184px</Location>
+                        <Size>152px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>12px</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <Padding>
+                                <Top>2px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <Value>=[_Title.PIAdddress]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox15">
+                        <Location>400px, 152px</Location>
+                        <Size>72px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>12px</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <Padding>
+                                <Top>2px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <Value>=[_Title.Terms]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox16">
+                        <Location>552px, 152px</Location>
+                        <Size>96px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>12px</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <Padding>
+                                <Top>2px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <Value>=[_Title.Currency]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox17">
+                        <Location>352px, 176px</Location>
+                        <Size>48px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial Black</Name>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
+                        <Value>Seller:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox18">
+                        <CanGrow>True</CanGrow>
+                        <Location>400px, 176px</Location>
+                        <Size>248px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>12px</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <Padding>
+                                <Top>2px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <Value>=[_Title.BranchName]#010;</Value>
+                    </TextBox>
+                    <TextBox Name="textBox2">
+                        <Location>584px, 72px</Location>
+                        <Size>104px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <TextAlign>Right</TextAlign>
+                        </Style>
+                        <Value>=[PageIndex]+'/'+[PageCount]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox20">
+                        <Location>352px, 232px</Location>
+                        <Size>48px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial Black</Name>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
+                        <Value>From:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox21">
+                        <Location>352px, 248px</Location>
+                        <Size>40px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial Black</Name>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
+                        <Value>Tel:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox22">
+                        <Location>352px, 264px</Location>
+                        <Size>40px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial Black</Name>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
+                        <Value>Fax:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox23">
+                        <Location>400px, 232px</Location>
+                        <Size>136px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>12px</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <Padding>
+                                <Top>2px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <Value>=[_Title.SellerFrom]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox24">
+                        <Location>24px, 232px</Location>
+                        <Size>40px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial Black</Name>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
+                        <Value>Attn:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox25">
+                        <Location>24px, 248px</Location>
+                        <Size>40px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial Black</Name>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
+                        <Value>Tel:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox26">
+                        <Location>24px, 264px</Location>
+                        <Size>40px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial Black</Name>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
+                        <Value>Fax:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox27">
+                        <Location>64px, 232px</Location>
+                        <Size>128px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>12px</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <Padding>
+                                <Top>2px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <Value>=[_Title.PIAttention]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox28">
+                        <Location>64px, 248px</Location>
+                        <Size>128px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>12px</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <Padding>
+                                <Top>2px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <Value>=[_Title.Pitel]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox29">
+                        <Location>64px, 264px</Location>
+                        <Size>128px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>12px</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <Padding>
+                                <Top>2px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <Value>=[_Title.Pifax]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox3">
+                        <Location>24px, 104px</Location>
+                        <Size>88px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial Black</Name>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
+                        <Value>Invoice No.: </Value>
+                    </TextBox>
+                    <TextBox Name="textBox30">
+                        <Location>400px, 248px</Location>
+                        <Size>136px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>12px</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <Padding>
+                                <Top>2px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <Value>=[_Title.SellerTel]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox31">
+                        <Location>400px, 264px</Location>
+                        <Size>136px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>12px</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <Padding>
+                                <Top>2px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <Value>=[_Title.SellerFax]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox4">
+                        <Location>112px, 104px</Location>
+                        <Size>152px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>12px</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <Padding>
+                                <Top>2px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <Value>=[_Title.InvioceNo]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox5">
+                        <Location>352px, 104px</Location>
+                        <Size>88px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial Black</Name>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
+                        <Value>Invoice Date:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox58">
+                        <CanGrow>True</CanGrow>
+                        <Location>400px, 192px</Location>
+                        <Size>248px, 40px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>=[_Title.BranchAddress]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox6">
+                        <Location>352px, 128px</Location>
+                        <Size>88px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial Black</Name>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
+                        <Value>Ship Date:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox7">
+                        <Location>352px, 152px</Location>
+                        <Size>48px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial Black</Name>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
+                        <Value>Terms:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox8">
+                        <Location>24px, 152px</Location>
+                        <Size>88px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial Black</Name>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
+                        <Value>Customer:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox9">
+                        <Location>488px, 152px</Location>
+                        <Size>64px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial Black</Name>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
+                        <Value>Currency:</Value>
+                    </TextBox>
+                </Items>
             </PageHeader>
             <Detail Name="detailSection1">
                 <Height>1.69312cm</Height>
@@ -2768,7 +3188,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                     </TextBox>
                     <TextBox Name="textBox41">
                         <Location>64px, 0px</Location>
-                        <Size>104px, 24px</Size>
+                        <Size>104px, 64px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -2780,12 +3200,12 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Name>Arial</Name>
                                 <Size>10px</Size>
                             </Font>
-                            <VerticalAlign>Bottom</VerticalAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=[SOLine.AlternateID]</Value>
+                        <Value>=[SOLine.AlternateID]+'{br}'+[IT.HTS_Attributes]#010;</Value>
                     </TextBox>
                     <TextBox Name="textBox42">
-                        <Format>='0.00'</Format>
+                        <Format>='N2'</Format>
                         <Location>624px, 0px</Location>
                         <Size>64px, 64px</Size>
                         <Style>
@@ -2805,7 +3225,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                     </TextBox>
                     <TextBox Name="textBox43">
                         <Location>168px, 0px</Location>
-                        <Size>128px, 24px</Size>
+                        <Size>128px, 64px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -2817,27 +3237,9 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Name>Arial</Name>
                                 <Size>10px</Size>
                             </Font>
-                            <VerticalAlign>Bottom</VerticalAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=[lum.InventoryID]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox44">
-                        <Location>168px, 24px</Location>
-                        <Size>128px, 40px</Size>
-                        <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
-                            <BorderWidth>
-                                <Default>1px</Default>
-                            </BorderWidth>
-                            <Font>
-                                <Name>Arial</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <VerticalAlign>Top</VerticalAlign>
-                        </Style>
-                        <Value>=[SOLine.TranDesc]</Value>
+                        <Value>=[lum.InventoryID]+'{br}'+[SOLine.TranDesc]</Value>
                     </TextBox>
                     <TextBox Name="textBox45">
                         <Location>296px, 0px</Location>
@@ -2857,24 +3259,6 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <Value>=IIF([SOLine.OrderNbr] &lt;&gt; null,[SOLine.OrderNbr],'')+#010;'{br}'+#010;IIF([SO.CustomerOrderNbr] &lt;&gt; null,[SO.CustomerOrderNbr],'')+#010;'{br}'+#010;IIF([lum.LotSerialNbr] &lt;&gt; null, [lum.LotSerialNbr],'')</Value>
-                    </TextBox>
-                    <TextBox Name="textBox48">
-                        <Location>64px, 24px</Location>
-                        <Size>104px, 40px</Size>
-                        <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
-                            <BorderWidth>
-                                <Default>1px</Default>
-                            </BorderWidth>
-                            <Font>
-                                <Name>Arial</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <VerticalAlign>Top</VerticalAlign>
-                        </Style>
-                        <Value>=[IT.HTS_Attributes]</Value>
                     </TextBox>
                     <TextBox Name="textBox49">
                         <Location>424px, 0px</Location>
@@ -2896,6 +3280,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Value>=[SOLine.UOM]</Value>
                     </TextBox>
                     <TextBox Name="textBox50">
+                        <Format>='N2'</Format>
                         <Location>488px, 0px</Location>
                         <Size>64px, 64px</Size>
                         <Style>
@@ -2915,6 +3300,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Value>=[lum.PlannedShipQty]</Value>
                     </TextBox>
                     <TextBox Name="textBox51">
+                        <Format>='N2'</Format>
                         <Location>552px, 0px</Location>
                         <Size>64px, 64px</Size>
                         <Style>
@@ -2936,527 +3322,234 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 </Items>
             </Detail>
             <PageFooter Name="pageFooterSection1">
-                <Height>0cm</Height>
-                <Visible>False</Visible>
-            </PageFooter>
-            <ReportHeader Name="reportHeaderSection1">
-                <Height>6.34921cm</Height>
+                <Height>6.13757cm</Height>
+                <PrintOnLastPage>False</PrintOnLastPage>
                 <Items>
-                    <PictureBox Name="pictureBox1">
-                        <Location>16px, 0px</Location>
-                        <MimeType>image/jpeg</MimeType>
-                        <QRCodeSettings />
-                        <Size>200px, 48px</Size>
-                        <Source>Embedded</Source>
-                        <Value>aba_dg_logo</Value>
-                    </PictureBox>
-                    <TextBox Name="textBox1">
-                        <Location>328px, 48px</Location>
-                        <Size>120px, 32px</Size>
+                    <Line Name="line3">
+                        <Location>400px, 168px</Location>
+                        <Size>272px, 8px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
-                                <Size>15px</Size>
+                                <Size>12px</Size>
                             </Font>
                         </Style>
-                        <Value>INVOICE</Value>
-                    </TextBox>
-                    <TextBox Name="textBox10">
-                        <Format>='yyyy-MM-dd'</Format>
-                        <Location>424px, 80px</Location>
-                        <Size>64px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <Padding>
-                                <Top>2px</Top>
-                            </Padding>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
-                        <Value>=[_Title.InvoiceDate]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox11">
-                        <Format>='yyyy-MM-dd'</Format>
-                        <Location>408px, 96px</Location>
-                        <Size>64px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <Padding>
-                                <Top>2px</Top>
-                            </Padding>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
-                        <Value>=[_Title.ShipLate]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox12">
-                        <Location>88px, 112px</Location>
-                        <Size>152px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <Padding>
-                                <Top>2px</Top>
-                            </Padding>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
-                        <Value>=[_Title.PICustomerID]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox13">
-                        <Location>88px, 128px</Location>
-                        <Size>152px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <Padding>
-                                <Top>2px</Top>
-                            </Padding>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
-                        <Value>=[_Title.PICustomerName]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox14">
-                        <Location>88px, 144px</Location>
-                        <Size>152px, 24px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <Padding>
-                                <Top>2px</Top>
-                            </Padding>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
-                        <Value>=[_Title.PIAdddress]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox15">
-                        <Location>392px, 112px</Location>
-                        <Size>72px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <Padding>
-                                <Top>2px</Top>
-                            </Padding>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
-                        <Value>=[_Title.Terms]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox16">
-                        <Location>544px, 112px</Location>
-                        <Size>96px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <Padding>
-                                <Top>2px</Top>
-                            </Padding>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
-                        <Value>=[_Title.Currency]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox17">
-                        <Location>344px, 128px</Location>
-                        <Size>48px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>10px</Size>
-                            </Font>
-                        </Style>
-                        <Value>Seller:</Value>
-                    </TextBox>
-                    <TextBox Name="textBox18">
-                        <Location>392px, 128px</Location>
-                        <Size>248px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <Padding>
-                                <Top>2px</Top>
-                            </Padding>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
-                        <Value>=[_Title.BranchName]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox19">
-                        <Location>392px, 144px</Location>
-                        <Size>248px, 32px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <Padding>
-                                <Top>2px</Top>
-                            </Padding>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
-                        <Value>=[_Title.BranchAddress]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox2">
-                        <Location>576px, 48px</Location>
-                        <Size>120px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Size>10px</Size>
-                            </Font>
-                            <TextAlign>Right</TextAlign>
-                        </Style>
-                        <Value>=[PageIndex]+'/'+[PageCount]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox20">
-                        <Location>344px, 192px</Location>
-                        <Size>40px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>10px</Size>
-                            </Font>
-                        </Style>
-                        <Value>From:</Value>
-                    </TextBox>
-                    <TextBox Name="textBox21">
-                        <Location>344px, 208px</Location>
-                        <Size>40px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>10px</Size>
-                            </Font>
-                        </Style>
-                        <Value>Tel:</Value>
-                    </TextBox>
-                    <TextBox Name="textBox22">
-                        <Location>344px, 224px</Location>
-                        <Size>40px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>10px</Size>
-                            </Font>
-                        </Style>
-                        <Value>Fax:</Value>
-                    </TextBox>
-                    <TextBox Name="textBox23">
-                        <Location>384px, 192px</Location>
-                        <Size>136px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <Padding>
-                                <Top>2px</Top>
-                            </Padding>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
-                        <Value>=[_Title.SellerFrom]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox24">
-                        <Location>16px, 192px</Location>
-                        <Size>40px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>10px</Size>
-                            </Font>
-                        </Style>
-                        <Value>From:</Value>
-                    </TextBox>
-                    <TextBox Name="textBox25">
-                        <Location>16px, 208px</Location>
-                        <Size>40px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>10px</Size>
-                            </Font>
-                        </Style>
-                        <Value>Tel:</Value>
-                    </TextBox>
-                    <TextBox Name="textBox26">
-                        <Location>16px, 224px</Location>
-                        <Size>40px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>10px</Size>
-                            </Font>
-                        </Style>
-                        <Value>Fax:</Value>
-                    </TextBox>
-                    <TextBox Name="textBox27">
-                        <Location>56px, 192px</Location>
-                        <Size>128px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <Padding>
-                                <Top>2px</Top>
-                            </Padding>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
-                        <Value>=[_Title.PIAttention]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox28">
-                        <Location>56px, 208px</Location>
-                        <Size>128px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <Padding>
-                                <Top>2px</Top>
-                            </Padding>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
-                        <Value>=[_Title.Pitel]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox29">
-                        <Location>56px, 224px</Location>
-                        <Size>128px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <Padding>
-                                <Top>2px</Top>
-                            </Padding>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
-                        <Value>=[_Title.Pifax]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox3">
-                        <Location>16px, 80px</Location>
-                        <Size>72px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>10px</Size>
-                            </Font>
-                        </Style>
-                        <Value>Invoice No.: </Value>
-                    </TextBox>
-                    <TextBox Name="textBox30">
-                        <Location>384px, 208px</Location>
-                        <Size>136px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <Padding>
-                                <Top>2px</Top>
-                            </Padding>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
-                        <Value>=[_Title.SellerTel]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox31">
-                        <Location>384px, 224px</Location>
-                        <Size>136px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <Padding>
-                                <Top>2px</Top>
-                            </Padding>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
-                        <Value>=[_Title.SellerFax]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox4">
-                        <Location>88px, 80px</Location>
-                        <Size>152px, 24px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <Padding>
-                                <Top>2px</Top>
-                            </Padding>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
-                        <Value>=[_Title.InvioceNo]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox5">
-                        <Location>344px, 80px</Location>
-                        <Size>80px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>10px</Size>
-                            </Font>
-                        </Style>
-                        <Value>Invoice Date:</Value>
-                    </TextBox>
-                    <TextBox Name="textBox6">
-                        <Location>344px, 96px</Location>
-                        <Size>64px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>10px</Size>
-                            </Font>
-                        </Style>
-                        <Value>Ship Date:</Value>
-                    </TextBox>
-                    <TextBox Name="textBox7">
-                        <Location>344px, 112px</Location>
-                        <Size>48px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>10px</Size>
-                            </Font>
-                        </Style>
-                        <Value>Terms:</Value>
-                    </TextBox>
-                    <TextBox Name="textBox8">
-                        <Location>16px, 112px</Location>
-                        <Size>72px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>10px</Size>
-                            </Font>
-                        </Style>
-                        <Value>Customer:</Value>
-                    </TextBox>
-                    <TextBox Name="textBox9">
-                        <Location>480px, 112px</Location>
-                        <Size>64px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>10px</Size>
-                            </Font>
-                        </Style>
-                        <Value>Currency:</Value>
-                    </TextBox>
-                </Items>
-            </ReportHeader>
-            <ReportFooter Name="reportFooterSection1">
-                <Height>4.65608cm</Height>
-                <Items>
-                    <Line Name="line2">
-                        <Location>432px, 120px</Location>
-                        <Size>264px, 8px</Size>
                     </Line>
-                    <TextBox Name="textBox46">
-                        <Location>16px, 8px</Location>
-                        <Size>96px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>10px</Size>
-                            </Font>
-                        </Style>
-                        <Value>='Total Quantity: '</Value>
-                    </TextBox>
-                    <TextBox Name="textBox47">
-                        <Location>440px, 8px</Location>
-                        <Size>120px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>10px</Size>
-                            </Font>
-                        </Style>
-                        <Value>='Total Sales Amount: '</Value>
-                    </TextBox>
-                    <TextBox Name="textBox52">
-                        <Location>16px, 24px</Location>
-                        <Size>120px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>10px</Size>
-                            </Font>
-                        </Style>
-                        <Value>Remark:</Value>
-                    </TextBox>
-                    <TextBox Name="textBox53">
-                        <Location>16px, 40px</Location>
-                        <Size>216px, 88px</Size>
+                    <TextBox Name="textBox57">
+                        <Format>'#.##'</Format>
+                        <Location>536px, 0px</Location>
+                        <Size>120px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
-                                <Size>8px</Size>
+                                <Size>12px</Size>
                             </Font>
+                            <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=[_Title.Remark]</Value>
+                        <Value>='************.**'</Value>
                     </TextBox>
-                    <TextBox Name="textBox54">
-                        <Location>16px, 136px</Location>
+                    <TextBox Name="textBox59">
+                        <Format>='#'</Format>
+                        <Location>120px, 0px</Location>
+                        <Size>120px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>='********.***'</Value>
+                    </TextBox>
+                    <TextBox Name="textBox60">
+                        <Location>16px, 200px</Location>
                         <Size>248px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial Black</Name>
-                                <Size>10px</Size>
+                                <Size>12px</Size>
                             </Font>
                         </Style>
                         <Value>Form number: FSP-009 /Rev.00</Value>
                     </TextBox>
-                    <TextBox Name="textBox55">
-                        <Location>432px, 80px</Location>
-                        <Size>264px, 16px</Size>
+                    <TextBox Name="textBox61">
+                        <CanGrow>True</CanGrow>
+                        <Location>16px, 48px</Location>
+                        <Size>248px, 136px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
+                        <Value>=[_Title.Remark]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox62">
+                        <Location>16px, 24px</Location>
+                        <Size>120px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial Black</Name>
-                                <Size>10px</Size>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
+                        <Value>Remark:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox63">
+                        <Location>400px, 0px</Location>
+                        <Size>136px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial Black</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>='Total Sales Amount: '</Value>
+                    </TextBox>
+                    <TextBox Name="textBox64">
+                        <Location>16px, 0px</Location>
+                        <Size>104px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial Black</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>='Total Quantity: '</Value>
+                    </TextBox>
+                    <TextBox Name="textBox65">
+                        <Location>400px, 112px</Location>
+                        <Size>272px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial Black</Name>
+                                <Size>11px</Size>
                             </Font>
                         </Style>
                         <Value>ABA Medical Technology(Dong Guan)Co.,Ltd</Value>
                     </TextBox>
-                    <TextBox Name="textBox56">
-                        <Format>='0.0000'</Format>
-                        <Location>112px, 8px</Location>
-                        <Size>120px, 16px</Size>
+                </Items>
+            </PageFooter>
+            <ReportHeader Name="reportHeaderSection1">
+                <Height>0px</Height>
+                <Visible>False</Visible>
+            </ReportHeader>
+            <ReportFooter Name="reportFooterSection1">
+                <Height>6.13757cm</Height>
+                <PrintAtBottom>True</PrintAtBottom>
+                <Items>
+                    <Line Name="line2">
+                        <Location>400px, 168px</Location>
+                        <Size>280px, 8px</Size>
+                        <Style>
+                            <Font>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
+                    </Line>
+                    <TextBox Name="textBox19">
+                        <Format>='N2'</Format>
+                        <Location>536px, 0px</Location>
+                        <Size>120px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>=$TotalAmount</Value>
+                    </TextBox>
+                    <TextBox Name="textBox46">
+                        <Format>='N2'</Format>
+                        <Location>120px, 0px</Location>
+                        <Size>120px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>12px</Size>
                             </Font>
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <Value>=$SumOfQty</Value>
                     </TextBox>
-                    <TextBox Name="textBox57">
-                        <Format>='0.0000'</Format>
-                        <Location>560px, 8px</Location>
-                        <Size>120px, 16px</Size>
+                    <TextBox Name="textBox47">
+                        <Location>400px, 112px</Location>
+                        <Size>280px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial Black</Name>
+                                <Size>11px</Size>
+                            </Font>
+                        </Style>
+                        <Value>ABA Medical Technology(Dong Guan)Co.,Ltd</Value>
+                    </TextBox>
+                    <TextBox Name="textBox52">
+                        <Location>16px, 208px</Location>
+                        <Size>248px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial Black</Name>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
+                        <Value>Form number: FSP-009 /Rev.00</Value>
+                    </TextBox>
+                    <TextBox Name="textBox53">
+                        <CanGrow>True</CanGrow>
+                        <Location>16px, 48px</Location>
+                        <Size>248px, 136px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
+                        <Value>=[_Title.Remark]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox54">
+                        <Location>16px, 24px</Location>
+                        <Size>120px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial Black</Name>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
+                        <Value>Remark:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox55">
+                        <Location>400px, 0px</Location>
+                        <Size>136px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial Black</Name>
+                                <Size>12px</Size>
                             </Font>
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=$TotalAmount</Value>
+                        <Value>='Total Sales Amount: '</Value>
+                    </TextBox>
+                    <TextBox Name="textBox56">
+                        <Location>16px, 0px</Location>
+                        <Size>104px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial Black</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>='Total Quantity: '</Value>
                     </TextBox>
                 </Items>
             </ReportFooter>
@@ -3474,11 +3567,12 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 </Grouping>
                 <Headers>
                     <Header Name="groupHeaderSection1">
-                        <Height>1.0582cm</Height>
+                        <Height>1.26984cm</Height>
+                        <PrintOnEveryPage>True</PrintOnEveryPage>
                         <Items>
                             <TextBox Name="textBox32">
                                 <Location>16px, 0px</Location>
-                                <Size>48px, 40px</Size>
+                                <Size>48px, 48px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -3501,7 +3595,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                     </BorderWidth>
                                     <Font>
                                         <Name>Arial Black</Name>
-                                        <Size>8px</Size>
+                                        <Size>10px</Size>
                                     </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
@@ -3510,7 +3604,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             </TextBox>
                             <TextBox Name="textBox34">
                                 <Location>64px, 0px</Location>
-                                <Size>104px, 40px</Size>
+                                <Size>104px, 48px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -3531,7 +3625,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                     </BorderWidth>
                                     <Font>
                                         <Name>Arial Black</Name>
-                                        <Size>8px</Size>
+                                        <Size>10px</Size>
                                     </Font>
                                     <TextAlign>Left</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
@@ -3540,7 +3634,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             </TextBox>
                             <TextBox Name="textBox35">
                                 <Location>168px, 0px</Location>
-                                <Size>128px, 40px</Size>
+                                <Size>128px, 48px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -3561,7 +3655,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                     </BorderWidth>
                                     <Font>
                                         <Name>Arial Black</Name>
-                                        <Size>8px</Size>
+                                        <Size>10px</Size>
                                     </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
@@ -3570,7 +3664,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             </TextBox>
                             <TextBox Name="textBox36">
                                 <Location>296px, 0px</Location>
-                                <Size>128px, 40px</Size>
+                                <Size>128px, 48px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -3591,7 +3685,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                     </BorderWidth>
                                     <Font>
                                         <Name>Arial Black</Name>
-                                        <Size>8px</Size>
+                                        <Size>10px</Size>
                                     </Font>
                                     <TextAlign>Left</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
@@ -3600,7 +3694,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             </TextBox>
                             <TextBox Name="textBox37">
                                 <Location>424px, 0px</Location>
-                                <Size>64px, 40px</Size>
+                                <Size>64px, 48px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -3621,7 +3715,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                     </BorderWidth>
                                     <Font>
                                         <Name>Arial Black</Name>
-                                        <Size>8px</Size>
+                                        <Size>10px</Size>
                                     </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
@@ -3630,7 +3724,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             </TextBox>
                             <TextBox Name="textBox38">
                                 <Location>488px, 0px</Location>
-                                <Size>64px, 40px</Size>
+                                <Size>64px, 48px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -3651,7 +3745,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                     </BorderWidth>
                                     <Font>
                                         <Name>Arial Black</Name>
-                                        <Size>8px</Size>
+                                        <Size>10px</Size>
                                     </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
@@ -3660,7 +3754,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             </TextBox>
                             <TextBox Name="textBox39">
                                 <Location>552px, 0px</Location>
-                                <Size>64px, 40px</Size>
+                                <Size>64px, 48px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -3681,7 +3775,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                     </BorderWidth>
                                     <Font>
                                         <Name>Arial Black</Name>
-                                        <Size>8px</Size>
+                                        <Size>10px</Size>
                                     </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
@@ -3690,7 +3784,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             </TextBox>
                             <TextBox Name="textBox40">
                                 <Location>616px, 0px</Location>
-                                <Size>72px, 40px</Size>
+                                <Size>72px, 48px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -3711,7 +3805,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                     </BorderWidth>
                                     <Font>
                                         <Name>Arial Black</Name>
-                                        <Size>8px</Size>
+                                        <Size>10px</Size>
                                     </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
@@ -3724,6 +3818,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 <Footers>
                     <Footer Name="groupFooterSection1">
                         <Height>0.21164cm</Height>
+                        <PrintOnEveryPage>True</PrintOnEveryPage>
                         <Items>
                             <Line Name="line1">
                                 <Location>16px, 0px</Location>
