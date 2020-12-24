@@ -11,7 +11,11 @@
         </PageSettings>
         <Parameters>
             <ReportParameter>
+                <ColumnSpan>2</ColumnSpan>
+                <DefaultValue>=Report.GetDefExt([SOShipment.ShipmentNbr])</DefaultValue>
                 <Name>ShipmentNbr</Name>
+                <Prompt>Shipment Nbr</Prompt>
+                <ViewName>=Report.GetFieldSchema('SOShipment.ShipmentNbr')</ViewName>
             </ReportParameter>
         </Parameters>
         <Relations>
@@ -2249,7 +2253,7 @@
                         <Location>0px, 0px</Location>
                         <MimeType>image/jpeg</MimeType>
                         <QRCodeSettings />
-                        <Size>336px, 74px</Size>
+                        <Size>436.8px, 96.2px</Size>
                         <Source>Database</Source>
                         <Value>=[Branch.LogoName]</Value>
                     </PictureBox>
@@ -2347,8 +2351,8 @@
                         <Value>=[SOShipment.CustomerID_Customer_acctName]</Value>
                     </TextBox>
                     <TextBox Name="textBox19">
-                        <Location>16px, 80px</Location>
-                        <Size>320px, 64px</Size>
+                        <Location>16px, 96px</Location>
+                        <Size>528px, 64px</Size>
                         <Style>
                             <BorderColor>
                                 <Bottom>Black</Bottom>
@@ -2362,7 +2366,7 @@
                             </BorderStyle>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
-                                <Size>10px</Size>
+                                <Size>12px</Size>
                             </Font>
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -2416,8 +2420,8 @@
                         <Value>日期 :</Value>
                     </TextBox>
                     <TextBox Name="textBox5">
-                        <Location>472px, 144px</Location>
-                        <Size>80px, 40px</Size>
+                        <Location>472px, 168px</Location>
+                        <Size>80px, 32px</Size>
                         <Style>
                             <BorderColor>
                                 <Bottom>Black</Bottom>
@@ -2441,7 +2445,7 @@
                 </Items>
             </PageHeader>
             <Detail Name="detailSection1">
-                <Height>1.26984cm</Height>
+                <Height>1.0582cm</Height>
                 <Variables>
                     <ReportVariable>
                         <Name>LineNbr</Name>
@@ -2456,8 +2460,13 @@
                             <BorderColor>
                                 <Default>Black</Default>
                             </BorderColor>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
                             <BorderWidth>
-                                <Default>1px</Default>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
                             </BorderWidth>
                             <Font>
                                 <Name>Arial</Name>
@@ -2475,8 +2484,13 @@
                             <BorderColor>
                                 <Default>Black</Default>
                             </BorderColor>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
                             <BorderWidth>
-                                <Default>1px</Default>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
                             </BorderWidth>
                             <Font>
                                 <Name>Arial</Name>
@@ -2494,8 +2508,13 @@
                             <BorderColor>
                                 <Default>Black</Default>
                             </BorderColor>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
                             <BorderWidth>
-                                <Default>1px</Default>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
                             </BorderWidth>
                             <Font>
                                 <Name>Arial</Name>
@@ -2514,8 +2533,13 @@
                             <BorderColor>
                                 <Default>Black</Default>
                             </BorderColor>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
                             <BorderWidth>
-                                <Default>1px</Default>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
                             </BorderWidth>
                             <Font>
                                 <Name>Arial</Name>
@@ -2533,8 +2557,13 @@
                             <BorderColor>
                                 <Default>Black</Default>
                             </BorderColor>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
                             <BorderWidth>
-                                <Default>1px</Default>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
                             </BorderWidth>
                             <Font>
                                 <Name>Arial</Name>
@@ -2552,8 +2581,13 @@
                             <BorderColor>
                                 <Default>Black</Default>
                             </BorderColor>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
                             <BorderWidth>
-                                <Default>1px</Default>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
                             </BorderWidth>
                             <Font>
                                 <Name>Arial</Name>
@@ -2565,14 +2599,21 @@
                         <Value>=[SOShipLine.LotSerialNbr]</Value>
                     </TextBox>
                     <TextBox Name="textBox33">
-                        <Location>24px, 0px</Location>
-                        <Size>72px, 40px</Size>
+                        <Location>16px, 0px</Location>
+                        <Size>80px, 40px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
                             </BorderColor>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Left>Solid</Left>
+                                <Right>Solid</Right>
+                            </BorderStyle>
                             <BorderWidth>
-                                <Default>1px</Default>
+                                <Bottom>1px</Bottom>
+                                <Left>1px</Left>
+                                <Right>1px</Right>
                             </BorderWidth>
                             <Font>
                                 <Name>Arial</Name>
@@ -2586,14 +2627,10 @@
                 </Items>
             </Detail>
             <PageFooter Name="pageFooterSection1">
-                <Height>2.53968cm</Height>
+                <Height>2.32804cm</Height>
                 <Items>
-                    <Line Name="line1">
-                        <Location>24px, 0px</Location>
-                        <Size>984px, 8px</Size>
-                    </Line>
                     <TextBox Name="textBox6">
-                        <Location>32px, 16px</Location>
+                        <Location>32px, 8px</Location>
                         <Size>48px, 24px</Size>
                         <Style>
                             <BorderColor>
@@ -2616,7 +2653,7 @@
                         <Value>仓管 :</Value>
                     </TextBox>
                     <TextBox Name="textBox7">
-                        <Location>336px, 16px</Location>
+                        <Location>336px, 8px</Location>
                         <Size>48px, 24px</Size>
                         <Style>
                             <BorderColor>
@@ -2639,7 +2676,7 @@
                         <Value>业务 :</Value>
                     </TextBox>
                     <TextBox Name="textBox8">
-                        <Location>664px, 16px</Location>
+                        <Location>664px, 8px</Location>
                         <Size>72px, 24px</Size>
                         <Style>
                             <BorderColor>
@@ -2662,7 +2699,7 @@
                         <Value>客户签收 :</Value>
                     </TextBox>
                     <TextBox Name="textBox9">
-                        <Location>32px, 64px</Location>
+                        <Location>32px, 56px</Location>
                         <Size>176px, 24px</Size>
                         <Style>
                             <BorderColor>
@@ -2692,19 +2729,11 @@
             <Group Name="DeliveryItems">
                 <Headers>
                     <Header Name="groupHeaderSection1">
-                        <Height>1.0582cm</Height>
+                        <Height>0.84656cm</Height>
                         <Items>
-                            <Line Name="line3">
-                                <Location>24px, 0px</Location>
-                                <Size>984px, 8px</Size>
-                            </Line>
-                            <Line Name="line4">
-                                <Location>24px, 32px</Location>
-                                <Size>984px, 8px</Size>
-                            </Line>
                             <TextBox Name="textBox2">
-                                <Location>600px, 8px</Location>
-                                <Size>96px, 24px</Size>
+                                <Location>600px, 0px</Location>
+                                <Size>96px, 32px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -2716,6 +2745,11 @@
                                         <Right>Solid</Right>
                                         <Top>Solid</Top>
                                     </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                        <Top>1px</Top>
+                                    </BorderWidth>
                                     <Font>
                                         <Name>Microsoft JhengHei UI</Name>
                                         <Size>12px</Size>
@@ -2726,8 +2760,8 @@
                                 <Value>出货数量</Value>
                             </TextBox>
                             <TextBox Name="textBox32">
-                                <Location>24px, 8px</Location>
-                                <Size>72px, 24px</Size>
+                                <Location>16px, 0px</Location>
+                                <Size>80px, 32px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -2736,11 +2770,16 @@
                                     </BorderColor>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
-                                        <Default>Solid</Default>
                                         <Left>Solid</Left>
                                         <Right>Solid</Right>
                                         <Top>Solid</Top>
                                     </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Left>1px</Left>
+                                        <Right>1px</Right>
+                                        <Top>1px</Top>
+                                    </BorderWidth>
                                     <Font>
                                         <Name>Microsoft JhengHei UI</Name>
                                         <Size>12px</Size>
@@ -2751,8 +2790,8 @@
                                 <Value>序号</Value>
                             </TextBox>
                             <TextBox Name="textBox34">
-                                <Location>96px, 8px</Location>
-                                <Size>168px, 24px</Size>
+                                <Location>96px, 0px</Location>
+                                <Size>168px, 32px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -2764,6 +2803,11 @@
                                         <Right>Solid</Right>
                                         <Top>Solid</Top>
                                     </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                        <Top>1px</Top>
+                                    </BorderWidth>
                                     <Font>
                                         <Name>Microsoft JhengHei UI</Name>
                                         <Size>12px</Size>
@@ -2774,8 +2818,8 @@
                                 <Value>物料品号</Value>
                             </TextBox>
                             <TextBox Name="textBox35">
-                                <Location>264px, 8px</Location>
-                                <Size>168px, 24px</Size>
+                                <Location>264px, 0px</Location>
+                                <Size>168px, 32px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -2787,6 +2831,11 @@
                                         <Right>Solid</Right>
                                         <Top>Solid</Top>
                                     </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                        <Top>1px</Top>
+                                    </BorderWidth>
                                     <Font>
                                         <Name>Microsoft JhengHei UI</Name>
                                         <Size>12px</Size>
@@ -2797,8 +2846,8 @@
                                 <Value>客户物料品号</Value>
                             </TextBox>
                             <TextBox Name="textBox36">
-                                <Location>696px, 8px</Location>
-                                <Size>72px, 24px</Size>
+                                <Location>696px, 0px</Location>
+                                <Size>72px, 32px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -2810,6 +2859,11 @@
                                         <Right>Solid</Right>
                                         <Top>Solid</Top>
                                     </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                        <Top>1px</Top>
+                                    </BorderWidth>
                                     <Font>
                                         <Name>Microsoft JhengHei UI</Name>
                                         <Size>12px</Size>
@@ -2820,8 +2874,8 @@
                                 <Value>单位</Value>
                             </TextBox>
                             <TextBox Name="textBox37">
-                                <Location>432px, 8px</Location>
-                                <Size>168px, 24px</Size>
+                                <Location>432px, 0px</Location>
+                                <Size>168px, 32px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -2833,6 +2887,11 @@
                                         <Right>Solid</Right>
                                         <Top>Solid</Top>
                                     </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                        <Top>1px</Top>
+                                    </BorderWidth>
                                     <Font>
                                         <Name>Microsoft JhengHei UI</Name>
                                         <Size>12px</Size>
@@ -2843,8 +2902,8 @@
                                 <Value>客户订单号</Value>
                             </TextBox>
                             <TextBox Name="textBox38">
-                                <Location>768px, 8px</Location>
-                                <Size>240px, 24px</Size>
+                                <Location>768px, 0px</Location>
+                                <Size>240px, 32px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -2856,6 +2915,11 @@
                                         <Right>Solid</Right>
                                         <Top>Solid</Top>
                                     </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                        <Top>1px</Top>
+                                    </BorderWidth>
                                     <Font>
                                         <Name>Microsoft JhengHei UI</Name>
                                         <Size>12px</Size>
