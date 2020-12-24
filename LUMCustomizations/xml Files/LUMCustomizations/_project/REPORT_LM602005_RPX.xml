@@ -8,13 +8,14 @@
         </Filters>
         <Parameters>
             <ReportParameter>
+                <DefaultValue>=Report.GetDefExt([ARInvoice.RefNbr])</DefaultValue>
                 <Name>RefNbr</Name>
+                <Prompt>Invoice Nbr</Prompt>
             </ReportParameter>
         </Parameters>
         <Relations>
             <ReportRelation>
                 <ChildName>ARTran</ChildName>
-                <JoinType>Inner</JoinType>
                 <Links>
                     <RelationRow>
                         <ChildField>ARTran.RefNbr</ChildField>
@@ -25,7 +26,6 @@
             </ReportRelation>
             <ReportRelation>
                 <ChildName>ARContact</ChildName>
-                <JoinType>Inner</JoinType>
                 <Links>
                     <RelationRow>
                         <ChildField>ARContact.CustomerID</ChildField>
@@ -50,7 +50,6 @@
             </ReportRelation>
             <ReportRelation>
                 <ChildName>Branch</ChildName>
-                <JoinType>Inner</JoinType>
                 <Links>
                     <RelationRow>
                         <ChildField>Branch.BranchID</ChildField>
@@ -61,7 +60,6 @@
             </ReportRelation>
             <ReportRelation>
                 <ChildName>BAccount</ChildName>
-                <JoinType>Inner</JoinType>
                 <Links>
                     <RelationRow>
                         <ChildField>BAccount.BAccountID</ChildField>
@@ -72,7 +70,6 @@
             </ReportRelation>
             <ReportRelation>
                 <ChildName>Address</ChildName>
-                <JoinType>Inner</JoinType>
                 <Links>
                     <RelationRow>
                         <ChildField>Address.AddressID</ChildField>
