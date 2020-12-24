@@ -2699,8 +2699,8 @@
                         <Value>客户签收 :</Value>
                     </TextBox>
                     <TextBox Name="textBox9">
-                        <Location>32px, 56px</Location>
-                        <Size>176px, 24px</Size>
+                        <Location>24px, 56px</Location>
+                        <Size>184px, 24px</Size>
                         <Style>
                             <BorderColor>
                                 <Bottom>Black</Bottom>
@@ -2719,7 +2719,7 @@
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>orm number:FSA-021/Rev.00</Value>
+                        <Value>Form number:FSA-021/Rev.00</Value>
                     </TextBox>
                 </Items>
             </PageFooter>
