@@ -8,6 +8,7 @@
         </Filters>
         <PageSettings>
             <Landscape>True</Landscape>
+            <PaperKind>A5</PaperKind>
         </PageSettings>
         <Parameters>
             <ReportParameter>
@@ -2699,7 +2700,7 @@
                 <Items>
                     <TextBox Name="textBox16">
                         <Format>='yyyy-MM-dd'</Format>
-                        <Location>496px, 40px</Location>
+                        <Location>336px, 40px</Location>
                         <Size>136px, 24px</Size>
                         <Style>
                             <BorderColor>
@@ -2722,8 +2723,8 @@
                         <Value>=[SOShipment.ShipDate]</Value>
                     </TextBox>
                     <TextBox Name="textBox17">
-                        <Location>744px, 40px</Location>
-                        <Size>168px, 24px</Size>
+                        <Location>592px, 40px</Location>
+                        <Size>96px, 24px</Size>
                         <Style>
                             <BorderColor>
                                 <Bottom>Black</Bottom>
@@ -2745,8 +2746,8 @@
                         <Value>=[SOShipment.ShipmentNbr]</Value>
                     </TextBox>
                     <TextBox Name="textBox3">
-                        <Location>664px, 40px</Location>
-                        <Size>80px, 24px</Size>
+                        <Location>520px, 40px</Location>
+                        <Size>72px, 24px</Size>
                         <Style>
                             <BorderColor>
                                 <Bottom>Black</Bottom>
@@ -2768,7 +2769,7 @@
                         <Value>送货单号 :</Value>
                     </TextBox>
                     <TextBox Name="textBox4">
-                        <Location>440px, 40px</Location>
+                        <Location>280px, 40px</Location>
                         <Size>56px, 24px</Size>
                         <Style>
                             <BorderColor>
@@ -2791,7 +2792,7 @@
                         <Value>日期 :</Value>
                     </TextBox>
                     <TextBox Name="textBox5">
-                        <Location>472px, 8px</Location>
+                        <Location>312px, 8px</Location>
                         <Size>80px, 32px</Size>
                         <Style>
                             <BorderColor>
@@ -2811,7 +2812,7 @@
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>销货单</Value>
+                        <Value>出货单</Value>
                     </TextBox>
                 </Items>
             </PageHeader>
@@ -2825,8 +2826,8 @@
                 </Variables>
                 <Items>
                     <TextBox Name="textBox10">
-                        <Location>96px, 0px</Location>
-                        <Size>112px, 48px</Size>
+                        <Location>48px, 0px</Location>
+                        <Size>56px, 48px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -2849,8 +2850,8 @@
                         <Value>=[SOShipLine.InventoryID]</Value>
                     </TextBox>
                     <TextBox Name="textBox11">
-                        <Location>208px, 0px</Location>
-                        <Size>224px, 48px</Size>
+                        <Location>104px, 0px</Location>
+                        <Size>192px, 48px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -2873,8 +2874,8 @@
                         <Value>=[SOLine.InventoryID_description]</Value>
                     </TextBox>
                     <TextBox Name="textBox12">
-                        <Location>432px, 0px</Location>
-                        <Size>168px, 48px</Size>
+                        <Location>296px, 0px</Location>
+                        <Size>80px, 48px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -2898,8 +2899,8 @@
                     </TextBox>
                     <TextBox Name="textBox13">
                         <Format>#0.00</Format>
-                        <Location>600px, 0px</Location>
-                        <Size>96px, 48px</Size>
+                        <Location>376px, 0px</Location>
+                        <Size>80px, 48px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -2922,8 +2923,8 @@
                         <Value>=[SOShipLine.ShippedQty]</Value>
                     </TextBox>
                     <TextBox Name="textBox14">
-                        <Location>696px, 0px</Location>
-                        <Size>72px, 48px</Size>
+                        <Location>456px, 0px</Location>
+                        <Size>48px, 48px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -2946,8 +2947,8 @@
                         <Value>=[SOShipLine.UOM]</Value>
                     </TextBox>
                     <TextBox Name="textBox15">
-                        <Location>840px, 0px</Location>
-                        <Size>168px, 24px</Size>
+                        <Location>568px, 0px</Location>
+                        <Size>128px, 24px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -2968,8 +2969,8 @@
                         <Value>=[SOShipLine.AlternateID]</Value>
                     </TextBox>
                     <TextBox Name="textBox18">
-                        <Location>768px, 0px</Location>
-                        <Size>72px, 48px</Size>
+                        <Location>504px, 0px</Location>
+                        <Size>64px, 48px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -2992,8 +2993,8 @@
                         <Value>=[INSite.Descr]</Value>
                     </TextBox>
                     <TextBox Name="textBox19">
-                        <Location>840px, 24px</Location>
-                        <Size>168px, 24px</Size>
+                        <Location>568px, 24px</Location>
+                        <Size>128px, 24px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3016,8 +3017,8 @@
                         <Value>=[SOLine.OrigOrderNbr]</Value>
                     </TextBox>
                     <TextBox Name="textBox33">
-                        <Location>16px, 0px</Location>
-                        <Size>80px, 48px</Size>
+                        <Location>0px, 0px</Location>
+                        <Size>48px, 48px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3047,7 +3048,7 @@
                 <Height>2.32804cm</Height>
                 <Items>
                     <TextBox Name="textBox6">
-                        <Location>32px, 8px</Location>
+                        <Location>16px, 8px</Location>
                         <Size>48px, 24px</Size>
                         <Style>
                             <BorderColor>
@@ -3070,7 +3071,7 @@
                         <Value>仓管 :</Value>
                     </TextBox>
                     <TextBox Name="textBox7">
-                        <Location>336px, 8px</Location>
+                        <Location>264px, 8px</Location>
                         <Size>48px, 24px</Size>
                         <Style>
                             <BorderColor>
@@ -3093,7 +3094,7 @@
                         <Value>业务 :</Value>
                     </TextBox>
                     <TextBox Name="textBox8">
-                        <Location>664px, 8px</Location>
+                        <Location>512px, 8px</Location>
                         <Size>72px, 24px</Size>
                         <Style>
                             <BorderColor>
@@ -3116,7 +3117,7 @@
                         <Value>审核:</Value>
                     </TextBox>
                     <TextBox Name="textBox9">
-                        <Location>24px, 56px</Location>
+                        <Location>8px, 56px</Location>
                         <Size>184px, 24px</Size>
                         <Style>
                             <BorderColor>
@@ -3149,8 +3150,8 @@
                         <Height>0.84656cm</Height>
                         <Items>
                             <TextBox Name="textBox1">
-                                <Location>768px, 0px</Location>
-                                <Size>72px, 32px</Size>
+                                <Location>504px, 0px</Location>
+                                <Size>64px, 32px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -3177,8 +3178,8 @@
                                 <Value>仓库</Value>
                             </TextBox>
                             <TextBox Name="textBox2">
-                                <Location>600px, 0px</Location>
-                                <Size>96px, 32px</Size>
+                                <Location>376px, 0px</Location>
+                                <Size>80px, 32px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -3205,8 +3206,8 @@
                                 <Value>出货数量</Value>
                             </TextBox>
                             <TextBox Name="textBox32">
-                                <Location>16px, 0px</Location>
-                                <Size>80px, 32px</Size>
+                                <Location>0px, 0px</Location>
+                                <Size>48px, 32px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -3235,8 +3236,8 @@
                                 <Value>序号</Value>
                             </TextBox>
                             <TextBox Name="textBox34">
-                                <Location>96px, 0px</Location>
-                                <Size>112px, 32px</Size>
+                                <Location>48px, 0px</Location>
+                                <Size>56px, 32px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -3263,8 +3264,8 @@
                                 <Value>物料品号</Value>
                             </TextBox>
                             <TextBox Name="textBox35">
-                                <Location>208px, 0px</Location>
-                                <Size>224px, 32px</Size>
+                                <Location>104px, 0px</Location>
+                                <Size>192px, 32px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -3291,8 +3292,8 @@
                                 <Value>品名规格</Value>
                             </TextBox>
                             <TextBox Name="textBox36">
-                                <Location>696px, 0px</Location>
-                                <Size>72px, 32px</Size>
+                                <Location>456px, 0px</Location>
+                                <Size>48px, 32px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -3319,8 +3320,8 @@
                                 <Value>单位</Value>
                             </TextBox>
                             <TextBox Name="textBox37">
-                                <Location>432px, 0px</Location>
-                                <Size>168px, 32px</Size>
+                                <Location>296px, 0px</Location>
+                                <Size>80px, 32px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -3347,8 +3348,8 @@
                                 <Value>产品批号</Value>
                             </TextBox>
                             <TextBox Name="textBox38">
-                                <Location>840px, 0px</Location>
-                                <Size>168px, 32px</Size>
+                                <Location>568px, 0px</Location>
+                                <Size>128px, 32px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
