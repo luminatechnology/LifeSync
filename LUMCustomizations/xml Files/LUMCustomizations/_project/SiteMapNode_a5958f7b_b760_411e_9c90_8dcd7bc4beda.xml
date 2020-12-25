@@ -25,7 +25,7 @@
         </layout>
         <data>
             <SiteMap>
-                <row Title="Inventory Issue Report" Url="~/Frames/ReportLauncher.aspx?ID=LM612000.rpx" ScreenID="LM612000" NodeID="a5958f7b-b760-411e-9c90-8dcd7bc4beda" ParentID="00000000-0000-0000-0000-000000000000">
+                <row Title="Inventory Receipt Report" Url="~/Frames/ReportLauncher.aspx?ID=LM612000.rpx" ScreenID="LM612000" NodeID="a5958f7b-b760-411e-9c90-8dcd7bc4beda" ParentID="00000000-0000-0000-0000-000000000000">
                     <MUIScreen IsPortal="0" WorkspaceID="6557c1c6-747e-45bb-9072-54f096598d61" Order="70" SubcategoryID="0b491e12-c58d-4e47-8a0d-96dd3a8ab395" />
                 </row>
             </SiteMap>
