@@ -8,13 +8,20 @@
         </Filters>
         <PageSettings>
             <Landscape>True</Landscape>
+            <PaperKind>A5</PaperKind>
         </PageSettings>
         <Parameters>
             <ReportParameter>
+                <ColumnSpan>2</ColumnSpan>
                 <Name>BatNbr</Name>
+                <Prompt>Batch Nbr</Prompt>
+                <Required>True</Required>
             </ReportParameter>
             <ReportParameter>
+                <ColumnSpan>2</ColumnSpan>
                 <Name>AttributeID</Name>
+                <Prompt>Attribute ID</Prompt>
+                <Visible>False</Visible>
             </ReportParameter>
         </Parameters>
         <Relations>
@@ -1716,14 +1723,10 @@
         </Tables>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
-                <Height>2.96296cm</Height>
+                <Height>2.1164cm</Height>
                 <Items>
-                    <Line Name="line1">
-                        <Location>24px, 102px</Location>
-                        <Size>976px, 8px</Size>
-                    </Line>
                     <TextBox Name="textBox1">
-                        <Location>416px, 0px</Location>
+                        <Location>264px, 0px</Location>
                         <Size>192px, 32px</Size>
                         <Style>
                             <Font>
@@ -1734,7 +1737,7 @@
                         <Value>美博电子有限公司</Value>
                     </TextBox>
                     <TextBox Name="textBox12">
-                        <Location>456px, 32px</Location>
+                        <Location>304px, 32px</Location>
                         <Size>96px, 24px</Size>
                         <Style>
                             <Font>
@@ -1746,17 +1749,22 @@
                         <Value>生产入库单</Value>
                     </TextBox>
                     <TextBox Name="textBox13">
-                        <Location>880px, 80px</Location>
+                        <Location>584px, 64px</Location>
                         <Size>104px, 16px</Size>
                         <Value>=[AMBatch.BatNbr]</Value>
                     </TextBox>
                     <TextBox Name="textBox18">
-                        <Location>80px, 80px</Location>
+                        <Location>64px, 64px</Location>
                         <Size>120px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                            </Font>
+                        </Style>
                         <Value>=[AMProdAttribute.Value] + ' - ' + [AMMTran.OperationID]</Value>
                     </TextBox>
                     <TextBox Name="textBox3">
-                        <Location>824px, 80px</Location>
+                        <Location>528px, 64px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
@@ -1766,7 +1774,7 @@
                         <Value>入庫单号:</Value>
                     </TextBox>
                     <TextBox Name="textBox4">
-                        <Location>440px, 80px</Location>
+                        <Location>272px, 64px</Location>
                         <Size>32px, 16px</Size>
                         <Style>
                             <Font>
@@ -1776,12 +1784,13 @@
                         <Value>日期:</Value>
                     </TextBox>
                     <TextBox Name="textBox5">
-                        <Location>472px, 80px</Location>
+                        <Format>='yyyy-MM-dd'</Format>
+                        <Location>304px, 64px</Location>
                         <Size>120px, 16px</Size>
                         <Value>=[AMBatch.TranDate]</Value>
                     </TextBox>
                     <TextBox Name="textBox7">
-                        <Location>24px, 80px</Location>
+                        <Location>8px, 64px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
@@ -1801,189 +1810,279 @@
                     </ReportVariable>
                 </Variables>
                 <Items>
-                    <Panel Name="panel3">
-                        <Location>24px, 0px</Location>
-                        <Size>976px, 40px</Size>
-                        <Items>
-                            <TextBox Name="textBox14">
-                                <Format>#.00</Format>
-                                <Location>512px, 8px</Location>
-                                <Size>72px, 16px</Size>
-                                <Style>
-                                    <Font>
-                                        <Size>10px</Size>
-                                    </Font>
-                                    <TextAlign>Right</TextAlign>
-                                </Style>
-                                <Value>=[AMMTran.LotSerialNbr]</Value>
-                            </TextBox>
-                            <TextBox Name="textBox28">
-                                <Location>0px, 8px</Location>
-                                <Size>24px, 16px</Size>
-                                <Style>
-                                    <Font>
-                                        <Size>10px</Size>
-                                    </Font>
-                                </Style>
-                                <Value>=PadLeft(CStr($LineNbr), 4, '0')</Value>
-                            </TextBox>
-                            <TextBox Name="textBox29">
-                                <Location>32px, 8px</Location>
-                                <Size>64px, 16px</Size>
-                                <Style>
-                                    <Font>
-                                        <Size>10px</Size>
-                                    </Font>
-                                    <TextAlign>Right</TextAlign>
-                                </Style>
-                                <Value>=[AMMTran.InventoryID]</Value>
-                            </TextBox>
-                            <TextBox Name="textBox30">
-                                <CanGrow>True</CanGrow>
-                                <CanSplit>True</CanSplit>
-                                <Location>112px, 0px</Location>
-                                <Size>312px, 32px</Size>
-                                <Style>
-                                    <Font>
-                                        <Size>10px</Size>
-                                    </Font>
-                                    <TextAlign>Left</TextAlign>
-                                </Style>
-                                <Value>=[AMMTran.InventoryID_description]</Value>
-                            </TextBox>
-                            <TextBox Name="textBox31">
-                                <Format>#.00</Format>
-                                <Location>424px, 8px</Location>
-                                <Size>72px, 16px</Size>
-                                <Style>
-                                    <Font>
-                                        <Size>10px</Size>
-                                    </Font>
-                                    <TextAlign>Right</TextAlign>
-                                </Style>
-                                <Value>=[AMMTran.ProdOrdID]</Value>
-                            </TextBox>
-                            <TextBox Name="textBox32">
-                                <Format>#.00</Format>
-                                <Location>608px, 8px</Location>
-                                <Size>48px, 16px</Size>
-                                <Style>
-                                    <Font>
-                                        <Size>10px</Size>
-                                    </Font>
-                                    <TextAlign>Right</TextAlign>
-                                </Style>
-                                <Value>=[AMMTran.Qty]</Value>
-                            </TextBox>
-                            <TextBox Name="textBox33">
-                                <Location>688px, 8px</Location>
-                                <Size>48px, 16px</Size>
-                                <Style>
-                                    <Font>
-                                        <Size>10px</Size>
-                                    </Font>
-                                    <TextAlign>Left</TextAlign>
-                                </Style>
-                                <Value>=[AMMTran.UOM]</Value>
-                            </TextBox>
-                            <TextBox Name="textBox34">
-                                <Location>752px, 8px</Location>
-                                <Size>64px, 16px</Size>
-                                <Style>
-                                    <Font>
-                                        <Size>10px</Size>
-                                    </Font>
-                                    <TextAlign>Left</TextAlign>
-                                </Style>
-                                <Value>=[AMMTran.SiteID]</Value>
-                            </TextBox>
-                            <TextBox Name="textBox35">
-                                <Location>832px, 8px</Location>
-                                <Size>40px, 16px</Size>
-                                <Style>
-                                    <Font>
-                                        <Size>10px</Size>
-                                    </Font>
-                                    <TextAlign>Left</TextAlign>
-                                </Style>
-                                <Value>=[AMMTran.LocationID]</Value>
-                            </TextBox>
-                            <TextBox Name="textBox36">
-                                <CanGrow>True</CanGrow>
-                                <CanSplit>True</CanSplit>
-                                <Location>888px, 0px</Location>
-                                <Size>88px, 32px</Size>
-                                <Style>
-                                    <Font>
-                                        <Size>10px</Size>
-                                    </Font>
-                                    <TextAlign>Left</TextAlign>
-                                </Style>
-                                <Value>=[AMMTran.OperationID] + ' - ' + [AMProdOper.Descr]</Value>
-                            </TextBox>
-                        </Items>
-                    </Panel>
+                    <TextBox Name="textBox14">
+                        <Format>#.00</Format>
+                        <Location>376px, 0px</Location>
+                        <Size>72px, 32px</Size>
+                        <Style>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
+                            </BorderWidth>
+                            <Font>
+                                <Size>9px</Size>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>=[AMMTran.LotSerialNbr]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox15">
+                        <Location>616px, 0px</Location>
+                        <Size>72px, 32px</Size>
+                        <Style>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
+                            </BorderWidth>
+                            <Font>
+                                <Size>10px</Size>
+                            </Font>
+                            <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>=[AMMTran.OperationID] + '{br}' + [AMProdOper.Descr]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox28">
+                        <Location>8px, 0px</Location>
+                        <Size>32px, 32px</Size>
+                        <Style>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Left>Solid</Left>
+                                <Right>Solid</Right>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Bottom>1px</Bottom>
+                                <Left>1px</Left>
+                                <Right>1px</Right>
+                            </BorderWidth>
+                            <Font>
+                                <Size>10px</Size>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>=PadLeft(CStr($LineNbr), 4, '0')</Value>
+                    </TextBox>
+                    <TextBox Name="textBox29">
+                        <Location>40px, 0px</Location>
+                        <Size>56px, 32px</Size>
+                        <Style>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
+                            </BorderWidth>
+                            <Font>
+                                <Size>10px</Size>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>=[AMMTran.InventoryID]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox30">
+                        <CanGrow>True</CanGrow>
+                        <CanSplit>True</CanSplit>
+                        <Location>96px, 0px</Location>
+                        <Size>224px, 32px</Size>
+                        <Style>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
+                            </BorderWidth>
+                            <Font>
+                                <Size>10px</Size>
+                            </Font>
+                            <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>=[AMMTran.InventoryID_description]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox31">
+                        <Format>#.00</Format>
+                        <Location>320px, 0px</Location>
+                        <Size>56px, 32px</Size>
+                        <Style>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
+                            </BorderWidth>
+                            <Font>
+                                <Size>9px</Size>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>=[AMMTran.ProdOrdID]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox32">
+                        <Format>#.00</Format>
+                        <Location>448px, 0px</Location>
+                        <Size>56px, 32px</Size>
+                        <Style>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
+                            </BorderWidth>
+                            <Font>
+                                <Size>10px</Size>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>=[AMMTran.Qty]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox33">
+                        <Location>504px, 0px</Location>
+                        <Size>40px, 32px</Size>
+                        <Style>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
+                            </BorderWidth>
+                            <Font>
+                                <Size>10px</Size>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>=[AMMTran.UOM]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox34">
+                        <Location>544px, 0px</Location>
+                        <Size>40px, 32px</Size>
+                        <Style>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
+                            </BorderWidth>
+                            <Font>
+                                <Size>10px</Size>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>=[AMMTran.SiteID]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox35">
+                        <Location>584px, 0px</Location>
+                        <Size>32px, 32px</Size>
+                        <Style>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
+                            </BorderWidth>
+                            <Font>
+                                <Size>10px</Size>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>=[AMMTran.LocationID]</Value>
+                    </TextBox>
                 </Items>
             </Detail>
             <PageFooter Name="pageFooterSection1">
-                <Height>0.42328cm</Height>
+                <Height>1.48148cm</Height>
                 <Items>
-                    <Panel Name="panel2">
-                        <Location>24px, 0px</Location>
-                        <Size>976px, 16px</Size>
-                        <Items>
-                            <TextBox Name="textBox10">
-                                <Location>424px, 0px</Location>
-                                <Size>40px, 16px</Size>
-                                <Style>
-                                    <Font>
-                                        <Name>Microsoft JhengHei UI</Name>
-                                    </Font>
-                                </Style>
-                                <Value>生管:</Value>
-                            </TextBox>
-                            <TextBox Name="textBox11">
-                                <Location>624px, 0px</Location>
-                                <Size>32px, 16px</Size>
-                                <Style>
-                                    <Font>
-                                        <Name>Microsoft JhengHei UI</Name>
-                                    </Font>
-                                </Style>
-                                <Value>仓管:</Value>
-                            </TextBox>
-                            <TextBox Name="textBox2">
-                                <Location>824px, 0px</Location>
-                                <Size>32px, 16px</Size>
-                                <Style>
-                                    <Font>
-                                        <Name>Microsoft JhengHei UI</Name>
-                                    </Font>
-                                </Style>
-                                <Value>制单:</Value>
-                            </TextBox>
-                            <TextBox Name="textBox8">
-                                <Location>0px, 0px</Location>
-                                <Size>48px, 16px</Size>
-                                <Style>
-                                    <Font>
-                                        <Name>Microsoft JhengHei UI</Name>
-                                    </Font>
-                                </Style>
-                                <Value>生管主管:</Value>
-                            </TextBox>
-                            <TextBox Name="textBox9">
-                                <Location>200px, 0px</Location>
-                                <Size>56px, 16px</Size>
-                                <Style>
-                                    <Font>
-                                        <Name>Microsoft JhengHei UI</Name>
-                                    </Font>
-                                </Style>
-                                <Value>品管确认:</Value>
-                            </TextBox>
-                        </Items>
-                    </Panel>
+                    <TextBox Name="textBox10">
+                        <Location>304px, 0px</Location>
+                        <Size>40px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                            </Font>
+                        </Style>
+                        <Value>生管:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox11">
+                        <Location>448px, 0px</Location>
+                        <Size>32px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                            </Font>
+                        </Style>
+                        <Value>仓管:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox16">
+                        <Location>8px, 40px</Location>
+                        <Size>168px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                                <Size>10px</Size>
+                            </Font>
+                        </Style>
+                        <Value>Form number:FWH-007/Rev.01</Value>
+                    </TextBox>
+                    <TextBox Name="textBox2">
+                        <Location>584px, 0px</Location>
+                        <Size>32px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                            </Font>
+                        </Style>
+                        <Value>制单:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox8">
+                        <Location>8px, 0px</Location>
+                        <Size>48px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                            </Font>
+                        </Style>
+                        <Value>生管主管:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox9">
+                        <Location>152px, 0px</Location>
+                        <Size>56px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                            </Font>
+                        </Style>
+                        <Value>品管确认:</Value>
+                    </TextBox>
                 </Items>
             </PageFooter>
         </Sections>
@@ -1992,128 +2091,240 @@
             <Group Name="Production Move">
                 <Headers>
                     <Header Name="groupHeaderSection1">
-                        <Height>0.84656cm</Height>
+                        <Height>0.63492cm</Height>
                         <Items>
-                            <Line Name="line2">
-                                <Location>24px, 22px</Location>
-                                <Size>976px, 8px</Size>
-                            </Line>
-                            <Panel Name="panel1">
-                                <Location>24px, 0px</Location>
-                                <Size>976px, 16px</Size>
-                                <Items>
-                                    <TextBox Name="textBox19">
-                                        <Location>0px, 0px</Location>
-                                        <Size>32px, 16px</Size>
-                                        <Style>
-                                            <Font>
-                                                <Name>Microsoft JhengHei UI</Name>
-                                                <Size>12px</Size>
-                                            </Font>
-                                        </Style>
-                                        <Value>序号</Value>
-                                    </TextBox>
-                                    <TextBox Name="textBox20">
-                                        <Location>48px, 0px</Location>
-                                        <Size>56px, 16px</Size>
-                                        <Style>
-                                            <Font>
-                                                <Name>Microsoft JhengHei UI</Name>
-                                                <Size>12px</Size>
-                                            </Font>
-                                        </Style>
-                                        <Value>物料品号</Value>
-                                    </TextBox>
-                                    <TextBox Name="textBox21">
-                                        <Location>112px, 0px</Location>
-                                        <Size>56px, 16px</Size>
-                                        <Style>
-                                            <Font>
-                                                <Name>Microsoft JhengHei UI</Name>
-                                                <Size>12px</Size>
-                                            </Font>
-                                        </Style>
-                                        <Value>品名规格</Value>
-                                    </TextBox>
-                                    <TextBox Name="textBox22">
-                                        <Location>560px, 0px</Location>
-                                        <Size>32px, 16px</Size>
-                                        <Style>
-                                            <Font>
-                                                <Name>Microsoft JhengHei UI</Name>
-                                                <Size>12px</Size>
-                                            </Font>
-                                        </Style>
-                                        <Value>批号</Value>
-                                    </TextBox>
-                                    <TextBox Name="textBox23">
-                                        <Location>608px, 0px</Location>
-                                        <Size>56px, 16px</Size>
-                                        <Style>
-                                            <Font>
-                                                <Name>Microsoft JhengHei UI</Name>
-                                                <Size>12px</Size>
-                                            </Font>
-                                        </Style>
-                                        <Value>入库数量</Value>
-                                    </TextBox>
-                                    <TextBox Name="textBox24">
-                                        <Location>688px, 0px</Location>
-                                        <Size>32px, 16px</Size>
-                                        <Style>
-                                            <Font>
-                                                <Name>Microsoft JhengHei UI</Name>
-                                                <Size>12px</Size>
-                                            </Font>
-                                        </Style>
-                                        <Value>单位</Value>
-                                    </TextBox>
-                                    <TextBox Name="textBox25">
-                                        <Location>752px, 0px</Location>
-                                        <Size>32px, 16px</Size>
-                                        <Style>
-                                            <Font>
-                                                <Name>Microsoft JhengHei UI</Name>
-                                                <Size>12px</Size>
-                                            </Font>
-                                        </Style>
-                                        <Value>仓库</Value>
-                                    </TextBox>
-                                    <TextBox Name="textBox26">
-                                        <Location>832px, 0px</Location>
-                                        <Size>32px, 16px</Size>
-                                        <Style>
-                                            <Font>
-                                                <Name>Microsoft JhengHei UI</Name>
-                                                <Size>12px</Size>
-                                            </Font>
-                                        </Style>
-                                        <Value>库位</Value>
-                                    </TextBox>
-                                    <TextBox Name="textBox27">
-                                        <Location>888px, 0px</Location>
-                                        <Size>32px, 16px</Size>
-                                        <Style>
-                                            <Font>
-                                                <Name>Microsoft JhengHei UI</Name>
-                                                <Size>12px</Size>
-                                            </Font>
-                                        </Style>
-                                        <Value>备注</Value>
-                                    </TextBox>
-                                    <TextBox Name="textBox6">
-                                        <Location>448px, 0px</Location>
-                                        <Size>56px, 16px</Size>
-                                        <Style>
-                                            <Font>
-                                                <Name>Microsoft JhengHei UI</Name>
-                                                <Size>12px</Size>
-                                            </Font>
-                                        </Style>
-                                        <Value>工单号码</Value>
-                                    </TextBox>
-                                </Items>
-                            </Panel>
+                            <TextBox Name="textBox19">
+                                <Location>8px, 0px</Location>
+                                <Size>32px, 24px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Left>Solid</Left>
+                                        <Right>Solid</Right>
+                                        <Top>Solid</Top>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Left>1px</Left>
+                                        <Right>1px</Right>
+                                        <Top>1px</Top>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Name>Microsoft JhengHei UI</Name>
+                                        <Size>12px</Size>
+                                    </Font>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>序号</Value>
+                            </TextBox>
+                            <TextBox Name="textBox20">
+                                <Location>40px, 0px</Location>
+                                <Size>56px, 24px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Right>Solid</Right>
+                                        <Top>Solid</Top>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                        <Top>1px</Top>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Name>Microsoft JhengHei UI</Name>
+                                        <Size>12px</Size>
+                                    </Font>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>物料品号</Value>
+                            </TextBox>
+                            <TextBox Name="textBox21">
+                                <Location>96px, 0px</Location>
+                                <Size>224px, 24px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Right>Solid</Right>
+                                        <Top>Solid</Top>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                        <Top>1px</Top>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Name>Microsoft JhengHei UI</Name>
+                                        <Size>12px</Size>
+                                    </Font>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>品名规格</Value>
+                            </TextBox>
+                            <TextBox Name="textBox22">
+                                <Location>376px, 0px</Location>
+                                <Size>72px, 24px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Right>Solid</Right>
+                                        <Top>Solid</Top>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                        <Top>1px</Top>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Name>Microsoft JhengHei UI</Name>
+                                        <Size>12px</Size>
+                                    </Font>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>批号</Value>
+                            </TextBox>
+                            <TextBox Name="textBox23">
+                                <Location>448px, 0px</Location>
+                                <Size>56px, 24px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Right>Solid</Right>
+                                        <Top>Solid</Top>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                        <Top>1px</Top>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Name>Microsoft JhengHei UI</Name>
+                                        <Size>12px</Size>
+                                    </Font>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>入库数量</Value>
+                            </TextBox>
+                            <TextBox Name="textBox24">
+                                <Location>504px, 0px</Location>
+                                <Size>40px, 24px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Right>Solid</Right>
+                                        <Top>Solid</Top>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                        <Top>1px</Top>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Name>Microsoft JhengHei UI</Name>
+                                        <Size>12px</Size>
+                                    </Font>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>单位</Value>
+                            </TextBox>
+                            <TextBox Name="textBox25">
+                                <Location>544px, 0px</Location>
+                                <Size>40px, 24px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Right>Solid</Right>
+                                        <Top>Solid</Top>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                        <Top>1px</Top>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Name>Microsoft JhengHei UI</Name>
+                                        <Size>12px</Size>
+                                    </Font>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>仓库</Value>
+                            </TextBox>
+                            <TextBox Name="textBox26">
+                                <Location>584px, 0px</Location>
+                                <Size>32px, 24px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Right>Solid</Right>
+                                        <Top>Solid</Top>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                        <Top>1px</Top>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Name>Microsoft JhengHei UI</Name>
+                                        <Size>12px</Size>
+                                    </Font>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>库位</Value>
+                            </TextBox>
+                            <TextBox Name="textBox27">
+                                <Location>616px, 0px</Location>
+                                <Size>72px, 24px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Right>Solid</Right>
+                                        <Top>Solid</Top>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                        <Top>1px</Top>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Name>Microsoft JhengHei UI</Name>
+                                        <Size>12px</Size>
+                                    </Font>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>备注</Value>
+                            </TextBox>
+                            <TextBox Name="textBox6">
+                                <Location>320px, 0px</Location>
+                                <Size>56px, 24px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Right>Solid</Right>
+                                        <Top>Solid</Top>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                        <Top>1px</Top>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Name>Microsoft JhengHei UI</Name>
+                                        <Size>12px</Size>
+                                    </Font>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>工单号码</Value>
+                            </TextBox>
                         </Items>
                     </Header>
                 </Headers>
