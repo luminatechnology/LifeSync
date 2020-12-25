@@ -23,19 +23,16 @@ namespace PX.Objects.SO
         [PXUIField(DisplayName = "Inventory Issue Report", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable inventoryIssueReport(PXAdapter adapter)
         {
-            var _reportID = "lm612000";
+            var _reportID = "lm612005";
             if (Base.issue.Current != null)
             {
                 Dictionary<string, string> parameters = new Dictionary<string, string>();
                 parameters["DocType"] = Base.issue.Current.DocType;
                 parameters["RefNbr"] = Base.issue.Current.RefNbr;
-                parameters["PeriodTo"] = null;
-                parameters["PeriodFrom"] = null;
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
             }
             return adapter.Get();
         }
         #endregion
-
     }
 }
