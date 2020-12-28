@@ -2,6 +2,18 @@
     <Report Name="report1">
         <EmbeddedImages>
             <EmbeddedImage>
+                <ImageData>iVBORw0KGgoAAAANSUhEUgAAAFYAAAAyCAAAAADjWHNnAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAAFiUAABYlAUlSJPAAAAAHdElNRQfkDBkGJRfGTS+yAAAEPUlEQVRYw83XfVAUZRwH8N/eHce9eB6dI4JwCjFY4pznhKCQDpEJWjYiDKgjxAg5oUOTFEyINaFCVH8okjnm3TimJkOUUr5QpKZCTXEUIFoQLwOncgdjx71wx73tbsvAnnfAHfeyjX3/293Zz+7O8+zz/H6A/yeBJ8WiJqNhVKdRq0bUWp3eYDRjvrKm4Z7fr1QW5u3YvG7VskXhy+OTUrP3lJy83t6vQr1ksb5LR/amrgykw9QgfovWbC8+cWPIUxY1dJ/eFTufIBjsoLitu/a+V/HpqZpqSWX5vjdztogFrPFnCRML6xRG91ljR9WrCzkAQctTiiS3+oY1o2Mm68QXWEwGnVrZVX80P+lZAQAvIvtcP+oWq79VtIR4y2fSKn5UWFEnw4Ohpt4LxclCAHr8J23orOzY5ewwQCLyzrSo8FnzsPFYeiDQRIUyi0sWbUp/CvzF5Xf1s5sTUTflhyMgLOhxwQ4ejgTehmMDqLvoeMxtH8QykLW1OiestTGNCc99ofDEnEhXmRDmvdU9I6uvWgyCvA7PUSKWa68wkeh663RWdZAL0dUmr9Tx28sXQ/h581R2tJTDSG/1FiVivhIDwhrbqEywlkoe/Y2HPqhE/ngBwhsc2RvByLZh31Qcb4mBtX32rHwTrPZusBxSF8Qo1tuxJ5iBX/uu4qZSeshvj1l5IuRafAIno4iBfJONvcwRNFKh4uhRWkQ/yZpL4MURSlhc9jTnK5LVrof9Xv8HjlFugndJdkQMUmpU3PQ65JDsP0K4SBGLF0AKyaqi4BxFqjUPskhW
+kwAfUjK/iA9PgwKSNe6BVC01bIfIX0qyeDUj5B417Hnmwns2tnMFso8SdWQjZBhsLHoQlvxKgYqd5s69ittY/M5K2DLoO9u8FDJVdiz+JY9VbPBVHUiBKBluz+ryafzDY76pylzGXAm560zuZYNZwN8/5DVJ5M8MOrfC9mbkztubhbC3NnuNWr5ZA/wDGtuxrU54sJsNos8eeaf2FAdDYKVdYfO4qlFLRcDOkBk9RzXfPg/0pAb7xdW+BmvdGQBhRT/pPEOVFzMFEFYqdzjpUDFqpWIahGbWuVGETga7//lGPrA2NExZqxzrW7T342gWCJKPtz9yY00bUzQdiGVDQNLZaXNoajWOPTiZzAf6/ORD33e7nMiaO7Vvx81BIHTHBc30qzP0Dsqa3CgGQED8a4fO3JYbUcy+0scwzDra9YOkJF3sD8COe+fajEMxY6ej+/u7wth5RDszJ2RpQm5Z1ana+sbW7s6Wm5eqJUfe3746cgELgBm8vuzmgJO91VlfZlbfrtiWsGwBYSN0PyaLw+XxuGwWk0EjeieWcMVLOcfb9VbcWVx2kcNtV6WlO19OXCWKCOb7sQShkeK4dZt3f3T2+l8a3GVm73m1CnlvZ0dr88+/yNrudvXdH3JnqXtiHfr/if0XJIEVhKPTHE0AAAAldEVYdGRhdGU6Y3JlYXRlADIwMjAtMTItMjVUMDY6Mzc6MTYrMDA6MDDHi4GVAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIwLTEyLTI1VDA2OjM3OjE2KzAwOjAwttY5KQAAAABJRU5ErkJggg==</ImageData>
+                <MimeType>image/png</MimeType>
+                <Name>cycle_blank10</Name>
+            </EmbeddedImage>
+            <EmbeddedImage>
+                <ImageData>iVBORw0KGgoAAAANSUhEUgAAAE4AAABCCAYAAAD5aOBmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAPrSURBVHhe7ZvNKzVRGMBvWSpLkR0pUhQrH2HhY2Ej/wFZUJTYS2woZSelsFAiWQlZKR9rG0qxtRYrNs/7/qYzdc173XvnOXNn5nrPr6brOTNzznN+15mZe2YmIw4VTpwSJ06JE6fEiVPixClx4pQ4cUqcOCVOnBInTkkqxL29vcnT05NcX1/L8fGxbG5uytLSkvdJTDnr2S4tJCLu6+tLzs7OZGFhQdra2qSqqkoaGxulu7tbxsbGZGpqSvr6+rxPYspZz3Zsz37sTz1JEau409NTGR4eloqKCunv75eVlRW5u7sza4uD7dmP/amH+qg3bmIRd3R0JD09PdLe3i57e3vy/v5u1thBPdRHvdRPO3FRUnEMp46ODm+oHR4emtLSQP20Q3u0W2pKJm5xcVFqamrk5OTElMQD7dEu7ZeSyMU9Pz/L0NCQjI6OyuvrqymNF9qlffIgn1IQqbibmxvvzLe6umpKkoU8yIe8oiYycff391JdXS37+/umJB2QD3mRX5REIu7l5UXq6+tla2vLlHxnenraW34ik8l4F7lwcHDwLc6GS4+1tTXvb+pju1xLsC3yIr8oh621OC4JWltbZX193ZT8i0YcS5CguHx1BiE/8ozqUsha3MzMjMzOzpooN2HFNTQ0eEtwHxtxQJ7kGwVW4q6urqS2trbgt6gRR0w5sY+tOPIkX/K2xUpcV1eX7O7umuhnNOIASdlDtthjnF9XLsiXvG1Ri9vY2JCRkRET5UcrDrKHrO1/nA95k78NanGdnZ1yfn5uovzYiOOMzXrKoxJH3uRvg0rcw8OD1NXVmagwNuLAH7JRiQPypx9aVOKYZJybmzNRYWzFAWVsF5U48qcfWlTiWlpa5Pb21kSFoYN0Orj4
+HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4ODJipvBgYGvP5oCC1ue3tbJiYmTFTejI+Pe/3REFrc8vJyyWdX46K3t1d9Zg0tbmdnRyYnJ01U3jByYvuPu7y89KakfwMcq2M7xj0+Pkpzc7OJyptYz6ofHx/uOu4vocVB2F8OaST2Xw4Q9rdqGknkt2rY2ZE0ksjsCISZj0sbic3HQZgZ4LSR6AwwFHvPIU0kfs8Bir3LlRZSc5cLirmvmhZSc18V+BYL3clPA6m7kw88k5Hv2ZGk8Z8dYfo9KiIRB+5pJQvc83EWuCcyLXHPAFvgnjq3xL3nYAlvwHDcifLNGur7tW/WBPn8/PSGk/Zdrvn5eW9/6kmKRMQFcW8P/kc4cUqcOCVOnBInTokTp8SJU+LEqRD5A+kbQ1jFeqJQAAAAAElFTkSuQmCC</ImageData>
+                <MimeType>image/png</MimeType>
+                <Name>cycle4</Name>
+            </EmbeddedImage>
+            <EmbeddedImage>
                 <ImageData>iVBORw0KGgoAAAANSUhEUgAAAEcAAAA7CAIAAACmMgDyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAI9SURBVGhD7Zq7ecIwEIAxs6TKCGGCsAQdlEmTKdKE1l2WCBPACGnCLs7ZJ+SzntbD4NPnv0HIsnS/7iySD6qmaVbFkdmqqirRCiH7zq7Faw7ilIDoG20k5cobjXHyuLuCCLYyxpSlhDLOHGY1nZJEXyJi/lFWWVYKJWVRj5Uy9R1kdCJicJ2Bc1ACItY152omPgrjo/J/XhluPh1ggZbDSfQQxCVgc6Q9g7HXI3YCm+O1n1BDjO+ASGgwylWKwYqONijFUm9Ne5CGTUy1kuOUjclBvYXZq4N4ZwHXlYhegrFTYWBFlbAxATVUnINWvGcjeod0viJCHIdtSW+lX8vLfv+Cjfed22ssjq03PFeO0Sk8f3x/odflfff527VSsYWqWk2k1PH0dobpf6B1qWvs0oERhLPo9aEUmrCKLD98/m+0Z7Sf1+ZP5MyImOuG99gEdWzAYGwA7aewfC9HsAMVZPxrqlgM/XPFN1ESmSHDGVgAhVgpZ8aSKz6wP9Mpy2nBkMWKD0WfgQD3Y1AegCCyVCAfCrFS/p8qLVd4OhRlJQ+8tWwpSWRNmyvuYnrY7CvQmAlhxT1dEL9UAPpccRSzhcq4Ah27P7CiSZw5VEkP25wruMexEw/HrQRw+l4YGBkYp+dq/F5bf2+hV+BjM+atOornVyTAY6sxbnP9FajMoi9zNyCSMUqAP1fI/QsypUbGWlFs6UrxzDtnjBXgqMPQCSfZo5SbEYdhKOnBIBmsZgjjv24dLFZ8KNFqtfoHWAY3o5VUhukAAAAASUVORK5CYII=</ImageData>
                 <MimeType>image/png</MimeType>
                 <Name>cycle</Name>
@@ -14,8 +26,14 @@
             </FilterExp>
         </Filters>
         <PageSettings>
+            <Margins>
+                <Bottom>0cm</Bottom>
+                <Left>0.2cm</Left>
+                <Right>0cm</Right>
+                <Top>0cm</Top>
+            </Margins>
             <PaperKind>Custom</PaperKind>
-            <PaperSize>7.6cm, 10.1cm</PaperSize>
+            <PaperSize>10.1cm, 7.6cm</PaperSize>
         </PageSettings>
         <Parameters>
             <ReportParameter>
@@ -893,25 +911,14 @@
             <ViewerField Name="INItemXRef.AlternateID">
             </ViewerField>
         </ViewerFields>
-        <Width>7.6cm</Width>
+        <Width>10.1cm</Width>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
-                <Height>0.42328cm</Height>
-                <Items>
-                    <TextBox Name="textBox9">
-                        <Location>0px, 0px</Location>
-                        <Size>232px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                            </Font>
-                        </Style>
-                        <Value>=Report.GetDefUI(’RowCompanyBAccount.AcctName’)</Value>
-                    </TextBox>
-                </Items>
+                <Height>0cm</Height>
+                <Visible>False</Visible>
             </PageHeader>
             <Detail Name="detailSection1">
-                <Height>8.25397cm</Height>
+                <Height>6.98413cm</Height>
                 <Variables>
                     <ReportVariable>
                         <Name>NowNbr</Name>
@@ -920,317 +927,263 @@
                 </Variables>
                 <Items>
                     <TextBox Name="textBox1">
-                        <Location>0px, 40px</Location>
-                        <Size>48px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
-                            </Font>
-                        </Style>
-                        <Value>Customer:</Value>
-                    </TextBox>
-                    <TextBox Name="textBox10">
-                        <Location>0px, 112px</Location>
-                        <Size>64px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
-                            </Font>
-                        </Style>
-                        <Value>ABA Part NO:</Value>
-                    </TextBox>
-                    <TextBox Name="textBox11">
-                        <Location>64px, 112px</Location>
-                        <Size>160px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
-                            </Font>
-                        </Style>
-                        <Value>=[InventoryItem.InventoryID]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox12">
-                        <CanGrow>True</CanGrow>
-                        <Location>0px, 144px</Location>
-                        <Size>64px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
-                            </Font>
-                        </Style>
-                        <Value>ABA LOT NO:</Value>
-                    </TextBox>
-                    <TextBox Name="textBox13">
-                        <CanGrow>True</CanGrow>
-                        <Location>64px, 144px</Location>
-                        <Size>152px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
-                            </Font>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
-                        <Value>=[outter.LotSerialNbr]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox14">
-                        <Location>64px, 264px</Location>
-                        <Size>216px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                            </Font>
-                        </Style>
-                        <Value>MADE IN CHINA</Value>
-                    </TextBox>
-                    <TextBox Name="textBox15">
-                        <Location>0px, 168px</Location>
-                        <Size>88px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
-                            </Font>
-                        </Style>
-                        <Value>QTY IN Container :</Value>
-                    </TextBox>
-                    <TextBox Name="textBox16">
-                        <CanGrow>True</CanGrow>
-                        <Location>88px, 168px</Location>
-                        <Size>56px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
-                            </Font>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
-                        <Value>=[InventoryItem.QTYCARTON_Attributes]+' PCS'</Value>
-                    </TextBox>
-                    <TextBox Name="textBox18">
-                        <Location>208px, 56px</Location>
-                        <Size>48px, 40px</Size>
+                        <Location>288px, 88px</Location>
+                        <Size>64px, 48px</Size>
                         <Style>
                             <BackImage>
-                                <Image>cycle</Image>
+                                <Image>cycle_blank10</Image>
                                 <MimeType>image/png</MimeType>
                                 <Source>Embedded</Source>
                             </BackImage>
                             <Font>
-                                <Name>Arial Black</Name>
+                                <Name>Arial</Name>
+                                <Size>15px</Size>
+                                <Style>Bold</Style>
                             </Font>
                             <Padding>
-                                <Left>25px</Left>
+                                <Left>23px</Left>
+                                <Top>10px</Top>
                             </Padding>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Bottom</VerticalAlign>
+                            <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>=Left([outter.ProdLine],1)</Value>
+                        <Value>='LINE{br}   '+Left([outter.ProdLine],1)</Value>
                     </TextBox>
-                    <TextBox Name="textBox19">
-                        <Location>0px, 192px</Location>
+                    <TextBox Name="textBox11">
+                        <Location>0px, 168px</Location>
+                        <Size>272px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>14px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>='ABA Part NO. : '+[InventoryItem.InventoryID]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox13">
+                        <Location>0px, 184px</Location>
+                        <Size>272px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>14px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <Value>='ABA LOT NO. : '+[outter.LotSerialNbr]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox15">
+                        <Location>0px, 200px</Location>
+                        <Size>136px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>14px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>Qty in Container :</Value>
+                    </TextBox>
+                    <TextBox Name="textBox16">
+                        <Location>136px, 200px</Location>
                         <Size>88px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
+                                <Name>Arial</Name>
+                                <Size>14px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <TextAlign>Right</TextAlign>
+                        </Style>
+                        <Value>=[InventoryItem.QTYCARTON_Attributes]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox17">
+                        <Location>240px, 200px</Location>
+                        <Size>40px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>14px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <Value>PCS</Value>
+                    </TextBox>
+                    <TextBox Name="textBox19">
+                        <Location>0px, 216px</Location>
+                        <Size>136px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>14px</Size>
+                                <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>QTY IN Shipment :</Value>
+                        <Value>Qty in Shipment :</Value>
                     </TextBox>
                     <TextBox Name="textBox2">
                         <CanGrow>True</CanGrow>
-                        <Location>0px, 0px</Location>
-                        <Size>64px, 16px</Size>
+                        <Location>0px, 16px</Location>
+                        <Size>104px, 24px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
+                                <Name>Arial</Name>
+                                <Size>16px</Size>
+                                <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>Description:</Value>
-                    </TextBox>
-                    <TextBox Name="textBox21">
-                        <Location>0px, 216px</Location>
-                        <Size>160px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
-                            </Font>
-                        </Style>
-                        <Value>Number of container in shipment:</Value>
-                    </TextBox>
-                    <TextBox Name="textBox22">
-                        <Location>192px, 216px</Location>
-                        <Size>16px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
-                            </Font>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
-                        <Value>of</Value>
-                    </TextBox>
-                    <TextBox Name="textBox23">
-                        <Location>168px, 216px</Location>
-                        <Size>16px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
-                            </Font>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
-                        <Value>=[outter.StartLabelNbr]</Value>
+                        <Value>Description :</Value>
                     </TextBox>
                     <TextBox Name="textBox24">
-                        <Location>216px, 216px</Location>
-                        <Size>16px, 16px</Size>
+                        <Location>0px, 232px</Location>
+                        <Size>352px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
+                                <Name>Arial</Name>
+                                <Size>14px</Size>
+                                <Style>Bold</Style>
                             </Font>
                             <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=[outter.EndLabelNbr]</Value>
+                        <Value>='Number of container in shipment : '+[outter.StartLabelNbr]+' of '+[outter.EndLabelNbr]</Value>
                     </TextBox>
                     <TextBox Name="textBox25">
-                        <Location>0px, 240px</Location>
-                        <Size>32px, 16px</Size>
+                        <Location>0px, 248px</Location>
+                        <Size>48px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
+                                <Name>Arial</Name>
+                                <Size>14px</Size>
+                                <Style>Bold</Style>
                             </Font>
+                            <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>Date:</Value>
+                        <Value>DATE : </Value>
                     </TextBox>
                     <TextBox Name="textBox26">
-                        <CanGrow>True</CanGrow>
-                        <Location>88px, 192px</Location>
-                        <Size>56px, 16px</Size>
+                        <Location>136px, 216px</Location>
+                        <Size>88px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
+                                <Name>Arial</Name>
+                                <Size>14px</Size>
+                                <Style>Bold</Style>
                             </Font>
-                            <TextAlign>Left</TextAlign>
+                            <TextAlign>Right</TextAlign>
                         </Style>
-                        <Value>=CInt([outter.PlannedShipQty])+' PCS'</Value>
+                        <Value>=CInt([outter.PlannedShipQty])</Value>
                     </TextBox>
                     <TextBox Name="textBox27">
-                        <CanGrow>True</CanGrow>
-                        <Location>40px, 240px</Location>
-                        <Size>72px, 16px</Size>
+                        <Format>='yyyy/MM/dd'</Format>
+                        <Location>48px, 248px</Location>
+                        <Size>208px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
+                                <Name>Arial</Name>
+                                <Size>14px</Size>
+                                <Style>Bold</Style>
                             </Font>
                             <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <Value>=[outter.PlannedShipDate]</Value>
                     </TextBox>
-                    <TextBox Name="textBox28">
-                        <Location>0px, 128px</Location>
-                        <Size>56px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
-                            </Font>
-                        </Style>
-                        <Value>RESISTOR:</Value>
-                    </TextBox>
-                    <TextBox Name="textBox29">
-                        <Location>56px, 128px</Location>
-                        <Size>128px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
-                            </Font>
-                        </Style>
-                        <Value>=[InventoryItem.RESISTOR_Attributes]+' Kohm'</Value>
-                    </TextBox>
                     <TextBox Name="textBox3">
-                        <CanGrow>True</CanGrow>
-                        <Location>64px, 0px</Location>
-                        <Size>160px, 40px</Size>
+                        <CanSplit>True</CanSplit>
+                        <Location>104px, 16px</Location>
+                        <Size>272px, 48px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
+                                <Name>Arial</Name>
+                                <Size>14px</Size>
+                                <Style>Bold</Style>
                             </Font>
                         </Style>
                         <Value>=[InventoryItem.Descr]</Value>
                     </TextBox>
                     <TextBox Name="textBox4">
-                        <Location>48px, 40px</Location>
-                        <Size>104px, 24px</Size>
+                        <Location>0px, 120px</Location>
+                        <Size>272px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
+                                <Name>Arial</Name>
+                                <Size>14px</Size>
+                                <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>=[outter.Customer]</Value>
+                        <Value>='Customer : '+[outter.Customer]</Value>
                     </TextBox>
                     <TextBox Name="textBox5">
-                        <Location>0px, 64px</Location>
-                        <Size>64px, 16px</Size>
+                        <Location>0px, 0px</Location>
+                        <Size>376px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
+                                <Name>Arial</Name>
+                                <Size>14px</Size>
+                                <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>CustomerP/O#:</Value>
+                        <Value>=Report.GetDefUI(’RowCompanyBAccount.AcctName’)</Value>
                     </TextBox>
                     <TextBox Name="textBox6">
-                        <Location>72px, 64px</Location>
-                        <Size>104px, 16px</Size>
+                        <Location>0px, 136px</Location>
+                        <Size>272px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
+                                <Name>Arial</Name>
+                                <Size>14px</Size>
+                                <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>=[outter.CustomerOrderNbr]</Value>
+                        <Value>='CustomerP/O# : '+[outter.CustomerOrderNbr]</Value>
                     </TextBox>
                     <TextBox Name="textBox7">
-                        <Location>0px, 88px</Location>
-                        <Size>88px, 16px</Size>
+                        <Location>240px, 216px</Location>
+                        <Size>40px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
+                                <Name>Arial</Name>
+                                <Size>14px</Size>
+                                <Style>Bold</Style>
                             </Font>
+                            <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>Customer Part No.:</Value>
+                        <Value>PCS</Value>
                     </TextBox>
                     <TextBox Name="textBox8">
-                        <Location>88px, 88px</Location>
-                        <Size>104px, 16px</Size>
+                        <Location>0px, 152px</Location>
+                        <Size>272px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
-                                <Size>8px</Size>
+                                <Name>Arial</Name>
+                                <Size>14px</Size>
+                                <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>=[INItemXRef.AlternateID]</Value>
+                        <Value>='Customer Part No.:'+Substring([INItemXRef.AlternateID],0, Len( [INItemXRef.AlternateID])-1)+'(REV. '+Right( [INItemXRef.AlternateID],1 )+')'</Value>
                     </TextBox>
                 </Items>
             </Detail>
             <PageFooter Name="pageFooterSection1">
-                <Height>0.42328cm</Height>
+                <Height>0.63492cm</Height>
+                <Items>
+                    <TextBox Name="textBox14">
+                        <Location>120px, 0px</Location>
+                        <Size>136px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>14px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>MADE IN CHINA</Value>
+                    </TextBox>
+                </Items>
             </PageFooter>
         </Sections>
     </Report>

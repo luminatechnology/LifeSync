@@ -1,0 +1,7 @@
+﻿<Automation screen="AM302000">
+    <AUFields screen="AM302000">
+        <AutomationScreenField ScreenID="AM302000" TableName="JAMS.AM.AMMTRAN" FieldName="WCID" IsUserDefinedField="False">
+            <Prop Name="DisplayName" DisplayName="Display Name" IsCustomized="True" Value="Work center" />
+        </AutomationScreenField>
+    </AUFields>
+</Automation>

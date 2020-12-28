@@ -19,7 +19,7 @@ SELECT t.CompanyID,
 	   PlannedShipDate,
 	   PlannedShipQty,
 	   NowNbr AS StartLabelNbr,
-	   CEILING((CAST(ISNULL(c.QTYCARTON,0) AS INT) / CAST(ISNULL(c.QTYSBOX,0) AS INT)) / (t.PlannedShipQty/CAST(ISNULL(c.QTYSBOX,0) AS INT))) AS EndLabelNbr
+	   CEILING((CAST(ISNULL(c.QTYCARTON,1) AS INT) / CAST(ISNULL(c.QTYSBOX,1) AS INT)) / (t.PlannedShipQty/CAST(ISNULL(c.QTYSBOX,1) AS INT))) AS EndLabelNbr
 FROM LumShipmentPlan t
 INNER JOIN InventoryItem i ON t.CompanyID = i.CompanyID 
 						  AND t.InventoryID = i.InventoryID
@@ -35,7 +35,7 @@ CROSS JOIN(
     FROM master.dbo.spt_values
     WHERE name IS NULL
 ) NumberPool
-WHERE NowNbr BETWEEN t.StartLabelNbr AND CEILING((CAST(ISNULL(c.QTYCARTON,0) AS INT) / CAST(ISNULL(c.QTYSBOX,0) AS INT)) / (t.PlannedShipQty/CAST(ISNULL(c.QTYSBOX,0) AS INT)))
+WHERE NowNbr BETWEEN t.StartLabelNbr AND CEILING((CAST(ISNULL(c.QTYCARTON,1) AS INT) / CAST(ISNULL(c.QTYSBOX,1) AS INT)) / (t.PlannedShipQty/CAST(ISNULL(c.QTYSBOX,1) AS INT)))
 )
 select t.CompanyID,
 	   t.ShipmentPlanID,

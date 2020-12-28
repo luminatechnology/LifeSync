@@ -3205,7 +3205,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Value>=[SOLine.AlternateID]+'{br}'+[IT.HTS_Attributes]#010;</Value>
                     </TextBox>
                     <TextBox Name="textBox42">
-                        <Format>='N2'</Format>
+                        <Format>='N1'</Format>
                         <Location>624px, 0px</Location>
                         <Size>64px, 64px</Size>
                         <Style>
@@ -3300,7 +3300,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Value>=[lum.PlannedShipQty]</Value>
                     </TextBox>
                     <TextBox Name="textBox51">
-                        <Format>='N2'</Format>
+                        <Format>='N3'</Format>
                         <Location>552px, 0px</Location>
                         <Size>64px, 64px</Size>
                         <Style>
@@ -3453,7 +3453,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         </Style>
                     </Line>
                     <TextBox Name="textBox19">
-                        <Format>='N2'</Format>
+                        <Format>='N1'</Format>
                         <Location>536px, 0px</Location>
                         <Size>120px, 24px</Size>
                         <Style>
@@ -3467,7 +3467,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Value>=$TotalAmount</Value>
                     </TextBox>
                     <TextBox Name="textBox46">
-                        <Format>='N2'</Format>
+                        <Format>='N0'</Format>
                         <Location>120px, 0px</Location>
                         <Size>120px, 24px</Size>
                         <Style>

@@ -310,7 +310,7 @@ namespace LumCustomizations.DAC
 
         #region CustomerPN
         [PXDBString(50, IsUnicode = true)]
-        [PXUIField(DisplayName = "Customer P/N", Enabled = false)]
+        [PXUIField(DisplayName = "Customer P/N", Enabled = true)]
         public virtual string CustomerPN { get; set; }
         public abstract class customerPN : PX.Data.BQL.BqlString.Field<customerPN> { }
         #endregion

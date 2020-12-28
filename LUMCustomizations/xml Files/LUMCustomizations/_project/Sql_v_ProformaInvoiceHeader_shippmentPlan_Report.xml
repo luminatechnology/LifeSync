@@ -28,7 +28,7 @@ Account Number：809-435084-838
 SWIFT Code：HSBCHKHHHKH'  AS Remark
 	UNION
 	SELECT 'ABI' AS ENDC,
-		    1 AS CustAlternateID,
+		    'AB 1' AS CustAlternateID,
 		   'USFDA Affirmation of compliance (A of C) codes:
 Dll : 1061133
 LST : D075463
@@ -37,7 +37,7 @@ DEV : 3007648309
 The items being imported are comported cables and final destination is USA ' AS Remark
 	UNION
 	SELECT 'ABI' AS ENDC,
-		   2 AS CustAlternateID,
+		   'AB 2' AS CustAlternateID,
 		   'USFDA Affirmation of compliance (A of C) codes: 
 Dll : 1061133
 LST : D075461
@@ -46,7 +46,7 @@ DEV : 3007648309
 items being imported are comported cables and final destination is USA' AS Remark
 	UNION
 	SELECT 'ABI' AS ENDC,
-		   5 AS CustAlternateID,
+		   'AB 5' AS CustAlternateID,
 		   'USFDA Affirmation of compliance (A of C) codes: 
 Dll : 1061133
 LST : D075461
@@ -55,7 +55,7 @@ DEV : 3007648309
 items being imported are comported cables and final destination is USA' AS Remark
 	UNION
 	SELECT 'ABI' AS ENDC,
-		   6 AS CustAlternateID,
+		   'AB 6' AS CustAlternateID,
 		   'USFDA Affirmation of compliance (A of C) codes: 
 Dll : 1061133
 LST : D075461
@@ -130,7 +130,7 @@ LEFT JOIN RemarkTable rmk ON rmk.ENDC = CASE
 											ELSE 'OTHER'
 										END
 						 AND rmk.CustAlternateID = CASE 
-														WHEN kvext.ValueString = 'ABI' THEN SUBSTRING (xref.AlternateID,1,1)
+														WHEN kvext.ValueString = 'ABI' THEN SUBSTRING (xref.AlternateID,1,4)
 														ELSE ''
 												     END
 
