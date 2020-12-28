@@ -1204,7 +1204,7 @@ mJPZWSffv1C2gs4GlEdQJ0w95+mwqN9JiHTnNujObdCd26A7t0F3boPu3AbduQ26cxt05zbozi2wWv0D
                     </TextBox>
                     <TextBox Name="textBox8">
                         <Location>0px, 176px</Location>
-                        <Size>272px, 16px</Size>
+                        <Size>336px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>

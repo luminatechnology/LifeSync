@@ -921,7 +921,7 @@ kwAfUjK/iA9PgwKSNe6BVC01bIfIX0qyeDUj5B417Hnmwns2tnMFso8SdWQjZBhsLHoQlvxKgYqd5s69
                 </Variables>
                 <Items>
                     <TextBox Name="textBox1">
-                        <Location>280px, 88px</Location>
+                        <Location>296px, 88px</Location>
                         <Size>64px, 48px</Size>
                         <Style>
                             <BackImage>
@@ -1152,7 +1152,7 @@ kwAfUjK/iA9PgwKSNe6BVC01bIfIX0qyeDUj5B417Hnmwns2tnMFso8SdWQjZBhsLHoQlvxKgYqd5s69
                     </TextBox>
                     <TextBox Name="textBox8">
                         <Location>0px, 128px</Location>
-                        <Size>280px, 16px</Size>
+                        <Size>296px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
