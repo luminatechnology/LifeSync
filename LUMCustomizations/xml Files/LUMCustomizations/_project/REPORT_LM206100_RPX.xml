@@ -2326,7 +2326,7 @@
                                     </Font>
                                     <TextAlign>Right</TextAlign>
                                 </Style>
-                                <Value>=[AMProdMatl.TotalQtyRequired]</Value>
+                                <Value>=[AMMTran.Qty]</Value>
                             </TextBox>
                             <TextBox Name="textBox32">
                                 <Format>#.00</Format>
@@ -2338,7 +2338,6 @@
                                     </Font>
                                     <TextAlign>Right</TextAlign>
                                 </Style>
-                                <Value>=[AMMTran.Qty]</Value>
                             </TextBox>
                             <TextBox Name="textBox33">
                                 <Location>424px, 0px</Location>
