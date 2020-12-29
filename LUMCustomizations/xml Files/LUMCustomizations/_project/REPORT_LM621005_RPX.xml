@@ -1236,7 +1236,7 @@
                                     <TextAlign>Right</TextAlign>
                                 </Style>
                                 <StyleName>Report Params</StyleName>
-                                <Value>='凭证号: ' + [Batch.BatchNbr] + ' - ' + [PageIndex] + '/' + [PageCount]</Value>
+                                <Value>='凭证号: ' + [Batch.BatchNbr]</Value>
                             </TextBox>
                             <TextBox Name="textBox63">
                                 <Location>288px, 16px</Location>
