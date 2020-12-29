@@ -19,22 +19,6 @@
                 <Value>True</Value>
             </FilterExp>
             <FilterExp>
-                <DataField>Batch.Posted</DataField>
-                <OpenBraces>2</OpenBraces>
-                <Value>True</Value>
-            </FilterExp>
-            <FilterExp>
-                <CloseBraces>1</CloseBraces>
-                <DataField>@Unposted</DataField>
-                <Operator>Or</Operator>
-                <Value>False</Value>
-            </FilterExp>
-            <FilterExp>
-                <CloseBraces>1</CloseBraces>
-                <DataField>@Unposted</DataField>
-                <Value>True</Value>
-            </FilterExp>
-            <FilterExp>
                 <DataField>Batch.LedgerID</DataField>
                 <OpenBraces>1</OpenBraces>
                 <Operator>Or</Operator>
@@ -44,6 +28,23 @@
                 <CloseBraces>1</CloseBraces>
                 <Condition>IsNull</Condition>
                 <DataField>@LedgerID</DataField>
+            </FilterExp>
+            <FilterExp>
+                <Condition>BelongsTo</Condition>
+                <DataField>Batch.BranchID</DataField>
+                <OpenBraces>1</OpenBraces>
+                <Operator>Or</Operator>
+                <Value>@OrgBAccountID</Value>
+            </FilterExp>
+            <FilterExp>
+                <CloseBraces>1</CloseBraces>
+                <Condition>IsNull</Condition>
+                <DataField>@OrgBAccountID</DataField>
+            </FilterExp>
+            <FilterExp>
+                <DataField>@UseBatchNbr</DataField>
+                <OpenBraces>2</OpenBraces>
+                <Value>False</Value>
             </FilterExp>
             <FilterExp>
                 <Condition>GreaterOrEqual</Condition>
@@ -65,43 +66,39 @@
                 <Value>@PeriodTo</Value>
             </FilterExp>
             <FilterExp>
-                <CloseBraces>1</CloseBraces>
+                <CloseBraces>2</CloseBraces>
                 <Condition>IsNull</Condition>
                 <DataField>@PeriodTo</DataField>
+                <Operator>Or</Operator>
             </FilterExp>
             <FilterExp>
-                <Condition>BelongsTo</Condition>
-                <DataField>Batch.BranchID</DataField>
+                <DataField>@UseBatchNbr</DataField>
+                <OpenBraces>1</OpenBraces>
+                <Value>True</Value>
+            </FilterExp>
+            <FilterExp>
+                <Condition>GreaterOrEqual</Condition>
+                <DataField>Batch.BatchNbr</DataField>
                 <OpenBraces>1</OpenBraces>
                 <Operator>Or</Operator>
-                <Value>@OrgBAccountID</Value>
+                <Value>@BatchNbrFrom</Value>
             </FilterExp>
             <FilterExp>
                 <CloseBraces>1</CloseBraces>
                 <Condition>IsNull</Condition>
-                <DataField>@OrgBAccountID</DataField>
+                <DataField>@BatchNbrFrom</DataField>
             </FilterExp>
             <FilterExp>
-                <DataField>Batch.CreatedByID</DataField>
+                <Condition>LessOrEqual</Condition>
+                <DataField>Batch.BatchNbr</DataField>
                 <OpenBraces>1</OpenBraces>
                 <Operator>Or</Operator>
-                <Value>@CreatedUser</Value>
+                <Value>@BatchNbrTo</Value>
             </FilterExp>
             <FilterExp>
-                <CloseBraces>1</CloseBraces>
+                <CloseBraces>3</CloseBraces>
                 <Condition>IsNull</Condition>
-                <DataField>@CreatedUser</DataField>
-            </FilterExp>
-            <FilterExp>
-                <DataField>Batch.LastModifiedByID</DataField>
-                <OpenBraces>1</OpenBraces>
-                <Operator>Or</Operator>
-                <Value>@LastModifiedBy</Value>
-            </FilterExp>
-            <FilterExp>
-                <CloseBraces>1</CloseBraces>
-                <Condition>IsNull</Condition>
-                <DataField>@LastModifiedBy</DataField>
+                <DataField>@BatchNbrTo</DataField>
             </FilterExp>
         </Filters>
         <GridSize>4px, 4px</GridSize>
@@ -135,7 +132,6 @@
                 <Name>PeriodFrom</Name>
                 <Nullable>True</Nullable>
                 <Prompt>From Period</Prompt>
-                <Required>True</Required>
                 <ViewName>=Report.GetFieldSchema('OrganizationBranchReportParameters.FinPeriodIDByBAccount,OrgBAccountID')</ViewName>
             </ReportParameter>
             <ReportParameter>
@@ -144,30 +140,7 @@
                 <Name>PeriodTo</Name>
                 <Nullable>True</Nullable>
                 <Prompt>To Period</Prompt>
-                <Required>True</Required>
                 <ViewName>=Report.GetFieldSchema('OrganizationBranchReportParameters.FinPeriodIDByBAccount,OrgBAccountID')</ViewName>
-            </ReportParameter>
-            <ReportParameter>
-                <ColumnSpan>2</ColumnSpan>
-                <Name>CreatedUser</Name>
-                <Nullable>True</Nullable>
-                <Prompt>Created By </Prompt>
-                <ViewName>=Report.GetFieldSchema('Users.Username')</ViewName>
-            </ReportParameter>
-            <ReportParameter>
-                <ColumnSpan>2</ColumnSpan>
-                <Name>LastModifiedBy</Name>
-                <Nullable>True</Nullable>
-                <Prompt>Last Modified By </Prompt>
-                <ViewName>=Report.GetFieldSchema('Users.Username')</ViewName>
-            </ReportParameter>
-            <ReportParameter>
-                <ColumnSpan>2</ColumnSpan>
-                <DefaultValue>True</DefaultValue>
-                <Name>Unposted</Name>
-                <Prompt>Include Unposted Transactions</Prompt>
-                <Required>True</Required>
-                <Type>Boolean</Type>
             </ReportParameter>
             <ReportParameter>
                 <ColumnSpan>2</ColumnSpan>
@@ -193,6 +166,26 @@
                 <Name>Documentation</Name>
                 <Nullable>True</Nullable>
                 <Prompt>制单 :</Prompt>
+            </ReportParameter>
+            <ReportParameter>
+                <ColumnSpan>2</ColumnSpan>
+                <DefaultValue>False</DefaultValue>
+                <Name>UseBatchNbr</Name>
+                <Nullable>True</Nullable>
+                <Prompt>使用票号搜寻</Prompt>
+                <Type>Boolean</Type>
+            </ReportParameter>
+            <ReportParameter>
+                <ColumnSpan>2</ColumnSpan>
+                <Name>BatchNbrFrom</Name>
+                <Nullable>True</Nullable>
+                <Prompt>起始票号 :</Prompt>
+            </ReportParameter>
+            <ReportParameter>
+                <ColumnSpan>2</ColumnSpan>
+                <Name>BatchNbrTo</Name>
+                <Nullable>True</Nullable>
+                <Prompt>终止票号 :</Prompt>
             </ReportParameter>
         </Parameters>
         <Relations>
@@ -221,7 +214,7 @@
                 <ParentName>Batch</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
+        <SchemaUrl>http://dev01.clouderp.com.tw/LifeSync/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>GLTran.LineNbr</DataField>
@@ -1243,7 +1236,7 @@
                                     <TextAlign>Right</TextAlign>
                                 </Style>
                                 <StyleName>Report Params</StyleName>
-                                <Value>='凭证号: ' + [Batch.BatchNbr] + ' - ' + [PageCount]</Value>
+                                <Value>='凭证号: ' + [Batch.BatchNbr] + ' - ' + [PageIndex] + '/' + [PageCount]</Value>
                             </TextBox>
                             <TextBox Name="textBox63">
                                 <Location>288px, 16px</Location>
