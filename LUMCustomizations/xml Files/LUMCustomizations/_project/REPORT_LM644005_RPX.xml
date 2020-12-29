@@ -70,6 +70,16 @@
                 </Links>
                 <ParentName>SOShipment</ParentName>
             </ReportRelation>
+            <ReportRelation>
+                <ChildName>SOShipLineSplit</ChildName>
+                <Links>
+                    <RelationRow>
+                        <ChildField>SOShipLineSplit.ShipmentNbr</ChildField>
+                        <ParentField>SOShipLine.ShipmentNbr</ParentField>
+                    </RelationRow>
+                </Links>
+                <ParentName>SOShipLine</ParentName>
+            </ReportRelation>
         </Relations>
         <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
         <Tables>
@@ -2693,6 +2703,191 @@
                 </Fields>
                 <FullName>PX.Objects.IN.INSite</FullName>
             </ReportTable>
+            <ReportTable Name="SOShipLineSplit">
+                <Fields>
+                    <ReportField Name="AssignedNbr">
+                    </ReportField>
+                    <ReportField Name="BasePackedQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="BasePickedQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="BaseQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="Confirmed">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="CreatedByID">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_displayName">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_Username">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_description">
+                    </ReportField>
+                    <ReportField Name="CreatedByScreenID">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="ExpireDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="ExpireDate_Day">
+                    </ReportField>
+                    <ReportField Name="ExpireDate_Hour">
+                    </ReportField>
+                    <ReportField Name="ExpireDate_Month">
+                    </ReportField>
+                    <ReportField Name="ExpireDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="InventoryID">
+                    </ReportField>
+                    <ReportField Name="InventoryID_description">
+                    </ReportField>
+                    <ReportField Name="InventoryID_InventoryItem_descr">
+                    </ReportField>
+                    <ReportField Name="InventoryID_Segment1">
+                    </ReportField>
+                    <ReportField Name="InvtMult">
+                        <DataType>Int16</DataType>
+                    </ReportField>
+                    <ReportField Name="IsComponentItem">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="IsStockItem">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="IsUnassigned">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="LastLotSerialNbr">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_description">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_displayName">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_Username">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByScreenID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="LineNbr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="LineType">
+                    </ReportField>
+                    <ReportField Name="LocationID">
+                    </ReportField>
+                    <ReportField Name="LocationID_description">
+                    </ReportField>
+                    <ReportField Name="LocationID_INLocation_descr">
+                    </ReportField>
+                    <ReportField Name="LocationID_Segment1">
+                    </ReportField>
+                    <ReportField Name="LotSerClassID">
+                    </ReportField>
+                    <ReportField Name="LotSerialNbr">
+                    </ReportField>
+                    <ReportField Name="Operation">
+                    </ReportField>
+                    <ReportField Name="OrigLineNbr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="OrigOrderNbr">
+                    </ReportField>
+                    <ReportField Name="OrigOrderType">
+                    </ReportField>
+                    <ReportField Name="OrigPlanType">
+                    </ReportField>
+                    <ReportField Name="OrigSplitLineNbr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="PackedQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="PickedQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="PlanID">
+                        <DataType>Int64</DataType>
+                    </ReportField>
+                    <ReportField Name="PlanType">
+                    </ReportField>
+                    <ReportField Name="ProjectID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="Qty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="Released">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="ShipDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="ShipDate_Day">
+                    </ReportField>
+                    <ReportField Name="ShipDate_Hour">
+                    </ReportField>
+                    <ReportField Name="ShipDate_Month">
+                    </ReportField>
+                    <ReportField Name="ShipDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="ShipmentNbr">
+                    </ReportField>
+                    <ReportField Name="SiteID">
+                    </ReportField>
+                    <ReportField Name="SiteID_description">
+                    </ReportField>
+                    <ReportField Name="SiteID_INSite_descr">
+                    </ReportField>
+                    <ReportField Name="SiteID_Segment1">
+                    </ReportField>
+                    <ReportField Name="SplitLineNbr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="SubItemID">
+                    </ReportField>
+                    <ReportField Name="SubItemID_Segment1">
+                    </ReportField>
+                    <ReportField Name="TaskID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="TranDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="TranType">
+                    </ReportField>
+                    <ReportField Name="tstamp">
+                    </ReportField>
+                    <ReportField Name="UOM">
+                    </ReportField>
+                </Fields>
+                <FullName>PX.Objects.SO.SOShipLineSplit</FullName>
+            </ReportTable>
         </Tables>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
@@ -2703,16 +2898,6 @@
                         <Location>336px, 40px</Location>
                         <Size>136px, 24px</Size>
                         <Style>
-                            <BorderColor>
-                                <Bottom>Black</Bottom>
-                                <Default>Black</Default>
-                                <Left>Black</Left>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                                <Top>Solid</Top>
-                            </BorderStyle>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
                                 <Size>12px</Size>
@@ -2726,16 +2911,6 @@
                         <Location>592px, 40px</Location>
                         <Size>96px, 24px</Size>
                         <Style>
-                            <BorderColor>
-                                <Bottom>Black</Bottom>
-                                <Default>Black</Default>
-                                <Left>Black</Left>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                                <Top>Solid</Top>
-                            </BorderStyle>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
                                 <Size>12px</Size>
@@ -2745,20 +2920,97 @@
                         </Style>
                         <Value>=[SOShipment.ShipmentNbr]</Value>
                     </TextBox>
+                    <TextBox Name="textBox20">
+                        <Location>48px, 32px</Location>
+                        <Size>40px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Bottom</VerticalAlign>
+                        </Style>
+                        <Value>成品</Value>
+                    </TextBox>
+                    <TextBox Name="textBox21">
+                        <Location>120px, 32px</Location>
+                        <Size>40px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Bottom</VerticalAlign>
+                        </Style>
+                        <Value>其它</Value>
+                    </TextBox>
+                    <TextBox Name="textBox22">
+                        <Location>32px, 40px</Location>
+                        <Size>16px, 16px</Size>
+                        <Style>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Left>Solid</Left>
+                                <Right>Solid</Right>
+                                <Top>Solid</Top>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Bottom>1px</Bottom>
+                                <Left>1px</Left>
+                                <Right>1px</Right>
+                                <Top>1px</Top>
+                            </BorderWidth>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                    </TextBox>
+                    <TextBox Name="textBox23">
+                        <Location>104px, 40px</Location>
+                        <Size>16px, 16px</Size>
+                        <Style>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Left>Solid</Left>
+                                <Right>Solid</Right>
+                                <Top>Solid</Top>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Bottom>1px</Bottom>
+                                <Left>1px</Left>
+                                <Right>1px</Right>
+                                <Top>1px</Top>
+                            </BorderWidth>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                    </TextBox>
+                    <TextBox Name="textBox24">
+                        <Location>640px, 8px</Location>
+                        <Size>48px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>=[PageIndex] + '/' + [PageCount]</Value>
+                    </TextBox>
                     <TextBox Name="textBox3">
                         <Location>520px, 40px</Location>
                         <Size>72px, 24px</Size>
                         <Style>
-                            <BorderColor>
-                                <Bottom>Black</Bottom>
-                                <Default>Black</Default>
-                                <Left>Black</Left>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                                <Top>Solid</Top>
-                            </BorderStyle>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
                                 <Size>12px</Size>
@@ -2772,16 +3024,6 @@
                         <Location>280px, 40px</Location>
                         <Size>56px, 24px</Size>
                         <Style>
-                            <BorderColor>
-                                <Bottom>Black</Bottom>
-                                <Default>Black</Default>
-                                <Left>Black</Left>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                                <Top>Solid</Top>
-                            </BorderStyle>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
                                 <Size>12px</Size>
@@ -2795,16 +3037,6 @@
                         <Location>312px, 8px</Location>
                         <Size>80px, 32px</Size>
                         <Style>
-                            <BorderColor>
-                                <Bottom>Black</Bottom>
-                                <Default>Black</Default>
-                                <Left>Black</Left>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                                <Top>Solid</Top>
-                            </BorderStyle>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
                                 <Size>20px</Size>
@@ -2895,7 +3127,7 @@
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=[SOOrder.CustomerOrderNbr]</Value>
+                        <Value>=[SOShipLineSplit.LotSerialNbr]</Value>
                     </TextBox>
                     <TextBox Name="textBox13">
                         <Format>#0.00</Format>
@@ -2920,7 +3152,7 @@
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=[SOShipLine.ShippedQty]</Value>
+                        <Value>=[SOShipLineSplit.Qty]</Value>
                     </TextBox>
                     <TextBox Name="textBox14">
                         <Location>456px, 0px</Location>
@@ -2947,16 +3179,15 @@
                         <Value>=[SOShipLine.UOM]</Value>
                     </TextBox>
                     <TextBox Name="textBox15">
-                        <Location>568px, 0px</Location>
+                        <Location>568px, 24px</Location>
                         <Size>128px, 24px</Size>
                         <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
                             <BorderStyle>
+                                <Bottom>Solid</Bottom>
                                 <Right>Solid</Right>
                             </BorderStyle>
                             <BorderWidth>
+                                <Bottom>1px</Bottom>
                                 <Right>1px</Right>
                             </BorderWidth>
                             <Font>
@@ -2993,14 +3224,13 @@
                         <Value>=[INSite.Descr]</Value>
                     </TextBox>
                     <TextBox Name="textBox19">
-                        <Location>568px, 24px</Location>
+                        <Location>568px, 0px</Location>
                         <Size>128px, 24px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
                             </BorderColor>
                             <BorderStyle>
-                                <Bottom>Solid</Bottom>
                                 <Right>Solid</Right>
                             </BorderStyle>
                             <BorderWidth>
@@ -3014,7 +3244,7 @@
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=[SOLine.OrigOrderNbr]</Value>
+                        <Value>=[SOOrder.CustomerOrderNbr]</Value>
                     </TextBox>
                     <TextBox Name="textBox33">
                         <Location>0px, 0px</Location>
@@ -3045,22 +3275,12 @@
                 </Items>
             </Detail>
             <PageFooter Name="pageFooterSection1">
-                <Height>2.32804cm</Height>
+                <Height>1.48148cm</Height>
                 <Items>
                     <TextBox Name="textBox6">
                         <Location>16px, 8px</Location>
                         <Size>48px, 24px</Size>
                         <Style>
-                            <BorderColor>
-                                <Bottom>Black</Bottom>
-                                <Default>Black</Default>
-                                <Left>Black</Left>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                                <Top>Solid</Top>
-                            </BorderStyle>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
                                 <Size>12px</Size>
@@ -3074,16 +3294,6 @@
                         <Location>264px, 8px</Location>
                         <Size>48px, 24px</Size>
                         <Style>
-                            <BorderColor>
-                                <Bottom>Black</Bottom>
-                                <Default>Black</Default>
-                                <Left>Black</Left>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                                <Top>Solid</Top>
-                            </BorderStyle>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
                                 <Size>12px</Size>
@@ -3097,16 +3307,6 @@
                         <Location>512px, 8px</Location>
                         <Size>72px, 24px</Size>
                         <Style>
-                            <BorderColor>
-                                <Bottom>Black</Bottom>
-                                <Default>Black</Default>
-                                <Left>Black</Left>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                                <Top>Solid</Top>
-                            </BorderStyle>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
                                 <Size>12px</Size>
@@ -3117,22 +3317,12 @@
                         <Value>审核:</Value>
                     </TextBox>
                     <TextBox Name="textBox9">
-                        <Location>8px, 56px</Location>
+                        <Location>8px, 32px</Location>
                         <Size>184px, 24px</Size>
                         <Style>
-                            <BorderColor>
-                                <Bottom>Black</Bottom>
-                                <Default>Black</Default>
-                                <Left>Black</Left>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                                <Top>Solid</Top>
-                            </BorderStyle>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
-                                <Size>12px</Size>
+                                <Size>10px</Size>
                             </Font>
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
