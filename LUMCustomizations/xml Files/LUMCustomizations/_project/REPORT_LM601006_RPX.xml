@@ -1073,7 +1073,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='ABA Part NO. : '+[LumShipmentPlan.InventoryID]</Value>
+                        <Value>='ABA Part NO. : '+IIF([LumShipmentPlan.InventoryID] = null, '', [LumShipmentPlan.InventoryID])</Value>
                     </TextBox>
                     <TextBox Name="textBox12">
                         <Location>272px, 176px</Location>
@@ -1110,7 +1110,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>='ABA LOT NO. : '+[LumShipmentPlan.LotSerialNbr]</Value>
+                        <Value>='ABA LOT NO. : '+IIF([LumShipmentPlan.LotSerialNbr] = null, '', [LumShipmentPlan.LotSerialNbr])</Value>
                     </TextBox>
                     <TextBox Name="textBox15">
                         <Location>0px, 216px</Location>
@@ -1174,7 +1174,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='RESISTOR : '+[InventoryItem.RESISTOR_Attributes]+' Kohm'</Value>
+                        <Value>='RESISTOR : '+IIF([InventoryItem.RESISTOR_Attributes] = null, '', [InventoryItem.RESISTOR_Attributes])</Value>
                     </TextBox>
                     <TextBox Name="textBox3">
                         <CanSplit>True</CanSplit>
@@ -1199,7 +1199,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer : '+[LumShipmentPlan.Customer]</Value>
+                        <Value>='Customer : '+IIF([LumShipmentPlan.Customer] = null, '', [LumShipmentPlan.Customer])</Value>
                     </TextBox>
                     <TextBox Name="textBox6">
                         <Location>0px, 136px</Location>
@@ -1211,7 +1211,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='CustomerP/O# : '+[LumShipmentPlan.CustomerOrderNbr]</Value>
+                        <Value>='CustomerP/O# : '+IIF([LumShipmentPlan.CustomerOrderNbr] = null, '', [LumShipmentPlan.CustomerOrderNbr])</Value>
                     </TextBox>
                     <TextBox Name="textBox8">
                         <Location>0px, 152px</Location>
