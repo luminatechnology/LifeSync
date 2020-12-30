@@ -8,13 +8,15 @@
         </Filters>
         <Parameters>
             <ReportParameter>
+                <ColumnSpan>2</ColumnSpan>
                 <Name>RefNbr</Name>
+                <Prompt>Invoice Nbr</Prompt>
+                <Required>True</Required>
             </ReportParameter>
         </Parameters>
         <Relations>
             <ReportRelation>
                 <ChildName>ARTran</ChildName>
-                <JoinType>Inner</JoinType>
                 <Links>
                     <RelationRow>
                         <ChildField>ARTran.RefNbr</ChildField>
@@ -25,7 +27,6 @@
             </ReportRelation>
             <ReportRelation>
                 <ChildName>ARContact</ChildName>
-                <JoinType>Inner</JoinType>
                 <Links>
                     <RelationRow>
                         <ChildField>ARContact.CustomerID</ChildField>
@@ -50,7 +51,6 @@
             </ReportRelation>
             <ReportRelation>
                 <ChildName>Branch</ChildName>
-                <JoinType>Inner</JoinType>
                 <Links>
                     <RelationRow>
                         <ChildField>Branch.BranchID</ChildField>
@@ -61,7 +61,6 @@
             </ReportRelation>
             <ReportRelation>
                 <ChildName>BAccount</ChildName>
-                <JoinType>Inner</JoinType>
                 <Links>
                     <RelationRow>
                         <ChildField>BAccount.BAccountID</ChildField>
@@ -72,7 +71,6 @@
             </ReportRelation>
             <ReportRelation>
                 <ChildName>Address</ChildName>
-                <JoinType>Inner</JoinType>
                 <Links>
                     <RelationRow>
                         <ChildField>Address.AddressID</ChildField>
@@ -3089,14 +3087,13 @@
                         <Location>16px, 0px</Location>
                         <Size>48px, 64px</Size>
                         <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
                             <BorderStyle>
                                 <Left>Solid</Left>
+                                <Right>Solid</Right>
                             </BorderStyle>
                             <BorderWidth>
-                                <Default>1px</Default>
+                                <Left>1px</Left>
+                                <Right>1px</Right>
                             </BorderWidth>
                             <Font>
                                 <Name>Arial</Name>
@@ -3110,13 +3107,13 @@
                     <TextBox Name="textBox41">
                         <CanGrow>True</CanGrow>
                         <Location>64px, 0px</Location>
-                        <Size>104px, 56px</Size>
+                        <Size>104px, 64px</Size>
                         <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
+                            <BorderStyle>
+                                <Right>Solid</Right>
+                            </BorderStyle>
                             <BorderWidth>
-                                <Default>1px</Default>
+                                <Right>1px</Right>
                             </BorderWidth>
                             <Font>
                                 <Name>Arial</Name>
@@ -3128,22 +3125,22 @@
                     </TextBox>
                     <TextBox Name="textBox42">
                         <Format>='0.00'</Format>
-                        <Location>624px, 0px</Location>
-                        <Size>64px, 64px</Size>
+                        <Location>616px, 0px</Location>
+                        <Size>72px, 64px</Size>
                         <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
                             <BorderStyle>
                                 <Right>Solid</Right>
                             </BorderStyle>
                             <BorderWidth>
-                                <Default>1px</Default>
+                                <Right>1px</Right>
                             </BorderWidth>
                             <Font>
                                 <Name>Arial</Name>
                                 <Size>10px</Size>
                             </Font>
+                            <Padding>
+                                <Right>5px</Right>
+                            </Padding>
                             <TextAlign>Right</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
@@ -3153,11 +3150,11 @@
                         <Location>168px, 0px</Location>
                         <Size>104px, 24px</Size>
                         <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
+                            <BorderStyle>
+                                <Right>Solid</Right>
+                            </BorderStyle>
                             <BorderWidth>
-                                <Default>1px</Default>
+                                <Right>1px</Right>
                             </BorderWidth>
                             <Font>
                                 <Name>Arial</Name>
@@ -3171,11 +3168,11 @@
                         <Location>168px, 24px</Location>
                         <Size>104px, 40px</Size>
                         <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
+                            <BorderStyle>
+                                <Right>Solid</Right>
+                            </BorderStyle>
                             <BorderWidth>
-                                <Default>1px</Default>
+                                <Right>1px</Right>
                             </BorderWidth>
                             <Font>
                                 <Name>Arial</Name>
@@ -3189,11 +3186,11 @@
                         <Location>272px, 0px</Location>
                         <Size>152px, 64px</Size>
                         <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
+                            <BorderStyle>
+                                <Right>Solid</Right>
+                            </BorderStyle>
                             <BorderWidth>
-                                <Default>1px</Default>
+                                <Right>1px</Right>
                             </BorderWidth>
                             <Font>
                                 <Name>Arial</Name>
@@ -3208,11 +3205,11 @@
                         <Location>424px, 0px</Location>
                         <Size>64px, 64px</Size>
                         <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
+                            <BorderStyle>
+                                <Right>Solid</Right>
+                            </BorderStyle>
                             <BorderWidth>
-                                <Default>1px</Default>
+                                <Right>1px</Right>
                             </BorderWidth>
                             <Font>
                                 <Name>Arial</Name>
@@ -3226,18 +3223,21 @@
                     <TextBox Name="textBox50">
                         <Format>='0.00'</Format>
                         <Location>488px, 0px</Location>
-                        <Size>56px, 64px</Size>
+                        <Size>64px, 64px</Size>
                         <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
+                            <BorderStyle>
+                                <Right>Solid</Right>
+                            </BorderStyle>
                             <BorderWidth>
-                                <Default>1px</Default>
+                                <Right>1px</Right>
                             </BorderWidth>
                             <Font>
                                 <Name>Arial</Name>
                                 <Size>10px</Size>
                             </Font>
+                            <Padding>
+                                <Right>5px</Right>
+                            </Padding>
                             <TextAlign>Right</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
@@ -3246,18 +3246,21 @@
                     <TextBox Name="textBox51">
                         <Format>='0.00'</Format>
                         <Location>552px, 0px</Location>
-                        <Size>56px, 64px</Size>
+                        <Size>64px, 64px</Size>
                         <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
+                            <BorderStyle>
+                                <Right>Solid</Right>
+                            </BorderStyle>
                             <BorderWidth>
-                                <Default>1px</Default>
+                                <Right>1px</Right>
                             </BorderWidth>
                             <Font>
                                 <Name>Arial</Name>
                                 <Size>10px</Size>
                             </Font>
+                            <Padding>
+                                <Right>5px</Right>
+                            </Padding>
                             <TextAlign>Right</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
@@ -3433,21 +3436,14 @@
                                 <Location>16px, 0px</Location>
                                 <Size>48px, 40px</Size>
                                 <Style>
-                                    <BorderColor>
-                                        <Bottom>Black</Bottom>
-                                        <Default>Black</Default>
-                                        <Left>Black</Left>
-                                    </BorderColor>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
-                                        <Default>Solid</Default>
                                         <Left>Solid</Left>
                                         <Right>Solid</Right>
                                         <Top>Solid</Top>
                                     </BorderStyle>
                                     <BorderWidth>
                                         <Bottom>1px</Bottom>
-                                        <Default>1px</Default>
                                         <Left>1px</Left>
                                         <Right>1px</Right>
                                         <Top>1px</Top>

@@ -3716,12 +3716,6 @@
                         <Location>16px, 0px</Location>
                         <Size>48px, 48px</Size>
                         <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Left>Solid</Left>
-                            </BorderStyle>
                             <Font>
                                 <Name>Arial</Name>
                                 <Size>10px</Size>
@@ -3847,49 +3841,14 @@
                 </Items>
             </Detail>
             <PageFooter Name="pageFooterSection1">
-                <Height>4.44444cm</Height>
+                <Height>1.48148cm</Height>
                 <Items>
                     <Line Name="line2">
-                        <Location>392px, 160px</Location>
+                        <Location>392px, 48px</Location>
                         <Size>264px, 8px</Size>
                     </Line>
-                    <TextBox Name="textBox46">
-                        <Location>32px, 0px</Location>
-                        <Size>96px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>10px</Size>
-                            </Font>
-                        </Style>
-                        <Value>TOTAL:</Value>
-                    </TextBox>
-                    <TextBox Name="textBox52">
-                        <Location>32px, 24px</Location>
-                        <Size>120px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>10px</Size>
-                            </Font>
-                        </Style>
-                        <Value>Remark:</Value>
-                    </TextBox>
-                    <TextBox Name="textBox53">
-                        <CanGrow>True</CanGrow>
-                        <CanSplit>True</CanSplit>
-                        <Location>32px, 40px</Location>
-                        <Size>216px, 64px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial</Name>
-                                <Size>8px</Size>
-                            </Font>
-                        </Style>
-                        <Value>=[ARInvoice.NoteText]</Value>
-                    </TextBox>
                     <TextBox Name="textBox55">
-                        <Location>392px, 112px</Location>
+                        <Location>392px, 0px</Location>
                         <Size>264px, 16px</Size>
                         <Style>
                             <Font>
@@ -3898,19 +3857,6 @@
                             </Font>
                         </Style>
                         <Value>=[BAccount.LegalName]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox56">
-                        <Format>='0.0000'</Format>
-                        <Location>496px, 0px</Location>
-                        <Size>120px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial</Name>
-                            </Font>
-                            <TextAlign>Left</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <Value>=[ARInvoice.CuryLineTotal]</Value>
                     </TextBox>
                 </Items>
             </PageFooter>
@@ -3934,16 +3880,6 @@
                                 <Location>336px, 8px</Location>
                                 <Size>64px, 24px</Size>
                                 <Style>
-                                    <BorderColor>
-                                        <Bottom>Black</Bottom>
-                                        <Default>Black</Default>
-                                        <Left>Black</Left>
-                                    </BorderColor>
-                                    <BorderStyle>
-                                        <Bottom>Solid</Bottom>
-                                        <Right>Solid</Right>
-                                        <Top>Solid</Top>
-                                    </BorderStyle>
                                     <Font>
                                         <Name>Arial Black</Name>
                                         <Size>8px</Size>
@@ -3957,18 +3893,6 @@
                                 <Location>16px, 8px</Location>
                                 <Size>48px, 24px</Size>
                                 <Style>
-                                    <BorderColor>
-                                        <Bottom>Black</Bottom>
-                                        <Default>Black</Default>
-                                        <Left>Black</Left>
-                                    </BorderColor>
-                                    <BorderStyle>
-                                        <Bottom>Solid</Bottom>
-                                        <Default>Solid</Default>
-                                        <Left>Solid</Left>
-                                        <Right>Solid</Right>
-                                        <Top>Solid</Top>
-                                    </BorderStyle>
                                     <Font>
                                         <Name>Arial Black</Name>
                                         <Size>8px</Size>
@@ -3982,16 +3906,6 @@
                                 <Location>64px, 8px</Location>
                                 <Size>136px, 24px</Size>
                                 <Style>
-                                    <BorderColor>
-                                        <Bottom>Black</Bottom>
-                                        <Default>Black</Default>
-                                        <Left>Black</Left>
-                                    </BorderColor>
-                                    <BorderStyle>
-                                        <Bottom>Solid</Bottom>
-                                        <Right>Solid</Right>
-                                        <Top>Solid</Top>
-                                    </BorderStyle>
                                     <Font>
                                         <Name>Arial Black</Name>
                                         <Size>8px</Size>
@@ -4005,16 +3919,6 @@
                                 <Location>200px, 8px</Location>
                                 <Size>72px, 24px</Size>
                                 <Style>
-                                    <BorderColor>
-                                        <Bottom>Black</Bottom>
-                                        <Default>Black</Default>
-                                        <Left>Black</Left>
-                                    </BorderColor>
-                                    <BorderStyle>
-                                        <Bottom>Solid</Bottom>
-                                        <Right>Solid</Right>
-                                        <Top>Solid</Top>
-                                    </BorderStyle>
                                     <Font>
                                         <Name>Arial Black</Name>
                                         <Size>8px</Size>
@@ -4028,16 +3932,6 @@
                                 <Location>400px, 8px</Location>
                                 <Size>96px, 24px</Size>
                                 <Style>
-                                    <BorderColor>
-                                        <Bottom>Black</Bottom>
-                                        <Default>Black</Default>
-                                        <Left>Black</Left>
-                                    </BorderColor>
-                                    <BorderStyle>
-                                        <Bottom>Solid</Bottom>
-                                        <Right>Solid</Right>
-                                        <Top>Solid</Top>
-                                    </BorderStyle>
                                     <Font>
                                         <Name>Arial Black</Name>
                                         <Size>8px</Size>
@@ -4051,16 +3945,6 @@
                                 <Location>272px, 8px</Location>
                                 <Size>64px, 24px</Size>
                                 <Style>
-                                    <BorderColor>
-                                        <Bottom>Black</Bottom>
-                                        <Default>Black</Default>
-                                        <Left>Black</Left>
-                                    </BorderColor>
-                                    <BorderStyle>
-                                        <Bottom>Solid</Bottom>
-                                        <Right>Solid</Right>
-                                        <Top>Solid</Top>
-                                    </BorderStyle>
                                     <Font>
                                         <Name>Arial Black</Name>
                                         <Size>8px</Size>
@@ -4074,16 +3958,6 @@
                                 <Location>496px, 8px</Location>
                                 <Size>64px, 24px</Size>
                                 <Style>
-                                    <BorderColor>
-                                        <Bottom>Black</Bottom>
-                                        <Default>Black</Default>
-                                        <Left>Black</Left>
-                                    </BorderColor>
-                                    <BorderStyle>
-                                        <Bottom>Solid</Bottom>
-                                        <Right>Solid</Right>
-                                        <Top>Solid</Top>
-                                    </BorderStyle>
                                     <Font>
                                         <Name>Arial Black</Name>
                                         <Size>8px</Size>
@@ -4097,16 +3971,6 @@
                                 <Location>560px, 8px</Location>
                                 <Size>120px, 24px</Size>
                                 <Style>
-                                    <BorderColor>
-                                        <Bottom>Black</Bottom>
-                                        <Default>Black</Default>
-                                        <Left>Black</Left>
-                                    </BorderColor>
-                                    <BorderStyle>
-                                        <Bottom>Solid</Bottom>
-                                        <Right>Solid</Right>
-                                        <Top>Solid</Top>
-                                    </BorderStyle>
                                     <Font>
                                         <Name>Arial Black</Name>
                                         <Size>8px</Size>
@@ -4121,12 +3985,61 @@
                 </Headers>
                 <Footers>
                     <Footer Name="groupFooterSection1">
-                        <Height>0.21164cm</Height>
+                        <Height>3.1746cm</Height>
                         <Items>
                             <Line Name="line1">
                                 <Location>16px, 6px</Location>
                                 <Size>672px, 8px</Size>
                             </Line>
+                            <TextBox Name="textBox10">
+                                <Location>32px, 40px</Location>
+                                <Size>120px, 16px</Size>
+                                <Style>
+                                    <Font>
+                                        <Name>Arial Black</Name>
+                                        <Size>10px</Size>
+                                    </Font>
+                                </Style>
+                                <Value>Remark:</Value>
+                            </TextBox>
+                            <TextBox Name="textBox15">
+                                <Location>32px, 16px</Location>
+                                <Size>96px, 16px</Size>
+                                <Style>
+                                    <Font>
+                                        <Name>Arial Black</Name>
+                                        <Size>10px</Size>
+                                    </Font>
+                                </Style>
+                                <Value>TOTAL:</Value>
+                            </TextBox>
+                            <TextBox Name="textBox6">
+                                <Format>='0.0000'</Format>
+                                <Location>496px, 16px</Location>
+                                <Size>120px, 16px</Size>
+                                <Style>
+                                    <Font>
+                                        <Name>Arial</Name>
+                                        <Size>10px</Size>
+                                    </Font>
+                                    <TextAlign>Left</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>=[ARInvoice.CuryLineTotal]</Value>
+                            </TextBox>
+                            <TextBox Name="textBox7">
+                                <CanGrow>True</CanGrow>
+                                <CanSplit>True</CanSplit>
+                                <Location>32px, 56px</Location>
+                                <Size>216px, 64px</Size>
+                                <Style>
+                                    <Font>
+                                        <Name>Arial</Name>
+                                        <Size>8px</Size>
+                                    </Font>
+                                </Style>
+                                <Value>=[ARInvoice.NoteText]</Value>
+                            </TextBox>
                         </Items>
                     </Footer>
                 </Footers>

@@ -12,10 +12,16 @@
         </PageSettings>
         <Parameters>
             <ReportParameter>
+                <ColumnSpan>2</ColumnSpan>
                 <Name>BatNbr</Name>
+                <Prompt>Batch Nbr :</Prompt>
+                <Required>True</Required>
             </ReportParameter>
             <ReportParameter>
+                <ColumnSpan>2</ColumnSpan>
+                <DefaultValue>='PRODLINE'</DefaultValue>
                 <Name>AttributeID</Name>
+                <Visible>False</Visible>
             </ReportParameter>
         </Parameters>
         <Relations>
