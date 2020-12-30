@@ -21,7 +21,7 @@ namespace PX.Objects.SO
         #region Action
         public PXAction<AMProdItem> ProductionInstruction;
         [PXButton]
-        [PXUIField(DisplayName = "Production Instruction", Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "生产指令单", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable productionInstruction(PXAdapter adapter)
         {
             var _reportID = "lm625000";

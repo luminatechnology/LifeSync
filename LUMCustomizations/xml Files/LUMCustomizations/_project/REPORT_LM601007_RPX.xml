@@ -194,6 +194,7 @@ QsW0A6KISXtoD2ixWJRLLNnz779jju4MLzx+uuLFy/GMmDATeVPl9M+iiEl7fDdiRMPTJ/+3w8/xFJcX
             <ReportParameter>
                 <Name>ShipmentPlanID</Name>
                 <Prompt>ShipmentPlanID</Prompt>
+                <ViewName>=Report.GetFieldSchema('LumShipmentPlan.ShipmentPlanID')</ViewName>
             </ReportParameter>
         </Parameters>
         <Relations>
@@ -1094,7 +1095,7 @@ QsW0A6KISXtoD2ixWJRLLNnz779jju4MLzx+uuLFy/GMmDATeVPl9M+iiEl7fDdiRMPTJ/+3w8/xFJcX
                         <Value>='ABA Part NO. : '+IIF([InventoryItem.InventoryID] = null, '', [InventoryItem.InventoryID])</Value>
                     </TextBox>
                     <TextBox Name="textBox12">
-                        <Location>288px, 184px</Location>
+                        <Location>280px, 184px</Location>
                         <Size>88px, 48px</Size>
                         <Style>
                             <BackImage>

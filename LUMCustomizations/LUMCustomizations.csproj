@@ -93,6 +93,7 @@
     <Compile Include="DAC\PrintParameters.cs" />
     <Compile Include="DAC_Extensions\AMMPSExtension.cs" />
     <Compile Include="DAC_Extensions\AMMTranExtension.cs" />
+    <Compile Include="DAC_Extensions\AMPordMatlExtension.cs" />
     <Compile Include="DAC_Extensions\AMProdItemExtensions.cs" />
     <Compile Include="DAC_Extensions\BatchExtensions.cs" />
     <Compile Include="DAC_Extensions\POLineExtensions.cs" />

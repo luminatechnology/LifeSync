@@ -5,6 +5,7 @@ using PX.Common;
 using PX.Data;
 using PX.Data.BQL;
 using PX.Data.BQL.Fluent;
+using PX.Data.Reports;
 using PX.Objects.CR;
 using PX.Objects.CR.DAC;
 using PX.Objects.CS;
@@ -77,6 +78,9 @@ namespace LumCustomizations.Graph
         {
             this.Save.Press();
             var _reportID = "lm601000";
+
+            ActiveStandardReport(_reportID);
+
             var parameters = GetCurrentRowToParameter();
             if (parameters["ShipmentPlanID"] != null)
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
@@ -93,16 +97,16 @@ namespace LumCustomizations.Graph
             //    PrintWithDeviceHub = true,
             //    DefinePrinterManually = true
             //};
-            //PXGraph.CreateInstance<SMPrintJobMaint>().CreatePrintJob(
-            //    printSettings,
-            //    _reportID,
-            //    parameters,
-            //    $"Report {_reportID}");
+            ////PXGraph.CreateInstance<SMPrintJobMaint>().CreatePrintJob(
+            ////    printSettings,
+            ////    _reportID,
+            ////    parameters,
+            ////    $"Report {_reportID}");
 
             //PXReportRequiredException ex = null;
             //ex = PXReportRequiredException.CombineReport(ex, _reportID, parameters);
 
-            //PX.SM.SMPrintJobMaint.CreatePrintJobGroup(printSettings, ex, $"(New Method)Print Report {_reportID}"); 
+            //PX.SM.SMPrintJobMaint.CreatePrintJobGroup(printSettings, ex, $"(New Method)Print Report {_reportID}");
             #endregion
             return adapter.Get<LumShipmentPlan>().ToList();
         }
@@ -114,6 +118,7 @@ namespace LumCustomizations.Graph
         {
             this.Save.Press();
             var _reportID = "lm601001";
+            ActiveStandardReport(_reportID);
             var parameters = GetCurrentRowToParameter();
             if (parameters["ShipmentPlanID"] != null)
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
@@ -127,6 +132,7 @@ namespace LumCustomizations.Graph
         {
             this.Save.Press();
             var _reportID = "lm601002";
+            ActiveStandardReport(_reportID);
             var parameters = GetCurrentRowToParameter();
             if (parameters["ShipmentPlanID"] != null)
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
@@ -140,6 +146,7 @@ namespace LumCustomizations.Graph
         {
             this.Save.Press();
             var _reportID = "lm601003";
+            ActiveStandardReport(_reportID);
             var parameters = GetCurrentRowToParameter();
             if (parameters["ShipmentPlanID"] != null)
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
@@ -153,6 +160,7 @@ namespace LumCustomizations.Graph
         {
             this.Save.Press();
             var _reportID = "lm601004";
+            ActiveStandardReport(_reportID);
             var parameters = GetCurrentRowToParameter();
             if (parameters["ShipmentPlanID"] != null)
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
@@ -166,6 +174,7 @@ namespace LumCustomizations.Graph
         {
             this.Save.Press();
             var _reportID = "lm601005";
+            ActiveStandardReport(_reportID);
             var parameters = GetCurrentRowToParameter();
             if (parameters["ShipmentPlanID"] != null)
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
@@ -179,6 +188,7 @@ namespace LumCustomizations.Graph
         {
             this.Save.Press();
             var _reportID = "lm601006";
+            ActiveStandardReport(_reportID);
             var parameters = GetCurrentRowToParameter();
             if (parameters["ShipmentPlanID"] != null)
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
@@ -192,6 +202,7 @@ namespace LumCustomizations.Graph
         {
             this.Save.Press();
             var _reportID = "lm601007";
+            ActiveStandardReport(_reportID);
             var parameters = GetCurrentRowToParameter();
             if (parameters["ShipmentPlanID"] != null)
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
@@ -326,31 +337,31 @@ namespace LumCustomizations.Graph
                                                                                                           .And<SOLine.orderNbr.IsEqual<@P.AsString>
                                                                                                                .And<SOLine.lineNbr.IsEqual<@P.AsInt>>>>.View
                                                                                                    .Select(this, prodItemExt.UsrSOOrderType, prodItemExt.UsrSOOrderNbr, prodItemExt.UsrSOLineNbr);
-                SOLine  soLine = sOResult;
+                SOLine soLine = sOResult;
                 SOOrder soOrder = sOResult;
 
                 PXFieldState valueExt = Order.Cache.GetValueExt((object)soOrder, PX.Objects.CS.Messages.Attribute + "ENDC") as PXFieldState;
 
-                row.Customer           = (string)valueExt.Value;
-                row.OrderNbr           = soOrder.OrderNbr;
-                row.OrderType          = soOrder.OrderType;
+                row.Customer = (string)valueExt.Value;
+                row.OrderNbr = soOrder.OrderNbr;
+                row.OrderType = soOrder.OrderType;
                 row.CustomerLocationID = soOrder.CustomerLocationID;
-                row.CustomerOrderNbr   = soOrder.CustomerOrderNbr;
-                row.OrderDate          = soOrder.OrderDate;
-                row.LineNbr            = soLine.LineNbr;
-                row.InventoryID        = soLine.InventoryID;
-                row.OpenQty            = soLine.OpenQty;
-                row.OrderQty           = soLine.OrderQty;
-                row.RequestDate        = soLine.RequestDate;
-                row.CustomerPN         = soLine.AlternateID;
-                row.CartonSize         = CSAnswers.PK.Find(this, InventoryItem.PK.Find(this, row.InventoryID).NoteID, SOShipmentEntry_Extension.CartonSize)?.Value;
+                row.CustomerOrderNbr = soOrder.CustomerOrderNbr;
+                row.OrderDate = soOrder.OrderDate;
+                row.LineNbr = soLine.LineNbr;
+                row.InventoryID = soLine.InventoryID;
+                row.OpenQty = soLine.OpenQty;
+                row.OrderQty = soLine.OrderQty;
+                row.RequestDate = soLine.RequestDate;
+                row.CustomerPN = soLine.AlternateID;
+                row.CartonSize = CSAnswers.PK.Find(this, InventoryItem.PK.Find(this, row.InventoryID).NoteID, SOShipmentEntry_Extension.CartonSize)?.Value;
             }
 
             LumShipmentPlan aggrShipPlan = SelectFrom<LumShipmentPlan>.Where<LumShipmentPlan.prodOrdID.IsEqual<@P.AsString>>
                                                                       .AggregateTo<Max<LumShipmentPlan.nbrOfShipment,
                                                                                        Max<LumShipmentPlan.endCartonNbr>>>.View.Select(this, row.ProdOrdID);
 
-            row.NbrOfShipment  = aggrShipPlan.NbrOfShipment == null ? 1 : aggrShipPlan.NbrOfShipment + 1;
+            row.NbrOfShipment = aggrShipPlan.NbrOfShipment == null ? 1 : aggrShipPlan.NbrOfShipment + 1;
             row.StartCartonNbr = (aggrShipPlan.EndCartonNbr ?? 0) + 1;
 
             aggrShipPlan = SelectFrom<LumShipmentPlan>.Where<LumShipmentPlan.orderNbr.IsEqual<@P.AsString>>
@@ -392,14 +403,14 @@ namespace LumCustomizations.Graph
                 }
 
                 row.EndCartonNbr = row.StartCartonNbr + (int)Math.Round((row.PlannedShipQty / qtyCarton).Value, 0) - 1;
-                row.EndLabelNbr  = row.StartLabelNbr  + (int)Math.Round((row.PlannedShipQty / qtyCarton).Value, 0) - 1;
-                row.CartonQty    = qtyCarton == 0 ? 5000M : (decimal)e.NewValue / qtyCarton;
-                row.NetWeight    = (decimal)e.NewValue * item.BaseItemWeight;
-                row.GrossWeight  = (decimal)e.NewValue * grsWeight;
+                row.EndLabelNbr = row.StartLabelNbr + (int)Math.Round((row.PlannedShipQty / qtyCarton).Value, 0) - 1;
+                row.CartonQty = qtyCarton == 0 ? 5000M : (decimal)e.NewValue / qtyCarton;
+                row.NetWeight = (decimal)e.NewValue * item.BaseItemWeight;
+                row.GrossWeight = (decimal)e.NewValue * grsWeight;
                 // Round(Carton Qty / CARTONPALT in item attribute) * (PALLETWGT in item attribute) 四捨五入
                 row.PalletWeight = Math.Round(row.CartonQty.Value / cartonPal * palletWgt, 0);
-                row.MEAS         = row.CartonQty * item.BaseItemVolume;
-                row.DimWeight    = row.CartonQty * item.BaseItemVolume * 1000000M / 5000M;
+                row.MEAS = row.CartonQty * item.BaseItemVolume;
+                row.DimWeight = row.CartonQty * item.BaseItemVolume * 1000000M / 5000M;
             }
         }
         #endregion
@@ -415,6 +426,22 @@ namespace LumCustomizations.Graph
             };
             return parameters;
         }
+
+        /// <summary> Active Standard Report </summary>
+        public void ActiveStandardReport(string _reportID)
+        {
+            PXUpdate<Set<
+               UserReport.isActive, Required<UserReport.isActive>>,
+               UserReport,
+               Where<UserReport.reportFileName, Equal<Required<UserReport.reportFileName>>>>.Update(this, false, $"{_reportID}.rpx");
+
+            PXUpdate<Set<
+               UserReport.isActive, Required<UserReport.isActive>>,
+               UserReport,
+               Where<UserReport.reportFileName, Equal<Required<UserReport.reportFileName>>,
+                 And<UserReport.description, Equal<Required<UserReport.description>>>>>.Update(this, true, $"{_reportID}.rpx", "Standard");
+        }
+
         #endregion
     }
 }
