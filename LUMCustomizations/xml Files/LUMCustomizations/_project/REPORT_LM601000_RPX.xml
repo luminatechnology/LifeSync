@@ -1147,7 +1147,7 @@ mJPZWSffv1C2gs4GlEdQJ0w95+mwqN9JiHTnNujObdCd26A7t0F3boPu3AbduQ26cxt05zbozi2wWv0D
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>=[LumShipmentPlan.InventoryID_description]</Value>
+                        <Value>=[InventoryItem.Descr]</Value>
                     </TextBox>
                     <TextBox Name="textBox4">
                         <Location>0px, 136px</Location>

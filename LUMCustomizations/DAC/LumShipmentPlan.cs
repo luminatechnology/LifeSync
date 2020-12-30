@@ -7,6 +7,7 @@ using PX.Objects.CR;
 using PX.Objects.IN;
 using PX.Objects.SO;
 using PX.Objects.CM;
+using PX.Data.BQL.Fluent;
 
 namespace LumCustomizations.DAC
 {
@@ -34,6 +35,10 @@ namespace LumCustomizations.DAC
         #region ShipmentPlanID
         [PXDBString(15, InputMask = "", IsKey = true, IsUnicode = true)]
         [PXUIField(DisplayName = "Shipment Plan")]
+        [PXSelector(typeof(SelectFrom<LumShipmentPlan>.
+                           AggregateTo<GroupBy<LumShipmentPlan.shipmentPlanID>>.
+                           SearchFor<LumShipmentPlan.shipmentPlanID>),
+                    typeof(LumShipmentPlan.shipmentPlanID))]
         //[AutoNumber(typeof(SOSetup.shipmentNumberingID), typeof(AccessInfo.businessDate))]
         public virtual string ShipmentPlanID { get; set; }
         public abstract class shipmentPlanID : PX.Data.BQL.BqlString.Field<LumShipmentPlan.shipmentPlanID> { }

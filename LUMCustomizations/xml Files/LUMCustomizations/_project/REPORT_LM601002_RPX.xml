@@ -46,6 +46,7 @@ mJPZWSffv1C2gs4GlEdQJ0w95+mwqN9JiHTnNujObdCd26A7t0F3boPu3AbduQ26cxt05zbozi2wWv0D
             <ReportParameter>
                 <Name>ShipmentPlanID</Name>
                 <Prompt>ShipmentPlanID</Prompt>
+                <ViewName>=Report.GetFieldSchema('LumShipmentPlan.ShipmentPlanID')</ViewName>
             </ReportParameter>
         </Parameters>
         <Relations>

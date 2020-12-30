@@ -90,7 +90,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 <ParentName>LumShipmentPlan</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/ABA_AcumaticaDB1/</SchemaUrl>
+        <SchemaUrl>https://healthedge.acumatica.com</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>v_COCReport.OrderNbr</DataField>
@@ -958,7 +958,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 <Height>11.64021cm</Height>
                 <Items>
                     <PictureBox Name="pictureBox2">
-                        <Location>40px, 64px</Location>
+                        <Location>56px, 64px</Location>
                         <MimeType>image/jpeg</MimeType>
                         <QRCodeSettings />
                         <Size>616px, 360px</Size>
@@ -1045,7 +1045,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <ProcessOrder>Always</ProcessOrder>
                         <Items>
                             <Panel Name="panel2">
-                                <Location>144px, 40px</Location>
+                                <Location>176px, 40px</Location>
                                 <Size>176px, 16px</Size>
                                 <Style>
                                     <BorderColor>
@@ -1057,6 +1057,9 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                     <BorderWidth>
                                         <Default>1px</Default>
                                     </BorderWidth>
+                                    <Font>
+                                        <Name>Arial</Name>
+                                    </Font>
                                 </Style>
                                 <Items>
                                     <TextBox Name="textBox9">
@@ -1071,7 +1074,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 </Items>
                             </Panel>
                             <Panel Name="panel3">
-                                <Location>144px, 112px</Location>
+                                <Location>176px, 112px</Location>
                                 <Size>176px, 16px</Size>
                                 <Style>
                                     <BorderColor>
@@ -1083,6 +1086,9 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                     <BorderWidth>
                                         <Default>1px</Default>
                                     </BorderWidth>
+                                    <Font>
+                                        <Name>Arial</Name>
+                                    </Font>
                                 </Style>
                                 <Items>
                                     <TextBox Name="textBox12">
@@ -1097,7 +1103,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 </Items>
                             </Panel>
                             <Panel Name="panel4">
-                                <Location>144px, 64px</Location>
+                                <Location>176px, 64px</Location>
                                 <Size>176px, 16px</Size>
                                 <Style>
                                     <BorderColor>
@@ -1109,6 +1115,9 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                     <BorderWidth>
                                         <Default>1px</Default>
                                     </BorderWidth>
+                                    <Font>
+                                        <Name>Arial</Name>
+                                    </Font>
                                 </Style>
                                 <Items>
                                     <TextBox Name="textBox10">
@@ -1123,7 +1132,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 </Items>
                             </Panel>
                             <Panel Name="panel5">
-                                <Location>144px, 88px</Location>
+                                <Location>176px, 88px</Location>
                                 <Size>176px, 16px</Size>
                                 <Style>
                                     <BorderColor>
@@ -1135,6 +1144,9 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                     <BorderWidth>
                                         <Default>1px</Default>
                                     </BorderWidth>
+                                    <Font>
+                                        <Name>Arial</Name>
+                                    </Font>
                                 </Style>
                                 <Items>
                                     <TextBox Name="textBox11">
@@ -1149,13 +1161,18 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 </Items>
                             </Panel>
                             <Panel Name="panel6">
-                                <Location>448px, 224px</Location>
-                                <Size>184px, 16px</Size>
+                                <Location>480px, 216px</Location>
+                                <Size>160px, 32px</Size>
+                                <Style>
+                                    <Font>
+                                        <Name>Arial</Name>
+                                    </Font>
+                                </Style>
                                 <StyleName>Top Line</StyleName>
                                 <Items>
                                     <TextBox Name="textBox14">
-                                        <Location>0px, 0px</Location>
-                                        <Size>184px, 16px</Size>
+                                        <Location>0px, 8px</Location>
+                                        <Size>160px, 16px</Size>
                                         <Style>
                                             <TextAlign>Left</TextAlign>
                                         </Style>
@@ -1165,8 +1182,13 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 </Items>
                             </Panel>
                             <Panel Name="panel7">
-                                <Location>24px, 224px</Location>
+                                <Location>56px, 224px</Location>
                                 <Size>184px, 32px</Size>
+                                <Style>
+                                    <Font>
+                                        <Name>Arial</Name>
+                                    </Font>
+                                </Style>
                                 <StyleName>Top Line</StyleName>
                                 <Items>
                                     <TextBox Name="textBox13">
@@ -1201,32 +1223,57 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 </Items>
                             </Panel>
                             <TextBox Name="textBox4">
-                                <Location>24px, 16px</Location>
+                                <Location>56px, 16px</Location>
                                 <Size>168px, 16px</Size>
+                                <Style>
+                                    <Font>
+                                        <Name>Arial</Name>
+                                    </Font>
+                                </Style>
                                 <StyleName>ChineseFont</StyleName>
                                 <Value>For the following shipment:</Value>
                             </TextBox>
                             <TextBox Name="textBox5">
-                                <Location>24px, 40px</Location>
+                                <Location>56px, 40px</Location>
                                 <Size>112px, 16px</Size>
+                                <Style>
+                                    <Font>
+                                        <Name>Arial</Name>
+                                    </Font>
+                                </Style>
                                 <StyleName>ChineseFont</StyleName>
                                 <Value>1.P/O</Value>
                             </TextBox>
                             <TextBox Name="textBox6">
-                                <Location>24px, 64px</Location>
+                                <Location>56px, 64px</Location>
                                 <Size>112px, 16px</Size>
+                                <Style>
+                                    <Font>
+                                        <Name>Arial</Name>
+                                    </Font>
+                                </Style>
                                 <StyleName>ChineseFont</StyleName>
                                 <Value>2.Customer P/N</Value>
                             </TextBox>
                             <TextBox Name="textBox7">
-                                <Location>24px, 88px</Location>
+                                <Location>56px, 88px</Location>
                                 <Size>112px, 16px</Size>
+                                <Style>
+                                    <Font>
+                                        <Name>Arial</Name>
+                                    </Font>
+                                </Style>
                                 <StyleName>ChineseFont</StyleName>
                                 <Value>3.Lot No</Value>
                             </TextBox>
                             <TextBox Name="textBox8">
-                                <Location>24px, 112px</Location>
+                                <Location>56px, 112px</Location>
                                 <Size>112px, 16px</Size>
+                                <Style>
+                                    <Font>
+                                        <Name>Arial</Name>
+                                    </Font>
+                                </Style>
                                 <StyleName>ChineseFont</StyleName>
                                 <Value>4.Lot Size</Value>
                             </TextBox>
