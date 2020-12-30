@@ -8,7 +8,10 @@
         </Filters>
         <Parameters>
             <ReportParameter>
+                <ColumnSpan>2</ColumnSpan>
                 <Name>OrderNbr</Name>
+                <Prompt>Order Nbr</Prompt>
+                <Required>True</Required>
             </ReportParameter>
         </Parameters>
         <Relations>
@@ -1205,6 +1208,7 @@
                         <Size>176px, 24px</Size>
                         <Style>
                             <Font>
+                                <Name>Microsoft JhengHei UI</Name>
                                 <Size>16px</Size>
                                 <Style>Bold</Style>
                             </Font>
@@ -1216,22 +1220,24 @@
                         <Size>96px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
+                                <Name>Microsoft JhengHei UI</Name>
                                 <Size>10px</Size>
+                                <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>FAX                  :</Value>
+                        <Value>FAX                   :</Value>
                     </TextBox>
                     <TextBox Name="textBox11">
                         <Location>384px, 160px</Location>
                         <Size>96px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
+                                <Name>Microsoft JhengHei UI</Name>
                                 <Size>10px</Size>
+                                <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>CURRENCY      :</Value>
+                        <Value>CURRENCY     :</Value>
                     </TextBox>
                     <TextBox Name="textBox12">
                         <Location>480px, 144px</Location>
@@ -1266,25 +1272,27 @@
                         <Size>96px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
+                                <Name>Microsoft JhengHei UI</Name>
                                 <Size>10px</Size>
+                                <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>TEL                  :</Value>
+                        <Value>TEL                   :</Value>
                     </TextBox>
                     <TextBox Name="textBox15">
                         <Location>384px, 128px</Location>
                         <Size>96px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
+                                <Name>Microsoft JhengHei UI</Name>
                                 <Size>10px</Size>
+                                <Style>Bold</Style>
                             </Font>
                         </Style>
                         <Value>FAX                  :</Value>
                     </TextBox>
                     <TextBox Name="textBox2">
-                        <Format>='MMM dd, yyyy'</Format>
+                        <Format>='yyyy-MM-dd'</Format>
                         <Location>112px, 144px</Location>
                         <Size>128px, 16px</Size>
                         <Style>
@@ -1304,33 +1312,36 @@
                         <Size>96px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
+                                <Name>Microsoft JhengHei UI</Name>
                                 <Size>10px</Size>
+                                <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>SHIP     TO      :</Value>
+                        <Value>SHIP     TO       :</Value>
                     </TextBox>
                     <TextBox Name="textBox25">
                         <Location>16px, 176px</Location>
                         <Size>96px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
+                                <Name>Microsoft JhengHei UI</Name>
                                 <Size>10px</Size>
+                                <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>SUPPLIER       :</Value>
+                        <Value>SUPPLIER        :</Value>
                     </TextBox>
                     <TextBox Name="textBox26">
                         <Location>16px, 192px</Location>
                         <Size>96px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
+                                <Name>Microsoft JhengHei UI</Name>
                                 <Size>10px</Size>
+                                <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>CESS               :</Value>
+                        <Value>CESS                 :</Value>
                     </TextBox>
                     <TextBox Name="textBox27">
                         <Location>112px, 160px</Location>
@@ -1382,7 +1393,7 @@
                         <Size>128px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial</Name>
+                                <Name>Microsoft JhengHei UI</Name>
                                 <Size>10px</Size>
                             </Font>
                             <Padding>
@@ -1397,8 +1408,9 @@
                         <Size>96px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
+                                <Name>Microsoft JhengHei UI</Name>
                                 <Size>10px</Size>
+                                <Style>Bold</Style>
                             </Font>
                         </Style>
                         <Value>ORDER DATE  :</Value>
@@ -1408,8 +1420,9 @@
                         <Size>96px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
+                                <Name>Microsoft JhengHei UI</Name>
                                 <Size>10px</Size>
+                                <Style>Bold</Style>
                             </Font>
                         </Style>
                         <Value>P/O      NO.      :</Value>
@@ -1449,7 +1462,7 @@
                         <Size>128px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial</Name>
+                                <Name>Microsoft JhengHei UI</Name>
                                 <Size>10px</Size>
                             </Font>
                             <Padding>
@@ -1464,11 +1477,12 @@
                         <Size>96px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial Black</Name>
+                                <Name>Microsoft JhengHei UI</Name>
                                 <Size>10px</Size>
+                                <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>TEL                  :</Value>
+                        <Value>TEL                    :</Value>
                     </TextBox>
                 </Items>
             </PageHeader>
@@ -1488,11 +1502,16 @@
                             <BorderColor>
                                 <Default>Black</Default>
                             </BorderColor>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
                             <BorderWidth>
-                                <Default>1px</Default>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
                             </BorderWidth>
                             <Font>
-                                <Name>Arial</Name>
+                                <Name>Microsoft JhengHei UI</Name>
                                 <Size>10px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
@@ -1507,28 +1526,41 @@
                             <BorderColor>
                                 <Default>Black</Default>
                             </BorderColor>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
                             <BorderWidth>
-                                <Default>1px</Default>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
                             </BorderWidth>
                             <Font>
-                                <Name>Arial</Name>
+                                <Name>Microsoft JhengHei UI</Name>
                                 <Size>10px</Size>
                             </Font>
+                            <Padding>
+                                <Left>5px</Left>
+                            </Padding>
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <Value>=[POLine.TranDesc]</Value>
                     </TextBox>
                     <TextBox Name="textBox19">
-                        <Format>='MMM dd, yyyy'</Format>
+                        <Format>='yyyy-MM-dd'</Format>
                         <Location>328px, 0px</Location>
                         <Size>80px, 48px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
                             </BorderColor>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
                             <BorderWidth>
-                                <Default>1px</Default>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
                             </BorderWidth>
                             <Font>
                                 <Name>Arial</Name>
@@ -1547,14 +1579,19 @@
                             <BorderColor>
                                 <Default>Black</Default>
                             </BorderColor>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
                             <BorderWidth>
-                                <Default>1px</Default>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
                             </BorderWidth>
                             <Font>
-                                <Name>Arial</Name>
+                                <Name>Microsoft JhengHei UI</Name>
                                 <Size>10px</Size>
                             </Font>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <Value>=[POOrder.OrderQty]</Value>
@@ -1566,11 +1603,18 @@
                             <BorderColor>
                                 <Default>Black</Default>
                             </BorderColor>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Left>Solid</Left>
+                                <Right>Solid</Right>
+                            </BorderStyle>
                             <BorderWidth>
-                                <Default>1px</Default>
+                                <Bottom>1px</Bottom>
+                                <Left>1px</Left>
+                                <Right>1px</Right>
                             </BorderWidth>
                             <Font>
-                                <Name>Arial</Name>
+                                <Name>Microsoft JhengHei UI</Name>
                                 <Size>10px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
@@ -1585,11 +1629,16 @@
                             <BorderColor>
                                 <Default>Black</Default>
                             </BorderColor>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
                             <BorderWidth>
-                                <Default>1px</Default>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
                             </BorderWidth>
                             <Font>
-                                <Name>Arial</Name>
+                                <Name>Microsoft JhengHei UI</Name>
                                 <Size>10px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
@@ -1598,41 +1647,51 @@
                         <Value>=[POLine.UOM]</Value>
                     </TextBox>
                     <TextBox Name="textBox45">
-                        <Format>#0.000</Format>
+                        <Format>#0.00</Format>
                         <Location>528px, 0px</Location>
                         <Size>56px, 48px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
                             </BorderColor>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
                             <BorderWidth>
-                                <Default>1px</Default>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
                             </BorderWidth>
                             <Font>
-                                <Name>Arial</Name>
+                                <Name>Microsoft JhengHei UI</Name>
                                 <Size>10px</Size>
                             </Font>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <Value>=[POLine.CuryUnitCost]</Value>
                     </TextBox>
                     <TextBox Name="textBox47">
-                        <Format>#0.00</Format>
+                        <Format>#0.000</Format>
                         <Location>584px, 0px</Location>
                         <Size>96px, 48px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
                             </BorderColor>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
                             <BorderWidth>
-                                <Default>1px</Default>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
                             </BorderWidth>
                             <Font>
-                                <Name>Arial</Name>
+                                <Name>Microsoft JhengHei UI</Name>
                                 <Size>10px</Size>
                             </Font>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <Value>=[POLine.CuryLineAmt]</Value>
@@ -1640,159 +1699,7 @@
                 </Items>
             </Detail>
             <PageFooter Name="pageFooterSection1">
-                <Height>3.80952cm</Height>
-                <Items>
-                    <Line Name="line1">
-                        <Location>16px, 0px</Location>
-                        <Size>664px, 8px</Size>
-                    </Line>
-                    <Line Name="line2">
-                        <Location>16px, 32px</Location>
-                        <Size>664px, 8px</Size>
-                    </Line>
-                    <Line Name="line5">
-                        <Location>16px, 120px</Location>
-                        <Size>664px, 8px</Size>
-                    </Line>
-                    <TextBox Name="textBox20">
-                        <Location>480px, 40px</Location>
-                        <Size>128px, 64px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <Padding>
-                                <Top>2px</Top>
-                            </Padding>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
-                    </TextBox>
-                    <TextBox Name="textBox22">
-                        <Location>384px, 40px</Location>
-                        <Size>96px, 64px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <Value>Authorized#010;Signature(S)</Value>
-                    </TextBox>
-                    <TextBox Name="textBox23">
-                        <Location>136px, 88px</Location>
-                        <Size>128px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <Padding>
-                                <Top>2px</Top>
-                            </Padding>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
-                    </TextBox>
-                    <TextBox Name="textBox30">
-                        <Location>16px, 88px</Location>
-                        <Size>120px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>10px</Size>
-                            </Font>
-                        </Style>
-                        <Value>General   Manager  :</Value>
-                    </TextBox>
-                    <TextBox Name="textBox31">
-                        <Location>136px, 64px</Location>
-                        <Size>128px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <Padding>
-                                <Top>2px</Top>
-                            </Padding>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
-                    </TextBox>
-                    <TextBox Name="textBox40">
-                        <Location>136px, 40px</Location>
-                        <Size>128px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <Padding>
-                                <Top>2px</Top>
-                            </Padding>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
-                    </TextBox>
-                    <TextBox Name="textBox41">
-                        <Location>16px, 64px</Location>
-                        <Size>120px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>10px</Size>
-                            </Font>
-                        </Style>
-                        <Value>Materials       Dept  :</Value>
-                    </TextBox>
-                    <TextBox Name="textBox42">
-                        <Location>16px, 40px</Location>
-                        <Size>120px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>10px</Size>
-                            </Font>
-                        </Style>
-                        <Value>Purchasing Officer :       :</Value>
-                    </TextBox>
-                    <TextBox Name="textBox43">
-                        <Location>16px, 128px</Location>
-                        <Size>96px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial</Name>
-                                <Size>10px</Size>
-                            </Font>
-                        </Style>
-                        <Value>FPR-009/Rev.00</Value>
-                    </TextBox>
-                    <TextBox Name="textBox46">
-                        <Location>16px, 8px</Location>
-                        <Size>176px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial Black</Name>
-                                <Size>10px</Size>
-                            </Font>
-                        </Style>
-                        <Value>TOTAL PURCHASE AMOUNT :</Value>
-                    </TextBox>
-                    <TextBox Name="textBox56">
-                        <Format>='0.000'</Format>
-                        <Location>192px, 8px</Location>
-                        <Size>120px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <TextAlign>Left</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <Value>=[POOrder.CuryOrderTotal]</Value>
-                    </TextBox>
-                </Items>
+                <Height>0px</Height>
             </PageFooter>
         </Sections>
         <Items />
@@ -1800,33 +1707,26 @@
             <Group Name="POItems">
                 <Headers>
                     <Header Name="groupHeaderSection1">
-                        <Height>1.26984cm</Height>
+                        <Height>0.63492cm</Height>
                         <Items>
-                            <Line Name="line3">
-                                <Location>16px, 0px</Location>
-                                <Size>664px, 8px</Size>
-                            </Line>
-                            <Line Name="line4">
-                                <Location>16px, 38px</Location>
-                                <Size>664px, 8px</Size>
-                            </Line>
                             <TextBox Name="textBox16">
-                                <Location>408px, 8px</Location>
+                                <Location>408px, 0px</Location>
                                 <Size>64px, 24px</Size>
                                 <Style>
-                                    <BorderColor>
-                                        <Bottom>Black</Bottom>
-                                        <Default>Black</Default>
-                                        <Left>Black</Left>
-                                    </BorderColor>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
                                         <Right>Solid</Right>
                                         <Top>Solid</Top>
                                     </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                        <Top>1px</Top>
+                                    </BorderWidth>
                                     <Font>
-                                        <Name>Arial Black</Name>
+                                        <Name>Arial</Name>
                                         <Size>10px</Size>
+                                        <Style>Bold</Style>
                                     </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
@@ -1834,24 +1734,25 @@
                                 <Value>QTY</Value>
                             </TextBox>
                             <TextBox Name="textBox32">
-                                <Location>16px, 8px</Location>
+                                <Location>16px, 0px</Location>
                                 <Size>48px, 24px</Size>
                                 <Style>
-                                    <BorderColor>
-                                        <Bottom>Black</Bottom>
-                                        <Default>Black</Default>
-                                        <Left>Black</Left>
-                                    </BorderColor>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
-                                        <Default>Solid</Default>
                                         <Left>Solid</Left>
                                         <Right>Solid</Right>
                                         <Top>Solid</Top>
                                     </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Left>1px</Left>
+                                        <Right>1px</Right>
+                                        <Top>1px</Top>
+                                    </BorderWidth>
                                     <Font>
-                                        <Name>Arial Black</Name>
+                                        <Name>Arial</Name>
                                         <Size>10px</Size>
+                                        <Style>Bold</Style>
                                     </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
@@ -1859,22 +1760,23 @@
                                 <Value>ITEM</Value>
                             </TextBox>
                             <TextBox Name="textBox34">
-                                <Location>136px, 8px</Location>
+                                <Location>136px, 0px</Location>
                                 <Size>192px, 24px</Size>
                                 <Style>
-                                    <BorderColor>
-                                        <Bottom>Black</Bottom>
-                                        <Default>Black</Default>
-                                        <Left>Black</Left>
-                                    </BorderColor>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
                                         <Right>Solid</Right>
                                         <Top>Solid</Top>
                                     </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                        <Top>1px</Top>
+                                    </BorderWidth>
                                     <Font>
-                                        <Name>Arial Black</Name>
+                                        <Name>Arial</Name>
                                         <Size>10px</Size>
+                                        <Style>Bold</Style>
                                     </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
@@ -1882,22 +1784,23 @@
                                 <Value>DESCRIPTION </Value>
                             </TextBox>
                             <TextBox Name="textBox35">
-                                <Location>64px, 8px</Location>
+                                <Location>64px, 0px</Location>
                                 <Size>72px, 24px</Size>
                                 <Style>
-                                    <BorderColor>
-                                        <Bottom>Black</Bottom>
-                                        <Default>Black</Default>
-                                        <Left>Black</Left>
-                                    </BorderColor>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
                                         <Right>Solid</Right>
                                         <Top>Solid</Top>
                                     </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                        <Top>1px</Top>
+                                    </BorderWidth>
                                     <Font>
-                                        <Name>Arial Black</Name>
+                                        <Name>Arial</Name>
                                         <Size>10px</Size>
+                                        <Style>Bold</Style>
                                     </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
@@ -1905,22 +1808,23 @@
                                 <Value>PART NO.</Value>
                             </TextBox>
                             <TextBox Name="textBox36">
-                                <Location>472px, 8px</Location>
+                                <Location>472px, 0px</Location>
                                 <Size>56px, 24px</Size>
                                 <Style>
-                                    <BorderColor>
-                                        <Bottom>Black</Bottom>
-                                        <Default>Black</Default>
-                                        <Left>Black</Left>
-                                    </BorderColor>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
                                         <Right>Solid</Right>
                                         <Top>Solid</Top>
                                     </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                        <Top>1px</Top>
+                                    </BorderWidth>
                                     <Font>
-                                        <Name>Arial Black</Name>
+                                        <Name>Arial</Name>
                                         <Size>10px</Size>
+                                        <Style>Bold</Style>
                                     </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
@@ -1928,22 +1832,23 @@
                                 <Value>UNIT</Value>
                             </TextBox>
                             <TextBox Name="textBox37">
-                                <Location>328px, 8px</Location>
+                                <Location>328px, 0px</Location>
                                 <Size>80px, 24px</Size>
                                 <Style>
-                                    <BorderColor>
-                                        <Bottom>Black</Bottom>
-                                        <Default>Black</Default>
-                                        <Left>Black</Left>
-                                    </BorderColor>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
                                         <Right>Solid</Right>
                                         <Top>Solid</Top>
                                     </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                        <Top>1px</Top>
+                                    </BorderWidth>
                                     <Font>
-                                        <Name>Arial Black</Name>
+                                        <Name>Arial</Name>
                                         <Size>10px</Size>
+                                        <Style>Bold</Style>
                                     </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
@@ -1951,47 +1856,49 @@
                                 <Value>DELIVERY</Value>
                             </TextBox>
                             <TextBox Name="textBox38">
-                                <Location>528px, 8px</Location>
+                                <Location>528px, 0px</Location>
                                 <Size>56px, 24px</Size>
                                 <Style>
-                                    <BorderColor>
-                                        <Bottom>Black</Bottom>
-                                        <Default>Black</Default>
-                                        <Left>Black</Left>
-                                    </BorderColor>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
                                         <Right>Solid</Right>
                                         <Top>Solid</Top>
                                     </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                        <Top>1px</Top>
+                                    </BorderWidth>
                                     <Font>
-                                        <Name>Arial Black</Name>
+                                        <Name>Arial</Name>
                                         <Size>10px</Size>
+                                        <Style>Bold</Style>
                                     </Font>
-                                    <TextAlign>Right</TextAlign>
+                                    <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
                                 </Style>
                                 <Value>U/P</Value>
                             </TextBox>
                             <TextBox Name="textBox39">
-                                <Location>584px, 8px</Location>
+                                <Location>584px, 0px</Location>
                                 <Size>96px, 24px</Size>
                                 <Style>
-                                    <BorderColor>
-                                        <Bottom>Black</Bottom>
-                                        <Default>Black</Default>
-                                        <Left>Black</Left>
-                                    </BorderColor>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
                                         <Right>Solid</Right>
                                         <Top>Solid</Top>
                                     </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                        <Top>1px</Top>
+                                    </BorderWidth>
                                     <Font>
-                                        <Name>Arial Black</Name>
+                                        <Name>Arial</Name>
                                         <Size>10px</Size>
+                                        <Style>Bold</Style>
                                     </Font>
-                                    <TextAlign>Right</TextAlign>
+                                    <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
                                 </Style>
                                 <Value>AMOUNT</Value>
@@ -2001,7 +1908,247 @@
                 </Headers>
                 <Footers>
                     <Footer Name="groupFooterSection1">
-                        <Height>0cm</Height>
+                        <Height>4.02116cm</Height>
+                        <Items>
+                            <TextBox Name="textBox20">
+                                <Location>472px, 24px</Location>
+                                <Size>208px, 96px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Right>Solid</Right>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Name>Arial</Name>
+                                        <Size>10px</Size>
+                                    </Font>
+                                    <Padding>
+                                        <Top>2px</Top>
+                                    </Padding>
+                                    <TextAlign>Left</TextAlign>
+                                </Style>
+                            </TextBox>
+                            <TextBox Name="textBox22">
+                                <Location>328px, 24px</Location>
+                                <Size>144px, 96px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Right>Solid</Right>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Name>Arial</Name>
+                                        <Size>10px</Size>
+                                        <Style>Bold</Style>
+                                    </Font>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>Authorized#010;Signature(S)</Value>
+                            </TextBox>
+                            <TextBox Name="textBox23">
+                                <Location>136px, 88px</Location>
+                                <Size>192px, 32px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Right>Solid</Right>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Name>Arial</Name>
+                                        <Size>10px</Size>
+                                    </Font>
+                                    <Padding>
+                                        <Top>2px</Top>
+                                    </Padding>
+                                    <TextAlign>Left</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                            </TextBox>
+                            <TextBox Name="textBox30">
+                                <Location>16px, 88px</Location>
+                                <Size>120px, 32px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Left>Solid</Left>
+                                        <Right>Solid</Right>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Left>1px</Left>
+                                        <Right>1px</Right>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Name>Arial</Name>
+                                        <Size>10px</Size>
+                                        <Style>Bold</Style>
+                                    </Font>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value> General   Manager  :</Value>
+                            </TextBox>
+                            <TextBox Name="textBox31">
+                                <Location>136px, 56px</Location>
+                                <Size>192px, 32px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Right>Solid</Right>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Name>Arial</Name>
+                                        <Size>10px</Size>
+                                    </Font>
+                                    <Padding>
+                                        <Top>2px</Top>
+                                    </Padding>
+                                    <TextAlign>Left</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                            </TextBox>
+                            <TextBox Name="textBox40">
+                                <Location>136px, 24px</Location>
+                                <Size>192px, 32px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Right>Solid</Right>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Name>Arial</Name>
+                                        <Size>10px</Size>
+                                    </Font>
+                                    <Padding>
+                                        <Top>2px</Top>
+                                    </Padding>
+                                    <TextAlign>Left</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                            </TextBox>
+                            <TextBox Name="textBox41">
+                                <Location>16px, 56px</Location>
+                                <Size>120px, 32px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Left>Solid</Left>
+                                        <Right>Solid</Right>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Left>1px</Left>
+                                        <Right>1px</Right>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Name>Arial</Name>
+                                        <Size>10px</Size>
+                                        <Style>Bold</Style>
+                                    </Font>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value> Materials       Dept   :</Value>
+                            </TextBox>
+                            <TextBox Name="textBox42">
+                                <Location>16px, 24px</Location>
+                                <Size>120px, 32px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Left>Solid</Left>
+                                        <Right>Solid</Right>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Left>1px</Left>
+                                        <Right>1px</Right>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Name>Arial</Name>
+                                        <Size>10px</Size>
+                                        <Style>Bold</Style>
+                                    </Font>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value> Purchasing Officer  :</Value>
+                            </TextBox>
+                            <TextBox Name="textBox43">
+                                <Location>16px, 136px</Location>
+                                <Size>96px, 16px</Size>
+                                <Style>
+                                    <Font>
+                                        <Name>Arial</Name>
+                                        <Size>10px</Size>
+                                    </Font>
+                                </Style>
+                                <Value>FPR-009/Rev.00</Value>
+                            </TextBox>
+                            <TextBox Name="textBox46">
+                                <Location>16px, 0px</Location>
+                                <Size>176px, 24px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Left>Solid</Left>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Left>1px</Left>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Name>Arial</Name>
+                                        <Size>10px</Size>
+                                    </Font>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value> TOTAL      PURCHASE      AMOUNT :</Value>
+                            </TextBox>
+                            <TextBox Name="textBox56">
+                                <Format>='0.000'</Format>
+                                <Location>192px, 0px</Location>
+                                <Size>488px, 24px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Right>Solid</Right>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Name>Arial</Name>
+                                        <Size>10px</Size>
+                                    </Font>
+                                    <Padding>
+                                        <Left>5px</Left>
+                                    </Padding>
+                                    <TextAlign>Left</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>=[POOrder.CuryOrderTotal]</Value>
+                            </TextBox>
+                        </Items>
                     </Footer>
                 </Footers>
             </Group>
