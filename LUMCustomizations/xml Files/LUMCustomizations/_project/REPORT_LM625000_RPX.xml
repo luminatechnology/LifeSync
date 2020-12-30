@@ -28,22 +28,6 @@
         <GridSize>4px, 4px</GridSize>
         <MailSettings>
             <ActivitySource>AMProdItem.NoteID</ActivitySource>
-            <Bcc>
-            </Bcc>
-            <Body>
-            </Body>
-            <Cc>
-            </Cc>
-            <Format>
-            </Format>
-            <ParentSource>
-            </ParentSource>
-            <Subject>
-            </Subject>
-            <TemplateID>
-            </TemplateID>
-            <To>
-            </To>
         </MailSettings>
         <PageSettings>
             <Margins>
@@ -3316,230 +3300,6 @@
         <Sections>
             <PageHeader Name="pageHeaderSection1">
                 <GridSize>8px, 8px</GridSize>
-                <Height>0px</Height>
-                <Visible>False</Visible>
-            </PageHeader>
-            <Detail Name="detailSection1">
-                <GridSize>8px, 8px</GridSize>
-                <Height>1.26984cm</Height>
-                <Variables>
-                    <ReportVariable>
-                        <Name>LineNbr</Name>
-                        <ValueExpr>=$LineNbr+1</ValueExpr>
-                    </ReportVariable>
-                </Variables>
-                <Items>
-                    <TextBox Name="textBox29">
-                        <Location>16px, 0px</Location>
-                        <Size>48px, 48px</Size>
-                        <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Left>Solid</Left>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Default>1px</Default>
-                            </BorderWidth>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <StyleName>ChineseFont</StyleName>
-                        <Value>=PadLeft(CStr($LineNbr), 4, '0')</Value>
-                    </TextBox>
-                    <TextBox Name="textBox30">
-                        <Location>64px, 0px</Location>
-                        <Size>64px, 48px</Size>
-                        <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Default>1px</Default>
-                            </BorderWidth>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <StyleName>ChineseFont</StyleName>
-                        <Value>=[AMProdMatl.InventoryID]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox38">
-                        <CanGrow>True</CanGrow>
-                        <Location>128px, 0px</Location>
-                        <Size>192px, 48px</Size>
-                        <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Default>1px</Default>
-                            </BorderWidth>
-                            <TextAlign>Left</TextAlign>
-                            <VerticalAlign>Top</VerticalAlign>
-                        </Style>
-                        <StyleName>ChineseFont</StyleName>
-                        <Value>=[AMProdMatl.Descr]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox39">
-                        <Location>320px, 0px</Location>
-                        <Size>48px, 48px</Size>
-                        <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Default>1px</Default>
-                            </BorderWidth>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <StyleName>ChineseFont</StyleName>
-                        <Value>=[AMProdMatl.UOM]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox40">
-                        <Format>=IIF([AMProdMatl.UOM] = 'PCS', 'N0', 'N2')</Format>
-                        <Location>368px, 0px</Location>
-                        <Size>64px, 48px</Size>
-                        <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Default>1px</Default>
-                            </BorderWidth>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <StyleName>ChineseFont</StyleName>
-                        <Value>=[AMProdMatl.TotalQtyRequired]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox41">
-                        <Format>=IIF([AMProdMatl.UOM] = 'PCS', 'N0', 'N2')</Format>
-                        <Location>560px, 0px</Location>
-                        <Size>56px, 48px</Size>
-                        <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Default>1px</Default>
-                            </BorderWidth>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <StyleName>ChineseFont</StyleName>
-                        <Value>=IIF([AMProdMatl.QtyActual] = 0,'',[AMProdMatl.QtyActual])</Value>
-                    </TextBox>
-                    <TextBox Name="textBox42">
-                        <Location>616px, 0px</Location>
-                        <Size>64px, 48px</Size>
-                        <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Default>1px</Default>
-                            </BorderWidth>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <StyleName>ChineseFont</StyleName>
-                        <Value>=[Note.NoteText]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox44">
-                        <Format>=IIF([AMProdMatl.UOM] = 'PCS', 'N0', 'N2')</Format>
-                        <Location>432px, 0px</Location>
-                        <Size>64px, 48px</Size>
-                        <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Default>1px</Default>
-                            </BorderWidth>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <StyleName>ChineseFont</StyleName>
-                        <Value>=[AMProdMatl.TotalQtyRequired]-([AMProdItem.QtytoProd]*[AMProdMatl.QtyReq])</Value>
-                    </TextBox>
-                    <TextBox Name="textBox46">
-                        <Format>=IIF([AMProdMatl.UOM] = 'PCS', 'N0', 'N2')</Format>
-                        <Location>496px, 0px</Location>
-                        <Size>64px, 48px</Size>
-                        <Style>
-                            <BorderColor>
-                                <Default>Black</Default>
-                            </BorderColor>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Default>1px</Default>
-                            </BorderWidth>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <StyleName>ChineseFont</StyleName>
-                        <Value>=[AMProdItem.QtytoProd]*[AMProdMatl.QtyReq]</Value>
-                    </TextBox>
-                </Items>
-            </Detail>
-            <PageFooter Name="pageFooterSection1">
-                <GridSize>8px, 8px</GridSize>
-                <Height>0px</Height>
-                <Visible>False</Visible>
-            </PageFooter>
-            <ReportFooter Name="reportFooterSection1">
-                <GridSize>8px, 8px</GridSize>
-                <Height>0.42328cm</Height>
-                <PrintAtBottom>True</PrintAtBottom>
-                <Items>
-                    <TextBox Name="textBox49">
-                        <Location>16px, 0px</Location>
-                        <Size>168px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Size>10px</Size>
-                            </Font>
-                        </Style>
-                        <StyleName>ChineseFont</StyleName>
-                        <Value>Form number:FPC-001/Rev.01</Value>
-                    </TextBox>
-                </Items>
-            </ReportFooter>
-            <ReportHeader Name="reportHeaderSection1">
-                <GridSize>8px, 8px</GridSize>
                 <Height>5.29101cm</Height>
                 <Items>
                     <Panel Name="panel1">
@@ -3805,7 +3565,225 @@
                         <Value>ABA Medaical Technology(DG)</Value>
                     </TextBox>
                 </Items>
-            </ReportHeader>
+            </PageHeader>
+            <Detail Name="detailSection1">
+                <GridSize>8px, 8px</GridSize>
+                <Height>0.63492cm</Height>
+                <Variables>
+                    <ReportVariable>
+                        <Name>LineNbr</Name>
+                        <ValueExpr>=$LineNbr+1</ValueExpr>
+                    </ReportVariable>
+                </Variables>
+                <Items>
+                    <TextBox Name="textBox29">
+                        <Location>16px, 0px</Location>
+                        <Size>48px, 24px</Size>
+                        <Style>
+                            <BorderColor>
+                                <Default>Black</Default>
+                            </BorderColor>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Left>Solid</Left>
+                                <Right>Solid</Right>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Default>1px</Default>
+                            </BorderWidth>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>=PadLeft(CStr($LineNbr), 4, '0')</Value>
+                    </TextBox>
+                    <TextBox Name="textBox30">
+                        <Location>64px, 0px</Location>
+                        <Size>64px, 24px</Size>
+                        <Style>
+                            <BorderColor>
+                                <Default>Black</Default>
+                            </BorderColor>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Default>1px</Default>
+                            </BorderWidth>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>=[AMProdMatl.InventoryID]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox38">
+                        <Location>128px, 0px</Location>
+                        <Size>192px, 24px</Size>
+                        <Style>
+                            <BorderColor>
+                                <Default>Black</Default>
+                            </BorderColor>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Default>1px</Default>
+                            </BorderWidth>
+                            <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Top</VerticalAlign>
+                        </Style>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>=[AMProdMatl.Descr]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox39">
+                        <Location>320px, 0px</Location>
+                        <Size>48px, 24px</Size>
+                        <Style>
+                            <BorderColor>
+                                <Default>Black</Default>
+                            </BorderColor>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Default>1px</Default>
+                            </BorderWidth>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>=[AMProdMatl.UOM]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox40">
+                        <Format>=IIF([AMProdMatl.UOM] = 'PCS', 'N0', 'N2')</Format>
+                        <Location>368px, 0px</Location>
+                        <Size>64px, 24px</Size>
+                        <Style>
+                            <BorderColor>
+                                <Default>Black</Default>
+                            </BorderColor>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Default>1px</Default>
+                            </BorderWidth>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>=[AMProdMatl.TotalQtyRequired]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox41">
+                        <Format>=IIF([AMProdMatl.UOM] = 'PCS', 'N0', 'N2')</Format>
+                        <Location>560px, 0px</Location>
+                        <Size>56px, 24px</Size>
+                        <Style>
+                            <BorderColor>
+                                <Default>Black</Default>
+                            </BorderColor>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Default>1px</Default>
+                            </BorderWidth>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>=IIF([AMProdMatl.QtyActual] = 0,'',[AMProdMatl.QtyActual])</Value>
+                    </TextBox>
+                    <TextBox Name="textBox42">
+                        <Location>616px, 0px</Location>
+                        <Size>64px, 24px</Size>
+                        <Style>
+                            <BorderColor>
+                                <Default>Black</Default>
+                            </BorderColor>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Default>1px</Default>
+                            </BorderWidth>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>=[Note.NoteText]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox44">
+                        <Format>=IIF([AMProdMatl.UOM] = 'PCS', 'N0', 'N2')</Format>
+                        <Location>432px, 0px</Location>
+                        <Size>64px, 24px</Size>
+                        <Style>
+                            <BorderColor>
+                                <Default>Black</Default>
+                            </BorderColor>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Default>1px</Default>
+                            </BorderWidth>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>=[AMProdMatl.TotalQtyRequired]-([AMProdItem.QtytoProd]*[AMProdMatl.QtyReq])</Value>
+                    </TextBox>
+                    <TextBox Name="textBox46">
+                        <Format>=IIF([AMProdMatl.UOM] = 'PCS', 'N0', 'N2')</Format>
+                        <Location>496px, 0px</Location>
+                        <Size>64px, 24px</Size>
+                        <Style>
+                            <BorderColor>
+                                <Default>Black</Default>
+                            </BorderColor>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Default>1px</Default>
+                            </BorderWidth>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>=[AMProdItem.QtytoProd]*[AMProdMatl.QtyReq]</Value>
+                    </TextBox>
+                </Items>
+            </Detail>
+            <PageFooter Name="pageFooterSection1">
+                <GridSize>8px, 8px</GridSize>
+                <Height>0px</Height>
+                <Visible>False</Visible>
+            </PageFooter>
+            <ReportFooter Name="reportFooterSection1">
+                <GridSize>8px, 8px</GridSize>
+                <Height>0.42328cm</Height>
+                <PrintAtBottom>True</PrintAtBottom>
+                <Items>
+                    <TextBox Name="textBox49">
+                        <Location>16px, 0px</Location>
+                        <Size>168px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Size>10px</Size>
+                            </Font>
+                        </Style>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>Form number:FPC-001/Rev.01</Value>
+                    </TextBox>
+                </Items>
+            </ReportFooter>
         </Sections>
         <Items />
         <Groups>
