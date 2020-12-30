@@ -1704,6 +1704,10 @@
                     </ReportField>
                     <ReportField Name="AttributeDEPARTMENT">
                     </ReportField>
+                    <ReportField Name="AttributePRODLINE">
+                    </ReportField>
+                    <ReportField Name="AttributeREASON">
+                    </ReportField>
                     <ReportField Name="BatchNbr">
                     </ReportField>
                     <ReportField Name="BranchID">
@@ -2177,7 +2181,7 @@
                                 <Size>10px</Size>
                             </Font>
                         </Style>
-                        <Value>From number: FWH-004/Rev.01</Value>
+                        <Value>Form number: FWH-004/Rev.01</Value>
                     </TextBox>
                     <TextBox Name="textBox51">
                         <Excel>
@@ -2385,7 +2389,7 @@
                                     </Font>
                                     <TextAlign>Center</TextAlign>
                                 </Style>
-                                <Value>报废单</Value>
+                                <Value>=[INRegister.AttributeREASON]</Value>
                             </TextBox>
                             <TextBox Name="textBox13">
                                 <Location>8px, 40px</Location>
