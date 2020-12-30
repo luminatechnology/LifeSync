@@ -2836,7 +2836,7 @@
                                     <TextAlign>Left</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
                                 </Style>
-                                <Value>=[INTran.TranDesc]</Value>
+                                <Value>=[InventoryItem.Descr]</Value>
                             </TextBox>
                             <TextBox Name="textBox80">
                                 <Format>#0.00</Format>
@@ -2939,10 +2939,13 @@
                                         <Name>Microsoft JhengHei UI</Name>
                                         <Size>9px</Size>
                                     </Font>
+                                    <Padding>
+                                        <Left>5px</Left>
+                                    </Padding>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
                                 </Style>
-                                <Value>=[INTran.ReasonCode]</Value>
+                                <Value>=[INTran.TranDesc]</Value>
                             </TextBox>
                         </Items>
                     </Header>
