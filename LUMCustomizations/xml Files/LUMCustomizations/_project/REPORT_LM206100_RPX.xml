@@ -27,7 +27,6 @@
         <Relations>
             <ReportRelation>
                 <ChildName>AMMTran</ChildName>
-                <JoinType>Inner</JoinType>
                 <Links>
                     <RelationRow>
                         <ChildField>AMMTran.BatNbr</ChildField>
@@ -38,7 +37,6 @@
             </ReportRelation>
             <ReportRelation>
                 <ChildName>AMProdItem</ChildName>
-                <JoinType>Inner</JoinType>
                 <Links>
                     <RelationRow>
                         <ChildField>AMProdItem.ProdOrdID</ChildField>
@@ -49,7 +47,6 @@
             </ReportRelation>
             <ReportRelation>
                 <ChildName>AMProdMatl</ChildName>
-                <JoinType>Inner</JoinType>
                 <Links>
                     <RelationRow>
                         <ChildField>AMProdMatl.ProdOrdID</ChildField>
@@ -64,7 +61,6 @@
             </ReportRelation>
             <ReportRelation>
                 <ChildName>AMProdAttribute</ChildName>
-                <JoinType>Inner</JoinType>
                 <Links>
                     <RelationRow>
                         <ChildField>AMProdAttribute.ProdOrdID</ChildField>
@@ -79,7 +75,6 @@
             </ReportRelation>
             <ReportRelation>
                 <ChildName>InventoryItem</ChildName>
-                <JoinType>Inner</JoinType>
                 <Links>
                     <RelationRow>
                         <ChildField>InventoryItem.InventoryID</ChildField>

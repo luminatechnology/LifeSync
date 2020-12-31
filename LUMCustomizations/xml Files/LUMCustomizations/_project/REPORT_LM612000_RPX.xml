@@ -166,7 +166,6 @@
         <Relations>
             <ReportRelation>
                 <ChildName>INTran</ChildName>
-                <JoinType>Inner</JoinType>
                 <Links>
                     <RelationRow>
                         <ChildField>DocType</ChildField>
@@ -181,7 +180,6 @@
             </ReportRelation>
             <ReportRelation>
                 <ChildName>INTranSplit</ChildName>
-                <JoinType>Inner</JoinType>
                 <Links>
                     <RelationRow>
                         <ChildField>DocType</ChildField>
@@ -200,7 +198,6 @@
             </ReportRelation>
             <ReportRelation>
                 <ChildName>INSite</ChildName>
-                <JoinType>Inner</JoinType>
                 <Links>
                     <RelationRow>
                         <ChildField>SiteID</ChildField>
@@ -211,7 +208,6 @@
             </ReportRelation>
             <ReportRelation>
                 <ChildName>InventoryItem</ChildName>
-                <JoinType>Inner</JoinType>
                 <Links>
                     <RelationRow>
                         <ChildField>InventoryID</ChildField>
