@@ -82,31 +82,31 @@ namespace LumCustomizations.Graph
             //ActiveStandardReport(_reportID);
 
             var parameters = GetCurrentRowToParameter();
-            //if (parameters["ShipmentPlanID"] != null)
-            //    throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
+            if (parameters["ShipmentPlanID"] != null)
+                throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
 
             #region Device Hub
             // Get Printer Info
-            var printer = PXGraph.CreateInstance<SMPrinterMaint>();
-            var printerID = printer.Printers.Select().FirstTableItems.Where(x => x.PrinterName == "TR4500").FirstOrDefault().PrinterID;
+            //var printer = PXGraph.CreateInstance<SMPrinterMaint>();
+            //var printerID = printer.Printers.Select().FirstTableItems.Where(x => x.PrinterName == "TR4500").FirstOrDefault().PrinterID;
 
-            PrintSettings printSettings = new PrintSettings()
-            {
-                PrinterID = printerID,
-                NumberOfCopies = 1,
-                PrintWithDeviceHub = true,
-                DefinePrinterManually = true
-            };
-            //PXGraph.CreateInstance<SMPrintJobMaint>().CreatePrintJob(
-            //    printSettings,
-            //    _reportID,
-            //    parameters,
-            //    $"Report {_reportID}");
+            //PrintSettings printSettings = new PrintSettings()
+            //{
+            //    PrinterID = printerID,
+            //    NumberOfCopies = 1,
+            //    PrintWithDeviceHub = true,
+            //    DefinePrinterManually = true
+            //};
+            ////PXGraph.CreateInstance<SMPrintJobMaint>().CreatePrintJob(
+            ////    printSettings,
+            ////    _reportID,
+            ////    parameters,
+            ////    $"Report {_reportID}");
 
-            PXReportRequiredException ex = null;
-            ex = PXReportRequiredException.CombineReport(ex, _reportID, parameters);
+            //PXReportRequiredException ex = null;
+            //ex = PXReportRequiredException.CombineReport(ex, _reportID, parameters);
 
-            PX.SM.SMPrintJobMaint.CreatePrintJobGroup(printSettings, ex, $"(New Method)Print Report {_reportID}");
+            //PX.SM.SMPrintJobMaint.CreatePrintJobGroup(printSettings, ex, $"(New Method)Print Report {_reportID}");
             #endregion
             return adapter.Get<LumShipmentPlan>().ToList();
         }
