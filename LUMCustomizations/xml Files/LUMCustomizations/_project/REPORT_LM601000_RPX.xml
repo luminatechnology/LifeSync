@@ -47,6 +47,40 @@ mJPZWSffv1C2gs4GlEdQJ0w95+mwqN9JiHTnNujObdCd26A7t0F3boPu3AbduQ26cxt05zbozi2wWv0D
                 <Name>ShipmentPlanID</Name>
                 <Prompt>ShipmentPlanID</Prompt>
                 <ViewName>=Report.GetFieldSchema('LumShipmentPlan.ShipmentPlanID')</ViewName>
+                <Visible>False</Visible>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>Description</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Decription</Prompt>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>Customer</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Customer</Prompt>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>CustomerPartNo</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Customer Part No</Prompt>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>QtyinContainer</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Qty in Container</Prompt>
+                <Type>Integer</Type>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>QtyinShipment</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Qty in Shipment</Prompt>
+                <Type>Integer</Type>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>DATE</Name>
+                <Nullable>True</Nullable>
+                <Prompt>DATE</Prompt>
+                <Type>DateTime</Type>
             </ReportParameter>
         </Parameters>
         <Relations>
@@ -1121,16 +1155,16 @@ mJPZWSffv1C2gs4GlEdQJ0w95+mwqN9JiHTnNujObdCd26A7t0F3boPu3AbduQ26cxt05zbozi2wWv0D
                             </Font>
                             <TextAlign>Right</TextAlign>
                         </Style>
-                        <Value>=[InventoryItem.QTYSBOX_Attributes]</Value>
+                        <Value>=IIF([@QtyinContainer] = null, [InventoryItem.QTYSBOX_Attributes],[@QtyinContainer])</Value>
                     </TextBox>
                     <TextBox Name="textBox2">
                         <CanSplit>True</CanSplit>
                         <Location>0px, 16px</Location>
-                        <Size>104px, 24px</Size>
+                        <Size>112px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
-                                <Size>14px</Size>
+                                <Size>16px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
@@ -1138,16 +1172,17 @@ mJPZWSffv1C2gs4GlEdQJ0w95+mwqN9JiHTnNujObdCd26A7t0F3boPu3AbduQ26cxt05zbozi2wWv0D
                     </TextBox>
                     <TextBox Name="textBox3">
                         <CanSplit>True</CanSplit>
-                        <Location>104px, 16px</Location>
-                        <Size>272px, 56px</Size>
+                        <Location>112px, 16px</Location>
+                        <Size>264px, 48px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
                                 <Size>14px</Size>
                                 <Style>Bold</Style>
                             </Font>
+                            <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>=[InventoryItem.Descr]</Value>
+                        <Value>=IIF([@Description] = null, [InventoryItem.Descr], [@Description])</Value>
                     </TextBox>
                     <TextBox Name="textBox4">
                         <Location>0px, 136px</Location>
@@ -1160,7 +1195,7 @@ mJPZWSffv1C2gs4GlEdQJ0w95+mwqN9JiHTnNujObdCd26A7t0F3boPu3AbduQ26cxt05zbozi2wWv0D
                             </Font>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>='Customer : '+IIF([LumShipmentPlan.Customer] = null,'',[LumShipmentPlan.Customer])</Value>
+                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; null, @Customer, IIF([LumShipmentPlan.Customer] = null,'',[LumShipmentPlan.Customer]))</Value>
                     </TextBox>
                     <TextBox Name="textBox6">
                         <Location>0px, 152px</Location>
@@ -1184,7 +1219,7 @@ mJPZWSffv1C2gs4GlEdQJ0w95+mwqN9JiHTnNujObdCd26A7t0F3boPu3AbduQ26cxt05zbozi2wWv0D
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+Substring([INItemXRef.AlternateID],0, Len( [INItemXRef.AlternateID])-1)+'(REV. '+Right( [INItemXRef.AlternateID],1 )+')'</Value>
+                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = null, Substring([INItemXRef.AlternateID],0, Len( [INItemXRef.AlternateID])-1)+'(REV. '+Right( [INItemXRef.AlternateID],1 )+')',[@CustomerPartNo])</Value>
                     </TextBox>
                     <TextBox Name="textBox8">
                         <Location>232px, 216px</Location>
@@ -1209,7 +1244,7 @@ mJPZWSffv1C2gs4GlEdQJ0w95+mwqN9JiHTnNujObdCd26A7t0F3boPu3AbduQ26cxt05zbozi2wWv0D
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>=Report.GetDefUI(’RowCompanyBAccount.AcctName’)</Value>
+                        <Value>='ABA Medical Technology(Dong Guan)Co.,Ltd.'</Value>
                     </TextBox>
                 </Items>
             </Detail>

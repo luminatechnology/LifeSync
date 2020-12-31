@@ -40,6 +40,45 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                 <Name>ShipmentPlanID</Name>
                 <Prompt>ShipmentPlanID</Prompt>
                 <ViewName>=Report.GetFieldSchema('LumShipmentPlan.ShipmentPlanID')</ViewName>
+                <Visible>False</Visible>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>Descr</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Descr</Prompt>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>Customer</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Customer</Prompt>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>CustomerPartNo</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Custoemr Part No</Prompt>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>Resistor</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Resistor</Prompt>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>QtyinContainer</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Qty in container</Prompt>
+                <Type>Integer</Type>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>QtyinShipment</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Qty in shipment</Prompt>
+                <Type>Integer</Type>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>DATE</Name>
+                <Nullable>True</Nullable>
+                <Prompt>DATE</Prompt>
+                <Type>DateTime</Type>
             </ReportParameter>
         </Parameters>
         <Relations>
@@ -1137,7 +1176,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                             </Font>
                             <TextAlign>Right</TextAlign>
                         </Style>
-                        <Value>=[InventoryItem.QTYSBOX_Attributes]</Value>
+                        <Value>=IIF([@QtyinContainer] = null, [InventoryItem.QTYSBOX_Attributes],[@QtyinContainer])</Value>
                     </TextBox>
                     <TextBox Name="textBox17">
                         <Location>216px, 216px</Location>
@@ -1155,11 +1194,11 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                     <TextBox Name="textBox2">
                         <CanGrow>True</CanGrow>
                         <Location>0px, 16px</Location>
-                        <Size>88px, 24px</Size>
+                        <Size>104px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
-                                <Size>14px</Size>
+                                <Size>16px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
@@ -1175,12 +1214,12 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='RESISTOR : '+IIF([InventoryItem.RESISTOR_Attributes] = null, '', [InventoryItem.RESISTOR_Attributes])</Value>
+                        <Value>='RESISTOR : '+IIF([@Resistor] = null, IIF([InventoryItem.RESISTOR_Attributes] = null, '',[InventoryItem.RESISTOR_Attributes]),[@Resistor])</Value>
                     </TextBox>
                     <TextBox Name="textBox3">
                         <CanSplit>True</CanSplit>
-                        <Location>88px, 16px</Location>
-                        <Size>216px, 64px</Size>
+                        <Location>104px, 16px</Location>
+                        <Size>264px, 64px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1188,7 +1227,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>=[LumShipmentPlan.InventoryID_description]</Value>
+                        <Value>=IIF([@Descr] = null, [InventoryItem.Descr], [@Descr])</Value>
                     </TextBox>
                     <TextBox Name="textBox4">
                         <Location>0px, 120px</Location>
@@ -1200,7 +1239,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer : '+IIF([LumShipmentPlan.Customer] = null, '', [LumShipmentPlan.Customer])</Value>
+                        <Value>='Customer : '+IIF([@Customer] = null ,IIF([LumShipmentPlan.Customer] = null, '',[LumShipmentPlan.Customer]),[@Customer])</Value>
                     </TextBox>
                     <TextBox Name="textBox6">
                         <Location>0px, 136px</Location>
@@ -1224,11 +1263,11 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+Substring([INItemXRef.AlternateID],0, Len( [INItemXRef.AlternateID])-1)+'(REV. '+Right( [INItemXRef.AlternateID],1 )+')'</Value>
+                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = null, Substring([INItemXRef.AlternateID],0, Len( [INItemXRef.AlternateID])-1)+'(REV. '+Right( [INItemXRef.AlternateID],1 )+')',[@CustomerPartNo])</Value>
                     </TextBox>
                     <TextBox Name="textBox9">
                         <Location>0px, 0px</Location>
-                        <Size>304px, 16px</Size>
+                        <Size>368px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1236,7 +1275,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>=Report.GetDefUI(’RowCompanyBAccount.AcctName’)</Value>
+                        <Value>='ABA Medical Technology(Dong Guan)Co.,Ltd.'</Value>
                     </TextBox>
                 </Items>
             </Detail>

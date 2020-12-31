@@ -79,34 +79,34 @@ namespace LumCustomizations.Graph
             this.Save.Press();
             var _reportID = "lm601000";
 
-            ActiveStandardReport(_reportID);
+            //ActiveStandardReport(_reportID);
 
             var parameters = GetCurrentRowToParameter();
-            if (parameters["ShipmentPlanID"] != null)
-                throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
+            //if (parameters["ShipmentPlanID"] != null)
+            //    throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
 
             #region Device Hub
             // Get Printer Info
-            //var printer = PXGraph.CreateInstance<SMPrinterMaint>();
-            //var printerID = printer.Printers.Select().FirstTableItems.Where(x => x.PrinterName == "TR4500").FirstOrDefault().PrinterID;
+            var printer = PXGraph.CreateInstance<SMPrinterMaint>();
+            var printerID = printer.Printers.Select().FirstTableItems.Where(x => x.PrinterName == "TR4500").FirstOrDefault().PrinterID;
 
-            //PrintSettings printSettings = new PrintSettings()
-            //{
-            //    PrinterID = printerID,
-            //    NumberOfCopies = 1,
-            //    PrintWithDeviceHub = true,
-            //    DefinePrinterManually = true
-            //};
-            ////PXGraph.CreateInstance<SMPrintJobMaint>().CreatePrintJob(
-            ////    printSettings,
-            ////    _reportID,
-            ////    parameters,
-            ////    $"Report {_reportID}");
+            PrintSettings printSettings = new PrintSettings()
+            {
+                PrinterID = printerID,
+                NumberOfCopies = 1,
+                PrintWithDeviceHub = true,
+                DefinePrinterManually = true
+            };
+            //PXGraph.CreateInstance<SMPrintJobMaint>().CreatePrintJob(
+            //    printSettings,
+            //    _reportID,
+            //    parameters,
+            //    $"Report {_reportID}");
 
-            //PXReportRequiredException ex = null;
-            //ex = PXReportRequiredException.CombineReport(ex, _reportID, parameters);
+            PXReportRequiredException ex = null;
+            ex = PXReportRequiredException.CombineReport(ex, _reportID, parameters);
 
-            //PX.SM.SMPrintJobMaint.CreatePrintJobGroup(printSettings, ex, $"(New Method)Print Report {_reportID}");
+            PX.SM.SMPrintJobMaint.CreatePrintJobGroup(printSettings, ex, $"(New Method)Print Report {_reportID}");
             #endregion
             return adapter.Get<LumShipmentPlan>().ToList();
         }
@@ -118,7 +118,7 @@ namespace LumCustomizations.Graph
         {
             this.Save.Press();
             var _reportID = "lm601001";
-            ActiveStandardReport(_reportID);
+            //ActiveStandardReport(_reportID);
             var parameters = GetCurrentRowToParameter();
             if (parameters["ShipmentPlanID"] != null)
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
@@ -132,7 +132,7 @@ namespace LumCustomizations.Graph
         {
             this.Save.Press();
             var _reportID = "lm601002";
-            ActiveStandardReport(_reportID);
+            //ActiveStandardReport(_reportID);
             var parameters = GetCurrentRowToParameter();
             if (parameters["ShipmentPlanID"] != null)
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
@@ -146,7 +146,7 @@ namespace LumCustomizations.Graph
         {
             this.Save.Press();
             var _reportID = "lm601003";
-            ActiveStandardReport(_reportID);
+            //ActiveStandardReport(_reportID);
             var parameters = GetCurrentRowToParameter();
             if (parameters["ShipmentPlanID"] != null)
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
@@ -160,7 +160,7 @@ namespace LumCustomizations.Graph
         {
             this.Save.Press();
             var _reportID = "lm601004";
-            ActiveStandardReport(_reportID);
+            //ActiveStandardReport(_reportID);
             var parameters = GetCurrentRowToParameter();
             if (parameters["ShipmentPlanID"] != null)
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
@@ -174,7 +174,7 @@ namespace LumCustomizations.Graph
         {
             this.Save.Press();
             var _reportID = "lm601005";
-            ActiveStandardReport(_reportID);
+            //ActiveStandardReport(_reportID);
             var parameters = GetCurrentRowToParameter();
             if (parameters["ShipmentPlanID"] != null)
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
@@ -188,7 +188,7 @@ namespace LumCustomizations.Graph
         {
             this.Save.Press();
             var _reportID = "lm601006";
-            ActiveStandardReport(_reportID);
+            //ActiveStandardReport(_reportID);
             var parameters = GetCurrentRowToParameter();
             if (parameters["ShipmentPlanID"] != null)
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
@@ -202,7 +202,7 @@ namespace LumCustomizations.Graph
         {
             this.Save.Press();
             var _reportID = "lm601007";
-            ActiveStandardReport(_reportID);
+            //ActiveStandardReport(_reportID);
             var parameters = GetCurrentRowToParameter();
             if (parameters["ShipmentPlanID"] != null)
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));

@@ -51,6 +51,45 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                 <Name>ShipmentPlanID</Name>
                 <Prompt>ShipmentPlanID</Prompt>
                 <ViewName>=Report.GetFieldSchema('LumShipmentPlan.ShipmentPlanID')</ViewName>
+                <Visible>False</Visible>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>Descr</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Descr</Prompt>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>Customer</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Customer</Prompt>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>CustomerPartNo</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Customer Part No</Prompt>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>Resistor</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Resistor</Prompt>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>QtyinContainer</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Qty in container</Prompt>
+                <Type>Integer</Type>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>QtyinShipment</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Qty in Shipment</Prompt>
+                <Type>Integer</Type>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>DATE</Name>
+                <Nullable>True</Nullable>
+                <Prompt>DATE</Prompt>
+                <Type>DateTime</Type>
             </ReportParameter>
         </Parameters>
         <Relations>
@@ -988,7 +1027,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>='ABA LOT NO. : '+IIF([outter.LotSerialNbr] = null, '', [outter.LotSerialNbr])</Value>
                     </TextBox>
                     <TextBox Name="textBox15">
-                        <Location>240px, 216px</Location>
+                        <Location>232px, 216px</Location>
                         <Size>40px, 16px</Size>
                         <Style>
                             <Font>
@@ -1011,10 +1050,10 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                             </Font>
                             <TextAlign>Right</TextAlign>
                         </Style>
-                        <Value>=[InventoryItem.QTYCARTON_Attributes]</Value>
+                        <Value>=IIF([@QtyinContainer] = null, [InventoryItem.QTYCARTON_Attributes],[@QtyinContainer])</Value>
                     </TextBox>
                     <TextBox Name="textBox17">
-                        <Location>240px, 200px</Location>
+                        <Location>232px, 200px</Location>
                         <Size>40px, 16px</Size>
                         <Style>
                             <Font>
@@ -1101,7 +1140,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                             </Font>
                             <TextAlign>Right</TextAlign>
                         </Style>
-                        <Value>=CInt([outter.PlannedShipQty])</Value>
+                        <Value>=IIF([@QtyinShipment] = null, CInt([outter.PlannedShipQty]), [@QtyinShipment])</Value>
                     </TextBox>
                     <TextBox Name="textBox27">
                         <Format>='yyyy/MM/dd'</Format>
@@ -1116,7 +1155,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=[outter.PlannedShipDate]</Value>
+                        <Value>=IIF([@DATE] = null, [outter.PlannedShipDate],[@DATE])</Value>
                     </TextBox>
                     <TextBox Name="textBox29">
                         <Location>0px, 168px</Location>
@@ -1128,7 +1167,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='RESISTOR : '+IIF([InventoryItem.RESISTOR_Attributes] = null, '', [InventoryItem.RESISTOR_Attributes])</Value>
+                        <Value>='RESISTOR : '+IIF([@Resistor] = null, IIF([InventoryItem.RESISTOR_Attributes] = null, '',[InventoryItem.RESISTOR_Attributes]),[@Resistor])</Value>
                     </TextBox>
                     <TextBox Name="textBox3">
                         <CanSplit>True</CanSplit>
@@ -1141,7 +1180,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>=[InventoryItem.Descr]</Value>
+                        <Value>=IIF([@Descr] = null, [InventoryItem.Descr], [@Descr])</Value>
                     </TextBox>
                     <TextBox Name="textBox32">
                         <Location>0px, 0px</Location>
@@ -1165,7 +1204,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer : '+IIF([outter.Customer] = null,'',[outter.Customer])</Value>
+                        <Value>='Customer : '+IIF([@Customer] = null, IIF([outter.Customer] = null, '',[outter.Customer]), [@Customer])#010;</Value>
                     </TextBox>
                     <TextBox Name="textBox6">
                         <Location>0px, 120px</Location>
@@ -1189,7 +1228,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+Substring([INItemXRef.AlternateID],0, Len( [INItemXRef.AlternateID])-1)+'(REV. '+Right( [INItemXRef.AlternateID],1 )+')'</Value>
+                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = null, Substring([INItemXRef.AlternateID],0, Len( [INItemXRef.AlternateID])-1)+'(REV. '+Right( [INItemXRef.AlternateID],1 )+')',[@CustomerPartNo])</Value>
                     </TextBox>
                     <TextBox Name="textBox9">
                         <Location>0px, 16px</Location>
@@ -1201,7 +1240,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>=Report.GetDefUI(’RowCompanyBAccount.AcctName’)</Value>
+                        <Value>='ABA Medical Technology(Dong Guan)Co.,Ltd.'</Value>
                     </TextBox>
                 </Items>
             </Detail>
