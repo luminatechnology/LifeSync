@@ -85,6 +85,11 @@
             </ReportRelation>
         </Relations>
         <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
+        <Sorting>
+            <SortExp>
+                <DataField>InventoryItem.InventoryCD</DataField>
+            </SortExp>
+        </Sorting>
         <Style>
             <Font>
                 <Name>Microsoft YaHei UI</Name>

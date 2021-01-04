@@ -237,7 +237,7 @@
                 <ParentName>INTran</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>https://healthedge.acumatica.com/</SchemaUrl>
+        <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
         <Style>
             <Font>
                 <Name>Microsoft YaHei UI</Name>
@@ -1887,7 +1887,6 @@
                 <ExcelMargin>
                     <bottom>1</bottom>
                 </ExcelMargin>
-                <GridSize>8px, 8px</GridSize>
                 <Height>0px</Height>
                 <Visible>False</Visible>
                 <Items>
@@ -2102,7 +2101,6 @@
                 </Items>
             </PageHeader>
             <Detail Name="Issue">
-                <GridSize>8px, 8px</GridSize>
                 <Height>0px</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=Count([INTranSplit.LineNbr])&gt;1</VisibleExpr>
@@ -2158,7 +2156,6 @@
                 </Items>
             </Detail>
             <PageFooter Name="pageFooterSection1">
-                <GridSize>8px, 8px</GridSize>
                 <Height>1.0582cm</Height>
                 <Items>
                     <TextBox Name="textBox1">
@@ -2230,7 +2227,6 @@
                 </Items>
             </PageFooter>
             <PageHeader Name="pageHeaderSection2">
-                <GridSize>8px, 8px</GridSize>
                 <Height>0px</Height>
                 <StyleName>ColumnsHeaderSection</StyleName>
                 <Visible>False</Visible>
@@ -2442,9 +2438,32 @@
                         <GridSize>8px, 8px</GridSize>
                         <Height>0.63492cm</Height>
                         <Items>
+                            <TextBox Name="textBox4">
+                                <Location>336px, 0px</Location>
+                                <Size>72px, 24px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Right>Solid</Right>
+                                        <Top>Solid</Top>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                        <Top>1px</Top>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Name>Microsoft JhengHei UI</Name>
+                                        <Size>12px</Size>
+                                    </Font>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>批号</Value>
+                            </TextBox>
                             <TextBox Name="textBox68">
-                                <Location>536px, 0px</Location>
-                                <Size>152px, 24px</Size>
+                                <Location>568px, 0px</Location>
+                                <Size>120px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
@@ -2466,7 +2485,7 @@
                                 <Value>备注</Value>
                             </TextBox>
                             <TextBox Name="textBox69">
-                                <Location>480px, 0px</Location>
+                                <Location>512px, 0px</Location>
                                 <Size>56px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2489,7 +2508,7 @@
                                 <Value>库位</Value>
                             </TextBox>
                             <TextBox Name="textBox70">
-                                <Location>416px, 0px</Location>
+                                <Location>448px, 0px</Location>
                                 <Size>64px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2512,7 +2531,7 @@
                                 <Value>仓库</Value>
                             </TextBox>
                             <TextBox Name="textBox71">
-                                <Location>376px, 0px</Location>
+                                <Location>408px, 0px</Location>
                                 <Size>40px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2535,7 +2554,7 @@
                                 <Value>单位</Value>
                             </TextBox>
                             <TextBox Name="textBox72">
-                                <Location>312px, 0px</Location>
+                                <Location>272px, 0px</Location>
                                 <Size>64px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2555,11 +2574,11 @@
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
                                 </Style>
-                                <Value>报废数量</Value>
+                                <Value>数量</Value>
                             </TextBox>
                             <TextBox Name="textBox74">
                                 <Location>96px, 0px</Location>
-                                <Size>216px, 24px</Size>
+                                <Size>176px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
@@ -2663,6 +2682,27 @@
                             </ReportVariable>
                         </Variables>
                         <Items>
+                            <TextBox Name="textBox5">
+                                <Location>336px, 0px</Location>
+                                <Size>72px, 32px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Right>Solid</Right>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Name>Microsoft JhengHei UI</Name>
+                                        <Size>9px</Size>
+                                    </Font>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>=[INTran.LotSerialNbr]</Value>
+                            </TextBox>
                             <TextBox Name="textBox77">
                                 <Location>8px, 0px</Location>
                                 <Size>32px, 32px</Size>
@@ -2709,7 +2749,7 @@
                             </TextBox>
                             <TextBox Name="textBox79">
                                 <Location>96px, 0px</Location>
-                                <Size>216px, 32px</Size>
+                                <Size>176px, 32px</Size>
                                 <Style>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
@@ -2726,11 +2766,11 @@
                                     <TextAlign>Left</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
                                 </Style>
-                                <Value>=[INTran.TranDesc]</Value>
+                                <Value>=[InventoryItem.Descr]</Value>
                             </TextBox>
                             <TextBox Name="textBox80">
                                 <Format>#0.00</Format>
-                                <Location>312px, 0px</Location>
+                                <Location>272px, 0px</Location>
                                 <Size>64px, 32px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2751,7 +2791,7 @@
                                 <Value>=[INTran.Qty]</Value>
                             </TextBox>
                             <TextBox Name="textBox81">
-                                <Location>376px, 0px</Location>
+                                <Location>408px, 0px</Location>
                                 <Size>40px, 32px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2772,7 +2812,7 @@
                                 <Value>=[INTran.UOM]</Value>
                             </TextBox>
                             <TextBox Name="textBox82">
-                                <Location>416px, 0px</Location>
+                                <Location>448px, 0px</Location>
                                 <Size>64px, 32px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2793,7 +2833,7 @@
                                 <Value>=[INTran.SiteID_INSite_descr]</Value>
                             </TextBox>
                             <TextBox Name="textBox83">
-                                <Location>480px, 0px</Location>
+                                <Location>512px, 0px</Location>
                                 <Size>56px, 32px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2814,8 +2854,8 @@
                                 <Value>=[INTran.LocationID_description]</Value>
                             </TextBox>
                             <TextBox Name="textBox84">
-                                <Location>536px, 0px</Location>
-                                <Size>152px, 32px</Size>
+                                <Location>568px, 0px</Location>
+                                <Size>120px, 32px</Size>
                                 <Style>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
@@ -2832,7 +2872,7 @@
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
                                 </Style>
-                                <Value>=[INTran.ReasonCode]</Value>
+                                <Value>=[INTran.TranDesc]</Value>
                             </TextBox>
                         </Items>
                     </Header>

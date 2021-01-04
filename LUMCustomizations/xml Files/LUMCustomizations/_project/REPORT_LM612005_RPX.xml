@@ -161,7 +161,7 @@
                 <ParentName>INTran</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>https://healthedge.acumatica.com/</SchemaUrl>
+        <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
         <Style>
             <Font>
                 <Name>Microsoft YaHei UI</Name>
@@ -1815,7 +1815,6 @@
                 <ExcelMargin>
                     <bottom>1</bottom>
                 </ExcelMargin>
-                <GridSize>8px, 8px</GridSize>
                 <Height>0px</Height>
                 <Visible>False</Visible>
                 <Items>
@@ -2030,7 +2029,6 @@
                 </Items>
             </PageHeader>
             <Detail Name="Issue">
-                <GridSize>8px, 8px</GridSize>
                 <Height>0px</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=Count([INTranSplit.LineNbr])&gt;1</VisibleExpr>
@@ -2086,8 +2084,7 @@
                 </Items>
             </Detail>
             <PageFooter Name="pageFooterSection1">
-                <GridSize>8px, 8px</GridSize>
-                <Height>1.0582cm</Height>
+                <Height>0.95238cm</Height>
                 <Items>
                     <TextBox Name="textBox1">
                         <Excel>
@@ -2101,7 +2098,21 @@
                                 <Size>10px</Size>
                             </Font>
                         </Style>
-                        <Value>Form number: FWH-004/Rev.01</Value>
+                        <Value>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;'Form number: FWH-004/Rev.01',#010;'Form number: FWH-008/Rev.01')</Value>
+                    </TextBox>
+                    <TextBox Name="textBox5">
+                        <Excel>
+                            <row>3</row>
+                        </Excel>
+                        <Location>512px, 0px</Location>
+                        <Size>32px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                            </Font>
+                        </Style>
+                        <Value>核准:</Value>
+                        <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;False,#010;True)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox51">
                         <Excel>
@@ -2114,7 +2125,9 @@
                                 <Name>Microsoft YaHei UI</Name>
                             </Font>
                         </Style>
-                        <Value>申請人:</Value>
+                        <Value>申请人:</Value>
+                        <Visible>False</Visible>
+                        <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;True,#010;False)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox53">
                         <Excel>
@@ -2128,6 +2141,8 @@
                             </Font>
                         </Style>
                         <Value>品管:</Value>
+                        <Visible>False</Visible>
+                        <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;True,#010;False)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox54">
                         <Excel>
@@ -2141,6 +2156,22 @@
                             </Font>
                         </Style>
                         <Value>生管:</Value>
+                        <Visible>False</Visible>
+                        <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;True,#010;False)</VisibleExpr>
+                    </TextBox>
+                    <TextBox Name="textBox6">
+                        <Excel>
+                            <row>3</row>
+                        </Excel>
+                        <Location>352px, 0px</Location>
+                        <Size>32px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                            </Font>
+                        </Style>
+                        <Value>生管:</Value>
+                        <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;False,#010;True)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox62">
                         <Excel>
@@ -2154,6 +2185,8 @@
                             </Font>
                         </Style>
                         <Value>倉管:</Value>
+                        <Visible>False</Visible>
+                        <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;True,#010;False)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox63">
                         <Excel>
@@ -2166,7 +2199,9 @@
                                 <Name>Microsoft YaHei UI</Name>
                             </Font>
                         </Style>
-                        <Value>部門主管:</Value>
+                        <Value>部门主管:</Value>
+                        <Visible>False</Visible>
+                        <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;True,#010;False)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox64">
                         <Excel>
@@ -2179,12 +2214,41 @@
                                 <Name>Microsoft YaHei UI</Name>
                             </Font>
                         </Style>
-                        <Value>審批:</Value>
+                        <Value>审批:</Value>
+                        <Visible>False</Visible>
+                        <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;True,#010;False)</VisibleExpr>
+                    </TextBox>
+                    <TextBox Name="textBox7">
+                        <Excel>
+                            <row>3</row>
+                        </Excel>
+                        <Location>176px, 0px</Location>
+                        <Size>32px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                            </Font>
+                        </Style>
+                        <Value>领料:</Value>
+                        <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;False,#010;True)</VisibleExpr>
+                    </TextBox>
+                    <TextBox Name="textBox8">
+                        <Excel>
+                            <row>3</row>
+                        </Excel>
+                        <Location>8px, 0px</Location>
+                        <Size>32px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                            </Font>
+                        </Style>
+                        <Value>货仓:</Value>
+                        <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;False,#010;True)</VisibleExpr>
                     </TextBox>
                 </Items>
             </PageFooter>
             <PageHeader Name="pageHeaderSection2">
-                <GridSize>8px, 8px</GridSize>
                 <Height>0px</Height>
                 <StyleName>ColumnsHeaderSection</StyleName>
                 <Visible>False</Visible>
@@ -2683,7 +2747,7 @@
                                     </BorderWidth>
                                     <Font>
                                         <Name>Microsoft JhengHei UI</Name>
-                                        <Size>9px</Size>
+                                        <Size>12px</Size>
                                     </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
@@ -2706,7 +2770,7 @@
                                     </BorderWidth>
                                     <Font>
                                         <Name>Microsoft JhengHei UI</Name>
-                                        <Size>9px</Size>
+                                        <Size>12px</Size>
                                     </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
@@ -2727,7 +2791,7 @@
                                     </BorderWidth>
                                     <Font>
                                         <Name>Microsoft JhengHei UI</Name>
-                                        <Size>9px</Size>
+                                        <Size>12px</Size>
                                     </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
@@ -2773,7 +2837,7 @@
                                     </BorderWidth>
                                     <Font>
                                         <Name>Microsoft JhengHei UI</Name>
-                                        <Size>9px</Size>
+                                        <Size>12px</Size>
                                     </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
@@ -2794,7 +2858,7 @@
                                     </BorderWidth>
                                     <Font>
                                         <Name>Microsoft JhengHei UI</Name>
-                                        <Size>9px</Size>
+                                        <Size>12px</Size>
                                     </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
@@ -2815,7 +2879,7 @@
                                     </BorderWidth>
                                     <Font>
                                         <Name>Microsoft JhengHei UI</Name>
-                                        <Size>9px</Size>
+                                        <Size>11px</Size>
                                     </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
@@ -2836,7 +2900,7 @@
                                     </BorderWidth>
                                     <Font>
                                         <Name>Microsoft JhengHei UI</Name>
-                                        <Size>9px</Size>
+                                        <Size>12px</Size>
                                     </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
