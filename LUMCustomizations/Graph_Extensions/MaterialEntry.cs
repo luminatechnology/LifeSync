@@ -1,15 +1,26 @@
 using PX.Data;
+using PX.Objects.IN;
+using System;
 using System.Collections.Generic;
 
 namespace JAMS.AM
 {
-  public class MaterialEntry_Extension : PXGraphExtension<MaterialEntry>
-  {
+    public class MaterialEntry_Extension : PXGraphExtension<MaterialEntry>
+    {
         public override void Initialize()
         {
             ReportAction.AddMenuAction(MaterialIssuesAction);
             ReportAction.MenuAutoOpen = true;
         }
+
+        #region Override Attribute
+        [PXDBQuantity(0,typeof(AMMTran.uOM), typeof(AMMTran.baseQty), HandleEmptyKey = true)]
+        [PXDefault(TypeCode.Decimal, "0")]
+        [PXUIField(DisplayName = "Quantity")]
+        [PXFormula(null, typeof(SumCalc<AMBatch.totalQty>))]
+        public virtual void _(Events.CacheAttached<AMMTran.qty> e) { }
+
+        #endregion
 
         #region  Actions
 
