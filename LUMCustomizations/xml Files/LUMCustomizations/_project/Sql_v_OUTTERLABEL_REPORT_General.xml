@@ -23,7 +23,7 @@ FROM LumShipmentPlan t
 INNER JOIN (
 		select CompanyID, 
 			   ShipmentPlanID, 
-			   max(EndLabelNbr) as EndLabelNbr 
+			   max(ISNULL(EndLabelNbr,1)) as EndLabelNbr 
 		from LumShipmentPlan 
 		group by CompanyID, ShipmentPlanID) m on m.CompanyID = t.CompanyID
 										     and m.ShipmentPlanID = t.ShipmentPlanID

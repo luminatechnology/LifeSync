@@ -52,7 +52,7 @@ from calculateReult t
 inner join (
 	select p.CompanyID,
 		   p.ShipmentPlanID,
-		   max(p.endlabelnbr) as EndLabelNbr 
+		   max(isnull(p.endlabelnbr,1)) as EndLabelNbr 
 	from calculateReult p 
 	group by p.CompanyID,p.ShipmentPlanID
 ) p on t.CompanyID = p.CompanyID and t.ShipmentPlanID = p.ShipmentPlanID]]></CDATA>

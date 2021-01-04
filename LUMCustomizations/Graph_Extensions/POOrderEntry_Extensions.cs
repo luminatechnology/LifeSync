@@ -62,8 +62,8 @@ namespace PX.Objects.PO
             var _graph = PXGraph.CreateInstance<POOrderEntry>();
             var _PIPreference = from t in _graph.Select<LifeSyncPreference>()
                                 select t;
-            var _visible = _PIPreference.FirstOrDefault() == null ? false : _PIPreference.FirstOrDefault().BubbleNumberPrinting.Value
-                                                                  ? true : false;
+            var _visible = _PIPreference.FirstOrDefault() == null ? false : 
+                           _PIPreference.FirstOrDefault().BubbleNumberPrinting.HasValue ? _PIPreference.FirstOrDefault().BubbleNumberPrinting.Value : false;
 
             PXUIFieldAttribute.SetVisible<POLineExt.usrBubbleNumber>(e.Cache, null, _visible);
         }

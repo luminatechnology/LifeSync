@@ -38,7 +38,7 @@ namespace LumCustomizations.DAC
         [PXSelector(typeof(SelectFrom<LumShipmentPlan>.
                            AggregateTo<GroupBy<LumShipmentPlan.shipmentPlanID>>.
                            SearchFor<LumShipmentPlan.shipmentPlanID>),
-                    typeof(LumShipmentPlan.shipmentPlanID))]
+                    typeof(LumShipmentPlan.shipmentPlanID),ValidateValue =false)]
         //[AutoNumber(typeof(SOSetup.shipmentNumberingID), typeof(AccessInfo.businessDate))]
         public virtual string ShipmentPlanID { get; set; }
         public abstract class shipmentPlanID : PX.Data.BQL.BqlString.Field<LumShipmentPlan.shipmentPlanID> { }

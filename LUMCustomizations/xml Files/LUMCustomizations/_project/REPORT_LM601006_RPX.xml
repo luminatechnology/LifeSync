@@ -1193,6 +1193,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                     </TextBox>
                     <TextBox Name="textBox2">
                         <CanGrow>True</CanGrow>
+                        <Localizable>False</Localizable>
                         <Location>0px, 16px</Location>
                         <Size>104px, 24px</Size>
                         <Style>
