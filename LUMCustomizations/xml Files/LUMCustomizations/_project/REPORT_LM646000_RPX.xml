@@ -24,11 +24,15 @@
         <LayoutUnit>Inch</LayoutUnit>
         <MailSettings>
             <ActivitySource>POReceipt.NoteID</ActivitySource>
+            <Bcc>
+            </Bcc>
             <Body>='Dear Customer,#010;#010;This is an automatic email to notify you that you have a new Purchase Receipt available on your account.  #010;You will find a copy of'+' '+[POReceipt.ReceiptType]+' '+'#'+' '+[POReceipt.ReceiptNbr]+' '+'attached to this email.  #010;#010;If you have any questions, please don’t hesitate to contact us at Email.  #010;#010;Thank you for choosing'+' '+[CompanyContact.FullName]+'.'</Body>
+            <Cc>
+            </Cc>
+            <Format>
+            </Format>
             <ParentSource>Vendor.NoteID</ParentSource>
             <Subject>=[CompanyContact.FullName]+':'+' '+[POReceipt.ReceiptType]+' '+'#'+[POReceipt.ReceiptNbr]+' '+'is now available'</Subject>
-            <TemplateID>
-            </TemplateID>
             <To>=[VendorContact.EMail]</To>
         </MailSettings>
         <PageSettings>
@@ -4539,12 +4543,6 @@
                         <Height>0.25in</Height>
                         <PrintForEmptyGroup>True</PrintForEmptyGroup>
                         <PrintOnEveryPage>True</PrintOnEveryPage>
-                        <Variables>
-                            <ReportVariable>
-                                <Name>LineNbr</Name>
-                                <ValueExpr>=$LineNbr+1</ValueExpr>
-                            </ReportVariable>
-                        </Variables>
                         <Items>
                             <TextBox Name="textBox15">
                                 <Location>216px, 0px</Location>
