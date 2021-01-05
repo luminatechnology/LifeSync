@@ -2192,7 +2192,7 @@
                         <Format>#.00</Format>
                         <Location>496px, 64px</Location>
                         <Size>120px, 16px</Size>
-                        <Value>=[AMBatch.TotalQty]</Value>
+                        <Value>=[AMProdItem.QtytoProd]</Value>
                     </TextBox>
                     <TextBox Name="textBox17">
                         <Format>='yyyy-MM-dd'</Format>
