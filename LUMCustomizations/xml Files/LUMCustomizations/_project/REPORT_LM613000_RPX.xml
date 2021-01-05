@@ -3429,7 +3429,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             </TextBox>
                             <TextBox Name="textBox20">
                                 <Location>72px, 104px</Location>
-                                <Size>64px, 16px</Size>
+                                <Size>152px, 16px</Size>
                                 <Style>
                                     <TextAlign>Left</TextAlign>
                                 </Style>
@@ -3438,7 +3438,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             </TextBox>
                             <TextBox Name="textBox21">
                                 <Location>72px, 120px</Location>
-                                <Size>64px, 16px</Size>
+                                <Size>152px, 16px</Size>
                                 <Style>
                                     <TextAlign>Left</TextAlign>
                                 </Style>
@@ -3447,7 +3447,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             </TextBox>
                             <TextBox Name="textBox22">
                                 <Location>72px, 136px</Location>
-                                <Size>64px, 16px</Size>
+                                <Size>152px, 16px</Size>
                                 <Style>
                                     <TextAlign>Left</TextAlign>
                                 </Style>
@@ -3456,7 +3456,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             </TextBox>
                             <TextBox Name="textBox23">
                                 <Location>72px, 152px</Location>
-                                <Size>232px, 16px</Size>
+                                <Size>568px, 16px</Size>
                                 <Style>
                                     <TextAlign>Left</TextAlign>
                                 </Style>
@@ -3603,7 +3603,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             </TextBox>
                             <TextBox Name="textBox43">
                                 <Location>312px, 104px</Location>
-                                <Size>136px, 16px</Size>
+                                <Size>328px, 16px</Size>
                                 <Style>
                                     <TextAlign>Left</TextAlign>
                                 </Style>
@@ -3612,7 +3612,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             </TextBox>
                             <TextBox Name="textBox44">
                                 <Location>312px, 120px</Location>
-                                <Size>136px, 16px</Size>
+                                <Size>328px, 16px</Size>
                                 <Style>
                                     <TextAlign>Left</TextAlign>
                                 </Style>
@@ -3755,7 +3755,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Default>1px</Default>
                             </BorderWidth>
                             <Font>
-                                <Size>12px</Size>
+                                <Size>11px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -3778,7 +3778,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Default>1px</Default>
                             </BorderWidth>
                             <Font>
-                                <Size>12px</Size>
+                                <Size>11px</Size>
                             </Font>
                         </Style>
                         <StyleName>ChineseFont</StyleName>
@@ -3787,7 +3787,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                     <TextBox Name="textBox60">
                         <CanGrow>True</CanGrow>
                         <Location>136px, 0px</Location>
-                        <Size>168px, 56px</Size>
+                        <Size>152px, 56px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3800,7 +3800,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Default>1px</Default>
                             </BorderWidth>
                             <Font>
-                                <Size>12px</Size>
+                                <Size>11px</Size>
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
@@ -3808,8 +3808,8 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Value>=[InventoryItem.Descr]</Value>
                     </TextBox>
                     <TextBox Name="textBox61">
-                        <Location>304px, 0px</Location>
-                        <Size>40px, 56px</Size>
+                        <Location>288px, 0px</Location>
+                        <Size>32px, 56px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3822,7 +3822,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Default>1px</Default>
                             </BorderWidth>
                             <Font>
-                                <Size>12px</Size>
+                                <Size>11px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -3831,8 +3831,8 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Value>=[InventoryItem.BUBBLENO_Attributes]</Value>
                     </TextBox>
                     <TextBox Name="textBox62">
-                        <Location>344px, 0px</Location>
-                        <Size>40px, 56px</Size>
+                        <Location>320px, 0px</Location>
+                        <Size>32px, 56px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3845,7 +3845,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Default>1px</Default>
                             </BorderWidth>
                             <Font>
-                                <Size>12px</Size>
+                                <Size>11px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -3854,9 +3854,9 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Value>=[POLine.UOM]</Value>
                     </TextBox>
                     <TextBox Name="textBox63">
-                        <Format>='N3'</Format>
-                        <Location>440px, 0px</Location>
-                        <Size>56px, 56px</Size>
+                        <Format>='N2'</Format>
+                        <Location>400px, 0px</Location>
+                        <Size>72px, 56px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3869,7 +3869,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Default>1px</Default>
                             </BorderWidth>
                             <Font>
-                                <Size>12px</Size>
+                                <Size>11px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -3878,9 +3878,9 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Value>=[POLine.OrderQty]</Value>
                     </TextBox>
                     <TextBox Name="textBox64">
-                        <Format>='N3'</Format>
-                        <Location>496px, 0px</Location>
-                        <Size>64px, 56px</Size>
+                        <Format>='N2'</Format>
+                        <Location>472px, 0px</Location>
+                        <Size>88px, 56px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3893,7 +3893,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Default>1px</Default>
                             </BorderWidth>
                             <Font>
-                                <Size>12px</Size>
+                                <Size>11px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -3903,8 +3903,8 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                     </TextBox>
                     <TextBox Name="textBox65">
                         <Format>='N2'</Format>
-                        <Location>384px, 0px</Location>
-                        <Size>56px, 56px</Size>
+                        <Location>352px, 0px</Location>
+                        <Size>48px, 56px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3917,7 +3917,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Default>1px</Default>
                             </BorderWidth>
                             <Font>
-                                <Size>12px</Size>
+                                <Size>11px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -3940,13 +3940,13 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Default>1px</Default>
                             </BorderWidth>
                             <Font>
-                                <Size>12px</Size>
+                                <Size>11px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <StyleName>ChineseFont</StyleName>
-                        <Value>=Format('{0:0.0}',[POTaxTran.TaxRate] )+'%'</Value>
+                        <Value>=IIF([POTaxTran.TaxRate] = null, '', Format('{0:0.0}',[POTaxTran.TaxRate] )+'%')</Value>
                     </TextBox>
                     <TextBox Name="textBox67">
                         <Format>='yyyy-MM-dd'</Format>
@@ -3964,7 +3964,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Default>1px</Default>
                             </BorderWidth>
                             <Font>
-                                <Size>12px</Size>
+                                <Size>11px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -4040,7 +4040,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             </TextBox>
                             <TextBox Name="textBox50">
                                 <Location>136px, 0px</Location>
-                                <Size>168px, 40px</Size>
+                                <Size>152px, 40px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Default>Black</Default>
@@ -4059,8 +4059,8 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Value>规格</Value>
                             </TextBox>
                             <TextBox Name="textBox51">
-                                <Location>304px, 0px</Location>
-                                <Size>40px, 40px</Size>
+                                <Location>288px, 0px</Location>
+                                <Size>32px, 40px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Default>Black</Default>
@@ -4079,8 +4079,8 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Value>版本</Value>
                             </TextBox>
                             <TextBox Name="textBox52">
-                                <Location>344px, 0px</Location>
-                                <Size>40px, 40px</Size>
+                                <Location>320px, 0px</Location>
+                                <Size>32px, 40px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Default>Black</Default>
@@ -4099,8 +4099,8 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Value>单位</Value>
                             </TextBox>
                             <TextBox Name="textBox53">
-                                <Location>440px, 0px</Location>
-                                <Size>56px, 40px</Size>
+                                <Location>400px, 0px</Location>
+                                <Size>72px, 40px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Default>Black</Default>
@@ -4119,8 +4119,8 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Value>采购数量</Value>
                             </TextBox>
                             <TextBox Name="textBox54">
-                                <Location>496px, 0px</Location>
-                                <Size>64px, 40px</Size>
+                                <Location>472px, 0px</Location>
+                                <Size>88px, 40px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Default>Black</Default>
@@ -4159,8 +4159,8 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Value>税率%</Value>
                             </TextBox>
                             <TextBox Name="textBox56">
-                                <Location>384px, 0px</Location>
-                                <Size>56px, 40px</Size>
+                                <Location>352px, 0px</Location>
+                                <Size>48px, 40px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Default>Black</Default>
