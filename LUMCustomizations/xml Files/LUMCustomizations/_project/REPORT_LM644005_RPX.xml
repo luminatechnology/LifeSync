@@ -2895,11 +2895,11 @@
         </Tables>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
-                <Height>2.53968cm</Height>
+                <Height>3.1746cm</Height>
                 <Items>
                     <TextBox Name="textBox1">
-                        <Location>504px, 64px</Location>
-                        <Size>64px, 32px</Size>
+                        <Location>512px, 96px</Location>
+                        <Size>64px, 24px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2922,7 +2922,7 @@
                     </TextBox>
                     <TextBox Name="textBox16">
                         <Format>='yyyy-MM-dd'</Format>
-                        <Location>336px, 40px</Location>
+                        <Location>336px, 72px</Location>
                         <Size>136px, 24px</Size>
                         <Style>
                             <Font>
@@ -2935,7 +2935,7 @@
                         <Value>=[SOShipment.ShipDate]</Value>
                     </TextBox>
                     <TextBox Name="textBox17">
-                        <Location>592px, 40px</Location>
+                        <Location>592px, 72px</Location>
                         <Size>96px, 24px</Size>
                         <Style>
                             <Font>
@@ -2948,8 +2948,8 @@
                         <Value>=[SOShipment.ShipmentNbr]</Value>
                     </TextBox>
                     <TextBox Name="textBox2">
-                        <Location>376px, 64px</Location>
-                        <Size>80px, 32px</Size>
+                        <Location>384px, 96px</Location>
+                        <Size>80px, 24px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2971,7 +2971,7 @@
                         <Value>出货数量</Value>
                     </TextBox>
                     <TextBox Name="textBox20">
-                        <Location>48px, 32px</Location>
+                        <Location>48px, 64px</Location>
                         <Size>40px, 24px</Size>
                         <Style>
                             <Font>
@@ -2984,7 +2984,7 @@
                         <Value>成品</Value>
                     </TextBox>
                     <TextBox Name="textBox21">
-                        <Location>120px, 32px</Location>
+                        <Location>120px, 64px</Location>
                         <Size>40px, 24px</Size>
                         <Style>
                             <Font>
@@ -2997,7 +2997,7 @@
                         <Value>其它</Value>
                     </TextBox>
                     <TextBox Name="textBox22">
-                        <Location>32px, 40px</Location>
+                        <Location>32px, 72px</Location>
                         <Size>16px, 16px</Size>
                         <Style>
                             <BorderStyle>
@@ -3021,7 +3021,7 @@
                         </Style>
                     </TextBox>
                     <TextBox Name="textBox23">
-                        <Location>104px, 40px</Location>
+                        <Location>104px, 72px</Location>
                         <Size>16px, 16px</Size>
                         <Style>
                             <BorderStyle>
@@ -3045,7 +3045,7 @@
                         </Style>
                     </TextBox>
                     <TextBox Name="textBox24">
-                        <Location>640px, 8px</Location>
+                        <Location>640px, 24px</Location>
                         <Size>48px, 24px</Size>
                         <Style>
                             <Font>
@@ -3057,8 +3057,21 @@
                         </Style>
                         <Value>=[PageIndex] + '/' + [PageCount]</Value>
                     </TextBox>
+                    <TextBox Name="textBox25">
+                        <Location>216px, 0px</Location>
+                        <Size>264px, 32px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                                <Size>24px</Size>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>东莞美博电子有限公司</Value>
+                    </TextBox>
                     <TextBox Name="textBox3">
-                        <Location>520px, 40px</Location>
+                        <Location>520px, 72px</Location>
                         <Size>72px, 24px</Size>
                         <Style>
                             <Font>
@@ -3071,8 +3084,8 @@
                         <Value>送货单号 :</Value>
                     </TextBox>
                     <TextBox Name="textBox32">
-                        <Location>0px, 64px</Location>
-                        <Size>48px, 32px</Size>
+                        <Location>0px, 96px</Location>
+                        <Size>40px, 24px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -3096,8 +3109,8 @@
                         <Value>序号</Value>
                     </TextBox>
                     <TextBox Name="textBox34">
-                        <Location>48px, 64px</Location>
-                        <Size>56px, 32px</Size>
+                        <Location>40px, 96px</Location>
+                        <Size>56px, 24px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -3116,11 +3129,11 @@
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>物料品号</Value>
+                        <Value>品号</Value>
                     </TextBox>
                     <TextBox Name="textBox35">
-                        <Location>104px, 64px</Location>
-                        <Size>192px, 32px</Size>
+                        <Location>96px, 96px</Location>
+                        <Size>208px, 24px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -3142,8 +3155,8 @@
                         <Value>品名规格</Value>
                     </TextBox>
                     <TextBox Name="textBox36">
-                        <Location>456px, 64px</Location>
-                        <Size>48px, 32px</Size>
+                        <Location>464px, 96px</Location>
+                        <Size>48px, 24px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -3165,8 +3178,8 @@
                         <Value>单位</Value>
                     </TextBox>
                     <TextBox Name="textBox37">
-                        <Location>296px, 64px</Location>
-                        <Size>80px, 32px</Size>
+                        <Location>304px, 96px</Location>
+                        <Size>80px, 24px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -3185,11 +3198,11 @@
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>产品批号</Value>
+                        <Value>批号</Value>
                     </TextBox>
                     <TextBox Name="textBox38">
-                        <Location>568px, 64px</Location>
-                        <Size>128px, 32px</Size>
+                        <Location>576px, 96px</Location>
+                        <Size>120px, 24px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -3211,7 +3224,7 @@
                         <Value>备注</Value>
                     </TextBox>
                     <TextBox Name="textBox4">
-                        <Location>280px, 40px</Location>
+                        <Location>280px, 72px</Location>
                         <Size>56px, 24px</Size>
                         <Style>
                             <Font>
@@ -3221,10 +3234,10 @@
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>日期 :</Value>
+                        <Value>日     期 :</Value>
                     </TextBox>
                     <TextBox Name="textBox5">
-                        <Location>312px, 8px</Location>
+                        <Location>312px, 40px</Location>
                         <Size>80px, 32px</Size>
                         <Style>
                             <Font>
@@ -3248,13 +3261,12 @@
                 </Variables>
                 <Items>
                     <TextBox Name="textBox10">
-                        <Location>48px, 0px</Location>
+                        <Location>40px, 0px</Location>
                         <Size>56px, 48px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
                                 <Right>Solid</Right>
-                                <Top>Solid</Top>
                             </BorderStyle>
                             <BorderWidth>
                                 <Bottom>1px</Bottom>
@@ -3262,7 +3274,7 @@
                             </BorderWidth>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
-                                <Size>10px</Size>
+                                <Size>11px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -3270,13 +3282,12 @@
                         <Value>=[SOShipLine.InventoryID]</Value>
                     </TextBox>
                     <TextBox Name="textBox11">
-                        <Location>104px, 0px</Location>
-                        <Size>192px, 48px</Size>
+                        <Location>96px, 0px</Location>
+                        <Size>208px, 48px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
                                 <Right>Solid</Right>
-                                <Top>Solid</Top>
                             </BorderStyle>
                             <BorderWidth>
                                 <Bottom>1px</Bottom>
@@ -3292,13 +3303,12 @@
                         <Value>=[SOLine.InventoryID_description]</Value>
                     </TextBox>
                     <TextBox Name="textBox12">
-                        <Location>296px, 0px</Location>
+                        <Location>304px, 0px</Location>
                         <Size>80px, 48px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
                                 <Right>Solid</Right>
-                                <Top>Solid</Top>
                             </BorderStyle>
                             <BorderWidth>
                                 <Bottom>1px</Bottom>
@@ -3315,13 +3325,12 @@
                     </TextBox>
                     <TextBox Name="textBox13">
                         <Format>#0.00</Format>
-                        <Location>376px, 0px</Location>
+                        <Location>384px, 0px</Location>
                         <Size>80px, 48px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
                                 <Right>Solid</Right>
-                                <Top>Solid</Top>
                             </BorderStyle>
                             <BorderWidth>
                                 <Bottom>1px</Bottom>
@@ -3329,7 +3338,7 @@
                             </BorderWidth>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
-                                <Size>10px</Size>
+                                <Size>11px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -3337,13 +3346,12 @@
                         <Value>=[SOShipLineSplit.Qty]</Value>
                     </TextBox>
                     <TextBox Name="textBox14">
-                        <Location>456px, 0px</Location>
+                        <Location>464px, 0px</Location>
                         <Size>48px, 48px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
                                 <Right>Solid</Right>
-                                <Top>Solid</Top>
                             </BorderStyle>
                             <BorderWidth>
                                 <Bottom>1px</Bottom>
@@ -3351,7 +3359,7 @@
                             </BorderWidth>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
-                                <Size>10px</Size>
+                                <Size>11px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -3359,20 +3367,18 @@
                         <Value>=[SOShipLine.UOM]</Value>
                     </TextBox>
                     <TextBox Name="textBox15">
-                        <Location>568px, 24px</Location>
-                        <Size>128px, 24px</Size>
+                        <Location>576px, 0px</Location>
+                        <Size>120px, 24px</Size>
                         <Style>
                             <BorderStyle>
-                                <Bottom>Solid</Bottom>
                                 <Right>Solid</Right>
                             </BorderStyle>
                             <BorderWidth>
-                                <Bottom>1px</Bottom>
                                 <Right>1px</Right>
                             </BorderWidth>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
-                                <Size>10px</Size>
+                                <Size>11px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -3380,13 +3386,12 @@
                         <Value>=[SOShipLine.AlternateID]</Value>
                     </TextBox>
                     <TextBox Name="textBox18">
-                        <Location>504px, 0px</Location>
+                        <Location>512px, 0px</Location>
                         <Size>64px, 48px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
                                 <Right>Solid</Right>
-                                <Top>Solid</Top>
                             </BorderStyle>
                             <BorderWidth>
                                 <Bottom>1px</Bottom>
@@ -3394,7 +3399,7 @@
                             </BorderWidth>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
-                                <Size>10px</Size>
+                                <Size>11px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -3402,12 +3407,12 @@
                         <Value>=[INSite.Descr]</Value>
                     </TextBox>
                     <TextBox Name="textBox19">
-                        <Location>568px, 0px</Location>
-                        <Size>128px, 24px</Size>
+                        <Location>576px, 24px</Location>
+                        <Size>120px, 24px</Size>
                         <Style>
                             <BorderStyle>
+                                <Bottom>Solid</Bottom>
                                 <Right>Solid</Right>
-                                <Top>Solid</Top>
                             </BorderStyle>
                             <BorderWidth>
                                 <Bottom>1px</Bottom>
@@ -3415,22 +3420,21 @@
                             </BorderWidth>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
-                                <Size>10px</Size>
+                                <Size>11px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=[SOOrder.CustomerOrderNbr]</Value>
+                        <Value>=[SOOrder.OrderNbr]</Value>
                     </TextBox>
                     <TextBox Name="textBox33">
                         <Location>0px, 0px</Location>
-                        <Size>48px, 48px</Size>
+                        <Size>40px, 48px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
                                 <Left>Solid</Left>
                                 <Right>Solid</Right>
-                                <Top>Solid</Top>
                             </BorderStyle>
                             <BorderWidth>
                                 <Bottom>1px</Bottom>
@@ -3438,8 +3442,8 @@
                                 <Right>1px</Right>
                             </BorderWidth>
                             <Font>
-                                <Name>Arial</Name>
-                                <Size>10px</Size>
+                                <Name>Microsoft JhengHei UI</Name>
+                                <Size>11px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
