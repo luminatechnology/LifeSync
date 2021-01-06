@@ -1013,7 +1013,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='ABA Part NO. : '+IIF([InventoryItem.InventoryID] = null, '', [InventoryItem.InventoryID])</Value>
+                        <Value>='ABA Part NO. : '+IIF([InventoryItem.InventoryCD] = null, '', [InventoryItem.InventoryCD])</Value>
                     </TextBox>
                     <TextBox Name="textBox13">
                         <Location>0px, 184px</Location>
@@ -1041,6 +1041,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                         <Value>Qty in Container :</Value>
                     </TextBox>
                     <TextBox Name="textBox16">
+                        <Format>='N0'</Format>
                         <Location>136px, 200px</Location>
                         <Size>88px, 16px</Size>
                         <Style>
@@ -1120,6 +1121,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                         <Value>DATE : </Value>
                     </TextBox>
                     <TextBox Name="textBox26">
+                        <Format>='N0'</Format>
                         <Location>136px, 216px</Location>
                         <Size>88px, 16px</Size>
                         <Style>

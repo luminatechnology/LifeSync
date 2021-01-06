@@ -995,7 +995,7 @@ mJPZWSffv1C2gs4GlEdQJ0w95+mwqN9JiHTnNujObdCd26A7t0F3boPu3AbduQ26cxt05zbozi2wWv0D
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='ABA Part NO. : '+IIF([inner.InventoryID] = null, '', [inner.InventoryID])</Value>
+                        <Value>='ABA Part NO. : '+IIF([InventoryItem.InventoryCD] = null, '', [InventoryItem.InventoryCD])</Value>
                     </TextBox>
                     <TextBox Name="textBox13">
                         <CanGrow>True</CanGrow>
@@ -1025,6 +1025,7 @@ mJPZWSffv1C2gs4GlEdQJ0w95+mwqN9JiHTnNujObdCd26A7t0F3boPu3AbduQ26cxt05zbozi2wWv0D
                     </TextBox>
                     <TextBox Name="textBox16">
                         <CanGrow>True</CanGrow>
+                        <Format>='N0'</Format>
                         <Location>136px, 216px</Location>
                         <Size>88px, 16px</Size>
                         <Style>
