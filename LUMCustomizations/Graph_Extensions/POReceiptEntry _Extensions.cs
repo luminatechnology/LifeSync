@@ -8,15 +8,15 @@ namespace PX.Objects.PO
     {
         public override void Initialize()
         {
-            base.Initialize();
             Base.report.AddMenuAction(POReceipt);
+            Base.report.AddMenuAction(POReturn);
+            base.Initialize();
         }
 
-        
         #region Action
-        public PXAction<POOrder> POReceipt;
+        public PXAction<POReceipt> POReceipt;
         [PXButton]
-        [PXUIField(DisplayName = "Print PO Receipt", Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print PO Receipt", Visible = false, Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable pOReceipt(PXAdapter adapter)
         {
             var _reportID = "LM646000";
@@ -24,6 +24,18 @@ namespace PX.Objects.PO
             parameters["ReceiptNbr"] = Base.Document.Current.ReceiptNbr;
             throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
         }
+
+        public PXAction<POReceipt> POReturn;
+        [PXUIField(DisplayName = "Print PO Return", Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXButton]
+        protected virtual IEnumerable pOReturn(PXAdapter adapter)
+        {
+            var _reportID = "LM646005";
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters["ReceiptNbr"] = Base.Document.Current.ReceiptNbr;
+            throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
+        }
         #endregion
+        
     }
 }
