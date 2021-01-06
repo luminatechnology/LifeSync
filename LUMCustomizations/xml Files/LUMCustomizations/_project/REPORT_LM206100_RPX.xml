@@ -83,6 +83,24 @@
                 </Links>
                 <ParentName>AMBatch</ParentName>
             </ReportRelation>
+            <ReportRelation>
+                <ChildName>AMMTranSplit</ChildName>
+                <Links>
+                    <RelationRow>
+                        <ChildField>InventoryID</ChildField>
+                        <ParentField>InventoryID</ParentField>
+                    </RelationRow>
+                    <RelationRow>
+                        <ChildField>LineNbr</ChildField>
+                        <ParentField>LineNbr</ParentField>
+                    </RelationRow>
+                    <RelationRow>
+                        <ChildField>BatNbr</ChildField>
+                        <ParentField>BatNbr</ParentField>
+                    </RelationRow>
+                </Links>
+                <ParentName>AMMTran</ParentName>
+            </ReportRelation>
         </Relations>
         <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
         <Sorting>
@@ -2141,6 +2159,168 @@
                 </Fields>
                 <FullName>PX.Objects.IN.InventoryItem</FullName>
             </ReportTable>
+            <ReportTable Name="AMMTranSplit">
+                <Fields>
+                    <ReportField Name="AssignedNbr">
+                    </ReportField>
+                    <ReportField Name="BaseQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="BatNbr">
+                    </ReportField>
+                    <ReportField Name="CostSiteID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="CostSubItemID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="CreatedByID">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_displayName">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_Username">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_description">
+                    </ReportField>
+                    <ReportField Name="CreatedByScreenID">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="DocType">
+                    </ReportField>
+                    <ReportField Name="ExpireDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="ExpireDate_Day">
+                    </ReportField>
+                    <ReportField Name="ExpireDate_Hour">
+                    </ReportField>
+                    <ReportField Name="ExpireDate_Month">
+                    </ReportField>
+                    <ReportField Name="ExpireDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="InventoryID">
+                    </ReportField>
+                    <ReportField Name="InventoryID_description">
+                    </ReportField>
+                    <ReportField Name="InventoryID_InventoryItem_descr">
+                    </ReportField>
+                    <ReportField Name="InventoryID_Segment1">
+                    </ReportField>
+                    <ReportField Name="InvtMult">
+                        <DataType>Int16</DataType>
+                    </ReportField>
+                    <ReportField Name="IsStockItem">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_description">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_displayName">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_Username">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByScreenID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="LineNbr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="LocationID">
+                    </ReportField>
+                    <ReportField Name="LocationID_description">
+                    </ReportField>
+                    <ReportField Name="LocationID_INLocation_descr">
+                    </ReportField>
+                    <ReportField Name="LocationID_Segment1">
+                    </ReportField>
+                    <ReportField Name="LotSerClassID">
+                    </ReportField>
+                    <ReportField Name="LotSerialNbr">
+                    </ReportField>
+                    <ReportField Name="OrigBatNbr">
+                    </ReportField>
+                    <ReportField Name="OrigLineNbr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="OrigSource">
+                    </ReportField>
+                    <ReportField Name="OrigSplitLineNbr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="PlanID">
+                        <DataType>Int64</DataType>
+                    </ReportField>
+                    <ReportField Name="ProjectID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="Qty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="Released">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="Selected">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="SiteID">
+                    </ReportField>
+                    <ReportField Name="SiteID_description">
+                    </ReportField>
+                    <ReportField Name="SiteID_INSite_descr">
+                    </ReportField>
+                    <ReportField Name="SiteID_Segment1">
+                    </ReportField>
+                    <ReportField Name="SplitLineNbr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="SubItemID">
+                    </ReportField>
+                    <ReportField Name="SubItemID_Segment1">
+                    </ReportField>
+                    <ReportField Name="TaskID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="TranDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="TranDate_Day">
+                    </ReportField>
+                    <ReportField Name="TranDate_Hour">
+                    </ReportField>
+                    <ReportField Name="TranDate_Month">
+                    </ReportField>
+                    <ReportField Name="TranDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="TranType">
+                    </ReportField>
+                    <ReportField Name="tstamp">
+                    </ReportField>
+                    <ReportField Name="UOM">
+                    </ReportField>
+                </Fields>
+                <FullName>JAMS.AM.AMMTranSplit</FullName>
+            </ReportTable>
         </Tables>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
@@ -2292,20 +2472,20 @@
                         <Items>
                             <TextBox Name="textBox28">
                                 <Location>0px, 0px</Location>
-                                <Size>32px, 16px</Size>
+                                <Size>32px, 40px</Size>
                                 <Style>
                                     <Font>
-                                        <Size>10px</Size>
+                                        <Size>11px</Size>
                                     </Font>
                                 </Style>
                                 <Value>=PadLeft(CStr($LineNbr), 4, '0')</Value>
                             </TextBox>
                             <TextBox Name="textBox29">
                                 <Location>32px, 0px</Location>
-                                <Size>56px, 16px</Size>
+                                <Size>64px, 40px</Size>
                                 <Style>
                                     <Font>
-                                        <Size>10px</Size>
+                                        <Size>11px</Size>
                                     </Font>
                                     <TextAlign>Right</TextAlign>
                                 </Style>
@@ -2313,44 +2493,44 @@
                             </TextBox>
                             <TextBox Name="textBox30">
                                 <Location>104px, 0px</Location>
-                                <Size>192px, 32px</Size>
+                                <Size>192px, 40px</Size>
                                 <Style>
                                     <Font>
                                         <Name>Microsoft JhengHei UI</Name>
-                                        <Size>10px</Size>
+                                        <Size>11px</Size>
                                     </Font>
                                 </Style>
                                 <Value>=[AMMTran.InventoryID_description]</Value>
                             </TextBox>
                             <TextBox Name="textBox31">
-                                <Format>#.00</Format>
+                                <Format>=IIF([AMMTranSplit.Qty] - Floor([AMMTranSplit.Qty]) &gt; 0,'N2','N0')</Format>
                                 <Location>296px, 0px</Location>
-                                <Size>64px, 32px</Size>
+                                <Size>64px, 40px</Size>
                                 <Style>
                                     <Font>
-                                        <Size>10px</Size>
+                                        <Size>11px</Size>
                                     </Font>
                                     <TextAlign>Right</TextAlign>
                                 </Style>
-                                <Value>=[AMMTran.Qty]</Value>
+                                <Value>=[AMMTranSplit.Qty]</Value>
                             </TextBox>
                             <TextBox Name="textBox32">
                                 <Format>#.00</Format>
                                 <Location>360px, 0px</Location>
-                                <Size>64px, 32px</Size>
+                                <Size>64px, 40px</Size>
                                 <Style>
                                     <Font>
-                                        <Size>10px</Size>
+                                        <Size>11px</Size>
                                     </Font>
                                     <TextAlign>Right</TextAlign>
                                 </Style>
                             </TextBox>
                             <TextBox Name="textBox33">
                                 <Location>424px, 0px</Location>
-                                <Size>48px, 16px</Size>
+                                <Size>48px, 40px</Size>
                                 <Style>
                                     <Font>
-                                        <Size>10px</Size>
+                                        <Size>11px</Size>
                                     </Font>
                                     <TextAlign>Center</TextAlign>
                                 </Style>
@@ -2362,7 +2542,7 @@
                                 <Style>
                                     <Font>
                                         <Name>Microsoft JhengHei UI</Name>
-                                        <Size>10px</Size>
+                                        <Size>11px</Size>
                                     </Font>
                                     <TextAlign>Center</TextAlign>
                                 </Style>
@@ -2374,7 +2554,7 @@
                                 <Style>
                                     <Font>
                                         <Name>Microsoft JhengHei UI</Name>
-                                        <Size>10px</Size>
+                                        <Size>11px</Size>
                                     </Font>
                                     <TextAlign>Center</TextAlign>
                                 </Style>
@@ -2386,10 +2566,10 @@
                                 <Style>
                                     <Font>
                                         <Name>Microsoft JhengHei UI</Name>
-                                        <Size>10px</Size>
+                                        <Size>11px</Size>
                                     </Font>
                                 </Style>
-                                <Value>=[AMMTran.LotSerialNbr]</Value>
+                                <Value>=[AMMTranSplit.LotSerialNbr]</Value>
                             </TextBox>
                         </Items>
                     </Panel>
