@@ -4211,7 +4211,7 @@
             </PageHeader>
             <Detail Name="detailSection1">
                 <GridSize>8px, 8px</GridSize>
-                <Height>1.0582cm</Height>
+                <Height>0.84656cm</Height>
                 <Variables>
                     <ReportVariable>
                         <Name>LineNbr</Name>
@@ -4221,7 +4221,7 @@
                 <Items>
                     <TextBox Name="textBox29">
                         <Location>16px, 0px</Location>
-                        <Size>48px, 40px</Size>
+                        <Size>48px, 32px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -4245,7 +4245,7 @@
                     </TextBox>
                     <TextBox Name="textBox30">
                         <Location>64px, 0px</Location>
-                        <Size>64px, 40px</Size>
+                        <Size>64px, 32px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -4267,7 +4267,7 @@
                     </TextBox>
                     <TextBox Name="textBox38">
                         <Location>128px, 0px</Location>
-                        <Size>192px, 40px</Size>
+                        <Size>192px, 32px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -4290,7 +4290,7 @@
                     </TextBox>
                     <TextBox Name="textBox39">
                         <Location>320px, 0px</Location>
-                        <Size>48px, 40px</Size>
+                        <Size>48px, 32px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -4314,7 +4314,7 @@
                     <TextBox Name="textBox40">
                         <Format>=IIF([AMProdMatl.UOM] = 'PCS', 'N0', 'N2')</Format>
                         <Location>368px, 0px</Location>
-                        <Size>64px, 40px</Size>
+                        <Size>64px, 32px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -4338,7 +4338,7 @@
                     <TextBox Name="textBox41">
                         <Format>=IIF([AMProdMatl.UOM] = 'PCS', 'N0', 'N2')</Format>
                         <Location>560px, 0px</Location>
-                        <Size>56px, 40px</Size>
+                        <Size>56px, 32px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -4361,7 +4361,7 @@
                     </TextBox>
                     <TextBox Name="textBox42">
                         <Location>616px, 0px</Location>
-                        <Size>64px, 40px</Size>
+                        <Size>64px, 32px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -4384,7 +4384,7 @@
                     <TextBox Name="textBox44">
                         <Format>=IIF([AMProdMatl.UOM] = 'PCS', 'N0', 'N2')</Format>
                         <Location>432px, 0px</Location>
-                        <Size>64px, 40px</Size>
+                        <Size>64px, 32px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -4408,7 +4408,7 @@
                     <TextBox Name="textBox46">
                         <Format>=IIF([AMProdMatl.UOM] = 'PCS', 'N0', 'N2')</Format>
                         <Location>496px, 0px</Location>
-                        <Size>64px, 40px</Size>
+                        <Size>64px, 32px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
