@@ -27,7 +27,7 @@ INNER JOIN InventoryItem i ON t.CompanyID = i.CompanyID
 						  AND t.InventoryID = i.InventoryID
 LEFT JOIN CSAnswers c ON t.CompanyID = c.CompanyID
 					 AND i.NoteID = c.RefNoteID
-					 AND c.AttributeID = 'QTYCARTON'
+					 AND c.AttributeID = 'QTYSBOX'
 INNER JOIN (
 		select CompanyID, 
 			   ShipmentPlanID, 
@@ -42,5 +42,5 @@ CROSS JOIN(
 		FROM master.dbo.spt_values
 		WHERE name IS NULL
 ) NumberPool
-WHERE NowNbr BETWEEN 1 AND t.PlannedShipQty / CAST(c.Value as decimal) + 1]]></CDATA>
+WHERE NowNbr BETWEEN 1 AND t.PlannedShipQty / CAST(ISNULL(c.Value,1) as decimal) + 1]]></CDATA>
 </Sql>
