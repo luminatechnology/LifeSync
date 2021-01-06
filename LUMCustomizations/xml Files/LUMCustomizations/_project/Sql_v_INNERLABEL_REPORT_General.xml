@@ -20,8 +20,8 @@ SELECT DISTINCT t.CompanyID,
 	   1 AS StartLabelNbr,
 	   m.EndLabelNbr,
 	   t.ProdOrdID,
-	   CASE WHEN (t.PlannedShipQty - (NowNbr * CAST(c.Value AS decimal))) / CAST(c.Value AS decimal) > 0 then CAST(c.Value as int)
-	   ELSE CAST(CAST(c.Value AS decimal) + (t.PlannedShipQty - (NowNbr * CAST(c.Value AS decimal))) % CAST(c.Value AS decimal) as int) END AS Container
+	   CASE WHEN (t.QtytoProd - (NowNbr * CAST(c.Value AS decimal))) / CAST(c.Value AS decimal) > 0 then CAST(c.Value as int)
+	   ELSE CAST(CAST(c.Value AS decimal) + (t.QtytoProd - (NowNbr * CAST(c.Value AS decimal))) % CAST(c.Value AS decimal) as int) END AS Container
 FROM LumShipmentPlan t
 INNER JOIN InventoryItem i ON t.CompanyID = i.CompanyID 
 						  AND t.InventoryID = i.InventoryID
@@ -42,5 +42,5 @@ CROSS JOIN(
 		FROM master.dbo.spt_values
 		WHERE name IS NULL
 ) NumberPool
-WHERE NowNbr BETWEEN 1 AND t.PlannedShipQty / CAST(ISNULL(c.Value,1) as decimal) + 1]]></CDATA>
+WHERE NowNbr BETWEEN 1 AND t.QtytoProd / CAST(ISNULL(c.Value,1) as decimal) + 1]]></CDATA>
 </Sql>
