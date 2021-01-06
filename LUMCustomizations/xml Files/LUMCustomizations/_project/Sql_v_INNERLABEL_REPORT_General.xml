@@ -1,14 +1,14 @@
-﻿<Sql TableName="v_OUTTERLABEL_REPORT_General" CustomScript="#CDATA">
+﻿<Sql TableName="v_INNERLABEL_REPORT_General" CustomScript="#CDATA">
     <CDATA name="CustomScript"><![CDATA[IF EXISTS
 (
 	SELECT *
 	FROM SYS.views
-	WHERE name = 'v_OUTTERLABEL_REPORT' AND SCHEMA_ID = SCHEMA_ID('dbo')
+	WHERE name = 'v_INNERLABEL_REPORT' AND SCHEMA_ID = SCHEMA_ID('dbo')
 )
-DROP VIEW [dbo].[v_OUTTERLABEL_REPORT]	
+DROP VIEW [dbo].[v_INNERLABEL_REPORT]	
 GO
-CREATE VIEW v_OUTTERLABEL_REPORT AS
-SELECT t.CompanyID,
+CREATE VIEW v_INNERLABEL_REPORT AS
+SELECT DISTINCT t.CompanyID,
 	   t.ShipmentPlanID,
 	   t.InventoryID,
 	   Customer,
@@ -17,11 +17,11 @@ SELECT t.CompanyID,
 	   ProdLine,
 	   PlannedShipDate,
 	   PlannedShipQty,
-	   NowNbr AS StartLabelNbr,
+	   1 AS StartLabelNbr,
 	   m.EndLabelNbr,
 	   t.ProdOrdID,
-	  CASE WHEN (t.PlannedShipQty - (NowNbr * CAST(c.Value AS decimal))) / CAST(c.Value AS decimal) > 0 then CAST(c.Value as int)
-	  ELSE CAST(CAST(c.Value AS decimal) + (t.PlannedShipQty - (NowNbr * CAST(c.Value AS decimal))) % CAST(c.Value AS decimal) as int) END AS Container
+	   CASE WHEN (t.PlannedShipQty - (NowNbr * CAST(c.Value AS decimal))) / CAST(c.Value AS decimal) > 0 then CAST(c.Value as int)
+	   ELSE CAST(CAST(c.Value AS decimal) + (t.PlannedShipQty - (NowNbr * CAST(c.Value AS decimal))) % CAST(c.Value AS decimal) as int) END AS Container
 FROM LumShipmentPlan t
 INNER JOIN InventoryItem i ON t.CompanyID = i.CompanyID 
 						  AND t.InventoryID = i.InventoryID
@@ -42,5 +42,5 @@ CROSS JOIN(
 		FROM master.dbo.spt_values
 		WHERE name IS NULL
 ) NumberPool
-WHERE NowNbr BETWEEN t.StartLabelNbr AND t.EndLabelNbr]]></CDATA>
+WHERE NowNbr BETWEEN 1 AND t.PlannedShipQty / CAST(c.Value as decimal) + 1]]></CDATA>
 </Sql>

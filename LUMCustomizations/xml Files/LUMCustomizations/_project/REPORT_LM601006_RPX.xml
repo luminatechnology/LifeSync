@@ -21,8 +21,12 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
         </EmbeddedImages>
         <Filters>
             <FilterExp>
-                <DataField>LumShipmentPlan.ShipmentPlanID</DataField>
+                <DataField>inner.ShipmentPlanID</DataField>
                 <Value>@ShipmentPlanID</Value>
+            </FilterExp>
+            <FilterExp>
+                <DataField>inner.ProdOrdID</DataField>
+                <Value>@ProdOrdID</Value>
             </FilterExp>
         </Filters>
         <PageSettings>
@@ -80,6 +84,11 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                 <Prompt>DATE</Prompt>
                 <Type>DateTime</Type>
             </ReportParameter>
+            <ReportParameter>
+                <Name>ProdOrdID</Name>
+                <Prompt>ProdOrdID</Prompt>
+                <Visible>False</Visible>
+            </ReportParameter>
         </Parameters>
         <Relations>
             <ReportRelation>
@@ -87,11 +96,12 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                 <JoinType>Inner</JoinType>
                 <Links>
                     <RelationRow>
-                        <ChildField>InventoryItem.InventoryID</ChildField>
-                        <ParentField>LumShipmentPlan.InventoryID</ParentField>
+                        <ChildField>InventoryID</ChildField>
+                        <ParentField>InventoryID</ParentField>
                     </RelationRow>
                 </Links>
-                <ParentName>LumShipmentPlan</ParentName>
+                <ParentAlias>inner</ParentAlias>
+                <ParentName>v_INNERLABEL_REPORT</ParentName>
             </ReportRelation>
             <ReportRelation>
                 <ChildName>INItemXRef</ChildName>
@@ -106,186 +116,13 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
             </ReportRelation>
         </Relations>
         <SchemaUrl>http://localhost/ABA_AcumaticaDB1/</SchemaUrl>
+        <Sorting>
+            <SortExp>
+                <DataField>inner.Container</DataField>
+                <SortOrder>Descending</SortOrder>
+            </SortExp>
+        </Sorting>
         <Tables>
-            <ReportTable Name="LumShipmentPlan">
-                <Fields>
-                    <ReportField Name="BRNbr">
-                    </ReportField>
-                    <ReportField Name="Confirmed">
-                        <DataType>Boolean</DataType>
-                    </ReportField>
-                    <ReportField Name="CreatedByID">
-                    </ReportField>
-                    <ReportField Name="CreatedByID_Creator_displayName">
-                    </ReportField>
-                    <ReportField Name="CreatedByID_Creator_Username">
-                    </ReportField>
-                    <ReportField Name="CreatedByID_description">
-                    </ReportField>
-                    <ReportField Name="CreatedByScreenID">
-                    </ReportField>
-                    <ReportField Name="CreatedDateTime">
-                        <DataType>DateTime</DataType>
-                    </ReportField>
-                    <ReportField Name="CreatedDateTime_Day">
-                    </ReportField>
-                    <ReportField Name="CreatedDateTime_Hour">
-                    </ReportField>
-                    <ReportField Name="CreatedDateTime_Month">
-                    </ReportField>
-                    <ReportField Name="CreatedDateTime_Quarter">
-                    </ReportField>
-                    <ReportField Name="Customer">
-                    </ReportField>
-                    <ReportField Name="CustomerLocationID">
-                    </ReportField>
-                    <ReportField Name="CustomerLocationID_description">
-                    </ReportField>
-                    <ReportField Name="CustomerLocationID_Location_descr">
-                    </ReportField>
-                    <ReportField Name="CustomerLocationID_Segment1">
-                    </ReportField>
-                    <ReportField Name="CustomerOrderNbr">
-                    </ReportField>
-                    <ReportField Name="EndCartonNbr">
-                        <DataType>Int32</DataType>
-                    </ReportField>
-                    <ReportField Name="EndLabelNbr">
-                        <DataType>Int32</DataType>
-                    </ReportField>
-                    <ReportField Name="InventoryID">
-                    </ReportField>
-                    <ReportField Name="InventoryID_description">
-                    </ReportField>
-                    <ReportField Name="InventoryID_InventoryItem_descr">
-                    </ReportField>
-                    <ReportField Name="InventoryID_Segment1">
-                    </ReportField>
-                    <ReportField Name="LastModifiedByID">
-                    </ReportField>
-                    <ReportField Name="LastModifiedByID_description">
-                    </ReportField>
-                    <ReportField Name="LastModifiedByID_Modifier_displayName">
-                    </ReportField>
-                    <ReportField Name="LastModifiedByID_Modifier_Username">
-                    </ReportField>
-                    <ReportField Name="LastModifiedByScreenID">
-                    </ReportField>
-                    <ReportField Name="LastModifiedDateTime">
-                        <DataType>DateTime</DataType>
-                    </ReportField>
-                    <ReportField Name="LastModifiedDateTime_Day">
-                    </ReportField>
-                    <ReportField Name="LastModifiedDateTime_Hour">
-                    </ReportField>
-                    <ReportField Name="LastModifiedDateTime_Month">
-                    </ReportField>
-                    <ReportField Name="LastModifiedDateTime_Quarter">
-                    </ReportField>
-                    <ReportField Name="LineNbr">
-                        <DataType>Int32</DataType>
-                    </ReportField>
-                    <ReportField Name="LotSerialNbr">
-                    </ReportField>
-                    <ReportField Name="NbrOfShipment">
-                        <DataType>Int32</DataType>
-                    </ReportField>
-                    <ReportField Name="NoteActivity">
-                    </ReportField>
-                    <ReportField Name="NoteFiles">
-                    </ReportField>
-                    <ReportField Name="NoteID">
-                        <DataType>Object</DataType>
-                    </ReportField>
-                    <ReportField Name="NoteImages">
-                    </ReportField>
-                    <ReportField Name="NoteText">
-                    </ReportField>
-                    <ReportField Name="OpenQty">
-                        <DataType>Decimal</DataType>
-                    </ReportField>
-                    <ReportField Name="OrderDate">
-                        <DataType>DateTime</DataType>
-                    </ReportField>
-                    <ReportField Name="OrderDate_Day">
-                    </ReportField>
-                    <ReportField Name="OrderDate_Hour">
-                    </ReportField>
-                    <ReportField Name="OrderDate_Month">
-                    </ReportField>
-                    <ReportField Name="OrderDate_Quarter">
-                    </ReportField>
-                    <ReportField Name="OrderNbr">
-                    </ReportField>
-                    <ReportField Name="OrderQty">
-                        <DataType>Decimal</DataType>
-                    </ReportField>
-                    <ReportField Name="OrderType">
-                    </ReportField>
-                    <ReportField Name="PlannedShipDate">
-                        <DataType>DateTime</DataType>
-                    </ReportField>
-                    <ReportField Name="PlannedShipDate_Day">
-                    </ReportField>
-                    <ReportField Name="PlannedShipDate_Hour">
-                    </ReportField>
-                    <ReportField Name="PlannedShipDate_Month">
-                    </ReportField>
-                    <ReportField Name="PlannedShipDate_Quarter">
-                    </ReportField>
-                    <ReportField Name="PlannedShipQty">
-                        <DataType>Decimal</DataType>
-                    </ReportField>
-                    <ReportField Name="ProdLine">
-                    </ReportField>
-                    <ReportField Name="ProdOrdID">
-                    </ReportField>
-                    <ReportField Name="QtyComplete">
-                        <DataType>Decimal</DataType>
-                    </ReportField>
-                    <ReportField Name="QtytoProd">
-                        <DataType>Decimal</DataType>
-                    </ReportField>
-                    <ReportField Name="Remarks">
-                    </ReportField>
-                    <ReportField Name="RequestDate">
-                        <DataType>DateTime</DataType>
-                    </ReportField>
-                    <ReportField Name="RequestDate_Day">
-                    </ReportField>
-                    <ReportField Name="RequestDate_Hour">
-                    </ReportField>
-                    <ReportField Name="RequestDate_Month">
-                    </ReportField>
-                    <ReportField Name="RequestDate_Quarter">
-                    </ReportField>
-                    <ReportField Name="ShipmentNbr">
-                    </ReportField>
-                    <ReportField Name="ShipmentPlanID">
-                    </ReportField>
-                    <ReportField Name="ShipVia">
-                    </ReportField>
-                    <ReportField Name="ShipVia_Carrier_description">
-                    </ReportField>
-                    <ReportField Name="ShipVia_description">
-                    </ReportField>
-                    <ReportField Name="SOLineNoteID">
-                        <DataType>Object</DataType>
-                    </ReportField>
-                    <ReportField Name="StartCartonNbr">
-                        <DataType>Int32</DataType>
-                    </ReportField>
-                    <ReportField Name="StartLabelNbr">
-                        <DataType>Int32</DataType>
-                    </ReportField>
-                    <ReportField Name="TotalShipNbr">
-                        <DataType>Int32</DataType>
-                    </ReportField>
-                    <ReportField Name="Tstamp">
-                    </ReportField>
-                </Fields>
-                <FullName>LumCustomizations.DAC.LumShipmentPlan</FullName>
-            </ReportTable>
             <ReportTable Name="InventoryItem">
                 <Fields>
                     <ReportField Name="ABCCodeID">
@@ -1065,6 +902,49 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                 </Fields>
                 <FullName>PX.Objects.IN.INItemXRef</FullName>
             </ReportTable>
+            <ReportTable Name="v_INNERLABEL_REPORT">
+                <Fields>
+                    <ReportField Name="Container">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="Customer">
+                    </ReportField>
+                    <ReportField Name="CustomerOrderNbr">
+                    </ReportField>
+                    <ReportField Name="EndLabelNbr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="InventoryID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="LotSerialNbr">
+                    </ReportField>
+                    <ReportField Name="PlannedShipDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="PlannedShipDate_Day">
+                    </ReportField>
+                    <ReportField Name="PlannedShipDate_Hour">
+                    </ReportField>
+                    <ReportField Name="PlannedShipDate_Month">
+                    </ReportField>
+                    <ReportField Name="PlannedShipDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="PlannedShipQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="ProdLine">
+                    </ReportField>
+                    <ReportField Name="ProdOrdID">
+                    </ReportField>
+                    <ReportField Name="ShipmentPlanID">
+                    </ReportField>
+                    <ReportField Name="StartLabelNbr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                </Fields>
+                <FullName>LUMCustomizations.v_INNERLABEL_REPORT</FullName>
+            </ReportTable>
         </Tables>
         <Width>10.1cm</Width>
         <Sections>
@@ -1101,7 +981,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>='LINE{br}   '+Left([LumShipmentPlan.ProdLine],1)</Value>
+                        <Value>='LINE{br}   '+Left([inner.ProdLine],1)</Value>
                     </TextBox>
                     <TextBox Name="textBox11">
                         <Location>0px, 168px</Location>
@@ -1113,7 +993,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='ABA Part NO. : '+IIF([LumShipmentPlan.InventoryID] = null, '', [LumShipmentPlan.InventoryID])</Value>
+                        <Value>='ABA Part NO. : '+IIF([inner.InventoryID] = null, '', [inner.InventoryID])</Value>
                     </TextBox>
                     <TextBox Name="textBox12">
                         <Location>272px, 176px</Location>
@@ -1150,7 +1030,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>='ABA LOT NO. : '+IIF([LumShipmentPlan.LotSerialNbr] = null, '', [LumShipmentPlan.LotSerialNbr])</Value>
+                        <Value>='ABA LOT NO. : '+IIF([inner.LotSerialNbr] = null, '', [inner.LotSerialNbr])</Value>
                     </TextBox>
                     <TextBox Name="textBox15">
                         <Location>0px, 216px</Location>
@@ -1174,9 +1054,9 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                                 <Size>14px</Size>
                                 <Style>Bold</Style>
                             </Font>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Center</TextAlign>
                         </Style>
-                        <Value>=IIF([@QtyinContainer] = null, [InventoryItem.QTYSBOX_Attributes],[@QtyinContainer])</Value>
+                        <Value>=IIF([@QtyinContainer] = null, [inner.Container],[@QtyinContainer])</Value>
                     </TextBox>
                     <TextBox Name="textBox17">
                         <Location>216px, 216px</Location>
@@ -1240,7 +1120,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer : '+IIF([@Customer] = null ,IIF([LumShipmentPlan.Customer] = null, '',[LumShipmentPlan.Customer]),[@Customer])</Value>
+                        <Value>='Customer : '+IIF([@Customer] = null ,IIF([inner.Customer] = null, '',[inner.Customer]),[@Customer])</Value>
                     </TextBox>
                     <TextBox Name="textBox6">
                         <Location>0px, 136px</Location>
@@ -1252,7 +1132,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='CustomerP/O# : '+IIF([LumShipmentPlan.CustomerOrderNbr] = null, '', [LumShipmentPlan.CustomerOrderNbr])</Value>
+                        <Value>='CustomerP/O# : '+IIF([inner.CustomerOrderNbr] = null, '', [inner.CustomerOrderNbr])</Value>
                     </TextBox>
                     <TextBox Name="textBox8">
                         <Location>0px, 152px</Location>

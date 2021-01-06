@@ -3787,7 +3787,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                     <TextBox Name="textBox60">
                         <CanGrow>True</CanGrow>
                         <Location>136px, 0px</Location>
-                        <Size>136px, 56px</Size>
+                        <Size>152px, 56px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3808,7 +3808,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Value>=[InventoryItem.Descr]</Value>
                     </TextBox>
                     <TextBox Name="textBox61">
-                        <Location>272px, 0px</Location>
+                        <Location>288px, 0px</Location>
                         <Size>32px, 56px</Size>
                         <Style>
                             <BorderColor>
@@ -3831,7 +3831,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Value>=[InventoryItem.BUBBLENO_Attributes]</Value>
                     </TextBox>
                     <TextBox Name="textBox62">
-                        <Location>304px, 0px</Location>
+                        <Location>320px, 0px</Location>
                         <Size>32px, 56px</Size>
                         <Style>
                             <BorderColor>
@@ -3902,9 +3902,9 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Value>=[POLine.CuryLineAmt]</Value>
                     </TextBox>
                     <TextBox Name="textBox65">
-                        <Format>='N4'</Format>
-                        <Location>336px, 0px</Location>
-                        <Size>64px, 56px</Size>
+                        <Format>='N2'</Format>
+                        <Location>352px, 0px</Location>
+                        <Size>48px, 56px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -4040,7 +4040,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             </TextBox>
                             <TextBox Name="textBox50">
                                 <Location>136px, 0px</Location>
-                                <Size>136px, 40px</Size>
+                                <Size>152px, 40px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Default>Black</Default>
@@ -4059,7 +4059,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Value>规格</Value>
                             </TextBox>
                             <TextBox Name="textBox51">
-                                <Location>272px, 0px</Location>
+                                <Location>288px, 0px</Location>
                                 <Size>32px, 40px</Size>
                                 <Style>
                                     <BorderColor>
@@ -4079,7 +4079,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Value>版本</Value>
                             </TextBox>
                             <TextBox Name="textBox52">
-                                <Location>304px, 0px</Location>
+                                <Location>320px, 0px</Location>
                                 <Size>32px, 40px</Size>
                                 <Style>
                                     <BorderColor>
@@ -4159,8 +4159,8 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Value>税率%</Value>
                             </TextBox>
                             <TextBox Name="textBox56">
-                                <Location>336px, 0px</Location>
-                                <Size>64px, 40px</Size>
+                                <Location>352px, 0px</Location>
+                                <Size>48px, 40px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Default>Black</Default>
@@ -4223,10 +4223,10 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 </Style>
                                 <Items>
                                     <TextBox Name="textBox68">
-                                        <Location>8px, 8px</Location>
-                                        <Size>56px, 16px</Size>
+                                        <Location>16px, 8px</Location>
+                                        <Size>48px, 16px</Size>
                                         <StyleName>ChineseFont</StyleName>
-                                        <Value>数量合计:</Value>
+                                        <Value>量合计:</Value>
                                     </TextBox>
                                     <TextBox Name="textBox69">
                                         <Location>152px, 8px</Location>
@@ -4247,21 +4247,21 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                         <Value>价税合计:</Value>
                                     </TextBox>
                                     <TextBox Name="textBox72">
-                                        <Format>='N2'</Format>
+                                        <Format>='#.000'</Format>
                                         <Location>64px, 8px</Location>
                                         <Size>88px, 16px</Size>
                                         <StyleName>ChineseFont</StyleName>
                                         <Value>=$SumOfOrderqty</Value>
                                     </TextBox>
                                     <TextBox Name="textBox73">
-                                        <Format>='N2'</Format>
+                                        <Format>='#.00'</Format>
                                         <Location>208px, 8px</Location>
                                         <Size>120px, 16px</Size>
                                         <StyleName>ChineseFont</StyleName>
-                                        <Value>=[POOrder.CuryOrderTotal] - [POOrder.CuryTaxTotal]</Value>
+                                        <Value>=[POOrder.CuryVatTaxableTotal]</Value>
                                     </TextBox>
                                     <TextBox Name="textBox74">
-                                        <Format>='N2'</Format>
+                                        <Format>='#.00'</Format>
                                         <Location>368px, 8px</Location>
                                         <Size>120px, 16px</Size>
                                         <StyleName>ChineseFont</StyleName>

@@ -18,6 +18,10 @@ kwAfUjK/iA9PgwKSNe6BVC01bIfIX0qyeDUj5B417Hnmwns2tnMFso8SdWQjZBhsLHoQlvxKgYqd5s69
                 <DataField>outter.ShipmentPlanID</DataField>
                 <Value>@ShipmentPlanID</Value>
             </FilterExp>
+            <FilterExp>
+                <DataField>outter.ProdOrdID</DataField>
+                <Value>@ProdOrdID</Value>
+            </FilterExp>
         </Filters>
         <PageSettings>
             <Margins>
@@ -74,6 +78,11 @@ kwAfUjK/iA9PgwKSNe6BVC01bIfIX0qyeDUj5B417Hnmwns2tnMFso8SdWQjZBhsLHoQlvxKgYqd5s69
                 <Prompt>DATE</Prompt>
                 <Type>DateTime</Type>
             </ReportParameter>
+            <ReportParameter>
+                <Name>ProdOrdID</Name>
+                <Prompt>ProdOrdID</Prompt>
+                <Visible>False</Visible>
+            </ReportParameter>
         </Parameters>
         <Relations>
             <ReportRelation>
@@ -81,11 +90,11 @@ kwAfUjK/iA9PgwKSNe6BVC01bIfIX0qyeDUj5B417Hnmwns2tnMFso8SdWQjZBhsLHoQlvxKgYqd5s69
                 <Links>
                     <RelationRow>
                         <ChildField>InventoryID</ChildField>
-                        <ParentField>outter.InventoryID</ParentField>
+                        <ParentField>InventoryID</ParentField>
                     </RelationRow>
                 </Links>
                 <ParentAlias>outter</ParentAlias>
-                <ParentName>v_OUTTERLABEL_REPORT_AMC</ParentName>
+                <ParentName>v_OUTTERLABEL_REPORT</ParentName>
             </ReportRelation>
             <ReportRelation>
                 <ChildName>INItemXRef</ChildName>
@@ -880,14 +889,17 @@ kwAfUjK/iA9PgwKSNe6BVC01bIfIX0qyeDUj5B417Hnmwns2tnMFso8SdWQjZBhsLHoQlvxKgYqd5s69
                 </Fields>
                 <FullName>PX.Objects.IN.INItemXRef</FullName>
             </ReportTable>
-            <ReportTable Name="v_OUTTERLABEL_REPORT_AMC">
+            <ReportTable Name="v_OUTTERLABEL_REPORT">
                 <Fields>
+                    <ReportField Name="Container">
+                        <DataType>Int32</DataType>
+                    </ReportField>
                     <ReportField Name="Customer">
                     </ReportField>
                     <ReportField Name="CustomerOrderNbr">
                     </ReportField>
                     <ReportField Name="EndLabelNbr">
-                        <DataType>Decimal</DataType>
+                        <DataType>Int32</DataType>
                     </ReportField>
                     <ReportField Name="InventoryID">
                         <DataType>Int32</DataType>
@@ -910,13 +922,15 @@ kwAfUjK/iA9PgwKSNe6BVC01bIfIX0qyeDUj5B417Hnmwns2tnMFso8SdWQjZBhsLHoQlvxKgYqd5s69
                     </ReportField>
                     <ReportField Name="ProdLine">
                     </ReportField>
+                    <ReportField Name="ProdOrdID">
+                    </ReportField>
                     <ReportField Name="ShipmentPlanID">
                     </ReportField>
                     <ReportField Name="StartLabelNbr">
                         <DataType>Int32</DataType>
                     </ReportField>
                 </Fields>
-                <FullName>LUMCustomizations.v_OUTTERLABEL_REPORT_AMC</FullName>
+                <FullName>LUMCustomizations.v_OUTTERLABEL_REPORT</FullName>
             </ReportTable>
         </Tables>
         <ViewerFields>
@@ -1031,9 +1045,9 @@ kwAfUjK/iA9PgwKSNe6BVC01bIfIX0qyeDUj5B417Hnmwns2tnMFso8SdWQjZBhsLHoQlvxKgYqd5s69
                                 <Size>14px</Size>
                                 <Style>Bold</Style>
                             </Font>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Center</TextAlign>
                         </Style>
-                        <Value>=IIF([@QtyinContainer] = null, [InventoryItem.QTYCARTON_Attributes],[@QtyinContainer])</Value>
+                        <Value>=IIF([@QtyinContainer] = null, [outter.Container],[@QtyinContainer])</Value>
                     </TextBox>
                     <TextBox Name="textBox17">
                         <Location>224px, 192px</Location>
@@ -1110,7 +1124,7 @@ kwAfUjK/iA9PgwKSNe6BVC01bIfIX0qyeDUj5B417Hnmwns2tnMFso8SdWQjZBhsLHoQlvxKgYqd5s69
                                 <Size>14px</Size>
                                 <Style>Bold</Style>
                             </Font>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Center</TextAlign>
                         </Style>
                         <Value>=IIF([@QtyinShipment] = null, CInt([outter.PlannedShipQty]), [@QtyinShipment])</Value>
                     </TextBox>

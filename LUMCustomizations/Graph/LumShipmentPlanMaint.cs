@@ -23,6 +23,14 @@ namespace LumCustomizations.Graph
     {
         public const string NotDeleteConfirmed = "The Shipment Plan [{0}] Had Confirmed And Can't Be Deleted.";
         public const string QtyCannotExceeded = "The {0} Cannot Exceed The {1}.";
+        public const string ENDC = "ENDC";
+
+        #region Constant Class
+        public class ENDCAttr : PX.Data.BQL.BqlString.Constant<ENDCAttr>
+        {
+            public ENDCAttr() : base("ENDC") { }
+        }
+        #endregion
 
         #region Ctor
         public LumShipmentPlanMaint()
@@ -58,7 +66,9 @@ namespace LumCustomizations.Graph
 
         #region Selects & Features
         [PXFilterable()]
-        public SelectFrom<LumShipmentPlan>.View ShipPlan;
+        public SelectFrom<LumShipmentPlan>.OrderBy<Asc<LumShipmentPlan.prodLine,
+                                                       Asc<LumShipmentPlan.inventoryID,
+                                                           Asc<LumShipmentPlan.customerOrderNbr>>>>.View ShipPlan;
         public SelectFrom<SOOrder>.Where<SOOrder.orderType.IsEqual<LumShipmentPlan.orderType>.And<SOOrder.orderNbr.IsEqual<LumShipmentPlan.orderNbr>>>.View Order;
 
         public PXSave<LumShipmentPlan> Save;
@@ -340,7 +350,7 @@ namespace LumCustomizations.Graph
                 SOLine soLine = sOResult;
                 SOOrder soOrder = sOResult;
 
-                PXFieldState valueExt = Order.Cache.GetValueExt((object)soOrder, PX.Objects.CS.Messages.Attribute + "ENDC") as PXFieldState;
+                PXFieldState valueExt = Order.Cache.GetValueExt((object)soOrder, PX.Objects.CS.Messages.Attribute + ENDC) as PXFieldState;
 
                 row.Customer = (string)valueExt.Value;
                 row.OrderNbr = soOrder.OrderNbr;
@@ -413,6 +423,19 @@ namespace LumCustomizations.Graph
                 row.DimWeight = row.CartonQty * item.BaseItemVolume * 1000000M / 5000M;
             }
         }
+
+        protected void _(Events.FieldUpdated<LumShipmentPlan.customer> e)
+        {
+            var row = e.Row as LumShipmentPlan;
+
+            if (e.NewValue != null && row != null)
+            {
+                SOOrder soOrder = SOOrder.PK.Find(this, row.OrderType, row.OrderNbr);
+
+                Order.Cache.SetValueExt(soOrder, PX.Objects.CS.Messages.Attribute + ENDC, e.NewValue);
+                Order.Update(soOrder);
+            }
+        }
         #endregion
 
         #region Method
@@ -422,7 +445,8 @@ namespace LumCustomizations.Graph
             var _CurrentRow = this.GetCacheCurrent<LumShipmentPlan>().Current;
             Dictionary<string, string> parameters = new Dictionary<string, string>
             {
-                ["ShipmentPlanID"] = _CurrentRow.ShipmentPlanID
+                ["ShipmentPlanID"] = _CurrentRow.ShipmentPlanID,
+                ["ProdOrdID"] = _CurrentRow.ProdOrdID
             };
             return parameters;
         }

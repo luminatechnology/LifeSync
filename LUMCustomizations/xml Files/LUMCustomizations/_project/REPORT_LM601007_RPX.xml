@@ -179,6 +179,10 @@ QsW0A6KISXtoD2ixWJRLLNnz779jju4MLzx+uuLFy/GMmDATeVPl9M+iiEl7fDdiRMPTJ/+3w8/xFJcX
                 <DataField>outter.ShipmentPlanID</DataField>
                 <Value>@ShipmentPlanID</Value>
             </FilterExp>
+            <FilterExp>
+                <DataField>outter.ProdOrdID</DataField>
+                <Value>@ProdOrdID</Value>
+            </FilterExp>
         </Filters>
         <PageSettings>
             <Margins>
@@ -195,6 +199,7 @@ QsW0A6KISXtoD2ixWJRLLNnz779jju4MLzx+uuLFy/GMmDATeVPl9M+iiEl7fDdiRMPTJ/+3w8/xFJcX
                 <Name>ShipmentPlanID</Name>
                 <Prompt>ShipmentPlanID</Prompt>
                 <ViewName>=Report.GetFieldSchema('LumShipmentPlan.ShipmentPlanID')</ViewName>
+                <Visible>False</Visible>
             </ReportParameter>
             <ReportParameter>
                 <Name>Descr</Name>
@@ -232,6 +237,11 @@ QsW0A6KISXtoD2ixWJRLLNnz779jju4MLzx+uuLFy/GMmDATeVPl9M+iiEl7fDdiRMPTJ/+3w8/xFJcX
                 <Nullable>True</Nullable>
                 <Prompt>DATE</Prompt>
                 <Type>DateTime</Type>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>ProdOrdID</Name>
+                <Prompt>ProdOrdID</Prompt>
+                <Visible>False</Visible>
             </ReportParameter>
         </Parameters>
         <Relations>
@@ -1041,6 +1051,9 @@ QsW0A6KISXtoD2ixWJRLLNnz779jju4MLzx+uuLFy/GMmDATeVPl9M+iiEl7fDdiRMPTJ/+3w8/xFJcX
             </ReportTable>
             <ReportTable Name="v_OUTTERLABEL_REPORT">
                 <Fields>
+                    <ReportField Name="Container">
+                        <DataType>Int32</DataType>
+                    </ReportField>
                     <ReportField Name="Customer">
                     </ReportField>
                     <ReportField Name="CustomerOrderNbr">
@@ -1068,6 +1081,8 @@ QsW0A6KISXtoD2ixWJRLLNnz779jju4MLzx+uuLFy/GMmDATeVPl9M+iiEl7fDdiRMPTJ/+3w8/xFJcX
                         <DataType>Decimal</DataType>
                     </ReportField>
                     <ReportField Name="ProdLine">
+                    </ReportField>
+                    <ReportField Name="ProdOrdID">
                     </ReportField>
                     <ReportField Name="ShipmentPlanID">
                     </ReportField>
@@ -1188,9 +1203,9 @@ QsW0A6KISXtoD2ixWJRLLNnz779jju4MLzx+uuLFy/GMmDATeVPl9M+iiEl7fDdiRMPTJ/+3w8/xFJcX
                                 <Size>14px</Size>
                                 <Style>Bold</Style>
                             </Font>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Center</TextAlign>
                         </Style>
-                        <Value>=IIF([@QtyinContainer] = null, [InventoryItem.QTYCARTON_Attributes],[@QtyinContainer])</Value>
+                        <Value>=IIF([@QtyinContainer] = null, [outter.Container],[@QtyinContainer])</Value>
                     </TextBox>
                     <TextBox Name="textBox17">
                         <Location>240px, 200px</Location>
@@ -1267,7 +1282,7 @@ QsW0A6KISXtoD2ixWJRLLNnz779jju4MLzx+uuLFy/GMmDATeVPl9M+iiEl7fDdiRMPTJ/+3w8/xFJcX
                                 <Size>14px</Size>
                                 <Style>Bold</Style>
                             </Font>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Center</TextAlign>
                         </Style>
                         <Value>=IIF([@QtyinShipment] = null, CInt([outter.PlannedShipQty]), [@QtyinShipment])</Value>
                     </TextBox>

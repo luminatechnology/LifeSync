@@ -1,15 +1,15 @@
-﻿<Graph ClassName="v_OUTTERLABEL_REPORT" Source="#CDATA" IsNew="True" FileType="NewDac">
+﻿<Graph ClassName="v_INNERLABEL_REPORT" Source="#CDATA" IsNew="True" FileType="NewDac">
     <CDATA name="Source"><![CDATA[using System;
 using PX.Data;
 
 namespace LUMCustomizations
 {
   [Serializable]
-  [PXCacheName("v_OUTTERLABEL_REPORT")]
-  public class v_OUTTERLABEL_REPORT : IBqlTable
+  [PXCacheName("v_INNERLABEL_REPORT")]
+  public class v_INNERLABEL_REPORT : IBqlTable
   {
     #region ShipmentPlanID
-    [PXDBString(15, IsUnicode = true, InputMask = "",IsKey = true)]
+    [PXDBString(15, IsUnicode = true, InputMask = "", IsKey = true)]
     [PXUIField(DisplayName = "Shipment Plan ID")]
     public virtual string ShipmentPlanID { get; set; }
     public abstract class shipmentPlanID : PX.Data.BQL.BqlString.Field<shipmentPlanID> { }
@@ -65,7 +65,7 @@ namespace LUMCustomizations
     #endregion
 
     #region StartLabelNbr
-    [PXDBInt(IsKey = true)]
+    [PXDBInt()]
     [PXUIField(DisplayName = "Start Label Nbr")]
     public virtual int? StartLabelNbr { get; set; }
     public abstract class startLabelNbr : PX.Data.BQL.BqlInt.Field<startLabelNbr> { }
@@ -79,19 +79,18 @@ namespace LUMCustomizations
     #endregion
 
     #region ProdOrdID
-    [PXDBString(15, IsUnicode = true, InputMask = "",IsKey = true)]
+    [PXDBString(15, IsUnicode = true, InputMask = "", IsKey = true)]
     [PXUIField(DisplayName = "Prod Ord ID")]
     public virtual string ProdOrdID { get; set; }
     public abstract class prodOrdID : PX.Data.BQL.BqlString.Field<prodOrdID> { }
     #endregion
-     
+
     #region Container
-    [PXDBInt()]
+    [PXDBInt(IsKey = true)]
     [PXUIField(DisplayName = "Container")]
-    public virtual int? Container{ get; set; }
-    public abstract class container: PX.Data.BQL.BqlInt.Field<container> { }
+    public virtual int? Container { get; set; }
+    public abstract class container : PX.Data.BQL.BqlInt.Field<container> { }
     #endregion
-      
   }
 }]]></CDATA>
 </Graph>

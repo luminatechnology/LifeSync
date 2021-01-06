@@ -8,6 +8,7 @@ using PX.Objects.IN;
 using PX.Objects.SO;
 using PX.Objects.CM;
 using PX.Data.BQL.Fluent;
+using LumCustomizations.Graph;
 
 namespace LumCustomizations.DAC
 {
@@ -84,7 +85,9 @@ namespace LumCustomizations.DAC
 
         #region Customer
         [PXDBString(50, IsUnicode = true)]
-        [PXUIField(DisplayName = "Customer", Enabled = false)]
+        [PXUIField(DisplayName = "Customer", Enabled = true)]
+        [PXSelector(typeof(Search<CSAttributeDetail.valueID, Where<CSAttributeDetail.attributeID, Equal<LumShipmentPlanMaint.ENDCAttr>>>),
+                    typeof(CSAttributeDetail.description))]
         public virtual string Customer { get; set; }
         public abstract class customer : PX.Data.BQL.BqlString.Field<LumShipmentPlan.customer> { }
         #endregion
