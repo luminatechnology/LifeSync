@@ -35,14 +35,8 @@ namespace LumCustomizations.Graph
         #region Ctor
         public LumShipmentPlanMaint()
         {
-            Report.AddMenuAction(InnerLabelGenaral);
-            Report.AddMenuAction(OuterLabelGenaral);
-            Report.AddMenuAction(InnerLabelOsi);
-            Report.AddMenuAction(OuterLabelOsi);
-            Report.AddMenuAction(OuterLabelAmc);
-            Report.AddMenuAction(OuterLabelSjm);
-            Report.AddMenuAction(InnerLabelMasimo);
-            Report.AddMenuAction(OuterLabelMasimo);
+            Report.AddMenuAction(InnerLabel);
+            Report.AddMenuAction(OuterLabel);
 
             // Get Visible
             var _graph = PXGraph.CreateInstance<SOOrderEntry>();
@@ -81,10 +75,10 @@ namespace LumCustomizations.Graph
         [PXButton]
         protected void report() { }
 
-        public PXAction<LumShipmentPlan> InnerLabelGenaral;
+        public PXAction<LumShipmentPlan> InnerLabel;
         [PXButton(CommitChanges = true)]
-        [PXUIField(DisplayName = "Print Inner Label-General", MapEnableRights = PXCacheRights.Select)]
-        protected virtual IEnumerable innerLabelGenaral(PXAdapter adapter)
+        [PXUIField(DisplayName = "Print Inner Label", MapEnableRights = PXCacheRights.Select)]
+        protected virtual IEnumerable innerLabel(PXAdapter adapter)
         {
             this.Save.Press();
             var _reportID = "lm601000";
@@ -121,97 +115,13 @@ namespace LumCustomizations.Graph
             return adapter.Get<LumShipmentPlan>().ToList();
         }
 
-        public PXAction<LumShipmentPlan> OuterLabelGenaral;
+        public PXAction<LumShipmentPlan> OuterLabel;
         [PXButton]
-        [PXUIField(DisplayName = "Print Outer Label-General", MapEnableRights = PXCacheRights.Select)]
-        protected virtual IEnumerable outerLabelGenaral(PXAdapter adapter)
+        [PXUIField(DisplayName = "Print Outer Label", MapEnableRights = PXCacheRights.Select)]
+        protected virtual IEnumerable outerLabel(PXAdapter adapter)
         {
             this.Save.Press();
             var _reportID = "lm601001";
-            //ActiveStandardReport(_reportID);
-            var parameters = GetCurrentRowToParameter();
-            if (parameters["ShipmentPlanID"] != null)
-                throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
-            return adapter.Get<LumShipmentPlan>().ToList();
-        }
-
-        public PXAction<LumShipmentPlan> InnerLabelOsi;
-        [PXButton]
-        [PXUIField(DisplayName = "Print Inner Label-OSI", MapEnableRights = PXCacheRights.Select)]
-        protected virtual IEnumerable innerLabelOsi(PXAdapter adapter)
-        {
-            this.Save.Press();
-            var _reportID = "lm601002";
-            //ActiveStandardReport(_reportID);
-            var parameters = GetCurrentRowToParameter();
-            if (parameters["ShipmentPlanID"] != null)
-                throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
-            return adapter.Get<LumShipmentPlan>().ToList();
-        }
-
-        public PXAction<LumShipmentPlan> OuterLabelOsi;
-        [PXButton]
-        [PXUIField(DisplayName = "Print Outer Label-OSI", MapEnableRights = PXCacheRights.Select)]
-        protected virtual IEnumerable outerLabelOsi(PXAdapter adapter)
-        {
-            this.Save.Press();
-            var _reportID = "lm601003";
-            //ActiveStandardReport(_reportID);
-            var parameters = GetCurrentRowToParameter();
-            if (parameters["ShipmentPlanID"] != null)
-                throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
-            return adapter.Get<LumShipmentPlan>().ToList();
-        }
-
-        public PXAction<LumShipmentPlan> OuterLabelAmc;
-        [PXButton]
-        [PXUIField(DisplayName = "Print Outer Label-AMC", MapEnableRights = PXCacheRights.Select)]
-        protected virtual IEnumerable outerLabelAmc(PXAdapter adapter)
-        {
-            this.Save.Press();
-            var _reportID = "lm601004";
-            //ActiveStandardReport(_reportID);
-            var parameters = GetCurrentRowToParameter();
-            if (parameters["ShipmentPlanID"] != null)
-                throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
-            return adapter.Get<LumShipmentPlan>().ToList();
-        }
-
-        public PXAction<LumShipmentPlan> OuterLabelSjm;
-        [PXButton]
-        [PXUIField(DisplayName = "Print Outer Label-SJM", MapEnableRights = PXCacheRights.Select)]
-        protected virtual IEnumerable outerLabelSjm(PXAdapter adapter)
-        {
-            this.Save.Press();
-            var _reportID = "lm601005";
-            //ActiveStandardReport(_reportID);
-            var parameters = GetCurrentRowToParameter();
-            if (parameters["ShipmentPlanID"] != null)
-                throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
-            return adapter.Get<LumShipmentPlan>().ToList();
-        }
-
-        public PXAction<LumShipmentPlan> InnerLabelMasimo;
-        [PXButton]
-        [PXUIField(DisplayName = "Print Inner Label-MASIMO", MapEnableRights = PXCacheRights.Select)]
-        protected virtual IEnumerable innerLabelMasimo(PXAdapter adapter)
-        {
-            this.Save.Press();
-            var _reportID = "lm601006";
-            //ActiveStandardReport(_reportID);
-            var parameters = GetCurrentRowToParameter();
-            if (parameters["ShipmentPlanID"] != null)
-                throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
-            return adapter.Get<LumShipmentPlan>().ToList();
-        }
-
-        public PXAction<LumShipmentPlan> OuterLabelMasimo;
-        [PXButton]
-        [PXUIField(DisplayName = "Print Outer Label-MASIMO", MapEnableRights = PXCacheRights.Select)]
-        protected virtual IEnumerable outerLabelMasimo(PXAdapter adapter)
-        {
-            this.Save.Press();
-            var _reportID = "lm601007";
             //ActiveStandardReport(_reportID);
             var parameters = GetCurrentRowToParameter();
             if (parameters["ShipmentPlanID"] != null)
