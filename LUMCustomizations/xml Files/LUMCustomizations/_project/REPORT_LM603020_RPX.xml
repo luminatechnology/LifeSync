@@ -1745,22 +1745,12 @@
                         <Value>生产入库单</Value>
                     </TextBox>
                     <TextBox Name="textBox13">
-                        <Location>584px, 64px</Location>
-                        <Size>104px, 16px</Size>
+                        <Location>608px, 64px</Location>
+                        <Size>80px, 16px</Size>
                         <Value>=[AMBatch.BatNbr]</Value>
                     </TextBox>
-                    <TextBox Name="textBox18">
-                        <Location>64px, 64px</Location>
-                        <Size>120px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Microsoft JhengHei UI</Name>
-                            </Font>
-                        </Style>
-                        <Value>=[AMProdAttribute.Value] + ' - ' + [AMMTran.OperationID]</Value>
-                    </TextBox>
                     <TextBox Name="textBox3">
-                        <Location>528px, 64px</Location>
+                        <Location>552px, 64px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
@@ -1770,7 +1760,7 @@
                         <Value>入庫单号:</Value>
                     </TextBox>
                     <TextBox Name="textBox4">
-                        <Location>272px, 64px</Location>
+                        <Location>8px, 64px</Location>
                         <Size>32px, 16px</Size>
                         <Style>
                             <Font>
@@ -1781,19 +1771,9 @@
                     </TextBox>
                     <TextBox Name="textBox5">
                         <Format>='yyyy-MM-dd'</Format>
-                        <Location>304px, 64px</Location>
+                        <Location>40px, 64px</Location>
                         <Size>120px, 16px</Size>
                         <Value>=[AMBatch.TranDate]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox7">
-                        <Location>8px, 64px</Location>
-                        <Size>56px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Microsoft JhengHei UI</Name>
-                            </Font>
-                        </Style>
-                        <Value>工作中心:</Value>
                     </TextBox>
                 </Items>
             </PageHeader>
@@ -1842,10 +1822,13 @@
                             <Font>
                                 <Size>10px</Size>
                             </Font>
+                            <Padding>
+                                <Left>5px</Left>
+                            </Padding>
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=[AMMTran.OperationID] + '{br}' + [AMProdOper.Descr]</Value>
+                        <Value>=[AMProdOper.WcID]</Value>
                     </TextBox>
                     <TextBox Name="textBox28">
                         <Location>8px, 0px</Location>
@@ -1890,8 +1873,6 @@
                         <Value>=[AMMTran.InventoryID]</Value>
                     </TextBox>
                     <TextBox Name="textBox30">
-                        <CanGrow>True</CanGrow>
-                        <CanSplit>True</CanSplit>
                         <Location>96px, 0px</Location>
                         <Size>224px, 32px</Size>
                         <Style>
@@ -1906,6 +1887,9 @@
                             <Font>
                                 <Size>10px</Size>
                             </Font>
+                            <Padding>
+                                <Left>3px</Left>
+                            </Padding>
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
@@ -1933,7 +1917,7 @@
                         <Value>=[AMMTran.ProdOrdID]</Value>
                     </TextBox>
                     <TextBox Name="textBox32">
-                        <Format>#.00</Format>
+                        <Format>='N0'</Format>
                         <Location>448px, 0px</Location>
                         <Size>56px, 32px</Size>
                         <Style>
@@ -2018,18 +2002,8 @@
             <PageFooter Name="pageFooterSection1">
                 <Height>1.48148cm</Height>
                 <Items>
-                    <TextBox Name="textBox10">
-                        <Location>304px, 0px</Location>
-                        <Size>40px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Microsoft JhengHei UI</Name>
-                            </Font>
-                        </Style>
-                        <Value>生管:</Value>
-                    </TextBox>
                     <TextBox Name="textBox11">
-                        <Location>448px, 0px</Location>
+                        <Location>392px, 0px</Location>
                         <Size>32px, 16px</Size>
                         <Style>
                             <Font>
@@ -2067,10 +2041,10 @@
                                 <Name>Microsoft JhengHei UI</Name>
                             </Font>
                         </Style>
-                        <Value>生管主管:</Value>
+                        <Value>生产主管:</Value>
                     </TextBox>
                     <TextBox Name="textBox9">
-                        <Location>152px, 0px</Location>
+                        <Location>208px, 0px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
