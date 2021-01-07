@@ -114,6 +114,7 @@
     <Compile Include="Graph_Extensions\MaterialEntry.cs" />
     <Compile Include="Graph_Extensions\MoveEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\POOrderEntry_Extensions.cs" />
+    <Compile Include="Graph_Extensions\POReceiptEntry _Extensions.cs" />
     <Compile Include="Graph_Extensions\ProdMaint_Extension.cs" />
     <Compile Include="Graph_Extensions\SOInvoiceEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\SOOrderEntry.cs" />
