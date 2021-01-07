@@ -46,20 +46,6 @@
                 <ParentName>AMBatch</ParentName>
             </ReportRelation>
             <ReportRelation>
-                <ChildName>AMProdMatl</ChildName>
-                <Links>
-                    <RelationRow>
-                        <ChildField>AMProdMatl.ProdOrdID</ChildField>
-                        <ParentField>AMProdItem.ProdOrdID</ParentField>
-                    </RelationRow>
-                    <RelationRow>
-                        <ChildField>AMProdMatl.PhtmBOMLineRef</ChildField>
-                        <ParentField>AMMTran.MatlLineId</ParentField>
-                    </RelationRow>
-                </Links>
-                <ParentName>AMBatch</ParentName>
-            </ReportRelation>
-            <ReportRelation>
                 <ChildName>AMProdAttribute</ChildName>
                 <Links>
                     <RelationRow>
@@ -77,11 +63,11 @@
                 <ChildName>InventoryItem</ChildName>
                 <Links>
                     <RelationRow>
-                        <ChildField>InventoryItem.InventoryID</ChildField>
-                        <ParentField>AMMTran.InventoryID</ParentField>
+                        <ChildField>InventoryID</ChildField>
+                        <ParentField>InventoryID</ParentField>
                     </RelationRow>
                 </Links>
-                <ParentName>AMBatch</ParentName>
+                <ParentName>AMMTran</ParentName>
             </ReportRelation>
             <ReportRelation>
                 <ChildName>AMMTranSplit</ChildName>
@@ -97,6 +83,10 @@
                     <RelationRow>
                         <ChildField>BatNbr</ChildField>
                         <ParentField>BatNbr</ParentField>
+                    </RelationRow>
+                    <RelationRow>
+                        <ChildField>DocType</ChildField>
+                        <ParentField>DocType</ParentField>
                     </RelationRow>
                 </Links>
                 <ParentName>AMMTran</ParentName>
