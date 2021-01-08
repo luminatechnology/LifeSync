@@ -2435,7 +2435,7 @@
                     </TextBox>
                     <TextBox Name="textBox29">
                         <Location>40px, 0px</Location>
-                        <Size>72px, 40px</Size>
+                        <Size>88px, 40px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2454,7 +2454,7 @@
                         <Value>=[AMMTran.OrderType] + ' ' + [AMMTran.ProdOrdID]</Value>
                     </TextBox>
                     <TextBox Name="textBox30">
-                        <Location>176px, 0px</Location>
+                        <Location>184px, 0px</Location>
                         <Size>152px, 40px</Size>
                         <Style>
                             <BorderStyle>
@@ -2478,9 +2478,8 @@
                         <Value>=[AMMTran.InventoryID_description]</Value>
                     </TextBox>
                     <TextBox Name="textBox31">
-                        <Format>=IIF([AMMTranSplit.Qty] - Floor([AMMTranSplit.Qty]) &gt; 0,'N3','N0')</Format>
-                        <Location>328px, 0px</Location>
-                        <Size>64px, 40px</Size>
+                        <Location>336px, 0px</Location>
+                        <Size>72px, 40px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2496,11 +2495,11 @@
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=[AMMTranSplit.Qty]</Value>
+                        <Value>=[AMMTran.LotSerialNbr]</Value>
                     </TextBox>
                     <TextBox Name="textBox32">
-                        <Location>112px, 0px</Location>
-                        <Size>64px, 40px</Size>
+                        <Location>128px, 0px</Location>
+                        <Size>56px, 40px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2519,7 +2518,7 @@
                         <Value>=[AMProdItem.InventoryID]</Value>
                     </TextBox>
                     <TextBox Name="textBox33">
-                        <Location>456px, 0px</Location>
+                        <Location>472px, 0px</Location>
                         <Size>48px, 40px</Size>
                         <Style>
                             <BorderStyle>
@@ -2539,7 +2538,7 @@
                         <Value>=[AMMTran.UOM]</Value>
                     </TextBox>
                     <TextBox Name="textBox34">
-                        <Location>504px, 0px</Location>
+                        <Location>520px, 0px</Location>
                         <Size>48px, 40px</Size>
                         <Style>
                             <BorderStyle>
@@ -2560,7 +2559,7 @@
                         <Value>=[AMMTran.SiteID]</Value>
                     </TextBox>
                     <TextBox Name="textBox35">
-                        <Location>552px, 0px</Location>
+                        <Location>568px, 0px</Location>
                         <Size>40px, 40px</Size>
                         <Style>
                             <BorderStyle>
@@ -2581,8 +2580,8 @@
                         <Value>=[InventoryItem.BIN_Attributes]</Value>
                     </TextBox>
                     <TextBox Name="textBox36">
-                        <Location>592px, 0px</Location>
-                        <Size>96px, 40px</Size>
+                        <Location>608px, 0px</Location>
+                        <Size>80px, 40px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2603,7 +2602,7 @@
                     </TextBox>
                     <TextBox Name="textBox39">
                         <Format>=IIF([AMMTranSplit.Qty] - Floor([AMMTranSplit.Qty]) &gt; 0,'N3','N0')</Format>
-                        <Location>392px, 0px</Location>
+                        <Location>408px, 0px</Location>
                         <Size>64px, 40px</Size>
                         <Style>
                             <BorderStyle>
@@ -2668,7 +2667,7 @@
                             </TextBox>
                             <TextBox Name="textBox20">
                                 <Location>40px, 0px</Location>
-                                <Size>72px, 16px</Size>
+                                <Size>88px, 16px</Size>
                                 <Style>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
@@ -2690,7 +2689,7 @@
                                 <Value>工单单号</Value>
                             </TextBox>
                             <TextBox Name="textBox21">
-                                <Location>176px, 0px</Location>
+                                <Location>184px, 0px</Location>
                                 <Size>152px, 16px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2713,8 +2712,8 @@
                                 <Value>品名规格</Value>
                             </TextBox>
                             <TextBox Name="textBox22">
-                                <Location>328px, 0px</Location>
-                                <Size>64px, 16px</Size>
+                                <Location>336px, 0px</Location>
+                                <Size>72px, 16px</Size>
                                 <Style>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
@@ -2736,8 +2735,8 @@
                                 <Value>批号</Value>
                             </TextBox>
                             <TextBox Name="textBox23">
-                                <Location>112px, 0px</Location>
-                                <Size>64px, 16px</Size>
+                                <Location>128px, 0px</Location>
+                                <Size>56px, 16px</Size>
                                 <Style>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
@@ -2759,7 +2758,7 @@
                                 <Value>物料品号</Value>
                             </TextBox>
                             <TextBox Name="textBox24">
-                                <Location>456px, 0px</Location>
+                                <Location>472px, 0px</Location>
                                 <Size>48px, 16px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2782,7 +2781,7 @@
                                 <Value>单位</Value>
                             </TextBox>
                             <TextBox Name="textBox25">
-                                <Location>504px, 0px</Location>
+                                <Location>520px, 0px</Location>
                                 <Size>48px, 16px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2805,7 +2804,7 @@
                                 <Value>仓库</Value>
                             </TextBox>
                             <TextBox Name="textBox26">
-                                <Location>552px, 0px</Location>
+                                <Location>568px, 0px</Location>
                                 <Size>40px, 16px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2828,8 +2827,8 @@
                                 <Value>库位</Value>
                             </TextBox>
                             <TextBox Name="textBox27">
-                                <Location>592px, 0px</Location>
-                                <Size>96px, 16px</Size>
+                                <Location>608px, 0px</Location>
+                                <Size>80px, 16px</Size>
                                 <Style>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
@@ -2851,7 +2850,7 @@
                                 <Value>备注</Value>
                             </TextBox>
                             <TextBox Name="textBox38">
-                                <Location>392px, 0px</Location>
+                                <Location>408px, 0px</Location>
                                 <Size>64px, 16px</Size>
                                 <Style>
                                     <BorderStyle>
