@@ -10,6 +10,7 @@ namespace JAMS.AM
         public override void Initialize()
         {
             ReportAction.AddMenuAction(MaterialIssuesAction);
+            ReportAction.AddMenuAction(MaterialReturnAction);
             ReportAction.MenuAutoOpen = true;
         }
 
@@ -45,6 +46,23 @@ namespace JAMS.AM
 
             // using Report Required Exception to call the report
             throw new PXReportRequiredException(parameters, "LM206100", "LM206100");
+        }
+        #endregion
+
+        #region Material Return Action
+        public PXAction<AMBatch> MaterialReturnAction;
+        [PXButton]
+        [PXUIField(DisplayName = "Material Return", MapEnableRights = PXCacheRights.Select)]
+        protected void materialReturnAction()
+        {
+            var curAMBatchCache = (AMBatch)Base.batch.Cache.Current;
+            // create the parameter for report
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters["BatNbr"] = curAMBatchCache.BatNbr;
+            parameters["AttributeID"] = "PRODLINE";
+
+            // using Report Required Exception to call the report
+            throw new PXReportRequiredException(parameters, "LM206105", "LM206105");
         }
         #endregion
 
