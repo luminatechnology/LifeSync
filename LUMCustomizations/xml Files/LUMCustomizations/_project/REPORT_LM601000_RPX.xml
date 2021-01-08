@@ -2,28 +2,21 @@
     <Report Name="report1">
         <EmbeddedImages>
             <EmbeddedImage>
+                <ImageData>iVBORw0KGgoAAAANSUhEUgAAAj0AAAGACAIAAADJT0RgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAABFsSURBVHhe7d19bNX1vcBx2tIWlILlKfjAQwWWpZTIkzILmyxEHGwMM3XbH5oRTdD4xDQSXbxRE29UducCLJvB+M+NJlORgNmkiZNMXQBF0CsoagvyDMMHoEB5LO392vOTy+Vy78Yu57Qf9nr9cfj29/txTs8f57zzaX/9naLW1tZOABBEcfYvAESgWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEUtTa2potgbBaWlqam5vTyzktktwid1vUpri4+OTbpHPnzmmd/X+IQ7cgpKNHjzY2Nu7bty/d/vWvf21oaNi2bduBAwf279+fbk9IX5aUlFRUVHT7Wlqff/75F1xwwaBBgwYPHty7d+8ePXp079493aaYZfcOHZhuQRjp1bpp06YPP/xw/fr1mzdv3vK1L7/88vjx49lBf7c0bKWR68ILLxwwYED//v0HDhyYSvaNb3xj2LBhffv2zQ6C
+jke3oENraWk5cuTI9u3bl7V5//33N27c+Pnnn+f2pvCUlpamUamqqirlJ41NaZZKQ9WJ2yTdQxq8mtrkhrC02LNnz6effrp169aDBw8eO3bsRPZSwIYMGTJ69Ojx48ePHTu2srKyvLw8tws6CN2CDirlqqGh4c9//vOf/vSn1atX7927NzUmbe/Xr1+ahy699NKhQ4em8ShJsUmVSoEpaVNcXJxb5O4nJ73SU5xSw9JtzuHDhxsbG1O96uvr0wOl2zS6ffbZZ7t3707HV1RUpEdJ9br66qvTbXoIP0Wkg9At6HBSn1atWvXHP/7x5ZdfTjlJW9JcNXjw4JqamjFt0qJPnz5FX8v9r39YehNImpubt23blua5lStXvvfee+vWrUvTWNqb+pcGr2uvvXbSpEnDhw9XL9qdbkEHkmagpUuXLliw4I033ti0aVNqUpqr0sRTW1tbXV2d1pWVldmh+bRjx440h6WGpW8jSUNYytWwYcOuueaan/zkJyNGjEgdzQ6FgtMt6BBaWlpWrFgxd+7c1157bc+ePeXl5d/85jd//OMfT5s2raqq6rzzzsuOK6zGxsYPPvjg+eeff+WVV1JH09tF//79r7/++jvuuCPNf9lBUFi6Be1v586dqQ1PPfVUQ0NDRUXFuHHjfvCDH0ydOvWSSy7pCD+XO3bs2Lp16xYtWlRXV/fuu+8eP358/Pjxd9999/e+971u3bplB0Gh6Ba0p9SANGbNmTPnD3/4w9GjR0eNGjVz5sxJkyb169cvO6Ijqa+vX7Bgwfz587du3dqrV68bb7zxzjvvHDJkSLYbCiN1C2gXTU1N8+bNGzhwYHol9uzZ87bbblu7dm2277SWzEhH1s5pyL48WduuGUuyr1ob5tR+9fo+actJTr2brw/+b07/MK1p9nrttde+//3vl5WVFRUVjR49Og1huUt1QGE4NQjax549e5588slf/OIXmzdvTu/+v/3tb+fOnVtTU5PtPkuennJ
+rXbb8G07t1LKZpx2jOnfuPHHixGefffbhhx8eMGDA6tWrb7/99hdffDH1LDsC8ky3oB3kJq0nnnjiyJEjN9xwwzPPPPPTn/40TTDZ7rOkdsaM2jMo1xmorKycNWvW7373u8svv3zjxo3333//okWLWlpast2QT7oFhdbc3JxClYatFK1bbrllzpw5I0aMyPadXdWz/mVGmrn+de76bMNZVFpaOmXKlPnz50+YMGHr1q0PPPDA0qVLs32QT7oFhfaXv/xl9uzZBw4cSJPWo48+etFFF2U78mDy/CUzOi3/+c/yUa6vjBw58le/+lVu6krPJd1mOyBvdAsKKo0mv/71r3fu3Dl27NgHH3ywT58+2Y58yXe5Oo0ePTo9kX79+q1YseLpp5/OXYwK8ke3oKCWLFny6quv9u3b97777jvrZ2GcXlauf/u/f821/OdD2y4alTmjX4pNnjz5tttua21tffbZZz/44INsK+SHbkHhpGHrhRdeOHr06NSpU6dNm5Ztzb+2cv2NEzROOZ9w/uRs+9+jrKzs1ltvHTVq1Pbt21O60hPMdkAe6BYUzpo1a95+++2ePXtOnz69sJf4mzxrTp5OLcykCfLGG28sLi6uq6vbuXNnthXyQLegQI4dO7Z8+fKDBw+OGDGiQD8hPMmQmf+e13KlYtXW1g4aNChFa+XKldlWyAPdggI5fPjwO++8kxZXXnlle1wnNytXXk6Kb9O/f//q6uoU5tWrV2ebIA90Cwrk+PHjn332WVpUVVWd9T8x/ru0lWv5z3+2uNNpruv0/1dZWZm7rOKJj2OGfNAtKJCWlpbcRwn36tUrt6XwcuV6+unl2ddnVYpxRUVFWuSeJuSJbkGBFBUV5d7Wm5qaclv+MaecsH5mZ6yncn11CY3TOPVuz/B+kzRQHjp0KC1yTxPyRLegQEpKSnJ/Zbxly5bm5ubcxjMzeX52lvrJcmest+36r5PXh8xc9r9dGje7k5N2th38P5zRmf
+BfaWxszP2EsHfv3rktkA+6BQVSXl4+bNiwtFi1alVuLjnH7Nixo76+/sTThDzRLSiQ9Ib+7W9/u3Pnzm+//fbWrVuzreeQtWvXfvLJJ7169bryyiuzTZAHugWFM3LkyJqamjSXPPfcc9mmc8XevXtzV8oYP358VVVVthXyQLegcIYOHfqjH/2otbV14cKFaerKtsaXntHLL7/85ptvdu/effr06V27ds12QB7oFhROcXHxtddeO2bMmPr6+tmzZ58z10NatWpVejpNTU0//OEPv/Wtb2VbIT90Cwpq+PDh99xzT0VFRV1d3bx5886BEzS2bNny2GOPffTRR9XV1TNnzqysrMx2QH6UPPLII9kSKIiqqqovvvjirbfeWrNmTbdu3UaOHFnYa+yeTbt27Xr44YcXLFiQnkhaTJkypaioKNsH+aFbUGhlZWWpVekdf+XKlalehw8frqmpOf/887PdcaQZ6/777//973/fpUuXBx98cMaMGaWlpdk+yBvdgnZQUVFx2WWX7dmz5502n3766cCBAy+++OJsd4fX3Ny8ePHi1Kq6urru3bvfd999d911V8T0EpFuQfuorKy84oorDh069B9t0uDV2tp66aWXtsel4s/Mhg0bnnzyyccff3zdunV9+/Z96KGH7rjjDtd2omCK0kslWwIF19jY+NJLL82dO3ft2rVdu3adOnXqrFmzhg8fXl5enh3Rkezbt+/111//5S9/uWzZspKSkokTJ6ZJ66qrrmqfy9vzz0q3oP2leWvevHmLFi3au3fvoEGDbrjhhilTpowZM6Zbt27ZEe1t165dK1asWLhw4ZIlS3bv3p2+yenTp9988839+/fPjoBC0S3oEPbv3//iiy/+5je/SYNXS0vLJZdcMmHChOuvv/473/lOO55Znt4ftm/fnlq1ePHi5cuXp+mwS5cu6Ru79957v/vd78Y9DZLQdAs6ipSrTZs2vfTSSylgH3744eHDh3v27Hn55ZdPm
+zZt3LhxF198cY8ePQqTivTQafLbsGHD0qVLX3nllZTSQ4cOXXDBBVdcccVNN900adKkvn37ZodCwekWdCzpJbljx4404ixcuPCtt95KI05JSUkK2KhRo8aPH58yNnjw4DSNpbkn+w9nz759+zZv3vzJJ5+saJNy1dTUlL6f9HBXXXXVddddN3HixO7du2dHQzvRLeigdu3a9cYbb7z66qspIfX19bmP7EpDT3V19ZAhQ4YOHTpw4MBBbdL0U1pamvuD37/5Z78nXvJpvEtz1fbt29OQt2XLlo0bNzY0NKQH+vjjj48cOZIO6Nq164gRI2praydPnjx27NiO88s2/snpFnRoBw4c2LlzZ2rJm202bNiwd+/e48ePp10pJD169EgDUOpWKllVVVVap40VFRXp9oR0cLqTZP/+/blFsnv37vXr16dWffnll2nMSlNdali6z7Kysl69etXU1KQBK3dl9379+jldkA5FtyCGY8eOHTx4cM2aNcuWLXv//fdTzL74Wi5jadIqbnPKIu1Ko1WSXuy5RU7bvXbq0qVLnz59Uqt69+49YMCAMWPGjBs3LlWwvLy8pKQkdwx0KLoFIX3++ec7vrZt27bNmzfv2rXr0KFDqW2nSPk5r03Xrl1ziyTNYRdddFHuIh1pkeN3V4SgW3Au2L9/f1NTU5rJTmhubs4t0tRV2qZz5865RVJWVlZRUeGDsohItwCIxOdvARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJ
+bgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4
+BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQiW4BEIluARCJbgEQR6dO/wl3sflfFOB1fQAAAABJRU5ErkJggg==</ImageData>
+                <MimeType>image/png</MimeType>
+                <Name>back1</Name>
+            </EmbeddedImage>
+            <EmbeddedImage>
                 <ImageData>iVBORw0KGgoAAAANSUhEUgAAAFYAAAAyCAAAAADjWHNnAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAAFiUAABYlAUlSJPAAAAAHdElNRQfkDBkGJRfGTS+yAAAEPUlEQVRYw83XfVAUZRwH8N/eHce9eB6dI4JwCjFY4pznhKCQDpEJWjYiDKgjxAg5oUOTFEyINaFCVH8okjnm3TimJkOUUr5QpKZCTXEUIFoQLwOncgdjx71wx73tbsvAnnfAHfeyjX3/293Zz+7O8+zz/H6A/yeBJ8WiJqNhVKdRq0bUWp3eYDRjvrKm4Z7fr1QW5u3YvG7VskXhy+OTUrP3lJy83t6vQr1ksb5LR/amrgykw9QgfovWbC8+cWPIUxY1dJ/eFTufIBjsoLitu/a+V/HpqZpqSWX5vjdztogFrPFnCRML6xRG91ljR9WrCzkAQctTiiS3+oY1o2Mm68QXWEwGnVrZVX80P+lZAQAvIvtcP+oWq79VtIR4y2fSKn5UWFEnw4Ohpt4LxclCAHr8J23orOzY5ewwQCLyzrSo8FnzsPFYeiDQRIUyi0sWbUp/CvzF5Xf1s5sTUTflhyMgLOhxwQ4ejgTehmMDqLvoeMxtH8QykLW1OiestTGNCc99ofDEnEhXmRDmvdU9I6uvWgyCvA7PUSKWa68wkeh663RWdZAL0dUmr9Tx28sXQ/h581R2tJTDSG/1FiVivhIDwhrbqEywlkoe/Y2HPqhE/ngBwhsc2RvByLZh31Qcb4mBtX32rHwTrPZusBxSF8Qo1tuxJ5iBX/uu4qZSeshvj1l5IuRafAIno4iBfJONvcwRNFKh4uhRWkQ/yZpL4MURSlhc9jTnK5LVrof9Xv8HjlFugndJdkQMUmpU3PQ65JDsP0K4SBGLF0AKyaqi4BxFqjUPskhW
 kwAfUjK/iA9PgwKSNe6BVC01bIfIX0qyeDUj5B417Hnmwns2tnMFso8SdWQjZBhsLHoQlvxKgYqd5s69ittY/M5K2DLoO9u8FDJVdiz+JY9VbPBVHUiBKBluz+ryafzDY76pylzGXAm560zuZYNZwN8/5DVJ5M8MOrfC9mbkztubhbC3NnuNWr5ZA/wDGtuxrU54sJsNos8eeaf2FAdDYKVdYfO4qlFLRcDOkBk9RzXfPg/0pAb7xdW+BmvdGQBhRT/pPEOVFzMFEFYqdzjpUDFqpWIahGbWuVGETga7//lGPrA2NExZqxzrW7T342gWCJKPtz9yY00bUzQdiGVDQNLZaXNoajWOPTiZzAf6/ORD33e7nMiaO7Vvx81BIHTHBc30qzP0Dsqa3CgGQED8a4fO3JYbUcy+0scwzDra9YOkJF3sD8COe+fajEMxY6ej+/u7wth5RDszJ2RpQm5Z1ana+sbW7s6Wm5eqJUfe3746cgELgBm8vuzmgJO91VlfZlbfrtiWsGwBYSN0PyaLw+XxuGwWk0EjeieWcMVLOcfb9VbcWVx2kcNtV6WlO19OXCWKCOb7sQShkeK4dZt3f3T2+l8a3GVm73m1CnlvZ0dr88+/yNrudvXdH3JnqXtiHfr/if0XJIEVhKPTHE0AAAAldEVYdGRhdGU6Y3JlYXRlADIwMjAtMTItMjVUMDY6Mzc6MTYrMDA6MDDHi4GVAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIwLTEyLTI1VDA2OjM3OjE2KzAwOjAwttY5KQAAAABJRU5ErkJggg==</ImageData>
                 <MimeType>image/png</MimeType>
                 <Name>cycle_blank10</Name>
-            </EmbeddedImage>
-            <EmbeddedImage>
-                <ImageData>iVBORw0KGgoAAAANSUhEUgAAAE4AAABCCAYAAAD5aOBmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAPrSURBVHhe7ZvNKzVRGMBvWSpLkR0pUhQrH2HhY2Ej/wFZUJTYS2woZSelsFAiWQlZKR9rG0qxtRYrNs/7/qYzdc173XvnOXNn5nrPr6brOTNzznN+15mZe2YmIw4VTpwSJ06JE6fEiVPixClx4pQ4cUqcOCVOnBInTkkqxL29vcnT05NcX1/L8fGxbG5uytLSkvdJTDnr2S4tJCLu6+tLzs7OZGFhQdra2qSqqkoaGxulu7tbxsbGZGpqSvr6+rxPYspZz3Zsz37sTz1JEau409NTGR4eloqKCunv75eVlRW5u7sza4uD7dmP/amH+qg3bmIRd3R0JD09PdLe3i57e3vy/v5u1thBPdRHvdRPO3FRUnEMp46ODm+oHR4emtLSQP20Q3u0W2pKJm5xcVFqamrk5OTElMQD7dEu7ZeSyMU9Pz/L0NCQjI6OyuvrqymNF9qlffIgn1IQqbibmxvvzLe6umpKkoU8yIe8oiYycff391JdXS37+/umJB2QD3mRX5REIu7l5UXq6+tla2vLlHxnenraW34ik8l4F7lwcHDwLc6GS4+1tTXvb+pju1xLsC3yIr8oh621OC4JWltbZX193ZT8i0YcS5CguHx1BiE/8ozqUsha3MzMjMzOzpooN2HFNTQ0eEtwHxtxQJ7kGwVW4q6urqS2trbgt6gRR0w5sY+tOPIkX/K2xUpcV1eX7O7umuhnNOIASdlDtthjnF9XLsiXvG1Ri9vY2JCRkRET5UcrDrKHrO1/nA95k78NanGdnZ1yfn5uovzYiOOMzXrKoxJH3uRvg0rcw8OD1NXVmagwNuLAH7JRiQPypx9aVOKYZJybmzNRYWzFAWVsF5U48qcfWlTiWlpa5Pb21kSFoYN0Orj4
-HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4ODJipvBgYGvP5oCC1ue3tbJiYmTFTejI+Pe/3REFrc8vJyyWdX46K3t1d9Zg0tbmdnRyYnJ01U3jByYvuPu7y89KakfwMcq2M7xj0+Pkpzc7OJyptYz6ofHx/uOu4vocVB2F8OaST2Xw4Q9rdqGknkt2rY2ZE0ksjsCISZj0sbic3HQZgZ4LSR6AwwFHvPIU0kfs8Bir3LlRZSc5cLirmvmhZSc18V+BYL3clPA6m7kw88k5Hv2ZGk8Z8dYfo9KiIRB+5pJQvc83EWuCcyLXHPAFvgnjq3xL3nYAlvwHDcifLNGur7tW/WBPn8/PSGk/Zdrvn5eW9/6kmKRMQFcW8P/kc4cUqcOCVOnBInTokTp8SJU+LEqRD5A+kbQ1jFeqJQAAAAAElFTkSuQmCC</ImageData>
-                <MimeType>image/png</MimeType>
-                <Name>cycle4</Name>
-            </EmbeddedImage>
-            <EmbeddedImage>
-                <ImageData>iVBORw0KGgoAAAANSUhEUgAAAF8AAABOCAIAAADJpF2cAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAALrSURBVHhe7dTdecMgDIbRzJWBMk+m6TIZJnWVlwZqkPm1capzVQsQ6GufXp4mzdLRWDoaS0dj6WgsHY2lozk+nYuKTQfZ+3qGbkCjXexxGWMNwAXDjL2AIdLYp2JrGvsGGNWah8ewowotYtjRVf+mPDbEWle0DrHWSc92PDDE2jBcE2KtWb9GIao74mKHapsOXXiOh4Uj8AKHaq3m8yGqh+IpDtUqbYdDVCfAgxyq5RpOeihNhscJSoVqj3koTYknCkolqs54KE2MhwpK2coPeCitfN3YcLneH9R8j/uVdbfBq9y+ZM+Pd9X1eXeO8E6GWBeU8hTu9lCKaUrHm7JXOgu2CEoZKtPhO6Exnd9TWjrxzhoODkqH3oJSQms67s9gUDoLSluy93kopbWn88qnbzoLzgpKquJ0+Fa1pHO93V4/LitaOmvav503Np81nfvDHf8Nakg6C0ppeRE6fG9pTCcSwjqdeOcsdDhtOv4OMW06dBKUtrSn8/fPZ0w6C0oJBenwnSGcLCBD5aQTdlmnE5P3n+cHB06cTmTbR6QzP0ZqTIcenxXNC4Opo1k6lk4Mg1k6UQxm6UQxmKUTxWCWThSDWTpRDGbpRDFYSzoLenxWQIy0NZSlo7F0NAXpLCidHMMISglZA9Pp49LhO83S0eQOTL/zB8QYglLa/02Hb1VxOgtKJ8QAgpKqYFS6CkqnwtMFpS1lc9L75OnwnaEynQWlk+DRglKG4iG5QVCaHs8VlPLUTMg9gtLEeKiglK1yPG4TlKbEEwWlEvWzcaegNBkeJygVahqMmx2qc+BNglK51pG436F6KJ7iUK3SYR5e4WHhCLzAoVqr2yQ8x6G6Iy52qLbpOQbv8rAwGJd5WGjWfwAeGGKt
-K1qHWOtk1K+Xx66w3IBGKyx3NSqdFx6ewKYMHEhg0wBj03lhiAG4YJg90vExVgMa7WLvdP5gYhVbj3BwOpOzdDSWjsbS0Vg6GktHY+loLJ205/Mb4JApOoxnn40AAAAASUVORK5CYII=</ImageData>
-                <MimeType>image/png</MimeType>
-                <Name>cycle</Name>
-            </EmbeddedImage>
-            <EmbeddedImage>
-                <ImageData>iVBORw0KGgoAAAANSUhEUgAAAFEAAABZCAIAAADJvl8MAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAALTSURBVHhe7Zq5eRsxEEZJ12IlKoGqgG7CGRWKCTOHzpRIoViI1AFLUCL1Qg8B0MTimgEwwB7AS3a/PYD/7QzB4+P6fD6vGqOq83q9VnsuqiUp6Bw2pFAoG79zvqoNb0g25xKqNixpGZzr2OpkZs5yjrVF54oaMDl5ujMlX4UHmjBFijOaJkfVhn26aOdAAl5VG66pI5xHtNXJj/FDbTEmIgwEpguE1CHV2TdWZVuD5FTUOtuMKwz4AqDVxutsDzG6rYFTMhASqfP0hYHYSCFntEmmg60dCO91pjTMxyNcJXh4/VbHdL5fH9T56wXakccPcc2F29HrOLeRHWh3atC1I9Yw5q4+/nJnL4/b2X5CzMKC419ndwzZvHzB3APetuqcCZxTe1ecpXY41xG+cNo/c5eaoh3R2yUYpcFx50JF3ux2m8sWa/DT/g4qpYM9JTSw6Qxjqr3S3B/+7C7b0/7386c4woehbUghdS71ShZs396l9fF4Egdc2GuYdwmjMnCuV2TF9vAiGrw8ulqozvBM1V4xfj7JBucnEB5fw0hYK437g5mDa4P7sNcwfBVDYHLOoV6DKwbfJeERqj1Bhd4uik/nVueFCQOGwn/BCfR2dbpzG3TnNujObXBz9r2bzRf8M0k7dOc2CDnP+iUdCD9wXsD3Ch+6Wu/tpbxjhWPjdZ6dth3YKGTvbYG9ks2o1GiRAXedZ62tY4sAi+ptYmG8zrMrNaWrJaE6z0g7Klh0b09Q2xnJV2Qg5f9hEvTGCqRlw+vsu3/0gicXg/q/3oDhKAXP6T6qMzAR7fwYEc6SEc25po52BgJzAyXMeWdMcZaEc0hy/CnjAyk1qxBLQpmIfUAnWc6SqKAsZGZmcJbUMWdJy+YsKWfO
-mJPZWSffv1C2gs4GlEdQJ0w95+mwqN9JiHTnNujObdCd26A7t0F3boPu3AbduQ26cxt05zbozi2wWv0D5BKSlPK0A5UAAAAASUVORK5CYII=</ImageData>
-                <MimeType>image/png</MimeType>
-                <Name>cycle2</Name>
             </EmbeddedImage>
             <EmbeddedImage>
                 <ImageData>iVBORw0KGgoAAAANSUhEUgAAAFcAAAAuCAIAAADShxIyAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QA/wD/AP+gvaeTAAAAB3RJTUUH5AwYCTo5ZCEMuwAAETRJREFUaN6dWnt0HsV1v3f2+z69bNmyZMmSJVuWc7CMbXwwdqCYh40fQIEcTqAQaChpKDHQkiYNTQkNTVrgnJwezqEnJNCEvBqI0wRDSEk4BPMwwm7BKn5jBEaWjSz5UUmWZD2+3Zm5t3/M7uzs7iegHe2RVrvzuPd3H7Pzm0FfFYUoIDACACADACACs/kbFgZAAAa3cOLOVGUGYCZmImImABBCeMLzhAcI/6fCAKSJmIgIEBAFIqLAZDeIwJHYUTtbhTF8E73GdA1gI7wmTQBoarABAyO1s4KFXZn6ZhSjOBEzsECR87xUMwI+MzY6NDQ0MjwyNj7mT/p+0Z8sTo5PTEolEbGivKyqalpFRUVZRXlZWfm0qqpZs2prZs0oz5Wlu2LSWgMDChRCWIEsCshAaJSMn0XKwlSWQE0aQl1c5RlSSCAgmxoY1WAmJiLwRF7Emo+MjfT3H+/qevf9rve6D/ccPtx9enDo1MDA0ODQxMR4yp9Kllw+N3369NkN9bW1tXPnNi9cuHBR+1mL2he3zp/XWN9oRdJMpJTBAzE2DyfHMDInHDljYoOCqRdWYUTkCMswTqJBABiYmEmTyIkchsr3nezfu3tvZ+fON998692DB0+cOOEX/SmVLMvlvXwu5+W8nPA8ZiatpVRSSRlI5ilxqp1d29a2cMXKlResvmDlipWLFrXnQw8GKQMUBg4TIqFhAdgCgKGnh4ojOwpqrR0dHQCBEUx+iKNIk2aGfC5nxt6zf89rr7y69aWXOzs7BwcG3A7yhXx9Q31zS/O8ea1zG5vmzm+ub2ioramtnlE9bXpVWVmh
@@ -35,6 +28,24 @@ KIQQKFyRNPCRIz179+zp6Hij4/WOffv26egYSd3s2ZdfefmmTZsuvvAiANBaE5PwcqZXALu+dFZ7iMjE
 Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMC0xMi0yNFQwOTo1ODo1NyswMDowMHUQUbEAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjAtMTItMjRUMDk6NTg6NTcrMDA6MDAETekNAAAAAElFTkSuQmCC</ImageData>
                 <MimeType>image/png</MimeType>
                 <Name>rohs_icon_blank3</Name>
+            </EmbeddedImage>
+            <EmbeddedImage>
+                <ImageData>iVBORw0KGgoAAAANSUhEUgAAAFEAAABZCAIAAADJvl8MAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAALTSURBVHhe7Zq5eRsxEEZJ12IlKoGqgG7CGRWKCTOHzpRIoViI1AFLUCL1Qg8B0MTimgEwwB7AS3a/PYD/7QzB4+P6fD6vGqOq83q9VnsuqiUp6Bw2pFAoG79zvqoNb0g25xKqNixpGZzr2OpkZs5yjrVF54oaMDl5ujMlX4UHmjBFijOaJkfVhn26aOdAAl5VG66pI5xHtNXJj/FDbTEmIgwEpguE1CHV2TdWZVuD5FTUOtuMKwz4AqDVxutsDzG6rYFTMhASqfP0hYHYSCFntEmmg60dCO91pjTMxyNcJXh4/VbHdL5fH9T56wXakccPcc2F29HrOLeRHWh3atC1I9Yw5q4+/nJnL4/b2X5CzMKC419ndwzZvHzB3APetuqcCZxTe1ecpXY41xG+cNo/c5eaoh3R2yUYpcFx50JF3ux2m8sWa/DT/g4qpYM9JTSw6Qxjqr3S3B/+7C7b0/7386c4woehbUghdS71ShZs396l9fF4Egdc2GuYdwmjMnCuV2TF9vAiGrw8ulqozvBM1V4xfj7JBucnEB5fw0hYK437g5mDa4P7sNcwfBVDYHLOoV6DKwbfJeERqj1Bhd4uik/nVueFCQOGwn/BCfR2dbpzG3TnNujObXBz9r2bzRf8M0k7dOc2CDnP+iUdCD9wXsD3Ch+6Wu/tpbxjhWPjdZ6dth3YKGTvbYG9ks2o1GiRAXedZ62tY4sAi+ptYmG8zrMrNaWrJaE6z0g7Klh0b09Q2xnJV2Qg5f9hEvTGCqRlw+vsu3/0gicXg/q/3oDhKAXP6T6qMzAR7fwYEc6SEc25po52BgJzAyXMeWdMcZaEc0hy/CnjAyk1qxBLQpmIfUAnWc6SqKAsZGZmcJbUMWdJy+YsKWfO
+mJPZWSffv1C2gs4GlEdQJ0w95+mwqN9JiHTnNujObdCd26A7t0F3boPu3AbduQ26cxt05zbozi2wWv0D5BKSlPK0A5UAAAAASUVORK5CYII=</ImageData>
+                <MimeType>image/png</MimeType>
+                <Name>cycle2</Name>
+            </EmbeddedImage>
+            <EmbeddedImage>
+                <ImageData>iVBORw0KGgoAAAANSUhEUgAAAF8AAABOCAIAAADJpF2cAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAALrSURBVHhe7dTdecMgDIbRzJWBMk+m6TIZJnWVlwZqkPm1capzVQsQ6GufXp4mzdLRWDoaS0dj6WgsHY2lozk+nYuKTQfZ+3qGbkCjXexxGWMNwAXDjL2AIdLYp2JrGvsGGNWah8ewowotYtjRVf+mPDbEWle0DrHWSc92PDDE2jBcE2KtWb9GIao74mKHapsOXXiOh4Uj8AKHaq3m8yGqh+IpDtUqbYdDVCfAgxyq5RpOeihNhscJSoVqj3koTYknCkolqs54KE2MhwpK2coPeCitfN3YcLneH9R8j/uVdbfBq9y+ZM+Pd9X1eXeO8E6GWBeU8hTu9lCKaUrHm7JXOgu2CEoZKtPhO6Exnd9TWjrxzhoODkqH3oJSQms67s9gUDoLSluy93kopbWn88qnbzoLzgpKquJ0+Fa1pHO93V4/LitaOmvav503Np81nfvDHf8Nakg6C0ppeRE6fG9pTCcSwjqdeOcsdDhtOv4OMW06dBKUtrSn8/fPZ0w6C0oJBenwnSGcLCBD5aQTdlmnE5P3n+cHB06cTmTbR6QzP0ZqTIcenxXNC4Opo1k6lk4Mg1k6UQxm6UQxmKUTxWCWThSDWTpRDGbpRDFYSzoLenxWQIy0NZSlo7F0NAXpLCidHMMISglZA9Pp49LhO83S0eQOTL/zB8QYglLa/02Hb1VxOgtKJ8QAgpKqYFS6CkqnwtMFpS1lc9L75OnwnaEynQWlk+DRglKG4iG5QVCaHs8VlPLUTMg9gtLEeKiglK1yPG4TlKbEEwWlEvWzcaegNBkeJygVahqMmx2qc+BNglK51pG436F6KJ7iUK3SYR5e4WHhCLzAoVqr2yQ8x6G6Iy52qLbpOQbv8rAwGJd5WGjWfwAeGGKt
+K1qHWOtk1K+Xx66w3IBGKyx3NSqdFx6ewKYMHEhg0wBj03lhiAG4YJg90vExVgMa7WLvdP5gYhVbj3BwOpOzdDSWjsbS0Vg6GktHY+loLJ205/Mb4JApOoxnn40AAAAASUVORK5CYII=</ImageData>
+                <MimeType>image/png</MimeType>
+                <Name>cycle</Name>
+            </EmbeddedImage>
+            <EmbeddedImage>
+                <ImageData>iVBORw0KGgoAAAANSUhEUgAAAE4AAABCCAYAAAD5aOBmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAPrSURBVHhe7ZvNKzVRGMBvWSpLkR0pUhQrH2HhY2Ej/wFZUJTYS2woZSelsFAiWQlZKR9rG0qxtRYrNs/7/qYzdc173XvnOXNn5nrPr6brOTNzznN+15mZe2YmIw4VTpwSJ06JE6fEiVPixClx4pQ4cUqcOCVOnBInTkkqxL29vcnT05NcX1/L8fGxbG5uytLSkvdJTDnr2S4tJCLu6+tLzs7OZGFhQdra2qSqqkoaGxulu7tbxsbGZGpqSvr6+rxPYspZz3Zsz37sTz1JEau409NTGR4eloqKCunv75eVlRW5u7sza4uD7dmP/amH+qg3bmIRd3R0JD09PdLe3i57e3vy/v5u1thBPdRHvdRPO3FRUnEMp46ODm+oHR4emtLSQP20Q3u0W2pKJm5xcVFqamrk5OTElMQD7dEu7ZeSyMU9Pz/L0NCQjI6OyuvrqymNF9qlffIgn1IQqbibmxvvzLe6umpKkoU8yIe8oiYycff391JdXS37+/umJB2QD3mRX5REIu7l5UXq6+tla2vLlHxnenraW34ik8l4F7lwcHDwLc6GS4+1tTXvb+pju1xLsC3yIr8oh621OC4JWltbZX193ZT8i0YcS5CguHx1BiE/8ozqUsha3MzMjMzOzpooN2HFNTQ0eEtwHxtxQJ7kGwVW4q6urqS2trbgt6gRR0w5sY+tOPIkX/K2xUpcV1eX7O7umuhnNOIASdlDtthjnF9XLsiXvG1Ri9vY2JCRkRET5UcrDrKHrO1/nA95k78NanGdnZ1yfn5uovzYiOOMzXrKoxJH3uRvg0rcw8OD1NXVmagwNuLAH7JRiQPypx9aVOKYZJybmzNRYWzFAWVsF5U48qcfWlTiWlpa5Pb21kSFoYN0Orj4
+HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4ODJipvBgYGvP5oCC1ue3tbJiYmTFTejI+Pe/3REFrc8vJyyWdX46K3t1d9Zg0tbmdnRyYnJ01U3jByYvuPu7y89KakfwMcq2M7xj0+Pkpzc7OJyptYz6ofHx/uOu4vocVB2F8OaST2Xw4Q9rdqGknkt2rY2ZE0ksjsCISZj0sbic3HQZgZ4LSR6AwwFHvPIU0kfs8Bir3LlRZSc5cLirmvmhZSc18V+BYL3clPA6m7kw88k5Hv2ZGk8Z8dYfo9KiIRB+5pJQvc83EWuCcyLXHPAFvgnjq3xL3nYAlvwHDcifLNGur7tW/WBPn8/PSGk/Zdrvn5eW9/6kmKRMQFcW8P/kc4cUqcOCVOnBInTokTp8SJU+LEqRD5A+kbQ1jFeqJQAAAAAElFTkSuQmCC</ImageData>
+                <MimeType>image/png</MimeType>
+                <Name>cycle4</Name>
             </EmbeddedImage>
         </EmbeddedImages>
         <Filters>
@@ -970,17 +981,23 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                 <Visible>False</Visible>
             </PageHeader>
             <Detail Name="General">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
+                <ProcessOrder>Always</ProcessOrder>
                 <Style>
+                    <BackImage>
+                        <Image>back1</Image>
+                        <MimeType>image/png</MimeType>
+                    </BackImage>
                     <Font>
                         <Name>Arial</Name>
                         <Size>12px</Size>
                     </Font>
                 </Style>
-                <VisibleExpr>=IIF([inner.Customer] &lt;&gt; 'OSI' #010;And [inner.Customer] &lt;&gt; 'AMC'#010;And [inner.Customer] &lt;&gt; 'SJM'#010;And [inner.Customer] &lt;&gt; 'MASIMO'#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
+                <VisibleExpr>=IIF([inner.Customer] &lt;&gt; 'OSI' #010;And [inner.Customer] &lt;&gt; 'AMC'#010;And [inner.Customer] &lt;&gt; 'SJM'#010;And [inner.Customer] &lt;&gt; 'MASIMO'#010;And [inner.Customer] &lt;&gt; '科曼'#010;And @Customer &lt;&gt; 'OSI'#010;And @Customer &lt;&gt; 'AMC'#010;And @Customer &lt;&gt; 'SJM'#010;And @Customer &lt;&gt; 'MASIMO'#010;And @Customer &lt;&gt; '科曼'#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
                 <Items>
                     <TextBox Name="textBox1">
-                        <Location>280px, 112px</Location>
+                        <Location>280px, 80px</Location>
                         <Size>64px, 48px</Size>
                         <Style>
                             <BackImage>
@@ -1003,8 +1020,8 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>='LINE{br}   '+Left([inner.ProdLine],1)</Value>
                     </TextBox>
                     <TextBox Name="textBox11">
-                        <Location>0px, 184px</Location>
-                        <Size>336px, 24px</Size>
+                        <Location>0px, 172px</Location>
+                        <Size>336px, 28px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1016,8 +1033,8 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                     </TextBox>
                     <TextBox Name="textBox13">
                         <CanGrow>True</CanGrow>
-                        <Location>0px, 208px</Location>
-                        <Size>336px, 24px</Size>
+                        <Location>0px, 200px</Location>
+                        <Size>336px, 28px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1029,8 +1046,8 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>='ABA LOT NO. : '+IIF([inner.LotSerialNbr] = null, '', [inner.LotSerialNbr])</Value>
                     </TextBox>
                     <TextBox Name="textBox15">
-                        <Location>0px, 232px</Location>
-                        <Size>152px, 24px</Size>
+                        <Location>0px, 228px</Location>
+                        <Size>152px, 28px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1038,13 +1055,13 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>Qty in Container : </Value>
+                        <Value>Qty in container : </Value>
                     </TextBox>
                     <TextBox Name="textBox16">
                         <CanGrow>True</CanGrow>
                         <Format>='N0'</Format>
-                        <Location>152px, 232px</Location>
-                        <Size>88px, 24px</Size>
+                        <Location>152px, 228px</Location>
+                        <Size>88px, 28px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1071,7 +1088,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                     </TextBox>
                     <TextBox Name="textBox3">
                         <Location>128px, 24px</Location>
-                        <Size>248px, 88px</Size>
+                        <Size>248px, 56px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -1083,12 +1100,12 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>=IIF([@Description] = null, [InventoryItem.Descr], [@Description])</Value>
                     </TextBox>
                     <TextBox Name="textBox4">
-                        <Location>0px, 112px</Location>
-                        <Size>280px, 24px</Size>
+                        <Location>0px, 88px</Location>
+                        <Size>280px, 28px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial</Name>
-                                <Size>18px</Size>
+                                <Name>Microsoft YaHei UI</Name>
+                                <Size>16px</Size>
                                 <Style>Bold</Style>
                             </Font>
                             <VerticalAlign>Top</VerticalAlign>
@@ -1096,8 +1113,8 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>='Customer : '+ IIF(@Customer &lt;&gt; null, @Customer, IIF([inner.Customer] = null,'',[inner.Customer]))</Value>
                     </TextBox>
                     <TextBox Name="textBox6">
-                        <Location>0px, 136px</Location>
-                        <Size>280px, 24px</Size>
+                        <Location>0px, 116px</Location>
+                        <Size>280px, 28px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1108,20 +1125,20 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>='CustomerP/O# : '+IIF([inner.CustomerOrderNbr] = null,'',[inner.CustomerOrderNbr])</Value>
                     </TextBox>
                     <TextBox Name="textBox7">
-                        <Location>0px, 160px</Location>
-                        <Size>336px, 24px</Size>
+                        <Location>0px, 144px</Location>
+                        <Size>376px, 28px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
-                                <Size>18px</Size>
+                                <Size>17px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = null, Substring([INItemXRef.AlternateID],0, Len( [INItemXRef.AlternateID])-1)+'(REV. '+Right( [INItemXRef.AlternateID],1 )+')',[@CustomerPartNo])</Value>
+                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = null, #010;Replace([INItemXRef.AlternateID],' ',' (REV.') + ')',#010;[@CustomerPartNo])</Value>
                     </TextBox>
                     <TextBox Name="textBox8">
-                        <Location>248px, 232px</Location>
-                        <Size>48px, 24px</Size>
+                        <Location>248px, 228px</Location>
+                        <Size>48px, 28px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1150,7 +1167,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                 <Height>0.63492cm</Height>
                 <Items>
                     <TextBox Name="textBox14">
-                        <Location>112px, 0px</Location>
+                        <Location>120px, 0px</Location>
                         <Size>168px, 24px</Size>
                         <Style>
                             <Font>
@@ -1164,13 +1181,14 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                 </Items>
             </PageFooter>
             <Detail Name="OSI">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([inner.Customer] = 'OSI' Or @Customer = 'OSI')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
                 <Items>
                     <TextBox Name="textBox10">
-                        <Location>248px, 232px</Location>
-                        <Size>48px, 24px</Size>
+                        <Location>248px, 228px</Location>
+                        <Size>48px, 28px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1182,20 +1200,20 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>PCS</Value>
                     </TextBox>
                     <TextBox Name="textBox12">
-                        <Location>0px, 160px</Location>
-                        <Size>336px, 24px</Size>
+                        <Location>0px, 144px</Location>
+                        <Size>376px, 28px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
-                                <Size>18px</Size>
+                                <Size>17px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = null, Substring([INItemXRef.AlternateID],0, Len( [INItemXRef.AlternateID])-1)+'(REV. '+Right( [INItemXRef.AlternateID],1 )+')',[@CustomerPartNo])</Value>
+                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = null, #010;Replace([INItemXRef.AlternateID],' ',' (REV.') + ')',#010;[@CustomerPartNo])</Value>
                     </TextBox>
                     <TextBox Name="textBox17">
-                        <Location>0px, 136px</Location>
-                        <Size>280px, 24px</Size>
+                        <Location>0px, 116px</Location>
+                        <Size>280px, 28px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1206,12 +1224,12 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>='CustomerP/O# : '+IIF([inner.CustomerOrderNbr] = null,'',[inner.CustomerOrderNbr])</Value>
                     </TextBox>
                     <TextBox Name="textBox18">
-                        <Location>0px, 112px</Location>
-                        <Size>280px, 24px</Size>
+                        <Location>0px, 88px</Location>
+                        <Size>280px, 28px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial</Name>
-                                <Size>18px</Size>
+                                <Name>Microsoft YaHei UI</Name>
+                                <Size>16px</Size>
                                 <Style>Bold</Style>
                             </Font>
                             <VerticalAlign>Top</VerticalAlign>
@@ -1220,7 +1238,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                     </TextBox>
                     <TextBox Name="textBox19">
                         <Location>128px, 24px</Location>
-                        <Size>248px, 88px</Size>
+                        <Size>248px, 56px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -1248,8 +1266,8 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                     <TextBox Name="textBox21">
                         <CanGrow>True</CanGrow>
                         <Format>='N0'</Format>
-                        <Location>152px, 232px</Location>
-                        <Size>88px, 24px</Size>
+                        <Location>152px, 228px</Location>
+                        <Size>88px, 28px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1261,8 +1279,8 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>=IIF([@QtyinContainer] = null, [inner.Container],[@QtyinContainer])</Value>
                     </TextBox>
                     <TextBox Name="textBox22">
-                        <Location>0px, 232px</Location>
-                        <Size>152px, 24px</Size>
+                        <Location>0px, 228px</Location>
+                        <Size>152px, 28px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1270,12 +1288,12 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>Qty in Container : </Value>
+                        <Value>Qty in container : </Value>
                     </TextBox>
                     <TextBox Name="textBox23">
                         <CanGrow>True</CanGrow>
-                        <Location>0px, 208px</Location>
-                        <Size>336px, 24px</Size>
+                        <Location>0px, 200px</Location>
+                        <Size>336px, 28px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1287,8 +1305,8 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>='ABA LOT NO. : '+IIF([inner.LotSerialNbr] = null, '', [inner.LotSerialNbr])</Value>
                     </TextBox>
                     <TextBox Name="textBox24">
-                        <Location>0px, 184px</Location>
-                        <Size>336px, 24px</Size>
+                        <Location>0px, 172px</Location>
+                        <Size>336px, 28px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1299,7 +1317,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>='ABA Part NO. : '+IIF([InventoryItem.InventoryCD] = null, '', [InventoryItem.InventoryCD])</Value>
                     </TextBox>
                     <TextBox Name="textBox25">
-                        <Location>280px, 112px</Location>
+                        <Location>280px, 80px</Location>
                         <Size>64px, 48px</Size>
                         <Style>
                             <BackImage>
@@ -1336,6 +1354,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                 </Items>
             </Detail>
             <Detail Name="OSI-Resistor">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([inner.Customer] = 'OSI' Or @Customer = 'OSI')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) , true, false)</VisibleExpr>
@@ -1353,8 +1372,8 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>='ABA Medical Technology(Dong Guan)Co.,Ltd.'</Value>
                     </TextBox>
                     <TextBox Name="textBox27">
-                        <Location>248px, 240px</Location>
-                        <Size>48px, 20px</Size>
+                        <Location>248px, 232px</Location>
+                        <Size>48px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1366,8 +1385,8 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>PCS</Value>
                     </TextBox>
                     <TextBox Name="textBox28">
-                        <Location>0px, 160px</Location>
-                        <Size>360px, 20px</Size>
+                        <Location>0px, 136px</Location>
+                        <Size>376px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1375,11 +1394,11 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = null, Substring([INItemXRef.AlternateID],0, Len( [INItemXRef.AlternateID])-1)+'(REV. '+Right( [INItemXRef.AlternateID],1 )+')',[@CustomerPartNo])</Value>
+                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = null, #010;Replace([INItemXRef.AlternateID],' ',' (REV.') + ')',#010;[@CustomerPartNo])</Value>
                     </TextBox>
                     <TextBox Name="textBox29">
-                        <Location>0px, 140px</Location>
-                        <Size>280px, 20px</Size>
+                        <Location>0px, 112px</Location>
+                        <Size>280px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1390,11 +1409,11 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>='CustomerP/O# : '+IIF([inner.CustomerOrderNbr] = null,'',[inner.CustomerOrderNbr])</Value>
                     </TextBox>
                     <TextBox Name="textBox30">
-                        <Location>0px, 120px</Location>
-                        <Size>280px, 20px</Size>
+                        <Location>0px, 88px</Location>
+                        <Size>280px, 24px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial</Name>
+                                <Name>Microsoft YaHei UI</Name>
                                 <Size>18px</Size>
                                 <Style>Bold</Style>
                             </Font>
@@ -1404,7 +1423,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                     </TextBox>
                     <TextBox Name="textBox31">
                         <Location>128px, 24px</Location>
-                        <Size>248px, 88px</Size>
+                        <Size>248px, 56px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -1432,8 +1451,8 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                     <TextBox Name="textBox33">
                         <CanGrow>True</CanGrow>
                         <Format>='N0'</Format>
-                        <Location>152px, 240px</Location>
-                        <Size>88px, 20px</Size>
+                        <Location>152px, 232px</Location>
+                        <Size>88px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1445,8 +1464,8 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>=IIF([@QtyinContainer] = null, [inner.Container],[@QtyinContainer])</Value>
                     </TextBox>
                     <TextBox Name="textBox34">
-                        <Location>0px, 240px</Location>
-                        <Size>152px, 20px</Size>
+                        <Location>0px, 232px</Location>
+                        <Size>152px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1454,12 +1473,12 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>Qty in Container : </Value>
+                        <Value>Qty in container : </Value>
                     </TextBox>
                     <TextBox Name="textBox35">
                         <CanGrow>True</CanGrow>
-                        <Location>0px, 220px</Location>
-                        <Size>336px, 20px</Size>
+                        <Location>0px, 208px</Location>
+                        <Size>336px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1471,8 +1490,8 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>='ABA LOT NO. : '+IIF([inner.LotSerialNbr] = null, '', [inner.LotSerialNbr])</Value>
                     </TextBox>
                     <TextBox Name="textBox36">
-                        <Location>0px, 180px</Location>
-                        <Size>344px, 20px</Size>
+                        <Location>0px, 160px</Location>
+                        <Size>376px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1483,7 +1502,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>='ABA Part NO. : '+IIF([InventoryItem.InventoryCD] = null, '', [InventoryItem.InventoryCD])</Value>
                     </TextBox>
                     <TextBox Name="textBox37">
-                        <Location>280px, 112px</Location>
+                        <Location>280px, 80px</Location>
                         <Size>64px, 48px</Size>
                         <Style>
                             <BackImage>
@@ -1506,8 +1525,8 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>='LINE{br}   '+Left([inner.ProdLine],1)</Value>
                     </TextBox>
                     <TextBox Name="textBox38">
-                        <Location>0px, 200px</Location>
-                        <Size>336px, 20px</Size>
+                        <Location>0px, 184px</Location>
+                        <Size>336px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1520,6 +1539,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                 </Items>
             </Detail>
             <Detail Name="MASIMO">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([inner.Customer] = 'MASIMO' Or [@Customer] = 'MASIMO')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
@@ -1537,8 +1557,8 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>='ABA Medical Technology(Dong Guan)Co.,Ltd.'</Value>
                     </TextBox>
                     <TextBox Name="textBox40">
-                        <Location>248px, 232px</Location>
-                        <Size>48px, 24px</Size>
+                        <Location>248px, 228px</Location>
+                        <Size>48px, 28px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1550,20 +1570,20 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>PCS</Value>
                     </TextBox>
                     <TextBox Name="textBox41">
-                        <Location>0px, 160px</Location>
-                        <Size>368px, 24px</Size>
+                        <Location>0px, 144px</Location>
+                        <Size>376px, 28px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
-                                <Size>18px</Size>
+                                <Size>17px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = null, Substring([INItemXRef.AlternateID],0, Len( [INItemXRef.AlternateID])-1)+'(REV. '+Right( [INItemXRef.AlternateID],1 )+')',[@CustomerPartNo])</Value>
+                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = null, #010;Replace([INItemXRef.AlternateID],' ',' (REV.') + ')',#010;[@CustomerPartNo])</Value>
                     </TextBox>
                     <TextBox Name="textBox42">
-                        <Location>0px, 136px</Location>
-                        <Size>280px, 24px</Size>
+                        <Location>0px, 116px</Location>
+                        <Size>280px, 28px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1574,12 +1594,12 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>='CustomerP/O# : '+IIF([inner.CustomerOrderNbr] = null,'',[inner.CustomerOrderNbr])</Value>
                     </TextBox>
                     <TextBox Name="textBox43">
-                        <Location>0px, 112px</Location>
-                        <Size>280px, 24px</Size>
+                        <Location>0px, 88px</Location>
+                        <Size>280px, 28px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial</Name>
-                                <Size>18px</Size>
+                                <Name>Microsoft YaHei UI</Name>
+                                <Size>16px</Size>
                                 <Style>Bold</Style>
                             </Font>
                             <VerticalAlign>Top</VerticalAlign>
@@ -1588,7 +1608,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                     </TextBox>
                     <TextBox Name="textBox44">
                         <Location>128px, 24px</Location>
-                        <Size>248px, 88px</Size>
+                        <Size>248px, 56px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -1616,8 +1636,8 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                     <TextBox Name="textBox46">
                         <CanGrow>True</CanGrow>
                         <Format>='N0'</Format>
-                        <Location>152px, 232px</Location>
-                        <Size>88px, 24px</Size>
+                        <Location>152px, 228px</Location>
+                        <Size>88px, 28px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1629,8 +1649,8 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>=IIF([@QtyinContainer] = null, [inner.Container],[@QtyinContainer])</Value>
                     </TextBox>
                     <TextBox Name="textBox47">
-                        <Location>0px, 232px</Location>
-                        <Size>152px, 24px</Size>
+                        <Location>0px, 228px</Location>
+                        <Size>152px, 28px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1638,12 +1658,12 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>Qty in Container : </Value>
+                        <Value>Qty in container : </Value>
                     </TextBox>
                     <TextBox Name="textBox48">
                         <CanGrow>True</CanGrow>
-                        <Location>0px, 208px</Location>
-                        <Size>280px, 24px</Size>
+                        <Location>0px, 200px</Location>
+                        <Size>336px, 28px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1655,8 +1675,8 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>='ABA LOT NO. : '+IIF([inner.LotSerialNbr] = null, '', [inner.LotSerialNbr])</Value>
                     </TextBox>
                     <TextBox Name="textBox49">
-                        <Location>0px, 184px</Location>
-                        <Size>280px, 24px</Size>
+                        <Location>0px, 172px</Location>
+                        <Size>336px, 28px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1667,7 +1687,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>='ABA Part NO. : '+IIF([InventoryItem.InventoryCD] = null, '', [InventoryItem.InventoryCD])</Value>
                     </TextBox>
                     <TextBox Name="textBox50">
-                        <Location>280px, 112px</Location>
+                        <Location>280px, 80px</Location>
                         <Size>64px, 48px</Size>
                         <Style>
                             <BackImage>
@@ -1689,32 +1709,10 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         </Style>
                         <Value>='LINE{br}   '+Left([inner.ProdLine],1)</Value>
                     </TextBox>
-                    <TextBox Name="textBox51">
-                        <Location>280px, 184px</Location>
-                        <Size>72px, 48px</Size>
-                        <Style>
-                            <BackImage>
-                                <Image>rohs_icon_blank3</Image>
-                                <MimeType>image/png</MimeType>
-                                <Source>Embedded</Source>
-                            </BackImage>
-                            <Font>
-                                <Name>Arial</Name>
-                                <Size>15px</Size>
-                                <Style>Bold</Style>
-                            </Font>
-                            <Padding>
-                                <Left>23px</Left>
-                                <Top>12px</Top>
-                            </Padding>
-                            <TextAlign>Left</TextAlign>
-                            <VerticalAlign>Top</VerticalAlign>
-                        </Style>
-                        <Value>='RoHS'</Value>
-                    </TextBox>
                 </Items>
             </Detail>
             <Detail Name="MASIMO-Resistor">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([inner.Customer] = 'MASIMO' Or @Customer = 'MASIMO')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) , true, false)</VisibleExpr>
@@ -1732,8 +1730,8 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>='ABA Medical Technology(Dong Guan)Co.,Ltd.'</Value>
                     </TextBox>
                     <TextBox Name="textBox53">
-                        <Location>248px, 240px</Location>
-                        <Size>48px, 20px</Size>
+                        <Location>248px, 232px</Location>
+                        <Size>48px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1745,8 +1743,8 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>PCS</Value>
                     </TextBox>
                     <TextBox Name="textBox54">
-                        <Location>0px, 160px</Location>
-                        <Size>368px, 20px</Size>
+                        <Location>0px, 136px</Location>
+                        <Size>376px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1754,11 +1752,11 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = null, Substring([INItemXRef.AlternateID],0, Len( [INItemXRef.AlternateID])-1)+'(REV. '+Right( [INItemXRef.AlternateID],1 )+')',[@CustomerPartNo])</Value>
+                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = null, #010;Replace([INItemXRef.AlternateID],' ',' (REV.') + ')',#010;[@CustomerPartNo])</Value>
                     </TextBox>
                     <TextBox Name="textBox55">
-                        <Location>0px, 140px</Location>
-                        <Size>296px, 20px</Size>
+                        <Location>0px, 112px</Location>
+                        <Size>296px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1769,11 +1767,11 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>='CustomerP/O# : '+IIF([inner.CustomerOrderNbr] = null,'',[inner.CustomerOrderNbr])</Value>
                     </TextBox>
                     <TextBox Name="textBox56">
-                        <Location>0px, 120px</Location>
-                        <Size>296px, 20px</Size>
+                        <Location>0px, 88px</Location>
+                        <Size>296px, 24px</Size>
                         <Style>
                             <Font>
-                                <Name>Arial</Name>
+                                <Name>Microsoft YaHei UI</Name>
                                 <Size>18px</Size>
                                 <Style>Bold</Style>
                             </Font>
@@ -1783,7 +1781,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                     </TextBox>
                     <TextBox Name="textBox57">
                         <Location>128px, 24px</Location>
-                        <Size>248px, 88px</Size>
+                        <Size>248px, 56px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -1811,8 +1809,8 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                     <TextBox Name="textBox59">
                         <CanGrow>True</CanGrow>
                         <Format>='N0'</Format>
-                        <Location>152px, 240px</Location>
-                        <Size>88px, 20px</Size>
+                        <Location>152px, 232px</Location>
+                        <Size>88px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1824,8 +1822,8 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>=IIF([@QtyinContainer] = null, [inner.Container],[@QtyinContainer])</Value>
                     </TextBox>
                     <TextBox Name="textBox60">
-                        <Location>0px, 240px</Location>
-                        <Size>152px, 20px</Size>
+                        <Location>0px, 232px</Location>
+                        <Size>152px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1833,12 +1831,12 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>Qty in Container : </Value>
+                        <Value>Qty in container : </Value>
                     </TextBox>
                     <TextBox Name="textBox61">
                         <CanGrow>True</CanGrow>
-                        <Location>0px, 220px</Location>
-                        <Size>296px, 20px</Size>
+                        <Location>0px, 208px</Location>
+                        <Size>296px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1850,8 +1848,8 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>='ABA LOT NO. : '+IIF([inner.LotSerialNbr] = null, '', [inner.LotSerialNbr])</Value>
                     </TextBox>
                     <TextBox Name="textBox62">
-                        <Location>0px, 180px</Location>
-                        <Size>296px, 20px</Size>
+                        <Location>0px, 160px</Location>
+                        <Size>376px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1862,7 +1860,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>='ABA Part NO. : '+IIF([InventoryItem.InventoryCD] = null, '', [InventoryItem.InventoryCD])</Value>
                     </TextBox>
                     <TextBox Name="textBox63">
-                        <Location>296px, 112px</Location>
+                        <Location>296px, 80px</Location>
                         <Size>64px, 48px</Size>
                         <Style>
                             <BackImage>
@@ -1885,8 +1883,8 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>='LINE{br}   '+Left([inner.ProdLine],1)</Value>
                     </TextBox>
                     <TextBox Name="textBox64">
-                        <Location>0px, 200px</Location>
-                        <Size>296px, 20px</Size>
+                        <Location>0px, 184px</Location>
+                        <Size>296px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -1918,6 +1916,179 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
                         <Value>='RoHS'</Value>
+                    </TextBox>
+                </Items>
+            </Detail>
+            <Detail Name="科曼">
+                <Expanded>False</Expanded>
+                <Height>6.77249cm</Height>
+                <Visible>False</Visible>
+                <VisibleExpr>=IIF((Trim([inner.Customer]) = '科曼' Or Trim(@Customer) = '科曼')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
+                <Items>
+                    <TextBox Name="textBox51">
+                        <Location>128px, 24px</Location>
+                        <Size>248px, 56px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                                <Size>16px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <Value>=IIF([@Description] = null, [InventoryItem.Descr], [@Description])</Value>
+                    </TextBox>
+                    <TextBox Name="textBox66">
+                        <Location>0px, 0px</Location>
+                        <Size>376px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>18px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>='ABA Medical Technology(Dong Guan)Co.,Ltd.'</Value>
+                    </TextBox>
+                    <TextBox Name="textBox67">
+                        <Location>248px, 228px</Location>
+                        <Size>48px, 28px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>18px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <Value>PCS</Value>
+                    </TextBox>
+                    <TextBox Name="textBox68">
+                        <Location>0px, 144px</Location>
+                        <Size>376px, 28px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>15px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = null, #010;Replace([INItemXRef.AlternateID],' ',' (REV.') + ')',#010;[@CustomerPartNo])</Value>
+                    </TextBox>
+                    <TextBox Name="textBox69">
+                        <Location>0px, 116px</Location>
+                        <Size>280px, 28px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>18px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>='CustomerP/O# : '+IIF([inner.CustomerOrderNbr] = null,'',[inner.CustomerOrderNbr])</Value>
+                    </TextBox>
+                    <TextBox Name="textBox70">
+                        <Location>0px, 88px</Location>
+                        <Size>280px, 28px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                                <Size>16px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <VerticalAlign>Top</VerticalAlign>
+                        </Style>
+                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; null, @Customer, IIF([inner.Customer] = null,'',[inner.Customer]))</Value>
+                    </TextBox>
+                    <TextBox Name="textBox71">
+                        <CanSplit>True</CanSplit>
+                        <Localizable>False</Localizable>
+                        <Location>0px, 24px</Location>
+                        <Size>128px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>18px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>Description :</Value>
+                    </TextBox>
+                    <TextBox Name="textBox72">
+                        <CanGrow>True</CanGrow>
+                        <Format>='N0'</Format>
+                        <Location>152px, 228px</Location>
+                        <Size>88px, 28px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>18px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                        </Style>
+                        <Value>=IIF([@QtyinContainer] = null, [inner.Container],[@QtyinContainer])</Value>
+                    </TextBox>
+                    <TextBox Name="textBox73">
+                        <Location>0px, 228px</Location>
+                        <Size>152px, 28px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>18px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>Qty in container : </Value>
+                    </TextBox>
+                    <TextBox Name="textBox74">
+                        <CanGrow>True</CanGrow>
+                        <Location>0px, 200px</Location>
+                        <Size>336px, 28px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>18px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <Value>='ABA LOT NO. : '+IIF([inner.LotSerialNbr] = null, '', [inner.LotSerialNbr])</Value>
+                    </TextBox>
+                    <TextBox Name="textBox75">
+                        <Location>0px, 172px</Location>
+                        <Size>336px, 28px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>18px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>='ABA Part NO. : '+IIF([InventoryItem.InventoryCD] = null, '', [InventoryItem.InventoryCD])</Value>
+                    </TextBox>
+                    <TextBox Name="textBox77">
+                        <Location>280px, 80px</Location>
+                        <Size>64px, 48px</Size>
+                        <Style>
+                            <BackImage>
+                                <Image>cycle_blank10</Image>
+                                <MimeType>image/png</MimeType>
+                                <Source>Embedded</Source>
+                            </BackImage>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>15px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <Padding>
+                                <Left>23px</Left>
+                                <Top>10px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Top</VerticalAlign>
+                        </Style>
+                        <Value>='LINE{br}   '+Left([inner.ProdLine],1)</Value>
                     </TextBox>
                 </Items>
             </Detail>

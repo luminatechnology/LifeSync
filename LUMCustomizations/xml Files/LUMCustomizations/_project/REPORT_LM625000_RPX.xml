@@ -130,6 +130,10 @@
                         <ChildField>OrderNbr</ChildField>
                         <ParentField>UsrSOOrderNbr</ParentField>
                     </RelationRow>
+                    <RelationRow>
+                        <ChildField>OrderType</ChildField>
+                        <ParentField>UsrSOOrderType</ParentField>
+                    </RelationRow>
                 </Links>
                 <ParentName>AMProdItem</ParentName>
             </ReportRelation>
@@ -173,7 +177,7 @@
                 <ParentName>AMProdMatl</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>https://healthedge.acumatica.com</SchemaUrl>
+        <SchemaUrl>http://localhost/ABA_AcumaticaDB1/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>AMProdItem.OrderType</DataField>
@@ -4035,7 +4039,7 @@
                                 <Location>64px, 80px</Location>
                                 <Size>312px, 16px</Size>
                                 <StyleName>ChineseFont</StyleName>
-                                <Value>=[INItemXRef.AlternateID]</Value>
+                                <Value>=IIF([SOLine.AlternateID] = null, [INItemXRef.AlternateID], [SOLine.AlternateID])</Value>
                             </TextBox>
                             <TextBox Name="textBox22">
                                 <Location>64px, 104px</Location>
