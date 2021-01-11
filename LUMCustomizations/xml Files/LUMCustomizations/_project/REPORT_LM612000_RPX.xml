@@ -1700,6 +1700,10 @@
                     </ReportField>
                     <ReportField Name="AttributeDEPARTMENT">
                     </ReportField>
+                    <ReportField Name="AttributePRODLINE">
+                    </ReportField>
+                    <ReportField Name="AttributeREASON">
+                    </ReportField>
                     <ReportField Name="BatchNbr">
                     </ReportField>
                     <ReportField Name="BranchID">
@@ -1887,6 +1891,7 @@
                 <ExcelMargin>
                     <bottom>1</bottom>
                 </ExcelMargin>
+                <GridSize>8px, 8px</GridSize>
                 <Height>0px</Height>
                 <Visible>False</Visible>
                 <Items>
@@ -2101,6 +2106,7 @@
                 </Items>
             </PageHeader>
             <Detail Name="Issue">
+                <GridSize>8px, 8px</GridSize>
                 <Height>0px</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=Count([INTranSplit.LineNbr])&gt;1</VisibleExpr>
@@ -2156,6 +2162,7 @@
                 </Items>
             </Detail>
             <PageFooter Name="pageFooterSection1">
+                <GridSize>8px, 8px</GridSize>
                 <Height>1.0582cm</Height>
                 <Items>
                     <TextBox Name="textBox1">
@@ -2227,6 +2234,7 @@
                 </Items>
             </PageFooter>
             <PageHeader Name="pageHeaderSection2">
+                <GridSize>8px, 8px</GridSize>
                 <Height>0px</Height>
                 <StyleName>ColumnsHeaderSection</StyleName>
                 <Visible>False</Visible>
@@ -2352,7 +2360,7 @@
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
                                 </Style>
-                                <Value>其他入库单</Value>
+                                <Value>=IIF([INRegister.AttributeREASON] &lt;&gt; NULL, '[INRegister.AttributeREASON]', '其他入库单')</Value>
                             </TextBox>
                             <TextBox Name="textBox13">
                                 <Location>8px, 72px</Location>

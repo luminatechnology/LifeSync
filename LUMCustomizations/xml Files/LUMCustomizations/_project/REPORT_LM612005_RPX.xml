@@ -1815,6 +1815,7 @@
                 <ExcelMargin>
                     <bottom>1</bottom>
                 </ExcelMargin>
+                <GridSize>8px, 8px</GridSize>
                 <Height>0px</Height>
                 <Visible>False</Visible>
                 <Items>
@@ -2029,9 +2030,9 @@
                 </Items>
             </PageHeader>
             <Detail Name="Issue">
+                <GridSize>8px, 8px</GridSize>
                 <Height>0px</Height>
                 <Visible>False</Visible>
-                <VisibleExpr>=Count([INTranSplit.LineNbr])&gt;1</VisibleExpr>
                 <Items>
                     <TextBox Name="textBox21">
                         <Excel>
@@ -2084,6 +2085,7 @@
                 </Items>
             </Detail>
             <PageFooter Name="pageFooterSection1">
+                <GridSize>8px, 8px</GridSize>
                 <Height>0.95238cm</Height>
                 <Items>
                     <TextBox Name="textBox1">
@@ -2249,6 +2251,7 @@
                 </Items>
             </PageFooter>
             <PageHeader Name="pageHeaderSection2">
+                <GridSize>8px, 8px</GridSize>
                 <Height>0px</Height>
                 <StyleName>ColumnsHeaderSection</StyleName>
                 <Visible>False</Visible>
