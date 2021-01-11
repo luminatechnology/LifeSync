@@ -66,6 +66,14 @@
                         <ChildField>ProdOrdID</ChildField>
                         <ParentField>ProdOrdID</ParentField>
                     </RelationRow>
+                    <RelationRow>
+                        <ChildField>OperationID</ChildField>
+                        <ParentField>OperationID</ParentField>
+                    </RelationRow>
+                    <RelationRow>
+                        <ChildField>OrderType</ChildField>
+                        <ParentField>OrderType</ParentField>
+                    </RelationRow>
                 </Links>
                 <ParentName>AMMTran</ParentName>
             </ReportRelation>
