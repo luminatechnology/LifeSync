@@ -57,12 +57,22 @@ namespace PX.Objects.SO
                 _CurrentRow.GetExtension<AMProdItemExt>().UsrSOOrderNbr,
                 _CurrentRow.GetExtension<AMProdItemExt>().UsrSOOrderType);
 
+            SOLine soLineData =
+                SelectFrom<SOLine>
+                .Where<SOLine.orderNbr.IsEqual<P.AsString>
+                    .And<SOLine.orderType.IsEqual<P.AsString>>
+                    .And<SOLine.lineNbr.IsEqual<P.AsInt>>>
+                .View.Select(Base,
+                            _CurrentRow.GetExtension<AMProdItemExt>().UsrSOOrderNbr,
+                            _CurrentRow.GetExtension<AMProdItemExt>().UsrSOOrderType,
+                            _CurrentRow.GetExtension<AMProdItemExt>().UsrSOLineNbr);
+
             Dictionary<string, string> parameters = new Dictionary<string, string>
             {
                 ["OrderType"] = _CurrentRow.OrderType,
                 ["ProdOrdID"] = _CurrentRow.ProdOrdID,
                 ["Customer"] = (soOrderData.Cache.GetValueExt(soData, PX.Objects.CS.Messages.Attribute + "ENDC") as PXFieldState).Value.ToString(),
-                ["CustomerPartNo"] = data.FirstOrDefault().GetItem<INItemXRef>().AlternateID,
+                ["CustomerPartNo"] = soLineData?.AlternateID,
                 ["Description"] = data.FirstOrDefault().GetItem<InventoryItem>().Descr,
                 ["Resistor"] = data.RowCast<CSAnswers>().Where(x => x.AttributeID == "RESISTOR").FirstOrDefault()?.Value,
                 ["QtyinContainer"] = data.RowCast<CSAnswers>().Where(x => x.AttributeID == "QTYSBOX").FirstOrDefault()?.Value,

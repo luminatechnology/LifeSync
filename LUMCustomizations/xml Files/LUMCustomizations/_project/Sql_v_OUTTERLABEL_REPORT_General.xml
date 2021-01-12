@@ -12,8 +12,8 @@ SELECT t.CompanyID,
 	   t.ShipmentPlanID,
 	   t.InventoryID,
 	   Customer,
-	   CustomerOrderNbr,
-	   LotSerialNbr,
+	   p.UsrSOCustomerPO AS CustomerOrderNbr,
+	   t.LotSerialNbr,
 	   ProdLine,
 	   PlannedShipDate,
 	   PlannedShipQty,
@@ -28,6 +28,8 @@ INNER JOIN InventoryItem i ON t.CompanyID = i.CompanyID
 LEFT JOIN CSAnswers c ON t.CompanyID = c.CompanyID
 					 AND i.NoteID = c.RefNoteID
 					 AND c.AttributeID = 'QTYCARTON'
+INNER JOIN AMProdItem p ON t.CompanyID = p.CompanyID
+				       AND t.ProdOrdID = p.ProdOrdID
 INNER JOIN (
 		select CompanyID, 
 			   ShipmentPlanID, 

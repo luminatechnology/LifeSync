@@ -359,12 +359,19 @@ namespace LumCustomizations.Graph
                 .LeftJoin<CSAnswers>.On<InventoryItem.noteID.IsEqual<CSAnswers.refNoteID>>
                 .Where<InventoryItem.inventoryID.IsEqual<P.AsInt>>.View.Select(this, _CurrentRow.InventoryID);
 
+            PXResult<AMProdItem, SOLine> soData =
+                (PXResult<AMProdItem, SOLine>)SelectFrom<AMProdItem>
+                .LeftJoin<SOLine>.On<AMProdItemExt.usrSOLineNbr.IsEqual<SOLine.lineNbr>
+                    .And<AMProdItemExt.usrSOOrderNbr.IsEqual<SOLine.orderNbr>>
+                    .And<AMProdItemExt.usrSOOrderType.IsEqual<SOLine.orderType>>>
+                .Where<AMProdItem.prodOrdID.IsEqual<P.AsString>>.View.Select(this, _CurrentRow.ProdOrdID);
+
             Dictionary<string, string> parameters = new Dictionary<string, string>
             {
                 ["ShipmentPlanID"] = _CurrentRow.ShipmentPlanID,
                 ["ProdOrdID"] = _CurrentRow.ProdOrdID,
                 ["Customer"] = _CurrentRow.Customer,
-                ["CustomerPartNo"] = data.FirstOrDefault().GetItem<INItemXRef>().AlternateID,
+                ["CustomerPartNo"] = soData.GetItem<SOLine>()?.AlternateID,
                 ["Description"] = data.FirstOrDefault().GetItem<InventoryItem>().Descr,
                 ["Resistor"] = data.RowCast<CSAnswers>().Where(x => x.AttributeID == "RESISTOR").FirstOrDefault()?.Value,
                 ["QtyinContainer"] = data.RowCast<CSAnswers>().Where(x => x.AttributeID == "QTYSBOX").FirstOrDefault()?.Value,

@@ -148,11 +148,11 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                 <Links>
                     <RelationRow>
                         <ChildField>ProdOrdID</ChildField>
-                        <ParentField>ProdOrdID</ParentField>
+                        <ParentField>inner.ProdOrdID</ParentField>
                     </RelationRow>
                     <RelationRow>
                         <ChildField>OrderType</ChildField>
-                        <ParentField>OrderType</ParentField>
+                        <ParentField>inner.OrderType</ParentField>
                     </RelationRow>
                 </Links>
                 <ParentName>v_INNERLABEL_REPORT_PO</ParentName>
