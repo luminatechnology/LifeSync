@@ -3124,7 +3124,7 @@
                         <Value>=[ARTran.TranDesc]</Value>
                     </TextBox>
                     <TextBox Name="textBox42">
-                        <Format>='0.00'</Format>
+                        <Format>='N0'</Format>
                         <Location>616px, 0px</Location>
                         <Size>72px, 64px</Size>
                         <Style>
@@ -3244,7 +3244,7 @@
                         <Value>=[ARTran.Qty]</Value>
                     </TextBox>
                     <TextBox Name="textBox51">
-                        <Format>='0.00'</Format>
+                        <Format>='N0'</Format>
                         <Location>552px, 0px</Location>
                         <Size>64px, 64px</Size>
                         <Style>
@@ -3386,7 +3386,7 @@
                         <Value>=[BAccount.LegalName]</Value>
                     </TextBox>
                     <TextBox Name="textBox56">
-                        <Format>='0.0000'</Format>
+                        <Format>='N3'</Format>
                         <Location>128px, 24px</Location>
                         <Size>120px, 16px</Size>
                         <Style>
@@ -3399,7 +3399,7 @@
                         <Value>=$SumOfQty</Value>
                     </TextBox>
                     <TextBox Name="textBox57">
-                        <Format>='0.0000'</Format>
+                        <Format>='N2'</Format>
                         <Location>520px, 24px</Location>
                         <Size>120px, 16px</Size>
                         <Style>

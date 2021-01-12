@@ -2360,7 +2360,7 @@
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
                                 </Style>
-                                <Value>=IIF([INRegister.AttributeREASON] &lt;&gt; NULL, '[INRegister.AttributeREASON]', '其他入库单')</Value>
+                                <Value>=IIF([INRegister.AttributeREASON] &lt;&gt; NULL, [INRegister.AttributeREASON], '其他入库单')</Value>
                             </TextBox>
                             <TextBox Name="textBox13">
                                 <Location>8px, 72px</Location>
