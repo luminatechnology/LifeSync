@@ -1,4 +1,4 @@
-﻿<Report Name="lm644005.rpx">
+﻿<Report Name="lm644010.rpx">
     <Report Name="report1">
         <Filters>
             <FilterExp>
@@ -2984,7 +2984,7 @@
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>出货数量</Value>
+                        <Value>退货数量</Value>
                     </TextBox>
                     <TextBox Name="textBox20">
                         <Location>48px, 64px</Location>
@@ -3263,7 +3263,7 @@
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>出货单</Value>
+                        <Value>退货单</Value>
                     </TextBox>
                 </Items>
             </PageHeader>
@@ -3521,7 +3521,7 @@
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>Form number:FSP-009/Rev.02</Value>
+                        <Value>Form number:FSP-019/Rev.01</Value>
                     </TextBox>
                 </Items>
             </PageFooter>
