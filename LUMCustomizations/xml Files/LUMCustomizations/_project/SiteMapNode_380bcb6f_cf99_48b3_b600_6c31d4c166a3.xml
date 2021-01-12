@@ -25,7 +25,7 @@
         </layout>
         <data>
             <SiteMap>
-                <row Title="Print Inner Label General" Url="~/Frames/ReportLauncher.aspx?ID=LM601000.rpx" ScreenID="LM601000" NodeID="380bcb6f-cf99-48b3-b600-6c31d4c166a3" ParentID="00000000-0000-0000-0000-000000000000">
+                <row Title="Print Inner Label" Url="~/Frames/ReportLauncher.aspx?ID=LM601000.rpx" ScreenID="LM601000" NodeID="380bcb6f-cf99-48b3-b600-6c31d4c166a3" ParentID="00000000-0000-0000-0000-000000000000">
                     <MUIScreen IsPortal="0" WorkspaceID="e2c3849a-6280-41df-81f3-552b91adfae5" Order="80" SubcategoryID="b731b346-4d68-4796-b797-3e035ef3497c" />
                 </row>
             </SiteMap>

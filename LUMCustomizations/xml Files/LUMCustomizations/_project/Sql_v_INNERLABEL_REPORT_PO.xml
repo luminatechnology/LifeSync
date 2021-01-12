@@ -1,0 +1,46 @@
+﻿<Sql TableName="v_INNERLABEL_REPORT_PO" CustomScript="#CDATA">
+    <CDATA name="CustomScript"><![CDATA[IF EXISTS
+(
+	SELECT *
+	FROM SYS.views
+	WHERE name = 'v_INNERLABEL_REPORT_PO' AND SCHEMA_ID = SCHEMA_ID('dbo')
+)
+DROP VIEW [dbo].[v_INNERLABEL_REPORT_PO]	
+GO
+CREATE VIEW v_INNERLABEL_REPORT_PO AS
+SELECT DISTINCT t.CompanyID,
+	   t.OrderType,
+	   t.InventoryID,
+	   k.ValueString AS Customer,
+	   t.UsrSOOrderNbr CustomerOrderNbr,
+	   LotSerialNbr,
+	   p.value AS ProdLine,
+	   null AS PlannedShipDate,
+	   0 AS PlannedShipQty,
+	   1 AS StartLabelNbr,
+	   1 AS EndLabelNbr,
+	   t.ProdOrdID,
+	   CASE WHEN (t.QtytoProd - (NowNbr * CAST(c.Value AS decimal))) / CAST(c.Value AS decimal) > 0 then CAST(c.Value as int)
+	   ELSE CAST(CAST(c.Value AS decimal) + (t.QtytoProd - (NowNbr * CAST(c.Value AS decimal))) % CAST(c.Value AS decimal) as int) END AS Container
+FROM AMProdItem t
+INNER JOIN InventoryItem i ON t.CompanyID = i.CompanyID 
+						  AND t.InventoryID = i.InventoryID
+LEFT JOIN CSAnswers c ON t.CompanyID = c.CompanyID
+					 AND i.NoteID = c.RefNoteID
+					 AND c.AttributeID = 'QTYSBOX'
+LEFT JOIN AMProdAttribute p ON t.CompanyID = p.CompanyID
+					       AND p.AttributeID = 'PRODLINE'
+						   AND t.ProdOrdID = p.ProdOrdID
+LEFT JOIN SOOrder s ON t.CompanyID = s.CompanyID
+				   AND t.UsrSOOrderNbr = s.OrderNbr
+			       AND t.UsrSOOrderType = s.OrderType
+LEFT JOIN SOOrderKvExt k on t.CompanyID = k.CompanyID
+					    AND s.NoteID = k.RecordID
+						AND k.FieldName = 'AttributeENDC'
+CROSS JOIN(
+	    SELECT DISTINCT NUMBER AS NowNbr
+		FROM master.dbo.spt_values
+		WHERE name IS NULL
+) NumberPool
+WHERE NowNbr BETWEEN 1 AND t.QtytoProd / CAST(ISNULL(c.Value,1) as decimal) + 1]]></CDATA>
+</Sql>

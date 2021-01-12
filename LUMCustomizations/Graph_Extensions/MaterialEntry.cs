@@ -15,7 +15,7 @@ namespace JAMS.AM
         }
 
         #region Override Attribute
-        [PXDBQuantity(3,typeof(AMMTran.uOM), typeof(AMMTran.baseQty), HandleEmptyKey = true)]
+        [PXDBQuantity(2,typeof(AMMTran.uOM), typeof(AMMTran.baseQty), HandleEmptyKey = true)]
         [PXDefault(TypeCode.Decimal, "0")]
         [PXUIField(DisplayName = "Quantity")]
         [PXFormula(null, typeof(SumCalc<AMBatch.totalQty>))]

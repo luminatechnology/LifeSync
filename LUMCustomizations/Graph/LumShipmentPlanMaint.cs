@@ -353,10 +353,23 @@ namespace LumCustomizations.Graph
         public Dictionary<string, string> GetCurrentRowToParameter()
         {
             var _CurrentRow = this.GetCacheCurrent<LumShipmentPlan>().Current;
+            PXResultset<InventoryItem> data =
+                SelectFrom<InventoryItem>
+                .LeftJoin<INItemXRef>.On<INItemXRef.inventoryID.IsEqual<InventoryItem.inventoryID>>
+                .LeftJoin<CSAnswers>.On<InventoryItem.noteID.IsEqual<CSAnswers.refNoteID>>
+                .Where<InventoryItem.inventoryID.IsEqual<P.AsInt>>.View.Select(this, _CurrentRow.InventoryID);
+
             Dictionary<string, string> parameters = new Dictionary<string, string>
             {
                 ["ShipmentPlanID"] = _CurrentRow.ShipmentPlanID,
-                ["ProdOrdID"] = _CurrentRow.ProdOrdID
+                ["ProdOrdID"] = _CurrentRow.ProdOrdID,
+                ["Customer"] = _CurrentRow.Customer,
+                ["CustomerPartNo"] = data.FirstOrDefault().GetItem<INItemXRef>().AlternateID,
+                ["Description"] = data.FirstOrDefault().GetItem<InventoryItem>().Descr,
+                ["Resistor"] = data.RowCast<CSAnswers>().Where(x => x.AttributeID == "RESISTOR").FirstOrDefault()?.Value,
+                ["QtyinContainer"] = data.RowCast<CSAnswers>().Where(x => x.AttributeID == "QTYSBOX").FirstOrDefault()?.Value,
+                ["QtyinShipment"] = data.RowCast<CSAnswers>().Where(x => x.AttributeID == "QTYCARTON").FirstOrDefault()?.Value,
+                ["DATE"] = _CurrentRow.PlannedShipDate?.ToString("yyyy/MM/dd")
             };
             return parameters;
         }

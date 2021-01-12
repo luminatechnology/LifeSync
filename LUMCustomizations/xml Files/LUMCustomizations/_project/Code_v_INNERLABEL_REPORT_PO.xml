@@ -1,0 +1,96 @@
+﻿<Graph ClassName="v_INNERLABEL_REPORT_PO" Source="#CDATA" IsNew="True" FileType="NewDac">
+    <CDATA name="Source"><![CDATA[using System;
+using PX.Data;
+
+namespace LUMCustomizations
+{
+  [Serializable]
+  [PXCacheName("v_INNERLABEL_REPORT_PO")]
+  public class v_INNERLABEL_REPORT_PO : IBqlTable
+  {
+    #region OrderType
+    [PXDBString(2, IsFixed = true, InputMask = "",IsKey = true)]
+    [PXUIField(DisplayName = "Order Type")]
+    public virtual string OrderType { get; set; }
+    public abstract class orderType : PX.Data.BQL.BqlString.Field<orderType> { }
+    #endregion
+
+    #region InventoryID
+    [PXDBInt()]
+    [PXUIField(DisplayName = "Inventory ID")]
+    public virtual int? InventoryID { get; set; }
+    public abstract class inventoryID : PX.Data.BQL.BqlInt.Field<inventoryID> { }
+    #endregion
+
+    #region Customer
+    [PXDBString(256, IsUnicode = true, InputMask = "")]
+    [PXUIField(DisplayName = "Customer")]
+    public virtual string Customer { get; set; }
+    public abstract class customer : PX.Data.BQL.BqlString.Field<customer> { }
+    #endregion
+
+    #region CustomerOrderNbr
+    [PXDBString(15, IsUnicode = true, InputMask = "")]
+    [PXUIField(DisplayName = "Customer Order Nbr")]
+    public virtual string CustomerOrderNbr { get; set; }
+    public abstract class customerOrderNbr : PX.Data.BQL.BqlString.Field<customerOrderNbr> { }
+    #endregion
+
+    #region LotSerialNbr
+    [PXDBString(100, IsUnicode = true, InputMask = "")]
+    [PXUIField(DisplayName = "Lot Serial Nbr")]
+    public virtual string LotSerialNbr { get; set; }
+    public abstract class lotSerialNbr : PX.Data.BQL.BqlString.Field<lotSerialNbr> { }
+    #endregion
+
+    #region ProdLine
+    [PXDBString(255, IsUnicode = true, InputMask = "")]
+    [PXUIField(DisplayName = "Prod Line")]
+    public virtual string ProdLine { get; set; }
+    public abstract class prodLine : PX.Data.BQL.BqlString.Field<prodLine> { }
+    #endregion
+
+    #region PlannedShipDate
+    [PXDBInt()]
+    [PXUIField(DisplayName = "Planned Ship Date")]
+    public virtual int? PlannedShipDate { get; set; }
+    public abstract class plannedShipDate : PX.Data.BQL.BqlInt.Field<plannedShipDate> { }
+    #endregion
+
+    #region PlannedShipQty
+    [PXDBInt()]
+    [PXUIField(DisplayName = "Planned Ship Qty")]
+    public virtual int? PlannedShipQty { get; set; }
+    public abstract class plannedShipQty : PX.Data.BQL.BqlInt.Field<plannedShipQty> { }
+    #endregion
+
+    #region StartLabelNbr
+    [PXDBInt()]
+    [PXUIField(DisplayName = "Start Label Nbr")]
+    public virtual int? StartLabelNbr { get; set; }
+    public abstract class startLabelNbr : PX.Data.BQL.BqlInt.Field<startLabelNbr> { }
+    #endregion
+
+    #region EndLabelNbr
+    [PXDBInt()]
+    [PXUIField(DisplayName = "End Label Nbr")]
+    public virtual int? EndLabelNbr { get; set; }
+    public abstract class endLabelNbr : PX.Data.BQL.BqlInt.Field<endLabelNbr> { }
+    #endregion
+
+    #region ProdOrdID
+    [PXDBString(15, IsUnicode = true, InputMask = "",IsKey = true)]
+    [PXUIField(DisplayName = "Prod Ord ID")]
+    public virtual string ProdOrdID { get; set; }
+    public abstract class prodOrdID : PX.Data.BQL.BqlString.Field<prodOrdID> { }
+    #endregion
+
+    #region Container
+    [PXDBInt(IsKey = true)]
+    [PXUIField(DisplayName = "Container")]
+    public virtual int? Container { get; set; }
+    public abstract class container : PX.Data.BQL.BqlInt.Field<container> { }
+    #endregion
+  }
+}]]></CDATA>
+</Graph>
