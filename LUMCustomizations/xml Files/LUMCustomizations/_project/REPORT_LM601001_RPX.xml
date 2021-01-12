@@ -2129,7 +2129,6 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                 <Visible>False</Visible>
             </PageHeader>
             <Detail Name="General">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Variables>
                     <ReportVariable>
@@ -2418,7 +2417,6 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                 </Items>
             </PageFooter>
             <Detail Name="OSI">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = 'OSI' Or @Customer = 'OSI')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
@@ -2444,7 +2442,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
-                                <Size>13.5px</Size>
+                                <Size>15px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
@@ -2684,7 +2682,6 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                 </Items>
             </Detail>
             <Detail Name="OSI-Resistor">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <VisibleExpr>=IIF(([outter.Customer] = 'OSI' Or @Customer = 'OSI')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) ,true,false)</VisibleExpr>
                 <Items>
@@ -2834,7 +2831,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
-                                <Size>13.5px</Size>
+                                <Size>15px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
