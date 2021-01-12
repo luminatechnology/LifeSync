@@ -93,7 +93,6 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                 <Name>DATE</Name>
                 <Nullable>True</Nullable>
                 <Prompt>DATE</Prompt>
-                <Type>DateTime</Type>
             </ReportParameter>
             <ReportParameter>
                 <Name>ProdOrdID</Name>
@@ -2130,6 +2129,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                 <Visible>False</Visible>
             </PageHeader>
             <Detail Name="General">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Variables>
                     <ReportVariable>
@@ -2318,7 +2318,6 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>PCS</Value>
                     </TextBox>
                     <TextBox Name="textBox27">
-                        <Format>='yyyy/MM/dd'</Format>
                         <Localizable>False</Localizable>
                         <Location>64px, 240px</Location>
                         <Size>216px, 20px</Size>
@@ -2331,7 +2330,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=IIF([@DATE] = [outter.PlannedShipDate], [outter.PlannedShipDate],[@DATE])</Value>
+                        <Value>=IIF([@DATE] = null, Year([outter.PlannedShipDate])+'/'+Month([outter.PlannedShipDate])+'/'+Day([outter.PlannedShipDate]),[@DATE])</Value>
                     </TextBox>
                     <TextBox Name="textBox3">
                         <Localizable>False</Localizable>
@@ -2419,6 +2418,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                 </Items>
             </PageFooter>
             <Detail Name="OSI">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = 'OSI' Or @Customer = 'OSI')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
@@ -2641,7 +2641,6 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>DATE : </Value>
                     </TextBox>
                     <TextBox Name="textBox37">
-                        <Format>='yyyy/MM/dd'</Format>
                         <Localizable>False</Localizable>
                         <Location>64px, 240px</Location>
                         <Size>216px, 20px</Size>
@@ -2654,7 +2653,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=IIF([@DATE] = [outter.PlannedShipDate], [outter.PlannedShipDate],[@DATE])</Value>
+                        <Value>=IIF([@DATE] = null, Year([outter.PlannedShipDate])+'/'+Month([outter.PlannedShipDate])+'/'+Day([outter.PlannedShipDate]),[@DATE])</Value>
                     </TextBox>
                     <TextBox Name="textBox8">
                         <Localizable>False</Localizable>
@@ -2757,7 +2756,6 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>Description :</Value>
                     </TextBox>
                     <TextBox Name="textBox43">
-                        <Format>='yyyy/MM/dd'</Format>
                         <Localizable>False</Localizable>
                         <Location>64px, 242px</Location>
                         <Size>216px, 18px</Size>
@@ -2770,7 +2768,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=IIF([@DATE] = [outter.PlannedShipDate], [outter.PlannedShipDate],[@DATE])</Value>
+                        <Value>=IIF([@DATE] = null, Year([outter.PlannedShipDate])+'/'+Month([outter.PlannedShipDate])+'/'+Day([outter.PlannedShipDate]),[@DATE])</Value>
                     </TextBox>
                     <TextBox Name="textBox44">
                         <Format>='N0'</Format>
@@ -3162,7 +3160,6 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>=IIF([@QtyinShipment] = [outter.PlannedShipQty], CInt([outter.PlannedShipQty]), [@QtyinShipment])</Value>
                     </TextBox>
                     <TextBox Name="textBox71">
-                        <Format>='yyyy/MM/dd'</Format>
                         <Localizable>False</Localizable>
                         <Location>64px, 242px</Location>
                         <Size>216px, 18px</Size>
@@ -3175,7 +3172,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=IIF([@DATE] = [outter.PlannedShipDate], [outter.PlannedShipDate],[@DATE])</Value>
+                        <Value>=IIF([@DATE] = null, Year([outter.PlannedShipDate])+'/'+Month([outter.PlannedShipDate])+'/'+Day([outter.PlannedShipDate]),[@DATE])</Value>
                     </TextBox>
                     <TextBox Name="textBox72">
                         <Localizable>False</Localizable>
@@ -3493,7 +3490,6 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>DATE : </Value>
                     </TextBox>
                     <TextBox Name="textBox94">
-                        <Format>='yyyy/MM/dd'</Format>
                         <Localizable>False</Localizable>
                         <Location>64px, 240px</Location>
                         <Size>216px, 20px</Size>
@@ -3506,7 +3502,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=IIF([@DATE] = [outter.PlannedShipDate], [outter.PlannedShipDate],[@DATE])</Value>
+                        <Value>=IIF([@DATE] = null, Year([outter.PlannedShipDate])+'/'+Month([outter.PlannedShipDate])+'/'+Day([outter.PlannedShipDate]),[@DATE])</Value>
                     </TextBox>
                 </Items>
             </Detail>
@@ -3529,7 +3525,6 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>='RESISTOR : '+IIF([@Resistor] = null, IIF([InventoryItem.RESISTOR_Attributes] = null, '',[InventoryItem.RESISTOR_Attributes]),[@Resistor])</Value>
                     </TextBox>
                     <TextBox Name="textBox101">
-                        <Format>='yyyy/MM/dd'</Format>
                         <Localizable>False</Localizable>
                         <Location>48px, 240px</Location>
                         <Size>208px, 16px</Size>
@@ -3542,7 +3537,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=IIF([@DATE] = [outter.PlannedShipDate], [outter.PlannedShipDate],[@DATE])</Value>
+                        <Value>=IIF([@DATE] = null, Year([outter.PlannedShipDate])+'/'+Month([outter.PlannedShipDate])+'/'+Day([outter.PlannedShipDate]),[@DATE])</Value>
                     </TextBox>
                     <TextBox Name="textBox102">
                         <Format>='N0'</Format>
@@ -4076,7 +4071,6 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>='RoHS'</Value>
                     </TextBox>
                     <TextBox Name="textBox133">
-                        <Format>='yyyy/MM/dd'</Format>
                         <Localizable>False</Localizable>
                         <Location>64px, 240px</Location>
                         <Size>216px, 20px</Size>
@@ -4089,7 +4083,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=IIF([@DATE] = [outter.PlannedShipDate], [outter.PlannedShipDate],[@DATE])</Value>
+                        <Value>=IIF([@DATE] = null, Year([outter.PlannedShipDate])+'/'+Month([outter.PlannedShipDate])+'/'+Day([outter.PlannedShipDate]),[@DATE])</Value>
                     </TextBox>
                 </Items>
             </Detail>
@@ -4341,7 +4335,6 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>=IIF([@QtyinShipment] = [outter.PlannedShipQty], CInt([outter.PlannedShipQty]), [@QtyinShipment])</Value>
                     </TextBox>
                     <TextBox Name="textBox150">
-                        <Format>='yyyy/MM/dd'</Format>
                         <Localizable>False</Localizable>
                         <Location>64px, 242px</Location>
                         <Size>216px, 18px</Size>
@@ -4354,7 +4347,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=IIF([@DATE] = [outter.PlannedShipDate], [outter.PlannedShipDate],[@DATE])</Value>
+                        <Value>=IIF([@DATE] = null, Year([outter.PlannedShipDate])+'/'+Month([outter.PlannedShipDate])+'/'+Day([outter.PlannedShipDate]),[@DATE])</Value>
                     </TextBox>
                     <TextBox Name="textBox151">
                         <Localizable>False</Localizable>
@@ -4468,7 +4461,6 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                         <Value>=IIF([@Description] = null, [InventoryItem.Descr], [@Description])</Value>
                     </TextBox>
                     <TextBox Name="textBox158">
-                        <Format>='yyyy/MM/dd'</Format>
                         <Localizable>False</Localizable>
                         <Location>64px, 240px</Location>
                         <Size>216px, 20px</Size>
@@ -4481,7 +4473,7 @@ Ujl8wGI/ikM9OBy4Cmn0vc+AUIxEQreicGSJBSVsRXEOyMz1gupYt/ws870W9e4wnDQAAACV0RVh0ZGF
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=IIF([@DATE] = [outter.PlannedShipDate], [outter.PlannedShipDate],[@DATE])</Value>
+                        <Value>=IIF([@DATE] = null, Year([outter.PlannedShipDate])+'/'+Month([outter.PlannedShipDate])+'/'+Day([outter.PlannedShipDate]),[@DATE])</Value>
                     </TextBox>
                     <TextBox Name="textBox159">
                         <Format>='N0'</Format>
