@@ -13,7 +13,7 @@ SELECT DISTINCT t.CompanyID,
 	   t.InventoryID,
 	   k.ValueString AS Customer,
 	   t.UsrSOOrderNbr CustomerOrderNbr,
-	   LotSerialNbr,
+	   l.value AS LotSerialNbr,
 	   p.value AS ProdLine,
 	   null AS PlannedShipDate,
 	   0 AS PlannedShipQty,
@@ -31,6 +31,9 @@ LEFT JOIN CSAnswers c ON t.CompanyID = c.CompanyID
 LEFT JOIN AMProdAttribute p ON t.CompanyID = p.CompanyID
 					       AND p.AttributeID = 'PRODLINE'
 						   AND t.ProdOrdID = p.ProdOrdID
+LEFT JOIN AMProdAttribute l ON t.CompanyID = p.CompanyID
+							AND l.AttributeID = 'LOTNO'
+							AND t.ProdOrdID = l.ProdOrdID
 LEFT JOIN SOOrder s ON t.CompanyID = s.CompanyID
 				   AND t.UsrSOOrderNbr = s.OrderNbr
 			       AND t.UsrSOOrderType = s.OrderType
