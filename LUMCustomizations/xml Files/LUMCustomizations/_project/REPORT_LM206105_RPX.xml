@@ -2601,7 +2601,7 @@
                         <Value>=[AMMTran.NoteText]</Value>
                     </TextBox>
                     <TextBox Name="textBox39">
-                        <Format>='N3'</Format>
+                        <Format>=IIF([AMMTranSplit.Qty] - Floor([AMMTranSplit.Qty]) &gt; 0,'N2','N0')</Format>
                         <Location>392px, 0px</Location>
                         <Size>64px, 40px</Size>
                         <Style>
