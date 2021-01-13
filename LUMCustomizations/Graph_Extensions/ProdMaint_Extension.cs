@@ -75,8 +75,6 @@ namespace PX.Objects.SO
                 ["CustomerPartNo"] = soLineData?.AlternateID,
                 ["Description"] = data.FirstOrDefault().GetItem<InventoryItem>().Descr,
                 ["Resistor"] = data.RowCast<CSAnswers>().Where(x => x.AttributeID == "RESISTOR").FirstOrDefault()?.Value,
-                ["QtyinContainer"] = data.RowCast<CSAnswers>().Where(x => x.AttributeID == "QTYSBOX").FirstOrDefault()?.Value,
-                ["QtyinShipment"] = data.RowCast<CSAnswers>().Where(x => x.AttributeID == "QTYCARTON").FirstOrDefault()?.Value,
                 ["DATE"] = null
             };
             throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));

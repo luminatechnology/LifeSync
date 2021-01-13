@@ -16,7 +16,7 @@ namespace JAMS.AM
 
         [PXDBString(15, IsUnicode = true)]
         [PXUIField(DisplayName = "SO Order Nbr.", Enabled = false)]
-        [PXSelector(typeof(Search<SOOrder.orderNbr>), CacheGlobal = true)]
+        [PXSelector(typeof(Search<SOOrder.orderNbr,Where<SOOrder.orderType,Equal<Current<AMProdItemExt.usrSOOrderType>>>>), CacheGlobal = true)]
         [PXFormula(typeof(Default<AMProdItemExt.usrSOLineNoteID>))]
         [PXDefault(typeof(Search<SOLine.orderNbr, Where<SOLine.noteID, Equal<Current<AMProdItemExt.usrSOLineNoteID>>>>), 
                    PersistingCheck = PXPersistingCheck.Nothing)]

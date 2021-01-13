@@ -152,7 +152,12 @@ namespace LumCustomizations.Graph
         [PXUIField(DisplayName = "Print Packing List", MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable PrintPackingList(PXAdapter adapter)
         {
-            var parameters = GetCurrentRowToParameter();
+            var _CurrentRow = this.GetCacheCurrent<LumShipmentPlan>().Current;
+
+            Dictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                ["ShipmentPlanID"] = _CurrentRow.ShipmentPlanID
+            };
 
             if (parameters.Values.Count > 0)
             {
@@ -350,7 +355,7 @@ namespace LumCustomizations.Graph
 
         #region Method
         /// <summary> Get Current Value to Report Parameter </summary>
-        public Dictionary<string, string> GetCurrentRowToParameter()
+        public Dictionary<string, string> GetCurrentRowToParameter(bool isOutter = false)
         {
             var _CurrentRow = this.GetCacheCurrent<LumShipmentPlan>().Current;
             PXResultset<InventoryItem> data =
@@ -374,8 +379,6 @@ namespace LumCustomizations.Graph
                 ["CustomerPartNo"] = soData.GetItem<SOLine>()?.AlternateID,
                 ["Description"] = data.FirstOrDefault().GetItem<InventoryItem>().Descr,
                 ["Resistor"] = data.RowCast<CSAnswers>().Where(x => x.AttributeID == "RESISTOR").FirstOrDefault()?.Value,
-                ["QtyinContainer"] = data.RowCast<CSAnswers>().Where(x => x.AttributeID == "QTYSBOX").FirstOrDefault()?.Value,
-                ["QtyinShipment"] = data.RowCast<CSAnswers>().Where(x => x.AttributeID == "QTYCARTON").FirstOrDefault()?.Value,
                 ["DATE"] = _CurrentRow.PlannedShipDate?.ToString("yyyy/MM/dd")
             };
             return parameters;

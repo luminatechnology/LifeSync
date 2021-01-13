@@ -105,7 +105,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                 <Name>QtyinShipment</Name>
                 <Nullable>True</Nullable>
                 <Prompt>Qty in Shipment</Prompt>
-                <Type>Integer</Type>
+                <Type>Float</Type>
             </ReportParameter>
             <ReportParameter>
                 <Name>DATE</Name>
@@ -2123,6 +2123,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                 <Visible>False</Visible>
             </PageHeader>
             <Detail Name="General">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <ProcessOrder>Always</ProcessOrder>
                 <Style>
@@ -2217,13 +2218,13 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <TextAlign>Center</TextAlign>
                         </Style>
-                        <Value>=IIF([@QtyinContainer] = [inner.Container], [inner.Container],[@QtyinContainer])</Value>
+                        <Value>=IIF([@QtyinContainer] = null, [inner.Container],[@QtyinContainer])</Value>
                     </TextBox>
                     <TextBox Name="textBox2">
                         <CanSplit>True</CanSplit>
                         <Localizable>False</Localizable>
                         <Location>0px, 24px</Location>
-                        <Size>128px, 24px</Size>
+                        <Size>120px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -2235,12 +2236,12 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                     </TextBox>
                     <TextBox Name="textBox3">
                         <Localizable>False</Localizable>
-                        <Location>128px, 24px</Location>
+                        <Location>120px, 24px</Location>
                         <Size>248px, 62px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
-                                <Size>13.5px</Size>
+                                <Name>等线</Name>
+                                <Size>17px</Size>
                                 <Style>Bold</Style>
                             </Font>
                             <TextAlign>Left</TextAlign>
@@ -2253,8 +2254,8 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                         <Size>280px, 28px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
-                                <Size>16px</Size>
+                                <Name>等线</Name>
+                                <Size>17px</Size>
                                 <Style>Bold</Style>
                             </Font>
                             <VerticalAlign>Top</VerticalAlign>
@@ -2268,7 +2269,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
-                                <Size>17px</Size>
+                                <Size>15px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
@@ -2334,6 +2335,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                 </Items>
             </PageFooter>
             <Detail Name="OSI">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([inner.Customer] = 'OSI' Or @Customer = 'OSI')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
@@ -2372,7 +2374,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
-                                <Size>17px</Size>
+                                <Size>15px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
@@ -2385,7 +2387,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
-                                <Size>16px</Size>
+                                <Size>17px</Size>
                                 <Style>Bold</Style>
                             </Font>
                             <VerticalAlign>Top</VerticalAlign>
@@ -2394,12 +2396,12 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                     </TextBox>
                     <TextBox Name="textBox19">
                         <Localizable>False</Localizable>
-                        <Location>128px, 24px</Location>
+                        <Location>120px, 24px</Location>
                         <Size>248px, 62px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
-                                <Size>13.5px</Size>
+                                <Name>等线</Name>
+                                <Size>17px</Size>
                                 <Style>Bold</Style>
                             </Font>
                             <TextAlign>Left</TextAlign>
@@ -2410,7 +2412,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                         <CanSplit>True</CanSplit>
                         <Localizable>False</Localizable>
                         <Location>0px, 24px</Location>
-                        <Size>128px, 24px</Size>
+                        <Size>120px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -2434,7 +2436,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <TextAlign>Center</TextAlign>
                         </Style>
-                        <Value>=IIF([@QtyinContainer] = [inner.Container], [inner.Container],[@QtyinContainer])</Value>
+                        <Value>=IIF([@QtyinContainer] = null, [inner.Container],[@QtyinContainer])</Value>
                     </TextBox>
                     <TextBox Name="textBox22">
                         <Localizable>False</Localizable>
@@ -2517,6 +2519,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                 </Items>
             </Detail>
             <Detail Name="OSI-Resistor">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([inner.Customer] = 'OSI' Or @Customer = 'OSI')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) , true, false)</VisibleExpr>
@@ -2568,7 +2571,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
-                                <Size>17px</Size>
+                                <Size>15px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
@@ -2580,8 +2583,8 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                         <Size>280px, 24px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
-                                <Size>16px</Size>
+                                <Name>等线</Name>
+                                <Size>17px</Size>
                                 <Style>Bold</Style>
                             </Font>
                             <VerticalAlign>Top</VerticalAlign>
@@ -2590,12 +2593,12 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                     </TextBox>
                     <TextBox Name="textBox31">
                         <Localizable>False</Localizable>
-                        <Location>128px, 24px</Location>
+                        <Location>120px, 24px</Location>
                         <Size>248px, 62px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
-                                <Size>13.5px</Size>
+                                <Name>等线</Name>
+                                <Size>17px</Size>
                                 <Style>Bold</Style>
                             </Font>
                             <TextAlign>Left</TextAlign>
@@ -2606,7 +2609,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                         <CanSplit>True</CanSplit>
                         <Localizable>False</Localizable>
                         <Location>0px, 24px</Location>
-                        <Size>128px, 24px</Size>
+                        <Size>120px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -2630,7 +2633,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <TextAlign>Center</TextAlign>
                         </Style>
-                        <Value>=IIF([@QtyinContainer] = [inner.Container], [inner.Container],[@QtyinContainer])</Value>
+                        <Value>=IIF([@QtyinContainer] = null, [inner.Container],[@QtyinContainer])</Value>
                     </TextBox>
                     <TextBox Name="textBox34">
                         <Localizable>False</Localizable>
@@ -2713,6 +2716,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                 </Items>
             </Detail>
             <Detail Name="MASIMO">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([inner.Customer] = 'MASIMO' Or @Customer = 'MASIMO')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
@@ -2776,8 +2780,8 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                         <Size>280px, 28px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
-                                <Size>16px</Size>
+                                <Name>等线</Name>
+                                <Size>17px</Size>
                                 <Style>Bold</Style>
                             </Font>
                             <VerticalAlign>Top</VerticalAlign>
@@ -2786,12 +2790,12 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                     </TextBox>
                     <TextBox Name="textBox44">
                         <Localizable>False</Localizable>
-                        <Location>128px, 24px</Location>
+                        <Location>120px, 24px</Location>
                         <Size>248px, 62px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
-                                <Size>13.5px</Size>
+                                <Name>等线</Name>
+                                <Size>17px</Size>
                                 <Style>Bold</Style>
                             </Font>
                             <TextAlign>Left</TextAlign>
@@ -2802,7 +2806,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                         <CanSplit>True</CanSplit>
                         <Localizable>False</Localizable>
                         <Location>0px, 24px</Location>
-                        <Size>128px, 24px</Size>
+                        <Size>120px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -2826,7 +2830,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <TextAlign>Center</TextAlign>
                         </Style>
-                        <Value>=IIF([@QtyinContainer] = [inner.Container], [inner.Container],[@QtyinContainer])</Value>
+                        <Value>=IIF([@QtyinContainer] = null, [inner.Container],[@QtyinContainer])</Value>
                     </TextBox>
                     <TextBox Name="textBox47">
                         <Localizable>False</Localizable>
@@ -2983,8 +2987,8 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                         <Size>280px, 24px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
-                                <Size>16px</Size>
+                                <Name>等线</Name>
+                                <Size>17px</Size>
                                 <Style>Bold</Style>
                             </Font>
                             <VerticalAlign>Top</VerticalAlign>
@@ -2993,12 +2997,12 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                     </TextBox>
                     <TextBox Name="textBox57">
                         <Localizable>False</Localizable>
-                        <Location>128px, 24px</Location>
+                        <Location>120px, 24px</Location>
                         <Size>248px, 62px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
-                                <Size>13.5px</Size>
+                                <Name>等线</Name>
+                                <Size>17px</Size>
                                 <Style>Bold</Style>
                             </Font>
                             <TextAlign>Left</TextAlign>
@@ -3009,7 +3013,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                         <CanSplit>True</CanSplit>
                         <Localizable>False</Localizable>
                         <Location>0px, 24px</Location>
-                        <Size>128px, 24px</Size>
+                        <Size>120px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -3033,7 +3037,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <TextAlign>Center</TextAlign>
                         </Style>
-                        <Value>=IIF([@QtyinContainer] = [inner.Container], [inner.Container],[@QtyinContainer])</Value>
+                        <Value>=IIF([@QtyinContainer] = null, [inner.Container],[@QtyinContainer])</Value>
                     </TextBox>
                     <TextBox Name="textBox60">
                         <Localizable>False</Localizable>
@@ -3146,12 +3150,12 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                 <Items>
                     <TextBox Name="textBox51">
                         <Localizable>False</Localizable>
-                        <Location>128px, 24px</Location>
+                        <Location>120px, 24px</Location>
                         <Size>248px, 62px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
-                                <Size>13.5px</Size>
+                                <Name>等线</Name>
+                                <Size>17px</Size>
                                 <Style>Bold</Style>
                             </Font>
                             <TextAlign>Left</TextAlign>
@@ -3205,7 +3209,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
-                                <Size>17px</Size>
+                                <Size>15px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
@@ -3217,8 +3221,8 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                         <Size>280px, 28px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
-                                <Size>16px</Size>
+                                <Name>等线</Name>
+                                <Size>17px</Size>
                                 <Style>Bold</Style>
                             </Font>
                             <VerticalAlign>Top</VerticalAlign>
@@ -3229,7 +3233,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                         <CanSplit>True</CanSplit>
                         <Localizable>False</Localizable>
                         <Location>0px, 24px</Location>
-                        <Size>128px, 24px</Size>
+                        <Size>120px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -3253,7 +3257,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <TextAlign>Center</TextAlign>
                         </Style>
-                        <Value>=IIF([@QtyinContainer] = [inner.Container], [inner.Container],[@QtyinContainer])</Value>
+                        <Value>=IIF([@QtyinContainer] = null, [inner.Container],[@QtyinContainer])</Value>
                     </TextBox>
                     <TextBox Name="textBox73">
                         <Localizable>False</Localizable>
