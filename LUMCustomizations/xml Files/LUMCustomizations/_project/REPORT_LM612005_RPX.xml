@@ -2826,7 +2826,7 @@
                                 <Value>=[InventoryItem.Descr]</Value>
                             </TextBox>
                             <TextBox Name="textBox80">
-                                <Format>#0.00</Format>
+                                <Format>=IIF([INTran.Qty] - Floor([INTran.Qty]) &gt; 0,'N2','N0')</Format>
                                 <Location>280px, 0px</Location>
                                 <Size>64px, 32px</Size>
                                 <Style>
