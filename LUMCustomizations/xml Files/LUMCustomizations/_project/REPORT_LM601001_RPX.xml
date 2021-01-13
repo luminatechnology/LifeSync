@@ -2135,7 +2135,6 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 <Visible>False</Visible>
             </PageHeader>
             <Detail Name="General">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Style>
                     <BackImage>
@@ -2349,7 +2348,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>272px, 64px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
+                                <Name>標楷體</Name>
                                 <Size>14px</Size>
                                 <Style>Bold</Style>
                             </Font>
@@ -2362,7 +2361,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>280px, 20px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
+                                <Name>等线</Name>
                                 <Size>16px</Size>
                                 <Style>Bold</Style>
                             </Font>
@@ -2429,7 +2428,6 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </PageFooter>
             <Detail Name="OSI">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = 'OSI' Or @Customer = 'OSI')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
@@ -2454,7 +2452,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>280px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
+                                <Name>等线</Name>
                                 <Size>16px</Size>
                                 <Style>Bold</Style>
                             </Font>
@@ -2491,7 +2489,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>272px, 68px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
+                                <Name>等线</Name>
                                 <Size>14px</Size>
                                 <Style>Bold</Style>
                             </Font>
@@ -2695,7 +2693,6 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="OSI-Resistor">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <VisibleExpr>=IIF(([outter.Customer] = 'OSI' Or @Customer = 'OSI')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) ,true,false)</VisibleExpr>
                 <Items>
@@ -2745,7 +2742,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>280px, 17px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
+                                <Name>等线</Name>
                                 <Size>16px</Size>
                                 <Style>Bold</Style>
                             </Font>
@@ -2844,7 +2841,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>272px, 64px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
+                                <Name>等线</Name>
                                 <Size>14px</Size>
                                 <Style>Bold</Style>
                             </Font>
@@ -2973,7 +2970,6 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="AMC-Resistor">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = 'AMC' Or @Customer = 'AMC')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) ,true,false)</VisibleExpr>
@@ -3011,7 +3007,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>280px, 17px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
+                                <Name>等线</Name>
                                 <Size>16px</Size>
                                 <Style>Bold</Style>
                             </Font>
@@ -3218,7 +3214,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>272px, 64px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
+                                <Name>等线</Name>
                                 <Size>14px</Size>
                                 <Style>Bold</Style>
                             </Font>
@@ -3252,7 +3248,6 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="AMC">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = 'AMC' Or @Customer = 'AMC')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
@@ -3316,7 +3311,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>280px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
+                                <Name>等线</Name>
                                 <Size>16px</Size>
                                 <Style>Bold</Style>
                             </Font>
@@ -3353,7 +3348,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>272px, 68px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
+                                <Name>等线</Name>
                                 <Size>14px</Size>
                                 <Style>Bold</Style>
                             </Font>
@@ -3518,7 +3513,6 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="SJM-Resistory">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <VisibleExpr>=IIF(([outter.Customer] = 'SJM' Or @Customer = 'SJM')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) ,true,false)</VisibleExpr>
                 <Items>
@@ -3600,7 +3594,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>272px, 56px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
+                                <Name>等线</Name>
                                 <Size>14px</Size>
                                 <Style>Bold</Style>
                             </Font>
@@ -3773,7 +3767,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>264px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
+                                <Name>等线</Name>
                                 <Size>16px</Size>
                                 <Style>Bold</Style>
                             </Font>
@@ -3810,7 +3804,6 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="MASIMO">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <VisibleExpr>=IIF(([outter.Customer] = 'MASIMO' Or @Customer = 'MASIMO')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
                 <Items>
@@ -3820,7 +3813,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>272px, 68px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
+                                <Name>等线</Name>
                                 <Size>14px</Size>
                                 <Style>Bold</Style>
                             </Font>
@@ -3859,7 +3852,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>280px, 18px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
+                                <Name>等线</Name>
                                 <Size>16px</Size>
                                 <Style>Bold</Style>
                             </Font>
@@ -4108,7 +4101,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>280px, 17px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
+                                <Name>等线</Name>
                                 <Size>16px</Size>
                                 <Style>Bold</Style>
                             </Font>
@@ -4173,7 +4166,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>272px, 64px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
+                                <Name>等线</Name>
                                 <Size>14px</Size>
                                 <Style>Bold</Style>
                             </Font>
@@ -4400,7 +4393,6 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="科曼">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <VisibleExpr>=IIF(([outter.Customer] = '科曼' Or @Customer = '科曼')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
                 <Items>
@@ -4450,7 +4442,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>280px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
+                                <Name>等线</Name>
                                 <Size>16px</Size>
                                 <Style>Bold</Style>
                             </Font>
@@ -4655,7 +4647,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>272px, 68px</Size>
                         <Style>
                             <Font>
-                                <Name>Microsoft YaHei UI</Name>
+                                <Name>等线</Name>
                                 <Size>14px</Size>
                                 <Style>Bold</Style>
                             </Font>
