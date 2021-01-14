@@ -11,13 +11,14 @@ namespace PX.Objects.SO
         {
             base.Initialize();
             Base.report.AddMenuAction(CommercialInvoiceReport);
-            Base.report.AddMenuAction(CreditNoteReport);
+            Base.report.AddMenuAction(CommercialInvoiceReport);
+            Base.report.AddMenuAction(CommercialInvoiceFromDGReport);
         }
 
         #region Action
         public PXAction<ARInvoice> CommercialInvoiceReport;
         [PXButton]
-        [PXUIField(DisplayName = "Print Commercial Invoice", Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print Commercial Invoice (HK for tooling)", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable commercialInvoiceReport(PXAdapter adapter)
         {
             if (Base.Document.Current != null)
@@ -41,6 +42,22 @@ namespace PX.Objects.SO
                 Dictionary<string, string> parameters = new Dictionary<string, string>();
                 parameters["RefNbr"] = Base.Document.Current.RefNbr;
                 throw new PXReportRequiredException(parameters, "LM602005", "Report LM602005");
+            }
+            return adapter.Get();
+        }
+        #endregion
+
+        #region Action
+        public PXAction<ARInvoice> CommercialInvoiceFromDGReport;
+        [PXButton]
+        [PXUIField(DisplayName = "Print Commercial Invoice From DG", Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        protected virtual IEnumerable commercialInvoiceFromDGReport(PXAdapter adapter)
+        {
+            if (Base.Document.Current != null)
+            {
+                Dictionary<string, string> parameters = new Dictionary<string, string>();
+                parameters["RefNbr"] = Base.Document.Current.RefNbr;
+                throw new PXReportRequiredException(parameters, "LM602015", "Report LM602015");
             }
             return adapter.Get();
         }

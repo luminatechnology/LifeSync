@@ -40,52 +40,6 @@
                 <Condition>IsNull</Condition>
                 <DataField>@RefNbr</DataField>
             </FilterExp>
-            <FilterExp>
-                <Condition>GreaterOrEqual</Condition>
-                <DataField>INRegister.FinPeriodID</DataField>
-                <OpenBraces>1</OpenBraces>
-                <Operator>Or</Operator>
-                <Value>@PeriodFrom</Value>
-            </FilterExp>
-            <FilterExp>
-                <CloseBraces>1</CloseBraces>
-                <Condition>IsNull</Condition>
-                <DataField>@PeriodFrom</DataField>
-            </FilterExp>
-            <FilterExp>
-                <Condition>LessOrEqual</Condition>
-                <DataField>INRegister.FinPeriodID</DataField>
-                <OpenBraces>1</OpenBraces>
-                <Operator>Or</Operator>
-                <Value>@PeriodTo</Value>
-            </FilterExp>
-            <FilterExp>
-                <CloseBraces>1</CloseBraces>
-                <Condition>IsNull</Condition>
-                <DataField>@PeriodTo</DataField>
-            </FilterExp>
-            <FilterExp>
-                <DataField>INRegister.CreatedByID</DataField>
-                <OpenBraces>1</OpenBraces>
-                <Operator>Or</Operator>
-                <Value>@CreatedBy</Value>
-            </FilterExp>
-            <FilterExp>
-                <CloseBraces>1</CloseBraces>
-                <Condition>IsNull</Condition>
-                <DataField>@CreatedBy</DataField>
-            </FilterExp>
-            <FilterExp>
-                <DataField>INRegister.LastModifiedByID</DataField>
-                <OpenBraces>1</OpenBraces>
-                <Operator>Or</Operator>
-                <Value>@LastModifiedBy</Value>
-            </FilterExp>
-            <FilterExp>
-                <CloseBraces>1</CloseBraces>
-                <Condition>IsNull</Condition>
-                <DataField>@LastModifiedBy</DataField>
-            </FilterExp>
         </Filters>
         <GridSize>4px, 4px</GridSize>
         <NavigationDepth>1</NavigationDepth>
@@ -132,6 +86,7 @@
                 <Nullable>True</Nullable>
                 <Prompt>From Period</Prompt>
                 <ViewName>=[INRegister.FinPeriodID]</ViewName>
+                <Visible>False</Visible>
             </ReportParameter>
             <ReportParameter>
                 <ColumnSpan>2</ColumnSpan>
@@ -140,6 +95,7 @@
                 <Nullable>True</Nullable>
                 <Prompt>To Period</Prompt>
                 <ViewName>=[INRegister.FinPeriodID]</ViewName>
+                <Visible>False</Visible>
             </ReportParameter>
             <ReportParameter>
                 <ColumnSpan>2</ColumnSpan>
@@ -147,6 +103,7 @@
                 <Nullable>True</Nullable>
                 <Prompt>Created by</Prompt>
                 <ViewName>=[INRegister.CreatedByID]</ViewName>
+                <Visible>False</Visible>
             </ReportParameter>
             <ReportParameter>
                 <ColumnSpan>2</ColumnSpan>
@@ -154,6 +111,7 @@
                 <Nullable>True</Nullable>
                 <Prompt>Last Modified by</Prompt>
                 <ViewName>=[INRegister.LastModifiedByID]</ViewName>
+                <Visible>False</Visible>
             </ReportParameter>
             <ReportParameter>
                 <ColumnSpan>2</ColumnSpan>
