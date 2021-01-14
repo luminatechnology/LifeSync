@@ -2123,7 +2123,6 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                 <Visible>False</Visible>
             </PageHeader>
             <Detail Name="General">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <ProcessOrder>Always</ProcessOrder>
                 <Style>
@@ -2273,7 +2272,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='CustomerP/O# : '+IIF([inner.CustomerOrderNbr] = [inner.CustomerOrderNbr],'',[inner.CustomerOrderNbr])</Value>
+                        <Value>='CustomerP/O# : '+IIF([inner.CustomerOrderNbr] = null,'',[inner.CustomerOrderNbr])</Value>
                     </TextBox>
                     <TextBox Name="textBox7">
                         <Localizable>False</Localizable>
@@ -2282,7 +2281,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
-                                <Size>17px</Size>
+                                <Size>16px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
@@ -2335,7 +2334,6 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                 </Items>
             </PageFooter>
             <Detail Name="OSI">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([inner.Customer] = 'OSI' Or @Customer = 'OSI')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
@@ -2361,7 +2359,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
-                                <Size>17px</Size>
+                                <Size>16px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
@@ -2519,7 +2517,6 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                 </Items>
             </Detail>
             <Detail Name="OSI-Resistor">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([inner.Customer] = 'OSI' Or @Customer = 'OSI')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) , true, false)</VisibleExpr>
@@ -2558,7 +2555,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
-                                <Size>17px</Size>
+                                <Size>16px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
@@ -3145,7 +3142,6 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                 </Items>
             </Detail>
             <Detail Name="科曼">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF((Trim([inner.Customer]) = '科曼' Or Trim(@Customer) = '科曼')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
