@@ -33,7 +33,17 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 <DataField>_Title.MYNumber</DataField>
                 <Value>1</Value>
             </FilterExp>
+            <FilterExp>
+                <DataField>_Title.ProdOrdID</DataField>
+                <Value>@ProdOrdID</Value>
+            </FilterExp>
         </Filters>
+        <PageSettings>
+            <Margins>
+                <Bottom>0.5cm</Bottom>
+                <Top>0.5cm</Top>
+            </Margins>
+        </PageSettings>
         <Parameters>
             <ReportParameter>
                 <DefaultValue>20201000004</DefaultValue>
@@ -44,6 +54,10 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 <DefaultValue>SP100004</DefaultValue>
                 <Name>ShipmentPlanID</Name>
                 <Prompt>ShipmentPlanID</Prompt>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>ProdOrdID</Name>
+                <Prompt>ProdOrdID</Prompt>
             </ReportParameter>
         </Parameters>
         <Relations>
@@ -84,6 +98,10 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                     <RelationRow>
                         <ChildField>SO.OrderNbr</ChildField>
                         <ParentField>lum.OrderNbr</ParentField>
+                    </RelationRow>
+                    <RelationRow>
+                        <ChildField>SO.OrderType</ChildField>
+                        <ParentField>lum.OrderType</ParentField>
                     </RelationRow>
                 </Links>
                 <ParentName>LumShipmentPlan</ParentName>
@@ -2679,72 +2697,6 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 </Fields>
                 <FullName>PX.Objects.SO.SOLine</FullName>
             </ReportTable>
-            <ReportTable Name="v_ProformaInvoiceHeader_shippmentPlan">
-                <Fields>
-                    <ReportField Name="BranchAddress">
-                    </ReportField>
-                    <ReportField Name="BranchName">
-                    </ReportField>
-                    <ReportField Name="Currency">
-                    </ReportField>
-                    <ReportField Name="CustAlternateID">
-                    </ReportField>
-                    <ReportField Name="Endc">
-                    </ReportField>
-                    <ReportField Name="InvioceNo">
-                    </ReportField>
-                    <ReportField Name="InvoiceDate">
-                        <DataType>DateTime</DataType>
-                    </ReportField>
-                    <ReportField Name="InvoiceDate_Day">
-                    </ReportField>
-                    <ReportField Name="InvoiceDate_Hour">
-                    </ReportField>
-                    <ReportField Name="InvoiceDate_Month">
-                    </ReportField>
-                    <ReportField Name="InvoiceDate_Quarter">
-                    </ReportField>
-                    <ReportField Name="MYNumber">
-                        <DataType>Int64</DataType>
-                    </ReportField>
-                    <ReportField Name="PIAdddress">
-                    </ReportField>
-                    <ReportField Name="PIAttention">
-                    </ReportField>
-                    <ReportField Name="PICustomerID">
-                    </ReportField>
-                    <ReportField Name="PICustomerName">
-                    </ReportField>
-                    <ReportField Name="Pifax">
-                    </ReportField>
-                    <ReportField Name="Pitel">
-                    </ReportField>
-                    <ReportField Name="Remark">
-                    </ReportField>
-                    <ReportField Name="SellerFax">
-                    </ReportField>
-                    <ReportField Name="SellerFrom">
-                    </ReportField>
-                    <ReportField Name="SellerTel">
-                    </ReportField>
-                    <ReportField Name="ShipLate">
-                        <DataType>DateTime</DataType>
-                    </ReportField>
-                    <ReportField Name="ShipLate_Day">
-                    </ReportField>
-                    <ReportField Name="ShipLate_Hour">
-                    </ReportField>
-                    <ReportField Name="ShipLate_Month">
-                    </ReportField>
-                    <ReportField Name="ShipLate_Quarter">
-                    </ReportField>
-                    <ReportField Name="ShipmentPlanID">
-                    </ReportField>
-                    <ReportField Name="Terms">
-                    </ReportField>
-                </Fields>
-                <FullName>LUMCustomizations.v_ProformaInvoiceHeader_shippmentPlan</FullName>
-            </ReportTable>
             <ReportTable Name="SOShipment">
                 <Fields>
                     <ReportField Name="AttributeTN">
@@ -3323,6 +3275,74 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 </Fields>
                 <FullName>PX.Objects.SO.SOShippingContact</FullName>
             </ReportTable>
+            <ReportTable Name="v_ProformaInvoiceHeader_shippmentPlan">
+                <Fields>
+                    <ReportField Name="BranchAddress">
+                    </ReportField>
+                    <ReportField Name="BranchName">
+                    </ReportField>
+                    <ReportField Name="Currency">
+                    </ReportField>
+                    <ReportField Name="CustAlternateID">
+                    </ReportField>
+                    <ReportField Name="Endc">
+                    </ReportField>
+                    <ReportField Name="InvioceNo">
+                    </ReportField>
+                    <ReportField Name="InvoiceDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="InvoiceDate_Day">
+                    </ReportField>
+                    <ReportField Name="InvoiceDate_Hour">
+                    </ReportField>
+                    <ReportField Name="InvoiceDate_Month">
+                    </ReportField>
+                    <ReportField Name="InvoiceDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="MYNumber">
+                        <DataType>Int64</DataType>
+                    </ReportField>
+                    <ReportField Name="PIAdddress">
+                    </ReportField>
+                    <ReportField Name="PIAttention">
+                    </ReportField>
+                    <ReportField Name="PICustomerID">
+                    </ReportField>
+                    <ReportField Name="PICustomerName">
+                    </ReportField>
+                    <ReportField Name="Pifax">
+                    </ReportField>
+                    <ReportField Name="Pitel">
+                    </ReportField>
+                    <ReportField Name="ProdOrdID">
+                    </ReportField>
+                    <ReportField Name="Remark">
+                    </ReportField>
+                    <ReportField Name="SellerFax">
+                    </ReportField>
+                    <ReportField Name="SellerFrom">
+                    </ReportField>
+                    <ReportField Name="SellerTel">
+                    </ReportField>
+                    <ReportField Name="ShipLate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="ShipLate_Day">
+                    </ReportField>
+                    <ReportField Name="ShipLate_Hour">
+                    </ReportField>
+                    <ReportField Name="ShipLate_Month">
+                    </ReportField>
+                    <ReportField Name="ShipLate_Quarter">
+                    </ReportField>
+                    <ReportField Name="ShipmentPlanID">
+                    </ReportField>
+                    <ReportField Name="Terms">
+                    </ReportField>
+                </Fields>
+                <FullName>LUMCustomizations.v_ProformaInvoiceHeader_shippmentPlan</FullName>
+            </ReportTable>
         </Tables>
         <TabularFreeze>128px</TabularFreeze>
         <Sections>
@@ -3780,6 +3800,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
             </PageHeader>
             <Detail Name="detailSection1">
                 <Height>1.69312cm</Height>
+                <PrintEmpty>False</PrintEmpty>
                 <Style>
                     <BorderStyle>
                         <Left>Solid</Left>
@@ -3959,7 +3980,8 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 </Items>
             </Detail>
             <PageFooter Name="pageFooterSection1">
-                <Height>6.13757cm</Height>
+                <Height>5.71429cm</Height>
+                <PrintEmpty>False</PrintEmpty>
                 <PrintOnLastPage>False</PrintOnLastPage>
                 <Items>
                     <Line Name="line3">
@@ -4077,8 +4099,9 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 <Visible>False</Visible>
             </ReportHeader>
             <ReportFooter Name="reportFooterSection1">
-                <Height>6.13757cm</Height>
+                <Height>5.92593cm</Height>
                 <PrintAtBottom>True</PrintAtBottom>
+                <PrintEmpty>False</PrintEmpty>
                 <Items>
                     <Line Name="line2">
                         <Location>400px, 168px</Location>
@@ -4200,6 +4223,9 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                     </GroupExp>
                     <GroupExp>
                         <DataField>=[_Title.ShipmentPlanID]</DataField>
+                    </GroupExp>
+                    <GroupExp>
+                        <DataField>=[_Title.ProdOrdID]</DataField>
                     </GroupExp>
                 </Grouping>
                 <Headers>
@@ -4455,6 +4481,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 <Footers>
                     <Footer Name="groupFooterSection1">
                         <Height>0.21164cm</Height>
+                        <PrintEmpty>False</PrintEmpty>
                         <PrintOnEveryPage>True</PrintOnEveryPage>
                         <Items>
                             <Line Name="line1">

@@ -140,7 +140,8 @@ namespace LumCustomizations.Graph
             var parameters = new Dictionary<string, string>()
             {
                 ["ShipmentNbr"] = this.GetCacheCurrent<LumShipmentPlan>().Current.ShipmentNbr,
-                ["ShipmentPlanID"] = this.GetCacheCurrent<LumShipmentPlan>().Current.ShipmentPlanID
+                ["ShipmentPlanID"] = this.GetCacheCurrent<LumShipmentPlan>().Current.ShipmentPlanID,
+                ["ProdOrdID"] = this.GetCacheCurrent<LumShipmentPlan>().Current.ProdOrdID
             };
             if (parameters["ShipmentNbr"] != null && parameters["ShipmentPlanID"] != null)
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));

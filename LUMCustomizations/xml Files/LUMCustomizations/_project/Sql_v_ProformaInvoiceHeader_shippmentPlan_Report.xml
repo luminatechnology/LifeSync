@@ -67,6 +67,7 @@ _Result as (
 SELECT  DISTINCT
 	   lumShip.CompanyID,
 	   lumShip.ShipmentPlanID,
+	   lumShip.ProdOrdID,
 	   lumShip.ShipmentNbr AS InvioceNo,
 	   lumShip.PlannedShipDate AS InvoiceDate,
 	   lumShip.PlannedShipDate AS ShipLate,

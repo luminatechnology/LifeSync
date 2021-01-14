@@ -30,7 +30,7 @@ namespace LumCustomizations.Graph
         public InternalCostModelMaint()
         {
             Report.AddMenuAction(InternalCostModelExcel);
-        } 
+        }
 
         #endregion
 
@@ -68,6 +68,8 @@ namespace LumCustomizations.Graph
             var _InventoryItem = PXGraph.CreateInstance<InternalCostModelMaint>().Select<INItemSite>().Select(x => new { x.InventoryID, x.ReplenishmentSource });
             // Effect Curry Rate
             var _EffectCuryRate = GetCuryRateRecordEffData().Where(x => x.CuryRateType == _ICMRateType).ToList();
+            if (_EffectCuryRate.Count == 0)
+                throw new PXException("Please Select ICM Rate Type !!");
 
             decimal _SetUpSum = 0;
             decimal _TotalCost = 0;
@@ -820,7 +822,7 @@ namespace LumCustomizations.Graph
                 ret.Add((CurrencyRate2)sel.Select("CNY", r.FromCuryID, r.CuryRateType, r.CuryEffDate));
             }
             return ret;
-        } 
+        }
 
         #endregion
 

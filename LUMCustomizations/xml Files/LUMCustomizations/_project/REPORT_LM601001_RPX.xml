@@ -120,7 +120,6 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
             </ReportRelation>
             <ReportRelation>
                 <ChildName>INItemXRef</ChildName>
-                <JoinType>Inner</JoinType>
                 <Links>
                     <RelationRow>
                         <ChildField>INItemXRef.InventoryID</ChildField>
@@ -2135,6 +2134,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 <Visible>False</Visible>
             </PageHeader>
             <Detail Name="General">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Style>
                     <BackImage>
@@ -2147,7 +2147,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <ValueExpr>=[outter.StartLabelNbr]</ValueExpr>
                     </ReportVariable>
                 </Variables>
-                <VisibleExpr>=IIF([outter.Customer] &lt;&gt; 'OSI' #010;And [outter.Customer] &lt;&gt; 'AMC'#010;And [outter.Customer] &lt;&gt; 'SJM'#010;And [outter.Customer] &lt;&gt; 'MASIMO'#010;And [outter.Customer] &lt;&gt; '科曼'#010;And @Customer &lt;&gt; 'OSI'#010;And @Customer &lt;&gt; 'AMC'#010;And @Customer &lt;&gt; 'SJM'#010;And @Customer &lt;&gt; 'MASIMO'#010;And @Customer &lt;&gt; '科曼'#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
+                <VisibleExpr>=IIF([outter.Customer] &lt;&gt; 'OSI' #010;And [outter.Customer] &lt;&gt; 'AMC'#010;And [outter.Customer] &lt;&gt; 'SJM'#010;And [outter.Customer] &lt;&gt; 'MASIMO'#010;And [outter.Customer] &lt;&gt; '科曼'#010;And @Customer &lt;&gt; 'OSI'#010;And @Customer &lt;&gt; 'AMC'#010;And @Customer &lt;&gt; 'SJM'#010;And @Customer &lt;&gt; 'MASIMO'#010;And @Customer &lt;&gt; '科曼'#010;And ([InventoryItem.RESISTOR_Attributes] = null)#010;And (@Resistor = null ) ,true,false)</VisibleExpr>
                 <Items>
                     <TextBox Name="textBox1">
                         <Localizable>False</Localizable>
@@ -2282,7 +2282,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + IIF([SOLine.AlternateID] = null,'',')'),#010;[@CustomerPartNo])</Value>
+                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
                     </TextBox>
                     <TextBox Name="textBox24">
                         <Localizable>False</Localizable>
@@ -2348,8 +2348,8 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>272px, 64px</Size>
                         <Style>
                             <Font>
-                                <Name>標楷體</Name>
-                                <Size>14px</Size>
+                                <Name>Microsoft YaHei UI</Name>
+                                <Size>13px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
@@ -2361,8 +2361,8 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>280px, 20px</Size>
                         <Style>
                             <Font>
-                                <Name>等线</Name>
-                                <Size>16px</Size>
+                                <Name>Microsoft YaHei UI</Name>
+                                <Size>13px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
@@ -2428,6 +2428,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </PageFooter>
             <Detail Name="OSI">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = 'OSI' Or @Customer = 'OSI')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
@@ -2452,8 +2453,8 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>280px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>等线</Name>
-                                <Size>16px</Size>
+                                <Name>Microsoft YaHei UI</Name>
+                                <Size>13px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
@@ -2489,8 +2490,8 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>272px, 68px</Size>
                         <Style>
                             <Font>
-                                <Name>等线</Name>
-                                <Size>14px</Size>
+                                <Name>Microsoft YaHei UI</Name>
+                                <Size>13px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
@@ -2688,11 +2689,12 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + IIF([SOLine.AlternateID] = null,'',')'),#010;[@CustomerPartNo])</Value>
+                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
                     </TextBox>
                 </Items>
             </Detail>
             <Detail Name="OSI-Resistor">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <VisibleExpr>=IIF(([outter.Customer] = 'OSI' Or @Customer = 'OSI')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) ,true,false)</VisibleExpr>
                 <Items>
@@ -2833,7 +2835,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + IIF([SOLine.AlternateID] = null,'',')'),#010;[@CustomerPartNo])</Value>
+                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
                     </TextBox>
                     <TextBox Name="textBox48">
                         <Localizable>False</Localizable>
@@ -2841,8 +2843,8 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>272px, 64px</Size>
                         <Style>
                             <Font>
-                                <Name>等线</Name>
-                                <Size>14px</Size>
+                                <Name>Microsoft YaHei UI</Name>
+                                <Size>13px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
@@ -2970,6 +2972,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="AMC-Resistor">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = 'AMC' Or @Customer = 'AMC')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) ,true,false)</VisibleExpr>
@@ -3007,8 +3010,8 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>280px, 17px</Size>
                         <Style>
                             <Font>
-                                <Name>等线</Name>
-                                <Size>16px</Size>
+                                <Name>Microsoft YaHei UI</Name>
+                                <Size>13px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
@@ -3135,7 +3138,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + IIF([SOLine.AlternateID] = null,'',')'),#010;[@CustomerPartNo])</Value>
+                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
                     </TextBox>
                     <TextBox Name="textBox69">
                         <Localizable>False</Localizable>
@@ -3214,8 +3217,8 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>272px, 64px</Size>
                         <Style>
                             <Font>
-                                <Name>等线</Name>
-                                <Size>14px</Size>
+                                <Name>等线microsoft yahei ui</Name>
+                                <Size>13px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
@@ -3248,6 +3251,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="AMC">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = 'AMC' Or @Customer = 'AMC')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
@@ -3276,7 +3280,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + IIF([SOLine.AlternateID] = null,'',')'),#010;[@CustomerPartNo])</Value>
+                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
                     </TextBox>
                     <TextBox Name="textBox78">
                         <CanGrow>True</CanGrow>
@@ -3311,8 +3315,8 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>280px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>等线</Name>
-                                <Size>16px</Size>
+                                <Name>Microsoft YaHei UI</Name>
+                                <Size>13px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
@@ -3348,8 +3352,8 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>272px, 68px</Size>
                         <Style>
                             <Font>
-                                <Name>等线</Name>
-                                <Size>14px</Size>
+                                <Name>Microsoft YaHei UI</Name>
+                                <Size>13px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
@@ -3513,6 +3517,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="SJM-Resistory">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <VisibleExpr>=IIF(([outter.Customer] = 'SJM' Or @Customer = 'SJM')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) ,true,false)</VisibleExpr>
                 <Items>
@@ -3594,8 +3599,8 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>272px, 56px</Size>
                         <Style>
                             <Font>
-                                <Name>等线</Name>
-                                <Size>14px</Size>
+                                <Name>Microsoft YaHei UI</Name>
+                                <Size>13px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
@@ -3746,7 +3751,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + IIF([SOLine.AlternateID] = null,'',')'),#010;[@CustomerPartNo])</Value>
+                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
                     </TextBox>
                     <TextBox Name="textBox96">
                         <Localizable>False</Localizable>
@@ -3767,8 +3772,8 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>264px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>等线</Name>
-                                <Size>16px</Size>
+                                <Name>Microsoft YaHei UI</Name>
+                                <Size>13px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
@@ -3804,6 +3809,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="MASIMO">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <VisibleExpr>=IIF(([outter.Customer] = 'MASIMO' Or @Customer = 'MASIMO')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
                 <Items>
@@ -3813,8 +3819,8 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>272px, 68px</Size>
                         <Style>
                             <Font>
-                                <Name>等线</Name>
-                                <Size>14px</Size>
+                                <Name>Microsoft YaHei UI</Name>
+                                <Size>13px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
@@ -3831,7 +3837,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold, Underline</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + IIF([SOLine.AlternateID] = null,'',')'),#010;[@CustomerPartNo])</Value>
+                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
                     </TextBox>
                     <TextBox Name="textBox116">
                         <Localizable>False</Localizable>
@@ -3852,8 +3858,8 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>280px, 18px</Size>
                         <Style>
                             <Font>
-                                <Name>等线</Name>
-                                <Size>16px</Size>
+                                <Name>Microsoft YaHei UI</Name>
+                                <Size>13px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
@@ -4092,7 +4098,9 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="MASIMO-Resistor">
+                <Expanded>False</Expanded>
                 <Height>6.98413cm</Height>
+                <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = 'MASIMO' Or @Customer = 'MASIMO')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) ,true,false)</VisibleExpr>
                 <Items>
                     <TextBox Name="textBox126">
@@ -4101,8 +4109,8 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>280px, 17px</Size>
                         <Style>
                             <Font>
-                                <Name>等线</Name>
-                                <Size>16px</Size>
+                                <Name>Microsoft YaHei UI</Name>
+                                <Size>13px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
@@ -4119,7 +4127,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold, Underline</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + IIF([SOLine.AlternateID] = null,'',')'),#010;[@CustomerPartNo])</Value>
+                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
                     </TextBox>
                     <TextBox Name="textBox135">
                         <Localizable>False</Localizable>
@@ -4166,8 +4174,8 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>272px, 64px</Size>
                         <Style>
                             <Font>
-                                <Name>等线</Name>
-                                <Size>14px</Size>
+                                <Name>Microsoft YaHei UI</Name>
+                                <Size>13px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
@@ -4393,7 +4401,9 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="科曼">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
+                <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = '科曼' Or @Customer = '科曼')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
                 <Items>
                     <TextBox Name="textBox153">
@@ -4442,8 +4452,8 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>280px, 16px</Size>
                         <Style>
                             <Font>
-                                <Name>等线</Name>
-                                <Size>16px</Size>
+                                <Name>Microsoft YaHei UI</Name>
+                                <Size>13px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
@@ -4543,7 +4553,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + IIF([SOLine.AlternateID] = null,'',')'),#010;[@CustomerPartNo])</Value>
+                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
                     </TextBox>
                     <TextBox Name="textBox163">
                         <CanGrow>True</CanGrow>
@@ -4647,8 +4657,8 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Size>272px, 68px</Size>
                         <Style>
                             <Font>
-                                <Name>等线</Name>
-                                <Size>14px</Size>
+                                <Name>Microsoft YaHei UI</Name>
+                                <Size>13px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>

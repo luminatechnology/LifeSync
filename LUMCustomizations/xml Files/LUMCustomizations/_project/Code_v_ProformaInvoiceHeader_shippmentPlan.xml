@@ -11,19 +11,26 @@ namespace LUMCustomizations
     #region MYNumber
     [PXDBLong()]
     [PXUIField(DisplayName = "MYNumber")]
-    public virtual long? MYNumber{ get; set; }
-    public abstract class mYNumber: PX.Data.BQL.BqlLong.Field<mYNumber> { }
+    public virtual long? MYNumber { get; set; }
+    public abstract class mYNumber : PX.Data.BQL.BqlLong.Field<mYNumber> { }
     #endregion
 
     #region ShipmentPlanID
-    [PXDBString(15, IsUnicode = true, InputMask = "", IsKey = true)]
+    [PXDBString(15, IsUnicode = true, InputMask = "",IsKey = true)]
     [PXUIField(DisplayName = "Shipment Plan ID")]
     public virtual string ShipmentPlanID { get; set; }
     public abstract class shipmentPlanID : PX.Data.BQL.BqlString.Field<shipmentPlanID> { }
     #endregion
 
+    #region ProdOrdID
+    [PXDBString(15, IsUnicode = true, InputMask = "",IsKey = true)]
+    [PXUIField(DisplayName = "Prod Ord ID")]
+    public virtual string ProdOrdID { get; set; }
+    public abstract class prodOrdID : PX.Data.BQL.BqlString.Field<prodOrdID> { }
+    #endregion
+
     #region InvioceNo
-    [PXDBString(15, IsUnicode = true, InputMask = "", IsKey = true)]
+    [PXDBString(15, IsUnicode = true, InputMask = "",IsKey = true)]
     [PXUIField(DisplayName = "Invioce No")]
     public virtual string InvioceNo { get; set; }
     public abstract class invioceNo : PX.Data.BQL.BqlString.Field<invioceNo> { }

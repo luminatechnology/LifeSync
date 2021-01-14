@@ -2733,8 +2733,6 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                 <FullName>LUMCustomizations.v_ProformaInvoiceHeader_shippmentPlan</FullName>
             </ReportTable>
         </Tables>
-        <TabularFreeze>
-        </TabularFreeze>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
                 <Height>0cm</Height>
@@ -3310,7 +3308,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                                 <Size>10px</Size>
                             </Font>
                         </Style>
-                        <Value>From:</Value>
+                        <Value>Attn:</Value>
                     </TextBox>
                     <TextBox Name="textBox25">
                         <Location>16px, 224px</Location>

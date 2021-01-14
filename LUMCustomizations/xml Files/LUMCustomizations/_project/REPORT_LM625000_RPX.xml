@@ -28,22 +28,6 @@
         <GridSize>4px, 4px</GridSize>
         <MailSettings>
             <ActivitySource>AMProdItem.NoteID</ActivitySource>
-            <Bcc>
-            </Bcc>
-            <Body>
-            </Body>
-            <Cc>
-            </Cc>
-            <Format>
-            </Format>
-            <ParentSource>
-            </ParentSource>
-            <Subject>
-            </Subject>
-            <TemplateID>
-            </TemplateID>
-            <To>
-            </To>
         </MailSettings>
         <PageSettings>
             <Margins>
@@ -91,6 +75,10 @@
                     <RelationRow>
                         <ChildField>ProdLine.AttributeID</ChildField>
                         <ParentField>='PRODLINE'</ParentField>
+                    </RelationRow>
+                    <RelationRow>
+                        <ChildField>ProdLine.OrderType</ChildField>
+                        <ParentField>AMProdItem.OrderType</ParentField>
                     </RelationRow>
                 </Links>
                 <ParentName>AMProdItem</ParentName>
@@ -148,6 +136,10 @@
                         <ChildField>AlternateType</ChildField>
                         <ParentField>='0CPN'</ParentField>
                     </RelationRow>
+                    <RelationRow>
+                        <ChildField>BAccountID</ChildField>
+                        <ParentField>SOLine.CustomerID</ParentField>
+                    </RelationRow>
                 </Links>
                 <ParentName>SOLine</ParentName>
             </ReportRelation>
@@ -177,7 +169,7 @@
                 <ParentName>AMProdMatl</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/ABA_AcumaticaDB1/</SchemaUrl>
+        <SchemaUrl>https://healthedge.acumatica.com</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>AMProdItem.OrderType</DataField>
