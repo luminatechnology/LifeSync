@@ -161,7 +161,7 @@
                 <ParentName>INTran</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
+        <SchemaUrl>https://healthedge.acumatica.com/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>InventoryItem.InventoryCD</DataField>
@@ -1936,7 +1936,7 @@
                     </TextBox>
                 </Items>
             </PageHeader>
-            <Detail Name="Issues">
+            <Detail Name="Issue">
                 <GridSize>8px, 8px</GridSize>
                 <Height>0.84656cm</Height>
                 <Variables>
@@ -1946,9 +1946,9 @@
                     </ReportVariable>
                 </Variables>
                 <Items>
-                    <TextBox Name="textBox21">
-                        <Location>520px, 0px</Location>
-                        <Size>56px, 32px</Size>
+                    <TextBox Name="textBox10">
+                        <Location>416px, 0px</Location>
+                        <Size>40px, 32px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -1965,76 +1965,10 @@
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=[INTran.LocationID_description]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox26">
-                        <Location>456px, 0px</Location>
-                        <Size>64px, 32px</Size>
-                        <Style>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Bottom>1px</Bottom>
-                                <Right>1px</Right>
-                            </BorderWidth>
-                            <Font>
-                                <Name>Microsoft JhengHei UI</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <Value>=[INTran.SiteID_INSite_descr]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox3">
-                        <Location>576px, 0px</Location>
-                        <Size>112px, 32px</Size>
-                        <Style>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Bottom>1px</Bottom>
-                                <Right>1px</Right>
-                            </BorderWidth>
-                            <Font>
-                                <Name>Microsoft JhengHei UI</Name>
-                                <Size>9px</Size>
-                            </Font>
-                            <Padding>
-                                <Left>5px</Left>
-                            </Padding>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <Value>=[INTran.TranDesc]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox41">
-                        <Location>416px, 0px</Location>
-                        <Size>40px, 32px</Size>
-                        <Style>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Bottom>1px</Bottom>
-                                <Right>1px</Right>
-                            </BorderWidth>
-                            <Font>
-                                <Name>Microsoft JhengHei UI</Name>
-                                <Size>11px</Size>
-                            </Font>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
                         <Value>=[INTran.UOM]</Value>
                     </TextBox>
-                    <TextBox Name="textBox42">
-                        <Format>=IIF([INTran.Qty] - Floor([INTran.Qty]) &gt; 0,'N2','N0')</Format>
+                    <TextBox Name="textBox13">
+                        <Format>=IIF([INTranSplit.Qty] - Floor([INTranSplit.Qty]) &gt; 0,'N2','N0')</Format>
                         <Location>280px, 0px</Location>
                         <Size>64px, 32px</Size>
                         <Style>
@@ -2053,9 +1987,33 @@
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=[INTran.Qty]</Value>
+                        <Value>=[INTranSplit.Qty]</Value>
                     </TextBox>
-                    <TextBox Name="textBox43">
+                    <TextBox Name="textBox2">
+                        <Location>576px, 0px</Location>
+                        <Size>112px, 32px</Size>
+                        <Style>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
+                            </BorderWidth>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                                <Size>9px</Size>
+                            </Font>
+                            <Padding>
+                                <Left>5px</Left>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>=[INTran.TranDesc]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox20">
                         <Location>96px, 0px</Location>
                         <Size>184px, 32px</Size>
                         <Style>
@@ -2079,7 +2037,7 @@
                         </Style>
                         <Value>=[InventoryItem.Descr]</Value>
                     </TextBox>
-                    <TextBox Name="textBox44">
+                    <TextBox Name="textBox21">
                         <Location>40px, 0px</Location>
                         <Size>56px, 32px</Size>
                         <Style>
@@ -2093,14 +2051,14 @@
                             </BorderWidth>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
-                                <Size>12px</Size>
+                                <Size>10px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <Value>=[INTran.InventoryID]</Value>
                     </TextBox>
-                    <TextBox Name="textBox45">
+                    <TextBox Name="textBox23">
                         <Location>8px, 0px</Location>
                         <Size>32px, 32px</Size>
                         <Style>
@@ -2123,7 +2081,7 @@
                         </Style>
                         <Value>=PadLeft(CStr($LineNbr), 4, '0')</Value>
                     </TextBox>
-                    <TextBox Name="textBox46">
+                    <TextBox Name="textBox24">
                         <Location>344px, 0px</Location>
                         <Size>72px, 32px</Size>
                         <Style>
@@ -2137,12 +2095,54 @@
                             </BorderWidth>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
-                                <Size>11px</Size>
+                                <Size>10px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=[INTran.LotSerialNbr]</Value>
+                        <Value>=[INTranSplit.LotSerialNbr]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox3">
+                        <Location>520px, 0px</Location>
+                        <Size>56px, 32px</Size>
+                        <Style>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
+                            </BorderWidth>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>=[INTran.LocationID_description]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox4">
+                        <Location>456px, 0px</Location>
+                        <Size>64px, 32px</Size>
+                        <Style>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
+                            </BorderWidth>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                                <Size>10px</Size>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>=[INTran.SiteID_INSite_descr]</Value>
                     </TextBox>
                 </Items>
             </Detail>
@@ -2156,11 +2156,15 @@
         <Groups>
             <Group Name="Issues">
                 <Headers>
-                    <Header Name="groupHeaderSection5">
+                    <Header Name="groupHeaderSection1">
+                        <ExcelMargin>
+                            <bottom>1</bottom>
+                        </ExcelMargin>
                         <GridSize>8px, 8px</GridSize>
                         <Height>0.63492cm</Height>
+                        <PrintOnEveryPage>True</PrintOnEveryPage>
                         <Items>
-                            <TextBox Name="textBox29">
+                            <TextBox Name="textBox25">
                                 <Location>8px, 0px</Location>
                                 <Size>32px, 24px</Size>
                                 <Style>
@@ -2185,7 +2189,7 @@
                                 </Style>
                                 <Value>序号</Value>
                             </TextBox>
-                            <TextBox Name="textBox30">
+                            <TextBox Name="textBox26">
                                 <Location>40px, 0px</Location>
                                 <Size>56px, 24px</Size>
                                 <Style>
@@ -2208,7 +2212,7 @@
                                 </Style>
                                 <Value>物料品号</Value>
                             </TextBox>
-                            <TextBox Name="textBox32">
+                            <TextBox Name="textBox28">
                                 <Location>96px, 0px</Location>
                                 <Size>184px, 24px</Size>
                                 <Style>
@@ -2231,7 +2235,7 @@
                                 </Style>
                                 <Value>品名规格</Value>
                             </TextBox>
-                            <TextBox Name="textBox35">
+                            <TextBox Name="textBox29">
                                 <Location>280px, 0px</Location>
                                 <Size>64px, 24px</Size>
                                 <Style>
@@ -2254,7 +2258,7 @@
                                 </Style>
                                 <Value>数量</Value>
                             </TextBox>
-                            <TextBox Name="textBox36">
+                            <TextBox Name="textBox30">
                                 <Location>416px, 0px</Location>
                                 <Size>40px, 24px</Size>
                                 <Style>
@@ -2277,7 +2281,7 @@
                                 </Style>
                                 <Value>单位</Value>
                             </TextBox>
-                            <TextBox Name="textBox37">
+                            <TextBox Name="textBox31">
                                 <Location>456px, 0px</Location>
                                 <Size>64px, 24px</Size>
                                 <Style>
@@ -2300,7 +2304,7 @@
                                 </Style>
                                 <Value>仓库</Value>
                             </TextBox>
-                            <TextBox Name="textBox38">
+                            <TextBox Name="textBox32">
                                 <Location>520px, 0px</Location>
                                 <Size>56px, 24px</Size>
                                 <Style>
@@ -2323,7 +2327,7 @@
                                 </Style>
                                 <Value>库位</Value>
                             </TextBox>
-                            <TextBox Name="textBox39">
+                            <TextBox Name="textBox33">
                                 <Location>576px, 0px</Location>
                                 <Size>112px, 24px</Size>
                                 <Style>
@@ -2346,7 +2350,7 @@
                                 </Style>
                                 <Value>备注</Value>
                             </TextBox>
-                            <TextBox Name="textBox40">
+                            <TextBox Name="textBox34">
                                 <Location>344px, 0px</Location>
                                 <Size>72px, 24px</Size>
                                 <Style>
@@ -2373,15 +2377,18 @@
                     </Header>
                 </Headers>
                 <Footers>
-                    <Footer Name="groupFooterSection3">
+                    <Footer Name="groupFooterSection1">
+                        <ExcelMargin>
+                            <bottom>1</bottom>
+                        </ExcelMargin>
                         <GridSize>8px, 8px</GridSize>
-                        <Height>1.26984cm</Height>
+                        <Height>0.95238cm</Height>
                         <Items>
-                            <TextBox Name="textBox47">
+                            <TextBox Name="textBox35">
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>8px, 8px</Location>
+                                <Location>8px, 0px</Location>
                                 <Size>32px, 16px</Size>
                                 <Style>
                                     <Font>
@@ -2391,11 +2398,11 @@
                                 <Value>货仓:</Value>
                                 <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;False,#010;True)</VisibleExpr>
                             </TextBox>
-                            <TextBox Name="textBox48">
+                            <TextBox Name="textBox36">
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>176px, 8px</Location>
+                                <Location>176px, 0px</Location>
                                 <Size>32px, 16px</Size>
                                 <Style>
                                     <Font>
@@ -2405,11 +2412,11 @@
                                 <Value>领料:</Value>
                                 <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;False,#010;True)</VisibleExpr>
                             </TextBox>
-                            <TextBox Name="textBox49">
+                            <TextBox Name="textBox37">
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>576px, 8px</Location>
+                                <Location>576px, 0px</Location>
                                 <Size>40px, 14px</Size>
                                 <Style>
                                     <Font>
@@ -2420,11 +2427,11 @@
                                 <Visible>False</Visible>
                                 <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;True,#010;False)</VisibleExpr>
                             </TextBox>
-                            <TextBox Name="textBox50">
+                            <TextBox Name="textBox38">
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>448px, 8px</Location>
+                                <Location>448px, 0px</Location>
                                 <Size>64px, 16px</Size>
                                 <Style>
                                     <Font>
@@ -2435,11 +2442,11 @@
                                 <Visible>False</Visible>
                                 <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;True,#010;False)</VisibleExpr>
                             </TextBox>
-                            <TextBox Name="textBox65">
+                            <TextBox Name="textBox39">
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>344px, 8px</Location>
+                                <Location>344px, 0px</Location>
                                 <Size>40px, 14px</Size>
                                 <Style>
                                     <Font>
@@ -2450,11 +2457,11 @@
                                 <Visible>False</Visible>
                                 <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;True,#010;False)</VisibleExpr>
                             </TextBox>
-                            <TextBox Name="textBox66">
+                            <TextBox Name="textBox40">
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>352px, 8px</Location>
+                                <Location>352px, 0px</Location>
                                 <Size>32px, 16px</Size>
                                 <Style>
                                     <Font>
@@ -2464,11 +2471,11 @@
                                 <Value>生管:</Value>
                                 <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;False,#010;True)</VisibleExpr>
                             </TextBox>
-                            <TextBox Name="textBox85">
+                            <TextBox Name="textBox41">
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>232px, 8px</Location>
+                                <Location>232px, 0px</Location>
                                 <Size>32px, 14px</Size>
                                 <Style>
                                     <Font>
@@ -2479,11 +2486,11 @@
                                 <Visible>False</Visible>
                                 <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;True,#010;False)</VisibleExpr>
                             </TextBox>
-                            <TextBox Name="textBox86">
+                            <TextBox Name="textBox42">
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>120px, 8px</Location>
+                                <Location>120px, 0px</Location>
                                 <Size>40px, 14px</Size>
                                 <Style>
                                     <Font>
@@ -2494,11 +2501,11 @@
                                 <Visible>False</Visible>
                                 <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;True,#010;False)</VisibleExpr>
                             </TextBox>
-                            <TextBox Name="textBox87">
+                            <TextBox Name="textBox43">
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>8px, 8px</Location>
+                                <Location>8px, 0px</Location>
                                 <Size>48px, 14px</Size>
                                 <Style>
                                     <Font>
@@ -2509,11 +2516,11 @@
                                 <Visible>False</Visible>
                                 <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;True,#010;False)</VisibleExpr>
                             </TextBox>
-                            <TextBox Name="textBox88">
+                            <TextBox Name="textBox44">
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>512px, 8px</Location>
+                                <Location>512px, 0px</Location>
                                 <Size>32px, 16px</Size>
                                 <Style>
                                     <Font>
@@ -2523,11 +2530,11 @@
                                 <Value>核准:</Value>
                                 <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;False,#010;True)</VisibleExpr>
                             </TextBox>
-                            <TextBox Name="textBox89">
+                            <TextBox Name="textBox45">
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>8px, 32px</Location>
+                                <Location>8px, 24px</Location>
                                 <Size>168px, 14px</Size>
                                 <Style>
                                     <Font>
