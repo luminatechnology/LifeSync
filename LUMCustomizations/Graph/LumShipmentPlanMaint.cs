@@ -60,9 +60,8 @@ namespace LumCustomizations.Graph
 
         #region Selects & Features
         [PXFilterable()]
-        public SelectFrom<LumShipmentPlan>.OrderBy<Asc<LumShipmentPlan.prodLine,
-                                                       Asc<LumShipmentPlan.inventoryID,
-                                                           Asc<LumShipmentPlan.customerOrderNbr>>>>.View ShipPlan;
+        public SelectFrom<LumShipmentPlan>.OrderBy<Asc<LumShipmentPlan.shipmentPlanID,
+                                                   Asc<LumShipmentPlan.sortOrder>>>.View ShipPlan;
         public SelectFrom<SOOrder>.Where<SOOrder.orderType.IsEqual<LumShipmentPlan.orderType>.And<SOOrder.orderNbr.IsEqual<LumShipmentPlan.orderNbr>>>.View Order;
 
         public PXSave<LumShipmentPlan> Save;
@@ -290,10 +289,6 @@ namespace LumCustomizations.Graph
             row.NbrOfShipment = aggrShipPlan.NbrOfShipment == null ? 1 : aggrShipPlan.NbrOfShipment + 1;
             row.StartCartonNbr = (aggrShipPlan.EndCartonNbr ?? 0) + 1;
 
-            aggrShipPlan = SelectFrom<LumShipmentPlan>.Where<LumShipmentPlan.orderNbr.IsEqual<@P.AsString>>
-                                                             .AggregateTo<Max<LumShipmentPlan.endLabelNbr>>.View.Select(this, row.OrderNbr);
-
-            row.StartLabelNbr = aggrShipPlan.EndLabelNbr == null ? 1 : aggrShipPlan.EndLabelNbr + 1;
         }
 
         protected void _(Events.FieldUpdated<LumShipmentPlan.plannedShipQty> e)
@@ -352,6 +347,22 @@ namespace LumCustomizations.Graph
                 Order.Update(soOrder);
             }
         }
+        
+        protected void _(Events.FieldUpdated<LumShipmentPlan.plannedShipDate> e)
+        {
+            var row = e.Row as LumShipmentPlan;
+            var data = (LumShipmentPlan)
+                SelectFrom<LumShipmentPlan>
+                .Where<LumShipmentPlan.plannedShipDate.IsEqual<@P.AsDateTime>
+                    .And<LumShipmentPlan.customerOrderNbr.IsEqual<@P.AsString>>
+                    .And<LumShipmentPlan.inventoryID.IsEqual<@P.AsInt>>
+                    .And<LumShipmentPlan.shipmentPlanID.IsEqual<@P.AsString>>
+                    .And<LumShipmentPlan.prodOrdID.IsNotEqual<@P.AsString>>>
+                .AggregateTo<Max<LumShipmentPlan.endLabelNbr>>
+                .View.Select(this, row.PlannedShipDate,row.CustomerOrderNbr,row.InventoryID,row.ShipmentPlanID,row.ProdOrdID);
+            row.StartLabelNbr = data.EndLabelNbr == null ? 1 : data.EndLabelNbr + 1;
+        }
+        
         #endregion
 
         #region Method

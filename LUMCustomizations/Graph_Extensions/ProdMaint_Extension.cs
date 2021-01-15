@@ -33,6 +33,16 @@ namespace PX.Objects.SO
         protected virtual IEnumerable productionInstruction(PXAdapter adapter)
         {
             var _reportID = "lm625000";
+
+            //Get Print Count and Update
+            var row = (AMProdItem)Base.GetCacheCurrent<AMProdItem>().Current;
+            var _printCount = row.GetExtension<AMProdItemExt>().UsrPrintCount;
+            PXUpdate<Set<AMProdItemExt.usrPrintCount, Required<AMProdItemExt.usrPrintCount>>,
+                         AMProdItem,
+                         Where<AMProdItem.prodOrdID, Equal<Required<AMProdItem.prodOrdID>>,
+                           And<AMProdItem.orderType,Equal<Required<AMProdItem.orderType>>>
+                     >>.Update(Base, _printCount == null ? 1 : _printCount.Value + 1, row.ProdOrdID,row.OrderType);
+
             Dictionary<string, string> parameters = new Dictionary<string, string>();
             parameters["Production_Nbr"] = Base.ProdMaintRecords.Current.ProdOrdID;
             parameters["OrderType"] = Base.ProdMaintRecords.Current.OrderType;

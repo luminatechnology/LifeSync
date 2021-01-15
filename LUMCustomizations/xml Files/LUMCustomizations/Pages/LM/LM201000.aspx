@@ -18,33 +18,35 @@
                     <px:PXGridColumn DataField="ShipmentPlanID" Width="140"></px:PXGridColumn>
                     <px:PXGridColumn CommitChanges="True" DataField="Confirmed" Width="60" Type="CheckBox"></px:PXGridColumn>
                     <px:PXGridColumn DataField="ProdOrdID" Width="140" CommitChanges="True"></px:PXGridColumn>
+                    <px:PXGridColumn DataField="SortOrder" Width="70"></px:PXGridColumn>
                     <px:PXGridColumn DataField="ProdLine" Width="280"></px:PXGridColumn>
                     <px:PXGridColumn DataField="LotSerialNbr" Width="280"></px:PXGridColumn>
-	<px:PXGridColumn CommitChanges="True" DataField="SOLineNoteID" Width="70" ></px:PXGridColumn>
+                    <px:PXGridColumn CommitChanges="True" DataField="SOLineNoteID" Width="70"></px:PXGridColumn>
                     <px:PXGridColumn DataField="OrderNbr" Width="140"></px:PXGridColumn>
                     <px:PXGridColumn DataField="OrderType" Width="70"></px:PXGridColumn>
                     <px:PXGridColumn DataField="Customer" Width="180"></px:PXGridColumn>
                     <px:PXGridColumn DataField="CustomerLocationID" Width="70"></px:PXGridColumn>
                     <px:PXGridColumn DataField="CustomerOrderNbr" Width="180"></px:PXGridColumn>
+                    <px:PXGridColumn DataField="UOM" Width="70"></px:PXGridColumn>
                     <px:PXGridColumn DataField="OrderDate" Width="90"></px:PXGridColumn>
                     <px:PXGridColumn DataField="LineNbr" Width="70"></px:PXGridColumn>
                     <px:PXGridColumn DataField="InventoryID" Width="70"></px:PXGridColumn>
-	<px:PXGridColumn DataField="CustomerPN" Width="180" ></px:PXGridColumn>
+                    <px:PXGridColumn DataField="CustomerPN" Width="180"></px:PXGridColumn>
                     <px:PXGridColumn DataField="OrderQty" Width="100"></px:PXGridColumn>
                     <px:PXGridColumn DataField="OpenQty" Width="100"></px:PXGridColumn>
                     <px:PXGridColumn DataField="RequestDate" Width="90"></px:PXGridColumn>
-                    <px:PXGridColumn DataField="PlannedShipDate" Width="90"></px:PXGridColumn>
+                    <px:PXGridColumn DataField="PlannedShipDate" Width="90" CommitChanges="True"></px:PXGridColumn>
                     <px:PXGridColumn CommitChanges="True" DataField="PlannedShipQty" Width="100"></px:PXGridColumn>
                     <px:PXGridColumn CommitChanges="True" DataField="ShipVia" Width="220"></px:PXGridColumn>
                     <px:PXGridColumn DataField="ShipVia_Carrier_description" Width="220"></px:PXGridColumn>
                     <px:PXGridColumn DataField="ShipmentNbr" Width="140"></px:PXGridColumn>
-	<px:PXGridColumn DataField="CartonSize" Width="140" ></px:PXGridColumn>
-	<px:PXGridColumn DataField="CartonQty" Width="100" ></px:PXGridColumn>
-	<px:PXGridColumn DataField="NetWeight" Width="100" ></px:PXGridColumn>
-	<px:PXGridColumn DataField="GrossWeight" Width="100" ></px:PXGridColumn>
-	<px:PXGridColumn DataField="PalletWeight" Width="100" ></px:PXGridColumn>
-	<px:PXGridColumn DataField="MEAS" Width="100" ></px:PXGridColumn>
-	<px:PXGridColumn DataField="DimWeight" Width="100" ></px:PXGridColumn>
+                    <px:PXGridColumn DataField="CartonSize" Width="140"></px:PXGridColumn>
+                    <px:PXGridColumn DataField="CartonQty" Width="100"></px:PXGridColumn>
+                    <px:PXGridColumn DataField="NetWeight" Width="100"></px:PXGridColumn>
+                    <px:PXGridColumn DataField="GrossWeight" Width="100"></px:PXGridColumn>
+                    <px:PXGridColumn DataField="PalletWeight" Width="100"></px:PXGridColumn>
+                    <px:PXGridColumn DataField="MEAS" Width="100"></px:PXGridColumn>
+                    <px:PXGridColumn DataField="DimWeight" Width="100"></px:PXGridColumn>
                     <px:PXGridColumn DataField="BRNbr" Width="280"></px:PXGridColumn>
                     <px:PXGridColumn DataField="QtytoProd" Width="100"></px:PXGridColumn>
                     <px:PXGridColumn DataField="QtyComplete" Width="100"></px:PXGridColumn>
@@ -54,7 +56,8 @@
                     <px:PXGridColumn DataField="EndLabelNbr" Width="70"></px:PXGridColumn>
                     <px:PXGridColumn DataField="StartCartonNbr" Width="70"></px:PXGridColumn>
                     <px:PXGridColumn DataField="EndCartonNbr" Width="70"></px:PXGridColumn>
-                    <px:PXGridColumn DataField="Remarks" Width="220"></px:PXGridColumn></Columns>
+                    <px:PXGridColumn DataField="Remarks" Width="220"></px:PXGridColumn>
+                </Columns>
 
                 <RowTemplate>
                     <px:PXSegmentMask AllowEdit="True" runat="server" ID="CstPXSegmentMask6" DataField="CustomerLocationID"></px:PXSegmentMask>

@@ -39,6 +39,7 @@
   <col name="MEAS" type="Decimal(19,6)" nullable="true" />
   <col name="DimWeight" type="Decimal(19,6)" nullable="true" />
   <col name="CustomerPN" type="NVarChar(50)" nullable="true" />
+  <col name="SortOrder" type="Int" nullable="true" />
   <col name="CreatedByID" type="UniqueIdentifier" />
   <col name="CreatedByScreenID" type="Char(8)" />
   <col name="CreatedDateTime" type="DateTime" />

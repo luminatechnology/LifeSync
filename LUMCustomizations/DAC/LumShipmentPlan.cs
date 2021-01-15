@@ -9,6 +9,7 @@ using PX.Objects.SO;
 using PX.Objects.CM;
 using PX.Data.BQL.Fluent;
 using LumCustomizations.Graph;
+using PX.Data.BQL;
 
 namespace LumCustomizations.DAC
 {
@@ -370,5 +371,25 @@ namespace LumCustomizations.DAC
         public virtual Guid? NoteID { get; set; }
         public abstract class noteID : PX.Data.BQL.BqlGuid.Field<noteID> { }
         #endregion
+
+        #region UOM
+        [PXString]
+        [PXDBScalar(
+            typeof(SelectFrom<SOLine>
+                   .Where<SOLine.orderNbr.IsEqual<orderNbr>
+                       .And<SOLine.orderType.IsEqual<orderType>>
+                       .And<SOLine.lineNbr.IsEqual<lineNbr>>>
+                   .SearchFor<SOLine.uOM>))]
+        public virtual string UOM { get; set; }
+        public abstract class uOM : BqlType<IBqlString, string>.Field<LumShipmentPlan.uOM> { }
+        #endregion
+
+        #region MyRegion
+        [PXInt]
+        [PXUIField(DisplayName = "Sort Order")]
+        public virtual int? SortOrder { get; set; }
+        public abstract class sortOrder : PX.Data.BQL.BqlInt.Field<sortOrder> { }
+        #endregion
+
     }
 }
