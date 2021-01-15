@@ -2018,7 +2018,7 @@
                                 <Name>Microsoft JhengHei UI</Name>
                                 <Size>8px</Size>
                             </Font>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <Value>=[INTran.TranDesc]</Value>
@@ -2045,7 +2045,7 @@
                         <Value>=[INTran.UOM]</Value>
                     </TextBox>
                     <TextBox Name="textBox36">
-                        <Format>#0.00</Format>
+                        <Format>=IIF([INTranSplit.Qty] - Floor([INTranSplit.Qty]) &gt; 0,'N2','N0')</Format>
                         <Location>272px, 0px</Location>
                         <Size>64px, 32px</Size>
                         <Style>
@@ -2064,7 +2064,7 @@
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=[INTran.Qty]</Value>
+                        <Value>=[INTranSplit.Qty]</Value>
                     </TextBox>
                     <TextBox Name="textBox37">
                         <Location>96px, 0px</Location>
@@ -2150,7 +2150,7 @@
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=[INTran.LotSerialNbr]</Value>
+                        <Value>=[INTranSplit.LotSerialNbr]</Value>
                     </TextBox>
                 </Items>
             </Detail>
@@ -2383,13 +2383,13 @@
                 <Footers>
                     <Footer Name="groupFooterSection1">
                         <GridSize>8px, 8px</GridSize>
-                        <Height>1.48148cm</Height>
+                        <Height>1.0582cm</Height>
                         <Items>
                             <TextBox Name="textBox10">
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>8px, 40px</Location>
+                                <Location>8px, 24px</Location>
                                 <Size>168px, 14px</Size>
                                 <Style>
                                     <Font>
@@ -2403,7 +2403,7 @@
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>512px, 16px</Location>
+                                <Location>512px, 0px</Location>
                                 <Size>32px, 16px</Size>
                                 <Style>
                                     <Font>
@@ -2416,7 +2416,7 @@
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>352px, 16px</Location>
+                                <Location>352px, 0px</Location>
                                 <Size>32px, 16px</Size>
                                 <Style>
                                     <Font>
@@ -2429,7 +2429,7 @@
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>176px, 16px</Location>
+                                <Location>176px, 0px</Location>
                                 <Size>32px, 16px</Size>
                                 <Style>
                                     <Font>
@@ -2442,7 +2442,7 @@
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>8px, 16px</Location>
+                                <Location>8px, 0px</Location>
                                 <Size>32px, 16px</Size>
                                 <Style>
                                     <Font>

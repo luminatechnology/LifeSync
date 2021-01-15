@@ -11,7 +11,7 @@ namespace PX.Objects.SO
         {
             base.Initialize();
             Base.report.AddMenuAction(CommercialInvoiceReport);
-            Base.report.AddMenuAction(CommercialInvoiceReport);
+            Base.report.AddMenuAction(CreditNoteReport);
             Base.report.AddMenuAction(CommercialInvoiceFromDGReport);
         }
 
