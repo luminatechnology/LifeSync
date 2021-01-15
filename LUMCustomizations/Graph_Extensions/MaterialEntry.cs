@@ -15,7 +15,7 @@ namespace JAMS.AM
         }
 
         #region Override Attribute
-        [PXDBQuantity(2,typeof(AMMTran.uOM), typeof(AMMTran.baseQty), HandleEmptyKey = true)]
+        [PXDBQuantity(2, typeof(AMMTran.uOM), typeof(AMMTran.baseQty), HandleEmptyKey = true)]
         [PXDefault(TypeCode.Decimal, "0")]
         [PXUIField(DisplayName = "Quantity")]
         [PXFormula(null, typeof(SumCalc<AMBatch.totalQty>))]
@@ -39,6 +39,15 @@ namespace JAMS.AM
         protected void materialIssuesAction()
         {
             var curAMBatchCache = (AMBatch)Base.batch.Cache.Current;
+            var _printCount = curAMBatchCache.GetExtension<AMBatchExt>().UsrPrintCount ?? 0;
+            
+            //Calculate Print Count
+            PXUpdate<Set<AMBatchExt.usrPrintCount, Required<AMBatchExt.usrPrintCount>>,
+                         AMBatch,
+                         Where<AMBatch.batNbr, Equal<Required<AMBatch.batNbr>>,
+                           And<AMBatch.docType, Equal<Required<AMBatch.docType>>>
+                     >>.Update(Base, ++_printCount, curAMBatchCache.BatNbr, curAMBatchCache.DocType);
+
             // create the parameter for report
             Dictionary<string, string> parameters = new Dictionary<string, string>();
             parameters["BatNbr"] = curAMBatchCache.BatNbr;

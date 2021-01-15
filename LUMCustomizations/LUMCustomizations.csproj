@@ -91,6 +91,7 @@
     <Compile Include="DAC\LumItemsCOC.cs" />
     <Compile Include="DAC\LumShipmentPlan.cs" />
     <Compile Include="DAC\PrintParameters.cs" />
+    <Compile Include="DAC_Extensions\AMBatchExtension.cs" />
     <Compile Include="DAC_Extensions\AMMPSExtension.cs" />
     <Compile Include="DAC_Extensions\AMMTranExtension.cs" />
     <Compile Include="DAC_Extensions\AMPordMatlExtension.cs" />
