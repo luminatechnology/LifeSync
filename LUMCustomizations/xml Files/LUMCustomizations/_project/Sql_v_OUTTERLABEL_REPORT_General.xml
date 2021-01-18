@@ -15,8 +15,8 @@ SELECT t.CompanyID,
 	   p.UsrSOCustomerPO AS CustomerOrderNbr,
 	   t.LotSerialNbr,
 	   ProdLine,
-	   PlannedShipDate,
-	   PlannedShipQty,
+	   t.PlannedShipDate,
+	   m.PlannedShipQty,
 	   NowNbr AS StartLabelNbr,
 	   m.EndLabelNbr,
 	   t.ProdOrdID,
@@ -33,12 +33,15 @@ INNER JOIN AMProdItem p ON t.CompanyID = p.CompanyID
 INNER JOIN (
 		select CompanyID, 
 			   ShipmentPlanID, 
-			   ProdOrdID,
-			   max(ISNULL(EndLabelNbr,1)) as EndLabelNbr 
+			   plannedshipDate,
+			   InventoryID,
+			   max(ISNULL(EndLabelNbr,1)) as EndLabelNbr,
+			   sum(ISNULL(PlannedShipQty,0)) AS PlannedShipQty
 		from LumShipmentPlan 
-		group by CompanyID, ShipmentPlanID,ProdOrdID) m on m.CompanyID = t.CompanyID
-										     and m.ShipmentPlanID = t.ShipmentPlanID
-											 and m.ProdOrdID = t.ProdOrdID
+		group by CompanyID, ShipmentPlanID,plannedshipDate,InventoryID) m on m.CompanyID = t.CompanyID
+																		 and m.ShipmentPlanID = t.ShipmentPlanID
+																		 and m.plannedshipDate = t.PlannedShipDate
+																		 and m.InventoryID = t.InventoryID
 CROSS JOIN(
 	    SELECT DISTINCT NUMBER AS NowNbr
 		FROM master.dbo.spt_values

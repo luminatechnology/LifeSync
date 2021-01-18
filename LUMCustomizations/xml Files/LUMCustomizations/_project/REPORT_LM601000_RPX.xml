@@ -123,6 +123,11 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                 <Nullable>True</Nullable>
                 <Prompt>Resistor</Prompt>
             </ReportParameter>
+            <ReportParameter>
+                <Name>ProdLine</Name>
+                <Nullable>True</Nullable>
+                <Prompt>ProdLine</Prompt>
+            </ReportParameter>
         </Parameters>
         <Relations>
             <ReportRelation>
@@ -2132,6 +2137,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                 <Visible>False</Visible>
             </PageHeader>
             <Detail Name="General">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <ProcessOrder>Always</ProcessOrder>
                 <Style>
@@ -2168,7 +2174,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>='LINE{br}   '+Left([inner.ProdLine],1)</Value>
+                        <Value>='LINE{br}   '+IIF(@ProdLine = null, Left([inner.ProdLine],1), @ProdLine)</Value>
                     </TextBox>
                     <TextBox Name="textBox11">
                         <Localizable>False</Localizable>
@@ -2268,7 +2274,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], @Customer, IIF([inner.Customer] = null,'',[inner.Customer]))</Value>
+                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], @Customer, IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
                     </TextBox>
                     <TextBox Name="textBox6">
                         <Localizable>False</Localizable>
@@ -2343,6 +2349,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                 </Items>
             </PageFooter>
             <Detail Name="OSI">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([inner.Customer] = 'OSI' Or @Customer = 'OSI')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
@@ -2399,7 +2406,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], @Customer, IIF([inner.Customer] = null,'',[inner.Customer]))</Value>
+                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], @Customer, IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
                     </TextBox>
                     <TextBox Name="textBox19">
                         <CanSplit>True</CanSplit>
@@ -2509,7 +2516,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>='LINE{br}   '+Left([inner.ProdLine],1)</Value>
+                        <Value>='LINE{br}   '+IIF(@ProdLine = null, Left([inner.ProdLine],1), @ProdLine)</Value>
                     </TextBox>
                     <TextBox Name="textBox5">
                         <Localizable>False</Localizable>
@@ -2527,6 +2534,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                 </Items>
             </Detail>
             <Detail Name="OSI-Resistor">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([inner.Customer] = 'OSI' Or @Customer = 'OSI')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) , true, false)</VisibleExpr>
@@ -2596,7 +2604,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], @Customer, IIF([inner.Customer] = null,'',[inner.Customer]))</Value>
+                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], @Customer, IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
                     </TextBox>
                     <TextBox Name="textBox31">
                         <CanSplit>True</CanSplit>
@@ -2706,7 +2714,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>='LINE{br}   '+Left([inner.ProdLine],1)</Value>
+                        <Value>='LINE{br}   '+IIF(@ProdLine = null, Left([inner.ProdLine],1), @ProdLine)</Value>
                     </TextBox>
                     <TextBox Name="textBox38">
                         <Localizable>False</Localizable>
@@ -2793,7 +2801,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], @Customer, IIF([inner.Customer] = null,'',[inner.Customer]))</Value>
+                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], @Customer, IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
                     </TextBox>
                     <TextBox Name="textBox44">
                         <CanSplit>True</CanSplit>
@@ -2903,7 +2911,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>='LINE{br}   '+Left([inner.ProdLine],1)</Value>
+                        <Value>='LINE{br}   '+IIF(@ProdLine = null, Left([inner.ProdLine],1), @ProdLine)</Value>
                     </TextBox>
                     <TextBox Name="textBox76">
                         <Localizable>False</Localizable>
@@ -3002,7 +3010,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], @Customer, IIF([inner.Customer] = null,'',[inner.Customer]))</Value>
+                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], @Customer, IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
                     </TextBox>
                     <TextBox Name="textBox57">
                         <Localizable>False</Localizable>
@@ -3111,7 +3119,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>='LINE{br}   '+Left([inner.ProdLine],1)</Value>
+                        <Value>='LINE{br}   '+IIF(@ProdLine = null, Left([inner.ProdLine],1), @ProdLine)</Value>
                     </TextBox>
                     <TextBox Name="textBox64">
                         <Localizable>False</Localizable>
@@ -3153,6 +3161,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                 </Items>
             </Detail>
             <Detail Name="科曼">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF((Trim([inner.Customer]) = '科曼' Or Trim(@Customer) = '科曼')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
@@ -3236,7 +3245,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], @Customer, IIF([inner.Customer] = null,'',[inner.Customer]))</Value>
+                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], @Customer, IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
                     </TextBox>
                     <TextBox Name="textBox71">
                         <CanSplit>True</CanSplit>
@@ -3331,7 +3340,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>='LINE{br}   '+Left([inner.ProdLine],1)</Value>
+                        <Value>='LINE{br}   '+IIF(@ProdLine = null, Left([inner.ProdLine],1), @ProdLine)</Value>
                     </TextBox>
                 </Items>
             </Detail>

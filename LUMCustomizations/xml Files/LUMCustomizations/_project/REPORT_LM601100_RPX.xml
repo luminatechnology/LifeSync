@@ -90,7 +90,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 <ParentName>LumShipmentPlan</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>https://healthedge.acumatica.com</SchemaUrl>
+        <SchemaUrl>http://localhost/ABA_AcumaticaDB1/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>v_COCReport.OrderNbr</DataField>
@@ -1031,7 +1031,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                         <Location>304px, 0px</Location>
                                         <Size>336px, 72px</Size>
                                         <StyleName>ChineseFont</StyleName>
-                                        <Value>='Address: Sha Bu Industrial park 32#, Qiao Long, Tang Xia,#010;                 Dong Guan, Guang Dong, China  #010;Tel: 86-769-82005983#010;Fax: 86-769-82005981 Website: www.americanbiosurgical.com'</Value>
+                                        <Value>='Address: Sha Bu Industrial park 32#, Qiao Long, Tang Xia,#010;Dong Guan, Guang Dong, China  #010;Tel: 86-769-82005983#010;Fax: 86-769-82005981 #010;Website: www.americanbiosurgical.com'</Value>
                                     </TextBox>
                                 </Items>
                             </Panel>
@@ -1098,7 +1098,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                             <TextAlign>Center</TextAlign>
                                         </Style>
                                         <StyleName>ChineseFont</StyleName>
-                                        <Value>=[LumShipmentPlan.PlannedShipQty]+[SOLine.UOM]</Value>
+                                        <Value>=[LumShipmentPlan.QtyToProd]+[SOLine.UOM]</Value>
                                     </TextBox>
                                 </Items>
                             </Panel>
@@ -1171,6 +1171,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <StyleName>Top Line</StyleName>
                                 <Items>
                                     <TextBox Name="textBox14">
+                                        <Localizable>False</Localizable>
                                         <Location>0px, 8px</Location>
                                         <Size>160px, 16px</Size>
                                         <Style>

@@ -10,9 +10,9 @@ namespace JAMS.AM
 {
     public class AMBatchExt : PXCacheExtension<AMBatch>
     {
+        protected int? _UsrPrintCount;
         [PXDBInt]
         [PXUIField(DisplayName = "Print Count", Enabled = false)]
-        [PXDefault(0)]
         public virtual int? UsrPrintCount { get; set; }
         public abstract class usrPrintCount : BqlType<IBqlInt, int>.Field<AMProdItemExt.usrPrintCount> { }
     }

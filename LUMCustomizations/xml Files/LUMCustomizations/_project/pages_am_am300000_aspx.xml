@@ -12,6 +12,7 @@
                 <PXNumberEdit TypeFullName="PX.Web.UI.PXNumberEdit">
                     <Prop Key="Virtual:ApplyStylesheetSkin" />
                     <Prop Key="ID" Value="CstPXNumberEdit2" />
+                    <Prop Key="AllowNull" Value="True" />
                     <Prop Key="DataField" Value="UsrPrintCount" />
                 </PXNumberEdit>
             </AddItem>

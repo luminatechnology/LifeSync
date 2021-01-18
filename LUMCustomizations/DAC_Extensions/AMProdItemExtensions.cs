@@ -50,10 +50,9 @@ namespace JAMS.AM
         public virtual string UsrSOCustomerPO { get; set; }
         public abstract class usrSOCustomerPO : BqlType<IBqlString, string>.Field<AMProdItemExt.usrSOCustomerPO> { }
 
-
+        protected int? _UsrPrintCount;
         [PXDBInt]
         [PXUIField(DisplayName = "Print Count", Enabled = false)]
-        [PXDefault(0)]
         public virtual int? UsrPrintCount { get; set; }
         public abstract class usrPrintCount : BqlType<IBqlInt, int>.Field<AMProdItemExt.usrPrintCount> { }
 
