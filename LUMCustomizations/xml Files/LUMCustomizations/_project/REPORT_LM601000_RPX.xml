@@ -128,6 +128,16 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                 <Nullable>True</Nullable>
                 <Prompt>ProdLine</Prompt>
             </ReportParameter>
+            <ReportParameter>
+                <Name>LotNo</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Lot No</Prompt>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>PartNo</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Part No</Prompt>
+            </ReportParameter>
         </Parameters>
         <Relations>
             <ReportRelation>
@@ -2187,7 +2197,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='ABA Part NO. : '+IIF([InventoryItem.InventoryCD] = null, '', [InventoryItem.InventoryCD])</Value>
+                        <Value>='ABA Part NO. : '+IIF(@PartNo = null, IIF([InventoryItem.InventoryCD] = null, '', [InventoryItem.InventoryCD]), @PartNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox13">
                         <CanGrow>True</CanGrow>
@@ -2202,7 +2212,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>='ABA LOT NO. : '+IIF([inner.LotSerialNbr] = null, '', [inner.LotSerialNbr])</Value>
+                        <Value>='ABA LOT NO. : '+IIF(@LotNo = null, IIF([inner.LotSerialNbr] = null, '', [inner.LotSerialNbr]), @LotNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox15">
                         <Localizable>False</Localizable>
@@ -2479,7 +2489,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>='ABA LOT NO. : '+IIF([inner.LotSerialNbr] = null, '', [inner.LotSerialNbr])</Value>
+                        <Value>='ABA LOT NO. : '+IIF(@LotNo = null, IIF([inner.LotSerialNbr] = null, '', [inner.LotSerialNbr]), @LotNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox24">
                         <Localizable>False</Localizable>
@@ -2492,7 +2502,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='ABA Part NO. : '+IIF([InventoryItem.InventoryCD] = null, '', [InventoryItem.InventoryCD])</Value>
+                        <Value>='ABA Part NO. : '+IIF(@PartNo = null, IIF([InventoryItem.InventoryCD] = null, '', [InventoryItem.InventoryCD]), @PartNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox25">
                         <Localizable>False</Localizable>
@@ -2677,7 +2687,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>='ABA LOT NO. : '+IIF([inner.LotSerialNbr] = null, '', [inner.LotSerialNbr])</Value>
+                        <Value>='ABA LOT NO. : '+IIF(@LotNo = null, IIF([inner.LotSerialNbr] = null, '', [inner.LotSerialNbr]), @LotNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox36">
                         <Localizable>False</Localizable>
@@ -2690,7 +2700,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='ABA Part NO. : '+IIF([InventoryItem.InventoryCD] = null, '', [InventoryItem.InventoryCD])</Value>
+                        <Value>='ABA Part NO. : '+IIF(@PartNo = null, IIF([InventoryItem.InventoryCD] = null, '', [InventoryItem.InventoryCD]), @PartNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox37">
                         <Localizable>False</Localizable>
@@ -2874,7 +2884,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>='ABA LOT NO. : '+IIF([inner.LotSerialNbr] = null, '', [inner.LotSerialNbr])</Value>
+                        <Value>='ABA LOT NO. : '+IIF(@LotNo = null, IIF([inner.LotSerialNbr] = null, '', [inner.LotSerialNbr]), @LotNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox49">
                         <Localizable>False</Localizable>
@@ -2887,7 +2897,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='ABA Part NO. : '+IIF([InventoryItem.InventoryCD] = null, '', [InventoryItem.InventoryCD])</Value>
+                        <Value>='ABA Part NO. : '+IIF(@PartNo = null, IIF([InventoryItem.InventoryCD] = null, '', [InventoryItem.InventoryCD]), @PartNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox50">
                         <Localizable>False</Localizable>
@@ -3082,7 +3092,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>='ABA LOT NO. : '+IIF([inner.LotSerialNbr] = null, '', [inner.LotSerialNbr])</Value>
+                        <Value>='ABA LOT NO. : '+IIF(@LotNo = null, IIF([inner.LotSerialNbr] = null, '', [inner.LotSerialNbr]), @LotNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox62">
                         <Localizable>False</Localizable>
@@ -3095,7 +3105,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='ABA Part NO. : '+IIF([InventoryItem.InventoryCD] = null, '', [InventoryItem.InventoryCD])</Value>
+                        <Value>='ABA Part NO. : '+IIF(@PartNo = null, IIF([InventoryItem.InventoryCD] = null, '', [InventoryItem.InventoryCD]), @PartNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox63">
                         <Localizable>False</Localizable>
@@ -3303,7 +3313,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>='ABA LOT NO. : '+IIF([inner.LotSerialNbr] = null, '', [inner.LotSerialNbr])</Value>
+                        <Value>='ABA LOT NO. : '+IIF(@LotNo = null, IIF([inner.LotSerialNbr] = null, '', [inner.LotSerialNbr]), @LotNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox75">
                         <Localizable>False</Localizable>
@@ -3316,7 +3326,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='ABA Part NO. : '+IIF([InventoryItem.InventoryCD] = null, '', [InventoryItem.InventoryCD])</Value>
+                        <Value>='ABA Part NO. : '+IIF(@PartNo = null, IIF([InventoryItem.InventoryCD] = null, '', [InventoryItem.InventoryCD]), @PartNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox77">
                         <Localizable>False</Localizable>

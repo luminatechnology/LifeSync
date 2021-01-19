@@ -384,8 +384,8 @@ namespace LumCustomizations.DAC
         public abstract class uOM : BqlType<IBqlString, string>.Field<LumShipmentPlan.uOM> { }
         #endregion
 
-        #region MyRegion
-        [PXInt]
+        #region SortOrder
+        [PXDBInt]
         [PXUIField(DisplayName = "Sort Order")]
         public virtual int? SortOrder { get; set; }
         public abstract class sortOrder : PX.Data.BQL.BqlInt.Field<sortOrder> { }

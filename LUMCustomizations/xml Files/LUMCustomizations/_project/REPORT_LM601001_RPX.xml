@@ -122,6 +122,16 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 <Nullable>True</Nullable>
                 <Prompt>ProdLine</Prompt>
             </ReportParameter>
+            <ReportParameter>
+                <Name>LotNo</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Lot No</Prompt>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>PartNo</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Part No</Prompt>
+            </ReportParameter>
         </Parameters>
         <Relations>
             <ReportRelation>
@@ -2193,7 +2203,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox11">
                         <Localizable>False</Localizable>
                         <Location>0px, 140px</Location>
-                        <Size>280px, 20px</Size>
+                        <Size>384px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -2201,12 +2211,12 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='ABA Part NO. : '+IIF([InventoryItem.InventoryCD] = null,'',[InventoryItem.InventoryCD])</Value>
+                        <Value>='ABA Part NO. : '+IIF(@PartNo = null ,IIF([InventoryItem.InventoryCD] = null,'',[InventoryItem.InventoryCD]),@PartNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox13">
                         <Localizable>False</Localizable>
                         <Location>0px, 160px</Location>
-                        <Size>280px, 20px</Size>
+                        <Size>384px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -2215,7 +2225,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>='ABA LOT NO. : '+IIF([outter.LotSerialNbr] = null,'',[outter.LotSerialNbr])</Value>
+                        <Value>='ABA LOT NO. : '+IIF(@LotNo = null ,IIF([outter.LotSerialNbr] = null,'',[outter.LotSerialNbr]), @LotNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox15">
                         <Format>='N0'</Format>
@@ -2428,6 +2438,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
             </Detail>
             <PageFooter Name="pageFooterSection1">
                 <Height>0.63492cm</Height>
+                <VisibleExpr>=IIF([outter.Customer] = 'SJM' Or @Customer = 'SJM',false,true)</VisibleExpr>
                 <Items>
                     <TextBox Name="textBox14">
                         <Location>112px, 0px</Location>
@@ -2530,7 +2541,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox23">
                         <Localizable>False</Localizable>
                         <Location>0px, 140px</Location>
-                        <Size>280px, 20px</Size>
+                        <Size>384px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -2538,12 +2549,12 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='ABA Part NO. : '+IIF([InventoryItem.InventoryCD] = null,'',[InventoryItem.InventoryCD])</Value>
+                        <Value>='ABA Part NO. : '+IIF(@PartNo = null ,IIF([InventoryItem.InventoryCD] = null,'',[InventoryItem.InventoryCD]),@PartNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox28">
                         <Localizable>False</Localizable>
                         <Location>0px, 160px</Location>
-                        <Size>280px, 20px</Size>
+                        <Size>384px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -2552,7 +2563,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>='ABA LOT NO. : '+IIF([outter.LotSerialNbr] = null,'',[outter.LotSerialNbr])</Value>
+                        <Value>='ABA LOT NO. : '+IIF(@LotNo = null ,IIF([outter.LotSerialNbr] = null,'',[outter.LotSerialNbr]), @LotNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox29">
                         <Localizable>False</Localizable>
@@ -2934,7 +2945,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>='ABA LOT NO. : '+IIF([outter.LotSerialNbr] = null,'',[outter.LotSerialNbr])</Value>
+                        <Value>='ABA LOT NO. : '+IIF(@LotNo = null ,IIF([outter.LotSerialNbr] = null,'',[outter.LotSerialNbr]), @LotNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox54">
                         <Localizable>False</Localizable>
@@ -2947,7 +2958,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='ABA Part NO. : '+IIF([InventoryItem.InventoryCD] = null,'',[InventoryItem.InventoryCD])</Value>
+                        <Value>='ABA Part NO. : '+IIF(@PartNo = null ,IIF([InventoryItem.InventoryCD] = null,'',[InventoryItem.InventoryCD]),@PartNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox55">
                         <Localizable>False</Localizable>
@@ -3071,7 +3082,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='ABA Part NO. : '+IIF([InventoryItem.InventoryCD] = null,'',[InventoryItem.InventoryCD])</Value>
+                        <Value>='ABA Part NO. : '+IIF(@PartNo = null ,IIF([InventoryItem.InventoryCD] = null,'',[InventoryItem.InventoryCD]),@PartNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox63">
                         <Localizable>False</Localizable>
@@ -3085,7 +3096,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>='ABA LOT NO. : '+IIF([outter.LotSerialNbr] = null,'',[outter.LotSerialNbr])</Value>
+                        <Value>='ABA LOT NO. : '+IIF(@LotNo = null ,IIF([outter.LotSerialNbr] = null,'',[outter.LotSerialNbr]), @LotNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox64">
                         <Format>='N0'</Format>
@@ -3379,7 +3390,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox84">
                         <Localizable>False</Localizable>
                         <Location>0px, 140px</Location>
-                        <Size>280px, 20px</Size>
+                        <Size>384px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -3387,12 +3398,12 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='ABA Part NO. : '+IIF([InventoryItem.InventoryCD] = null,'',[InventoryItem.InventoryCD])</Value>
+                        <Value>='ABA Part NO. : '+IIF(@PartNo = null ,IIF([InventoryItem.InventoryCD] = null,'',[InventoryItem.InventoryCD]),@PartNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox85">
                         <Localizable>False</Localizable>
                         <Location>0px, 160px</Location>
-                        <Size>280px, 20px</Size>
+                        <Size>384px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -3401,7 +3412,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>='ABA LOT NO. : '+IIF([outter.LotSerialNbr] = null,'',[outter.LotSerialNbr])</Value>
+                        <Value>='ABA LOT NO. : '+IIF(@LotNo = null ,IIF([outter.LotSerialNbr] = null,'',[outter.LotSerialNbr]), @LotNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox86">
                         <Localizable>False</Localizable>
@@ -3534,7 +3545,6 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="SJM-Resistory">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <VisibleExpr>=IIF(([outter.Customer] = 'SJM' Or @Customer = 'SJM')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) ,true,false)</VisibleExpr>
                 <Items>
@@ -3705,7 +3715,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>='ABA LOT NO. : '+IIF([outter.LotSerialNbr] = null, '', [outter.LotSerialNbr])</Value>
+                        <Value>='ABA LOT NO. : '+IIF(@LotNo = null ,IIF([outter.LotSerialNbr] = null,'',[outter.LotSerialNbr]), @LotNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox112">
                         <Localizable>False</Localizable>
@@ -3718,7 +3728,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='ABA Part NO. : '+IIF([InventoryItem.InventoryCD] = null, '',[InventoryItem.InventoryCD])</Value>
+                        <Value>='ABA Part NO. : '+IIF(@PartNo = null ,IIF([InventoryItem.InventoryCD] = null,'',[InventoryItem.InventoryCD]),@PartNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox113">
                         <Localizable>False</Localizable>
@@ -3867,7 +3877,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='ABA Part NO. : '+IIF([InventoryItem.InventoryCD] = null,'',[InventoryItem.InventoryCD])</Value>
+                        <Value>='ABA Part NO. : '+IIF(@PartNo = null ,IIF([InventoryItem.InventoryCD] = null,'',[InventoryItem.InventoryCD]),@PartNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox117">
                         <Localizable>False</Localizable>
@@ -3958,7 +3968,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>='ABA LOT NO. : '+IIF([outter.LotSerialNbr] = null,'',[outter.LotSerialNbr])</Value>
+                        <Value>='ABA LOT NO. : '+IIF(@LotNo = null ,IIF([outter.LotSerialNbr] = null,'',[outter.LotSerialNbr]), @LotNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox123">
                         <Localizable>False</Localizable>
@@ -4223,7 +4233,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='ABA Part NO. : '+IIF([InventoryItem.InventoryCD] = null,'',[InventoryItem.InventoryCD])</Value>
+                        <Value>='ABA Part NO. : '+IIF(@PartNo = null ,IIF([InventoryItem.InventoryCD] = null,'',[InventoryItem.InventoryCD]),@PartNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox141">
                         <Localizable>False</Localizable>
@@ -4237,7 +4247,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>='ABA LOT NO. : '+IIF([outter.LotSerialNbr] = null,'',[outter.LotSerialNbr])</Value>
+                        <Value>='ABA LOT NO. : '+IIF(@LotNo = null ,IIF([outter.LotSerialNbr] = null,'',[outter.LotSerialNbr]), @LotNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox142">
                         <Localizable>False</Localizable>
@@ -4644,7 +4654,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox168">
                         <Localizable>False</Localizable>
                         <Location>0px, 160px</Location>
-                        <Size>280px, 20px</Size>
+                        <Size>376px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -4653,12 +4663,12 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>='ABA LOT NO. : '+IIF([outter.LotSerialNbr] = null,'',[outter.LotSerialNbr])</Value>
+                        <Value>='ABA LOT NO. : '+IIF(@LotNo = null ,IIF([outter.LotSerialNbr] = null,'',[outter.LotSerialNbr]), @LotNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox169">
                         <Localizable>False</Localizable>
                         <Location>0px, 140px</Location>
-                        <Size>280px, 20px</Size>
+                        <Size>376px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -4666,7 +4676,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='ABA Part NO. : '+IIF([InventoryItem.InventoryCD] = null,'',[InventoryItem.InventoryCD])</Value>
+                        <Value>='ABA Part NO. : '+IIF(@PartNo = null ,IIF([InventoryItem.InventoryCD] = null,'',[InventoryItem.InventoryCD]),@PartNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox170">
                         <Localizable>False</Localizable>
@@ -4683,6 +4693,304 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     </TextBox>
                 </Items>
             </Detail>
+            <Detail Name="SJM">
+                <Height>6.77249cm</Height>
+                <Visible>False</Visible>
+                <VisibleExpr>=IIF(([outter.Customer] = 'SJM' Or @Customer = 'SJM')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
+                <Items>
+                    <TextBox Name="textBox171">
+                        <CanGrow>True</CanGrow>
+                        <Localizable>False</Localizable>
+                        <Location>0px, 32px</Location>
+                        <Size>104px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>16px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>Description :</Value>
+                    </TextBox>
+                    <TextBox Name="textBox172">
+                        <Localizable>False</Localizable>
+                        <Location>0px, 0px</Location>
+                        <Size>328px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>16px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>American Biosurgical, LLC</Value>
+                    </TextBox>
+                    <TextBox Name="textBox173">
+                        <Localizable>False</Localizable>
+                        <Location>64px, 240px</Location>
+                        <Size>216px, 20px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>16px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>=IIF([@DATE] = null, Year([outter.PlannedShipDate])+'/'+Month([outter.PlannedShipDate])+'/'+Day([outter.PlannedShipDate]),[@DATE])</Value>
+                    </TextBox>
+                    <TextBox Name="textBox174">
+                        <Localizable>False</Localizable>
+                        <Location>0px, 240px</Location>
+                        <Size>64px, 20px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>16px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>DATE : </Value>
+                    </TextBox>
+                    <TextBox Name="textBox175">
+                        <Localizable>False</Localizable>
+                        <Location>0px, 220px</Location>
+                        <Size>360px, 20px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>16px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>='Number of container in shipment : '+#010;IIF([@StartLabel] = null,[outter.StartLabelNbr],[@StartLabel])+#010;' of '+#010;IIF([@EndLabel] = null, [outter.EndLabelNbr],[@EndLabel])</Value>
+                    </TextBox>
+                    <TextBox Name="textBox176">
+                        <Localizable>False</Localizable>
+                        <Location>0px, 16px</Location>
+                        <Size>328px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>16px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>='ABA Medical Technology(Dong Guan)Co.,Ltd.'</Value>
+                    </TextBox>
+                    <TextBox Name="textBox177">
+                        <Localizable>False</Localizable>
+                        <Location>248px, 200px</Location>
+                        <Size>48px, 20px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>16px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <Value>BOX</Value>
+                    </TextBox>
+                    <TextBox Name="textBox178">
+                        <Format>='N0'</Format>
+                        <Localizable>False</Localizable>
+                        <Location>144px, 180px</Location>
+                        <Size>96px, 20px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>16px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                        </Style>
+                        <Value>=IIF([@QtyinContainer] = null, [outter.Container],[@QtyinContainer])</Value>
+                    </TextBox>
+                    <TextBox Name="textBox179">
+                        <Localizable>False</Localizable>
+                        <Location>0px, 200px</Location>
+                        <Size>144px, 20px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>16px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>Qty in shipment :</Value>
+                    </TextBox>
+                    <TextBox Name="textBox180">
+                        <Localizable>False</Localizable>
+                        <Location>248px, 180px</Location>
+                        <Size>48px, 20px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>16px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <Value>BOX</Value>
+                    </TextBox>
+                    <TextBox Name="textBox181">
+                        <Format>='N0'</Format>
+                        <Localizable>False</Localizable>
+                        <Location>144px, 200px</Location>
+                        <Size>96px, 20px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>16px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                        </Style>
+                        <Value>=IIF([@QtyinShipment] = null, CInt([outter.PlannedShipQty]), [@QtyinShipment])</Value>
+                    </TextBox>
+                    <TextBox Name="textBox182">
+                        <Localizable>False</Localizable>
+                        <Location>0px, 180px</Location>
+                        <Size>144px, 20px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>16px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>Qty in container :</Value>
+                    </TextBox>
+                    <TextBox Name="textBox183">
+                        <Localizable>False</Localizable>
+                        <Location>0px, 160px</Location>
+                        <Size>384px, 20px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>16px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <Value>='ABA LOT NO. : '+IIF(@LotNo = null ,IIF([outter.LotSerialNbr] = null,'',[outter.LotSerialNbr]), @LotNo)</Value>
+                    </TextBox>
+                    <TextBox Name="textBox184">
+                        <Localizable>False</Localizable>
+                        <Location>0px, 140px</Location>
+                        <Size>384px, 20px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>16px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>='ABA Part NO. : '+IIF(@PartNo = null ,IIF([InventoryItem.InventoryCD] = null,'',[InventoryItem.InventoryCD]),@PartNo)</Value>
+                    </TextBox>
+                    <TextBox Name="textBox185">
+                        <Localizable>False</Localizable>
+                        <Location>104px, 32px</Location>
+                        <Size>272px, 56px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                                <Size>13px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>=IIF([@Description] = null, [InventoryItem.Descr], [@Description])</Value>
+                    </TextBox>
+                    <TextBox Name="textBox186">
+                        <Localizable>False</Localizable>
+                        <Location>280px, 88px</Location>
+                        <Size>64px, 32px</Size>
+                        <Style>
+                            <BackImage>
+                                <Image>cycle_blank11</Image>
+                                <MimeType>image/png</MimeType>
+                                <Source>Embedded</Source>
+                            </BackImage>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>13.5px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <Padding>
+                                <Left>26px</Left>
+                                <Top>5px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Top</VerticalAlign>
+                        </Style>
+                        <Value>='LINE{br}   '+IIF(@ProdLine = null, Left([outter.ProdLine],1), @ProdLine)</Value>
+                    </TextBox>
+                    <TextBox Name="textBox187">
+                        <Localizable>False</Localizable>
+                        <Location>0px, 88px</Location>
+                        <Size>280px, 15px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                                <Size>13px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>='Customer : '+IIF([@Customer] = [outter.Customer], IIF([outter.Customer] = null, '',[outter.Customer]), [@Customer])</Value>
+                    </TextBox>
+                    <TextBox Name="textBox188">
+                        <Localizable>False</Localizable>
+                        <Location>0px, 103px</Location>
+                        <Size>280px, 18px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>16px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>='CustomerP/O# : '+IIF([outter.CustomerOrderNbr] = null, '', [outter.CustomerOrderNbr])</Value>
+                    </TextBox>
+                    <TextBox Name="textBox189">
+                        <Localizable>False</Localizable>
+                        <Location>0px, 121px</Location>
+                        <Size>384px, 19px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>15.5px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
+                    </TextBox>
+                </Items>
+            </Detail>
+            <PageFooter Name="pageFooterSection2">
+                <Height>0.63492cm</Height>
+                <Visible>False</Visible>
+                <VisibleExpr>=IIF(([outter.Customer] = 'SJM' Or @Customer = 'SJM'),true,false)</VisibleExpr>
+                <Items>
+                    <TextBox Name="textBox190">
+                        <Location>0px, 0px</Location>
+                        <Size>144px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>16px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <VerticalAlign>Top</VerticalAlign>
+                        </Style>
+                        <Value>MADE IN CHINA</Value>
+                    </TextBox>
+                </Items>
+            </PageFooter>
         </Sections>
     </Report>
 </Report>

@@ -35,7 +35,6 @@ namespace LumCustomizations.Graph
         #region Ctor
         public LumShipmentPlanMaint()
         {
-            Report.AddMenuAction(InnerLabel);
             Report.AddMenuAction(OuterLabel);
 
             // Get Visible
@@ -73,46 +72,6 @@ namespace LumCustomizations.Graph
         [PXUIField(DisplayName = "Reports", MapEnableRights = PXCacheRights.Select)]
         [PXButton]
         protected void report() { }
-
-        public PXAction<LumShipmentPlan> InnerLabel;
-        [PXButton(CommitChanges = true)]
-        [PXUIField(DisplayName = "Print Inner Label", MapEnableRights = PXCacheRights.Select)]
-        protected virtual IEnumerable innerLabel(PXAdapter adapter)
-        {
-            this.Save.Press();
-            var _reportID = "lm601000";
-
-            //ActiveStandardReport(_reportID);
-
-            var parameters = GetCurrentRowToParameter();
-            if (parameters["ShipmentPlanID"] != null)
-                throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
-
-            #region Device Hub
-            // Get Printer Info
-            //var printer = PXGraph.CreateInstance<SMPrinterMaint>();
-            //var printerID = printer.Printers.Select().FirstTableItems.Where(x => x.PrinterName == "TR4500").FirstOrDefault().PrinterID;
-
-            //PrintSettings printSettings = new PrintSettings()
-            //{
-            //    PrinterID = printerID,
-            //    NumberOfCopies = 1,
-            //    PrintWithDeviceHub = true,
-            //    DefinePrinterManually = true
-            //};
-            ////PXGraph.CreateInstance<SMPrintJobMaint>().CreatePrintJob(
-            ////    printSettings,
-            ////    _reportID,
-            ////    parameters,
-            ////    $"Report {_reportID}");
-
-            //PXReportRequiredException ex = null;
-            //ex = PXReportRequiredException.CombineReport(ex, _reportID, parameters);
-
-            //PX.SM.SMPrintJobMaint.CreatePrintJobGroup(printSettings, ex, $"(New Method)Print Report {_reportID}");
-            #endregion
-            return adapter.Get<LumShipmentPlan>().ToList();
-        }
 
         public PXAction<LumShipmentPlan> OuterLabel;
         [PXButton]
