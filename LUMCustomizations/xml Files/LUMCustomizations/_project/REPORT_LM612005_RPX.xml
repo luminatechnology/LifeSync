@@ -161,12 +161,7 @@
                 <ParentName>INTran</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>https://healthedge.acumatica.com/</SchemaUrl>
-        <Sorting>
-            <SortExp>
-                <DataField>InventoryItem.InventoryCD</DataField>
-            </SortExp>
-        </Sorting>
+        <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
         <Style>
             <Font>
                 <Name>Microsoft YaHei UI</Name>
