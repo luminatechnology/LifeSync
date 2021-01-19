@@ -43,7 +43,7 @@ namespace JAMS.AM
         [PXDBString(40, IsUnicode = true)]
         [PXUIField(DisplayName = "SO Customer PO", Enabled = false)]
         [PXFormula(typeof(Default<AMProdItemExt.usrSOLineNoteID>))]
-        [PXDefault(typeof(Search2<SOOrder.customerOrderNbr, InnerJoinSingleTable<SOLine, On<SOLine.orderType, Equal<SOLine.orderType>, 
+        [PXDefault(typeof(Search2<SOOrder.customerOrderNbr, InnerJoinSingleTable<SOLine, On<SOLine.orderType, Equal<SOOrder.orderType>, 
                                                                                             And<SOLine.orderNbr, Equal<SOOrder.orderNbr>>>>, 
                                                             Where<SOLine.noteID, Equal<Current<AMProdItemExt.usrSOLineNoteID>>>>), 
                    PersistingCheck = PXPersistingCheck.Nothing)]

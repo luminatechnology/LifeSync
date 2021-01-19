@@ -19,12 +19,12 @@ using PX.Data.BQL.Fluent;
 using PX.Objects.CM;
 using PX.Objects.CS;
 using PX.Objects.IN;
+using PX.Objects.PO;
 
 namespace LumCustomizations.Graph
 {
     public class InternalCostModelMaint : ProdDetail
     {
-
         #region Initialize
 
         public InternalCostModelMaint()
@@ -61,7 +61,29 @@ namespace LumCustomizations.Graph
             var _ICMRateType = PXGraph.CreateInstance<InternalCostModelMaint>().Select<LifeSyncPreference>().Select(x => x.InternalCostModelRateType).FirstOrDefault();
             var _AMProdAttribute = base.ProductionAttributes.Select().FirstTableItems;
             var _AMProdItem = base.ProdItemRecords.Select().FirstTableItems.Where(x => x.ProdOrdID == ((AMProdItem)this.Caches[typeof(AMProdItem)].Current).ProdOrdID).FirstOrDefault();
-            var _AMProdMaterail = base.ProdMatlRecords.Select().FirstTableItems;
+            // Get Stock Item Vendor Details By LastModifierTime
+            var _POvenderDetail = PXGraph.CreateInstance<InternalCostModelMaint>()
+                                         .Select<POVendorInventory>()
+                                         .ToList()
+                                         .GroupBy(x => new { x.InventoryID})
+                                         .Select(x => x.OrderByDescending(y => y.LastModifiedDateTime).FirstOrDefault());
+            var _AMProdMaterail = from t in base.ProdMatlRecords.Select().FirstTableItems
+                                  join i in PXGraph.CreateInstance<InternalCostModelMaint>().Select<InventoryItem>()
+                                   on t.InventoryID equals i.InventoryID
+                                  join v in _POvenderDetail
+                                   on t.InventoryID equals v.InventoryID into result
+                                  from r in result.DefaultIfEmpty()
+                                  select new
+                                  {
+                                      t.InventoryID,
+                                      t.Descr,
+                                      t.UnitCost,
+                                      t.UOM,
+                                      t.TotalQtyRequired,
+                                      t.ScrapFactor,
+                                      i.InventoryCD,
+                                      venderDetail = r
+                                  };
             var _AMProdOper = base.ProdOperRecords.Select().FirstTableItems;
 
             // ReplenishmentSource From Inventory 
@@ -161,10 +183,12 @@ namespace LumCustomizations.Graph
             sheet.SetColumnWidth(2, 15 * 256);
             sheet.SetColumnWidth(3, 30 * 256);
             sheet.SetColumnWidth(4, 15 * 256);
-            sheet.SetColumnWidth(5, 10 * 256);
+            sheet.SetColumnWidth(5, 15 * 256);
             sheet.SetColumnWidth(6, 15 * 256);
             sheet.SetColumnWidth(7, 20 * 256);
             sheet.SetColumnWidth(8, 20 * 256);
+            sheet.SetColumnWidth(9, 20 * 256);
+            sheet.SetColumnWidth(10, 20 * 256);
             #endregion
 
             #region Herder Row(0~6)
@@ -220,19 +244,24 @@ namespace LumCustomizations.Graph
             sheet.GetRow(8).GetCell(3).CellStyle = TableHeaderStyle;
             sheet.GetRow(8).CreateCell(4).SetCellValue($"U/P(RMB)");
             sheet.GetRow(8).GetCell(4).CellStyle = TableHeaderStyle;
-            sheet.GetRow(8).CreateCell(5).SetCellValue($"Unit");
+            sheet.GetRow(8).CreateCell(5).SetCellValue($"U/P(HKD)");
             sheet.GetRow(8).GetCell(5).CellStyle = TableHeaderStyle;
-            sheet.GetRow(8).CreateCell(6).SetCellValue($"QPA");
+            sheet.GetRow(8).CreateCell(6).SetCellValue($"U/P(USD)");
             sheet.GetRow(8).GetCell(6).CellStyle = TableHeaderStyle;
-            sheet.GetRow(8).CreateCell(7).SetCellValue($"Materail Cost(RMB$)");
+            sheet.GetRow(8).CreateCell(7).SetCellValue($"Unit");
             sheet.GetRow(8).GetCell(7).CellStyle = TableHeaderStyle;
-            sheet.GetRow(8).CreateCell(8).SetCellValue($"Materail MOQ");
+            sheet.GetRow(8).CreateCell(8).SetCellValue($"QPA");
             sheet.GetRow(8).GetCell(8).CellStyle = TableHeaderStyle;
+            sheet.GetRow(8).CreateCell(9).SetCellValue($"Materail cost \n(US$)");
+            sheet.GetRow(8).GetCell(9).CellStyle = TableHeaderStyle;
+            sheet.GetRow(8).CreateCell(10).SetCellValue($"Materail MOQ");
+            sheet.GetRow(8).GetCell(10).CellStyle = TableHeaderStyle;
 
             #endregion
             rowNum = 8;
             foreach (var matl in _AMProdMaterail)
             {
+                decimal? _materailCost = 0;
                 var _ReplenishmentSource = _InventoryItem.Where(x => x.InventoryID == matl.InventoryID)
                     .FirstOrDefault()?.ReplenishmentSource;
 
@@ -241,26 +270,73 @@ namespace LumCustomizations.Graph
                 sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"{(_ReplenishmentSource.Equals("P") ? ".1" : _ReplenishmentSource.Equals("M") ? "..2" : "")}");
                 sheet.GetRow(rowNum).GetCell(1).CellStyle = TableContentStyle;
                 // Part No
-                sheet.GetRow(rowNum).CreateCell(2).SetCellValue($"{matl.InventoryID}");
+                sheet.GetRow(rowNum).CreateCell(2).SetCellValue($"{matl.InventoryCD}");
                 sheet.GetRow(rowNum).GetCell(2).CellStyle = TableContentStyle_Left;
                 // Name
                 sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{matl.Descr}");
                 sheet.GetRow(rowNum).GetCell(3).CellStyle = TableContentStyle_Left;
-                // U/P
-                sheet.GetRow(rowNum).CreateCell(4).SetCellValue($"{(matl.UnitCost.HasValue ? matl.UnitCost.Value.ToString("0.0000") : "")}");
+                // U/P(RMB/HKD/USD)
+                sheet.GetRow(rowNum).CreateCell(4);
+                sheet.GetRow(rowNum).CreateCell(5);
+                sheet.GetRow(rowNum).CreateCell(6);
+                // IF Purchase Unit != Matailes UOM
+                if (matl.venderDetail != null && (matl.venderDetail.LastPrice ?? 0) > 0)
+                {
+                    var _venderLastPrice = matl.venderDetail.LastPrice.Value;
+                    if (matl.venderDetail.PurchaseUnit != matl.UOM)
+                    {
+                        var _INUnit = from t in PXGraph.CreateInstance<InternalCostModelMaint>().Select<INUnit>()
+                                      where t.InventoryID == matl.InventoryID &&
+                                            t.FromUnit == matl.venderDetail.PurchaseUnit &&
+                                            t.ToUnit == matl.UOM
+                                      select t;
+                        _venderLastPrice = _INUnit == null ? _venderLastPrice
+                                                           : _INUnit.FirstOrDefault().UnitMultDiv == "M" ? _venderLastPrice / (_INUnit.FirstOrDefault()?.UnitRate ?? 1)
+                                                                                                         : _venderLastPrice * (_INUnit.FirstOrDefault()?.UnitRate ?? 1);
+                    }
+
+                    if (matl.venderDetail.CuryID == "CNY")
+                    {
+                        sheet.GetRow(rowNum).GetCell(4).SetCellValue($"{_venderLastPrice.ToString("N4")}");
+                        _materailCost = _venderLastPrice * matl.UnitCost * matl.TotalQtyRequired * (1 + matl.ScrapFactor)
+                                        * (_EffectCuryRate.Where(x => x.FromCuryID == "USD" && x.ToCuryID == "CNY").FirstOrDefault()?.RateReciprocal ?? 1);
+                    }
+                    else if (matl.venderDetail.CuryID == "HKD")
+                    {
+                        sheet.GetRow(rowNum).GetCell(5).SetCellValue($"{_venderLastPrice.ToString("N4")}");
+                        _materailCost = _venderLastPrice * matl.UnitCost * matl.TotalQtyRequired * (1 + matl.ScrapFactor)
+                                        * (_EffectCuryRate.Where(x => x.FromCuryID == "HKD" && x.ToCuryID == "CNY").FirstOrDefault()?.CuryRate ?? 1)
+                                        * (_EffectCuryRate.Where(x => x.FromCuryID == "USD" && x.ToCuryID == "CNY").FirstOrDefault()?.RateReciprocal ?? 1);
+                    }
+                    else if (matl.venderDetail.CuryID == "USD")
+                    {
+                        sheet.GetRow(rowNum).GetCell(6).SetCellValue($"{_venderLastPrice.ToString("N4")}");
+                        _materailCost = _venderLastPrice * matl.UnitCost * matl.TotalQtyRequired * (1 + matl.ScrapFactor);
+                    }
+                }
+                else
+                {
+                    sheet.GetRow(rowNum).GetCell(4).SetCellValue($"{(matl.UnitCost.HasValue ? matl.UnitCost.Value.ToString("N4") : "")}");
+                    _materailCost = (matl.UnitCost * matl.TotalQtyRequired * (1 + matl.ScrapFactor)).Value;
+                }
+
                 sheet.GetRow(rowNum).GetCell(4).CellStyle = TableContentStyle;
-                // Unit
-                sheet.GetRow(rowNum).CreateCell(5).SetCellValue($"{matl.UOM}");
                 sheet.GetRow(rowNum).GetCell(5).CellStyle = TableContentStyle;
-                // QPA
-                sheet.GetRow(rowNum).CreateCell(6).SetCellValue($"{(matl.TotalQtyRequired * (1 + matl.ScrapFactor)).Value.ToString("0.0000")}");
                 sheet.GetRow(rowNum).GetCell(6).CellStyle = TableContentStyle;
-                // Materail Cost(RMB$)
-                sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"{(matl.UnitCost * matl.TotalQtyRequired * (1 + matl.ScrapFactor)).Value.ToString("0.0000")}");
+                // Unit
+                sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"{matl.UOM}");
                 sheet.GetRow(rowNum).GetCell(7).CellStyle = TableContentStyle;
-                // Materail MOQ
-                sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"");
+                // QPA
+                sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"{(matl.TotalQtyRequired * (1 + matl.ScrapFactor)).Value.ToString("N4")}");
                 sheet.GetRow(rowNum).GetCell(8).CellStyle = TableContentStyle;
+                // Materail Cost(US$)
+                sheet.GetRow(rowNum).CreateCell(9).SetCellValue(double.Parse(_materailCost.Value.ToString("N5")));
+                //sheet.GetRow(rowNum).CreateCell(9).SetCellType(CellType.Numeric);
+                //sheet.GetRow(rowNum).CreateCell(9).CellStyle.DataFormat = workBook.CreateDataFormat().GetFormat("0.0000");
+                sheet.GetRow(rowNum).GetCell(9).CellStyle = TableContentStyle;
+                // Materail MOQ
+                sheet.GetRow(rowNum).CreateCell(10).SetCellValue($"");
+                sheet.GetRow(rowNum).GetCell(10).CellStyle = TableContentStyle;
 
                 materialSum += (matl.UnitCost * matl.TotalQtyRequired * (1 + matl.ScrapFactor)).Value;
             }
@@ -268,43 +344,44 @@ namespace LumCustomizations.Graph
             // Materail Sum
             rowNum += 2;
             sheet.CreateRow(rowNum);
-            sheet.GetRow(rowNum).CreateCell(5).SetCellValue($"material sum");
-            sheet.GetRow(rowNum).GetCell(5).CellStyle = NormalStyle;
-            sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"{materialSum.ToString("0.0000")}");
-            sheet.GetRow(rowNum).GetCell(7).CellStyle = GreyCellStyle;
+            sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"material sum");
+            sheet.GetRow(rowNum).GetCell(7).CellStyle = NormalStyle;
+            sheet.GetRow(rowNum).CreateCell(9).CellFormula = $"SUM(J10:J{rowNum-1})";
+            //sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{materialSum.ToString("N4")}");
+            sheet.GetRow(rowNum).GetCell(9).CellStyle = GreyCellStyle;
             _SetUpSum += materialSum;
             // Green Cell
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 0, 8, GreenCellStyle.ExcelStyle);
+                        excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
             #endregion
 
             #region 2.Labor Cost
 
             // Title
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(0).SetCellValue($"2");
             sheet.GetRow(rowNum).GetCell(0).CellStyle = NormalStyle_Bold_Center;
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"Labor Cost");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
-            sheet.GetRow(rowNum).CreateCell(6).SetCellValue($"RMB");
-            sheet.GetRow(rowNum).GetCell(6).CellStyle = TableHeaderStyle;
-            sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"USD");
-            sheet.GetRow(rowNum).GetCell(7).CellStyle = TableHeaderStyle;
+            sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"RMB");
+            sheet.GetRow(rowNum).GetCell(8).CellStyle = TableHeaderStyle;
+            sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"USD");
+            sheet.GetRow(rowNum).GetCell(9).CellStyle = TableHeaderStyle;
 
             // Standard Working Time
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"Standard working time");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
-            sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{_StandardWorkingTime.ToString("0.0000")}");
+            sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{_StandardWorkingTime.ToString("N4")}");
             sheet.GetRow(rowNum).GetCell(3).CellStyle = TANCellStyle;
             sheet.GetRow(rowNum).CreateCell(4).SetCellValue($"Minute");
             sheet.GetRow(rowNum).GetCell(4).CellStyle = TableHeaderStyle;
 
             // Standard cost
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"Standard cost");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
             sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{_LBSCCost}");
@@ -314,20 +391,20 @@ namespace LumCustomizations.Graph
 
             // Sum
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10);
             sheet.GetRow(rowNum).CreateCell(4).SetCellValue($"Labor Cost");
             sheet.GetRow(rowNum).GetCell(4).CellStyle = NormaStyle_Bold_Right;
             sheet.GetRow(rowNum).CreateCell(5).SetCellValue($"sum");
             sheet.GetRow(rowNum).GetCell(5).CellStyle = TableHeaderStyle;
-            sheet.GetRow(rowNum).CreateCell(6).SetCellValue($"{_StandardWorkingTime * decimal.Parse(_LBSCCost)}");
-            sheet.GetRow(rowNum).GetCell(6).CellStyle = GreyCellStyle;
-            sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"{(_StandardWorkingTime * decimal.Parse(_LBSCCost) * _EffectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault().RateReciprocal).Value.ToString("0.0000")}");
-            sheet.GetRow(rowNum).GetCell(7).CellStyle = GreyCellStyle;
+            sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"{_StandardWorkingTime * decimal.Parse(_LBSCCost)}");
+            sheet.GetRow(rowNum).GetCell(8).CellStyle = GreyCellStyle;
+            sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{(_StandardWorkingTime * decimal.Parse(_LBSCCost) * _EffectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault().RateReciprocal).Value.ToString("N4")}");
+            sheet.GetRow(rowNum).GetCell(9).CellStyle = GreyCellStyle;
             _SetUpSum += (_StandardWorkingTime * decimal.Parse(_LBSCCost) * _EffectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault().RateReciprocal).Value;
 
             // Green Cells
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 0, 8, GreenCellStyle.ExcelStyle);
+                        excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
 
             #endregion
 
@@ -335,29 +412,29 @@ namespace LumCustomizations.Graph
 
             // Title
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(0).SetCellValue($"3");
             sheet.GetRow(rowNum).GetCell(0).CellStyle = NormalStyle_Bold_Center;
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"Manufacture cost");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
-            sheet.GetRow(rowNum).CreateCell(6).SetCellValue($"RMB");
-            sheet.GetRow(rowNum).GetCell(6).CellStyle = TableHeaderStyle;
-            sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"USD");
-            sheet.GetRow(rowNum).GetCell(7).CellStyle = TableHeaderStyle;
+            sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"RMB");
+            sheet.GetRow(rowNum).GetCell(8).CellStyle = TableHeaderStyle;
+            sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"USD");
+            sheet.GetRow(rowNum).GetCell(9).CellStyle = TableHeaderStyle;
 
             // Standard Working Time
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"Standard working time");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
-            sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{_StandardWorkingTime.ToString("0.0000")}");
+            sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{_StandardWorkingTime.ToString("N4")}");
             sheet.GetRow(rowNum).GetCell(3).CellStyle = TANCellStyle;
             sheet.GetRow(rowNum).CreateCell(4).SetCellValue($"Minute");
             sheet.GetRow(rowNum).GetCell(4).CellStyle = TableHeaderStyle;
 
             // Standard cost
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10);
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"Standard cost");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
             sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{_MFSCCost}");
@@ -367,20 +444,20 @@ namespace LumCustomizations.Graph
 
             // Sum
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10);
             sheet.GetRow(rowNum).CreateCell(4).SetCellValue($"Manufacture cost");
             sheet.GetRow(rowNum).GetCell(4).CellStyle = NormaStyle_Bold_Right;
             sheet.GetRow(rowNum).CreateCell(5).SetCellValue($"sum");
             sheet.GetRow(rowNum).GetCell(5).CellStyle = TableHeaderStyle;
-            sheet.GetRow(rowNum).CreateCell(6).SetCellValue($"{_StandardWorkingTime * decimal.Parse(_MFSCCost)}");
-            sheet.GetRow(rowNum).GetCell(6).CellStyle = GreyCellStyle;
-            sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"{(_StandardWorkingTime * decimal.Parse(_MFSCCost) * _EffectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault().RateReciprocal).Value.ToString("0.0000")}");
-            sheet.GetRow(rowNum).GetCell(7).CellStyle = GreyCellStyle;
+            sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"{_StandardWorkingTime * decimal.Parse(_MFSCCost)}");
+            sheet.GetRow(rowNum).GetCell(8).CellStyle = GreyCellStyle;
+            sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{(_StandardWorkingTime * decimal.Parse(_MFSCCost) * _EffectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault().RateReciprocal).Value.ToString("N4")}");
+            sheet.GetRow(rowNum).GetCell(9).CellStyle = GreyCellStyle;
             _SetUpSum += (_StandardWorkingTime * decimal.Parse(_MFSCCost) * _EffectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault().RateReciprocal).Value;
 
             // Green Cells
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 0, 8, GreenCellStyle.ExcelStyle);
+                        excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
 
             #endregion
 
@@ -388,29 +465,29 @@ namespace LumCustomizations.Graph
 
             // Title
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(0).SetCellValue($"4");
             sheet.GetRow(rowNum).GetCell(0).CellStyle = NormalStyle_Bold_Center;
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"Overhead");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
-            sheet.GetRow(rowNum).CreateCell(6).SetCellValue($"RMB");
-            sheet.GetRow(rowNum).GetCell(6).CellStyle = TableHeaderStyle;
-            sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"USD");
-            sheet.GetRow(rowNum).GetCell(7).CellStyle = TableHeaderStyle;
+            sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"RMB");
+            sheet.GetRow(rowNum).GetCell(8).CellStyle = TableHeaderStyle;
+            sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"USD");
+            sheet.GetRow(rowNum).GetCell(9).CellStyle = TableHeaderStyle;
 
             // Standard Working Time
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"Standard working time");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
-            sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{_StandardWorkingTime.ToString("0.0000")}");
+            sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{_StandardWorkingTime.ToString("N4")}");
             sheet.GetRow(rowNum).GetCell(3).CellStyle = TANCellStyle;
             sheet.GetRow(rowNum).CreateCell(4).SetCellValue($"Minute");
             sheet.GetRow(rowNum).GetCell(4).CellStyle = TableHeaderStyle;
 
             // Standard cost
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"Standard cost");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
             sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{_OHSCCost}");
@@ -420,20 +497,20 @@ namespace LumCustomizations.Graph
 
             // Sum
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10);
             sheet.GetRow(rowNum).CreateCell(4).SetCellValue($"overhead");
             sheet.GetRow(rowNum).GetCell(4).CellStyle = NormaStyle_Bold_Right;
             sheet.GetRow(rowNum).CreateCell(5).SetCellValue($"sum");
             sheet.GetRow(rowNum).GetCell(5).CellStyle = TableHeaderStyle;
-            sheet.GetRow(rowNum).CreateCell(6).SetCellValue($"{_StandardWorkingTime * decimal.Parse(_OHSCCost)}");
-            sheet.GetRow(rowNum).GetCell(6).CellStyle = GreyCellStyle;
-            sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"{(_StandardWorkingTime * decimal.Parse(_OHSCCost) * _EffectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault().RateReciprocal).Value.ToString("0.0000")}");
-            sheet.GetRow(rowNum).GetCell(7).CellStyle = GreyCellStyle;
+            sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"{_StandardWorkingTime * decimal.Parse(_OHSCCost)}");
+            sheet.GetRow(rowNum).GetCell(8).CellStyle = GreyCellStyle;
+            sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{(_StandardWorkingTime * decimal.Parse(_OHSCCost) * _EffectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault().RateReciprocal).Value.ToString("N4")}");
+            sheet.GetRow(rowNum).GetCell(9).CellStyle = GreyCellStyle;
             _SetUpSum += (_StandardWorkingTime * decimal.Parse(_OHSCCost) * _EffectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault().RateReciprocal).Value;
 
             // Green Cells
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 0, 8, GreenCellStyle.ExcelStyle);
+                        excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
 
             #endregion
 
@@ -441,7 +518,7 @@ namespace LumCustomizations.Graph
 
             // Title
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(0).SetCellValue($"5");
             sheet.GetRow(rowNum).GetCell(0).CellStyle = NormalStyle_Bold_Center;
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"Set up cost ( for sample or small qty only)");
@@ -451,34 +528,34 @@ namespace LumCustomizations.Graph
             for (int i = 0; i < 5; i++)
             {
                 sheet.CreateRow(++rowNum);
-                excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+                excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             }
 
             // set up cost
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10);
             sheet.GetRow(rowNum).CreateCell(4).SetCellValue($"set up cost");
             sheet.GetRow(rowNum).GetCell(4).CellStyle = TableHeaderStyle;
             sheet.GetRow(rowNum).CreateCell(5).SetCellValue($"sum");
             sheet.GetRow(rowNum).GetCell(5).CellStyle = TableHeaderStyle;
-            sheet.GetRow(rowNum).CreateCell(6).SetCellValue($"2-4 total * rate");
-            sheet.GetRow(rowNum).GetCell(6).CellStyle = TableHeaderStyle;
-            sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"{(decimal.Parse(_EAU ?? "0") * decimal.Parse(_SETUPSCCost)).ToString("0.0000")}");
-            sheet.GetRow(rowNum).GetCell(7).CellStyle = TableHeaderStyle;
+            sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"2-4 total * rate");
+            sheet.GetRow(rowNum).GetCell(8).CellStyle = TableHeaderStyle;
+            sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{(decimal.Parse(_EAU ?? "0") * decimal.Parse(_SETUPSCCost)).ToString("N4")}");
+            sheet.GetRow(rowNum).GetCell(9).CellStyle = TableHeaderStyle;
 
             // sum 1-5
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8);
-            sheet.GetRow(rowNum).CreateCell(6).SetCellValue($"Sum 1-5");
-            sheet.GetRow(rowNum).GetCell(6).CellStyle = GOLDCellStyle;
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10);
+            sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"Sum 1-5");
+            sheet.GetRow(rowNum).GetCell(8).CellStyle = GOLDCellStyle;
 
-            sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"{_SetUpSum.ToString("0.0000")}");
-            sheet.GetRow(rowNum).GetCell(7).CellStyle = GOLDCellStyle;
+            sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{_SetUpSum.ToString("N4")}");
+            sheet.GetRow(rowNum).GetCell(9).CellStyle = GOLDCellStyle;
 
             // Green Cells
             sheet.CreateRow(++rowNum);
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 0, 8, GreenCellStyle.ExcelStyle);
+                        excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
 
             #endregion
 
@@ -486,7 +563,7 @@ namespace LumCustomizations.Graph
 
             // Title
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(0).SetCellValue($"6");
             sheet.GetRow(rowNum).GetCell(0).CellStyle = NormalStyle_Bold_Center;
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"production yield");
@@ -494,7 +571,7 @@ namespace LumCustomizations.Graph
 
             // Standard yield rate
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"Standard yield rate");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
             sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{_PRODYIELD}%");
@@ -503,15 +580,15 @@ namespace LumCustomizations.Graph
             // Sum
             _TotalCost = _SetUpSum * (1 + (decimal.Parse(_PRODYIELD) / 100));
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8);
-            sheet.GetRow(rowNum).CreateCell(6).SetCellValue($"Total Cost");
-            sheet.GetRow(rowNum).GetCell(6).CellStyle = TableHeaderStyle;
-            sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"{_TotalCost.ToString("0.0000")}");
-            sheet.GetRow(rowNum).GetCell(7).CellStyle = GreyCellStyle;
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10);
+            sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"Total Cost");
+            sheet.GetRow(rowNum).GetCell(8).CellStyle = TableHeaderStyle;
+            sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{_TotalCost.ToString("N4")}");
+            sheet.GetRow(rowNum).GetCell(9).CellStyle = GreyCellStyle;
 
             // Green Cells
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 0, 8, GreenCellStyle.ExcelStyle);
+                        excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
 
             #endregion
 
@@ -519,45 +596,45 @@ namespace LumCustomizations.Graph
 
             // Title
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(0).SetCellValue($"7");
             sheet.GetRow(rowNum).GetCell(0).CellStyle = NormalStyle_Bold_Center;
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"ABA DG Sell price");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
             sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"Rate");
             sheet.GetRow(rowNum).GetCell(3).CellStyle = TableHeaderStyle;
-            sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"USD");
-            sheet.GetRow(rowNum).GetCell(7).CellStyle = TableHeaderStyle;
-            sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"HKD");
-            sheet.GetRow(rowNum).GetCell(8).CellStyle = TableHeaderStyle;
+            sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"USD");
+            sheet.GetRow(rowNum).GetCell(9).CellStyle = TableHeaderStyle;
+            sheet.GetRow(rowNum).CreateCell(10).SetCellValue($"HKD");
+            sheet.GetRow(rowNum).GetCell(10).CellStyle = TableHeaderStyle;
 
             // Add gross margin
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"Add gross margin");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
             sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{_ABADGSELL}");
             sheet.GetRow(rowNum).GetCell(3).CellStyle = TANCellStyle;
-            sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"{(_TotalCost * (decimal.Parse(_ABADGSELL) / 100)).ToString("0.0000")}");
-            sheet.GetRow(rowNum).GetCell(7).CellStyle = TANCellStyle;
+            sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{(_TotalCost * (decimal.Parse(_ABADGSELL) / 100)).ToString("N4")}");
+            sheet.GetRow(rowNum).GetCell(9).CellStyle = TANCellStyle;
 
             // Sum
             var _abaDGPrice = _TotalCost + (_TotalCost * (decimal.Parse(_ABADGSELL) / 100));
             var _abaDGPrice_HKD = _abaDGPrice * _EffectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault()?.CuryRate * _EffectCuryRate.Where(x => x.FromCuryID == "HKD").FirstOrDefault()?.RateReciprocal;
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 9);
-            sheet.GetRow(rowNum).CreateCell(6).SetCellValue($"ABA DG Price");
-            sheet.GetRow(rowNum).GetCell(6).CellStyle = NormaStyle_Bold_Right;
-            sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"{_abaDGPrice.ToString("0.0000")}");
-            sheet.GetRow(rowNum).GetCell(7).CellStyle = ROSECellStyle;
-            sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"{_abaDGPrice_HKD.Value.ToString("0.0000")}");
-            sheet.GetRow(rowNum).GetCell(8).CellStyle = ROSECellStyle;
-            sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"(ABA HK price to ABA DG, in HKD)");
-            sheet.GetRow(rowNum).GetCell(9).CellStyle = NormalStyle_Bold_Left;
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 11);
+            sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"ABA DG Price");
+            sheet.GetRow(rowNum).GetCell(8).CellStyle = NormaStyle_Bold_Right;
+            sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{_abaDGPrice.ToString("N4")}");
+            sheet.GetRow(rowNum).GetCell(9).CellStyle = ROSECellStyle;
+            sheet.GetRow(rowNum).CreateCell(10).SetCellValue($"{_abaDGPrice_HKD.Value.ToString("N4")}");
+            sheet.GetRow(rowNum).GetCell(10).CellStyle = ROSECellStyle;
+            sheet.GetRow(rowNum).CreateCell(11).SetCellValue($"(ABA HK price to ABA DG, in HKD)");
+            sheet.GetRow(rowNum).GetCell(11).CellStyle = NormalStyle_Bold_Left;
 
             // Green Cells
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 0, 8, GreenCellStyle.ExcelStyle);
+                        excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
 
             #endregion
 
@@ -565,7 +642,7 @@ namespace LumCustomizations.Graph
 
             // Title
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(0).SetCellValue($"8");
             sheet.GetRow(rowNum).GetCell(0).CellStyle = NormalStyle_Bold_Center;
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"ABA HK OH");
@@ -573,17 +650,17 @@ namespace LumCustomizations.Graph
 
             // Standard Working Time
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"Standard working time");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
-            sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{_StandardWorkingTime.ToString("0.0000")}");
+            sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{_StandardWorkingTime.ToString("N4")}");
             sheet.GetRow(rowNum).GetCell(3).CellStyle = TANCellStyle;
             sheet.GetRow(rowNum).CreateCell(4).SetCellValue($"Minute");
             sheet.GetRow(rowNum).GetCell(4).CellStyle = TableHeaderStyle;
 
             // Standard cost
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10);
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"Standard cost");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
             sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{_HKOHSCCost}");
@@ -593,16 +670,16 @@ namespace LumCustomizations.Graph
 
             // Sum
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10);
             sheet.GetRow(rowNum).CreateCell(5).SetCellValue($"ABA HK overhead");
             sheet.GetRow(rowNum).GetCell(5).CellStyle = NormaStyle_Bold_Right;
-            sheet.GetRow(rowNum).CreateCell(6).SetCellValue($"sum");
-            sheet.GetRow(rowNum).GetCell(6).CellStyle = TableHeaderStyle;
-            sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"{(_StandardWorkingTime * decimal.Parse(_HKOHSCCost)).ToString("0.0000")}");
-            sheet.GetRow(rowNum).GetCell(7).CellStyle = GreyCellStyle;
+            sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"sum");
+            sheet.GetRow(rowNum).GetCell(8).CellStyle = TableHeaderStyle;
+            sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{(_StandardWorkingTime * decimal.Parse(_HKOHSCCost)).ToString("N4")}");
+            sheet.GetRow(rowNum).GetCell(9).CellStyle = GreyCellStyle;
             // Green Cells
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 0, 8, GreenCellStyle.ExcelStyle);
+                        excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
 
             #endregion
 
@@ -610,7 +687,7 @@ namespace LumCustomizations.Graph
 
             // Title
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(0).SetCellValue($"9");
             sheet.GetRow(rowNum).GetCell(0).CellStyle = NormalStyle_Bold_Center;
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"ABA HK Sell Price");
@@ -620,28 +697,28 @@ namespace LumCustomizations.Graph
 
             // Add gross margin
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"Add gross margin");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
             sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{_HKOHSCCost}");
             sheet.GetRow(rowNum).GetCell(3).CellStyle = TANCellStyle;
-            sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"{(_abaDGPrice * (decimal.Parse(_HKOHSCCost) / 100)).ToString("0.0000")}");
-            sheet.GetRow(rowNum).GetCell(7).CellStyle = TANCellStyle;
+            sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{(_abaDGPrice * (decimal.Parse(_HKOHSCCost) / 100)).ToString("N4")}");
+            sheet.GetRow(rowNum).GetCell(9).CellStyle = TANCellStyle;
 
             // Sum
             var _hkPrice = (_StandardWorkingTime * decimal.Parse(_HKOHSCCost)) + (_abaDGPrice * (decimal.Parse(_HKOHSCCost) / 100)) + _abaDGPrice;
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 9);
-            sheet.GetRow(rowNum).CreateCell(6).SetCellValue($"ABA HK Price");
-            sheet.GetRow(rowNum).GetCell(6).CellStyle = NormaStyle_Bold_Right;
-            sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"{_hkPrice.ToString("0.0000")}");
-            sheet.GetRow(rowNum).GetCell(7).CellStyle = ROSECellStyle;
-            sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"（ABA HK price to ABI, in USD)");
-            sheet.GetRow(rowNum).GetCell(9).CellStyle = NormalStyle_Bold_Left;
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 11);
+            sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"ABA HK Price");
+            sheet.GetRow(rowNum).GetCell(8).CellStyle = NormaStyle_Bold_Right;
+            sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{_hkPrice.ToString("N4")}");
+            sheet.GetRow(rowNum).GetCell(9).CellStyle = ROSECellStyle;
+            sheet.GetRow(rowNum).CreateCell(11).SetCellValue($"（ABA HK price to ABI, in USD)");
+            sheet.GetRow(rowNum).GetCell(11).CellStyle = NormalStyle_Bold_Left;
 
             // Green Cells
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 0, 8, GreenCellStyle.ExcelStyle);
+                        excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
 
             #endregion
 
@@ -649,39 +726,39 @@ namespace LumCustomizations.Graph
 
             // Title
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(0).SetCellValue($"10");
             sheet.GetRow(rowNum).GetCell(0).CellStyle = NormalStyle_Bold_Center;
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"ABI Sell Price");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
             sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"Consolidated GM %");
             sheet.GetRow(rowNum).GetCell(3).CellStyle = TableHeaderStyle;
-            sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"Consolidated GM per Unit");
-            sheet.GetRow(rowNum).GetCell(7).CellStyle = TableHeaderStyle;
+            sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"Consolidated GM per Unit");
+            sheet.GetRow(rowNum).GetCell(9).CellStyle = TableHeaderStyle;
 
             // Add gross margin
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"Add gross margin");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
             sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{_ABISELLCost}");
             sheet.GetRow(rowNum).GetCell(3).CellStyle = TANCellStyle;
-            sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"{(_hkPrice * (decimal.Parse(_ABISELLCost) / 100)).ToString("0.0000")}");
-            sheet.GetRow(rowNum).GetCell(7).CellStyle = TANCellStyle;
+            sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{(_hkPrice * (decimal.Parse(_ABISELLCost) / 100)).ToString("N4")}");
+            sheet.GetRow(rowNum).GetCell(9).CellStyle = TANCellStyle;
 
             // Sum
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 9);
-            sheet.GetRow(rowNum).CreateCell(6).SetCellValue($"ABI Price");
-            sheet.GetRow(rowNum).GetCell(6).CellStyle = NormaStyle_Bold_Right;
-            sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"{(_hkPrice + (_hkPrice * (decimal.Parse(_ABISELLCost) / 100))).ToString("0.0000")}");
-            sheet.GetRow(rowNum).GetCell(7).CellStyle = ROSECellStyle;
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 11);
+            sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"ABI Price");
+            sheet.GetRow(rowNum).GetCell(8).CellStyle = NormaStyle_Bold_Right;
+            sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{(_hkPrice + (_hkPrice * (decimal.Parse(_ABISELLCost) / 100))).ToString("N4")}");
+            sheet.GetRow(rowNum).GetCell(9).CellStyle = ROSECellStyle;
 
             // Green Cells
             sheet.CreateRow(++rowNum);
             sheet.CreateRow(++rowNum);
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 0, 8, GreenCellStyle.ExcelStyle);
+                        excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
 
             #endregion
 
@@ -689,43 +766,43 @@ namespace LumCustomizations.Graph
 
             // Title
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(0).SetCellValue($"11");
             sheet.GetRow(rowNum).GetCell(0).CellStyle = NormalStyle_Bold_Center;
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"Tool Cost");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
             sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"RMB");
             sheet.GetRow(rowNum).GetCell(3).CellStyle = TableHeaderStyle;
-            sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"RMB");
-            sheet.GetRow(rowNum).GetCell(7).CellStyle = TableHeaderStyle;
-            sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"USD");
-            sheet.GetRow(rowNum).GetCell(7).CellStyle = TableHeaderStyle;
+            sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"RMB");
+            sheet.GetRow(rowNum).GetCell(9).CellStyle = TableHeaderStyle;
+            sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"USD");
+            sheet.GetRow(rowNum).GetCell(9).CellStyle = TableHeaderStyle;
 
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"Name");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
             sheet.AddMergedRegion(new CellRangeAddress(rowNum, rowNum, 2, 3));
 
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"Name");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
             sheet.AddMergedRegion(new CellRangeAddress(rowNum, rowNum, 2, 3));
 
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"Name");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
             sheet.AddMergedRegion(new CellRangeAddress(rowNum, rowNum, 2, 3));
 
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"Tooling NRE cost");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
 
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"Add gross margin");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
 
@@ -747,7 +824,7 @@ namespace LumCustomizations.Graph
 
             // Title
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"exchange rate :");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
             sheet.GetRow(rowNum).CreateCell(4).SetCellValue($"RMB:USD");
@@ -756,37 +833,40 @@ namespace LumCustomizations.Graph
             sheet.GetRow(rowNum).GetCell(5).CellStyle = TableHeaderStyle;
 
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"1USD=");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
-            sheet.GetRow(rowNum).CreateCell(2).SetCellValue($"{_CuryUSDToHKD.Value.ToString("0.0000")}");
+            sheet.GetRow(rowNum).CreateCell(2).SetCellValue($"{_CuryUSDToHKD.Value.ToString("N4")}");
             sheet.GetRow(rowNum).GetCell(2).CellStyle = TableHeaderStyle;
             sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"HKD");
             sheet.GetRow(rowNum).GetCell(3).CellStyle = TableHeaderStyle;
-            sheet.GetRow(rowNum).CreateCell(4).SetCellValue($"{_CuryUSDToHKD.Value.ToString("0.0000")}");
+            sheet.GetRow(rowNum).CreateCell(4).SetCellValue($"{_CuryUSDToHKD.Value.ToString("N4")}");
             sheet.GetRow(rowNum).GetCell(4).CellStyle = TableHeaderStyle;
-            sheet.GetRow(rowNum).CreateCell(5).SetCellValue($"{_CuryUSDToRMB.Value.ToString("0.0000")}");
+            sheet.GetRow(rowNum).CreateCell(5).SetCellValue($"{_CuryUSDToRMB.Value.ToString("N4")}");
             sheet.GetRow(rowNum).GetCell(5).CellStyle = TableHeaderStyle;
 
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"1USD=");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
-            sheet.GetRow(rowNum).CreateCell(2).SetCellValue($"{_CuryUSDToRMB.Value.ToString("0.0000")}");
+            sheet.GetRow(rowNum).CreateCell(2).SetCellValue($"{_CuryUSDToRMB.Value.ToString("N4")}");
             sheet.GetRow(rowNum).GetCell(2).CellStyle = TableHeaderStyle;
             sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"RMB");
             sheet.GetRow(rowNum).GetCell(3).CellStyle = TableHeaderStyle;
 
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"copper price refered :");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
 
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 1, 8, TableContentStyle);
+            excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"oil price refered :");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
             #endregion
+
+            // Update Excel Formula
+            sheet.ForceFormulaRecalculation = true;
 
             #endregion
 

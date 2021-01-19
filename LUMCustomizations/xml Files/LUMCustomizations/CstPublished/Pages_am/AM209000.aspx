@@ -159,6 +159,7 @@ ValidateRequest="false" CodeFile="AM209000.aspx.cs" Inherits="Page_AM209000" Tit
                         <px:PXNumberEdit ID="edMatlQtyActual" runat="server" DataField="QtyActual"/>
                         <px:PXNumberEdit ID="edMatlQtyRemaining" runat="server" DataField="QtyRemaining"/>
                         <px:PXNumberEdit ID="edMatlQtyDiff" runat="server" DataField="UsrQtyDiff"/>
+                        <px:PXNumberEdit ID="edUsrAvailQty" runat="server" DataField="UsrAvailQty"/>
                         <px:PXCheckBox ID="edMatlQtyRoundUp" runat="server" DataField="QtyRoundUp"/>
                         <px:PXNumberEdit ID="edMatlTotActCost" runat="server" DataField="TotActCost"/>
                         <px:PXDropDown ID="edMatlMaterialType" runat="server" DataField="MaterialType" CommitChanges="True" />
@@ -196,6 +197,7 @@ ValidateRequest="false" CodeFile="AM209000.aspx.cs" Inherits="Page_AM209000" Tit
                         <px:PXGridColumn DataField="QtyActual" TextAlign="Right" Width="100px" />
                         <px:PXGridColumn DataField="QtyRemaining" TextAlign="Right" Width="100px" />
                         <px:PXGridColumn DataField="UsrQtyDiff" TextAlign="Right" Width="100px" />
+                        <px:PXGridColumn DataField="UsrAvailQty" TextAlign="Right" Width="100px" />
                         <px:PXGridColumn DataField="QtyRoundUp" TextAlign="Center" Type="CheckBox" Width="85px" AutoCallBack="True" />
                         <px:PXGridColumn DataField="TotActCost" TextAlign="Right" Width="100px" />
                         <px:PXGridColumn DataField="MaterialType" AutoCallBack="True" />
