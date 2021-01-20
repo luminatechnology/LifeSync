@@ -91,6 +91,28 @@
                 </Links>
                 <ParentName>AMMTran</ParentName>
             </ReportRelation>
+            <ReportRelation>
+                <ChildName>AMProdMatl</ChildName>
+                <Links>
+                    <RelationRow>
+                        <ChildField>ProdOrdID</ChildField>
+                        <ParentField>ProdOrdID</ParentField>
+                    </RelationRow>
+                    <RelationRow>
+                        <ChildField>OrderType</ChildField>
+                        <ParentField>OrderType</ParentField>
+                    </RelationRow>
+                    <RelationRow>
+                        <ChildField>OperationID</ChildField>
+                        <ParentField>OperationID</ParentField>
+                    </RelationRow>
+                    <RelationRow>
+                        <ChildField>LineID</ChildField>
+                        <ParentField>LineNbr</ParentField>
+                    </RelationRow>
+                </Links>
+                <ParentName>AMMTran</ParentName>
+            </ReportRelation>
         </Relations>
         <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
         <Sorting>
@@ -2502,7 +2524,7 @@
                                     </Font>
                                     <TextAlign>Right</TextAlign>
                                 </Style>
-                                <Value>=[AMMTranSplit.Qty]</Value>
+                                <Value>=[AMMTranSplit.Qty]/(1 + [AMProdMatl.ScrapFactor])</Value>
                             </TextBox>
                             <TextBox Name="textBox32">
                                 <Format>#.00</Format>
