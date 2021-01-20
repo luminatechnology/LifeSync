@@ -2343,7 +2343,7 @@
                         <Value>=[POLine.UOM]</Value>
                     </TextBox>
                     <TextBox Name="textBox45">
-                        <Format>#0.00</Format>
+                        <Format>='N4'</Format>
                         <Location>528px, 0px</Location>
                         <Size>56px, 48px</Size>
                         <Style>
