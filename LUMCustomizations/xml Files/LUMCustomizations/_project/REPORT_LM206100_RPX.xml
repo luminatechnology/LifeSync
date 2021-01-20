@@ -2524,7 +2524,7 @@
                                     </Font>
                                     <TextAlign>Right</TextAlign>
                                 </Style>
-                                <Value>=[AMMTranSplit.Qty]/(1 + [AMProdMatl.ScrapFactor])</Value>
+                                <Value>=[AMMTranSplit.Qty]</Value>
                             </TextBox>
                             <TextBox Name="textBox32">
                                 <Format>#.00</Format>
