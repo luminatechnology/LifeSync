@@ -3000,7 +3000,6 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="AMC-Resistor">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = 'AMC' Or @Customer = 'AMC')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) ,true,false)</VisibleExpr>
@@ -3096,7 +3095,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>='ABA LOT NO. : '+IIF(@LotNo = null ,IIF([outter.LotSerialNbr] = null,'',[outter.LotSerialNbr]), @LotNo)</Value>
+                        <Value>='LOT NO. : '+IIF(@LotNo = null ,IIF([outter.LotSerialNbr] = null,'',[outter.LotSerialNbr]), @LotNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox64">
                         <Format>='N0'</Format>
@@ -3279,7 +3278,6 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="AMC">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = 'AMC' Or @Customer = 'AMC')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
@@ -3412,7 +3410,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>='ABA LOT NO. : '+IIF(@LotNo = null ,IIF([outter.LotSerialNbr] = null,'',[outter.LotSerialNbr]), @LotNo)</Value>
+                        <Value>='LOT NO. : '+IIF(@LotNo = null ,IIF([outter.LotSerialNbr] = null,'',[outter.LotSerialNbr]), @LotNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox86">
                         <Localizable>False</Localizable>
@@ -3545,6 +3543,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="SJM-Resistory">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <VisibleExpr>=IIF(([outter.Customer] = 'SJM' Or @Customer = 'SJM')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) ,true,false)</VisibleExpr>
                 <Items>

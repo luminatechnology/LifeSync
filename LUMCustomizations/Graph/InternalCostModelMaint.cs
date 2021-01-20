@@ -81,6 +81,7 @@ namespace LumCustomizations.Graph
                                       t.UOM,
                                       t.TotalQtyRequired,
                                       t.ScrapFactor,
+                                      t.QtyReq,
                                       i.InventoryCD,
                                       venderDetail = r
                                   };
@@ -327,7 +328,7 @@ namespace LumCustomizations.Graph
                 sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"{matl.UOM}");
                 sheet.GetRow(rowNum).GetCell(7).CellStyle = TableContentStyle;
                 // QPA
-                sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"{(matl.TotalQtyRequired * (1 + matl.ScrapFactor)).Value.ToString("N4")}");
+                sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"{(matl.QtyReq * (1 + matl.ScrapFactor)).Value.ToString("N4")}");
                 sheet.GetRow(rowNum).GetCell(8).CellStyle = TableContentStyle;
                 // Materail Cost(US$)
                 sheet.GetRow(rowNum).CreateCell(9).SetCellValue(double.Parse(_materailCost.Value.ToString("N5")));
