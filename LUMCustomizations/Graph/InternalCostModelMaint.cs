@@ -57,6 +57,7 @@ namespace LumCustomizations.Graph
             #region Varaible
             int rowNum = 0;
             decimal materialSum = 0;
+            var row = this.GetCacheCurrent<AMProdItem>().Current;
             // Currency Rate Type of ICM
             var _ICMRateType = PXGraph.CreateInstance<InternalCostModelMaint>().Select<LifeSyncPreference>().Select(x => x.InternalCostModelRateType).FirstOrDefault();
             var _AMProdAttribute = base.ProductionAttributes.Select().FirstTableItems;
@@ -67,7 +68,11 @@ namespace LumCustomizations.Graph
                                          .ToList()
                                          .GroupBy(x => new { x.InventoryID})
                                          .Select(x => x.OrderByDescending(y => y.LastModifiedDateTime).FirstOrDefault());
-            var _AMProdMaterail = from t in base.ProdMatlRecords.Select().FirstTableItems
+            // Get All Material Data
+            var _materialData = from t in PXGraph.CreateInstance<InternalCostModelMaint>().Select<AMProdMatl>()
+                                where t.OrderType == row.OrderType && t.ProdOrdID == row.ProdOrdID
+                                select t;
+            var _AMProdMaterail = from t in _materialData.ToList()
                                   join i in PXGraph.CreateInstance<InternalCostModelMaint>().Select<InventoryItem>()
                                    on t.InventoryID equals i.InventoryID
                                   join v in _POvenderDetail
