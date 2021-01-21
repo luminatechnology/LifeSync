@@ -281,9 +281,8 @@ namespace LumCustomizations.Graph
                             break;
                     }
                 }
-
-                row.EndCartonNbr = row.StartCartonNbr + (int)Math.Round((row.PlannedShipQty / qtyCarton).Value, 0);
-                row.EndLabelNbr = row.StartLabelNbr + (int)Math.Round((row.PlannedShipQty / qtyCarton).Value, 0);
+                row.EndCartonNbr = (row.StartCartonNbr ?? 1) + (int)(row.PlannedShipQty % qtyCarton > 0 ? row.PlannedShipQty / qtyCarton + 1 : row.PlannedShipQty / qtyCarton);
+                row.EndLabelNbr = (row.StartLabelNbr ?? 1) + (int)Math.Ceiling((row.PlannedShipQty / qtyCarton).Value) - 1;
                 row.CartonQty = qtyCarton == 0 ? 5000M : (decimal)e.NewValue / qtyCarton;
                 row.NetWeight = (decimal)e.NewValue * item.BaseItemWeight;
                 row.GrossWeight = (decimal)e.NewValue * grsWeight;
