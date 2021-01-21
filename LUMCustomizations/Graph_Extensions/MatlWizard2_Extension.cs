@@ -26,8 +26,10 @@ namespace JAMS.AM
                 AMWrkMatl aMWrkMatl = row;
                 AMProdMatl aMProdMatl = row;
 
-                if (aMProdMatl.ScrapFactor > 0 && aMProdMatl.BaseTotalQtyRequired / (1 + aMProdMatl.ScrapFactor) != aMWrkMatl.QtyReq)
-                    aMWrkMatl.QtyReq = aMWrkMatl.QtyReq / (1 + aMProdMatl.ScrapFactor);
+                if (aMProdMatl.ScrapFactor > 0 && aMProdMatl.BaseTotalQtyRequired / (1 + aMProdMatl.ScrapFactor) - aMProdMatl.QtyActual != aMWrkMatl.QtyReq)
+                {
+                    aMWrkMatl.QtyReq = aMProdMatl.BaseTotalQtyRequired / (1 + aMProdMatl.ScrapFactor) - aMProdMatl.QtyActual;
+                }
 
                 aMWrkMatl.MatlQty = aMWrkMatl.QtyReq <= aMWrkMatl.QtyAvail ? aMWrkMatl.QtyReq : aMWrkMatl.QtyAvail;
             }
