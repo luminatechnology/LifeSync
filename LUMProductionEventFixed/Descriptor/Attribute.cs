@@ -35,12 +35,15 @@ namespace LUMProductionEventFixed.Descriptor
         public virtual void RowPersisting(PXCache sender, PXRowPersistingEventArgs e)
         {
             var amProdItemCache = sender.Graph.Caches[this._sourceType];
+            var tmp = sender.Graph.Caches[typeof(AMProdEvnt)];
             if (amProdItemCache.Current != null)
             {
+                // AMProdEvnt LineNbr from Cache
                 var _nowfieldValue = sender.GetValue(e.Row, base._FieldOrdinal);
+                // AMProdItem LineCntrEvnt from DataBase
                 var _dbLineCntrEvnt = SelectFrom<AMProdItem>
-                              .Where<AMProdItem.orderType.IsEqual<@P.AsString>
-                                .And<AMProdItem.prodOrdID.IsEqual<@P.AsString>>>
+                              .Where<AMProdItem.orderType.IsEqual<P.AsString>
+                                .And<AMProdItem.prodOrdID.IsEqual<P.AsString>>>
                               .View.Select(
                                 sender.Graph,
                                 amProdItemCache.GetValue<AMProdItem.orderType>(amProdItemCache.Current),

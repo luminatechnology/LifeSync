@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAC_Extensions\AMProdEvntExtension.cs" />
     <Compile Include="Descriptor\Attribute.cs" />
     <Compile Include="Examples.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
