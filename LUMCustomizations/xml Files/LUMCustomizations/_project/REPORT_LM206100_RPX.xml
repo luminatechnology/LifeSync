@@ -2562,12 +2562,16 @@
                 <Visible>False</Visible>
             </Detail>
             <PageFooter Name="pageFooterSection1">
-                <Height>0.42328cm</Height>
+                <Height>0px</Height>
                 <Style>
                     <Font>
                         <Name>Microsoft JhengHei UI</Name>
                     </Font>
                 </Style>
+                <Visible>False</Visible>
+            </PageFooter>
+            <ReportFooter Name="reportFooterSection1">
+                <Height>0.42328cm</Height>
                 <Items>
                     <Panel Name="panel4">
                         <Location>8px, 0px</Location>
@@ -2616,7 +2620,7 @@
                         </Items>
                     </Panel>
                 </Items>
-            </PageFooter>
+            </ReportFooter>
         </Sections>
         <Items />
         <Groups>
