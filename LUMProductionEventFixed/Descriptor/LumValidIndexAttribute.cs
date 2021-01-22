@@ -41,13 +41,13 @@ namespace LUMProductionEventFixed.Descriptor
                 // AMProdEvnt LineNbr from Cache
                 var _nowfieldValue = sender.GetValue(e.Row, base._FieldOrdinal);
                 // AMProdItem LineCntrEvnt from DataBase
-                var _dbLineCntrEvnt = SelectFrom<AMProdItem>
-                              .Where<AMProdItem.orderType.IsEqual<P.AsString>
-                                .And<AMProdItem.prodOrdID.IsEqual<P.AsString>>>
-                              .View.Select(
-                                sender.Graph,
-                                amProdItemCache.GetValue<AMProdItem.orderType>(amProdItemCache.Current),
-                                amProdItemCache.GetValue<AMProdItem.prodOrdID>(amProdItemCache.Current));
+                var _dbLineCntrEvnt = new SelectFrom<AMProdItem>
+                              .Where<AMProdItem.orderType.IsEqual<@P.AsString>
+                                .And<AMProdItem.prodOrdID.IsEqual<@P.AsString>>>
+                              .View(sender.Graph).Select(
+                                    amProdItemCache.GetValue<AMProdItem.orderType>(amProdItemCache.Current),
+                                    amProdItemCache.GetValue<AMProdItem.prodOrdID>(amProdItemCache.Current));
+
                 if (((IComparable)_nowfieldValue).CompareTo((IComparable)_dbLineCntrEvnt.TopFirst.LineCntrEvnt) <= 0)
                     sender.SetValue(e.Row, base._FieldOrdinal, (_dbLineCntrEvnt.TopFirst.LineCntrEvnt ?? 0) + 1);
             }
