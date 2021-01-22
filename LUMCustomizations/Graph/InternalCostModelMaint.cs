@@ -37,10 +37,21 @@ namespace LumCustomizations.Graph
         #region Override DAC
         [AMOrderTypeField(IsKey = true, Visibility = PXUIVisibility.SelectorVisible)]
         [PXDefault("CM")]
-        [AMOrderTypeSelector(typeof(OrderTypeFunction.planning))]
+        [AMOrderTypeSelector()]
         [PXRestrictorAttribute(typeof(Where<AMOrderType.active, Equal<True>>), "Order Type is inactive.")]
         public virtual void _(Events.CacheAttached<AMProdItem.orderType> e) { }
         #endregion
+
+
+        public void _(Events.RowInserting<AMProdEvnt> e)
+        {
+            var temp = (AMProdEvnt)e.Row;
+        }
+
+        public void _(Events.RowInserted<AMProdEvnt> r)
+        {
+            var temp = (AMProdEvnt)r.Row;
+        }
 
         #region PXAction
 
