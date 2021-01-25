@@ -2564,7 +2564,7 @@
                             </Padding>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>=[ARInvoice.TermsID]</Value>
+                        <Value>=[SOOrder.TermsID]</Value>
                     </TextBox>
                     <TextBox Name="textBox16">
                         <Location>536px, 144px</Location>
@@ -2905,7 +2905,7 @@
                     <TextBox Name="textBox41">
                         <CanGrow>True</CanGrow>
                         <Location>64px, 0px</Location>
-                        <Size>104px, 64px</Size>
+                        <Size>112px, 64px</Size>
                         <Style>
                             <BorderStyle>
                                 <Right>Solid</Right>
@@ -2915,8 +2915,11 @@
                             </BorderWidth>
                             <Font>
                                 <Name>Arial</Name>
-                                <Size>10px</Size>
+                                <Size>9.5px</Size>
                             </Font>
+                            <Padding>
+                                <Left>2px</Left>
+                            </Padding>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <Value>=[SOShipLine.TranDesc]</Value>
@@ -2945,8 +2948,8 @@
                         <Value>=[SOShipLine.Qty] * [SOShipLine.UnitPrice]</Value>
                     </TextBox>
                     <TextBox Name="textBox43">
-                        <Location>168px, 0px</Location>
-                        <Size>104px, 24px</Size>
+                        <Location>176px, 0px</Location>
+                        <Size>128px, 24px</Size>
                         <Style>
                             <BorderStyle>
                                 <Right>Solid</Right>
@@ -2956,15 +2959,18 @@
                             </BorderWidth>
                             <Font>
                                 <Name>Arial</Name>
-                                <Size>10px</Size>
+                                <Size>9.5px</Size>
                             </Font>
+                            <Padding>
+                                <Left>2px</Left>
+                            </Padding>
                             <VerticalAlign>Bottom</VerticalAlign>
                         </Style>
                         <Value>=[SOShipLine.InventoryID]</Value>
                     </TextBox>
                     <TextBox Name="textBox44">
-                        <Location>168px, 24px</Location>
-                        <Size>104px, 40px</Size>
+                        <Location>176px, 24px</Location>
+                        <Size>128px, 40px</Size>
                         <Style>
                             <BorderStyle>
                                 <Right>Solid</Right>
@@ -2974,15 +2980,18 @@
                             </BorderWidth>
                             <Font>
                                 <Name>Arial</Name>
-                                <Size>10px</Size>
+                                <Size>9.5px</Size>
                             </Font>
+                            <Padding>
+                                <Left>2px</Left>
+                            </Padding>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
                         <Value>=[SOShipLine.InventoryID_description]</Value>
                     </TextBox>
                     <TextBox Name="textBox45">
-                        <Location>272px, 0px</Location>
-                        <Size>152px, 64px</Size>
+                        <Location>304px, 0px</Location>
+                        <Size>120px, 64px</Size>
                         <Style>
                             <BorderStyle>
                                 <Right>Solid</Right>
@@ -2994,6 +3003,9 @@
                                 <Name>Arial</Name>
                                 <Size>10px</Size>
                             </Font>
+                            <Padding>
+                                <Left>2px</Left>
+                            </Padding>
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
@@ -3019,7 +3031,7 @@
                         <Value>=[SOShipLine.UOM]</Value>
                     </TextBox>
                     <TextBox Name="textBox50">
-                        <Format>='0.00'</Format>
+                        <Format>='N2'</Format>
                         <Location>488px, 0px</Location>
                         <Size>64px, 64px</Size>
                         <Style>
@@ -3039,7 +3051,7 @@
                             <TextAlign>Right</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=[SOShipLine.Qty]</Value>
+                        <Value>=[SOShipLine.ShippedQty]</Value>
                     </TextBox>
                     <TextBox Name="textBox51">
                         <Format>='N0'</Format>
@@ -3257,7 +3269,7 @@
                             </TextBox>
                             <TextBox Name="textBox34">
                                 <Location>64px, 0px</Location>
-                                <Size>104px, 40px</Size>
+                                <Size>112px, 40px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -3286,8 +3298,8 @@
                                 <Value>Customer Item Description </Value>
                             </TextBox>
                             <TextBox Name="textBox35">
-                                <Location>168px, 0px</Location>
-                                <Size>104px, 40px</Size>
+                                <Location>176px, 0px</Location>
+                                <Size>128px, 40px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -3316,8 +3328,8 @@
                                 <Value>Item Code</Value>
                             </TextBox>
                             <TextBox Name="textBox36">
-                                <Location>272px, 0px</Location>
-                                <Size>152px, 40px</Size>
+                                <Location>304px, 0px</Location>
+                                <Size>120px, 40px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
