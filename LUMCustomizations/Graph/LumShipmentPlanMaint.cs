@@ -54,6 +54,7 @@ namespace LumCustomizations.Graph
             Report.AddMenuAction(printPackingList);
             Report.AddMenuAction(COCReport);
             Report.AddMenuAction(CommericalInvoice);
+            Report.AddMenuAction(DGCommericalInvoice);
         }
         #endregion
 
@@ -160,6 +161,25 @@ namespace LumCustomizations.Graph
             if (parameters["ShipmentNbr"] != null && parameters["ShipmentPlanID"] != null)
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
             return adapter.Get<SOShipment>().ToList();
+        }
+
+        
+        public PXAction<SOShipment> DGCommericalInvoice;
+        [PXButton]
+        [PXUIField(DisplayName = "DG to HK Invoice Report", Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        protected virtual IEnumerable dGcommericalInvoice(PXAdapter adapter)
+        {
+            var _reportID = "LM602020";
+            if (string.IsNullOrEmpty(this.GetCacheCurrent<LumShipmentPlan>().Current.ShipmentNbr))
+                throw new PXException("ShipmentNbr Can Not be null");
+            var parameters = new Dictionary<string, string>()
+            {
+                ["ShipmentNbr"] = this.GetCacheCurrent<LumShipmentPlan>().Current.ShipmentNbr
+            };
+            if (parameters["ShipmentNbr"] != null)
+                throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
+            return adapter.Get<SOShipment>().ToList();
+            
         }
         #endregion
 
