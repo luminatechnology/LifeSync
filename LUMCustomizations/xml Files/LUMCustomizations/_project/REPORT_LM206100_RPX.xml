@@ -2317,7 +2317,7 @@
                         <Size>680px, 8px</Size>
                     </Line>
                     <Line Name="line2">
-                        <Location>8px, 166px</Location>
+                        <Location>8px, 165px</Location>
                         <Size>680px, 10px</Size>
                     </Line>
                     <Panel Name="panel1">
@@ -2645,7 +2645,7 @@
                 </Headers>
                 <Footers>
                     <Footer Name="groupFooterSection1">
-                        <Height>1.0582cm</Height>
+                        <Height>1.26984cm</Height>
                         <Variables>
                             <ReportVariable>
                                 <Name>LineNbr</Name>
@@ -2655,11 +2655,11 @@
                         <Items>
                             <Panel Name="panel2">
                                 <Location>8px, 0px</Location>
-                                <Size>680px, 40px</Size>
+                                <Size>680px, 48px</Size>
                                 <Items>
                                     <TextBox Name="textBox10">
                                         <Location>104px, 0px</Location>
-                                        <Size>192px, 40px</Size>
+                                        <Size>192px, 48px</Size>
                                         <Style>
                                             <Font>
                                                 <Name>Microsoft JhengHei UI</Name>
@@ -2671,7 +2671,7 @@
                                     <TextBox Name="textBox11">
                                         <Format>=IIF([AMMTranSplit.Qty] - Floor([AMMTranSplit.Qty]) &gt; 0,'N2','N0')</Format>
                                         <Location>296px, 0px</Location>
-                                        <Size>64px, 40px</Size>
+                                        <Size>64px, 48px</Size>
                                         <Style>
                                             <Font>
                                                 <Size>11px</Size>
@@ -2683,7 +2683,7 @@
                                     <TextBox Name="textBox42">
                                         <Format>#.00</Format>
                                         <Location>360px, 0px</Location>
-                                        <Size>64px, 40px</Size>
+                                        <Size>64px, 48px</Size>
                                         <Style>
                                             <Font>
                                                 <Size>11px</Size>
@@ -2693,7 +2693,7 @@
                                     </TextBox>
                                     <TextBox Name="textBox43">
                                         <Location>424px, 0px</Location>
-                                        <Size>48px, 40px</Size>
+                                        <Size>48px, 48px</Size>
                                         <Style>
                                             <Font>
                                                 <Size>11px</Size>
@@ -2704,7 +2704,7 @@
                                     </TextBox>
                                     <TextBox Name="textBox44">
                                         <Location>472px, 0px</Location>
-                                        <Size>48px, 40px</Size>
+                                        <Size>48px, 48px</Size>
                                         <Style>
                                             <Font>
                                                 <Name>Microsoft JhengHei UI</Name>
@@ -2716,7 +2716,7 @@
                                     </TextBox>
                                     <TextBox Name="textBox45">
                                         <Location>528px, 0px</Location>
-                                        <Size>40px, 40px</Size>
+                                        <Size>40px, 48px</Size>
                                         <Style>
                                             <Font>
                                                 <Name>Microsoft JhengHei UI</Name>
@@ -2728,7 +2728,7 @@
                                     </TextBox>
                                     <TextBox Name="textBox46">
                                         <Location>584px, 0px</Location>
-                                        <Size>96px, 40px</Size>
+                                        <Size>96px, 48px</Size>
                                         <Style>
                                             <Font>
                                                 <Name>Microsoft JhengHei UI</Name>
@@ -2739,7 +2739,7 @@
                                     </TextBox>
                                     <TextBox Name="textBox8">
                                         <Location>0px, 0px</Location>
-                                        <Size>32px, 40px</Size>
+                                        <Size>32px, 48px</Size>
                                         <Style>
                                             <Font>
                                                 <Size>11px</Size>
@@ -2749,7 +2749,7 @@
                                     </TextBox>
                                     <TextBox Name="textBox9">
                                         <Location>32px, 0px</Location>
-                                        <Size>64px, 40px</Size>
+                                        <Size>64px, 48px</Size>
                                         <Style>
                                             <Font>
                                                 <Size>11px</Size>

@@ -3244,7 +3244,6 @@
                         <Value>=[ARTran.Qty]</Value>
                     </TextBox>
                     <TextBox Name="textBox51">
-                        <Format>='N0'</Format>
                         <Location>552px, 0px</Location>
                         <Size>64px, 64px</Size>
                         <Style>
