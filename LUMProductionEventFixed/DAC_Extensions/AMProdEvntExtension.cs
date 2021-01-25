@@ -14,8 +14,8 @@ namespace JAMS.AM
         protected int _lineNbr;
         [PXDBInt(IsKey = true)]
         [PXDefault]
-        [PXLineNbr(typeof(AMProdItem.lineCntrEvnt))]
-        //[LumValidIndex(typeof(AMProdItem.lineCntrEvnt))]
+        //[PXLineNbr(typeof(AMProdItem.lineCntrEvnt))]
+        [LumValidIndex(typeof(AMProdItem.lineCntrEvnt))]
         [PXUIField(DisplayName = "Event Line Number", Enabled = false)]
         public virtual int? LineNbr { get; set; }
         public abstract class lineNbr : BqlType<IBqlInt, int>.Field<lineNbr> { }

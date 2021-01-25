@@ -34,22 +34,28 @@ namespace LUMProductionEventFixed.Descriptor
 
         public virtual void RowPersisting(PXCache sender, PXRowPersistingEventArgs e)
         {
-            var amProdItemCache = sender.Graph.Caches[this._sourceType];
-            var tmp = sender.Graph.Caches[typeof(AMProdEvnt)];
+            // Reset TimeStamp
+            sender.Graph.SelectTimeStamp();
+            var amProdItemCache = (PXCache<AMProdItem>)sender.Graph.Caches[this._sourceType];
             if (amProdItemCache.Current != null)
             {
-                // AMProdEvnt LineNbr from Cache
-                var _nowfieldValue = sender.GetValue(e.Row, base._FieldOrdinal);
+                // AMProdItem lineCntrEvnt from Cache
+                var _nowLineCntrEvnt = ((AMProdItem)amProdItemCache.Current).LineCntrEvnt;
                 // AMProdItem LineCntrEvnt from DataBase
-                var _dbLineCntrEvnt = new SelectFrom<AMProdItem>
+                var _dbLineCntrEvnt = SelectFrom<AMProdItem>
                               .Where<AMProdItem.orderType.IsEqual<@P.AsString>
                                 .And<AMProdItem.prodOrdID.IsEqual<@P.AsString>>>
-                              .View(sender.Graph).Select(
+                              .View.Select(new PXGraph(),
                                     amProdItemCache.GetValue<AMProdItem.orderType>(amProdItemCache.Current),
-                                    amProdItemCache.GetValue<AMProdItem.prodOrdID>(amProdItemCache.Current));
+                                    amProdItemCache.GetValue<AMProdItem.prodOrdID>(amProdItemCache.Current)).TopFirst;
 
-                if (((IComparable)_nowfieldValue).CompareTo((IComparable)_dbLineCntrEvnt.TopFirst.LineCntrEvnt) <= 0)
-                    sender.SetValue(e.Row, base._FieldOrdinal, (_dbLineCntrEvnt.TopFirst.LineCntrEvnt ?? 0) + 1);
+                if (_nowLineCntrEvnt <= _dbLineCntrEvnt?.LineCntrEvnt)
+                {
+                    // reset AMProdItem LineCntrEvnt
+                    (amProdItemCache.Current as AMProdItem).LineCntrEvnt = (_dbLineCntrEvnt.LineCntrEvnt ?? 0) + 1;
+                    // reset Event LineNbr
+                    sender.SetValue(e.Row, base._FieldOrdinal, (_dbLineCntrEvnt.LineCntrEvnt ?? 0) + 1);
+                }
             }
         }
     }
