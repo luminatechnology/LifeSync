@@ -2572,6 +2572,7 @@
             </PageFooter>
             <ReportFooter Name="reportFooterSection1">
                 <Height>0.42328cm</Height>
+                <PrintAtBottom>True</PrintAtBottom>
                 <Items>
                     <Panel Name="panel4">
                         <Location>8px, 0px</Location>
