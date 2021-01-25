@@ -1858,7 +1858,7 @@
                 <Height>2.32804cm</Height>
                 <Items>
                     <TextBox Name="textBox1">
-                        <Location>616px, 24px</Location>
+                        <Location>616px, 32px</Location>
                         <Size>72px, 16px</Size>
                         <Style>
                             <TextAlign>Right</TextAlign>
@@ -2159,6 +2159,79 @@
                 <Height>0px</Height>
                 <Visible>False</Visible>
             </PageFooter>
+            <ReportFooter Name="reportFooterSection1">
+                <GridSize>8px, 8px</GridSize>
+                <Height>0.74074cm</Height>
+                <PrintAtBottom>True</PrintAtBottom>
+                <Items>
+                    <TextBox Name="textBox10">
+                        <Excel>
+                            <row>3</row>
+                        </Excel>
+                        <Location>8px, 16px</Location>
+                        <Size>168px, 12px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                                <Size>10px</Size>
+                            </Font>
+                        </Style>
+                        <Value>Form number: FWH-027/Rev.00</Value>
+                    </TextBox>
+                    <TextBox Name="textBox2">
+                        <Excel>
+                            <row>3</row>
+                        </Excel>
+                        <Location>512px, 0px</Location>
+                        <Size>32px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                            </Font>
+                        </Style>
+                        <Value>核准:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox4">
+                        <Excel>
+                            <row>3</row>
+                        </Excel>
+                        <Location>352px, 0px</Location>
+                        <Size>32px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                            </Font>
+                        </Style>
+                        <Value>生管:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox5">
+                        <Excel>
+                            <row>3</row>
+                        </Excel>
+                        <Location>176px, 0px</Location>
+                        <Size>32px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                            </Font>
+                        </Style>
+                        <Value>领料:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox9">
+                        <Excel>
+                            <row>3</row>
+                        </Excel>
+                        <Location>8px, 0px</Location>
+                        <Size>32px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                            </Font>
+                        </Style>
+                        <Value>货仓:</Value>
+                    </TextBox>
+                </Items>
+            </ReportFooter>
         </Sections>
         <Items />
         <Groups>
@@ -2383,75 +2456,8 @@
                 <Footers>
                     <Footer Name="groupFooterSection1">
                         <GridSize>8px, 8px</GridSize>
-                        <Height>1.0582cm</Height>
-                        <Items>
-                            <TextBox Name="textBox10">
-                                <Excel>
-                                    <row>3</row>
-                                </Excel>
-                                <Location>8px, 24px</Location>
-                                <Size>168px, 14px</Size>
-                                <Style>
-                                    <Font>
-                                        <Name>Microsoft YaHei UI</Name>
-                                        <Size>10px</Size>
-                                    </Font>
-                                </Style>
-                                <Value>Form number: FWH-027/Rev.00</Value>
-                            </TextBox>
-                            <TextBox Name="textBox2">
-                                <Excel>
-                                    <row>3</row>
-                                </Excel>
-                                <Location>512px, 0px</Location>
-                                <Size>32px, 16px</Size>
-                                <Style>
-                                    <Font>
-                                        <Name>Microsoft YaHei UI</Name>
-                                    </Font>
-                                </Style>
-                                <Value>核准:</Value>
-                            </TextBox>
-                            <TextBox Name="textBox4">
-                                <Excel>
-                                    <row>3</row>
-                                </Excel>
-                                <Location>352px, 0px</Location>
-                                <Size>32px, 16px</Size>
-                                <Style>
-                                    <Font>
-                                        <Name>Microsoft YaHei UI</Name>
-                                    </Font>
-                                </Style>
-                                <Value>生管:</Value>
-                            </TextBox>
-                            <TextBox Name="textBox5">
-                                <Excel>
-                                    <row>3</row>
-                                </Excel>
-                                <Location>176px, 0px</Location>
-                                <Size>32px, 16px</Size>
-                                <Style>
-                                    <Font>
-                                        <Name>Microsoft YaHei UI</Name>
-                                    </Font>
-                                </Style>
-                                <Value>领料:</Value>
-                            </TextBox>
-                            <TextBox Name="textBox9">
-                                <Excel>
-                                    <row>3</row>
-                                </Excel>
-                                <Location>8px, 0px</Location>
-                                <Size>32px, 16px</Size>
-                                <Style>
-                                    <Font>
-                                        <Name>Microsoft YaHei UI</Name>
-                                    </Font>
-                                </Style>
-                                <Value>货仓:</Value>
-                            </TextBox>
-                        </Items>
+                        <Height>0px</Height>
+                        <Visible>False</Visible>
                     </Footer>
                 </Footers>
             </Group>
