@@ -24,15 +24,11 @@
         <LayoutUnit>Inch</LayoutUnit>
         <MailSettings>
             <ActivitySource>POReceipt.NoteID</ActivitySource>
-            <Bcc>
-            </Bcc>
             <Body>='Dear Customer,#010;#010;This is an automatic email to notify you that you have a new Purchase Receipt available on your account.  #010;You will find a copy of'+' '+[POReceipt.ReceiptType]+' '+'#'+' '+[POReceipt.ReceiptNbr]+' '+'attached to this email.  #010;#010;If you have any questions, please don’t hesitate to contact us at Email.  #010;#010;Thank you for choosing'+' '+[CompanyContact.FullName]+'.'</Body>
-            <Cc>
-            </Cc>
-            <Format>
-            </Format>
             <ParentSource>Vendor.NoteID</ParentSource>
             <Subject>=[CompanyContact.FullName]+':'+' '+[POReceipt.ReceiptType]+' '+'#'+[POReceipt.ReceiptNbr]+' '+'is now available'</Subject>
+            <TemplateID>
+            </TemplateID>
             <To>=[VendorContact.EMail]</To>
         </MailSettings>
         <PageSettings>
@@ -4200,10 +4196,10 @@
         </ViewerFields>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
-                <Height>0.91667in</Height>
+                <Height>0.83333in</Height>
                 <Items>
                     <TextBox Name="textBox1">
-                        <Location>184px, 72px</Location>
+                        <Location>184px, 64px</Location>
                         <Size>32px, 16px</Size>
                         <Style>
                             <Font>
@@ -4213,7 +4209,7 @@
                         <Value>备注:</Value>
                     </TextBox>
                     <TextBox Name="textBox11">
-                        <Location>392px, 72px</Location>
+                        <Location>392px, 64px</Location>
                         <Size>120px, 16px</Size>
                         <Style>
                             <Font>
@@ -4223,7 +4219,7 @@
                         <Value>=[POReceipt.VendorID_Vendor_acctName]</Value>
                     </TextBox>
                     <TextBox Name="textBox13">
-                        <Location>8px, 72px</Location>
+                        <Location>8px, 64px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
@@ -4233,7 +4229,7 @@
                         <Value>进货单号:</Value>
                     </TextBox>
                     <TextBox Name="textBox14">
-                        <Location>352px, 72px</Location>
+                        <Location>352px, 64px</Location>
                         <Size>40px, 16px</Size>
                         <Style>
                             <Font>
@@ -4243,7 +4239,7 @@
                         <Value>供应商:</Value>
                     </TextBox>
                     <TextBox Name="textBox2">
-                        <Location>64px, 72px</Location>
+                        <Location>64px, 64px</Location>
                         <Size>112px, 16px</Size>
                         <Style>
                             <Font>
@@ -4253,7 +4249,7 @@
                         <Value>=[POReceipt.ReceiptNbr]</Value>
                     </TextBox>
                     <TextBox Name="textBox23">
-                        <Location>544px, 72px</Location>
+                        <Location>544px, 64px</Location>
                         <Size>40px, 16px</Size>
                         <Style>
                             <Font>
@@ -4263,7 +4259,7 @@
                         <Value>日  期:</Value>
                     </TextBox>
                     <TextBox Name="textBox28">
-                        <Location>216px, 72px</Location>
+                        <Location>216px, 64px</Location>
                         <Size>120px, 16px</Size>
                         <Style>
                             <Font>
@@ -4274,17 +4270,17 @@
                     </TextBox>
                     <TextBox Name="textBox3">
                         <Format>='yyyy-MM-dd'</Format>
-                        <Location>584px, 72px</Location>
+                        <Location>584px, 64px</Location>
                         <Size>104px, 16px</Size>
                         <Value>=[POReceipt.ReceiptDate]</Value>
                     </TextBox>
                     <TextBox Name="textBox4">
-                        <Location>232px, 0px</Location>
-                        <Size>232px, 32px</Size>
+                        <Location>0px, 0px</Location>
+                        <Size>696px, 32px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
-                                <Size>16px</Size>
+                                <Size>20px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -4292,8 +4288,8 @@
                         <Value>美  博  电  子  有  限  公  司</Value>
                     </TextBox>
                     <TextBox Name="textBox5">
-                        <Location>296px, 40px</Location>
-                        <Size>96px, 24px</Size>
+                        <Location>0px, 32px</Location>
+                        <Size>696px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
@@ -4781,14 +4777,13 @@
                 </Headers>
                 <Footers>
                     <Footer Name="groupFooterSection1">
-                        <Height>0.41667in</Height>
+                        <Height>0.33333in</Height>
                         <PrintAtBottom>True</PrintAtBottom>
-                        <PrintOnEveryPage>True</PrintOnEveryPage>
                         <ProcessOrder>Always</ProcessOrder>
                         <ResetPageNumber>True</ResetPageNumber>
                         <Items>
                             <TextBox Name="textBox10">
-                                <Location>8px, 24px</Location>
+                                <Location>8px, 16px</Location>
                                 <Size>176px, 14px</Size>
                                 <Style>
                                     <Font>
