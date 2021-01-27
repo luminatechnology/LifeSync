@@ -105,10 +105,20 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 <Type>Integer</Type>
             </ReportParameter>
             <ReportParameter>
+                <Name>ContainerUOM</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Container UOM</Prompt>
+            </ReportParameter>
+            <ReportParameter>
                 <Name>QtyinShipment</Name>
                 <Nullable>True</Nullable>
                 <Prompt>Qty in shipment</Prompt>
                 <Type>Float</Type>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>ShipmentUOM</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Shipment UOM</Prompt>
             </ReportParameter>
             <ReportParameter>
                 <Name>StartLabel</Name>
@@ -2259,7 +2269,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ContainerUOM = null ,'PCS',@ContainerUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox17">
                         <Localizable>False</Localizable>
@@ -2357,7 +2367,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ShipmentUOM = null ,'PCS',@ShipmentUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox27">
                         <Localizable>False</Localizable>
@@ -2610,7 +2620,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ContainerUOM = null ,'PCS',@ContainerUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox32">
                         <Localizable>False</Localizable>
@@ -2652,7 +2662,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ShipmentUOM = null ,'PCS',@ShipmentUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox35">
                         <Localizable>False</Localizable>
@@ -2727,6 +2737,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="OSI-Resistor">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <VisibleExpr>=IIF(([outter.Customer] = 'OSI' Or @Customer = 'OSI')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) ,true,false)</VisibleExpr>
                 <Items>
@@ -2742,7 +2753,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ShipmentUOM = null ,'PCS',@ShipmentUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox39">
                         <Localizable>False</Localizable>
@@ -2907,7 +2918,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ContainerUOM = null ,'PCS',@ContainerUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox51">
                         <Format>='N0'</Format>
@@ -3004,6 +3015,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="AMC-Resistor">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = 'AMC' Or @Customer = 'AMC')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) ,true,false)</VisibleExpr>
@@ -3128,7 +3140,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>BOX</Value>
+                        <Value>=IIF(@ContainerUOM = null ,'BOX',@ContainerUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox66">
                         <Localizable>False</Localizable>
@@ -3227,7 +3239,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>BOX</Value>
+                        <Value>=IIF(@ShipmentUOM = null ,'BOX',@ShipmentUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox73">
                         <Localizable>False</Localizable>
@@ -3282,6 +3294,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="AMC">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = 'AMC' Or @Customer = 'AMC')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
@@ -3456,7 +3469,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>BOX</Value>
+                        <Value>=IIF(@ContainerUOM = null ,'BOX',@ContainerUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox89">
                         <Localizable>False</Localizable>
@@ -3498,7 +3511,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>BOX</Value>
+                        <Value>=IIF(@ShipmentUOM = null ,'BOX',@ShipmentUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox92">
                         <Localizable>False</Localizable>
@@ -3547,6 +3560,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="SJM-Resistory">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <VisibleExpr>=IIF(([outter.Customer] = 'SJM' Or @Customer = 'SJM')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) ,true,false)</VisibleExpr>
                 <Items>
@@ -3673,7 +3687,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ContainerUOM = null ,'PCS',@ContainerUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox109">
                         <Format>='N0'</Format>
@@ -3702,7 +3716,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ShipmentUOM = null ,'PCS',@ShipmentUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox111">
                         <CanGrow>True</CanGrow>
@@ -3838,6 +3852,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="MASIMO">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <VisibleExpr>=IIF(([outter.Customer] = 'MASIMO' Or @Customer = 'MASIMO')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
                 <Items>
@@ -4011,7 +4026,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ContainerUOM = null ,'PCS',@ContainerUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox127">
                         <Localizable>False</Localizable>
@@ -4053,7 +4068,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ShipmentUOM = null ,'PCS',@ShipmentUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox130">
                         <Localizable>False</Localizable>
@@ -4126,6 +4141,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="MASIMO-Resistor">
+                <Expanded>False</Expanded>
                 <Height>6.98413cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = 'MASIMO' Or @Customer = 'MASIMO')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) ,true,false)</VisibleExpr>
@@ -4289,7 +4305,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ContainerUOM = null ,'PCS',@ContainerUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox145">
                         <Localizable>False</Localizable>
@@ -4423,11 +4439,12 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ShipmentUOM = null ,'PCS',@ShipmentUOM)</Value>
                     </TextBox>
                 </Items>
             </Detail>
             <Detail Name="科曼">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = '科曼' Or @Customer = '科曼')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
@@ -4444,7 +4461,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ShipmentUOM = null ,'PCS',@ShipmentUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox154">
                         <Localizable>False</Localizable>
@@ -4620,7 +4637,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ContainerUOM = null ,'PCS',@ContainerUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox166">
                         <Format>='N0'</Format>
@@ -4693,6 +4710,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="SJM">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = 'SJM' Or @Customer = 'SJM')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
@@ -4793,7 +4811,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>BOX</Value>
+                        <Value>=IIF(@ShipmentUOM = null ,'BOX',@ShipmentUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox178">
                         <Format>='N0'</Format>
@@ -4835,7 +4853,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>BOX</Value>
+                        <Value>=IIF(@ContainerUOM = null ,'BOX',@ContainerUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox181">
                         <Format>='N0'</Format>
@@ -4991,6 +5009,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </PageFooter>
             <Detail Name="General-Resistor">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF([outter.Customer] &lt;&gt; 'OSI' #010;And [outter.Customer] &lt;&gt; 'AMC'#010;And [outter.Customer] &lt;&gt; 'SJM'#010;And [outter.Customer] &lt;&gt; 'MASIMO'#010;And [outter.Customer] &lt;&gt; '科曼'#010;And @Customer &lt;&gt; 'OSI'#010;And @Customer &lt;&gt; 'AMC'#010;And @Customer &lt;&gt; 'SJM'#010;And @Customer &lt;&gt; 'MASIMO'#010;And @Customer &lt;&gt; '科曼'#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null OR @Resistor &lt;&gt; null ) ,true,false)</VisibleExpr>
@@ -5099,7 +5118,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ContainerUOM = null ,'PCS',@ContainerUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox198">
                         <Localizable>False</Localizable>
@@ -5264,7 +5283,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ShipmentUOM = null ,'PCS',@ShipmentUOM)</Value>
                     </TextBox>
                 </Items>
             </Detail>
