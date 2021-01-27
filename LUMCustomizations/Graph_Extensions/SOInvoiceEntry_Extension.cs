@@ -1,4 +1,5 @@
-﻿using PX.Data;
+﻿using LUMCustomizations.Library;
+using PX.Data;
 using PX.Objects.AR;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +8,11 @@ namespace PX.Objects.SO
 {
     public class SOInvoiceEntry_Extension : PXGraphExtension<SOInvoiceEntry>
     {
+
+        [PXUIField()]
+        [PXMergeAttributes(Method = MergeMethod.Append)]
+        public virtual void _(Events.CacheAttached<ARInvoice.lineTotal> e) { }
+
         public override void Initialize()
         {
             base.Initialize();
@@ -14,6 +20,17 @@ namespace PX.Objects.SO
             Base.report.AddMenuAction(CreditNoteReport);
             Base.report.AddMenuAction(CommercialInvoiceFromDGReport);
         }
+
+        public virtual void _(Events.RowSelected<ARInvoice> e)
+        {
+            var library = new LumLibrary();
+            var BaseComapnyCuryID = library.GetCompanyBaseCuryID();
+            PXUIFieldAttribute.SetDisplayName<ARInvoice.lineTotal>(e.Cache, $"Total in {BaseComapnyCuryID}");
+            PXUIFieldAttribute.SetEnabled<ARInvoice.lineTotal>(e.Cache, null, false);
+            // Defaul Visiable is false
+            PXUIFieldAttribute.SetVisible<ARInvoice.lineTotal>(e.Cache, null, library.GetShowingTotalInHome);
+        }
+
 
         #region Action
         public PXAction<ARInvoice> CommercialInvoiceReport;

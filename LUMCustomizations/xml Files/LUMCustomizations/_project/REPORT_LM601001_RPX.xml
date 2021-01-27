@@ -2377,7 +2377,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox3">
                         <Localizable>False</Localizable>
                         <Location>104px, 16px</Location>
-                        <Size>272px, 64px</Size>
+                        <Size>256px, 64px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -2403,7 +2403,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox5">
                         <Localizable>False</Localizable>
                         <Location>0px, 0px</Location>
-                        <Size>376px, 16px</Size>
+                        <Size>360px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -2520,7 +2520,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox21">
                         <Localizable>False</Localizable>
                         <Location>104px, 16px</Location>
-                        <Size>272px, 68px</Size>
+                        <Size>256px, 68px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -2701,7 +2701,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox8">
                         <Localizable>False</Localizable>
                         <Location>0px, 0px</Location>
-                        <Size>376px, 16px</Size>
+                        <Size>360px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -2727,7 +2727,6 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="OSI-Resistor">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <VisibleExpr>=IIF(([outter.Customer] = 'OSI' Or @Customer = 'OSI')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) ,true,false)</VisibleExpr>
                 <Items>
@@ -2761,7 +2760,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox40">
                         <Localizable>False</Localizable>
                         <Location>0px, 0px</Location>
-                        <Size>376px, 16px</Size>
+                        <Size>360px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -2873,7 +2872,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox48">
                         <Localizable>False</Localizable>
                         <Location>104px, 16px</Location>
-                        <Size>272px, 64px</Size>
+                        <Size>256px, 64px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -3005,7 +3004,6 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="AMC-Resistor">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = 'AMC' Or @Customer = 'AMC')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) ,true,false)</VisibleExpr>
@@ -3013,7 +3011,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox57">
                         <Localizable>False</Localizable>
                         <Location>0px, 0px</Location>
-                        <Size>352px, 16px</Size>
+                        <Size>360px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -3247,7 +3245,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox74">
                         <Localizable>False</Localizable>
                         <Location>104px, 16px</Location>
-                        <Size>272px, 64px</Size>
+                        <Size>256px, 64px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -3284,7 +3282,6 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="AMC">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = 'AMC' Or @Customer = 'AMC')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
@@ -3292,7 +3289,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox76">
                         <Localizable>False</Localizable>
                         <Location>0px, 0px</Location>
-                        <Size>352px, 16px</Size>
+                        <Size>360px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -3382,7 +3379,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox83">
                         <Localizable>False</Localizable>
                         <Location>104px, 16px</Location>
-                        <Size>272px, 68px</Size>
+                        <Size>256px, 68px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -3550,7 +3547,6 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="SJM-Resistory">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <VisibleExpr>=IIF(([outter.Customer] = 'SJM' Or @Customer = 'SJM')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) ,true,false)</VisibleExpr>
                 <Items>
@@ -3629,7 +3625,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox105">
                         <Localizable>False</Localizable>
                         <Location>104px, 32px</Location>
-                        <Size>272px, 56px</Size>
+                        <Size>256px, 56px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -3763,7 +3759,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox81">
                         <Localizable>False</Localizable>
                         <Location>0px, 16px</Location>
-                        <Size>328px, 16px</Size>
+                        <Size>360px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -3842,14 +3838,13 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="MASIMO">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <VisibleExpr>=IIF(([outter.Customer] = 'MASIMO' Or @Customer = 'MASIMO')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
                 <Items>
                     <TextBox Name="textBox114">
                         <Localizable>False</Localizable>
                         <Location>104px, 16px</Location>
-                        <Size>272px, 68px</Size>
+                        <Size>256px, 68px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -3901,7 +3896,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox118">
                         <Localizable>False</Localizable>
                         <Location>0px, 0px</Location>
-                        <Size>376px, 16px</Size>
+                        <Size>360px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -4131,7 +4126,6 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="MASIMO-Resistor">
-                <Expanded>False</Expanded>
                 <Height>6.98413cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = 'MASIMO' Or @Customer = 'MASIMO')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) ,true,false)</VisibleExpr>
@@ -4191,7 +4185,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox137">
                         <Localizable>False</Localizable>
                         <Location>0px, 0px</Location>
-                        <Size>376px, 16px</Size>
+                        <Size>360px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -4204,7 +4198,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox138">
                         <Localizable>False</Localizable>
                         <Location>104px, 16px</Location>
-                        <Size>272px, 64px</Size>
+                        <Size>256px, 64px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -4434,7 +4428,6 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="科曼">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = '科曼' Or @Customer = '科曼')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
@@ -4469,7 +4462,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox155">
                         <Localizable>False</Localizable>
                         <Location>0px, 0px</Location>
-                        <Size>376px, 16px</Size>
+                        <Size>360px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -4687,7 +4680,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox170">
                         <Localizable>False</Localizable>
                         <Location>104px, 16px</Location>
-                        <Size>272px, 68px</Size>
+                        <Size>256px, 68px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -4700,7 +4693,6 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="SJM">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = 'SJM' Or @Customer = 'SJM')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
@@ -4779,7 +4771,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox176">
                         <Localizable>False</Localizable>
                         <Location>0px, 16px</Location>
-                        <Size>328px, 16px</Size>
+                        <Size>360px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -4903,7 +4895,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox185">
                         <Localizable>False</Localizable>
                         <Location>104px, 32px</Location>
-                        <Size>272px, 56px</Size>
+                        <Size>256px, 56px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -4999,7 +4991,6 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </PageFooter>
             <Detail Name="General-Resistor">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF([outter.Customer] &lt;&gt; 'OSI' #010;And [outter.Customer] &lt;&gt; 'AMC'#010;And [outter.Customer] &lt;&gt; 'SJM'#010;And [outter.Customer] &lt;&gt; 'MASIMO'#010;And [outter.Customer] &lt;&gt; '科曼'#010;And @Customer &lt;&gt; 'OSI'#010;And @Customer &lt;&gt; 'AMC'#010;And @Customer &lt;&gt; 'SJM'#010;And @Customer &lt;&gt; 'MASIMO'#010;And @Customer &lt;&gt; '科曼'#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null OR @Resistor &lt;&gt; null ) ,true,false)</VisibleExpr>
@@ -5126,7 +5117,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox199">
                         <Localizable>False</Localizable>
                         <Location>104px, 16px</Location>
-                        <Size>272px, 64px</Size>
+                        <Size>256px, 64px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -5238,7 +5229,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox207">
                         <Localizable>False</Localizable>
                         <Location>0px, 0px</Location>
-                        <Size>376px, 16px</Size>
+                        <Size>360px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>

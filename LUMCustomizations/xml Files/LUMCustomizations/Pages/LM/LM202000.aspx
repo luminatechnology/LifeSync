@@ -17,6 +17,8 @@
 			<px:PXPanel runat="server" ID="PnlCust1" Caption="Proforma Invoice" RenderStyle="Fieldset">
 				<px:PXCheckBox runat="server" ID="chkProformaInvoice" DataField="ProformaInvoicePrinting"></px:PXCheckBox>
 				<px:PXCheckBox runat="server" ID="chkBubbleNumberPrinting" DataField="BubbleNumberPrinting"></px:PXCheckBox>
+				<px:PXCheckBox runat="server" ID="chkCrossRateOverride" DataField="CrossRateOverride"></px:PXCheckBox>
+				<px:PXCheckBox runat="server" ID="chkShowingTotalInHomeCurrency" DataField="ShowingTotalInHomeCurrency"></px:PXCheckBox>
 				<px:PXDropDown runat="server" ID="ddlInternalCostModelRateType" DataField="InternalCostModelRateType" Width="100px"></px:PXDropDown>
 			</px:PXPanel>
 		</Template>

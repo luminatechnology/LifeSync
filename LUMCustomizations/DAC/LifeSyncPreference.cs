@@ -48,5 +48,15 @@ namespace LumCustomizations.DAC
         [PXUIField(DisplayName = "Rate Type for Internal Cost Model")]
         public virtual string InternalCostModelRateType { get; set; }
         public abstract class internalCostModelRateType : PX.Data.BQL.BqlString.Field<LifeSyncPreference.internalCostModelRateType> { }
+
+        [PXDBBool]
+        [PXUIField(DisplayName = "Enable Cross Rate Override")]
+        public virtual bool CrossRateOverride { get; set; }
+        public abstract class crossRateOverride : PX.Data.BQL.BqlBool.Field<LifeSyncPreference.crossRateOverride> { }
+
+        [PXDBBool]
+        [PXUIField(DisplayName = "Enable Showing Total in Home Currency")]
+        public virtual bool ShowingTotalInHomeCurrency { get; set; }
+        public abstract class showingTotalInHomeCurrency : PX.Data.BQL.BqlBool.Field<LifeSyncPreference.showingTotalInHomeCurrency> { }
     }
 }
