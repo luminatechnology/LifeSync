@@ -46,6 +46,10 @@
                         <ChildField>SOOrder.OrderNbr</ChildField>
                         <ParentField>ARTran.SOOrderNbr</ParentField>
                     </RelationRow>
+                    <RelationRow>
+                        <ChildField>OrderType</ChildField>
+                        <ParentField>SOOrderType</ParentField>
+                    </RelationRow>
                 </Links>
                 <ParentName>ARTran</ParentName>
             </ReportRelation>
@@ -4003,11 +4007,13 @@
                                 <Size>16px</Size>
                                 <Style>Bold</Style>
                             </Font>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <Value>INVOICE</Value>
                     </TextBox>
                     <TextBox Name="textBox10">
-                        <Location>336px, 128px</Location>
+                        <Location>352px, 128px</Location>
                         <Size>64px, 16px</Size>
                         <Style>
                             <Font>
@@ -4018,7 +4024,7 @@
                         <Value>Ship Date:</Value>
                     </TextBox>
                     <TextBox Name="textBox11">
-                        <Location>336px, 112px</Location>
+                        <Location>352px, 112px</Location>
                         <Size>80px, 16px</Size>
                         <Style>
                             <Font>
@@ -4055,7 +4061,7 @@
                         <Value>Invoice No.: </Value>
                     </TextBox>
                     <TextBox Name="textBox15">
-                        <Location>384px, 144px</Location>
+                        <Location>400px, 144px</Location>
                         <Size>72px, 16px</Size>
                         <Style>
                             <Font>
@@ -4070,7 +4076,7 @@
                         <Value>=[ARInvoice.TermsID]</Value>
                     </TextBox>
                     <TextBox Name="textBox16">
-                        <Location>624px, 144px</Location>
+                        <Location>640px, 144px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
@@ -4085,7 +4091,7 @@
                         <Value>=[ARInvoice.CuryID]</Value>
                     </TextBox>
                     <TextBox Name="textBox17">
-                        <Location>336px, 160px</Location>
+                        <Location>352px, 160px</Location>
                         <Size>48px, 16px</Size>
                         <Style>
                             <Font>
@@ -4096,7 +4102,7 @@
                         <Value>Seller:</Value>
                     </TextBox>
                     <TextBox Name="textBox18">
-                        <Location>384px, 160px</Location>
+                        <Location>400px, 160px</Location>
                         <Size>248px, 16px</Size>
                         <Style>
                             <Font>
@@ -4111,7 +4117,7 @@
                         <Value>=[BAccount.LegalName]</Value>
                     </TextBox>
                     <TextBox Name="textBox19">
-                        <Location>384px, 192px</Location>
+                        <Location>400px, 192px</Location>
                         <Size>248px, 16px</Size>
                         <Style>
                             <Font>
@@ -4126,7 +4132,7 @@
                         <Value>=[Address.AddressLine1]</Value>
                     </TextBox>
                     <TextBox Name="textBox2">
-                        <Location>384px, 280px</Location>
+                        <Location>400px, 280px</Location>
                         <Size>128px, 16px</Size>
                         <Style>
                             <Font>
@@ -4141,7 +4147,7 @@
                         <Value>=[ContactR.Fax]</Value>
                     </TextBox>
                     <TextBox Name="textBox20">
-                        <Location>336px, 248px</Location>
+                        <Location>352px, 248px</Location>
                         <Size>40px, 16px</Size>
                         <Style>
                             <Font>
@@ -4152,7 +4158,7 @@
                         <Value>From:</Value>
                     </TextBox>
                     <TextBox Name="textBox21">
-                        <Location>384px, 208px</Location>
+                        <Location>400px, 208px</Location>
                         <Size>248px, 16px</Size>
                         <Style>
                             <Font>
@@ -4167,7 +4173,7 @@
                         <Value>=[Address.AddressLine2]</Value>
                     </TextBox>
                     <TextBox Name="textBox22">
-                        <Location>384px, 224px</Location>
+                        <Location>400px, 224px</Location>
                         <Size>248px, 16px</Size>
                         <Style>
                             <Font>
@@ -4182,7 +4188,7 @@
                         <Value>=[Address.AddressLine3]</Value>
                     </TextBox>
                     <TextBox Name="textBox23">
-                        <Location>384px, 248px</Location>
+                        <Location>400px, 248px</Location>
                         <Size>136px, 16px</Size>
                         <Style>
                             <Font>
@@ -4275,7 +4281,7 @@
                         <Value>=[ARContact.Fax]</Value>
                     </TextBox>
                     <TextBox Name="textBox3">
-                        <Location>384px, 264px</Location>
+                        <Location>400px, 264px</Location>
                         <Size>128px, 16px</Size>
                         <Style>
                             <Font>
@@ -4290,7 +4296,7 @@
                         <Value>=[ContactR.Phone1]</Value>
                     </TextBox>
                     <TextBox Name="textBox30">
-                        <Location>464px, 144px</Location>
+                        <Location>480px, 144px</Location>
                         <Size>32px, 16px</Size>
                         <Style>
                             <Font>
@@ -4302,7 +4308,7 @@
                     </TextBox>
                     <TextBox Name="textBox31">
                         <Format>='N2'</Format>
-                        <Location>496px, 144px</Location>
+                        <Location>512px, 144px</Location>
                         <Size>40px, 16px</Size>
                         <Style>
                             <Font>
@@ -4317,7 +4323,7 @@
                         <Value>=IIF([ARTaxTran.TaxRate] &gt; 0, [ARTaxTran.TaxRate], '免税 0%')</Value>
                     </TextBox>
                     <TextBox Name="textBox4">
-                        <Location>336px, 280px</Location>
+                        <Location>352px, 280px</Location>
                         <Size>40px, 16px</Size>
                         <Style>
                             <Font>
@@ -4328,7 +4334,7 @@
                         <Value>Fax:</Value>
                     </TextBox>
                     <TextBox Name="textBox48">
-                        <Location>592px, 104px</Location>
+                        <Location>608px, 104px</Location>
                         <Size>80px, 16px</Size>
                         <Style>
                             <Font>
@@ -4339,7 +4345,7 @@
                         <Value>=[PageIndex] + ' / ' + [PageCount]</Value>
                     </TextBox>
                     <TextBox Name="textBox5">
-                        <Location>336px, 264px</Location>
+                        <Location>352px, 264px</Location>
                         <Size>40px, 16px</Size>
                         <Style>
                             <Font>
@@ -4350,7 +4356,7 @@
                         <Value>Tel:</Value>
                     </TextBox>
                     <TextBox Name="textBox52">
-                        <Location>536px, 144px</Location>
+                        <Location>552px, 144px</Location>
                         <Size>16px, 16px</Size>
                         <Style>
                             <Font>
@@ -4398,7 +4404,7 @@
                     </TextBox>
                     <TextBox Name="textBox60">
                         <Format>='yyyy-MM-dd'</Format>
-                        <Location>416px, 128px</Location>
+                        <Location>432px, 128px</Location>
                         <Size>64px, 16px</Size>
                         <Style>
                             <Font>
@@ -4414,7 +4420,7 @@
                     </TextBox>
                     <TextBox Name="textBox61">
                         <Format>='yyyy-MM-dd'</Format>
-                        <Location>416px, 112px</Location>
+                        <Location>432px, 112px</Location>
                         <Size>64px, 16px</Size>
                         <Style>
                             <Font>
@@ -4429,7 +4435,7 @@
                         <Value>=[ARInvoice.DocDate]</Value>
                     </TextBox>
                     <TextBox Name="textBox62">
-                        <Location>336px, 176px</Location>
+                        <Location>352px, 176px</Location>
                         <Size>96px, 16px</Size>
                         <Style>
                             <Font>
@@ -4440,7 +4446,7 @@
                         <Value>Office Address:</Value>
                     </TextBox>
                     <TextBox Name="textBox7">
-                        <Location>336px, 144px</Location>
+                        <Location>352px, 144px</Location>
                         <Size>48px, 16px</Size>
                         <Style>
                             <Font>
@@ -4462,7 +4468,7 @@
                         <Value>Customer:</Value>
                     </TextBox>
                     <TextBox Name="textBox9">
-                        <Location>568px, 144px</Location>
+                        <Location>584px, 144px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
