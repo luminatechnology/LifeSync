@@ -25,7 +25,7 @@ namespace PX.Objects.GL
             var postPeriod = curBatchCache.FinPeriodID.Substring(4, 2) + curBatchCache.FinPeriodID.Substring(0, 4); //MMyyyy
             // create the parameter for report
             Dictionary<string, string> parameters = new Dictionary<string, string>();
-            //parameters["BatchNbr"] = curBatchCache.BatchNbr;
+            parameters["BatchNbr"] = curBatchCache.BatchNbr;
             //parameters["PeriodFrom"] = postPeriod;
             //parameters["PeriodTo"] = postPeriod;
 
