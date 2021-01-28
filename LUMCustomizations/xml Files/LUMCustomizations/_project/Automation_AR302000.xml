@@ -6,5 +6,8 @@
         <AutomationScreenField ScreenID="AR302000" TableName="PX.OBJECTS.AR.ARADJUST" FieldName="CURYADJDAMT" IsUserDefinedField="False">
             <Prop Name="IsEnabled" DisplayName="Enabled" IsCustomized="True" Value="False" />
         </AutomationScreenField>
+        <AutomationScreenField ScreenID="AR302000" TableName="PX.OBJECTS.AR.ARADJUST" FieldName="USRREMCURYADJDAMT" IsUserDefinedField="False">
+            <Prop Name="IsEnabled" DisplayName="Enabled" IsCustomized="True" Value="False" />
+        </AutomationScreenField>
     </AUFields>
 </Automation>

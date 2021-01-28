@@ -12,10 +12,14 @@ namespace PX.Objects.AR
 {
     public class ARPaymentEntry_Extension : PXGraphExtension<ARPaymentEntry>
     {
+        #region Override DAC
         [PXUIField]
         [PXDBDecimal(2)]
         [PXMergeAttributes(Method = MergeMethod.Merge)]
         protected virtual void _(Events.CacheAttached<ARAdjust.curyAdjdAmt> e) { }
+        #endregion
+
+        #region Event handler
 
         protected virtual void _(Events.RowSelected<ARAdjust> e, PXRowSelected BaseMethod)
         {
@@ -25,15 +29,14 @@ namespace PX.Objects.AR
             PXUIFieldAttribute.SetVisible<ARAdjust.curyAdjdAmt>(e.Cache, null, library.GetCrossRateOverride);
         }
 
-        protected virtual void _(Events.FieldSelecting<ARAdjustExtension.usrBaseBalance> e)
+        protected virtual void _(Events.FieldUpdated<ARAdjust.curyAdjgAmt> e, PXFieldUpdated invokeMethod)
         {
-            if (e.Row == null)
-                return;
-           
-            var ARInvocieCuryInfo = from t in new PXGraph().Select<ARInvoice>()
-                                    where t.RefNbr == (e.Row as ARAdjust).AdjdRefNbr
-                                    select t;
-            e.ReturnValue = ARInvocieCuryInfo.FirstOrDefault()?.CuryLineTotal;
+            invokeMethod(e.Cache, e.Args);
+            // ReCalc usrRemCuryAdjdAmt
+            e.Cache.SetValue<ARAdjustExtension.usrRemCuryAdjdAmt>(e.Row,
+               (decimal?)e.Cache.GetValue<ARAdjustExtension.usrBaseBalance>(e.Row) - (decimal?)e.Cache.GetValue<ARAdjust.curyAdjdAmt>(e.Row));
         }
+
+        #endregion
     }
 }
