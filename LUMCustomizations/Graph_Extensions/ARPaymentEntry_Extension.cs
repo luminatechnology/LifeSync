@@ -13,7 +13,8 @@ namespace PX.Objects.AR
     public class ARPaymentEntry_Extension : PXGraphExtension<ARPaymentEntry>
     {
         [PXUIField]
-        [PXMergeAttributes(Method = MergeMethod.Append)]
+        [PXDBDecimal(2)]
+        [PXMergeAttributes(Method = MergeMethod.Merge)]
         protected virtual void _(Events.CacheAttached<ARAdjust.curyAdjdAmt> e) { }
 
         protected virtual void _(Events.RowSelected<ARAdjust> e, PXRowSelected BaseMethod)
@@ -32,7 +33,7 @@ namespace PX.Objects.AR
             var ARInvocieCuryInfo = from t in new PXGraph().Select<ARInvoice>()
                                     where t.RefNbr == (e.Row as ARAdjust).AdjdRefNbr
                                     select t;
-            e.ReturnValue = $"{ARInvocieCuryInfo.FirstOrDefault()?.CuryLineTotal}";
+            e.ReturnValue = ARInvocieCuryInfo.FirstOrDefault()?.CuryLineTotal;
         }
     }
 }

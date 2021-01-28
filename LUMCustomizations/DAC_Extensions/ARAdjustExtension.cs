@@ -11,8 +11,9 @@ namespace PX.Objects.AR
 {
     public class ARAdjustExtension :  PXCacheExtension<ARAdjust>
     {
+        [PXDecimal(2)]
         [PXUIField(DisplayName = "Ref. Balance")]
-        public virtual string UsrBaseBalance { get; set; }
-        public abstract class usrBaseBalance : BqlType<IBqlString, string>.Field<ARAdjustExtension.usrBaseBalance> { }
+        public virtual Decimal? UsrBaseBalance { get; set; }
+        public abstract class usrBaseBalance : BqlType<IBqlDecimal, decimal>.Field<ARAdjustExtension.usrBaseBalance> { }
     }
 }
