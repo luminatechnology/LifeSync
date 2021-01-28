@@ -1799,7 +1799,7 @@
             </PageHeader>
             <Detail Name="detailSection1">
                 <GridSize>8px, 8px</GridSize>
-                <Height>56px</Height>
+                <Height>40px</Height>
                 <PrintEmpty>False</PrintEmpty>
                 <Variables>
                     <ReportVariable>
@@ -1816,7 +1816,7 @@
                     <TextBox Name="textBox72">
                         <Format>#0.00</Format>
                         <Location>584px, 0px</Location>
-                        <Size>104px, 56px</Size>
+                        <Size>104px, 40px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -1840,7 +1840,7 @@
                     <TextBox Name="textBox73">
                         <Format>#0.00</Format>
                         <Location>480px, 0px</Location>
-                        <Size>104px, 56px</Size>
+                        <Size>104px, 40px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -1863,7 +1863,7 @@
                     </TextBox>
                     <TextBox Name="textBox74">
                         <Location>200px, 0px</Location>
-                        <Size>280px, 56px</Size>
+                        <Size>280px, 40px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -1881,11 +1881,11 @@
                                 <Top>5px</Top>
                             </Padding>
                         </Style>
-                        <Value>=Left([GLTran.AccountID], 3)#010;+ '.'#010;+ Right([GLTran.AccountID], 3)#010;+ ' - ' #010;+ [GLTran.AccountID_Account_description]</Value>
+                        <Value>=Left([GLTran.AccountID], 3)#010;+ '.'#010;+ Right([GLTran.AccountID], 3)#010;+ ' － ' #010;+ [GLTran.AccountID_Account_description]</Value>
                     </TextBox>
                     <TextBox Name="textBox75">
                         <Location>8px, 0px</Location>
-                        <Size>192px, 56px</Size>
+                        <Size>192px, 40px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -1905,7 +1905,7 @@
                                 <Top>5px</Top>
                             </Padding>
                         </Style>
-                        <Value>=[GLTran.TranDesc] + #010;IIF([GLTran.InventoryID] &lt;&gt; null, ' - ' + [InventoryItem.Descr], '') +#010;IIF([GLTran.ReferenceID] &lt;&gt; null, ' - ' + [VendorR.AcctName], '')</Value>
+                        <Value>=[GLTran.TranDesc] + #010;IIF([GLTran.InventoryID] &lt;&gt; null, ' － ' + [InventoryItem.Descr], '') +#010;IIF([GLTran.ReferenceID] &lt;&gt; null, ' － ' + [VendorR.AcctName], '')</Value>
                     </TextBox>
                 </Items>
             </Detail>
