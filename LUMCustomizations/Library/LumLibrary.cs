@@ -29,6 +29,15 @@ namespace LUMCustomizations.Library
             }
         }
 
+        public bool GetCrossRateOverride
+        {
+            get 
+            {
+                return this._lifesyncPreference?.CrossRateOverride ?? false;
+
+            }
+        }
+
         public bool GetProformaInvoicePrinting
         {
             get

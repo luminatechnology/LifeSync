@@ -4710,7 +4710,6 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="SJM">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = 'SJM' Or @Customer = 'SJM')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
@@ -4811,7 +4810,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>=IIF(@ShipmentUOM = null ,'BOX',@ShipmentUOM)</Value>
+                        <Value>=IIF(@ShipmentUOM = null ,'PCS',@ShipmentUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox178">
                         <Format>='N0'</Format>
@@ -4853,7 +4852,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>=IIF(@ContainerUOM = null ,'BOX',@ContainerUOM)</Value>
+                        <Value>=IIF(@ContainerUOM = null ,'PCS',@ContainerUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox181">
                         <Format>='N0'</Format>
