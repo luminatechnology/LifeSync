@@ -16,47 +16,37 @@
         <Filters>
             <FilterExp>
                 <DataField>Batch.BatchNbr</DataField>
-                <OpenBraces>2</OpenBraces>
-                <Operator>Or</Operator>
+                <OpenBraces>1</OpenBraces>
                 <Value>@BatchNbr</Value>
             </FilterExp>
             <FilterExp>
-                <CloseBraces>1</CloseBraces>
-                <Condition>IsNull</Condition>
+                <Condition>IsNotNull</Condition>
                 <DataField>@BatchNbr</DataField>
             </FilterExp>
             <FilterExp>
+                <DataField>Batch.Released</DataField>
+                <Value>True</Value>
+            </FilterExp>
+            <FilterExp>
+                <CloseBraces>1</CloseBraces>
+                <DataField>@UseBatchNbr</DataField>
+                <Operator>Or</Operator>
+                <Value>False</Value>
+            </FilterExp>
+            <FilterExp>
+                <CloseBraces>1</CloseBraces>
                 <DataField>Batch.Released</DataField>
                 <OpenBraces>1</OpenBraces>
                 <Value>True</Value>
             </FilterExp>
             <FilterExp>
-                <DataField>Batch.LedgerID</DataField>
-                <OpenBraces>1</OpenBraces>
-                <Operator>Or</Operator>
-                <Value>@LedgerID</Value>
-            </FilterExp>
-            <FilterExp>
-                <CloseBraces>1</CloseBraces>
-                <Condition>IsNull</Condition>
-                <DataField>@LedgerID</DataField>
-            </FilterExp>
-            <FilterExp>
-                <Condition>BelongsTo</Condition>
-                <DataField>Batch.BranchID</DataField>
-                <OpenBraces>1</OpenBraces>
-                <Operator>Or</Operator>
-                <Value>@OrgBAccountID</Value>
-            </FilterExp>
-            <FilterExp>
-                <CloseBraces>1</CloseBraces>
-                <Condition>IsNull</Condition>
-                <DataField>@OrgBAccountID</DataField>
-            </FilterExp>
-            <FilterExp>
                 <DataField>@UseBatchNbr</DataField>
                 <OpenBraces>2</OpenBraces>
                 <Value>False</Value>
+            </FilterExp>
+            <FilterExp>
+                <Condition>IsNull</Condition>
+                <DataField>@BatchNbr</DataField>
             </FilterExp>
             <FilterExp>
                 <Condition>GreaterOrEqual</Condition>
@@ -108,7 +98,7 @@
                 <Value>@BatchNbrTo</Value>
             </FilterExp>
             <FilterExp>
-                <CloseBraces>5</CloseBraces>
+                <CloseBraces>3</CloseBraces>
                 <Condition>IsNull</Condition>
                 <DataField>@BatchNbrTo</DataField>
             </FilterExp>
@@ -125,6 +115,7 @@
             <ReportParameter>
                 <ColumnSpan>2</ColumnSpan>
                 <Name>BatchNbr</Name>
+                <Nullable>True</Nullable>
                 <Prompt>Batch Nbr</Prompt>
             </ReportParameter>
             <ReportParameter>
@@ -134,6 +125,7 @@
                 <Nullable>True</Nullable>
                 <Prompt>Company/Branch</Prompt>
                 <ViewName>=Report.GetFieldSchema('OrganizationBranchReportParameters.OrgBAccountID')</ViewName>
+                <Visible>False</Visible>
             </ReportParameter>
             <ReportParameter>
                 <ColumnSpan>2</ColumnSpan>
@@ -142,6 +134,7 @@
                 <Prompt>Ledger</Prompt>
                 <Required>True</Required>
                 <ViewName>=Report.GetFieldSchema('OrganizationBranchReportParameters.NotBudgetLedgerIDByBAccount,OrgBAccountID')</ViewName>
+                <Visible>False</Visible>
             </ReportParameter>
             <ReportParameter>
                 <ColumnSpan>2</ColumnSpan>

@@ -46,8 +46,8 @@
         <PageSettings>
             <Landscape>True</Landscape>
             <Margins>
-                <Left>1cm</Left>
-                <Right>1cm</Right>
+                <Left>0.2cm</Left>
+                <Right>0.2cm</Right>
             </Margins>
             <PaperKind>A5</PaperKind>
         </PageSettings>
@@ -2121,7 +2121,7 @@
                 <Height>2.75132cm</Height>
                 <Items>
                     <TextBox Name="textBox11">
-                        <Location>600px, 88px</Location>
+                        <Location>656px, 88px</Location>
                         <Size>120px, 16px</Size>
                         <Style>
                             <Font>
@@ -2131,7 +2131,7 @@
                         <Value>=[INRegister.AttributePRODLINE]</Value>
                     </TextBox>
                     <TextBox Name="textBox12">
-                        <Location>544px, 88px</Location>
+                        <Location>600px, 88px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
@@ -2141,7 +2141,7 @@
                         <Value>工作中心:</Value>
                     </TextBox>
                     <TextBox Name="textBox14">
-                        <Location>304px, 88px</Location>
+                        <Location>352px, 88px</Location>
                         <Size>120px, 16px</Size>
                         <Style>
                             <Font>
@@ -2151,7 +2151,7 @@
                         <Value>=[INRegister.AttributeDEPARTMENT]</Value>
                     </TextBox>
                     <TextBox Name="textBox15">
-                        <Location>248px, 88px</Location>
+                        <Location>296px, 88px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
@@ -2171,7 +2171,7 @@
                         <Value>=[INRegister.RefNbr]</Value>
                     </TextBox>
                     <TextBox Name="textBox17">
-                        <Location>544px, 72px</Location>
+                        <Location>600px, 72px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
@@ -2182,18 +2182,20 @@
                     </TextBox>
                     <TextBox Name="textBox18">
                         <Format>='yyyy-MM-dd'</Format>
-                        <Location>600px, 72px</Location>
+                        <Location>656px, 72px</Location>
                         <Size>120px, 16px</Size>
                         <Value>=[INRegister.TranDate]</Value>
                     </TextBox>
                     <TextBox Name="textBox19">
-                        <Location>264px, 0px</Location>
-                        <Size>192px, 32px</Size>
+                        <Location>0px, 0px</Location>
+                        <Size>776px, 32px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
                                 <Size>22px</Size>
                             </Font>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <Value>美博电子有限公司</Value>
                     </TextBox>
@@ -2208,7 +2210,7 @@
                         <Value>单别单号:</Value>
                     </TextBox>
                     <TextBox Name="textBox27">
-                        <Location>296px, 40px</Location>
+                        <Location>344px, 40px</Location>
                         <Size>96px, 24px</Size>
                         <Style>
                             <Font>
@@ -2223,7 +2225,7 @@
                         <Excel>
                             <column>10</column>
                         </Excel>
-                        <Location>632px, 40px</Location>
+                        <Location>688px, 40px</Location>
                         <Size>84px, 14px</Size>
                         <Style>
                             <TextAlign>Right</TextAlign>
@@ -2244,7 +2246,7 @@
                 </Variables>
                 <Items>
                     <TextBox Name="textBox10">
-                        <Location>448px, 0px</Location>
+                        <Location>504px, 0px</Location>
                         <Size>48px, 32px</Size>
                         <Style>
                             <BorderStyle>
@@ -2266,7 +2268,7 @@
                     </TextBox>
                     <TextBox Name="textBox13">
                         <Format>=IIF([INTranSplit.Qty] - Floor([INTranSplit.Qty]) &gt; 0,'N2','N0')</Format>
-                        <Location>304px, 0px</Location>
+                        <Location>360px, 0px</Location>
                         <Size>64px, 32px</Size>
                         <Style>
                             <BorderStyle>
@@ -2287,7 +2289,7 @@
                         <Value>=[INTranSplit.Qty]</Value>
                     </TextBox>
                     <TextBox Name="textBox2">
-                        <Location>600px, 0px</Location>
+                        <Location>656px, 0px</Location>
                         <Size>120px, 32px</Size>
                         <Style>
                             <BorderStyle>
@@ -2312,7 +2314,7 @@
                     </TextBox>
                     <TextBox Name="textBox20">
                         <Location>96px, 0px</Location>
-                        <Size>208px, 32px</Size>
+                        <Size>264px, 32px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2379,7 +2381,7 @@
                         <Value>=PadLeft(CStr($LineNbr), 4, '0')</Value>
                     </TextBox>
                     <TextBox Name="textBox24">
-                        <Location>368px, 0px</Location>
+                        <Location>424px, 0px</Location>
                         <Size>80px, 32px</Size>
                         <Style>
                             <BorderStyle>
@@ -2400,7 +2402,7 @@
                         <Value>=[INTranSplit.LotSerialNbr]</Value>
                     </TextBox>
                     <TextBox Name="textBox3">
-                        <Location>552px, 0px</Location>
+                        <Location>608px, 0px</Location>
                         <Size>48px, 32px</Size>
                         <Style>
                             <BorderStyle>
@@ -2421,7 +2423,7 @@
                         <Value>=[InventoryItem.BIN_Attributes]</Value>
                     </TextBox>
                     <TextBox Name="textBox4">
-                        <Location>496px, 0px</Location>
+                        <Location>552px, 0px</Location>
                         <Size>56px, 32px</Size>
                         <Style>
                             <BorderStyle>
@@ -2511,7 +2513,7 @@
                             </TextBox>
                             <TextBox Name="textBox28">
                                 <Location>96px, 0px</Location>
-                                <Size>208px, 24px</Size>
+                                <Size>264px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
@@ -2533,7 +2535,7 @@
                                 <Value>品名规格</Value>
                             </TextBox>
                             <TextBox Name="textBox29">
-                                <Location>304px, 0px</Location>
+                                <Location>360px, 0px</Location>
                                 <Size>64px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2556,7 +2558,7 @@
                                 <Value>数量</Value>
                             </TextBox>
                             <TextBox Name="textBox30">
-                                <Location>448px, 0px</Location>
+                                <Location>504px, 0px</Location>
                                 <Size>48px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2579,7 +2581,7 @@
                                 <Value>单位</Value>
                             </TextBox>
                             <TextBox Name="textBox31">
-                                <Location>496px, 0px</Location>
+                                <Location>552px, 0px</Location>
                                 <Size>56px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2602,7 +2604,7 @@
                                 <Value>仓库</Value>
                             </TextBox>
                             <TextBox Name="textBox32">
-                                <Location>552px, 0px</Location>
+                                <Location>608px, 0px</Location>
                                 <Size>48px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2625,7 +2627,7 @@
                                 <Value>库位</Value>
                             </TextBox>
                             <TextBox Name="textBox33">
-                                <Location>600px, 0px</Location>
+                                <Location>656px, 0px</Location>
                                 <Size>120px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2648,7 +2650,7 @@
                                 <Value>备注</Value>
                             </TextBox>
                             <TextBox Name="textBox34">
-                                <Location>368px, 0px</Location>
+                                <Location>424px, 0px</Location>
                                 <Size>80px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2699,7 +2701,7 @@
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>184px, 8px</Location>
+                                <Location>232px, 8px</Location>
                                 <Size>32px, 16px</Size>
                                 <Style>
                                     <Font>
@@ -2713,7 +2715,7 @@
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>600px, 8px</Location>
+                                <Location>712px, 8px</Location>
                                 <Size>40px, 14px</Size>
                                 <Style>
                                     <Font>
@@ -2728,7 +2730,7 @@
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>464px, 8px</Location>
+                                <Location>560px, 8px</Location>
                                 <Size>64px, 16px</Size>
                                 <Style>
                                     <Font>
@@ -2743,7 +2745,7 @@
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>352px, 8px</Location>
+                                <Location>440px, 8px</Location>
                                 <Size>40px, 14px</Size>
                                 <Style>
                                     <Font>
@@ -2758,7 +2760,7 @@
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>360px, 8px</Location>
+                                <Location>448px, 8px</Location>
                                 <Size>32px, 16px</Size>
                                 <Style>
                                     <Font>
@@ -2772,7 +2774,7 @@
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>248px, 8px</Location>
+                                <Location>328px, 8px</Location>
                                 <Size>32px, 14px</Size>
                                 <Style>
                                     <Font>
@@ -2787,7 +2789,7 @@
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>120px, 8px</Location>
+                                <Location>136px, 8px</Location>
                                 <Size>40px, 14px</Size>
                                 <Style>
                                     <Font>
@@ -2817,7 +2819,7 @@
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>528px, 8px</Location>
+                                <Location>640px, 8px</Location>
                                 <Size>32px, 16px</Size>
                                 <Style>
                                     <Font>
