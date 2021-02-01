@@ -8,6 +8,11 @@ namespace PX.Objects.IN
 {
     public class ARInvoiceEntry_Extension : PXGraphExtension<ARInvoiceEntry>
     {
+        public static bool IsActive()
+        {
+            //active customize button if current company is ABA China
+            return PX.Data.Update.PXInstanceHelper.CurrentCompany == 3;
+        }
         public override void Initialize()
         {
             base.Initialize();
