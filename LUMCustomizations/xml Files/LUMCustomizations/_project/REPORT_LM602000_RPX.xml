@@ -46,6 +46,10 @@
                         <ChildField>SOOrder.OrderNbr</ChildField>
                         <ParentField>ARTran.SOOrderNbr</ParentField>
                     </RelationRow>
+                    <RelationRow>
+                        <ChildField>OrderType</ChildField>
+                        <ParentField>SOOrderType</ParentField>
+                    </RelationRow>
                 </Links>
                 <ParentName>ARTran</ParentName>
             </ReportRelation>
