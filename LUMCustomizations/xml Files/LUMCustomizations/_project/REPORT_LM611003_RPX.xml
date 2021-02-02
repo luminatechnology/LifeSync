@@ -59,7 +59,7 @@
                 <ParentName>AMVendorShipLine</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/ABA_AcumaticaDB1/</SchemaUrl>
+        <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
         <StylesTemplate>TemplateReport.rpx</StylesTemplate>
         <Tables>
             <ReportTable Name="AMVendorShipment">
@@ -1195,6 +1195,11 @@
                     <TextBox Name="textBox10">
                         <Location>776px, 88px</Location>
                         <Size>64px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
                         <StyleName>ChineseFont</StyleName>
                         <Value>工作中心：</Value>
                     </TextBox>
@@ -1202,6 +1207,11 @@
                         <Format>='0.0000'</Format>
                         <Location>840px, 40px</Location>
                         <Size>3.1746cm, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
                         <StyleName>ChineseFont</StyleName>
                         <Value>=[WIPShipLine.Qty]</Value>
                     </TextBox>
@@ -1209,12 +1219,22 @@
                         <Format>='yyyy-MM-dd'</Format>
                         <Location>840px, 64px</Location>
                         <Size>3.1746cm, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
                         <StyleName>ChineseFont</StyleName>
                         <Value>=[AMVendorShipment.ShipmentDate]</Value>
                     </TextBox>
                     <TextBox Name="textBox13">
                         <Location>840px, 88px</Location>
                         <Size>3.1746cm, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
                         <StyleName>ChineseFont</StyleName>
                         <Value>=[WIPShipLine.OperationID]</Value>
                     </TextBox>
@@ -1222,6 +1242,9 @@
                         <Location>488px, 40px</Location>
                         <Size>96px, 24px</Size>
                         <Style>
+                            <Font>
+                                <Size>14px</Size>
+                            </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
@@ -1237,48 +1260,88 @@
                     <TextBox Name="textBox2">
                         <Location>32px, 40px</Location>
                         <Size>64px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
                         <StyleName>ChineseFont</StyleName>
                         <Value>领料工单：</Value>
                     </TextBox>
                     <TextBox Name="textBox3">
                         <Location>32px, 64px</Location>
                         <Size>64px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
                         <StyleName>ChineseFont</StyleName>
                         <Value>工单单号：</Value>
                     </TextBox>
                     <TextBox Name="textBox4">
                         <Location>32px, 88px</Location>
                         <Size>64px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
                         <StyleName>ChineseFont</StyleName>
                         <Value>产品型号：</Value>
                     </TextBox>
                     <TextBox Name="textBox5">
                         <Location>96px, 40px</Location>
                         <Size>3.1746cm, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
                         <StyleName>ChineseFont</StyleName>
                         <Value>=[AMVendorShipment.ShipmentNbr]</Value>
                     </TextBox>
                     <TextBox Name="textBox6">
                         <Location>96px, 64px</Location>
                         <Size>3.1746cm, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
                         <StyleName>ChineseFont</StyleName>
                         <Value>=[WIPShipLine.ProdOrdID]</Value>
                     </TextBox>
                     <TextBox Name="textBox7">
                         <Location>96px, 88px</Location>
                         <Size>3.1746cm, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
                         <StyleName>ChineseFont</StyleName>
                         <Value>=[WIPShipLine.InventoryID]</Value>
                     </TextBox>
                     <TextBox Name="textBox8">
                         <Location>776px, 40px</Location>
                         <Size>64px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
                         <StyleName>ChineseFont</StyleName>
                         <Value>生产套数：</Value>
                     </TextBox>
                     <TextBox Name="textBox9">
                         <Location>776px, 64px</Location>
                         <Size>64px, 24px</Size>
+                        <Style>
+                            <Font>
+                                <Size>12px</Size>
+                            </Font>
+                        </Style>
                         <StyleName>ChineseFont</StyleName>
                         <Value>领料日期：</Value>
                     </TextBox>
@@ -1297,6 +1360,9 @@
                         <Location>32px, 0px</Location>
                         <Size>72px, 48px</Size>
                         <Style>
+                            <Font>
+                                <Size>14px</Size>
+                            </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
@@ -1307,6 +1373,9 @@
                         <Location>104px, 0px</Location>
                         <Size>136px, 48px</Size>
                         <Style>
+                            <Font>
+                                <Size>14px</Size>
+                            </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
@@ -1328,6 +1397,9 @@
                         <Location>432px, 0px</Location>
                         <Size>112px, 48px</Size>
                         <Style>
+                            <Font>
+                                <Size>14px</Size>
+                            </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
@@ -1338,6 +1410,9 @@
                         <Location>640px, 0px</Location>
                         <Size>96px, 48px</Size>
                         <Style>
+                            <Font>
+                                <Size>14px</Size>
+                            </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
@@ -1348,26 +1423,35 @@
                         <Location>736px, 0px</Location>
                         <Size>88px, 48px</Size>
                         <Style>
+                            <Font>
+                                <Size>14px</Size>
+                            </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <StyleName>ChineseFont</StyleName>
-                        <Value>=[MATShipLine.SiteID_description]</Value>
+                        <Value>=[MATShipLine.SiteID]</Value>
                     </TextBox>
                     <TextBox Name="textBox31">
                         <Location>824px, 0px</Location>
                         <Size>88px, 48px</Size>
                         <Style>
+                            <Font>
+                                <Size>14px</Size>
+                            </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <StyleName>ChineseFont</StyleName>
-                        <Value>=[MATShipLine.LocationID_description]</Value>
+                        <Value>=[MATItem.BIN_Attributes]</Value>
                     </TextBox>
                     <TextBox Name="textBox32">
                         <Location>912px, 0px</Location>
                         <Size>104px, 48px</Size>
                         <Style>
+                            <Font>
+                                <Size>14px</Size>
+                            </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
@@ -1427,6 +1511,9 @@
                                 <Location>32px, 0px</Location>
                                 <Size>72px, 24px</Size>
                                 <Style>
+                                    <Font>
+                                        <Size>14px</Size>
+                                    </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
                                 </Style>
@@ -1437,6 +1524,9 @@
                                 <Location>104px, 0px</Location>
                                 <Size>136px, 24px</Size>
                                 <Style>
+                                    <Font>
+                                        <Size>14px</Size>
+                                    </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
                                 </Style>
@@ -1447,6 +1537,9 @@
                                 <Location>240px, 0px</Location>
                                 <Size>192px, 24px</Size>
                                 <Style>
+                                    <Font>
+                                        <Size>14px</Size>
+                                    </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
                                 </Style>
@@ -1457,6 +1550,9 @@
                                 <Location>432px, 0px</Location>
                                 <Size>112px, 24px</Size>
                                 <Style>
+                                    <Font>
+                                        <Size>14px</Size>
+                                    </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
                                 </Style>
@@ -1467,6 +1563,9 @@
                                 <Location>544px, 0px</Location>
                                 <Size>96px, 24px</Size>
                                 <Style>
+                                    <Font>
+                                        <Size>14px</Size>
+                                    </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
                                 </Style>
@@ -1477,6 +1576,9 @@
                                 <Location>640px, 0px</Location>
                                 <Size>96px, 24px</Size>
                                 <Style>
+                                    <Font>
+                                        <Size>14px</Size>
+                                    </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
                                 </Style>
@@ -1487,6 +1589,9 @@
                                 <Location>736px, 0px</Location>
                                 <Size>88px, 24px</Size>
                                 <Style>
+                                    <Font>
+                                        <Size>14px</Size>
+                                    </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
                                 </Style>
@@ -1497,6 +1602,9 @@
                                 <Location>912px, 0px</Location>
                                 <Size>104px, 24px</Size>
                                 <Style>
+                                    <Font>
+                                        <Size>14px</Size>
+                                    </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
                                 </Style>
@@ -1507,6 +1615,9 @@
                                 <Location>824px, 0px</Location>
                                 <Size>88px, 24px</Size>
                                 <Style>
+                                    <Font>
+                                        <Size>14px</Size>
+                                    </Font>
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
                                 </Style>
