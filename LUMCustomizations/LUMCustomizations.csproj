@@ -107,6 +107,7 @@
     <Compile Include="Descriptor\Attribute.cs" />
     <Compile Include="Graph\InternalCostModelMaint.cs" />
     <Compile Include="Graph\LifeSyncPreferenceMaint.cs" />
+    <Compile Include="Graph\LumCostRoll.cs" />
     <Compile Include="Graph\LumItemsCOCMaint.cs" />
     <Compile Include="Graph\LumShipmentPlanMaint.cs" />
     <Compile Include="Graph_Extensions\APInvoiceEntry_Extension.cs" />
