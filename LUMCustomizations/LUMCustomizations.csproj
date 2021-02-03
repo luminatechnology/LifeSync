@@ -97,6 +97,7 @@
     <Compile Include="DAC_Extensions\AMPordMatlExtension.cs" />
     <Compile Include="DAC_Extensions\AMProdEvntExtension.cs" />
     <Compile Include="DAC_Extensions\AMProdItemExtensions.cs" />
+    <Compile Include="DAC_Extensions\ARAdjustExtension.cs" />
     <Compile Include="DAC_Extensions\BatchExtensions.cs" />
     <Compile Include="DAC_Extensions\POLineExtensions.cs" />
     <Compile Include="DAC_Extensions\SOLineExtensions.cs" />
@@ -108,12 +109,15 @@
     <Compile Include="Graph\LifeSyncPreferenceMaint.cs" />
     <Compile Include="Graph\LumItemsCOCMaint.cs" />
     <Compile Include="Graph\LumShipmentPlanMaint.cs" />
+    <Compile Include="Graph_Extensions\APInvoiceEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\ARInvoiceEntry_Extension.cs" />
+    <Compile Include="Graph_Extensions\ARPaymentEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\INIssueEntry.cs" />
     <Compile Include="Graph_Extensions\INPIReview_Extension.cs" />
     <Compile Include="Graph_Extensions\INReceiptEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\JournalEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\MaterialEntry.cs" />
+    <Compile Include="Graph_Extensions\MatlWizard1_Extension.cs" />
     <Compile Include="Graph_Extensions\MoveEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\POOrderEntry_Extensions.cs" />
     <Compile Include="Graph_Extensions\POReceiptEntry _Extensions.cs" />
@@ -122,6 +126,7 @@
     <Compile Include="Graph_Extensions\SOOrderEntry.cs" />
     <Compile Include="Graph_Extensions\SOShipmentEntry.cs" />
     <Compile Include="Graph_Extensions\VendorShipmentEntry_Extension.cs" />
+    <Compile Include="Library\LumLibrary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

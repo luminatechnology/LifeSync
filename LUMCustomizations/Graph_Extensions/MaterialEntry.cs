@@ -7,6 +7,11 @@ namespace JAMS.AM
 {
     public class MaterialEntry_Extension : PXGraphExtension<MaterialEntry>
     {
+        public static bool IsActive()
+        {
+            //active customize button if current company is ABA China and HK 
+            return PX.Data.Update.PXInstanceHelper.CurrentCompany == 3 || PX.Data.Update.PXInstanceHelper.CurrentCompany == 4;
+        }
         public override void Initialize()
         {
             ReportAction.AddMenuAction(MaterialIssuesAction);

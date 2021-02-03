@@ -1,8 +1,10 @@
 ﻿using LumCustomizations.DAC;
+using LUMCustomizations.Library;
 using PX.Data;
 using PX.Data.BQL;
 using PX.Data.BQL.Fluent;
 using PX.Objects.CS;
+using PX.Objects.GL;
 using PX.Objects.IN;
 using System;
 using System.Collections;
@@ -27,6 +29,15 @@ namespace PX.Objects.PO
             Base.report.AddMenuAction(DomesticPO);
             Base.report.AddMenuAction(OverseasPO);
         }
+
+        public virtual void _(Events.RowSelected<POOrder> e)
+        {
+            var _library = new LumLibrary();
+            var BaseCuryID = _library.GetCompanyBaseCuryID();
+            PXUIFieldAttribute.SetDisplayName<POOrder.orderTotal>(e.Cache, $"Total in {BaseCuryID}");
+            PXUIFieldAttribute.SetVisible<POOrder.orderTotal>(e.Cache, null, _library.GetShowingTotalInHome);
+        }
+
 
         #region Action
         public PXAction<POOrder> DomesticPO;

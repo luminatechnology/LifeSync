@@ -185,7 +185,7 @@
                 <ParentName>BAccount</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/ABA_AcumaticaDB1/</SchemaUrl>
+        <SchemaUrl>https://healthedge.acumatica.com</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>SOShipment.ShipmentNbr</DataField>
@@ -5315,7 +5315,6 @@
                             </Panel>
                             <PictureBox Name="pictureBox1">
                                 <Location>0px, 0px</Location>
-                                <MimeType />
                                 <QRCodeSettings />
                                 <Size>232px, 40px</Size>
                                 <Source>Database</Source>

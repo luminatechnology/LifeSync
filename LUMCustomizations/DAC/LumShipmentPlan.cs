@@ -88,7 +88,8 @@ namespace LumCustomizations.DAC
         [PXDBString(50, IsUnicode = true)]
         [PXUIField(DisplayName = "Customer", Enabled = true)]
         [PXSelector(typeof(Search<CSAttributeDetail.valueID, Where<CSAttributeDetail.attributeID, Equal<LumShipmentPlanMaint.ENDCAttr>>>),
-                    typeof(CSAttributeDetail.description))]
+                    typeof(CSAttributeDetail.description),
+                    ValidateValue = false)]
         public virtual string Customer { get; set; }
         public abstract class customer : PX.Data.BQL.BqlString.Field<LumShipmentPlan.customer> { }
         #endregion
@@ -177,7 +178,7 @@ namespace LumCustomizations.DAC
         #endregion
 
         #region ProdLine        
-        [PXDBString(255, InputMask = "", IsUnicode = true)]
+        [PXDBString(1, InputMask = "", IsUnicode = true)]
         [PXUIField(DisplayName = "Production Line", Enabled = false)]
         public virtual string ProdLine { get; set; }
         public abstract class prodLine : PX.Data.BQL.BqlString.Field<LumShipmentPlan.prodLine> { }

@@ -54,6 +54,7 @@ namespace LumCustomizations.Graph
             Report.AddMenuAction(printPackingList);
             Report.AddMenuAction(COCReport);
             Report.AddMenuAction(CommericalInvoice);
+            Report.AddMenuAction(DGCommericalInvoice);
         }
         #endregion
 
@@ -160,6 +161,25 @@ namespace LumCustomizations.Graph
             if (parameters["ShipmentNbr"] != null && parameters["ShipmentPlanID"] != null)
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
             return adapter.Get<SOShipment>().ToList();
+        }
+
+        
+        public PXAction<SOShipment> DGCommericalInvoice;
+        [PXButton]
+        [PXUIField(DisplayName = "DG to HK Invoice Report", Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        protected virtual IEnumerable dGcommericalInvoice(PXAdapter adapter)
+        {
+            var _reportID = "LM602020";
+            if (string.IsNullOrEmpty(this.GetCacheCurrent<LumShipmentPlan>().Current.ShipmentNbr))
+                throw new PXException("ShipmentNbr Can Not be null");
+            var parameters = new Dictionary<string, string>()
+            {
+                ["ShipmentNbr"] = this.GetCacheCurrent<LumShipmentPlan>().Current.ShipmentNbr
+            };
+            if (parameters["ShipmentNbr"] != null)
+                throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
+            return adapter.Get<SOShipment>().ToList();
+            
         }
         #endregion
 
@@ -281,9 +301,8 @@ namespace LumCustomizations.Graph
                             break;
                     }
                 }
-
-                row.EndCartonNbr = row.StartCartonNbr + (int)Math.Round((row.PlannedShipQty / qtyCarton).Value, 0);
-                row.EndLabelNbr = row.StartLabelNbr + (int)Math.Round((row.PlannedShipQty / qtyCarton).Value, 0);
+                row.EndCartonNbr = (row.StartCartonNbr ?? 1) + (int)Math.Ceiling((row.PlannedShipQty / qtyCarton).Value) - 1;
+                row.EndLabelNbr = (row.StartLabelNbr ?? 1) + (int)Math.Ceiling((row.PlannedShipQty / qtyCarton).Value) - 1;
                 row.CartonQty = qtyCarton == 0 ? 5000M : (decimal)e.NewValue / qtyCarton;
                 row.NetWeight = (decimal)e.NewValue * item.BaseItemWeight;
                 row.GrossWeight = (decimal)e.NewValue * grsWeight;

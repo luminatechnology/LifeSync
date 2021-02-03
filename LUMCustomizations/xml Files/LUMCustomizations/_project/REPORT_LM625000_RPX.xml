@@ -28,6 +28,22 @@
         <GridSize>4px, 4px</GridSize>
         <MailSettings>
             <ActivitySource>AMProdItem.NoteID</ActivitySource>
+            <Bcc>
+            </Bcc>
+            <Body>
+            </Body>
+            <Cc>
+            </Cc>
+            <Format>
+            </Format>
+            <ParentSource>
+            </ParentSource>
+            <Subject>
+            </Subject>
+            <TemplateID>
+            </TemplateID>
+            <To>
+            </To>
         </MailSettings>
         <PageSettings>
             <Margins>
@@ -169,7 +185,7 @@
                 <ParentName>AMProdMatl</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>https://healthedge.acumatica.com</SchemaUrl>
+        <SchemaUrl>http://localhost/ABA_AcumaticaDB1/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>AMProdItem.OrderType</DataField>
@@ -4399,7 +4415,7 @@
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <StyleName>ChineseFont</StyleName>
-                        <Value>=[AMProdMatl.TotalQtyRequired]-([AMProdItem.QtytoProd]*[AMProdMatl.QtyReq])</Value>
+                        <Value>=[AMProdMatl.ScrapFactor]</Value>
                     </TextBox>
                     <TextBox Name="textBox46">
                         <Format>=IIF([AMProdMatl.UOM] = 'PCS', 'N0', 'N2')</Format>
@@ -4423,7 +4439,7 @@
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <StyleName>ChineseFont</StyleName>
-                        <Value>=[AMProdItem.QtytoProd]*[AMProdMatl.QtyReq]</Value>
+                        <Value>=IIF([InventoryItem.AMQtyRoundUp] =1, Ceiling([AMProdItem.QtytoProd]*[AMProdMatl.QtyReq] / [AMProdMatl.BatchSize]),[AMProdItem.QtytoProd]*[AMProdMatl.QtyReq] / [AMProdMatl.BatchSize])</Value>
                     </TextBox>
                 </Items>
             </Detail>

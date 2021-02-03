@@ -26,6 +26,14 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 <Value>@OrderNbr</Value>
             </FilterExp>
         </Filters>
+        <PageSettings>
+            <Margins>
+                <Bottom>0.5cm</Bottom>
+                <Left>0.5cm</Left>
+                <Right>0.5cm</Right>
+                <Top>0.5cm</Top>
+            </Margins>
+        </PageSettings>
         <Parameters>
             <ReportParameter>
                 <DefaultValue>2020110005</DefaultValue>
@@ -3334,11 +3342,11 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
         </Tables>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
-                <Height>6.77249cm</Height>
+                <Height>7.19577cm</Height>
                 <Items>
                     <Panel Name="panel1">
-                        <Location>24px, 88px</Location>
-                        <Size>656px, 168px</Size>
+                        <Location>24px, 104px</Location>
+                        <Size>712px, 168px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3373,7 +3381,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Location>8px, 136px</Location>
                                 <Size>64px, 16px</Size>
                                 <StyleName>ChineseFont</StyleName>
-                                <Value>联 系 人:</Value>
+                                <Value>联    系   人:</Value>
                             </TextBox>
                             <TextBox Name="textBox14">
                                 <Location>8px, 152px</Location>
@@ -3482,7 +3490,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Location>248px, 24px</Location>
                                 <Size>64px, 16px</Size>
                                 <StyleName>ChineseFont</StyleName>
-                                <Value>税种:</Value>
+                                <Value>税      种:</Value>
                             </TextBox>
                             <TextBox Name="textBox27">
                                 <Location>248px, 40px</Location>
@@ -3525,7 +3533,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Value>=[Contact.Fax]</Value>
                             </TextBox>
                             <TextBox Name="textBox32">
-                                <Location>512px, 8px</Location>
+                                <Location>536px, 8px</Location>
                                 <Size>120px, 16px</Size>
                                 <Style>
                                     <TextAlign>Left</TextAlign>
@@ -3534,13 +3542,13 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Value>1</Value>
                             </TextBox>
                             <TextBox Name="textBox33">
-                                <Location>448px, 8px</Location>
+                                <Location>472px, 8px</Location>
                                 <Size>64px, 16px</Size>
                                 <StyleName>ChineseFont</StyleName>
-                                <Value>汇率:</Value>
+                                <Value>汇      率:</Value>
                             </TextBox>
                             <TextBox Name="textBox34">
-                                <Location>512px, 24px</Location>
+                                <Location>536px, 24px</Location>
                                 <Size>120px, 16px</Size>
                                 <Style>
                                     <TextAlign>Left</TextAlign>
@@ -3549,13 +3557,13 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Value>=[POOrder.ShipVia]</Value>
                             </TextBox>
                             <TextBox Name="textBox35">
-                                <Location>448px, 24px</Location>
+                                <Location>472px, 24px</Location>
                                 <Size>64px, 16px</Size>
                                 <StyleName>ChineseFont</StyleName>
                                 <Value>运输方式:</Value>
                             </TextBox>
                             <TextBox Name="textBox36">
-                                <Location>512px, 40px</Location>
+                                <Location>536px, 40px</Location>
                                 <Size>120px, 16px</Size>
                                 <Style>
                                     <TextAlign>Left</TextAlign>
@@ -3563,13 +3571,13 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <StyleName>ChineseFont</StyleName>
                             </TextBox>
                             <TextBox Name="textBox37">
-                                <Location>448px, 40px</Location>
+                                <Location>472px, 40px</Location>
                                 <Size>64px, 16px</Size>
                                 <StyleName>ChineseFont</StyleName>
                                 <Value>价格说明:</Value>
                             </TextBox>
                             <TextBox Name="textBox38">
-                                <Location>512px, 56px</Location>
+                                <Location>536px, 56px</Location>
                                 <Size>120px, 16px</Size>
                                 <Style>
                                     <TextAlign>Left</TextAlign>
@@ -3578,10 +3586,10 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Value>=[POOrder.OrderDesc]</Value>
                             </TextBox>
                             <TextBox Name="textBox39">
-                                <Location>448px, 56px</Location>
+                                <Location>472px, 56px</Location>
                                 <Size>64px, 16px</Size>
                                 <StyleName>ChineseFont</StyleName>
-                                <Value>备注:</Value>
+                                <Value>备      注:</Value>
                             </TextBox>
                             <TextBox Name="textBox40">
                                 <Location>248px, 104px</Location>
@@ -3629,13 +3637,13 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Value>=[RemitContact.Phone1]</Value>
                             </TextBox>
                             <TextBox Name="textBox46">
-                                <Location>456px, 136px</Location>
+                                <Location>472px, 136px</Location>
                                 <Size>72px, 16px</Size>
                                 <StyleName>ChineseFont</StyleName>
                                 <Value>供应商传真:</Value>
                             </TextBox>
                             <TextBox Name="textBox47">
-                                <Location>528px, 136px</Location>
+                                <Location>552px, 136px</Location>
                                 <Size>112px, 16px</Size>
                                 <Style>
                                     <TextAlign>Left</TextAlign>
@@ -3670,15 +3678,16 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         </Items>
                     </Panel>
                     <PictureBox Name="pictureBox1">
-                        <Location>184px, 0px</Location>
+                        <Location>192px, 0px</Location>
                         <MimeType>image/jpeg</MimeType>
                         <QRCodeSettings />
-                        <Size>248px, 48px</Size>
+                        <Size>400px, 64px</Size>
+                        <Sizing>Fit</Sizing>
                         <Source>Embedded</Source>
                         <Value>aba_dg_logo</Value>
                     </PictureBox>
                     <TextBox Name="textBox1">
-                        <Location>264px, 56px</Location>
+                        <Location>320px, 72px</Location>
                         <Size>120px, 16px</Size>
                         <Style>
                             <Font>
@@ -3692,20 +3701,20 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Value>采购单</Value>
                     </TextBox>
                     <TextBox Name="textBox2">
-                        <Location>24px, 72px</Location>
+                        <Location>24px, 88px</Location>
                         <Size>64px, 16px</Size>
                         <StyleName>ChineseFont</StyleName>
                         <Value>制表日期:</Value>
                     </TextBox>
                     <TextBox Name="textBox3">
-                        <Location>584px, 72px</Location>
+                        <Location>600px, 88px</Location>
                         <Size>48px, 16px</Size>
                         <StyleName>ChineseFont</StyleName>
                         <Value>页次:</Value>
                     </TextBox>
                     <TextBox Name="textBox4">
                         <Format>='yyyy-MM-dd'</Format>
-                        <Location>88px, 72px</Location>
+                        <Location>88px, 88px</Location>
                         <Size>120px, 16px</Size>
                         <Style>
                             <Font>
@@ -3717,7 +3726,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Value>=Today()</Value>
                     </TextBox>
                     <TextBox Name="textBox5">
-                        <Location>632px, 72px</Location>
+                        <Location>648px, 88px</Location>
                         <Size>48px, 16px</Size>
                         <Style>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -3741,7 +3750,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 <Items>
                     <TextBox Name="textBox58">
                         <Location>24px, 0px</Location>
-                        <Size>48px, 56px</Size>
+                        <Size>40px, 56px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3764,8 +3773,8 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Value>=PadLeft(CStr($LineNbr), 4, '0')</Value>
                     </TextBox>
                     <TextBox Name="textBox59">
-                        <Location>72px, 0px</Location>
-                        <Size>64px, 56px</Size>
+                        <Location>64px, 0px</Location>
+                        <Size>72px, 56px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3787,7 +3796,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                     <TextBox Name="textBox60">
                         <CanGrow>True</CanGrow>
                         <Location>136px, 0px</Location>
-                        <Size>136px, 56px</Size>
+                        <Size>184px, 56px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3808,7 +3817,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Value>=[POLine.TranDesc]</Value>
                     </TextBox>
                     <TextBox Name="textBox61">
-                        <Location>272px, 0px</Location>
+                        <Location>320px, 0px</Location>
                         <Size>32px, 56px</Size>
                         <Style>
                             <BorderColor>
@@ -3831,8 +3840,8 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Value>=[InventoryItem.BUBBLENO_Attributes]</Value>
                     </TextBox>
                     <TextBox Name="textBox62">
-                        <Location>304px, 0px</Location>
-                        <Size>32px, 56px</Size>
+                        <Location>352px, 0px</Location>
+                        <Size>40px, 56px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3855,7 +3864,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                     </TextBox>
                     <TextBox Name="textBox63">
                         <Format>='N2'</Format>
-                        <Location>400px, 0px</Location>
+                        <Location>456px, 0px</Location>
                         <Size>72px, 56px</Size>
                         <Style>
                             <BorderColor>
@@ -3879,7 +3888,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                     </TextBox>
                     <TextBox Name="textBox64">
                         <Format>='N2'</Format>
-                        <Location>472px, 0px</Location>
+                        <Location>528px, 0px</Location>
                         <Size>88px, 56px</Size>
                         <Style>
                             <BorderColor>
@@ -3903,7 +3912,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                     </TextBox>
                     <TextBox Name="textBox65">
                         <Format>='N4'</Format>
-                        <Location>336px, 0px</Location>
+                        <Location>392px, 0px</Location>
                         <Size>64px, 56px</Size>
                         <Style>
                             <BorderColor>
@@ -3926,7 +3935,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Value>=[POLine.CuryUnitCost]</Value>
                     </TextBox>
                     <TextBox Name="textBox66">
-                        <Location>560px, 0px</Location>
+                        <Location>616px, 0px</Location>
                         <Size>48px, 56px</Size>
                         <Style>
                             <BorderColor>
@@ -3950,7 +3959,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                     </TextBox>
                     <TextBox Name="textBox67">
                         <Format>='yyyy-MM-dd'</Format>
-                        <Location>608px, 0px</Location>
+                        <Location>664px, 0px</Location>
                         <Size>72px, 56px</Size>
                         <Style>
                             <BorderColor>
@@ -3999,7 +4008,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Items>
                             <TextBox Name="textBox48">
                                 <Location>24px, 0px</Location>
-                                <Size>48px, 40px</Size>
+                                <Size>40px, 40px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Default>Black</Default>
@@ -4019,8 +4028,8 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Value>序号</Value>
                             </TextBox>
                             <TextBox Name="textBox49">
-                                <Location>72px, 0px</Location>
-                                <Size>64px, 40px</Size>
+                                <Location>64px, 0px</Location>
+                                <Size>72px, 40px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Default>Black</Default>
@@ -4040,7 +4049,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             </TextBox>
                             <TextBox Name="textBox50">
                                 <Location>136px, 0px</Location>
-                                <Size>136px, 40px</Size>
+                                <Size>184px, 40px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Default>Black</Default>
@@ -4059,7 +4068,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Value>规格</Value>
                             </TextBox>
                             <TextBox Name="textBox51">
-                                <Location>272px, 0px</Location>
+                                <Location>320px, 0px</Location>
                                 <Size>32px, 40px</Size>
                                 <Style>
                                     <BorderColor>
@@ -4079,8 +4088,8 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Value>版本</Value>
                             </TextBox>
                             <TextBox Name="textBox52">
-                                <Location>304px, 0px</Location>
-                                <Size>32px, 40px</Size>
+                                <Location>352px, 0px</Location>
+                                <Size>40px, 40px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Default>Black</Default>
@@ -4099,7 +4108,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Value>单位</Value>
                             </TextBox>
                             <TextBox Name="textBox53">
-                                <Location>400px, 0px</Location>
+                                <Location>456px, 0px</Location>
                                 <Size>72px, 40px</Size>
                                 <Style>
                                     <BorderColor>
@@ -4119,7 +4128,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Value>采购数量</Value>
                             </TextBox>
                             <TextBox Name="textBox54">
-                                <Location>472px, 0px</Location>
+                                <Location>528px, 0px</Location>
                                 <Size>88px, 40px</Size>
                                 <Style>
                                     <BorderColor>
@@ -4139,7 +4148,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Value>采购金额</Value>
                             </TextBox>
                             <TextBox Name="textBox55">
-                                <Location>560px, 0px</Location>
+                                <Location>616px, 0px</Location>
                                 <Size>48px, 40px</Size>
                                 <Style>
                                     <BorderColor>
@@ -4159,7 +4168,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Value>税率%</Value>
                             </TextBox>
                             <TextBox Name="textBox56">
-                                <Location>336px, 0px</Location>
+                                <Location>392px, 0px</Location>
                                 <Size>64px, 40px</Size>
                                 <Style>
                                     <BorderColor>
@@ -4179,7 +4188,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Value>单价</Value>
                             </TextBox>
                             <TextBox Name="textBox57">
-                                <Location>608px, 0px</Location>
+                                <Location>664px, 0px</Location>
                                 <Size>72px, 40px</Size>
                                 <Style>
                                     <BorderColor>
@@ -4207,7 +4216,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Items>
                             <Panel Name="panel2">
                                 <Location>24px, 0px</Location>
-                                <Size>656px, 32px</Size>
+                                <Size>712px, 32px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Default>Black</Default>
@@ -4299,7 +4308,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             </TextBox>
                             <TextBox Name="textBox77">
                                 <Location>72px, 32px</Location>
-                                <Size>296px, 24px</Size>
+                                <Size>352px, 24px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Default>Black</Default>
@@ -4319,7 +4328,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             </TextBox>
                             <TextBox Name="textBox78">
                                 <Location>72px, 56px</Location>
-                                <Size>296px, 24px</Size>
+                                <Size>352px, 24px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Default>Black</Default>
@@ -4339,7 +4348,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             </TextBox>
                             <TextBox Name="textBox79">
                                 <Location>72px, 80px</Location>
-                                <Size>296px, 24px</Size>
+                                <Size>352px, 24px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Default>Black</Default>
@@ -4358,7 +4367,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Value>总经理：</Value>
                             </TextBox>
                             <TextBox Name="textBox80">
-                                <Location>368px, 80px</Location>
+                                <Location>424px, 80px</Location>
                                 <Size>312px, 24px</Size>
                                 <Style>
                                     <BorderColor>
@@ -4378,7 +4387,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Value>日期(DATE):</Value>
                             </TextBox>
                             <TextBox Name="textBox81">
-                                <Location>368px, 32px</Location>
+                                <Location>424px, 32px</Location>
                                 <Size>312px, 48px</Size>
                                 <Style>
                                     <BorderColor>

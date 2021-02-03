@@ -45,6 +45,10 @@
         <NavigationDepth>1</NavigationDepth>
         <PageSettings>
             <Landscape>True</Landscape>
+            <Margins>
+                <Left>1cm</Left>
+                <Right>1cm</Right>
+            </Margins>
             <PaperKind>A5</PaperKind>
         </PageSettings>
         <Parameters>
@@ -193,6 +197,16 @@
                     </RelationRow>
                 </Links>
                 <ParentName>INTran</ParentName>
+            </ReportRelation>
+            <ReportRelation>
+                <ChildName>AMProdItem</ChildName>
+                <Links>
+                    <RelationRow>
+                        <ChildField>ProdOrdID</ChildField>
+                        <ParentField>AttributePRODORDNBR</ParentField>
+                    </RelationRow>
+                </Links>
+                <ParentName>INRegister</ParentName>
             </ReportRelation>
         </Relations>
         <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
@@ -1665,6 +1679,8 @@
                     </ReportField>
                     <ReportField Name="AttributePRODLINE">
                     </ReportField>
+                    <ReportField Name="AttributePRODORDNBR">
+                    </ReportField>
                     <ReportField Name="AttributeREASON">
                     </ReportField>
                     <ReportField Name="BatchNbr">
@@ -1848,6 +1864,498 @@
                 </Fields>
                 <FullName>PX.Objects.IN.INRegister</FullName>
             </ReportTable>
+            <ReportTable Name="AMProdItem">
+                <Fields>
+                    <ReportField Name="BaseQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="BaseQtyComplete">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="BaseQtyRemaining">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="BaseQtyScrapped">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="BaseQtytoProd">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="BOMEffDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="BOMEffDate_Day">
+                    </ReportField>
+                    <ReportField Name="BOMEffDate_Hour">
+                    </ReportField>
+                    <ReportField Name="BOMEffDate_Month">
+                    </ReportField>
+                    <ReportField Name="BOMEffDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="BOMID">
+                    </ReportField>
+                    <ReportField Name="BOMID_AMBomItemActive2_descr">
+                    </ReportField>
+                    <ReportField Name="BOMID_description">
+                    </ReportField>
+                    <ReportField Name="BOMRevisionID">
+                    </ReportField>
+                    <ReportField Name="BOMRevisionID_AMBomItem_descr">
+                    </ReportField>
+                    <ReportField Name="BOMRevisionID_description">
+                    </ReportField>
+                    <ReportField Name="BuildProductionBom">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="ConstDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="ConstDate_Day">
+                    </ReportField>
+                    <ReportField Name="ConstDate_Hour">
+                    </ReportField>
+                    <ReportField Name="ConstDate_Month">
+                    </ReportField>
+                    <ReportField Name="ConstDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="CostCodeID">
+                    </ReportField>
+                    <ReportField Name="CostCodeID_description">
+                    </ReportField>
+                    <ReportField Name="CostCodeID_PMCostCode_description">
+                    </ReportField>
+                    <ReportField Name="CostCodeID_Segment1">
+                    </ReportField>
+                    <ReportField Name="CostMethod">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="CreatedByID">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_displayName">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_Username">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_description">
+                    </ReportField>
+                    <ReportField Name="CreatedByScreenID">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="CustomerID">
+                    </ReportField>
+                    <ReportField Name="CustomerID_BAccountR_acctName">
+                    </ReportField>
+                    <ReportField Name="CustomerID_Customer_acctName">
+                    </ReportField>
+                    <ReportField Name="CustomerID_description">
+                    </ReportField>
+                    <ReportField Name="CustomerID_Segment1">
+                    </ReportField>
+                    <ReportField Name="Delete">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="Descr">
+                    </ReportField>
+                    <ReportField Name="DetailSource">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="EndDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="EndDate_Day">
+                    </ReportField>
+                    <ReportField Name="EndDate_Hour">
+                    </ReportField>
+                    <ReportField Name="EndDate_Month">
+                    </ReportField>
+                    <ReportField Name="EndDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="EstimateID">
+                    </ReportField>
+                    <ReportField Name="EstimateRevisionID">
+                    </ReportField>
+                    <ReportField Name="ExcludeFromMRP">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="ExpireDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="ExpireDate_Day">
+                    </ReportField>
+                    <ReportField Name="ExpireDate_Hour">
+                    </ReportField>
+                    <ReportField Name="ExpireDate_Month">
+                    </ReportField>
+                    <ReportField Name="ExpireDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="FirmSchedule">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="FirstOperationID">
+                    </ReportField>
+                    <ReportField Name="FMLTime">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="FMLTMRPOrdorOP">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="Function">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="HasMixedProjectTasks">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="Hold">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="InventoryID">
+                    </ReportField>
+                    <ReportField Name="InventoryID_description">
+                    </ReportField>
+                    <ReportField Name="InventoryID_InventoryItem_descr">
+                    </ReportField>
+                    <ReportField Name="InventoryID_Segment1">
+                    </ReportField>
+                    <ReportField Name="InvtMult">
+                        <DataType>Int16</DataType>
+                    </ReportField>
+                    <ReportField Name="IsConfigurable">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="IsReportPrinted">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_description">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_displayName">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_Username">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByScreenID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="LastOperationID">
+                    </ReportField>
+                    <ReportField Name="LineCntrAttribute">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="LineCntrEvnt">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="LineCntrOperation">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="LineQtyAvail">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="LineQtyHardAvail">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="LocationID">
+                    </ReportField>
+                    <ReportField Name="LocationID_description">
+                    </ReportField>
+                    <ReportField Name="LocationID_INLocation_descr">
+                    </ReportField>
+                    <ReportField Name="LocationID_Segment1">
+                    </ReportField>
+                    <ReportField Name="LotSerialNbr">
+                    </ReportField>
+                    <ReportField Name="MultDiv">
+                    </ReportField>
+                    <ReportField Name="NoteActivity">
+                    </ReportField>
+                    <ReportField Name="NoteFiles">
+                    </ReportField>
+                    <ReportField Name="NoteID">
+                        <DataType>Object</DataType>
+                    </ReportField>
+                    <ReportField Name="NoteImages">
+                    </ReportField>
+                    <ReportField Name="NoteText">
+                    </ReportField>
+                    <ReportField Name="OrderType">
+                    </ReportField>
+                    <ReportField Name="OrderType_AMOrderType_descr">
+                    </ReportField>
+                    <ReportField Name="OrderType_description">
+                    </ReportField>
+                    <ReportField Name="OrdLineRef">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="OrdNbr">
+                    </ReportField>
+                    <ReportField Name="OrdTypeRef">
+                    </ReportField>
+                    <ReportField Name="ParentOrderType">
+                    </ReportField>
+                    <ReportField Name="ParentOrderType_AMOrderType_descr">
+                    </ReportField>
+                    <ReportField Name="ParentOrderType_description">
+                    </ReportField>
+                    <ReportField Name="ParentOrdID">
+                    </ReportField>
+                    <ReportField Name="ParentOrdID_AMProdItem_descr">
+                    </ReportField>
+                    <ReportField Name="ParentOrdID_description">
+                    </ReportField>
+                    <ReportField Name="PerClose">
+                    </ReportField>
+                    <ReportField Name="PerEnt">
+                    </ReportField>
+                    <ReportField Name="ProdDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="ProdDate_Day">
+                    </ReportField>
+                    <ReportField Name="ProdDate_Hour">
+                    </ReportField>
+                    <ReportField Name="ProdDate_Month">
+                    </ReportField>
+                    <ReportField Name="ProdDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="ProdOrdID">
+                    </ReportField>
+                    <ReportField Name="ProductManagerID">
+                    </ReportField>
+                    <ReportField Name="ProductManagerID_description">
+                    </ReportField>
+                    <ReportField Name="ProductManagerID_EPEmployee_acctName">
+                    </ReportField>
+                    <ReportField Name="ProductOrderType">
+                    </ReportField>
+                    <ReportField Name="ProductOrderType_AMOrderType_descr">
+                    </ReportField>
+                    <ReportField Name="ProductOrderType_description">
+                    </ReportField>
+                    <ReportField Name="ProductOrdID">
+                    </ReportField>
+                    <ReportField Name="ProductOrdID_AMProdItem_descr">
+                    </ReportField>
+                    <ReportField Name="ProductOrdID_description">
+                    </ReportField>
+                    <ReportField Name="ProductWorkgroupID">
+                    </ReportField>
+                    <ReportField Name="ProjectID">
+                    </ReportField>
+                    <ReportField Name="ProjectID_description">
+                    </ReportField>
+                    <ReportField Name="ProjectID_PMProject_description">
+                    </ReportField>
+                    <ReportField Name="ProjectID_Segment1">
+                    </ReportField>
+                    <ReportField Name="Qty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyComplete">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyRemaining">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyScrapped">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtytoProd">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="RelDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="RelDate_Day">
+                    </ReportField>
+                    <ReportField Name="RelDate_Hour">
+                    </ReportField>
+                    <ReportField Name="RelDate_Month">
+                    </ReportField>
+                    <ReportField Name="RelDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="Reschedule">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="RevisionNbr">
+                    </ReportField>
+                    <ReportField Name="SchedulingMethod">
+                    </ReportField>
+                    <ReportField Name="SchPriority">
+                        <DataType>Int16</DataType>
+                    </ReportField>
+                    <ReportField Name="ScrapLocationID">
+                    </ReportField>
+                    <ReportField Name="ScrapLocationID_description">
+                    </ReportField>
+                    <ReportField Name="ScrapLocationID_INLocation_descr">
+                    </ReportField>
+                    <ReportField Name="ScrapLocationID_Segment1">
+                    </ReportField>
+                    <ReportField Name="ScrapOverride">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="ScrapSiteID">
+                    </ReportField>
+                    <ReportField Name="ScrapSiteID_description">
+                    </ReportField>
+                    <ReportField Name="ScrapSiteID_INSite_descr">
+                    </ReportField>
+                    <ReportField Name="ScrapSiteID_Segment1">
+                    </ReportField>
+                    <ReportField Name="Selected">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="SiteID">
+                    </ReportField>
+                    <ReportField Name="SiteID_description">
+                    </ReportField>
+                    <ReportField Name="SiteID_INSite_descr">
+                    </ReportField>
+                    <ReportField Name="SiteID_Segment1">
+                    </ReportField>
+                    <ReportField Name="SourceOrderType">
+                    </ReportField>
+                    <ReportField Name="SourceOrderType_AMOrderType_descr">
+                    </ReportField>
+                    <ReportField Name="SourceOrderType_description">
+                    </ReportField>
+                    <ReportField Name="SourceProductionNbr">
+                    </ReportField>
+                    <ReportField Name="SourceProductionNbr_AMProdItem_descr">
+                    </ReportField>
+                    <ReportField Name="SourceProductionNbr_description">
+                    </ReportField>
+                    <ReportField Name="SplitLineCntr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="StartDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="StartDate_Day">
+                    </ReportField>
+                    <ReportField Name="StartDate_Hour">
+                    </ReportField>
+                    <ReportField Name="StartDate_Month">
+                    </ReportField>
+                    <ReportField Name="StartDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="StatusID">
+                    </ReportField>
+                    <ReportField Name="SubItemID">
+                    </ReportField>
+                    <ReportField Name="SubItemID_Segment1">
+                    </ReportField>
+                    <ReportField Name="SupplyType">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="TaskID">
+                    </ReportField>
+                    <ReportField Name="TaskID_description">
+                    </ReportField>
+                    <ReportField Name="TaskID_PMTask_description">
+                    </ReportField>
+                    <ReportField Name="TaskID_Segment1">
+                    </ReportField>
+                    <ReportField Name="TranDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="TranType">
+                    </ReportField>
+                    <ReportField Name="tstamp">
+                    </ReportField>
+                    <ReportField Name="UnassignedQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="UOM">
+                    </ReportField>
+                    <ReportField Name="UpdateProject">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="UsrPrintCount">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="UsrSOCustomerPO">
+                    </ReportField>
+                    <ReportField Name="UsrSOLineNbr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="UsrSOLineNoteID">
+                        <DataType>Object</DataType>
+                    </ReportField>
+                    <ReportField Name="UsrSOLineNoteID_description">
+                    </ReportField>
+                    <ReportField Name="UsrSOLineNoteID_SOLine_tranDesc">
+                    </ReportField>
+                    <ReportField Name="UsrSOOrderNbr">
+                    </ReportField>
+                    <ReportField Name="UsrSOOrderType">
+                    </ReportField>
+                    <ReportField Name="WIPAcctID">
+                    </ReportField>
+                    <ReportField Name="WIPAcctID_Account_description">
+                    </ReportField>
+                    <ReportField Name="WIPAcctID_description">
+                    </ReportField>
+                    <ReportField Name="WIPAcctID_Segment1">
+                    </ReportField>
+                    <ReportField Name="WIPBalance">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="WIPComp">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="WIPSubID">
+                    </ReportField>
+                    <ReportField Name="WIPSubID_description">
+                    </ReportField>
+                    <ReportField Name="WIPSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="WIPSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="WIPSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="WIPTotal">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="WIPVarianceAcctID">
+                    </ReportField>
+                    <ReportField Name="WIPVarianceAcctID_Account_description">
+                    </ReportField>
+                    <ReportField Name="WIPVarianceAcctID_description">
+                    </ReportField>
+                    <ReportField Name="WIPVarianceAcctID_Segment1">
+                    </ReportField>
+                    <ReportField Name="WIPVarianceSubID">
+                    </ReportField>
+                    <ReportField Name="WIPVarianceSubID_description">
+                    </ReportField>
+                    <ReportField Name="WIPVarianceSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="WIPVarianceSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="WIPVarianceSubID_Sub_description">
+                    </ReportField>
+                </Fields>
+                <FullName>JAMS.AM.AMProdItem</FullName>
+            </ReportTable>
         </Tables>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
@@ -1855,10 +2363,10 @@
                     <bottom>1</bottom>
                 </ExcelMargin>
                 <GridSize>8px, 8px</GridSize>
-                <Height>2.32804cm</Height>
+                <Height>2.75132cm</Height>
                 <Items>
                     <TextBox Name="textBox1">
-                        <Location>616px, 24px</Location>
+                        <Location>616px, 32px</Location>
                         <Size>72px, 16px</Size>
                         <Style>
                             <TextAlign>Right</TextAlign>
@@ -1867,24 +2375,24 @@
                         <Value>=[PageIndex] + '/' + [PageCount]</Value>
                     </TextBox>
                     <TextBox Name="textBox11">
-                        <Location>528px, 72px</Location>
-                        <Size>40px, 16px</Size>
+                        <Location>544px, 72px</Location>
+                        <Size>56px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
                             </Font>
                         </Style>
-                        <Value>日   期:</Value>
+                        <Value>日       期:</Value>
                     </TextBox>
                     <TextBox Name="textBox12">
                         <Format>='yyyy-MM-dd'</Format>
-                        <Location>568px, 72px</Location>
+                        <Location>600px, 72px</Location>
                         <Size>120px, 16px</Size>
                         <Value>=[INRegister.TranDate]</Value>
                     </TextBox>
                     <TextBox Name="textBox14">
-                        <Location>224px, 0px</Location>
-                        <Size>248px, 32px</Size>
+                        <Location>0px, 0px</Location>
+                        <Size>720px, 32px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
@@ -1896,17 +2404,17 @@
                         <Value>美  博  电  子  有  限  公  司</Value>
                     </TextBox>
                     <TextBox Name="textBox15">
-                        <Location>8px, 72px</Location>
-                        <Size>32px, 16px</Size>
+                        <Location>0px, 72px</Location>
+                        <Size>56px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
                             </Font>
                         </Style>
-                        <Value>单号:</Value>
+                        <Value>单别单号:</Value>
                     </TextBox>
                     <TextBox Name="textBox16">
-                        <Location>296px, 40px</Location>
+                        <Location>312px, 40px</Location>
                         <Size>96px, 24px</Size>
                         <Style>
                             <Font>
@@ -1916,10 +2424,60 @@
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=IIF([INRegister.AttributeREASON] &lt;&gt; NULL, [INRegister.AttributeREASON], '其他入库单')</Value>
+                        <Value>报废单</Value>
+                    </TextBox>
+                    <TextBox Name="textBox2">
+                        <Location>544px, 88px</Location>
+                        <Size>56px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                            </Font>
+                        </Style>
+                        <Value>生产套数:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox24">
+                        <Location>0px, 88px</Location>
+                        <Size>56px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                            </Font>
+                        </Style>
+                        <Value>成品品号:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox25">
+                        <Location>56px, 88px</Location>
+                        <Size>120px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                            </Font>
+                        </Style>
+                        <Value>=[AMProdItem.InventoryID]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox4">
+                        <Location>600px, 88px</Location>
+                        <Size>120px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                            </Font>
+                        </Style>
+                        <Value>=Floor([AMProdItem.QtytoProd]) + [AMProdItem.UOM]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox5">
+                        <Location>280px, 88px</Location>
+                        <Size>56px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                            </Font>
+                        </Style>
+                        <Value>工作中心:</Value>
                     </TextBox>
                     <TextBox Name="textBox6">
-                        <Location>304px, 72px</Location>
+                        <Location>336px, 72px</Location>
                         <Size>120px, 16px</Size>
                         <Style>
                             <Font>
@@ -1929,17 +2487,17 @@
                         <Value>=[INRegister.AttributeDEPARTMENT]</Value>
                     </TextBox>
                     <TextBox Name="textBox7">
-                        <Location>272px, 72px</Location>
-                        <Size>32px, 16px</Size>
+                        <Location>280px, 72px</Location>
+                        <Size>56px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
                             </Font>
                         </Style>
-                        <Value>部门:</Value>
+                        <Value>申请部门:</Value>
                     </TextBox>
                     <TextBox Name="textBox8">
-                        <Location>40px, 72px</Location>
+                        <Location>56px, 72px</Location>
                         <Size>120px, 16px</Size>
                         <Style>
                             <Font>
@@ -1947,6 +2505,16 @@
                             </Font>
                         </Style>
                         <Value>=[INRegister.RefNbr]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox9">
+                        <Location>336px, 88px</Location>
+                        <Size>120px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                            </Font>
+                        </Style>
+                        <Value>=[INRegister.AttributePRODLINE]</Value>
                     </TextBox>
                 </Items>
             </PageHeader>
@@ -1961,8 +2529,8 @@
                 </Variables>
                 <Items>
                     <TextBox Name="textBox21">
-                        <Location>512px, 0px</Location>
-                        <Size>56px, 32px</Size>
+                        <Location>520px, 0px</Location>
+                        <Size>64px, 32px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -1982,7 +2550,7 @@
                         <Value>=[INTran.LocationID_description]</Value>
                     </TextBox>
                     <TextBox Name="textBox26">
-                        <Location>448px, 0px</Location>
+                        <Location>456px, 0px</Location>
                         <Size>64px, 32px</Size>
                         <Style>
                             <BorderStyle>
@@ -2003,8 +2571,8 @@
                         <Value>=[INTran.SiteID_INSite_descr]</Value>
                     </TextBox>
                     <TextBox Name="textBox3">
-                        <Location>568px, 0px</Location>
-                        <Size>120px, 32px</Size>
+                        <Location>584px, 0px</Location>
+                        <Size>136px, 32px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2023,8 +2591,29 @@
                         </Style>
                         <Value>=[INTran.TranDesc]</Value>
                     </TextBox>
+                    <TextBox Name="textBox30">
+                        <Location>40px, 0px</Location>
+                        <Size>80px, 32px</Size>
+                        <Style>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
+                            </BorderWidth>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                                <Size>10px</Size>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>=[INRegister.AttributePRODORDNBR]</Value>
+                    </TextBox>
                     <TextBox Name="textBox35">
-                        <Location>408px, 0px</Location>
+                        <Location>416px, 0px</Location>
                         <Size>40px, 32px</Size>
                         <Style>
                             <BorderStyle>
@@ -2046,7 +2635,7 @@
                     </TextBox>
                     <TextBox Name="textBox36">
                         <Format>=IIF([INTranSplit.Qty] - Floor([INTranSplit.Qty]) &gt; 0,'N2','N0')</Format>
-                        <Location>272px, 0px</Location>
+                        <Location>352px, 0px</Location>
                         <Size>64px, 32px</Size>
                         <Style>
                             <BorderStyle>
@@ -2067,7 +2656,7 @@
                         <Value>=[INTranSplit.Qty]</Value>
                     </TextBox>
                     <TextBox Name="textBox37">
-                        <Location>96px, 0px</Location>
+                        <Location>176px, 0px</Location>
                         <Size>176px, 32px</Size>
                         <Style>
                             <BorderStyle>
@@ -2088,7 +2677,7 @@
                         <Value>=[InventoryItem.Descr]</Value>
                     </TextBox>
                     <TextBox Name="textBox38">
-                        <Location>40px, 0px</Location>
+                        <Location>120px, 0px</Location>
                         <Size>56px, 32px</Size>
                         <Style>
                             <BorderStyle>
@@ -2131,27 +2720,6 @@
                         </Style>
                         <Value>=PadLeft(CStr($LineNbr), 4, '0')</Value>
                     </TextBox>
-                    <TextBox Name="textBox40">
-                        <Location>336px, 0px</Location>
-                        <Size>72px, 32px</Size>
-                        <Style>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Bottom>1px</Bottom>
-                                <Right>1px</Right>
-                            </BorderWidth>
-                            <Font>
-                                <Name>Microsoft JhengHei UI</Name>
-                                <Size>9px</Size>
-                            </Font>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <Value>=[INTranSplit.LotSerialNbr]</Value>
-                    </TextBox>
                 </Items>
             </Detail>
             <PageFooter Name="pageFooterSection1">
@@ -2159,6 +2727,105 @@
                 <Height>0px</Height>
                 <Visible>False</Visible>
             </PageFooter>
+            <ReportFooter Name="reportFooterSection1">
+                <GridSize>8px, 8px</GridSize>
+                <Height>1.0582cm</Height>
+                <PrintAtBottom>True</PrintAtBottom>
+                <Items>
+                    <TextBox Name="textBox10">
+                        <Excel>
+                            <row>3</row>
+                        </Excel>
+                        <Location>0px, 24px</Location>
+                        <Size>168px, 12px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                                <Size>10px</Size>
+                            </Font>
+                        </Style>
+                        <Value>Form number: FWH-004/Rev.01</Value>
+                    </TextBox>
+                    <TextBox Name="textBox13">
+                        <Excel>
+                            <row>3</row>
+                        </Excel>
+                        <Location>352px, 0px</Location>
+                        <Size>40px, 14px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                            </Font>
+                        </Style>
+                        <Value>仓库:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox20">
+                        <Excel>
+                            <row>3</row>
+                        </Excel>
+                        <Location>464px, 0px</Location>
+                        <Size>48px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                            </Font>
+                        </Style>
+                        <Value>部门主管:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox23">
+                        <Excel>
+                            <row>3</row>
+                        </Excel>
+                        <Location>600px, 0px</Location>
+                        <Size>40px, 14px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                            </Font>
+                        </Style>
+                        <Value>审批:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox41">
+                        <Excel>
+                            <row>3</row>
+                        </Excel>
+                        <Location>240px, 0px</Location>
+                        <Size>32px, 14px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                            </Font>
+                        </Style>
+                        <Value>生管:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox42">
+                        <Excel>
+                            <row>3</row>
+                        </Excel>
+                        <Location>112px, 0px</Location>
+                        <Size>40px, 14px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                            </Font>
+                        </Style>
+                        <Value>品管:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox43">
+                        <Excel>
+                            <row>3</row>
+                        </Excel>
+                        <Location>0px, 0px</Location>
+                        <Size>48px, 14px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                            </Font>
+                        </Style>
+                        <Value>申请人:</Value>
+                    </TextBox>
+                </Items>
+            </ReportFooter>
         </Sections>
         <Items />
         <Groups>
@@ -2194,7 +2861,7 @@
                                 <Value>序号</Value>
                             </TextBox>
                             <TextBox Name="textBox18">
-                                <Location>40px, 0px</Location>
+                                <Location>120px, 0px</Location>
                                 <Size>56px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2217,7 +2884,7 @@
                                 <Value>物料品号</Value>
                             </TextBox>
                             <TextBox Name="textBox19">
-                                <Location>96px, 0px</Location>
+                                <Location>176px, 0px</Location>
                                 <Size>176px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2240,7 +2907,7 @@
                                 <Value>品名规格</Value>
                             </TextBox>
                             <TextBox Name="textBox22">
-                                <Location>272px, 0px</Location>
+                                <Location>352px, 0px</Location>
                                 <Size>64px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2260,10 +2927,10 @@
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
                                 </Style>
-                                <Value>数量</Value>
+                                <Value>报废数量</Value>
                             </TextBox>
                             <TextBox Name="textBox27">
-                                <Location>408px, 0px</Location>
+                                <Location>416px, 0px</Location>
                                 <Size>40px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2285,8 +2952,31 @@
                                 </Style>
                                 <Value>单位</Value>
                             </TextBox>
+                            <TextBox Name="textBox28">
+                                <Location>40px, 0px</Location>
+                                <Size>80px, 24px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Right>Solid</Right>
+                                        <Top>Solid</Top>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                        <Top>1px</Top>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Name>Microsoft JhengHei UI</Name>
+                                        <Size>12px</Size>
+                                    </Font>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>报废来源</Value>
+                            </TextBox>
                             <TextBox Name="textBox29">
-                                <Location>448px, 0px</Location>
+                                <Location>456px, 0px</Location>
                                 <Size>64px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2309,8 +2999,8 @@
                                 <Value>仓库</Value>
                             </TextBox>
                             <TextBox Name="textBox32">
-                                <Location>512px, 0px</Location>
-                                <Size>56px, 24px</Size>
+                                <Location>520px, 0px</Location>
+                                <Size>64px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
@@ -2332,8 +3022,8 @@
                                 <Value>库位</Value>
                             </TextBox>
                             <TextBox Name="textBox33">
-                                <Location>568px, 0px</Location>
-                                <Size>120px, 24px</Size>
+                                <Location>584px, 0px</Location>
+                                <Size>136px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
@@ -2352,30 +3042,7 @@
                                     <TextAlign>Center</TextAlign>
                                     <VerticalAlign>Middle</VerticalAlign>
                                 </Style>
-                                <Value>备注</Value>
-                            </TextBox>
-                            <TextBox Name="textBox34">
-                                <Location>336px, 0px</Location>
-                                <Size>72px, 24px</Size>
-                                <Style>
-                                    <BorderStyle>
-                                        <Bottom>Solid</Bottom>
-                                        <Right>Solid</Right>
-                                        <Top>Solid</Top>
-                                    </BorderStyle>
-                                    <BorderWidth>
-                                        <Bottom>1px</Bottom>
-                                        <Right>1px</Right>
-                                        <Top>1px</Top>
-                                    </BorderWidth>
-                                    <Font>
-                                        <Name>Microsoft JhengHei UI</Name>
-                                        <Size>12px</Size>
-                                    </Font>
-                                    <TextAlign>Center</TextAlign>
-                                    <VerticalAlign>Middle</VerticalAlign>
-                                </Style>
-                                <Value>批号</Value>
+                                <Value>报废原因</Value>
                             </TextBox>
                         </Items>
                     </Header>
@@ -2383,75 +3050,8 @@
                 <Footers>
                     <Footer Name="groupFooterSection1">
                         <GridSize>8px, 8px</GridSize>
-                        <Height>1.0582cm</Height>
-                        <Items>
-                            <TextBox Name="textBox10">
-                                <Excel>
-                                    <row>3</row>
-                                </Excel>
-                                <Location>8px, 24px</Location>
-                                <Size>168px, 14px</Size>
-                                <Style>
-                                    <Font>
-                                        <Name>Microsoft YaHei UI</Name>
-                                        <Size>10px</Size>
-                                    </Font>
-                                </Style>
-                                <Value>Form number: FWH-027/Rev.00</Value>
-                            </TextBox>
-                            <TextBox Name="textBox2">
-                                <Excel>
-                                    <row>3</row>
-                                </Excel>
-                                <Location>512px, 0px</Location>
-                                <Size>32px, 16px</Size>
-                                <Style>
-                                    <Font>
-                                        <Name>Microsoft YaHei UI</Name>
-                                    </Font>
-                                </Style>
-                                <Value>核准:</Value>
-                            </TextBox>
-                            <TextBox Name="textBox4">
-                                <Excel>
-                                    <row>3</row>
-                                </Excel>
-                                <Location>352px, 0px</Location>
-                                <Size>32px, 16px</Size>
-                                <Style>
-                                    <Font>
-                                        <Name>Microsoft YaHei UI</Name>
-                                    </Font>
-                                </Style>
-                                <Value>生管:</Value>
-                            </TextBox>
-                            <TextBox Name="textBox5">
-                                <Excel>
-                                    <row>3</row>
-                                </Excel>
-                                <Location>176px, 0px</Location>
-                                <Size>32px, 16px</Size>
-                                <Style>
-                                    <Font>
-                                        <Name>Microsoft YaHei UI</Name>
-                                    </Font>
-                                </Style>
-                                <Value>领料:</Value>
-                            </TextBox>
-                            <TextBox Name="textBox9">
-                                <Excel>
-                                    <row>3</row>
-                                </Excel>
-                                <Location>8px, 0px</Location>
-                                <Size>32px, 16px</Size>
-                                <Style>
-                                    <Font>
-                                        <Name>Microsoft YaHei UI</Name>
-                                    </Font>
-                                </Style>
-                                <Value>货仓:</Value>
-                            </TextBox>
-                        </Items>
+                        <Height>0px</Height>
+                        <Visible>False</Visible>
                     </Footer>
                 </Footers>
             </Group>

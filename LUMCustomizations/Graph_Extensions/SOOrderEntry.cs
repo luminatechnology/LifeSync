@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using LumCustomizations.DAC;
+using LUMCustomizations.Library;
 using PX.Common;
 using PX.Data;
 using PX.Data.BQL;
@@ -17,24 +18,28 @@ namespace PX.Objects.SO
 {
     public class SOOrderEntry_Extension : PXGraphExtension<SOOrderEntry>
     {
+        [PXUIField()]
+        [PXMergeAttributes(Method = MergeMethod.Append)]
+        public virtual void _(Events.CacheAttached<SOOrder.orderTotal> e) { }
 
         /// <summary> SOOrder RowSelected Event </summary>
         protected virtual void _(Events.RowSelected<SOOrder> e)
         {
-            // Control Header PI Column Visible
-            var _graph = PXGraph.CreateInstance<SOOrderEntry>();
-            var _PIPreference = from t in _graph.Select<LifeSyncPreference>()
-                                select t;
-            var _visible = _PIPreference.FirstOrDefault() == null ? false : _PIPreference.FirstOrDefault().ProformaInvoicePrinting.Value
-                                                                  ? true : false;
+            var _library = new LumLibrary();
 
-            PXUIFieldAttribute.SetVisible<SOOrderExt.usrPICustomerID>(e.Cache, null, _visible);
-            PXUIFieldAttribute.SetVisible<SOOrderExt.usrPICuryID>(e.Cache, null, _visible);
+            PXUIFieldAttribute.SetVisible<SOOrderExt.usrPICustomerID>(e.Cache, null, _library.GetProformaInvoicePrinting);
+            PXUIFieldAttribute.SetVisible<SOOrderExt.usrPICuryID>(e.Cache, null, _library.GetProformaInvoicePrinting);
 
             // Control Line PI Column Visible
             var _lineCache = Base.Transactions.Cache;
-            PXUIFieldAttribute.SetVisible<SOLineExt.usrPIUnitPrice>(_lineCache, null, _visible);
-            PXUIFieldAttribute.SetEnabled<SOLineExt.usrPIUnitPrice>(_lineCache, null, _visible);
+            PXUIFieldAttribute.SetVisible<SOLineExt.usrPIUnitPrice>(_lineCache, null, _library.GetProformaInvoicePrinting);
+            PXUIFieldAttribute.SetEnabled<SOLineExt.usrPIUnitPrice>(_lineCache, null, _library.GetProformaInvoicePrinting);
+
+            // Reset OrderToal Display Name
+            var baseCompanyCuryID = _library.GetCompanyBaseCuryID();
+            PXUIFieldAttribute.SetDisplayName<SOOrder.orderTotal>(e.Cache, $"Total in {baseCompanyCuryID}");
+            PXUIFieldAttribute.SetEnabled<SOOrder.orderTotal>(e.Cache, null, false);
+            PXUIFieldAttribute.SetVisible<SOOrder.orderTotal>(e.Cache, null, _library.GetShowingTotalInHome);
         }
 
         /// <summary> SOOrderExt.usrPICustomerID FieldUppdated Event </summary>

@@ -105,10 +105,20 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 <Type>Integer</Type>
             </ReportParameter>
             <ReportParameter>
+                <Name>ContainerUOM</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Container UOM</Prompt>
+            </ReportParameter>
+            <ReportParameter>
                 <Name>QtyinShipment</Name>
                 <Nullable>True</Nullable>
                 <Prompt>Qty in shipment</Prompt>
                 <Type>Float</Type>
+            </ReportParameter>
+            <ReportParameter>
+                <Name>ShipmentUOM</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Shipment UOM</Prompt>
             </ReportParameter>
             <ReportParameter>
                 <Name>StartLabel</Name>
@@ -2259,7 +2269,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ContainerUOM = null ,'PCS',@ContainerUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox17">
                         <Localizable>False</Localizable>
@@ -2357,7 +2367,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ShipmentUOM = null ,'PCS',@ShipmentUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox27">
                         <Localizable>False</Localizable>
@@ -2377,7 +2387,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox3">
                         <Localizable>False</Localizable>
                         <Location>104px, 16px</Location>
-                        <Size>272px, 64px</Size>
+                        <Size>256px, 64px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -2403,7 +2413,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox5">
                         <Localizable>False</Localizable>
                         <Location>0px, 0px</Location>
-                        <Size>376px, 16px</Size>
+                        <Size>360px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -2520,7 +2530,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox21">
                         <Localizable>False</Localizable>
                         <Location>104px, 16px</Location>
-                        <Size>272px, 68px</Size>
+                        <Size>256px, 68px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -2610,7 +2620,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ContainerUOM = null ,'PCS',@ContainerUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox32">
                         <Localizable>False</Localizable>
@@ -2652,7 +2662,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ShipmentUOM = null ,'PCS',@ShipmentUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox35">
                         <Localizable>False</Localizable>
@@ -2701,7 +2711,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox8">
                         <Localizable>False</Localizable>
                         <Location>0px, 0px</Location>
-                        <Size>376px, 16px</Size>
+                        <Size>360px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -2743,7 +2753,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ShipmentUOM = null ,'PCS',@ShipmentUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox39">
                         <Localizable>False</Localizable>
@@ -2761,7 +2771,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox40">
                         <Localizable>False</Localizable>
                         <Location>0px, 0px</Location>
-                        <Size>376px, 16px</Size>
+                        <Size>360px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -2873,7 +2883,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox48">
                         <Localizable>False</Localizable>
                         <Location>104px, 16px</Location>
-                        <Size>272px, 64px</Size>
+                        <Size>256px, 64px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -2908,7 +2918,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ContainerUOM = null ,'PCS',@ContainerUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox51">
                         <Format>='N0'</Format>
@@ -3013,7 +3023,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox57">
                         <Localizable>False</Localizable>
                         <Location>0px, 0px</Location>
-                        <Size>352px, 16px</Size>
+                        <Size>360px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -3130,7 +3140,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>BOX</Value>
+                        <Value>=IIF(@ContainerUOM = null ,'BOX',@ContainerUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox66">
                         <Localizable>False</Localizable>
@@ -3229,7 +3239,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>BOX</Value>
+                        <Value>=IIF(@ShipmentUOM = null ,'BOX',@ShipmentUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox73">
                         <Localizable>False</Localizable>
@@ -3247,7 +3257,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox74">
                         <Localizable>False</Localizable>
                         <Location>104px, 16px</Location>
-                        <Size>272px, 64px</Size>
+                        <Size>256px, 64px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -3292,7 +3302,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox76">
                         <Localizable>False</Localizable>
                         <Location>0px, 0px</Location>
-                        <Size>352px, 16px</Size>
+                        <Size>360px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -3382,7 +3392,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox83">
                         <Localizable>False</Localizable>
                         <Location>104px, 16px</Location>
-                        <Size>272px, 68px</Size>
+                        <Size>256px, 68px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -3459,7 +3469,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>BOX</Value>
+                        <Value>=IIF(@ContainerUOM = null ,'BOX',@ContainerUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox89">
                         <Localizable>False</Localizable>
@@ -3501,7 +3511,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>BOX</Value>
+                        <Value>=IIF(@ShipmentUOM = null ,'BOX',@ShipmentUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox92">
                         <Localizable>False</Localizable>
@@ -3629,7 +3639,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox105">
                         <Localizable>False</Localizable>
                         <Location>104px, 32px</Location>
-                        <Size>272px, 56px</Size>
+                        <Size>256px, 56px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -3677,7 +3687,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ContainerUOM = null ,'PCS',@ContainerUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox109">
                         <Format>='N0'</Format>
@@ -3706,7 +3716,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ShipmentUOM = null ,'PCS',@ShipmentUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox111">
                         <CanGrow>True</CanGrow>
@@ -3763,7 +3773,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox81">
                         <Localizable>False</Localizable>
                         <Location>0px, 16px</Location>
-                        <Size>328px, 16px</Size>
+                        <Size>360px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -3849,7 +3859,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox114">
                         <Localizable>False</Localizable>
                         <Location>104px, 16px</Location>
-                        <Size>272px, 68px</Size>
+                        <Size>256px, 68px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -3901,7 +3911,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox118">
                         <Localizable>False</Localizable>
                         <Location>0px, 0px</Location>
-                        <Size>376px, 16px</Size>
+                        <Size>360px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -4016,7 +4026,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ContainerUOM = null ,'PCS',@ContainerUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox127">
                         <Localizable>False</Localizable>
@@ -4058,7 +4068,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ShipmentUOM = null ,'PCS',@ShipmentUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox130">
                         <Localizable>False</Localizable>
@@ -4191,7 +4201,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox137">
                         <Localizable>False</Localizable>
                         <Location>0px, 0px</Location>
-                        <Size>376px, 16px</Size>
+                        <Size>360px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -4204,7 +4214,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox138">
                         <Localizable>False</Localizable>
                         <Location>104px, 16px</Location>
-                        <Size>272px, 64px</Size>
+                        <Size>256px, 64px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -4295,7 +4305,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ContainerUOM = null ,'PCS',@ContainerUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox145">
                         <Localizable>False</Localizable>
@@ -4429,7 +4439,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ShipmentUOM = null ,'PCS',@ShipmentUOM)</Value>
                     </TextBox>
                 </Items>
             </Detail>
@@ -4451,7 +4461,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ShipmentUOM = null ,'PCS',@ShipmentUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox154">
                         <Localizable>False</Localizable>
@@ -4469,7 +4479,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox155">
                         <Localizable>False</Localizable>
                         <Location>0px, 0px</Location>
-                        <Size>376px, 16px</Size>
+                        <Size>360px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -4627,7 +4637,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ContainerUOM = null ,'PCS',@ContainerUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox166">
                         <Format>='N0'</Format>
@@ -4687,7 +4697,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox170">
                         <Localizable>False</Localizable>
                         <Location>104px, 16px</Location>
-                        <Size>272px, 68px</Size>
+                        <Size>256px, 68px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -4700,7 +4710,6 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="SJM">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = 'SJM' Or @Customer = 'SJM')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
@@ -4779,7 +4788,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox176">
                         <Localizable>False</Localizable>
                         <Location>0px, 16px</Location>
-                        <Size>328px, 16px</Size>
+                        <Size>360px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -4801,7 +4810,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>BOX</Value>
+                        <Value>=IIF(@ShipmentUOM = null ,'PCS',@ShipmentUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox178">
                         <Format>='N0'</Format>
@@ -4843,7 +4852,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>BOX</Value>
+                        <Value>=IIF(@ContainerUOM = null ,'PCS',@ContainerUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox181">
                         <Format>='N0'</Format>
@@ -4903,7 +4912,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox185">
                         <Localizable>False</Localizable>
                         <Location>104px, 32px</Location>
-                        <Size>272px, 56px</Size>
+                        <Size>256px, 56px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -5108,7 +5117,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ContainerUOM = null ,'PCS',@ContainerUOM)</Value>
                     </TextBox>
                     <TextBox Name="textBox198">
                         <Localizable>False</Localizable>
@@ -5126,7 +5135,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox199">
                         <Localizable>False</Localizable>
                         <Location>104px, 16px</Location>
-                        <Size>272px, 64px</Size>
+                        <Size>256px, 64px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -5238,7 +5247,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox207">
                         <Localizable>False</Localizable>
                         <Location>0px, 0px</Location>
-                        <Size>376px, 16px</Size>
+                        <Size>360px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -5273,7 +5282,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>PCS</Value>
+                        <Value>=IIF(@ShipmentUOM = null ,'PCS',@ShipmentUOM)</Value>
                     </TextBox>
                 </Items>
             </Detail>

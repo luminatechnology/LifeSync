@@ -1,4 +1,5 @@
-﻿using PX.Data;
+﻿using LUMCustomizations.Library;
+using PX.Data;
 using PX.Objects.AR;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,11 +8,36 @@ namespace PX.Objects.IN
 {
     public class ARInvoiceEntry_Extension : PXGraphExtension<ARInvoiceEntry>
     {
+        public static bool IsActive()
+        {
+            //active customize button if current company is ABA China and HK 
+            return PX.Data.Update.PXInstanceHelper.CurrentCompany == 3 || PX.Data.Update.PXInstanceHelper.CurrentCompany == 4;
+        }
         public override void Initialize()
         {
             base.Initialize();
             Base.report.AddMenuAction(CommercialInvoiceReport);
             Base.report.AddMenuAction(CreditNoteReport);
+        }
+
+        #region Override DAC
+
+        [PXUIField()]
+        [PXMergeAttributes(Method = MergeMethod.Append)]
+        public virtual void _(Events.CacheAttached<ARInvoice.lineTotal> e) { } 
+        
+        #endregion
+
+        public virtual void _(Events.RowSelected<ARInvoice> e)
+        {
+            var _library = new LumLibrary();
+            var baseCompanyCuryID = _library.GetCompanyBaseCuryID();
+            // Setting LineTotal
+            PXUIFieldAttribute.SetDisplayName<ARInvoice.lineTotal>(e.Cache, $"Total in {baseCompanyCuryID}");
+            PXUIFieldAttribute.SetVisible<ARInvoice.lineTotal>(e.Cache, null, _library.GetShowingTotalInHome);
+            PXUIFieldAttribute.SetEnabled<ARInvoice.lineTotal>(e.Cache, null, false);
+            // Hide CuryOrigDiscAmt
+            PXUIFieldAttribute.SetVisible<ARInvoice.curyOrigDiscAmt>(e.Cache, null, !_library.GetShowingTotalInHome);
         }
 
         #region Action

@@ -3380,7 +3380,7 @@
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=[SOShipLine.UOM]</Value>
+                        <Value>=[SOShipLineSplit.UOM]</Value>
                     </TextBox>
                     <TextBox Name="textBox15">
                         <Location>576px, 0px</Location>
