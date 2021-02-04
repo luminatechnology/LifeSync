@@ -1896,7 +1896,7 @@
                         <Value>美  博  电  子  有  限  公  司</Value>
                     </TextBox>
                     <TextBox Name="textBox15">
-                        <Location>8px, 72px</Location>
+                        <Location>0px, 72px</Location>
                         <Size>32px, 16px</Size>
                         <Style>
                             <Font>
@@ -1939,7 +1939,7 @@
                         <Value>部门:</Value>
                     </TextBox>
                     <TextBox Name="textBox8">
-                        <Location>40px, 72px</Location>
+                        <Location>32px, 72px</Location>
                         <Size>120px, 16px</Size>
                         <Style>
                             <Font>
@@ -2067,8 +2067,8 @@
                         <Value>=[INTranSplit.Qty]</Value>
                     </TextBox>
                     <TextBox Name="textBox37">
-                        <Location>96px, 0px</Location>
-                        <Size>176px, 32px</Size>
+                        <Location>88px, 0px</Location>
+                        <Size>184px, 32px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2088,7 +2088,7 @@
                         <Value>=[InventoryItem.Descr]</Value>
                     </TextBox>
                     <TextBox Name="textBox38">
-                        <Location>40px, 0px</Location>
+                        <Location>32px, 0px</Location>
                         <Size>56px, 32px</Size>
                         <Style>
                             <BorderStyle>
@@ -2109,7 +2109,7 @@
                         <Value>=[INTran.InventoryID]</Value>
                     </TextBox>
                     <TextBox Name="textBox39">
-                        <Location>8px, 0px</Location>
+                        <Location>0px, 0px</Location>
                         <Size>32px, 32px</Size>
                         <Style>
                             <BorderStyle>
@@ -2168,7 +2168,7 @@
                         <Excel>
                             <row>3</row>
                         </Excel>
-                        <Location>8px, 16px</Location>
+                        <Location>0px, 16px</Location>
                         <Size>168px, 12px</Size>
                         <Style>
                             <Font>
@@ -2221,7 +2221,7 @@
                         <Excel>
                             <row>3</row>
                         </Excel>
-                        <Location>8px, 0px</Location>
+                        <Location>0px, 0px</Location>
                         <Size>32px, 16px</Size>
                         <Style>
                             <Font>
@@ -2242,7 +2242,7 @@
                         <Height>0.63492cm</Height>
                         <Items>
                             <TextBox Name="textBox17">
-                                <Location>8px, 0px</Location>
+                                <Location>0px, 0px</Location>
                                 <Size>32px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2267,7 +2267,7 @@
                                 <Value>序号</Value>
                             </TextBox>
                             <TextBox Name="textBox18">
-                                <Location>40px, 0px</Location>
+                                <Location>32px, 0px</Location>
                                 <Size>56px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2290,8 +2290,8 @@
                                 <Value>物料品号</Value>
                             </TextBox>
                             <TextBox Name="textBox19">
-                                <Location>96px, 0px</Location>
-                                <Size>176px, 24px</Size>
+                                <Location>88px, 0px</Location>
+                                <Size>184px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
