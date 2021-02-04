@@ -2724,7 +2724,7 @@
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>报废单</Value>
+                        <Value>=IIF([INRegister.AttributeREASON] = 'SCRAP', '报废单', '国外转移单')</Value>
                     </TextBox>
                     <TextBox Name="textBox2">
                         <Location>544px, 88px</Location>
@@ -2820,7 +2820,7 @@
             </PageHeader>
             <Detail Name="Receipt">
                 <GridSize>8px, 8px</GridSize>
-                <Height>0.84656cm</Height>
+                <Height>0.95238cm</Height>
                 <Variables>
                     <ReportVariable>
                         <Name>LineNbr</Name>
@@ -2830,7 +2830,7 @@
                 <Items>
                     <TextBox Name="textBox21">
                         <Location>520px, 0px</Location>
-                        <Size>64px, 32px</Size>
+                        <Size>64px, 40px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2847,11 +2847,11 @@
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=[InventoryItem.BIN_Attributes]</Value>
+                        <Value>=IIF([INRegister.AttributeREASON] = 'SCRAP', '废品仓', [InventoryItem.BIN_Attributes])</Value>
                     </TextBox>
                     <TextBox Name="textBox26">
                         <Location>456px, 0px</Location>
-                        <Size>64px, 32px</Size>
+                        <Size>64px, 40px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2872,7 +2872,7 @@
                     </TextBox>
                     <TextBox Name="textBox3">
                         <Location>584px, 0px</Location>
-                        <Size>136px, 32px</Size>
+                        <Size>136px, 40px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2893,7 +2893,7 @@
                     </TextBox>
                     <TextBox Name="textBox30">
                         <Location>32px, 0px</Location>
-                        <Size>80px, 32px</Size>
+                        <Size>80px, 40px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2914,7 +2914,7 @@
                     </TextBox>
                     <TextBox Name="textBox35">
                         <Location>416px, 0px</Location>
-                        <Size>40px, 32px</Size>
+                        <Size>40px, 40px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2936,7 +2936,7 @@
                     <TextBox Name="textBox36">
                         <Format>=IIF([INTranSplit.Qty] - Floor([INTranSplit.Qty]) &gt; 0,'N2','N0')</Format>
                         <Location>352px, 0px</Location>
-                        <Size>64px, 32px</Size>
+                        <Size>64px, 40px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2957,7 +2957,7 @@
                     </TextBox>
                     <TextBox Name="textBox37">
                         <Location>168px, 0px</Location>
-                        <Size>184px, 32px</Size>
+                        <Size>184px, 40px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2978,7 +2978,7 @@
                     </TextBox>
                     <TextBox Name="textBox38">
                         <Location>112px, 0px</Location>
-                        <Size>56px, 32px</Size>
+                        <Size>56px, 40px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2999,7 +2999,7 @@
                     </TextBox>
                     <TextBox Name="textBox39">
                         <Location>0px, 0px</Location>
-                        <Size>32px, 32px</Size>
+                        <Size>32px, 40px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
