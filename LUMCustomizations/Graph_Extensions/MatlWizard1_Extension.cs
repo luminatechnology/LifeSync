@@ -17,7 +17,9 @@ namespace JAMS.AM
 
             if (wrkMatl != null)
             {
-                Base.MatlXref.Current.QtyReq  = wrkMatl.QtyReq / (1 + amprodmatl.ScrapFactor);
+                decimal qtyReqWOScrap = (wrkMatl.QtyReq / (1 + amprodmatl.ScrapFactor)).Value;
+
+                Base.MatlXref.Current.QtyReq  = amprodmatl.QtyRoundUp == false ? qtyReqWOScrap : Math.Ceiling(qtyReqWOScrap);
                 Base.MatlXref.Current.MatlQty = wrkMatl.QtyAvail > wrkMatl.QtyReq ? wrkMatl.QtyReq : wrkMatl.QtyAvail;
             }
         }
