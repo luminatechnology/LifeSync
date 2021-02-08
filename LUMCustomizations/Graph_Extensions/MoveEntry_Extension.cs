@@ -8,7 +8,7 @@ namespace JAMS.AM
         public static bool IsActive()
         {
             //active customize button if current company is ABA China and HK 
-            return PX.Data.PXLogin.ExtractCompany(PX.Common.PXContext.PXIdentity.IdentityName).Contains("China") || PX.Data.PXLogin.ExtractCompany(PX.Common.PXContext.PXIdentity.IdentityName).Contains("HK");
+            return PX.Data.PXLogin.ExtractCompany(PX.Common.PXContext.PXIdentity.IdentityName).ToUpper().Contains("CHINA") || PX.Data.PXLogin.ExtractCompany(PX.Common.PXContext.PXIdentity.IdentityName).ToUpper().Contains("HK");
         }
 
         public override void Initialize()
