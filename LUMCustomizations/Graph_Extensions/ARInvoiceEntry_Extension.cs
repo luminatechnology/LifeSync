@@ -11,8 +11,9 @@ namespace PX.Objects.IN
         public static bool IsActive()
         {
             //active customize button if current company is ABA China and HK 
-            return PX.Data.Update.PXInstanceHelper.CurrentCompany == 3 || PX.Data.Update.PXInstanceHelper.CurrentCompany == 4;
+            return PX.Data.PXLogin.ExtractCompany(PX.Common.PXContext.PXIdentity.IdentityName).Contains("China") || PX.Data.PXLogin.ExtractCompany(PX.Common.PXContext.PXIdentity.IdentityName).Contains("HK");
         }
+
         public override void Initialize()
         {
             base.Initialize();

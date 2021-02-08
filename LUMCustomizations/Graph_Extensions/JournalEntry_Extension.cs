@@ -6,6 +6,12 @@ namespace PX.Objects.GL
 {
   public class JournalEntry_Extension : PXGraphExtension<JournalEntry>
   {
+        public static bool IsActive()
+        {
+            //active customize button if current company is ABA China and HK 
+            return PX.Data.PXLogin.ExtractCompany(PX.Common.PXContext.PXIdentity.IdentityName).Contains("China") || PX.Data.PXLogin.ExtractCompany(PX.Common.PXContext.PXIdentity.IdentityName).Contains("HK");
+        }
+
         public override void Initialize()
         {
             base.Initialize();

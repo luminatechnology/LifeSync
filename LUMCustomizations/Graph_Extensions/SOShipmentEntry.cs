@@ -15,6 +15,12 @@ namespace PX.Objects.SO
 {
     public class SOShipmentEntry_Extension : PXGraphExtension<SOShipmentEntry>
     {
+        public static bool IsActive()
+        {
+            //active customize button if current company is ABA China and HK 
+            return PX.Data.PXLogin.ExtractCompany(PX.Common.PXContext.PXIdentity.IdentityName).Contains("China") || PX.Data.PXLogin.ExtractCompany(PX.Common.PXContext.PXIdentity.IdentityName).Contains("HK");
+        }
+
         #region String & Decimal Contants
         public const string CartonSize = "CARTONSIZE";
         public const string QtyCarton  = "QTYCARTON";

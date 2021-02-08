@@ -15,6 +15,12 @@ namespace PX.Objects.SO
 {
     public class ProdMaint_Extension : PXGraphExtension<ProdMaint>
     {
+        public static bool IsActive()
+        {
+            //active customize button if current company is ABA China and HK 
+            return PX.Data.PXLogin.ExtractCompany(PX.Common.PXContext.PXIdentity.IdentityName).Contains("China") || PX.Data.PXLogin.ExtractCompany(PX.Common.PXContext.PXIdentity.IdentityName).Contains("HK");
+        }
+
         public SelectFrom<SOOrder>
             .Where<SOOrder.orderNbr.IsEqual<AMProdItemExt.usrSOOrderNbr.AsOptional>
                 .And<SOOrder.orderType.IsEqual<AMProdItemExt.usrSOOrderType.AsOptional>>>
