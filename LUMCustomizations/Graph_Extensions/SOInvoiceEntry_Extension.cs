@@ -8,7 +8,7 @@ namespace PX.Objects.SO
 {
     public class SOInvoiceEntry_Extension : PXGraphExtension<SOInvoiceEntry>
     {
-        public static bool IsActive()
+        public bool IsActive()
         {
             //active customize button if current country ID is CN or HK
             return new LumLibrary().isCNorHK();

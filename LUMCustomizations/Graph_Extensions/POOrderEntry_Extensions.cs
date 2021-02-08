@@ -22,7 +22,7 @@ namespace PX.Objects.PO
         {
             public constBubbleNumber() : base(bubbleNumber) { }
         }
-        public static bool IsActive()
+        public bool IsActive()
         {
             //active customize button if current country ID is CN or HK
             return new LumLibrary().isCNorHK();

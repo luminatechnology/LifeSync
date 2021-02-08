@@ -12,7 +12,7 @@ namespace LUMCustomizations.Graph_Extensions
 {
     public class VendorShipmentEntry_Extension: PXGraphExtension<VendorShipmentEntry>
     {
-        public static bool IsActive()
+        public bool IsActive()
         {
             //active customize button if current country ID is CN or HK
             return new LumLibrary().isCNorHK();

@@ -16,7 +16,7 @@ namespace PX.Objects.SO
 {
     public class ProdMaint_Extension : PXGraphExtension<ProdMaint>
     {
-        public static bool IsActive()
+        public bool IsActive()
         {
             //active customize button if current country ID is CN or HK
             return new LumLibrary().isCNorHK();

@@ -57,8 +57,8 @@ namespace LUMCustomizations.Library
         //Get Branch's country code
         public bool isCNorHK()
         {
-            var curCoutryID = PXSelect<Branch, Where<Branch.countryID, Equal<Required<Branch.countryID>>>>.Select(new PXGraph(), PX.Data.Update.PXInstanceHelper.CurrentCompany);
-            return curCoutryID.Equals("CN") || curCoutryID.Equals("HK");
+            var curCoutryID = (PXSelect<Branch>.Select(new PXGraph(), PX.Data.Update.PXInstanceHelper.CurrentCompany)).TopFirst?.CountryID;
+            return curCoutryID == ("CN") || curCoutryID == ("HK");
         }
     }
 }

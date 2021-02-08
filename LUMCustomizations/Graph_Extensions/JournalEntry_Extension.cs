@@ -7,7 +7,7 @@ namespace PX.Objects.GL
 {
   public class JournalEntry_Extension : PXGraphExtension<JournalEntry>
   {
-        public static bool IsActive()
+        public bool IsActive()
         {
             //active customize button if current country ID is CN or HK
             return new LumLibrary().isCNorHK();

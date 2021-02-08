@@ -7,7 +7,7 @@ namespace PX.Objects.PO
 {
     public class POReceiptEntry_Extension : PXGraphExtension<POReceiptEntry>
     {
-        public static bool IsActive()
+        public bool IsActive()
         {
             //active customize button if current country ID is CN or HK
             return new LumLibrary().isCNorHK();
