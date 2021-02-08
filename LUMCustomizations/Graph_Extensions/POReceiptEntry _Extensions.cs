@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using LUMCustomizations.Library;
+using System.Collections.Generic;
 using System.Collections;
 using PX.Data;
 
@@ -8,8 +9,8 @@ namespace PX.Objects.PO
     {
         public static bool IsActive()
         {
-            //active customize button if current company is ABA China and HK 
-            return PX.Data.PXLogin.ExtractCompany(PX.Common.PXContext.PXIdentity.IdentityName).ToUpper().Contains("CHINA") || PX.Data.PXLogin.ExtractCompany(PX.Common.PXContext.PXIdentity.IdentityName).ToUpper().Contains("HK");
+            //active customize button if current country ID is CN or HK
+            return new LumLibrary().isCNorHK();
         }
 
         public override void Initialize()

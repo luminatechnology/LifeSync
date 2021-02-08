@@ -1,5 +1,7 @@
 ﻿using LumCustomizations.DAC;
 using PX.Data;
+using PX.Data.BQL;
+using PX.Data.BQL.Fluent;
 using PX.Objects.GL;
 using System;
 using System.Collections.Generic;
@@ -50,6 +52,13 @@ namespace LUMCustomizations.Library
         public string GetCompanyBaseCuryID()
         {
            return new PXGraph().Select<Company>().FirstOrDefault()?.BaseCuryID;
+        }
+
+        //Get Branch's country code
+        public bool isCNorHK()
+        {
+            var curCoutryID = PXSelect<Branch, Where<Branch.countryID, Equal<Required<Branch.countryID>>>>.Select(new PXGraph(), PX.Data.Update.PXInstanceHelper.CurrentCompany);
+            return curCoutryID.Equals("CN") || curCoutryID.Equals("HK");
         }
     }
 }

@@ -1,3 +1,4 @@
+using LUMCustomizations.Library;
 using PX.Data;
 using System.Collections.Generic;
 
@@ -7,8 +8,8 @@ namespace JAMS.AM
   {
         public static bool IsActive()
         {
-            //active customize button if current company is ABA China and HK 
-            return PX.Data.PXLogin.ExtractCompany(PX.Common.PXContext.PXIdentity.IdentityName).ToUpper().Contains("CHINA") || PX.Data.PXLogin.ExtractCompany(PX.Common.PXContext.PXIdentity.IdentityName).ToUpper().Contains("HK");
+            //active customize button if current country ID is CN or HK
+            return new LumLibrary().isCNorHK();
         }
 
         public override void Initialize()
