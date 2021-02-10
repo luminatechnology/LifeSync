@@ -47,7 +47,7 @@ namespace LUMCustomizations.Library
                 return this._lifesyncPreference?.ProformaInvoicePrinting ?? false;
             }
         }
-
+        
         // Get Comapny Base Cury ID
         public string GetCompanyBaseCuryID()
         {
@@ -58,7 +58,7 @@ namespace LUMCustomizations.Library
         public bool isCNorHK()
         {
             var curCoutryID = (PXSelect<Branch>.Select(new PXGraph(), PX.Data.Update.PXInstanceHelper.CurrentCompany)).TopFirst?.CountryID;
-            return curCoutryID == ("CN") || curCoutryID == ("HK");
+            return (curCoutryID == "CN" || curCoutryID == "HK") ? true : false;
         }
     }
 }

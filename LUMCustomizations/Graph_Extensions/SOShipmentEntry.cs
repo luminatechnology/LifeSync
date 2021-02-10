@@ -16,12 +16,6 @@ namespace PX.Objects.SO
 {
     public class SOShipmentEntry_Extension : PXGraphExtension<SOShipmentEntry>
     {
-        public bool IsActive()
-        {
-            //active customize button if current country ID is CN or HK
-            return new LumLibrary().isCNorHK();
-        }
-
         #region String & Decimal Contants
         public const string CartonSize = "CARTONSIZE";
         public const string QtyCarton  = "QTYCARTON";
@@ -65,24 +59,27 @@ namespace PX.Objects.SO
         public override void Initialize()
         {
             base.Initialize();
+            var _lumLibrary = new LumLibrary();
+            if (_lumLibrary.isCNorHK())
+            {
+                // Get Visible
+                var _graph = PXGraph.CreateInstance<SOOrderEntry>();
+                var _PIPreference = from t in _graph.Select<LifeSyncPreference>()
+                                    select t;
+                var _visible = _PIPreference.FirstOrDefault() == null ? false : _PIPreference.FirstOrDefault().ProformaInvoicePrinting.Value
+                                                                      ? true : false;
+                // Set Button Visible
+                ProformaInvoice.SetVisible(_visible);
+                // Add Button
+                if (_visible)
+                    Base.report.AddMenuAction(ProformaInvoice);
 
-            // Get Visible
-            var _graph = PXGraph.CreateInstance<SOOrderEntry>();
-            var _PIPreference = from t in _graph.Select<LifeSyncPreference>()
-                                select t;
-            var _visible = _PIPreference.FirstOrDefault() == null ? false : _PIPreference.FirstOrDefault().ProformaInvoicePrinting.Value
-                                                                  ? true : false;
-            // Set Button Visible
-            ProformaInvoice.SetVisible(_visible);
-            // Add Button
-            if (_visible)
-                Base.report.AddMenuAction(ProformaInvoice);
+                Base.report.AddMenuAction(DeliveryOrderReport);
 
-            Base.report.AddMenuAction(DeliveryOrderReport);
-
-            Base.action.AddMenuAction(DispatchNoteReport);
-            Base.action.AddMenuAction(ReturnNoteReport);
-            Base.action.MenuAutoOpen = true;
+                Base.action.AddMenuAction(DispatchNoteReport);
+                Base.action.AddMenuAction(ReturnNoteReport);
+                Base.action.MenuAutoOpen = true;
+            }
         }
         #endregion
 
@@ -154,7 +151,7 @@ namespace PX.Objects.SO
         #region Action
         public PXAction<SOShipment> ProformaInvoice;
         [PXButton]
-        [PXUIField(DisplayName = "Print Proforma Invoice Report", Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print Proforma Invoice Report", Visible = false, Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable proformaInvoice(PXAdapter adapter)
         {
             var _reportID = "lm611000";
@@ -169,7 +166,7 @@ namespace PX.Objects.SO
 
         public PXAction<SOShipment> DeliveryOrderReport;
         [PXButton]
-        [PXUIField(DisplayName = "Print Delivery Order", Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print Delivery Order", Visible = false, Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable deliveryOrderReport(PXAdapter adapter)
         {
             if (Base.Document.Current != null)
@@ -183,7 +180,7 @@ namespace PX.Objects.SO
 
         public PXAction<SOShipment> DispatchNoteReport;
         [PXButton]
-        [PXUIField(DisplayName = "Print Dispatch Note", Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print Dispatch Note", Visible = false, Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable dispatchNoteReport(PXAdapter adapter)
         {
             if (Base.Document.Current != null)
@@ -197,7 +194,7 @@ namespace PX.Objects.SO
 
         public PXAction<SOShipment> ReturnNoteReport;
         [PXButton]
-        [PXUIField(DisplayName = "Print Return Note", Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print Return Note", Visible = false, Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable returnNoteReport(PXAdapter adapter)
         {
             if (Base.Document.Current != null)
@@ -207,6 +204,20 @@ namespace PX.Objects.SO
                 throw new PXReportRequiredException(parameters, "LM644010", "Report LM644010");
             }
             return adapter.Get();
+        }
+        #endregion
+
+        #region controll customize button based on country ID
+        protected void _(Events.RowSelected<SOShipment> e)
+        {
+            var _lumLibrary = new LumLibrary();
+            if (_lumLibrary.isCNorHK())
+            {
+                ProformaInvoice.SetVisible(true);
+                DeliveryOrderReport.SetVisible(true);
+                DispatchNoteReport.SetVisible(true);
+                ReturnNoteReport.SetVisible(true);
+            }
         }
         #endregion
     }

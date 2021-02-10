@@ -8,17 +8,15 @@ namespace JAMS.AM
 {
     public class MaterialEntry_Extension : PXGraphExtension<MaterialEntry>
     {
-        public bool IsActive()
-        {
-            //active customize button if current country ID is CN or HK
-            return new LumLibrary().isCNorHK();
-        }
-
         public override void Initialize()
         {
-            ReportAction.AddMenuAction(MaterialIssuesAction);
-            ReportAction.AddMenuAction(MaterialReturnAction);
-            ReportAction.MenuAutoOpen = true;
+            var _lumLibrary = new LumLibrary();
+            if (_lumLibrary.isCNorHK())
+            {
+                ReportAction.AddMenuAction(MaterialIssuesAction);
+                ReportAction.AddMenuAction(MaterialReturnAction);
+                ReportAction.MenuAutoOpen = true;
+            }
         }
 
         #region Override Attribute
@@ -35,14 +33,14 @@ namespace JAMS.AM
         #region Report Action
         public PXAction<AMBatch> ReportAction;
         [PXButton]
-        [PXUIField(DisplayName = "Report")]
+        [PXUIField(DisplayName = "Report", Visible = false)]
         protected void reportAction() { }
         #endregion
 
         #region Material Issues Action
         public PXAction<AMBatch> MaterialIssuesAction;
         [PXButton]
-        [PXUIField(DisplayName = "Material Issues", MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Material Issues", Visible = false, MapEnableRights = PXCacheRights.Select)]
         protected void materialIssuesAction()
         {
             var curAMBatchCache = (AMBatch)Base.batch.Cache.Current;
@@ -68,7 +66,7 @@ namespace JAMS.AM
         #region Material Return Action
         public PXAction<AMBatch> MaterialReturnAction;
         [PXButton]
-        [PXUIField(DisplayName = "Material Return", MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Material Return", Visible = false, MapEnableRights = PXCacheRights.Select)]
         protected void materialReturnAction()
         {
             var curAMBatchCache = (AMBatch)Base.batch.Cache.Current;
@@ -84,8 +82,17 @@ namespace JAMS.AM
 
         #endregion
 
-        #region Event Handlers
-
+        #region controll customize button based on country ID
+        protected void _(Events.RowSelected<AMBatch> e)
+        {
+            var _lumLibrary = new LumLibrary();
+            if (_lumLibrary.isCNorHK())
+            {
+                ReportAction.SetVisible(true);
+                MaterialIssuesAction.SetVisible(true);
+                MaterialReturnAction.SetVisible(true);
+            }
+        }
         #endregion
     }
 }

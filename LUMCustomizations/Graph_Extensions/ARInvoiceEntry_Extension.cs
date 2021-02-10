@@ -8,17 +8,15 @@ namespace PX.Objects.IN
 {
     public class ARInvoiceEntry_Extension : PXGraphExtension<ARInvoiceEntry>
     {
-        public bool IsActive()
-        {
-            //active customize button if current country ID is CN or HK
-            return new LumLibrary().isCNorHK();
-        }
-
         public override void Initialize()
         {
             base.Initialize();
-            Base.report.AddMenuAction(CommercialInvoiceReport);
-            Base.report.AddMenuAction(CreditNoteReport);
+            var _lumLibrary = new LumLibrary();
+            if (_lumLibrary.isCNorHK())
+            {
+                Base.report.AddMenuAction(CommercialInvoiceReport);
+                Base.report.AddMenuAction(CreditNoteReport);
+            }
         }
 
         #region Override DAC
@@ -39,12 +37,19 @@ namespace PX.Objects.IN
             PXUIFieldAttribute.SetEnabled<ARInvoice.lineTotal>(e.Cache, null, false);
             // Hide CuryOrigDiscAmt
             PXUIFieldAttribute.SetVisible<ARInvoice.curyOrigDiscAmt>(e.Cache, null, !_library.GetShowingTotalInHome);
+
+            //controll customize button based on country ID
+            if (_library.isCNorHK())
+            {
+                CommercialInvoiceReport.SetVisible(true);
+                CreditNoteReport.SetVisible(true);
+            }
         }
 
         #region Action
         public PXAction<ARInvoice> CommercialInvoiceReport;
         [PXButton]
-        [PXUIField(DisplayName = "Print Commercial Invoice", Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print Commercial Invoice", Visible = false, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable commercialInvoiceReport(PXAdapter adapter)
         {
             if (Base.Document.Current != null)
@@ -60,7 +65,7 @@ namespace PX.Objects.IN
         #region Action
         public PXAction<ARInvoice> CreditNoteReport;
         [PXButton]
-        [PXUIField(DisplayName = "Print Credit Note", Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print Credit Note", Visible = false, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable creditNoteReport(PXAdapter adapter)
         {
             if (Base.Document.Current != null)

@@ -16,12 +16,6 @@ namespace PX.Objects.SO
 {
     public class ProdMaint_Extension : PXGraphExtension<ProdMaint>
     {
-        public bool IsActive()
-        {
-            //active customize button if current country ID is CN or HK
-            return new LumLibrary().isCNorHK();
-        }
-
         public SelectFrom<SOOrder>
             .Where<SOOrder.orderNbr.IsEqual<AMProdItemExt.usrSOOrderNbr.AsOptional>
                 .And<SOOrder.orderType.IsEqual<AMProdItemExt.usrSOOrderType.AsOptional>>>
@@ -29,14 +23,18 @@ namespace PX.Objects.SO
         public override void Initialize()
         {
             base.Initialize();
-            Base.report.AddMenuAction(ProductionInstruction);
-            Base.report.AddMenuAction(InnerLabel);
+            var _lumLibrary = new LumLibrary();
+            if (_lumLibrary.isCNorHK())
+            {
+                Base.report.AddMenuAction(ProductionInstruction);
+                Base.report.AddMenuAction(InnerLabel);
+            }
         }
 
         #region Action
         public PXAction<AMProdItem> ProductionInstruction;
         [PXButton]
-        [PXUIField(DisplayName = "生产指令单", Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "生产指令单", Visible = false, Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable productionInstruction(PXAdapter adapter)
         {
             var _reportID = "lm625000";
@@ -58,7 +56,7 @@ namespace PX.Objects.SO
 
         public PXAction<AMProdItem> InnerLabel;
         [PXButton]
-        [PXUIField(DisplayName = "Print Inner label", Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print Inner label", Visible = false, Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable innerLabel(PXAdapter adapter)
         {
             var _reportID = "lm601002";
@@ -95,6 +93,18 @@ namespace PX.Objects.SO
                 ["DATE"] = null
             };
             throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
+        }
+        #endregion
+
+        #region controll customize button based on country ID
+        protected void _(Events.RowSelected<AMProdItem> e)
+        {
+            var _lumLibrary = new LumLibrary();
+            if (_lumLibrary.isCNorHK())
+            {
+                ProductionInstruction.SetVisible(true);
+                InnerLabel.SetVisible(true);
+            }
         }
         #endregion
     }
