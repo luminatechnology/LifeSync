@@ -21,14 +21,14 @@ namespace JAMS.AM
         #region Report Action
         public PXAction<AMBatch> ReportAction;
         [PXButton]
-        [PXUIField(DisplayName = "Report", Visible = false)]
+        [PXUIField(DisplayName = "Report")]
         protected void reportAction() { }
         #endregion
 
         #region Material Issues Action
         public PXAction<AMBatch> ProductionMoveAction;
         [PXButton]
-        [PXUIField(DisplayName = "Production Move", Visible = false, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Production Move", MapEnableRights = PXCacheRights.Select)]
         protected void productionMoveAction()
         {
             var curAMBatchCache = (AMBatch)Base.batch.Cache.Current;
@@ -48,10 +48,10 @@ namespace JAMS.AM
         protected void _(Events.RowSelected<AMBatch> e)
         {
             var _lumLibrary = new LumLibrary();
-            if (_lumLibrary.isCNorHK())
+            if (!_lumLibrary.isCNorHK())
             {
-                ReportAction.SetVisible(true);
-                ProductionMoveAction.SetVisible(true);
+                ReportAction.SetVisible(false);
+                ProductionMoveAction.SetVisible(false);
             }
         }
         #endregion
