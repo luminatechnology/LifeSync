@@ -39,17 +39,17 @@ namespace PX.Objects.IN
             PXUIFieldAttribute.SetVisible<ARInvoice.curyOrigDiscAmt>(e.Cache, null, !_library.GetShowingTotalInHome);
 
             //controll customize button based on country ID
-            if (_library.isCNorHK())
+            if (!_library.isCNorHK())
             {
-                CommercialInvoiceReport.SetVisible(true);
-                CreditNoteReport.SetVisible(true);
+                CommercialInvoiceReport.SetVisible(false);
+                CreditNoteReport.SetVisible(false);
             }
         }
 
         #region Action
         public PXAction<ARInvoice> CommercialInvoiceReport;
         [PXButton]
-        [PXUIField(DisplayName = "Print Commercial Invoice", Visible = false, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print Commercial Invoice", MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable commercialInvoiceReport(PXAdapter adapter)
         {
             if (Base.Document.Current != null)
@@ -57,7 +57,7 @@ namespace PX.Objects.IN
                 Dictionary<string, string> parameters = new Dictionary<string, string>();
                 parameters["RefNbr"] = Base.Document.Current.RefNbr;
                 throw new PXReportRequiredException(parameters, "LM602000", "Report LM602000");
-            }
+            } 
             return adapter.Get();
         }
         #endregion
@@ -65,7 +65,7 @@ namespace PX.Objects.IN
         #region Action
         public PXAction<ARInvoice> CreditNoteReport;
         [PXButton]
-        [PXUIField(DisplayName = "Print Credit Note", Visible = false, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print Credit Note", MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable creditNoteReport(PXAdapter adapter)
         {
             if (Base.Document.Current != null)

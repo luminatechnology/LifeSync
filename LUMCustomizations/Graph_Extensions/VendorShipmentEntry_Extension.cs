@@ -25,7 +25,7 @@ namespace LUMCustomizations.Graph_Extensions
         #region Action
         public PXAction<AMVendorShipment> VendorShipment;
         [PXButton]
-        [PXUIField(DisplayName = "Print Vendor Shipmetn Report", Visible = false, Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print Vendor Shipmetn Report", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable vendorShipment(PXAdapter adapter)
         {
             var _reportID = "lm611003";
@@ -43,9 +43,9 @@ namespace LUMCustomizations.Graph_Extensions
         protected void _(Events.RowSelected<AMVendorShipment> e)
         {
             var _lumLibrary = new LumLibrary();
-            if (_lumLibrary.isCNorHK())
+            if (!_lumLibrary.isCNorHK())
             {
-                VendorShipment.SetVisible(true);
+                VendorShipment.SetVisible(false);
             }
         }
         #endregion

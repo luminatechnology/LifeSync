@@ -20,7 +20,7 @@ namespace PX.Objects.GL
         #region Material Issues Action
         public PXAction<Batch> GLJournalAction;
         [PXButton]
-        [PXUIField(DisplayName = "GL Journal Report", Visible = false, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "GL Journal Report", MapEnableRights = PXCacheRights.Select)]
         protected void gLJournalAction()
         {
             var curBatchCache = (Batch)Base.BatchModule.Cache.Current;
@@ -40,9 +40,9 @@ namespace PX.Objects.GL
         protected void _(Events.RowSelected<Batch> e)
         {
             var _lumLibrary = new LumLibrary();
-            if (_lumLibrary.isCNorHK())
+            if (!_lumLibrary.isCNorHK())
             {
-                GLJournalAction.SetVisible(true);
+                GLJournalAction.SetVisible(false);
             }
         }
         #endregion

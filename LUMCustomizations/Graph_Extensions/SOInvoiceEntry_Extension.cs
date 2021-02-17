@@ -35,11 +35,11 @@ namespace PX.Objects.SO
 
             //controll customize button based on country ID
             var _lumLibrary = new LumLibrary();
-            if (_lumLibrary.isCNorHK())
+            if (!_lumLibrary.isCNorHK())
             {
-                CommercialInvoiceReport.SetVisible(true);
-                CreditNoteReport.SetVisible(true);
-                CommercialInvoiceFromDGReport.SetVisible(true);
+                CommercialInvoiceReport.SetVisible(false);
+                CreditNoteReport.SetVisible(false);
+                CommercialInvoiceFromDGReport.SetVisible(false);
             }
         }
 
@@ -47,7 +47,7 @@ namespace PX.Objects.SO
         #region Action
         public PXAction<ARInvoice> CommercialInvoiceReport;
         [PXButton]
-        [PXUIField(DisplayName = "Print Commercial Invoice (HK for tooling)", Visible = false, Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print Commercial Invoice (HK for tooling)", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable commercialInvoiceReport(PXAdapter adapter)
         {
             if (Base.Document.Current != null)
@@ -63,7 +63,7 @@ namespace PX.Objects.SO
         #region Action
         public PXAction<ARInvoice> CreditNoteReport;
         [PXButton]
-        [PXUIField(DisplayName = "Print Credit Note", Visible = false, Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print Credit Note", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable creditNoteReport(PXAdapter adapter)
         {
             if (Base.Document.Current != null)
@@ -79,7 +79,7 @@ namespace PX.Objects.SO
         #region Action
         public PXAction<ARInvoice> CommercialInvoiceFromDGReport;
         [PXButton]
-        [PXUIField(DisplayName = "Print Commercial Invoice From DG", Visible = false, Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print Commercial Invoice From DG", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable commercialInvoiceFromDGReport(PXAdapter adapter)
         {
             if (Base.Document.Current != null)

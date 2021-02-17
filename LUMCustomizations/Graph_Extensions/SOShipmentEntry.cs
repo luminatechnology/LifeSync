@@ -151,7 +151,7 @@ namespace PX.Objects.SO
         #region Action
         public PXAction<SOShipment> ProformaInvoice;
         [PXButton]
-        [PXUIField(DisplayName = "Print Proforma Invoice Report", Visible = false, Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print Proforma Invoice Report", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable proformaInvoice(PXAdapter adapter)
         {
             var _reportID = "lm611000";
@@ -166,7 +166,7 @@ namespace PX.Objects.SO
 
         public PXAction<SOShipment> DeliveryOrderReport;
         [PXButton]
-        [PXUIField(DisplayName = "Print Delivery Order", Visible = false, Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print Delivery Order", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable deliveryOrderReport(PXAdapter adapter)
         {
             if (Base.Document.Current != null)
@@ -180,7 +180,7 @@ namespace PX.Objects.SO
 
         public PXAction<SOShipment> DispatchNoteReport;
         [PXButton]
-        [PXUIField(DisplayName = "Print Dispatch Note", Visible = false, Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print Dispatch Note", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable dispatchNoteReport(PXAdapter adapter)
         {
             if (Base.Document.Current != null)
@@ -194,7 +194,7 @@ namespace PX.Objects.SO
 
         public PXAction<SOShipment> ReturnNoteReport;
         [PXButton]
-        [PXUIField(DisplayName = "Print Return Note", Visible = false, Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print Return Note", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable returnNoteReport(PXAdapter adapter)
         {
             if (Base.Document.Current != null)
@@ -211,12 +211,12 @@ namespace PX.Objects.SO
         protected void _(Events.RowSelected<SOShipment> e)
         {
             var _lumLibrary = new LumLibrary();
-            if (_lumLibrary.isCNorHK())
+            if (!_lumLibrary.isCNorHK())
             {
-                ProformaInvoice.SetVisible(true);
-                DeliveryOrderReport.SetVisible(true);
-                DispatchNoteReport.SetVisible(true);
-                ReturnNoteReport.SetVisible(true);
+                ProformaInvoice.SetVisible(false);
+                DeliveryOrderReport.SetVisible(false);
+                DispatchNoteReport.SetVisible(false);
+                ReturnNoteReport.SetVisible(false);
             }
         }
         #endregion

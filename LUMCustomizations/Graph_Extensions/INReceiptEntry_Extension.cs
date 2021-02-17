@@ -21,7 +21,7 @@ namespace PX.Objects.IN
         #region Action
         public PXAction<INRegister> InventoryReceiptReport;
         [PXButton]
-        [PXUIField(DisplayName = "Inventory Receipt Report", Visible = false, Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Inventory Receipt Report", MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable inventoryReceiptReport(PXAdapter adapter)
         {
             if (Base.receipt.Current != null)
@@ -38,7 +38,7 @@ namespace PX.Objects.IN
 
         public PXAction<INRegister> InventoryReceiptReportruku;
         [PXButton]
-        [PXUIField(DisplayName = "Inventory Receipt Report - rukudan", Visible = false, Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Inventory Receipt Report - rukudan", MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable inventoryReceiptReportruku(PXAdapter adapter)
         {
             if (Base.receipt.Current != null)
@@ -58,13 +58,12 @@ namespace PX.Objects.IN
         protected void _(Events.RowSelected<INRegister> e)
         {
             var _lumLibrary = new LumLibrary();
-            if (_lumLibrary.isCNorHK())
+            if (!_lumLibrary.isCNorHK())
             {
-                InventoryReceiptReport.SetVisible(true);
-                InventoryReceiptReportruku.SetVisible(true);
+                InventoryReceiptReport.SetVisible(false);
+                InventoryReceiptReportruku.SetVisible(false);
             }
         }
         #endregion
-
     }
 }

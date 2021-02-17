@@ -25,7 +25,7 @@ namespace PX.Objects.SO
         #region Action
         public PXAction<INRegister> InventoryIssueReport;
         [PXButton]
-        [PXUIField(DisplayName = "Inventory Issue Report", Visible = false, Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Inventory Issue Report", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable inventoryIssueReport(PXAdapter adapter)
         {
             var _reportID = "lm612005";
@@ -44,9 +44,9 @@ namespace PX.Objects.SO
         protected void _(Events.RowSelected<INRegister> e)
         {
             var _lumLibrary = new LumLibrary();
-            if (_lumLibrary.isCNorHK())
+            if (!_lumLibrary.isCNorHK())
             {
-                InventoryIssueReport.SetVisible(true);
+                InventoryIssueReport.SetVisible(false);
             }
         }
         #endregion
