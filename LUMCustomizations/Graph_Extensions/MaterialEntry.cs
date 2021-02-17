@@ -33,14 +33,14 @@ namespace JAMS.AM
         #region Report Action
         public PXAction<AMBatch> ReportAction;
         [PXButton]
-        [PXUIField(DisplayName = "Report", Visible = false)]
+        [PXUIField(DisplayName = "Report")]
         protected void reportAction() { }
         #endregion
 
         #region Material Issues Action
         public PXAction<AMBatch> MaterialIssuesAction;
         [PXButton]
-        [PXUIField(DisplayName = "Material Issues", Visible = false, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Material Issues", MapEnableRights = PXCacheRights.Select)]
         protected void materialIssuesAction()
         {
             var curAMBatchCache = (AMBatch)Base.batch.Cache.Current;
@@ -66,7 +66,7 @@ namespace JAMS.AM
         #region Material Return Action
         public PXAction<AMBatch> MaterialReturnAction;
         [PXButton]
-        [PXUIField(DisplayName = "Material Return", Visible = false, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Material Return", MapEnableRights = PXCacheRights.Select)]
         protected void materialReturnAction()
         {
             var curAMBatchCache = (AMBatch)Base.batch.Cache.Current;
@@ -86,11 +86,11 @@ namespace JAMS.AM
         protected void _(Events.RowSelected<AMBatch> e)
         {
             var _lumLibrary = new LumLibrary();
-            if (_lumLibrary.isCNorHK())
+            if (!_lumLibrary.isCNorHK())
             {
-                ReportAction.SetVisible(true);
-                MaterialIssuesAction.SetVisible(true);
-                MaterialReturnAction.SetVisible(true);
+                ReportAction.SetVisible(false);
+                MaterialIssuesAction.SetVisible(false);
+                MaterialReturnAction.SetVisible(false);
             }
         }
         #endregion
