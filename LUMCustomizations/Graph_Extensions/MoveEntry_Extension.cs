@@ -6,16 +6,14 @@ namespace JAMS.AM
 {
   public class MoveEntry_Extension : PXGraphExtension<MoveEntry>
   {
-        public bool IsActive()
-        {
-            //active customize button if current country ID is CN or HK
-            return new LumLibrary().isCNorHK();
-        }
-
         public override void Initialize()
         {
-            ReportAction.AddMenuAction(ProductionMoveAction);
-            ReportAction.MenuAutoOpen = true;
+            var _lumLibrary = new LumLibrary();
+            if (_lumLibrary.isCNorHK())
+            {
+                ReportAction.AddMenuAction(ProductionMoveAction);
+                ReportAction.MenuAutoOpen = true;
+            }
         }
 
         #region  Actions
@@ -46,8 +44,16 @@ namespace JAMS.AM
 
         #endregion
 
-        #region Event Handlers
-
+        #region controll customize button based on country ID
+        protected void _(Events.RowSelected<AMBatch> e)
+        {
+            var _lumLibrary = new LumLibrary();
+            if (!_lumLibrary.isCNorHK())
+            {
+                ReportAction.SetVisible(false);
+                ProductionMoveAction.SetVisible(false);
+            }
+        }
         #endregion
     }
 }

@@ -12,16 +12,14 @@ namespace LUMCustomizations.Graph_Extensions
 {
     public class INPIReview_Extension: PXGraphExtension<INPIReview>
     {
-        public bool IsActive()
-        {
-            //active customize button if current country ID is CN or HK
-            return new LumLibrary().isCNorHK();
-        }
-
         public override void Initialize()
         {
             base.Initialize();
-            Base.actionsFolder.AddMenuAction(CountintListReport);
+            var _lumLibrary = new LumLibrary();
+            if (_lumLibrary.isCNorHK())
+            {
+                Base.actionsFolder.AddMenuAction(CountintListReport);
+            }
         }
 
         #region Action
@@ -42,5 +40,15 @@ namespace LUMCustomizations.Graph_Extensions
         }
         #endregion
 
+        #region controll customize button based on country ID
+        protected void _(Events.RowSelected<INPIHeader> e)
+        {
+            var _lumLibrary = new LumLibrary();
+            if (!_lumLibrary.isCNorHK())
+            {
+                CountintListReport.SetVisible(false);
+            }
+        }
+        #endregion
     }
 }

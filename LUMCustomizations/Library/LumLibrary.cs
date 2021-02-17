@@ -66,7 +66,7 @@ namespace LUMCustomizations.Library
         public bool isCNorHK()
         {
             var curCoutryID = (PXSelect<Branch>.Select(new PXGraph(), PX.Data.Update.PXInstanceHelper.CurrentCompany)).TopFirst?.CountryID;
-            return curCoutryID == ("CN") || curCoutryID == ("HK");
+            return (curCoutryID == "CN" || curCoutryID == "HK") ? true : false;
         }
     }
 }

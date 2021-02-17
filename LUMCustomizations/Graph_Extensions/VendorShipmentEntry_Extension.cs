@@ -12,16 +12,14 @@ namespace LUMCustomizations.Graph_Extensions
 {
     public class VendorShipmentEntry_Extension: PXGraphExtension<VendorShipmentEntry>
     {
-        public bool IsActive()
-        {
-            //active customize button if current country ID is CN or HK
-            return new LumLibrary().isCNorHK();
-        }
-
         public override void Initialize()
         {
             base.Initialize();
-            Base.report.AddMenuAction(VendorShipment);
+            var _lumLibrary = new LumLibrary();
+            if (_lumLibrary.isCNorHK())
+            {
+                Base.report.AddMenuAction(VendorShipment);
+            }
         }
 
         #region Action
@@ -41,5 +39,15 @@ namespace LUMCustomizations.Graph_Extensions
         }
         #endregion
 
+        #region controll customize button based on country ID
+        protected void _(Events.RowSelected<AMVendorShipment> e)
+        {
+            var _lumLibrary = new LumLibrary();
+            if (!_lumLibrary.isCNorHK())
+            {
+                VendorShipment.SetVisible(false);
+            }
+        }
+        #endregion
     }
 }

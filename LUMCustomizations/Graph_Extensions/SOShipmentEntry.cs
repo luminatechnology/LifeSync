@@ -16,12 +16,6 @@ namespace PX.Objects.SO
 {
     public class SOShipmentEntry_Extension : PXGraphExtension<SOShipmentEntry>
     {
-        public bool IsActive()
-        {
-            //active customize button if current country ID is CN or HK
-            return new LumLibrary().isCNorHK();
-        }
-
         #region String & Decimal Contants
         public const string CartonSize = "CARTONSIZE";
         public const string QtyCarton  = "QTYCARTON";
@@ -65,24 +59,27 @@ namespace PX.Objects.SO
         public override void Initialize()
         {
             base.Initialize();
+            var _lumLibrary = new LumLibrary();
+            if (_lumLibrary.isCNorHK())
+            {
+                // Get Visible
+                var _graph = PXGraph.CreateInstance<SOOrderEntry>();
+                var _PIPreference = from t in _graph.Select<LifeSyncPreference>()
+                                    select t;
+                var _visible = _PIPreference.FirstOrDefault() == null ? false : _PIPreference.FirstOrDefault().ProformaInvoicePrinting.Value
+                                                                      ? true : false;
+                // Set Button Visible
+                ProformaInvoice.SetVisible(_visible);
+                // Add Button
+                if (_visible)
+                    Base.report.AddMenuAction(ProformaInvoice);
 
-            // Get Visible
-            var _graph = PXGraph.CreateInstance<SOOrderEntry>();
-            var _PIPreference = from t in _graph.Select<LifeSyncPreference>()
-                                select t;
-            var _visible = _PIPreference.FirstOrDefault() == null ? false : _PIPreference.FirstOrDefault().ProformaInvoicePrinting.Value
-                                                                  ? true : false;
-            // Set Button Visible
-            ProformaInvoice.SetVisible(_visible);
-            // Add Button
-            if (_visible)
-                Base.report.AddMenuAction(ProformaInvoice);
+                Base.report.AddMenuAction(DeliveryOrderReport);
 
-            Base.report.AddMenuAction(DeliveryOrderReport);
-
-            Base.action.AddMenuAction(DispatchNoteReport);
-            Base.action.AddMenuAction(ReturnNoteReport);
-            Base.action.MenuAutoOpen = true;
+                Base.action.AddMenuAction(DispatchNoteReport);
+                Base.action.AddMenuAction(ReturnNoteReport);
+                Base.action.MenuAutoOpen = true;
+            }
         }
         #endregion
 
@@ -207,6 +204,20 @@ namespace PX.Objects.SO
                 throw new PXReportRequiredException(parameters, "LM644010", "Report LM644010");
             }
             return adapter.Get();
+        }
+        #endregion
+
+        #region controll customize button based on country ID
+        protected void _(Events.RowSelected<SOShipment> e)
+        {
+            var _lumLibrary = new LumLibrary();
+            if (!_lumLibrary.isCNorHK())
+            {
+                ProformaInvoice.SetVisible(false);
+                DeliveryOrderReport.SetVisible(false);
+                DispatchNoteReport.SetVisible(false);
+                ReturnNoteReport.SetVisible(false);
+            }
         }
         #endregion
     }

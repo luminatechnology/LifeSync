@@ -7,20 +7,15 @@ namespace PX.Objects.GL
 {
   public class JournalEntry_Extension : PXGraphExtension<JournalEntry>
   {
-        public bool IsActive()
-        {
-            //active customize button if current country ID is CN or HK
-            return new LumLibrary().isCNorHK();
-        }
-
         public override void Initialize()
         {
             base.Initialize();
-            Base.report.AddMenuAction(GLJournalAction);
-            //Base.report.MenuAutoOpen = true;
+            var _lumLibrary = new LumLibrary();
+            if (_lumLibrary.isCNorHK())
+            {
+                Base.report.AddMenuAction(GLJournalAction);
+            }
         }
-
-        #region  Actions
 
         #region Material Issues Action
         public PXAction<Batch> GLJournalAction;
@@ -41,6 +36,15 @@ namespace PX.Objects.GL
         }
         #endregion
 
+        #region controll customize button based on country ID
+        protected void _(Events.RowSelected<Batch> e)
+        {
+            var _lumLibrary = new LumLibrary();
+            if (!_lumLibrary.isCNorHK())
+            {
+                GLJournalAction.SetVisible(false);
+            }
+        }
         #endregion
     }
 }

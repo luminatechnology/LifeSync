@@ -11,17 +11,15 @@ namespace PX.Objects.IN
 {
     public class INReceiptEntry_Extension : PXGraphExtension<INReceiptEntry>
     {
-        public bool IsActive()
-        {
-            //active customize button if current country ID is CN or HK
-            return new LumLibrary().isCNorHK();
-        }
-
         public override void Initialize()
         {
             base.Initialize();
-            Base.report.AddMenuAction(InventoryReceiptReport);
-            Base.report.AddMenuAction(InventoryReceiptReportruku);
+            var _lumLibrary = new LumLibrary();
+            if (_lumLibrary.isCNorHK())
+            {
+                Base.report.AddMenuAction(InventoryReceiptReport);
+                Base.report.AddMenuAction(InventoryReceiptReportruku);
+            }
         }
 
         /// <summary>
@@ -46,7 +44,7 @@ namespace PX.Objects.IN
         #region Action
         public PXAction<INRegister> InventoryReceiptReport;
         [PXButton]
-        [PXUIField(DisplayName = "Inventory Receipt Report", Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Inventory Receipt Report", MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable inventoryReceiptReport(PXAdapter adapter)
         {
             if (Base.receipt.Current != null)
@@ -63,7 +61,7 @@ namespace PX.Objects.IN
 
         public PXAction<INRegister> InventoryReceiptReportruku;
         [PXButton]
-        [PXUIField(DisplayName = "Inventory Receipt Report - rukudan", Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Inventory Receipt Report - rukudan", MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable inventoryReceiptReportruku(PXAdapter adapter)
         {
             if (Base.receipt.Current != null)
@@ -79,5 +77,16 @@ namespace PX.Objects.IN
         }
         #endregion
 
+        #region controll customize button based on country ID
+        protected void _(Events.RowSelected<INRegister> e)
+        {
+            var _lumLibrary = new LumLibrary();
+            if (!_lumLibrary.isCNorHK())
+            {
+                InventoryReceiptReport.SetVisible(false);
+                InventoryReceiptReportruku.SetVisible(false);
+            }
+        }
+        #endregion
     }
 }

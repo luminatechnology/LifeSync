@@ -16,12 +16,6 @@ namespace PX.Objects.SO
 {
     public class ProdMaint_Extension : PXGraphExtension<ProdMaint>
     {
-        public bool IsActive()
-        {
-            //active customize button if current country ID is CN or HK
-            return new LumLibrary().isCNorHK();
-        }
-
         public SelectFrom<SOOrder>
             .Where<SOOrder.orderNbr.IsEqual<AMProdItemExt.usrSOOrderNbr.AsOptional>
                 .And<SOOrder.orderType.IsEqual<AMProdItemExt.usrSOOrderType.AsOptional>>>
@@ -29,8 +23,12 @@ namespace PX.Objects.SO
         public override void Initialize()
         {
             base.Initialize();
-            Base.report.AddMenuAction(ProductionInstruction);
-            Base.report.AddMenuAction(InnerLabel);
+            var _lumLibrary = new LumLibrary();
+            if (_lumLibrary.isCNorHK())
+            {
+                Base.report.AddMenuAction(ProductionInstruction);
+                Base.report.AddMenuAction(InnerLabel);
+            }
         }
 
         #region Action
@@ -95,6 +93,18 @@ namespace PX.Objects.SO
                 ["DATE"] = null
             };
             throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
+        }
+        #endregion
+
+        #region controll customize button based on country ID
+        protected void _(Events.RowSelected<AMProdItem> e)
+        {
+            var _lumLibrary = new LumLibrary();
+            if (!_lumLibrary.isCNorHK())
+            {
+                ProductionInstruction.SetVisible(false);
+                InnerLabel.SetVisible(false);
+            }
         }
         #endregion
     }

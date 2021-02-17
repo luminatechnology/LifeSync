@@ -12,16 +12,14 @@ namespace PX.Objects.SO
 {
     public class INIssueEntry_Extension : PXGraphExtension<INIssueEntry>
     {
-        public bool IsActive()
-        {
-            //active customize button if current country ID is CN or HK
-            return new LumLibrary().isCNorHK();
-        }
-
         public override void Initialize()
         {
             base.Initialize();
-            Base.report.AddMenuAction(InventoryIssueReport);
+            var _lumLibrary = new LumLibrary();
+            if (_lumLibrary.isCNorHK())
+            {
+                Base.report.AddMenuAction(InventoryIssueReport);
+            }
         }
 
         #region Action
@@ -39,6 +37,17 @@ namespace PX.Objects.SO
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
             }
             return adapter.Get();
+        }
+        #endregion
+
+        #region controll customize button based on country ID
+        protected void _(Events.RowSelected<INRegister> e)
+        {
+            var _lumLibrary = new LumLibrary();
+            if (!_lumLibrary.isCNorHK())
+            {
+                InventoryIssueReport.SetVisible(false);
+            }
         }
         #endregion
     }

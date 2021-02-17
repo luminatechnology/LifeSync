@@ -8,17 +8,15 @@ namespace JAMS.AM
 {
     public class MaterialEntry_Extension : PXGraphExtension<MaterialEntry>
     {
-        public bool IsActive()
-        {
-            //active customize button if current country ID is CN or HK
-            return new LumLibrary().isCNorHK();
-        }
-
         public override void Initialize()
         {
-            ReportAction.AddMenuAction(MaterialIssuesAction);
-            ReportAction.AddMenuAction(MaterialReturnAction);
-            ReportAction.MenuAutoOpen = true;
+            var _lumLibrary = new LumLibrary();
+            if (_lumLibrary.isCNorHK())
+            {
+                ReportAction.AddMenuAction(MaterialIssuesAction);
+                ReportAction.AddMenuAction(MaterialReturnAction);
+                ReportAction.MenuAutoOpen = true;
+            }
         }
 
         #region Override Attribute
@@ -84,8 +82,17 @@ namespace JAMS.AM
 
         #endregion
 
-        #region Event Handlers
-
+        #region controll customize button based on country ID
+        protected void _(Events.RowSelected<AMBatch> e)
+        {
+            var _lumLibrary = new LumLibrary();
+            if (!_lumLibrary.isCNorHK())
+            {
+                ReportAction.SetVisible(false);
+                MaterialIssuesAction.SetVisible(false);
+                MaterialReturnAction.SetVisible(false);
+            }
+        }
         #endregion
     }
 }

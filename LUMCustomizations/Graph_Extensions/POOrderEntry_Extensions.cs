@@ -22,17 +22,15 @@ namespace PX.Objects.PO
         {
             public constBubbleNumber() : base(bubbleNumber) { }
         }
-        public bool IsActive()
-        {
-            //active customize button if current country ID is CN or HK
-            return new LumLibrary().isCNorHK();
-        }
-
         public override void Initialize()
         {
             base.Initialize();
-            Base.report.AddMenuAction(DomesticPO);
-            Base.report.AddMenuAction(OverseasPO);
+            var _lumLibrary = new LumLibrary();
+            if (_lumLibrary.isCNorHK())
+            {
+                Base.report.AddMenuAction(DomesticPO);
+                Base.report.AddMenuAction(OverseasPO);
+            }
         }
 
         public virtual void _(Events.RowSelected<POOrder> e)
@@ -70,7 +68,7 @@ namespace PX.Objects.PO
             throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
         }
         #endregion
-
+        
         #region Bubble Number Setting Event
         protected virtual void _(Events.RowSelected<POLine> e)
         {
@@ -82,6 +80,14 @@ namespace PX.Objects.PO
                            _PIPreference.FirstOrDefault().BubbleNumberPrinting.HasValue ? _PIPreference.FirstOrDefault().BubbleNumberPrinting.Value : false;
 
             PXUIFieldAttribute.SetVisible<POLineExt.usrBubbleNumber>(e.Cache, null, _visible);
+
+            //controll customize button based on country ID
+            var _lumLibrary = new LumLibrary();
+            if (!_lumLibrary.isCNorHK())
+            {
+                DomesticPO.SetVisible(false);
+                OverseasPO.SetVisible(false);
+            }
         }
         #endregion
 
