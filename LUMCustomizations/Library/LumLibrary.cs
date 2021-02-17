@@ -48,6 +48,14 @@ namespace LUMCustomizations.Library
             }
         }
 
+        public bool GetJournalEnhance
+        {
+            get
+            {
+                return this._lifesyncPreference?.EnableJournalEnhance ?? false;
+            }
+        }
+
         // Get Comapny Base Cury ID
         public string GetCompanyBaseCuryID()
         {
