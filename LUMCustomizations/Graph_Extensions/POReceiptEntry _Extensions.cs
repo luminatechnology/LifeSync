@@ -21,7 +21,7 @@ namespace PX.Objects.PO
         #region Action
         public PXAction<POReceipt> POReceipt;
         [PXButton]
-        [PXUIField(DisplayName = "Print PO Receipt", Visible = false, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print PO Receipt", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable pOReceipt(PXAdapter adapter)
         {
             var _reportID = "LM646000";
@@ -32,7 +32,7 @@ namespace PX.Objects.PO
 
         public PXAction<POReceipt> POReturn;
         [PXButton]
-        [PXUIField(DisplayName = "Print PO Return", Visible = false, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print PO Return", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable pOReturn(PXAdapter adapter)
         {
             var _reportID = "LM646005";
@@ -46,10 +46,10 @@ namespace PX.Objects.PO
         protected void _(Events.RowSelected<POReceipt> e)
         {
             var _lumLibrary = new LumLibrary();
-            if (_lumLibrary.isCNorHK())
+            if (!_lumLibrary.isCNorHK())
             {
-                POReceipt.SetVisible(true);
-                POReturn.SetVisible(true);
+                POReceipt.SetVisible(false);
+                POReturn.SetVisible(false);
             }
         }
         #endregion

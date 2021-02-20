@@ -45,7 +45,7 @@ namespace PX.Objects.PO
         #region Action
         public PXAction<POOrder> DomesticPO;
         [PXButton]
-        [PXUIField(DisplayName = "Print Domestic PO", Visible = false, Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print Domestic PO", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable domesticPO(PXAdapter adapter)
         {
             var _reportID = "lm613000";
@@ -59,7 +59,7 @@ namespace PX.Objects.PO
         #region Action
         public PXAction<POOrder> OverseasPO;
         [PXButton]
-        [PXUIField(DisplayName = "Print Overseas PO", Visible = false, Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print Overseas PO", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable overseasPO(PXAdapter adapter)
         {
             var _reportID = "lm603010";
@@ -83,10 +83,10 @@ namespace PX.Objects.PO
 
             //controll customize button based on country ID
             var _lumLibrary = new LumLibrary();
-            if (_lumLibrary.isCNorHK())
+            if (!_lumLibrary.isCNorHK())
             {
-                DomesticPO.SetVisible(true);
-                OverseasPO.SetVisible(true);
+                DomesticPO.SetVisible(false);
+                OverseasPO.SetVisible(false);
             }
         }
         #endregion

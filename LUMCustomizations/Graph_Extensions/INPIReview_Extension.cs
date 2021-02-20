@@ -26,7 +26,7 @@ namespace LUMCustomizations.Graph_Extensions
 
         public PXAction<INPIHeader> CountintListReport;
         [PXButton]
-        [PXUIField(DisplayName = "Print Counting list", Visible = false, Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print Counting list", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable countintListReport(PXAdapter adapter)
         {
             var _reportID = "lm615000";
@@ -44,9 +44,9 @@ namespace LUMCustomizations.Graph_Extensions
         protected void _(Events.RowSelected<INPIHeader> e)
         {
             var _lumLibrary = new LumLibrary();
-            if (_lumLibrary.isCNorHK())
+            if (!_lumLibrary.isCNorHK())
             {
-                CountintListReport.SetVisible(true);
+                CountintListReport.SetVisible(false);
             }
         }
         #endregion

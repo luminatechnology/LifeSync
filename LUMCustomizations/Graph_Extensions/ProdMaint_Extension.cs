@@ -34,7 +34,7 @@ namespace PX.Objects.SO
         #region Action
         public PXAction<AMProdItem> ProductionInstruction;
         [PXButton]
-        [PXUIField(DisplayName = "生产指令单", Visible = false, Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "生产指令单", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable productionInstruction(PXAdapter adapter)
         {
             var _reportID = "lm625000";
@@ -56,7 +56,7 @@ namespace PX.Objects.SO
 
         public PXAction<AMProdItem> InnerLabel;
         [PXButton]
-        [PXUIField(DisplayName = "Print Inner label", Visible = false, Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print Inner label", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable innerLabel(PXAdapter adapter)
         {
             var _reportID = "lm601002";
@@ -100,10 +100,10 @@ namespace PX.Objects.SO
         protected void _(Events.RowSelected<AMProdItem> e)
         {
             var _lumLibrary = new LumLibrary();
-            if (_lumLibrary.isCNorHK())
+            if (!_lumLibrary.isCNorHK())
             {
-                ProductionInstruction.SetVisible(true);
-                InnerLabel.SetVisible(true);
+                ProductionInstruction.SetVisible(false);
+                InnerLabel.SetVisible(false);
             }
         }
         #endregion
