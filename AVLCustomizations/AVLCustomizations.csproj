@@ -66,6 +66,7 @@
     <Compile Include="AVLEvent.cs" />
     <Compile Include="AVLLine.cs" />
     <Compile Include="AVLTable.cs" />
+    <Compile Include="POOrderEntry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
