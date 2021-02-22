@@ -53,13 +53,13 @@ namespace LumCustomizations.DAC
         [PXDBBool]
         [PXDefault(false)]
         [PXUIField(DisplayName = "Enable Cross Rate Override")]
-        public virtual bool CrossRateOverride { get; set; }
+        public virtual bool? CrossRateOverride { get; set; }
         public abstract class crossRateOverride : PX.Data.BQL.BqlBool.Field<LifeSyncPreference.crossRateOverride> { }
 
         [PXDBBool]
         [PXDefault(false)]
         [PXUIField(DisplayName = "Enable Showing Total in Home Currency")]
-        public virtual bool ShowingTotalInHomeCurrency { get; set; }
+        public virtual bool? ShowingTotalInHomeCurrency { get; set; }
         public abstract class showingTotalInHomeCurrency : PX.Data.BQL.BqlBool.Field<showingTotalInHomeCurrency> { }
 
         [PXDBBool]
@@ -68,5 +68,12 @@ namespace LumCustomizations.DAC
         public virtual bool? EnableJournalEnhance { get; set; }
         public abstract class enableJournalEnhance : PX.Data.BQL.BqlBool.Field<enableJournalEnhance> { }
 
+        #region EnableProdCostAnlys
+        [PXDBBool]
+        [PXDefault(false)]
+        [PXUIField(DisplayName = "Enable Production Cost Analysis")]
+        public virtual bool? EnableProdCostAnlys { get; set; }
+        public abstract class enableProdCostAnlys : PX.Data.BQL.BqlBool.Field<enableProdCostAnlys> { }
+        #endregion
     }
 }
