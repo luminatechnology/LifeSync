@@ -2693,7 +2693,7 @@
                                         <Value>=[AMMTran.InventoryID_description]</Value>
                                     </TextBox>
                                     <TextBox Name="textBox11">
-                                        <Format>=IIF([AMMTranSplit.Qty] - Floor([AMMTranSplit.Qty]) &gt; 0,'N2','N0')</Format>
+                                        <Format>=IIF([AMMTran.Qty] - Floor([AMMTran.Qty]) &gt; 0,'N2','N0')</Format>
                                         <Location>360px, 0px</Location>
                                         <Size>64px, 32px</Size>
                                         <Style>
