@@ -63,7 +63,7 @@ namespace JAMS.AM
                             throw new Exception("INRegisterRow is null");
 
                         if (DocType == AMDocType.Material)
-                            _descr += $"{prodItem.ProdOrdID} - {new LumLibrary().GetInventoryItemCD(prodItem.InventoryID)} ";
+                            _descr += $"{prodItem.ProdOrdID} / {new LumLibrary().GetInventoryItemCD(prodItem.InventoryID)} ";
                         else
                         {
                             // Combine Descr
@@ -71,7 +71,7 @@ namespace JAMS.AM
                             {
                                 if ((_descr + _amTranItem.InventoryID + _amTranItem.ProdOrdID).Length > 230)
                                     break;
-                                _descr += $"{_amTranItem.ProdOrdID} - {new LumLibrary().GetInventoryItemCD(_amTranItem.InventoryID)} ";
+                                _descr += $"{_amTranItem.ProdOrdID} / {new LumLibrary().GetInventoryItemCD(_amTranItem.InventoryID)} ";
                             }
                         }
                         // Update INRegister Description
@@ -94,7 +94,7 @@ namespace JAMS.AM
                     case AMDocType.ProdCost:
                         #region Cost
                         
-                        _descr += $" {prodItem.ProdOrdID} - {new LumLibrary().GetInventoryItemCD(prodItem.InventoryID)} ";
+                        _descr += $" {prodItem.ProdOrdID} / {new LumLibrary().GetInventoryItemCD(prodItem.InventoryID)} ";
 
                         // Update AMBatch
                         PXUpdate<Set<AMBatch.tranDesc, Required<AMBatch.tranDesc>>,

@@ -18,7 +18,7 @@ namespace PX.Objects.FA
                row.CreatedByScreenID == "FA502000" && 
                string.IsNullOrEmpty(row.DocDesc) &&
                row.Origin == "D")
-                row.DocDesc = $"Depreciate {row.FinPeriodID.Substring(4,2)}-{row.FinPeriodID.Substring(0,4)}";
+                row.DocDesc = $"Depreciate {row.FinPeriodID.Substring(4,2)} / {row.FinPeriodID.Substring(0,4)}";
         }
     }
 }

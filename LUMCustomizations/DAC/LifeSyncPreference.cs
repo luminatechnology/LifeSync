@@ -70,7 +70,7 @@ namespace LumCustomizations.DAC
 
         #region EnableProdCostAnlys
         [PXDBBool]
-        [PXDefault(false)]
+        [PXDefault(false,PersistingCheck = PXPersistingCheck.Nothing)]
         [PXUIField(DisplayName = "Enable Production Cost Analysis")]
         public virtual bool? EnableProdCostAnlys { get; set; }
         public abstract class enableProdCostAnlys : PX.Data.BQL.BqlBool.Field<enableProdCostAnlys> { }
