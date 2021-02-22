@@ -65,7 +65,7 @@ namespace LumCustomizations.DAC
         [PXDBBool]
         [PXDefault(false)]
         [PXUIField(DisplayName = "Enable Journal transaction enhancement")]
-        public virtual bool EnableJournalEnhance { get; set; }
+        public virtual bool? EnableJournalEnhance { get; set; }
         public abstract class enableJournalEnhance : PX.Data.BQL.BqlBool.Field<enableJournalEnhance> { }
 
     }
