@@ -1,0 +1,4 @@
+﻿<Fields ScreenID="LM201000">
+    <Field IsActive="True" DisplayName="Customer" FieldName="CUSTOMERID" ObjectName="LUMCUSTOMIZATIONS.DAC.LUMSHIPMENTPLAN" />
+    <Field IsActive="True" DisplayName="Customer Location" FieldName="CUSTOMERLOCATIONID" ObjectName="LUMCUSTOMIZATIONS.DAC.LUMSHIPMENTPLAN" />
+</Fields>

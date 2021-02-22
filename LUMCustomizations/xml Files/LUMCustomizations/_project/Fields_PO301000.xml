@@ -1,0 +1,6 @@
+﻿<Fields ScreenID="PO301000">
+    <Field IsActive="True" DisplayName="Bubble Number" FieldName="USRBUBBLENUMBER" ObjectName="PX.OBJECTS.PO.POLINE" />
+    <Field IsActive="True" DisplayName="Order Total" FieldName="CURYORDERTOTAL" ObjectName="PX.OBJECTS.PO.POORDER" />
+    <Field IsActive="True" FieldName="ORDERTOTAL" DisableCondition="True" ObjectName="PX.OBJECTS.PO.POORDER" />
+    <Field IsActive="True" FieldName="TOTAL IN" DisableCondition="True" ObjectName="PX.OBJECTS.PO.POORDER" />
+</Fields>

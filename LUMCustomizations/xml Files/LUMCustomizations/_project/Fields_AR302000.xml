@@ -1,0 +1,5 @@
+﻿<Fields ScreenID="AR302000">
+    <Field IsActive="True" FieldName="CURYADJDAMT" DisableCondition="True" ObjectName="PX.OBJECTS.AR.ARADJUST" />
+    <Field IsActive="True" FieldName="USRBASEBALANCE" DisableCondition="True" ObjectName="PX.OBJECTS.AR.ARADJUST" />
+    <Field IsActive="True" FieldName="USRREMCURYADJDAMT" DisableCondition="True" ObjectName="PX.OBJECTS.AR.ARADJUST" />
+</Fields>

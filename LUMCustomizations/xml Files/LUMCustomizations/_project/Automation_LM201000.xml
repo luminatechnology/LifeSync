@@ -1,31 +1,36 @@
 ﻿<Automation screen="LM201000">
-    <AUFields screen="LM201000">
-        <AutomationScreenField ScreenID="LM201000" TableName="LUMCUSTOMIZATIONS.DAC.LUMSHIPMENTPLAN" FieldName="CUSTOMERLOCATIONID" IsUserDefinedField="False">
-            <Prop Name="DisplayName" DisplayName="Display Name" IsCustomized="True" Value="Customer Location" />
-        </AutomationScreenField>
-        <AutomationScreenField ScreenID="LM201000" TableName="LUMCUSTOMIZATIONS.DAC.LUMSHIPMENTPLAN" FieldName="CUSTOMERID" IsUserDefinedField="False">
-            <Prop Name="DisplayName" DisplayName="Display Name" IsCustomized="True" Value="Customer" />
-        </AutomationScreenField>
-    </AUFields>
-    <AutomationActions screen="LM201000">
-        <AUScreenAction ScreenID="LM201000" ActionName="CopyPaste" DataMember="LumCustomizations.DAC.LumShipmentPlan" MenuFolder="" MenuFolderType="" ActionFolderType="" IsTopLevel="False">
-            <Prop Name="IsVisible" DisplayName="Visible" IsCustomized="True" Value="False" />
-        </AUScreenAction>
-        <AUScreenAction ScreenID="LM201000" ActionName="First" DataMember="LumCustomizations.DAC.LumShipmentPlan" MenuFolder="" MenuFolderType="" ActionFolderType="" IsTopLevel="False">
-            <Prop Name="IsVisible" DisplayName="Visible" IsCustomized="True" Value="False" />
-        </AUScreenAction>
-        <AUScreenAction ScreenID="LM201000" ActionName="Previous" DataMember="LumCustomizations.DAC.LumShipmentPlan" MenuFolder="" MenuFolderType="" ActionFolderType="" IsTopLevel="False">
-            <Prop Name="IsVisible" DisplayName="Visible" IsCustomized="True" Value="False" />
-        </AUScreenAction>
-        <AUScreenAction ScreenID="LM201000" ActionName="Next" DataMember="LumCustomizations.DAC.LumShipmentPlan" MenuFolder="" MenuFolderType="" ActionFolderType="" IsTopLevel="False">
-            <Prop Name="IsVisible" DisplayName="Visible" IsCustomized="True" Value="False" />
-        </AUScreenAction>
-        <AUScreenAction ScreenID="LM201000" ActionName="Last" DataMember="LumCustomizations.DAC.LumShipmentPlan" MenuFolder="" MenuFolderType="" ActionFolderType="" IsTopLevel="False">
-            <Prop Name="IsVisible" DisplayName="Visible" IsCustomized="True" Value="False" />
-        </AUScreenAction>
-        <AUScreenAction ScreenID="LM201000" ActionName="Insert" DataMember="LumCustomizations.DAC.LumShipmentPlan" MenuFolder="" MenuFolderType="" ActionFolderType="" IsTopLevel="False">
-            <Prop Name="IsVisible" DisplayName="Visible" IsCustomized="True" Value="False" />
-        </AUScreenAction>
-        <AUScreenAction ScreenID="LM201000" ActionName="Delete" DataMember="LumCustomizations.DAC.LumShipmentPlan" MenuFolder="" MenuFolderType="" ActionFolderType="" IsTopLevel="False" />
-    </AutomationActions>
+    <Fields ScreenID="LM201000">
+        <Field IsActive="True" DisplayName="Customer" FieldName="CUSTOMERID" ObjectName="LUMCUSTOMIZATIONS.DAC.LUMSHIPMENTPLAN" />
+        <Field IsActive="True" DisplayName="Customer Location" FieldName="CUSTOMERLOCATIONID" ObjectName="LUMCUSTOMIZATIONS.DAC.LUMSHIPMENTPLAN" />
+    </Fields>
+    <Actions ScreenID="LM201000">
+        <Action IsActive="True" ActionName="CopyPaste" ActionType="G" WindowMode="S" HideCondition="True">
+            <StateActionFields />
+            <StateActionParams />
+        </Action>
+        <Action IsActive="True" ActionName="Delete" ActionType="G" WindowMode="S">
+            <StateActionFields />
+            <StateActionParams />
+        </Action>
+        <Action IsActive="True" ActionName="First" ActionType="G" WindowMode="S" HideCondition="True">
+            <StateActionFields />
+            <StateActionParams />
+        </Action>
+        <Action IsActive="True" ActionName="Insert" ActionType="G" WindowMode="S" HideCondition="True">
+            <StateActionFields />
+            <StateActionParams />
+        </Action>
+        <Action IsActive="True" ActionName="Last" ActionType="G" WindowMode="S" HideCondition="True">
+            <StateActionFields />
+            <StateActionParams />
+        </Action>
+        <Action IsActive="True" ActionName="Next" ActionType="G" WindowMode="S" HideCondition="True">
+            <StateActionFields />
+            <StateActionParams />
+        </Action>
+        <Action IsActive="True" ActionName="Previous" ActionType="G" WindowMode="S" HideCondition="True">
+            <StateActionFields />
+            <StateActionParams />
+        </Action>
+    </Actions>
 </Automation>

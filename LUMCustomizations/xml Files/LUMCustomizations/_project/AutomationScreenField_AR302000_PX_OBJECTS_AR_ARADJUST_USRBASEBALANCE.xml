@@ -1,3 +1,0 @@
-﻿<AutomationScreenField ScreenID="AR302000" TableName="PX.OBJECTS.AR.ARADJUST" FieldName="USRBASEBALANCE" IsUserDefinedField="False">
-    <Prop Name="IsEnabled" DisplayName="Enabled" IsCustomized="True" Value="False" />
-</AutomationScreenField>
