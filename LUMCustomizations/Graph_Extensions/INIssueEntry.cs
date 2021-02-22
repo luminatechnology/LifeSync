@@ -1,5 +1,8 @@
 ﻿using LUMCustomizations.Library;
 using PX.Data;
+using PX.Data.BQL;
+using PX.Data.BQL.Fluent;
+using PX.Objects.AR;
 using PX.Objects.IN;
 using System;
 using System.Collections;
@@ -19,6 +22,25 @@ namespace PX.Objects.SO
             if (_lumLibrary.isCNorHK())
             {
                 Base.report.AddMenuAction(InventoryIssueReport);
+            }
+        }
+
+        public virtual void _(Events.RowPersisting<INRegister> e)
+        {
+            INRegister row = e.Row;
+            if (new LumLibrary().GetJournalEnhance)
+            {
+                if (!string.IsNullOrEmpty(row.SOShipmentNbr) && !string.IsNullOrEmpty(row.SOShipmentType))
+                {
+                    var CustomerID = SelectFrom<SOShipment>
+                                    .Where<SOShipment.shipmentNbr.IsEqual<P.AsString>
+                                        .And<SOShipment.shipmentType.IsEqual<P.AsString>>>
+                                    .View.Select(Base,row.SOShipmentNbr,row.SOShipmentType)?.TopFirst?.CustomerID;
+                    var CustomerName = SelectFrom<Customer>
+                                       .Where<Customer.bAccountID.IsEqual<P.AsInt>>
+                                       .View.Select(Base, CustomerID)?.TopFirst?.AcctName;
+                    row.TranDesc = $"{row.SOShipmentNbr} {CustomerName}";
+                }
             }
         }
 

@@ -1,3 +1,0 @@
-﻿<AUFields screen="SO303000">
-    <AutomationScreenField ScreenID="SO303000" TableName="PX.OBJECTS.AR.ARINVOICE" FieldName="LINETOTAL" IsUserDefinedField="False" />
-</AUFields>

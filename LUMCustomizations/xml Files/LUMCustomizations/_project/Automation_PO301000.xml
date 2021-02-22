@@ -1,16 +1,8 @@
 ﻿<Automation screen="PO301000">
-    <AUFields screen="PO301000">
-        <AutomationScreenField ScreenID="PO301000" TableName="PX.OBJECTS.PO.POLINE" FieldName="USRBUBBLENUMBER" IsUserDefinedField="False">
-            <Prop Name="DisplayName" DisplayName="Display Name" IsCustomized="True" Value="Bubble Number" />
-        </AutomationScreenField>
-        <AutomationScreenField ScreenID="PO301000" TableName="PX.OBJECTS.PO.POORDER" FieldName="ORDERTOTAL" IsUserDefinedField="False">
-            <Prop Name="IsEnabled" DisplayName="Enabled" IsCustomized="True" Value="False" />
-        </AutomationScreenField>
-        <AutomationScreenField ScreenID="PO301000" TableName="PX.OBJECTS.PO.POORDER" FieldName="CURYORDERTOTAL" IsUserDefinedField="False">
-            <Prop Name="DisplayName" DisplayName="Display Name" IsCustomized="True" Value="Order Total" />
-        </AutomationScreenField>
-        <AutomationScreenField ScreenID="PO301000" TableName="PX.OBJECTS.PO.POORDER" FieldName="TOTAL IN" IsUserDefinedField="False">
-            <Prop Name="IsEnabled" DisplayName="Enabled" IsCustomized="True" Value="False" />
-        </AutomationScreenField>
-    </AUFields>
+    <Fields ScreenID="PO301000">
+        <Field IsActive="True" DisplayName="Bubble Number" FieldName="USRBUBBLENUMBER" ObjectName="PX.OBJECTS.PO.POLINE" />
+        <Field IsActive="True" DisplayName="Order Total" FieldName="CURYORDERTOTAL" ObjectName="PX.OBJECTS.PO.POORDER" />
+        <Field IsActive="True" FieldName="ORDERTOTAL" DisableCondition="True" ObjectName="PX.OBJECTS.PO.POORDER" />
+        <Field IsActive="True" FieldName="TOTAL IN" DisableCondition="True" ObjectName="PX.OBJECTS.PO.POORDER" />
+    </Fields>
 </Automation>

@@ -3,6 +3,7 @@ using PX.Data;
 using PX.Data.BQL;
 using PX.Data.BQL.Fluent;
 using PX.Objects.GL;
+using PX.Objects.IN;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,11 +48,24 @@ namespace LUMCustomizations.Library
                 return this._lifesyncPreference?.ProformaInvoicePrinting ?? false;
             }
         }
-        
+
+        public bool GetJournalEnhance
+        {
+            get
+            {
+                return this._lifesyncPreference?.EnableJournalEnhance ?? false;
+            }
+        }
+
         // Get Comapny Base Cury ID
         public string GetCompanyBaseCuryID()
         {
            return new PXGraph().Select<Company>().FirstOrDefault()?.BaseCuryID;
+        }
+
+        public string GetInventoryItemCD(int? InventoryID)
+        {
+            return new PXGraph().Select<InventoryItem>().Where(x => x.InventoryID == InventoryID).FirstOrDefault()?.InventoryCD;
         }
 
         //Get Branch's country code

@@ -1,5 +1,5 @@
 ﻿<Automation screen="SO303000">
-    <AUFields screen="SO303000">
-        <AutomationScreenField ScreenID="SO303000" TableName="PX.OBJECTS.AR.ARINVOICE" FieldName="LINETOTAL" IsUserDefinedField="False" />
-    </AUFields>
+    <Fields ScreenID="SO303000">
+        <Field IsActive="True" FieldName="LINETOTAL" ObjectName="PX.OBJECTS.AR.ARINVOICE" />
+    </Fields>
 </Automation>

@@ -60,6 +60,13 @@ namespace LumCustomizations.DAC
         [PXDefault(false)]
         [PXUIField(DisplayName = "Enable Showing Total in Home Currency")]
         public virtual bool ShowingTotalInHomeCurrency { get; set; }
-        public abstract class showingTotalInHomeCurrency : PX.Data.BQL.BqlBool.Field<LifeSyncPreference.showingTotalInHomeCurrency> { }
+        public abstract class showingTotalInHomeCurrency : PX.Data.BQL.BqlBool.Field<showingTotalInHomeCurrency> { }
+
+        [PXDBBool]
+        [PXDefault(false)]
+        [PXUIField(DisplayName = "Enable Journal transaction enhancement")]
+        public virtual bool EnableJournalEnhance { get; set; }
+        public abstract class enableJournalEnhance : PX.Data.BQL.BqlBool.Field<enableJournalEnhance> { }
+
     }
 }
