@@ -6,6 +6,7 @@
   <col name="BubbleNumberPrinting" type="Bit" nullable="true" />
   <col name="ShowingTotalInHomeCurrency" type="Bit" default="Zero" />
   <col name="CrossRateOverride" type="Bit" default="Zero" />
+  <col name="EnableJournalEnhance" type="Bit" nullable="true" default="Zero" />
   <col name="CreatedByID" type="UniqueIdentifier" />
   <col name="CreatedByScreenID" type="Char(8)" />
   <col name="CreatedDateTime" type="DateTime" />
