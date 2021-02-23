@@ -1,3 +1,0 @@
-﻿<AutomationScreenField ScreenID="PO301000" TableName="PX.OBJECTS.PO.POORDER" FieldName="ORDERTOTAL" IsUserDefinedField="False">
-    <Prop Name="IsEnabled" DisplayName="Enabled" IsCustomized="True" Value="False" />
-</AutomationScreenField>

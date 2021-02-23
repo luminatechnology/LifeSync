@@ -1,3 +1,4 @@
+using LUMCustomizations.Library;
 using PX.Data;
 using System.Collections.Generic;
 
@@ -7,8 +8,12 @@ namespace JAMS.AM
   {
         public override void Initialize()
         {
-            ReportAction.AddMenuAction(ProductionMoveAction);
-            ReportAction.MenuAutoOpen = true;
+            var _lumLibrary = new LumLibrary();
+            if (_lumLibrary.isCNorHK())
+            {
+                ReportAction.AddMenuAction(ProductionMoveAction);
+                ReportAction.MenuAutoOpen = true;
+            }
         }
 
         #region  Actions
@@ -39,8 +44,16 @@ namespace JAMS.AM
 
         #endregion
 
-        #region Event Handlers
-
+        #region controll customize button based on country ID
+        protected void _(Events.RowSelected<AMBatch> e)
+        {
+            var _lumLibrary = new LumLibrary();
+            if (!_lumLibrary.isCNorHK())
+            {
+                ReportAction.SetVisible(false);
+                ProductionMoveAction.SetVisible(false);
+            }
+        }
         #endregion
     }
 }

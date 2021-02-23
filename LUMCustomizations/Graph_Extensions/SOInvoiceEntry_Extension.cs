@@ -8,7 +8,6 @@ namespace PX.Objects.SO
 {
     public class SOInvoiceEntry_Extension : PXGraphExtension<SOInvoiceEntry>
     {
-
         [PXUIField()]
         [PXMergeAttributes(Method = MergeMethod.Append)]
         public virtual void _(Events.CacheAttached<ARInvoice.lineTotal> e) { }
@@ -16,9 +15,13 @@ namespace PX.Objects.SO
         public override void Initialize()
         {
             base.Initialize();
-            Base.report.AddMenuAction(CommercialInvoiceReport);
-            Base.report.AddMenuAction(CreditNoteReport);
-            Base.report.AddMenuAction(CommercialInvoiceFromDGReport);
+            var _lumLibrary = new LumLibrary();
+            if (_lumLibrary.isCNorHK())
+            {
+                Base.report.AddMenuAction(CommercialInvoiceReport);
+                Base.report.AddMenuAction(CreditNoteReport);
+                Base.report.AddMenuAction(CommercialInvoiceFromDGReport);
+            }
         }
 
         public virtual void _(Events.RowSelected<ARInvoice> e)
@@ -29,6 +32,15 @@ namespace PX.Objects.SO
             PXUIFieldAttribute.SetEnabled<ARInvoice.lineTotal>(e.Cache, null, false);
             // Defaul Visiable is false
             PXUIFieldAttribute.SetVisible<ARInvoice.lineTotal>(e.Cache, null, library.GetShowingTotalInHome);
+
+            //controll customize button based on country ID
+            var _lumLibrary = new LumLibrary();
+            if (!_lumLibrary.isCNorHK())
+            {
+                CommercialInvoiceReport.SetVisible(false);
+                CreditNoteReport.SetVisible(false);
+                CommercialInvoiceFromDGReport.SetVisible(false);
+            }
         }
 
 

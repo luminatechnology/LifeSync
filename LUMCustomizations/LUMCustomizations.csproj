@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LUMCustomizations</RootNamespace>
     <AssemblyName>LUMCustomizations</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -21,7 +21,7 @@
     <OutputPath>..\..\..\..\Bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>1</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -114,6 +114,7 @@
     <Compile Include="Graph\LumCostRoll.cs" />
     <Compile Include="Graph\LumItemsCOCMaint.cs" />
     <Compile Include="Graph\LumShipmentPlanMaint.cs" />
+    <Compile Include="Graph_Extensions\AMReleaseProcess_Extension.cs" />
     <Compile Include="Graph_Extensions\APInvoiceEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\ARInvoiceEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\ARPaymentEntry_Extension.cs" />
@@ -130,6 +131,7 @@
     <Compile Include="Graph_Extensions\SOInvoiceEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\SOOrderEntry.cs" />
     <Compile Include="Graph_Extensions\SOShipmentEntry.cs" />
+    <Compile Include="Graph_Extensions\TransactionEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\VendorShipmentEntry_Extension.cs" />
     <Compile Include="Library\LumLibrary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -19,6 +19,7 @@
 				<px:PXCheckBox runat="server" ID="chkBubbleNumberPrinting" DataField="BubbleNumberPrinting"></px:PXCheckBox>
 				<px:PXCheckBox runat="server" ID="chkCrossRateOverride" DataField="CrossRateOverride"></px:PXCheckBox>
 				<px:PXCheckBox runat="server" ID="chkShowingTotalInHomeCurrency" DataField="ShowingTotalInHomeCurrency"></px:PXCheckBox>
+				<px:PXCheckBox runat="server" ID="chkEnableJournalEnhance" DataField="EnableJournalEnhance"></px:PXCheckBox>
 				<px:PXDropDown runat="server" ID="ddlInternalCostModelRateType" DataField="InternalCostModelRateType" Width="100px"></px:PXDropDown>
 			</px:PXPanel>
 		</Template>

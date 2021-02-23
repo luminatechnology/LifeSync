@@ -1,4 +1,5 @@
 ﻿using JAMS.AM;
+using LUMCustomizations.Library;
 using PX.Data;
 using System;
 using System.Collections;
@@ -14,7 +15,11 @@ namespace LUMCustomizations.Graph_Extensions
         public override void Initialize()
         {
             base.Initialize();
-            Base.report.AddMenuAction(VendorShipment);
+            var _lumLibrary = new LumLibrary();
+            if (_lumLibrary.isCNorHK())
+            {
+                Base.report.AddMenuAction(VendorShipment);
+            }
         }
 
         #region Action
@@ -34,5 +39,15 @@ namespace LUMCustomizations.Graph_Extensions
         }
         #endregion
 
+        #region controll customize button based on country ID
+        protected void _(Events.RowSelected<AMVendorShipment> e)
+        {
+            var _lumLibrary = new LumLibrary();
+            if (!_lumLibrary.isCNorHK())
+            {
+                VendorShipment.SetVisible(false);
+            }
+        }
+        #endregion
     }
 }

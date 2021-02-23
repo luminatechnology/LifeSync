@@ -46,8 +46,8 @@
         <PageSettings>
             <Landscape>True</Landscape>
             <Margins>
-                <Left>0.2cm</Left>
-                <Right>0.2cm</Right>
+                <Left>0.5cm</Left>
+                <Right>0.5cm</Right>
             </Margins>
             <PaperKind>A5</PaperKind>
         </PageSettings>
@@ -2313,8 +2313,8 @@
                         <Value>=[INTran.TranDesc]</Value>
                     </TextBox>
                     <TextBox Name="textBox20">
-                        <Location>96px, 0px</Location>
-                        <Size>264px, 32px</Size>
+                        <Location>112px, 0px</Location>
+                        <Size>248px, 32px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2338,7 +2338,7 @@
                     </TextBox>
                     <TextBox Name="textBox21">
                         <Location>40px, 0px</Location>
-                        <Size>56px, 32px</Size>
+                        <Size>72px, 32px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2490,7 +2490,7 @@
                             </TextBox>
                             <TextBox Name="textBox26">
                                 <Location>40px, 0px</Location>
-                                <Size>56px, 24px</Size>
+                                <Size>72px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
@@ -2512,8 +2512,8 @@
                                 <Value>物料品号</Value>
                             </TextBox>
                             <TextBox Name="textBox28">
-                                <Location>96px, 0px</Location>
-                                <Size>264px, 24px</Size>
+                                <Location>112px, 0px</Location>
+                                <Size>248px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>

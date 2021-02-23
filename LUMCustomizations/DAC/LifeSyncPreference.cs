@@ -34,6 +34,7 @@ namespace LumCustomizations.DAC
         public abstract class lastModifiedDateTime : PX.Data.BQL.BqlString.Field<LifeSyncPreference.lastModifiedDateTime> { }
 
         [PXDBBool]
+        [PXDefault(false)]
         [PXUIField(DisplayName = "Proforma Invoice Printing")]
         public virtual bool? ProformaInvoicePrinting { get; set; }
         public abstract class proformaInvoicePrinting : PX.Data.BQL.BqlBool.Field<LifeSyncPreference.proformaInvoicePrinting> { }
@@ -50,13 +51,29 @@ namespace LumCustomizations.DAC
         public abstract class internalCostModelRateType : PX.Data.BQL.BqlString.Field<LifeSyncPreference.internalCostModelRateType> { }
 
         [PXDBBool]
+        [PXDefault(false)]
         [PXUIField(DisplayName = "Enable Cross Rate Override")]
-        public virtual bool CrossRateOverride { get; set; }
+        public virtual bool? CrossRateOverride { get; set; }
         public abstract class crossRateOverride : PX.Data.BQL.BqlBool.Field<LifeSyncPreference.crossRateOverride> { }
 
         [PXDBBool]
+        [PXDefault(false)]
         [PXUIField(DisplayName = "Enable Showing Total in Home Currency")]
-        public virtual bool ShowingTotalInHomeCurrency { get; set; }
-        public abstract class showingTotalInHomeCurrency : PX.Data.BQL.BqlBool.Field<LifeSyncPreference.showingTotalInHomeCurrency> { }
+        public virtual bool? ShowingTotalInHomeCurrency { get; set; }
+        public abstract class showingTotalInHomeCurrency : PX.Data.BQL.BqlBool.Field<showingTotalInHomeCurrency> { }
+
+        [PXDBBool]
+        [PXDefault(false)]
+        [PXUIField(DisplayName = "Enable Journal transaction enhancement")]
+        public virtual bool? EnableJournalEnhance { get; set; }
+        public abstract class enableJournalEnhance : PX.Data.BQL.BqlBool.Field<enableJournalEnhance> { }
+
+        #region EnableProdCostAnlys
+        [PXDBBool]
+        [PXDefault(false,PersistingCheck = PXPersistingCheck.Nothing)]
+        [PXUIField(DisplayName = "Enable Production Cost Analysis")]
+        public virtual bool? EnableProdCostAnlys { get; set; }
+        public abstract class enableProdCostAnlys : PX.Data.BQL.BqlBool.Field<enableProdCostAnlys> { }
+        #endregion
     }
 }

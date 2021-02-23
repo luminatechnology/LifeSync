@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using LUMCustomizations.Library;
+using System.Collections.Generic;
 using System.Collections;
 using PX.Data;
 
@@ -8,15 +9,19 @@ namespace PX.Objects.PO
     {
         public override void Initialize()
         {
-            Base.report.AddMenuAction(POReceipt);
-            Base.report.AddMenuAction(POReturn);
             base.Initialize();
+            var _lumLibrary = new LumLibrary();
+            if (_lumLibrary.isCNorHK())
+            {
+                Base.report.AddMenuAction(POReceipt);
+                Base.report.AddMenuAction(POReturn);
+            }
         }
 
         #region Action
         public PXAction<POReceipt> POReceipt;
         [PXButton]
-        [PXUIField(DisplayName = "Print PO Receipt", Visible = false, Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print PO Receipt", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable pOReceipt(PXAdapter adapter)
         {
             var _reportID = "LM646000";
@@ -26,8 +31,8 @@ namespace PX.Objects.PO
         }
 
         public PXAction<POReceipt> POReturn;
-        [PXUIField(DisplayName = "Print PO Return", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         [PXButton]
+        [PXUIField(DisplayName = "Print PO Return", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable pOReturn(PXAdapter adapter)
         {
             var _reportID = "LM646005";
@@ -36,6 +41,17 @@ namespace PX.Objects.PO
             throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
         }
         #endregion
-        
+
+        #region controll customize button based on country ID
+        protected void _(Events.RowSelected<POReceipt> e)
+        {
+            var _lumLibrary = new LumLibrary();
+            if (!_lumLibrary.isCNorHK())
+            {
+                POReceipt.SetVisible(false);
+                POReturn.SetVisible(false);
+            }
+        }
+        #endregion
     }
 }

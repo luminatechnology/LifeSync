@@ -1,4 +1,5 @@
 ﻿using JAMS.AM;
+using LUMCustomizations.Library;
 using PX.Data;
 using PX.Data.BQL;
 using PX.Data.BQL.Fluent;
@@ -28,8 +29,12 @@ namespace PX.Objects.SO
         public override void Initialize()
         {
             base.Initialize();
-            Base.report.AddMenuAction(ProductionInstruction);
-            Base.report.AddMenuAction(InnerLabel);
+            var _lumLibrary = new LumLibrary();
+            if (_lumLibrary.isCNorHK())
+            {
+                Base.report.AddMenuAction(ProductionInstruction);
+                Base.report.AddMenuAction(InnerLabel);
+            }
         }
 
         [PXUIField(DisplayName = "CalculatePlanCost", MapEnableRights = PXCacheRights.Update, MapViewRights = PXCacheRights.Update, Visible = false)]
@@ -134,6 +139,18 @@ namespace PX.Objects.SO
                 ["DATE"] = null
             };
             throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
+        }
+        #endregion
+
+        #region controll customize button based on country ID
+        protected void _(Events.RowSelected<AMProdItem> e)
+        {
+            var _lumLibrary = new LumLibrary();
+            if (!_lumLibrary.isCNorHK())
+            {
+                ProductionInstruction.SetVisible(false);
+                InnerLabel.SetVisible(false);
+            }
         }
         #endregion
     }

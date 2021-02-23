@@ -1,0 +1,4 @@
+﻿<Fields ScreenID="AM201000">
+    <Field IsActive="True" DisplayName="Remark" FieldName="USRREMARK" ObjectName="JAMS.MRP.AMMPS" />
+    <Field IsActive="True" DisplayName="WcID" FieldName="USRWCID" ObjectName="JAMS.MRP.AMMPS" />
+</Fields>

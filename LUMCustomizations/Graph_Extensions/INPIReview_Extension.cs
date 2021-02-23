@@ -1,4 +1,5 @@
-﻿using PX.Data;
+﻿using LUMCustomizations.Library;
+using PX.Data;
 using PX.Objects.IN;
 using System;
 using System.Collections;
@@ -14,7 +15,11 @@ namespace LUMCustomizations.Graph_Extensions
         public override void Initialize()
         {
             base.Initialize();
-            Base.actionsFolder.AddMenuAction(CountintListReport);
+            var _lumLibrary = new LumLibrary();
+            if (_lumLibrary.isCNorHK())
+            {
+                Base.actionsFolder.AddMenuAction(CountintListReport);
+            }
         }
 
         #region Action
@@ -35,5 +40,15 @@ namespace LUMCustomizations.Graph_Extensions
         }
         #endregion
 
+        #region controll customize button based on country ID
+        protected void _(Events.RowSelected<INPIHeader> e)
+        {
+            var _lumLibrary = new LumLibrary();
+            if (!_lumLibrary.isCNorHK())
+            {
+                CountintListReport.SetVisible(false);
+            }
+        }
+        #endregion
     }
 }

@@ -20,7 +20,7 @@ namespace LumCustomizations.Graph
         {
             var _rateData = SelectFrom<CurrencyRateType>.View.Select(this);
             PXStringListAttribute.SetList<LifeSyncPreference.internalCostModelRateType>(
-                base.Caches[typeof(LifeSyncPreference)], 
+                base.Caches[typeof(LifeSyncPreference)],
                 null, _rateData.FirstTableItems.Select(x => x.CuryRateTypeID).ToArray(),
                 _rateData.FirstTableItems.Select(x => x.CuryRateTypeID).ToArray());
         }

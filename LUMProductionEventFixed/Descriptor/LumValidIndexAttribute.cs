@@ -49,6 +49,10 @@ namespace LUMProductionEventFixed.Descriptor
                                     amProdItemCache.GetValue<AMProdItem.orderType>(amProdItemCache.Current),
                                     amProdItemCache.GetValue<AMProdItem.prodOrdID>(amProdItemCache.Current)).TopFirst;
 
+                // Create new Production Order 
+                if (_nowLineCntrEvnt == 1 && _dbLineCntrEvnt?.LineCntrEvnt == 1)
+                    return;
+
                 if (_nowLineCntrEvnt <= _dbLineCntrEvnt?.LineCntrEvnt)
                 {
                     // reset AMProdItem LineCntrEvnt
