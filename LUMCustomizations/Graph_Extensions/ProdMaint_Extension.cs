@@ -20,6 +20,12 @@ namespace PX.Objects.SO
             .Where<SOOrder.orderNbr.IsEqual<AMProdItemExt.usrSOOrderNbr.AsOptional>
                 .And<SOOrder.orderType.IsEqual<AMProdItemExt.usrSOOrderType.AsOptional>>>
             .View soOrderData;
+
+        public SelectFrom<AMBomCost>
+                .Where<AMBomCost.bOMID.IsEqual<AMProdItem.bOMID.FromCurrent>
+                    .And<AMBomCost.revisionID.IsEqual<AMProdItem.bOMRevisionID.FromCurrent>>
+                    .And<AMBomCost.userID.IsEqual<AccessInfo.userID.FromCurrent>>>.View amBomCost;
+
         public override void Initialize()
         {
             base.Initialize();
@@ -29,6 +35,46 @@ namespace PX.Objects.SO
                 Base.report.AddMenuAction(ProductionInstruction);
                 Base.report.AddMenuAction(InnerLabel);
             }
+        }
+
+        [PXUIField(DisplayName = "CalculatePlanCost", MapEnableRights = PXCacheRights.Update, MapViewRights = PXCacheRights.Update, Visible = false)]
+        [PXProcessButton]
+        public IEnumerable CalculatePlanCost(PXAdapter adapter)
+        {
+            Base.CalculatePlanCost(adapter);
+            var BomCostData = amBomCost.Select(this);
+            AMBomCost model = new AMBomCost();
+            if (amBomCost.Select(this).Count == 0)
+            {
+                model.BOMID = Base.ProdItemSelected.Current.BOMID;
+                model.InventoryID = Base.ProdMaintRecords.Current.InventoryID;
+                model.RevisionID = Base.ProdItemSelected.Current.BOMRevisionID;
+                model.UserID = Base.Accessinfo.UserID;
+                model.SiteID = Base.ProdItemSelected.Current.SiteID;
+                model.MachCost = Base.ProdTotalRecs.Current.PlanMachine;
+                model.ToolCost = Base.ProdTotalRecs.Current.PlanTool;
+                model.FOvdCost = Base.ProdTotalRecs.Current.PlanFixedOverhead;
+                model.VOvdCost = Base.ProdTotalRecs.Current.PlanVariableOverhead;
+                model.SubcontractMaterialCost = Base.ProdTotalRecs.Current.PlanSubcontract;
+                model.TotalCost = Base.ProdTotalRecs.Current.PlanTotal;
+                model.UnitCost = Base.ProdTotalRecs.Current.PlanUnitCost;
+                this.amBomCost.Cache.Insert(model);
+            }
+            else
+            {
+                model = BomCostData.TopFirst;
+                model.SiteID = Base.ProdItemSelected.Current.SiteID;
+                model.MachCost = Base.ProdTotalRecs.Current.PlanMachine;
+                model.ToolCost = Base.ProdTotalRecs.Current.PlanTool;
+                model.FOvdCost = Base.ProdTotalRecs.Current.PlanFixedOverhead;
+                model.VOvdCost = Base.ProdTotalRecs.Current.PlanVariableOverhead;
+                model.SubcontractMaterialCost = Base.ProdTotalRecs.Current.PlanSubcontract;
+                model.TotalCost = Base.ProdTotalRecs.Current.PlanTotal;
+                model.UnitCost = Base.ProdTotalRecs.Current.PlanUnitCost;
+                this.amBomCost.Cache.Update(model);
+            }
+            Base.Persist();
+            return adapter.Get();
         }
 
         #region Action

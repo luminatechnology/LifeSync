@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DeepCloner, Version=0.10.0.0, Culture=neutral, PublicKeyToken=dc0b95cf99bf4e99, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Bin\DeepCloner.dll</HintPath>
+    </Reference>
     <Reference Include="HtmlAgilityPack, Version=1.4.9.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Bin\HtmlAgilityPack.dll</HintPath>
@@ -95,6 +99,7 @@
     <Compile Include="DAC_Extensions\AMMPSExtension.cs" />
     <Compile Include="DAC_Extensions\AMMTranExtension.cs" />
     <Compile Include="DAC_Extensions\AMPordMatlExtension.cs" />
+    <Compile Include="DAC_Extensions\AMProdEvntExtension.cs" />
     <Compile Include="DAC_Extensions\AMProdItemExtensions.cs" />
     <Compile Include="DAC_Extensions\ARAdjustExtension.cs" />
     <Compile Include="DAC_Extensions\BatchExtensions.cs" />
@@ -106,6 +111,7 @@
     <Compile Include="Descriptor\Attribute.cs" />
     <Compile Include="Graph\InternalCostModelMaint.cs" />
     <Compile Include="Graph\LifeSyncPreferenceMaint.cs" />
+    <Compile Include="Graph\LumCostRoll.cs" />
     <Compile Include="Graph\LumItemsCOCMaint.cs" />
     <Compile Include="Graph\LumShipmentPlanMaint.cs" />
     <Compile Include="Graph_Extensions\AMReleaseProcess_Extension.cs" />
