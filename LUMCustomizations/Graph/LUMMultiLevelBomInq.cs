@@ -84,30 +84,27 @@ namespace LUMCustomizations.Graph
                 if (!string.IsNullOrWhiteSpace(levelBomid) && !string.IsNullOrWhiteSpace(levelRevisionID))
                 {
                     AMBomItem bomItem = null;
+
                     if (Filter.Current.IncludeBomsOnHold.GetValueOrDefault())
                     {
-                        bomItem = PXSelect<AMBomItem,
-                            Where<AMBomItem.bOMID, Equal<Required<AMBomItem.bOMID>>,
-                                And<AMBomItem.revisionID, Equal<Required<AMBomItem.revisionID>>,
-                                And2<Where<AMBomItem.status, Equal<AMBomStatus.hold>,
-                                    Or<AMBomItem.status, Equal<AMBomStatus.active>>>,
-                                And<Where<Required<AMBomItem.effStartDate>,
-                                    Between<AMBomItem.effStartDate, AMBomItem.effEndDate>,
-                                    Or<Where<AMBomItem.effStartDate, LessEqual<Required<AMBomItem.effStartDate>>,
-                                    And<AMBomItem.effEndDate, IsNull>>>>>>>
-                            >>.Select(this, levelBomid, levelRevisionID, Filter.Current.BOMDate.GetValueOrDefault(), Filter.Current.BOMDate.GetValueOrDefault());
+                        bomItem = PXSelect<AMBomItem, Where<AMBomItem.bOMID, Equal<Required<AMBomItem.bOMID>>,
+                                                            And<AMBomItem.revisionID, Equal<Required<AMBomItem.revisionID>>,
+                                                                And2<Where<AMBomItem.status, Equal<AMBomStatus.hold>,
+                                                                           Or<AMBomItem.status, Equal<AMBomStatus.active>>>,
+                                                                     And<Where<Required<AMBomItem.effStartDate>, Between<AMBomItem.effStartDate, AMBomItem.effEndDate>,
+                                                                               Or<Where<AMBomItem.effStartDate, LessEqual<Required<AMBomItem.effStartDate>>,
+                                                                                        And<AMBomItem.effEndDate, IsNull>>>>>>>>>
+                                                      .Select(this, levelBomid, levelRevisionID, Filter.Current.BOMDate.GetValueOrDefault(), Filter.Current.BOMDate.GetValueOrDefault());
                     }
                     else
                     {
-                        bomItem = PXSelect<AMBomItem,
-                            Where<AMBomItem.bOMID, Equal<Required<AMBomItem.bOMID>>,
-                                And<AMBomItem.revisionID, Equal<Required<AMBomItem.revisionID>>,
-                                And<AMBomItem.status, Equal<AMBomStatus.active>,
-                                And<Where<Required<AMBomItem.effStartDate>,
-                                    Between<AMBomItem.effStartDate, AMBomItem.effEndDate>,
-                                    Or<Where<AMBomItem.effStartDate, LessEqual<Required<AMBomItem.effStartDate>>,
-                                    And<AMBomItem.effEndDate, IsNull>>>>>>>
-                            >>.Select(this, levelBomid, levelRevisionID, Filter.Current.BOMDate.GetValueOrDefault(), Filter.Current.BOMDate.GetValueOrDefault());
+                        bomItem = PXSelect<AMBomItem, Where<AMBomItem.bOMID, Equal<Required<AMBomItem.bOMID>>,
+                                                            And<AMBomItem.revisionID, Equal<Required<AMBomItem.revisionID>>,
+                                                                And<AMBomItem.status, Equal<AMBomStatus.active>,
+                                                                    And<Where<Required<AMBomItem.effStartDate>, Between<AMBomItem.effStartDate, AMBomItem.effEndDate>,
+                                                                              Or<Where<AMBomItem.effStartDate, LessEqual<Required<AMBomItem.effStartDate>>,
+                                                                                       And<AMBomItem.effEndDate, IsNull>>>>>>>>>
+                                                      .Select(this, levelBomid, levelRevisionID, Filter.Current.BOMDate.GetValueOrDefault(), Filter.Current.BOMDate.GetValueOrDefault());
                     }
 
                     if (bomItem == null)
@@ -120,8 +117,9 @@ namespace LUMCustomizations.Graph
                 if (!string.IsNullOrWhiteSpace(levelBomid) && string.IsNullOrWhiteSpace(levelRevisionID))
                 {
                     var compBomItem = filter.IncludeBomsOnHold == false
-                        ? PrimaryBomIDManager.GetActiveRevisionBomItemByDate(this, levelBomid, filter.BOMDate.GetValueOrDefault())
-                        : PrimaryBomIDManager.GetNotArchivedRevisionBomItemByDate(this, levelBomid, filter.BOMDate.GetValueOrDefault());
+                                      ? PrimaryBomIDManager.GetActiveRevisionBomItemByDate(this, levelBomid, filter.BOMDate.GetValueOrDefault())
+                                      : PrimaryBomIDManager.GetNotArchivedRevisionBomItemByDate(this, levelBomid, filter.BOMDate.GetValueOrDefault());
+
                     if (compBomItem == null)
                     {
                         PXTrace.WriteWarning(JAMS.AM.Messages.GetLocal(JAMS.AM.Messages.NoActiveRevisionForBom, parentBomItem.BOMID));
@@ -133,11 +131,11 @@ namespace LUMCustomizations.Graph
 
                 if (string.IsNullOrWhiteSpace(levelBomid))
                 {
-                    var bomItem = filter.IncludeBomsOnHold == false ?
-                        PrimaryBomIDManager.GetActiveRevisionBomItemByDate(this, new PrimaryBomIDManager(this).GetPrimaryAllLevels(row.InventoryID,
-                            materialSiteID, row.SubItemID), filter.BOMDate.GetValueOrDefault()) :
-                        PrimaryBomIDManager.GetNotArchivedRevisionBomItemByDate(this, new PrimaryBomIDManager(this).GetPrimaryAllLevels(row.InventoryID,
-                            materialSiteID, row.SubItemID), filter.BOMDate.GetValueOrDefault());
+                    var bomItem = filter.IncludeBomsOnHold == false 
+                                  ? PrimaryBomIDManager.GetActiveRevisionBomItemByDate(this, new PrimaryBomIDManager(this).GetPrimaryAllLevels(row.InventoryID,
+                                                                                       materialSiteID, row.SubItemID), filter.BOMDate.GetValueOrDefault()) 
+                                  : PrimaryBomIDManager.GetNotArchivedRevisionBomItemByDate(this, new PrimaryBomIDManager(this).GetPrimaryAllLevels(row.InventoryID,
+                                                                                                materialSiteID, row.SubItemID), filter.BOMDate.GetValueOrDefault());
 
                     if (bomItem == null)
                     {
