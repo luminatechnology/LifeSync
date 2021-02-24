@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9BC6D61A-5D4B-4D57-BC6B-5E3F9D04377E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LUMCustomizations</RootNamespace>
+    <AssemblyName>LUMCustomizations</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>1</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DeepCloner, Version=0.10.0.0, Culture=neutral, PublicKeyToken=dc0b95cf99bf4e99, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Bin\DeepCloner.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.9.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Bin\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="JAMS">
+      <HintPath>..\..\..\..\Bin\JAMS.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.5.2.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Bin\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.5.2.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Bin\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.5.2.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Bin\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.5.2.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Bin\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="NReco.ImageGenerator, Version=1.2.0.0, Culture=neutral, PublicKeyToken=0ef6c878974c90ac, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Bin\NReco.ImageGenerator.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Bin\PX.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PX.CS.Contracts">
+      <HintPath>..\..\..\..\Bin\PX.CS.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Bin\PX.Data.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PX.Data.BQL.Fluent">
+      <HintPath>..\..\..\..\Bin\PX.Data.BQL.Fluent.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Objects, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Bin\PX.Objects.DLL</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAC\LifeSyncPreference.cs" />
+    <Compile Include="DAC\LumItemsCOC.cs" />
+    <Compile Include="DAC\LumShipmentPlan.cs" />
+    <Compile Include="DAC\PrintParameters.cs" />
+    <Compile Include="DAC_Extensions\AMBatchExtension.cs" />
+    <Compile Include="DAC_Extensions\AMMPSExtension.cs" />
+    <Compile Include="DAC_Extensions\AMMTranExtension.cs" />
+    <Compile Include="DAC_Extensions\AMPordMatlExtension.cs" />
+    <Compile Include="DAC_Extensions\AMProdEvntExtension.cs" />
+    <Compile Include="DAC_Extensions\AMProdItemExtensions.cs" />
+    <Compile Include="DAC_Extensions\ARAdjustExtension.cs" />
+    <Compile Include="DAC_Extensions\BatchExtensions.cs" />
+    <Compile Include="DAC_Extensions\POLineExtensions.cs" />
+    <Compile Include="DAC_Extensions\SOLineExtensions.cs" />
+    <Compile Include="DAC_Extensions\SOOrderExtensions.cs" />
+    <Compile Include="DAC_Extensions\SOShipLineExtensions.cs" />
+    <Compile Include="DAC_Extensions\SOShipmentExtensions.cs" />
+    <Compile Include="Descriptor\Attribute.cs" />
+    <Compile Include="Graph\InternalCostModelMaint.cs" />
+    <Compile Include="Graph\LifeSyncPreferenceMaint.cs" />
+    <Compile Include="Graph\LumCostRoll.cs" />
+    <Compile Include="Graph\LumItemsCOCMaint.cs" />
+    <Compile Include="Graph\LumShipmentPlanMaint.cs" />
+    <Compile Include="Graph_Extensions\AMReleaseProcess_Extension.cs" />
+    <Compile Include="Graph_Extensions\APInvoiceEntry_Extension.cs" />
+    <Compile Include="Graph_Extensions\ARInvoiceEntry_Extension.cs" />
+    <Compile Include="Graph_Extensions\ARPaymentEntry_Extension.cs" />
+    <Compile Include="Graph_Extensions\INIssueEntry.cs" />
+    <Compile Include="Graph_Extensions\INPIReview_Extension.cs" />
+    <Compile Include="Graph_Extensions\INReceiptEntry_Extension.cs" />
+    <Compile Include="Graph_Extensions\JournalEntry_Extension.cs" />
+    <Compile Include="Graph_Extensions\MaterialEntry.cs" />
+    <Compile Include="Graph_Extensions\MatlWizard1_Extension.cs" />
+    <Compile Include="Graph_Extensions\MoveEntry_Extension.cs" />
+    <Compile Include="Graph_Extensions\POOrderEntry_Extensions.cs" />
+    <Compile Include="Graph_Extensions\POReceiptEntry _Extensions.cs" />
+    <Compile Include="Graph_Extensions\ProdMaint_Extension.cs" />
+    <Compile Include="Graph_Extensions\SOInvoiceEntry_Extension.cs" />
+    <Compile Include="Graph_Extensions\SOOrderEntry.cs" />
+    <Compile Include="Graph_Extensions\SOShipmentEntry.cs" />
+    <Compile Include="Graph_Extensions\TransactionEntry_Extension.cs" />
+    <Compile Include="Graph_Extensions\VendorShipmentEntry_Extension.cs" />
+    <Compile Include="Library\LumLibrary.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LuminaExcelLibrary\LuminaExcelLibrary.csproj">
+      <Project>{effc735d-d0ec-400a-9149-1735779be9fb}</Project>
+      <Name>LuminaExcelLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
