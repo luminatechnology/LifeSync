@@ -16,22 +16,28 @@ namespace LUMCustomizations.Graph
     {
         public PXFilter<RollupSettings> rollsettings;
 
-        public PXAction<RollupSettings> aMBomCostSettings;
-        [PXUIField(DisplayName = "Get BOM Cost Summary")]
-        [PXButton]
-        protected virtual IEnumerable AMBomCostSettings(PXAdapter adapter)
+        public PXProcessingJoin<AMBomCost,
+                InnerJoin<AMBomItem, On<AMBomCost.bOMID, Equal<AMBomItem.bOMID>,
+                    And<AMBomCost.revisionID, Equal<AMBomItem.revisionID>>>>,
+                Where<AMBomCost.userID, Equal<Current<AccessInfo.userID>>>> ProcBomCostRecs;
+
+        public LumCostRoll()
         {
+            ProcBomCostRecs.SetProcessVisible(false);
+            ProcBomCostRecs.SetProcessAllCaption("Cost Roll");
+
             var _bomItem = new PXGraph().Select<AMBomItem>();
-            if (rollsettings.Current != null && rollsettings.Current.LotSize == null)
-                rollsettings.Cache.SetValueExt<RollupSettings.lotSize>(rollsettings.Current,
-                    JAMS.AM.InventoryHelper.GetMfgReorderQty(this,
-                        _bomItem.FirstOrDefault().InventoryID,  // Document.inventory
-                        _bomItem.FirstOrDefault().SiteID));  // Document.SiteID
+            if ((rollsettings.Current.LotSize == 0 || rollsettings.Current.LotSize == null) && rollsettings.Current.SnglMlti == "S")
+            {
+                rollsettings.Current.LotSize = 1000;
+                rollsettings.Current.SnglMlti = "M";
+            }
 
-            if (rollsettings.Current != null && rollsettings.Current.LotSize.GetValueOrDefault() <= 0)
-                rollsettings.Current.LotSize = 1;
 
-            if (rollsettings.AskExt() == WebDialogResult.OK)
+            if (ProcBomCostRecs.Select().Count == 0)
+                BomCostRecs.Cache.Insert(DoingCostRoll(_bomItem.FirstOrDefault()));
+
+            ProcBomCostRecs.SetProcessDelegate(delegate (List<AMBomCost> list)
             {
                 rollsettings.Current.ApplyPend = false;
                 rollsettings.Current.IncFixed = true;
@@ -40,41 +46,53 @@ namespace LUMCustomizations.Graph
                 rollsettings.Current.IsPersistMode = false;
                 // Call the action to run and display the cost roll
                 PXLongOperation.StartOperation(this, () => aMBomCostSummary(rollsettings.Current, _bomItem));
-                //aMBomCostSummary(rollsettings.Current, _bom.EffEndDate);
-            }
-
-            //rollsettings.Cache.Clear();
-            rollsettings.ClearDialog();
-
-            return adapter.Get();
+                rollsettings.ClearDialog();
+            });
         }
 
         public IEnumerable aMBomCostSummary(RollupSettings _setting, IQueryable<AMBomItem> _bomItem)
         {
+            // Delete All Data By User
+            PXDatabase.Delete<AMBomCost>(new PXDataFieldRestrict<AMBomCost.userID>(Accessinfo.UserID));
+
             // Get All BOM Data
             int count = 0;
-            List<object> result = new List<object>();
+            string errorMsg = string.Empty;
             Settings.Current = _setting.DeepClone();
+            List<object> result = new List<object>();
             foreach (var _bom in _bomItem)
             {
-                Settings.Current.BOMID = _bom.BOMID; //Documents.Current.BOMID;
-                Settings.Current.RevisionID = _bom.RevisionID; // Documents.Current.RevisionID;
-                if (rollsettings.Current != null)
+                try
                 {
-                    Settings.Current.EffectiveDate =
-                        _bom.EffEndDate != null ? Settings.Current.EffectiveDate.LesserDateTime(_bom.EffEndDate)
-                                                : Settings.Current.EffectiveDate;
-                    base.RollCosts();
-                    if (BomCostRecs.Cache != null)
-                        result.Add(BomCostRecs.Cache.Current);
-                    if (++count == 30)
-                        break;
+                    result.Add(DoingCostRoll(_bom));
+                }
+                catch (Exception ex)
+                {
+                    errorMsg += $"Error:{ex.Message} BOMID:{_bom.BOMID} Revision:{_bom.RevisionID}\n";
                 }
             }
+            // write Error Msg
+            if (string.IsNullOrEmpty(errorMsg))
+                PXProcessing.SetWarning(errorMsg);
+
             BomCostRecs.Cache.Clear();
             result.ForEach(x => { BomCostRecs.Cache.Insert(x); });
             Actions.PressSave();
             return null;
+        }
+
+        public Object DoingCostRoll(AMBomItem _bom)
+        {
+            Settings.Current.BOMID = _bom.BOMID; //Documents.Current.BOMID;
+            Settings.Current.RevisionID = _bom.RevisionID; // Documents.Current.RevisionID;
+            if (Settings.Current != null)
+            {
+                Settings.Current.EffectiveDate =
+                    _bom.EffEndDate != null ? Settings.Current.EffectiveDate.LesserDateTime(_bom.EffEndDate)
+                                            : Settings.Current.EffectiveDate;
+                base.RollCosts();
+            }
+            return BomCostRecs.Cache.Current;
         }
 
     }
