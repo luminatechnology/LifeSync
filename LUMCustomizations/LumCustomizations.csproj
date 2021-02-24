@@ -94,6 +94,7 @@
     <Compile Include="DAC\LifeSyncPreference.cs" />
     <Compile Include="DAC\LumItemsCOC.cs" />
     <Compile Include="DAC\LumShipmentPlan.cs" />
+    <Compile Include="DAC\LUMStdBomCost.cs" />
     <Compile Include="DAC\PrintParameters.cs" />
     <Compile Include="DAC_Extensions\AMBatchExtension.cs" />
     <Compile Include="DAC_Extensions\AMMPSExtension.cs" />
@@ -113,6 +114,8 @@
     <Compile Include="Graph\LifeSyncPreferenceMaint.cs" />
     <Compile Include="Graph\LumCostRoll.cs" />
     <Compile Include="Graph\LumItemsCOCMaint.cs" />
+    <Compile Include="Graph\LUMMultiLevelBomInq.cs" />
+    <Compile Include="Graph\LUMMultiLevelBomProc.cs" />
     <Compile Include="Graph\LumShipmentPlanMaint.cs" />
     <Compile Include="Graph_Extensions\AMReleaseProcess_Extension.cs" />
     <Compile Include="Graph_Extensions\APInvoiceEntry_Extension.cs" />
