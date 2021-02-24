@@ -11,6 +11,7 @@ namespace LUMCustomizations.Graph
 {
     public class LUMMultiLevelBomProc : PXGraph<LUMMultiLevelBomProc>
     {
+        #region Features & Select
         public PXCancel<AMMultiLevelBomFilter> Cancel;
         public PXFilter<AMMultiLevelBomFilter> Filter;
 
@@ -18,6 +19,7 @@ namespace LUMCustomizations.Graph
         public PXFilteredProcessing<LUMStdBomCost, AMMultiLevelBomFilter> Results;
 
         public PXSelect<LUMStdBomCost> BOMCost;
+        #endregion
 
         #region Ctor
         public LUMMultiLevelBomProc()
@@ -31,11 +33,13 @@ namespace LUMCustomizations.Graph
         #region Static Method
         public static void GenerateBOMCost(List<LUMStdBomCost> lists, AMMultiLevelBomFilter bomFilter)
         {
-            var graph = CreateInstance<LUMMultiLevelBomProc>();
-
-            graph.LoadAllData(bomFilter);
+            CreateInstance<LUMMultiLevelBomProc>().LoadAllData(bomFilter);
         }
 
+        /// <summary>
+        /// Delete database record by parameter of user.
+        /// </summary>
+        /// <param name="userID"></param>
         protected static void DeleteWrkTableRecs(Guid userID)
         {
             PXDatabase.Delete<LUMStdBomCost>(new PXDataFieldRestrict<LUMStdBomCost.createdByID>(userID));
@@ -224,11 +228,10 @@ namespace LUMCustomizations.Graph
                 bomItem = (AMBomItem)this.Caches<AMBomItem>().Locate(new AMBomItem { BOMID = multiLevelRecord.LineBOMID, RevisionID = multiLevelRecord.LineRevisionID });
                 if (bomItem == null)
                 {
-                    bomItem = PXSelect<AMBomItem,
-                        Where<AMBomItem.bOMID, Equal<Required<AMBomItem.bOMID>>,
-                            And<AMBomItem.revisionID, Equal<Required<AMBomItem.revisionID>>
-                            >>>.Select(this, multiLevelRecord.LineBOMID, multiLevelRecord.LineRevisionID);
+                    bomItem = PXSelect<AMBomItem, Where<AMBomItem.bOMID, Equal<Required<AMBomItem.bOMID>>,
+                                                        And<AMBomItem.revisionID, Equal<Required<AMBomItem.revisionID>>>>>.Select(this, multiLevelRecord.LineBOMID, multiLevelRecord.LineRevisionID);
                 }
+
                 rollBomList.Add(bomItem, multiLevelRecord.Level.GetValueOrDefault(), false);
             }
 
@@ -254,6 +257,7 @@ namespace LUMCustomizations.Graph
             foreach (var mutliLevelRecord in multiLevelBomRecs)
             {
                 AMBomCost bomCostRec = null;
+
                 if (!string.IsNullOrWhiteSpace(mutliLevelRecord.ManufBOMID) && !string.IsNullOrWhiteSpace(mutliLevelRecord.ManufRevisionID))
                 {
                     bomCostRec = (AMBomCost)costRollGraph.Caches<AMBomCost>().Locate(new AMBomCost
@@ -309,6 +313,7 @@ namespace LUMCustomizations.Graph
             row.CompExtCost = bomCostRec.UnitCost * multiLevelRecord.CompQtyReq;
             row.CompTotalExtCost = bomCostRec.UnitCost * multiLevelRecord.TotalQtyReq;
             row.TotalCost = bomCostRec.UnitCost * row.LotSize; // For MLB Report Header only
+            row.SubcontractCost = bomCostRec.SubcontractMaterialCost;
 
             return row;
         }
@@ -332,24 +337,6 @@ namespace LUMCustomizations.Graph
                 TotalQtyReq = totalQtyReq,
                 IsHeaderRecord = true
             };
-        }
-
-        public virtual IEnumerable<AMBomOper> GetOperationsWithoutMaterial(string bomId, string revisionId)
-        {
-            foreach (AMBomOper bomOper in PXSelectReadonly2<AMBomOper, LeftJoin<AMBomMatl, On<AMBomOper.bOMID, Equal<AMBomMatl.bOMID>,
-                                                                                And<AMBomOper.revisionID, Equal<AMBomMatl.revisionID>,
-                                                                                    And<AMBomOper.operationID, Equal<AMBomMatl.operationID>>>>>,
-                                                                      Where<AMBomOper.bOMID, Equal<Required<AMBomOper.bOMID>>,
-                                                                            And<AMBomOper.revisionID, Equal<Required<AMBomOper.revisionID>>,
-                                                                                And<AMBomMatl.inventoryID, IsNull>>>>.Select(this, bomId, revisionId))
-            {
-                if (bomOper?.OperationID == null)
-                {
-                    continue;
-                }
-
-                yield return bomOper;
-            }
         }
 
         public virtual LUMStdBomCost CreateDetailRow(AMBomMatl amBomMatl, AMBomOper amBomOper, AMBomItem amBomItem, InventoryItem inventoryItem, AMBomItem parentBomItem, 
@@ -422,30 +409,27 @@ namespace LUMCustomizations.Graph
                 if (!string.IsNullOrWhiteSpace(levelBomid) && !string.IsNullOrWhiteSpace(levelRevisionID))
                 {
                     AMBomItem bomItem = null;
+
                     if (Filter.Current.IncludeBomsOnHold.GetValueOrDefault())
                     {
-                        bomItem = PXSelect<AMBomItem,
-                            Where<AMBomItem.bOMID, Equal<Required<AMBomItem.bOMID>>,
-                                And<AMBomItem.revisionID, Equal<Required<AMBomItem.revisionID>>,
-                                And2<Where<AMBomItem.status, Equal<AMBomStatus.hold>,
-                                    Or<AMBomItem.status, Equal<AMBomStatus.active>>>,
-                                And<Where<Required<AMBomItem.effStartDate>,
-                                    Between<AMBomItem.effStartDate, AMBomItem.effEndDate>,
-                                    Or<Where<AMBomItem.effStartDate, LessEqual<Required<AMBomItem.effStartDate>>,
-                                    And<AMBomItem.effEndDate, IsNull>>>>>>>
-                            >>.Select(this, levelBomid, levelRevisionID, Filter.Current.BOMDate.GetValueOrDefault(), Filter.Current.BOMDate.GetValueOrDefault());
+                        bomItem = PXSelect<AMBomItem, Where<AMBomItem.bOMID, Equal<Required<AMBomItem.bOMID>>,
+                                                            And<AMBomItem.revisionID, Equal<Required<AMBomItem.revisionID>>,
+                                                                And2<Where<AMBomItem.status, Equal<AMBomStatus.hold>,
+                                                                           Or<AMBomItem.status, Equal<AMBomStatus.active>>>,
+                                                                     And<Where<Required<AMBomItem.effStartDate>, Between<AMBomItem.effStartDate, AMBomItem.effEndDate>,
+                                                                               Or<Where<AMBomItem.effStartDate, LessEqual<Required<AMBomItem.effStartDate>>,
+                                                                                        And<AMBomItem.effEndDate, IsNull>>>>>>>>>
+                                                     .Select(this, levelBomid, levelRevisionID, Filter.Current.BOMDate.GetValueOrDefault(), Filter.Current.BOMDate.GetValueOrDefault());
                     }
                     else
                     {
-                        bomItem = PXSelect<AMBomItem,
-                            Where<AMBomItem.bOMID, Equal<Required<AMBomItem.bOMID>>,
-                                And<AMBomItem.revisionID, Equal<Required<AMBomItem.revisionID>>,
-                                And<AMBomItem.status, Equal<AMBomStatus.active>,
-                                And<Where<Required<AMBomItem.effStartDate>,
-                                    Between<AMBomItem.effStartDate, AMBomItem.effEndDate>,
-                                    Or<Where<AMBomItem.effStartDate, LessEqual<Required<AMBomItem.effStartDate>>,
-                                    And<AMBomItem.effEndDate, IsNull>>>>>>>
-                            >>.Select(this, levelBomid, levelRevisionID, Filter.Current.BOMDate.GetValueOrDefault(), Filter.Current.BOMDate.GetValueOrDefault());
+                        bomItem = PXSelect<AMBomItem, Where<AMBomItem.bOMID, Equal<Required<AMBomItem.bOMID>>,
+                                                            And<AMBomItem.revisionID, Equal<Required<AMBomItem.revisionID>>,
+                                                                And<AMBomItem.status, Equal<AMBomStatus.active>,
+                                                                    And<Where<Required<AMBomItem.effStartDate>, Between<AMBomItem.effStartDate, AMBomItem.effEndDate>,
+                                                                              Or<Where<AMBomItem.effStartDate, LessEqual<Required<AMBomItem.effStartDate>>,
+                                                                                       And<AMBomItem.effEndDate, IsNull>>>>>>>>>
+                                                    .Select(this, levelBomid, levelRevisionID, Filter.Current.BOMDate.GetValueOrDefault(), Filter.Current.BOMDate.GetValueOrDefault());
                     }
 
                     if (bomItem == null)
@@ -458,8 +442,9 @@ namespace LUMCustomizations.Graph
                 if (!string.IsNullOrWhiteSpace(levelBomid) && string.IsNullOrWhiteSpace(levelRevisionID))
                 {
                     var compBomItem = filter.IncludeBomsOnHold == false
-                        ? PrimaryBomIDManager.GetActiveRevisionBomItemByDate(this, levelBomid, filter.BOMDate.GetValueOrDefault())
-                        : PrimaryBomIDManager.GetNotArchivedRevisionBomItemByDate(this, levelBomid, filter.BOMDate.GetValueOrDefault());
+                                      ? PrimaryBomIDManager.GetActiveRevisionBomItemByDate(this, levelBomid, filter.BOMDate.GetValueOrDefault())
+                                      : PrimaryBomIDManager.GetNotArchivedRevisionBomItemByDate(this, levelBomid, filter.BOMDate.GetValueOrDefault());
+
                     if (compBomItem == null)
                     {
                         PXTrace.WriteWarning(JAMS.AM.Messages.GetLocal(JAMS.AM.Messages.NoActiveRevisionForBom, parentBomItem.BOMID));
@@ -471,11 +456,11 @@ namespace LUMCustomizations.Graph
 
                 if (string.IsNullOrWhiteSpace(levelBomid))
                 {
-                    var bomItem = filter.IncludeBomsOnHold == false ?
-                        PrimaryBomIDManager.GetActiveRevisionBomItemByDate(this, new PrimaryBomIDManager(this).GetPrimaryAllLevels(row.InventoryID,
-                            materialSiteID, row.SubItemID), filter.BOMDate.GetValueOrDefault()) :
-                        PrimaryBomIDManager.GetNotArchivedRevisionBomItemByDate(this, new PrimaryBomIDManager(this).GetPrimaryAllLevels(row.InventoryID,
-                            materialSiteID, row.SubItemID), filter.BOMDate.GetValueOrDefault());
+                    var bomItem = filter.IncludeBomsOnHold == false 
+                                  ? PrimaryBomIDManager.GetActiveRevisionBomItemByDate(this, new PrimaryBomIDManager(this).GetPrimaryAllLevels(row.InventoryID,
+                                                                                       materialSiteID, row.SubItemID), filter.BOMDate.GetValueOrDefault()) 
+                                  : PrimaryBomIDManager.GetNotArchivedRevisionBomItemByDate(this, new PrimaryBomIDManager(this).GetPrimaryAllLevels(row.InventoryID,
+                                                                                            materialSiteID, row.SubItemID), filter.BOMDate.GetValueOrDefault());
 
                     if (bomItem == null)
                     {
@@ -520,6 +505,24 @@ namespace LUMCustomizations.Graph
                 //OperationDescription = amBomOper.Descr,
                 WcID = amBomOper.WcID
             };
+        }
+
+        public virtual IEnumerable<AMBomOper> GetOperationsWithoutMaterial(string bomId, string revisionId)
+        {
+            foreach (AMBomOper bomOper in PXSelectReadonly2<AMBomOper, LeftJoin<AMBomMatl, On<AMBomOper.bOMID, Equal<AMBomMatl.bOMID>,
+                                                                                And<AMBomOper.revisionID, Equal<AMBomMatl.revisionID>,
+                                                                                    And<AMBomOper.operationID, Equal<AMBomMatl.operationID>>>>>,
+                                                                       Where<AMBomOper.bOMID, Equal<Required<AMBomOper.bOMID>>,
+                                                                             And<AMBomOper.revisionID, Equal<Required<AMBomOper.revisionID>>,
+                                                                                 And<AMBomMatl.inventoryID, IsNull>>>>.Select(this, bomId, revisionId))
+            {
+                if (bomOper?.OperationID == null)
+                {
+                    continue;
+                }
+
+                yield return bomOper;
+            }
         }
 
         public virtual bool ExcludeMaterial(AMBomMatl bomMatl, InventoryItem inventoryItem, AMBomItem bomItem, AMBomOper bomOper, DateTime parmDate)
