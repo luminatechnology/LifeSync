@@ -10,26 +10,14 @@ namespace LUMCustomizations
     public class LUMStdBomCost : IBqlTable
     {
         #region Selected
-        public abstract class selected : PX.Data.BQL.BqlBool.Field<selected> { }
-        protected bool? _Selected = false;
-
         /// <summary>
         /// Indicates whether the record is selected for processing.
         /// </summary>
         [PXBool]
-        [PXDefault(false)]
+        [PXDefault(false, PersistingCheck = PXPersistingCheck.Nothing)]
         [PXUIField(DisplayName = "Selected")]
-        public virtual bool? Selected
-        {
-            get
-            {
-                return _Selected;
-            }
-            set
-            {
-                _Selected = value;
-            }
-        }
+        public virtual bool? Selected { get; set; }
+        public abstract class selected : PX.Data.BQL.BqlBool.Field<selected> { }
         #endregion
 
         #region IdentityID
@@ -175,7 +163,7 @@ namespace LUMCustomizations
         #endregion
 
         #region CompUnitCost
-        [PXDBPriceCost()]
+        [PXDBPriceCost(true)]
         [PXUIField(DisplayName = "Comp. Unit Cost")]
         public virtual Decimal? CompUnitCost { get; set; }
         public abstract class compUnitCost : PX.Data.BQL.BqlDecimal.Field<compUnitCost> { }
@@ -189,63 +177,63 @@ namespace LUMCustomizations
         #endregion
 
         #region CompMatlCost
-        [PXDBPriceCost()]
+        [PXDBPriceCost(true)]
         [PXUIField(DisplayName = "Comp. Material")]
         public virtual Decimal? CompMatlCost { get; set; }
         public abstract class compMatlCost : PX.Data.BQL.BqlDecimal.Field<compMatlCost> { }
         #endregion
 
         #region CompManufMatlCost
-        [PXDBPriceCost()]
+        [PXDBPriceCost(true)]
         [PXUIField(DisplayName = "Comp. Manuf. Material")]
         public virtual Decimal? CompManufMatlCost { get; set; }
         public abstract class compManufMatlCost : PX.Data.BQL.BqlDecimal.Field<compManufMatlCost> { }
         #endregion
 
         #region CompPurchMatl
-        [PXDBPriceCost()]
+        [PXDBPriceCost(true)]
         [PXUIField(DisplayName = "Comp. Purch Material")]
         public virtual Decimal? CompPurchMatl { get; set; }
         public abstract class compPurchMatl : PX.Data.BQL.BqlDecimal.Field<compPurchMatl> { }
         #endregion
 
         #region CompVarOvdCost
-        [PXDBPriceCost()]
+        [PXDBPriceCost(true)]
         [PXUIField(DisplayName = "Comp. Var Overhead")]
         public virtual Decimal? CompVarOvdCost { get; set; }
         public abstract class compVarOvdCost : PX.Data.BQL.BqlDecimal.Field<compVarOvdCost> { }
         #endregion
 
         #region CompFixedOvdCost
-        [PXDBPriceCost()]
+        [PXDBPriceCost(true)]
         [PXUIField(DisplayName = "Comp. Fixed Overhead")]
         public virtual Decimal? CompFixedOvdCost { get; set; }
         public abstract class compFixedOvdCost : PX.Data.BQL.BqlDecimal.Field<compFixedOvdCost> { }
         #endregion
 
         #region CompToolCost
-        [PXDBPriceCost()]
+        [PXDBPriceCost(true)]
         [PXUIField(DisplayName = "Comp. Tool Cost")]
         public virtual Decimal? CompToolCost { get; set; }
         public abstract class compToolCost : PX.Data.BQL.BqlDecimal.Field<compToolCost> { }
         #endregion
 
         #region CompMachineCost
-        [PXDBPriceCost()]
+        [PXDBPriceCost(true)]
         [PXUIField(DisplayName = "Comp. Machine Cost")]
         public virtual Decimal? CompMachineCost { get; set; }
         public abstract class compMachineCost : PX.Data.BQL.BqlDecimal.Field<compMachineCost> { }
         #endregion
 
         #region CompExtCost
-        [PXDBPriceCost()]
+        [PXDBPriceCost(true)]
         [PXUIField(DisplayName = "Comp. Ext. Cost")]
         public virtual Decimal? CompExtCost { get; set; }
         public abstract class compExtCost : PX.Data.BQL.BqlDecimal.Field<compExtCost> { }
         #endregion
 
         #region CompTotalExtCost
-        [PXDBPriceCost()]
+        [PXDBPriceCost(true)]
         [PXUIField(DisplayName = "Total Ext. Cost")]
         public virtual Decimal? CompTotalExtCost { get; set; }
         public abstract class compTotalExtCost : PX.Data.BQL.BqlDecimal.Field<compTotalExtCost> { }
@@ -257,15 +245,8 @@ namespace LUMCustomizations
         public abstract class totalQtyReq : PX.Data.BQL.BqlDecimal.Field<totalQtyReq> { }
         #endregion
 
-        #region BomOvdCost
-        [PXDBPriceCost()]
-        [PXUIField(DisplayName = "BOM Overhead")]
-        public virtual Decimal? BomOvdCost { get; set; }
-        public abstract class bomOvdCost : PX.Data.BQL.BqlDecimal.Field<bomOvdCost> { }
-        #endregion
-
         #region MatlCost
-        [PXDBPriceCost()]
+        [PXDBPriceCost(true)]
         [PXUIField(DisplayName = "Material Cost")]
         public virtual Decimal? MatlCost { get; set; }
         public abstract class matlCost : PX.Data.BQL.BqlDecimal.Field<matlCost> { }
@@ -279,63 +260,63 @@ namespace LUMCustomizations
         #endregion
 
         #region VariableLaborCost
-        [PXDBPriceCost()]
+        [PXDBPriceCost(true)]
         [PXUIField(DisplayName = "Variable Labor")]
         public virtual Decimal? VariableLaborCost { get; set; }
         public abstract class variableLaborCost : PX.Data.BQL.BqlDecimal.Field<variableLaborCost> { }
         #endregion
 
         #region FixedLaborCost
-        [PXDBPriceCost()]
+        [PXDBPriceCost(true)]
         [PXUIField(DisplayName = "Fixed Labor")]
         public virtual Decimal? FixedLaborCost { get; set; }
         public abstract class fixedLaborCost : PX.Data.BQL.BqlDecimal.Field<fixedLaborCost> { }
         #endregion
 
         #region VariableOvdCost
-        [PXDBPriceCost()]
+        [PXDBPriceCost(true)]
         [PXUIField(DisplayName = "Variable Overhead")]
         public virtual Decimal? VariableOvdCost { get; set; }
         public abstract class variableOvdCost : PX.Data.BQL.BqlDecimal.Field<variableOvdCost> { }
         #endregion
 
         #region FixedOvdCost
-        [PXDBPriceCost()]
+        [PXDBPriceCost(true)]
         [PXUIField(DisplayName = "Fixed Overhead")]
         public virtual Decimal? FixedOvdCost { get; set; }
         public abstract class fixedOvdCost : PX.Data.BQL.BqlDecimal.Field<fixedOvdCost> { }
         #endregion
 
         #region ToolCost
-        [PXDBPriceCost()]
+        [PXDBPriceCost(true)]
         [PXUIField(DisplayName = "Tool Cost")]
         public virtual Decimal? ToolCost { get; set; }
         public abstract class toolCost : PX.Data.BQL.BqlDecimal.Field<toolCost> { }
         #endregion
 
         #region MachineCost
-        [PXDBPriceCost()]
+        [PXDBPriceCost(true)]
         [PXUIField(DisplayName = "Machine Cost")]
         public virtual Decimal? MachineCost { get; set; }
         public abstract class machineCost : PX.Data.BQL.BqlDecimal.Field<machineCost> { }
         #endregion
 
         #region SubcontractCost
-        [PXDBPriceCost()]
+        [PXDBPriceCost(true)]
         [PXUIField(DisplayName = "Subcontract Cost")]
         public virtual Decimal? SubcontractCost { get; set; }
         public abstract class subcontractCost : PX.Data.BQL.BqlDecimal.Field<subcontractCost> { }
         #endregion
 
         #region UnitCost
-        [PXDBPriceCost()]
+        [PXDBPriceCost(true)]
         [PXUIField(DisplayName = "Unit Cost")]
         public virtual Decimal? UnitCost { get; set; }
         public abstract class unitCost : PX.Data.BQL.BqlDecimal.Field<unitCost> { }
         #endregion
 
         #region TotalCost
-        [PXDBPriceCost()]
+        [PXDBPriceCost(true)]
         [PXUIField(DisplayName = "Total Cost")]
         public virtual Decimal? TotalCost { get; set; }
         public abstract class totalCost : PX.Data.BQL.BqlDecimal.Field<totalCost> { }
@@ -388,6 +369,20 @@ namespace LUMCustomizations
         [PXNote()]
         public virtual Guid? NoteID { get; set; }
         public abstract class noteID : PX.Data.BQL.BqlGuid.Field<noteID> { }
+        #endregion
+
+        #region HasCostRoll
+        public abstract class hasCostRoll : PX.Data.BQL.BqlBool.Field<hasCostRoll> { }
+
+        protected bool? _HasCostRoll;
+        [PXBool]
+        [PXUIField(DisplayName = "Has Cost Roll", Visible = false)]
+        public virtual bool? HasCostRoll
+        {
+            get { return this._HasCostRoll; }
+            set { this._HasCostRoll = value; }
+        }
+
         #endregion
     }
 }
