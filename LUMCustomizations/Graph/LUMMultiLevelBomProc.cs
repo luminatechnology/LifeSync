@@ -4,6 +4,7 @@ using System.Linq;
 using JAMS;
 using JAMS.AM;
 using JAMS.AM.Attributes;
+using LumCustomizations.DAC;
 using PX.Data;
 using PX.Objects.IN;
 
@@ -16,9 +17,9 @@ namespace LUMCustomizations.Graph
         public PXFilter<AMMultiLevelBomFilter> Filter;
 
         [PXFilterable]
-        public PXFilteredProcessing<LUMStdBomCost, AMMultiLevelBomFilter> Results;
+        public PXFilteredProcessing<LUMStdBomCost, AMMultiLevelBomFilter, Where<LUMStdBomCost.createdByID, Equal<Current<AccessInfo.userID>>>> Results;
 
-        public PXSelect<LUMStdBomCost> BOMCost;
+        public PXSelect<LUMStdBomCost, Where<LUMStdBomCost.createdByID, Equal<Current<AccessInfo.userID>>>> BOMCost;
         #endregion
 
         #region Ctor
@@ -26,14 +27,44 @@ namespace LUMCustomizations.Graph
         {
             Results.SetProcessVisible(false);
             Results.SetProcessAllCaption(PX.Objects.IN.Messages.Generate);
-            Results.SetProcessDelegate(list => GenerateBOMCost(list, Filter.Current));
+        }
+        #endregion
+
+        #region Event Handler
+        protected void _(Events.RowSelected<AMMultiLevelBomFilter> e)
+        {
+            AMMultiLevelBomFilter row = e.Row;
+
+            if (row != null)
+            {
+                bool enabled = PXSelect<LifeSyncPreference>.Select(this).TopFirst.EnableProdCostAnlys ?? false;
+
+                PXUIFieldAttribute.SetEnabled<AMMultiLevelBomFilterExt.usrEnblItemRoundUp>(e.Cache, row, enabled);
+            }
+
+            Results.SetProcessDelegate(delegate (List<LUMStdBomCost> lists)
+            {
+                try
+                {
+                    GenerateBOMCost(lists, row);
+
+                    PXProcessing.SetProcessed();
+                }
+                catch (Exception ex)
+                {
+                    PXProcessing.SetError(ex);
+                    throw;
+                }
+            });
         }
         #endregion
 
         #region Static Method
         public static void GenerateBOMCost(List<LUMStdBomCost> lists, AMMultiLevelBomFilter bomFilter)
         {
-            CreateInstance<LUMMultiLevelBomProc>().LoadAllData(bomFilter);
+            var graph = CreateInstance<LUMMultiLevelBomProc>();
+
+            graph.LoadAllData(bomFilter);
         }
 
         /// <summary>
@@ -68,8 +99,8 @@ namespace LUMCustomizations.Graph
             if (bomFilter.BOMDate != null)
             {
                 cmdBOM.WhereAnd<Where<Required<AMMultiLevelBomFilter.bOMDate>, Between<AMBomItem.effStartDate, AMBomItem.effEndDate>,
-                                      Or<Where<AMBomItem.effStartDate, LessEqual<Required<AMMultiLevelBomFilter.bOMDate>>,
-                                               And<AMBomItem.effEndDate, IsNull>>>>>();
+                                        Or<Where<AMBomItem.effStartDate, LessEqual<Required<AMMultiLevelBomFilter.bOMDate>>,
+                                                And<AMBomItem.effEndDate, IsNull>>>>>();
             }
 
             foreach (AMBomItem bomitem in cmdBOM.Select(bomFilter.BOMID, bomFilter.InventoryID, bomFilter.BOMDate))
@@ -82,7 +113,7 @@ namespace LUMCustomizations.Graph
                 multiLevelBomRecs = RollCostUpdate(multiLevelBomRecs);
             }
 
-            for (int i = 1; i < multiLevelBomRecs.Count; i++)
+            for (int i = 0; i < multiLevelBomRecs.Count; i++)
             {
                 BOMCost.Insert(multiLevelBomRecs[i]);
             }
@@ -289,14 +320,14 @@ namespace LUMCustomizations.Graph
 
             var row = multiLevelRecord.Copy<LUMStdBomCost>();
 
-            //row.HasCostRoll = false;
+            row.HasCostRoll = false;
 
             if (bomCostRec?.BOMID == null)
             {
                 return row;
             }
 
-            //row.HasCostRoll = true;
+            row.HasCostRoll = true;
             row.LotSize = bomCostRec.LotSize;
             //row.FixedLaborTime = bomCostRec.FixedLaborTime;
             //row.VariableLaborTime = (int?)(bomCostRec.VariableLaborTime * multiLevelRecord.TotalQtyReq);
@@ -347,17 +378,20 @@ namespace LUMCustomizations.Graph
             var qtyRequired = amBomMatl.QtyReq.GetValueOrDefault() * (1 + amBomMatl.ScrapFactor.GetValueOrDefault()) *
                                   (amBomMatl.BatchSize.GetValueOrDefault() == 0m ? 1m : 1 / amBomMatl.BatchSize.GetValueOrDefault());
 
-            qtyRequired = itemExt.AMQtyRoundUp == false ? qtyRequired : Math.Ceiling(qtyRequired);
-
             var totalQtyRequired = amBomMatl.QtyReq.GetValueOrDefault() * (1 + amBomMatl.ScrapFactor.GetValueOrDefault()) *
-                                       (amBomMatl.BatchSize.GetValueOrDefault() == 0m ? 1m : totalQtyReq / amBomMatl.BatchSize.GetValueOrDefault());
-
-            totalQtyRequired = itemExt.AMQtyRoundUp == false ? totalQtyRequired : Math.Ceiling(totalQtyRequired);
+                                      (amBomMatl.BatchSize.GetValueOrDefault() == 0m ? 1m : totalQtyReq / amBomMatl.BatchSize.GetValueOrDefault());
 
             var baseTotalQtyRequired = amBomMatl.BaseQty.GetValueOrDefault() * (1 + amBomMatl.ScrapFactor.GetValueOrDefault()) *
                                            (amBomMatl.BatchSize.GetValueOrDefault() == 0m ? 1m : totalQtyReq / amBomMatl.BatchSize.GetValueOrDefault());
 
-            baseTotalQtyRequired = itemExt.AMQtyRoundUp == false ? baseTotalQtyRequired : Math.Ceiling(baseTotalQtyRequired);
+            AMMultiLevelBomFilterExt filterExt = filter.GetExtension<AMMultiLevelBomFilterExt>();
+
+            if (filterExt.UsrEnblItemRoundUp == true)
+            {
+                qtyRequired = itemExt.AMQtyRoundUp == false ? qtyRequired : Math.Ceiling(qtyRequired);
+                totalQtyRequired = itemExt.AMQtyRoundUp == false ? totalQtyRequired : Math.Ceiling(totalQtyRequired);
+                baseTotalQtyRequired = itemExt.AMQtyRoundUp == false ? baseTotalQtyRequired : Math.Ceiling(baseTotalQtyRequired);
+            }
 
             var row = new LUMStdBomCost
             {
@@ -379,7 +413,7 @@ namespace LUMCustomizations.Graph
                 CompQtyReq = qtyRequired,
                 TotalQtyReq = totalQtyRequired,
                 //BaseTotalQtyReq = baseTotalQtyRequired,
-                UnitCost = amBomMatl.UnitCost.GetValueOrDefault(),
+                CompUnitCost = amBomMatl.UnitCost.GetValueOrDefault(),
                 CompExtCost = qtyRequired * amBomMatl.UnitCost.GetValueOrDefault(),
                 CompTotalExtCost = totalQtyRequired * amBomMatl.UnitCost.GetValueOrDefault(),
                 LineBOMID = amBomMatl.BOMID,
