@@ -105,7 +105,7 @@ namespace LUMCustomizations.Graph
 
             foreach (AMBomItem bomitem in cmdBOM.Select(bomFilter.BOMID, bomFilter.InventoryID, bomFilter.BOMDate))
             {
-                LoadDataRecords(bomitem.BOMID, bomitem.RevisionID, 0, 1, bomitem, multiLevelBomRecs);
+                LoadDataRecords(bomitem.BOMID, bomitem.RevisionID, 0, 1, bomitem, multiLevelBomRecs, bomFilter);
             }
 
             if (bomFilter.RollCosts.GetValueOrDefault())
@@ -121,9 +121,9 @@ namespace LUMCustomizations.Graph
             this.Actions.PressSave();
         }
 
-        public virtual void LoadDataRecords(string levelBomid, string levelRevisionID, int? level, decimal? totalQtyReq, AMBomItem parentBomItem, List<LUMStdBomCost> multiLevelBomRecs)
+        public virtual void LoadDataRecords(string levelBomid, string levelRevisionID, int? level, decimal? totalQtyReq, AMBomItem parentBomItem, List<LUMStdBomCost> multiLevelBomRecs, AMMultiLevelBomFilter bomFilter)
         {
-            if (level == null || level > LowLevel.MaxLowLevel || string.IsNullOrWhiteSpace(levelBomid) || Filter.Current == null)
+            if (level == null || level > LowLevel.MaxLowLevel || string.IsNullOrWhiteSpace(levelBomid) || bomFilter == null)
             {
                 return;
             }
@@ -139,7 +139,7 @@ namespace LUMCustomizations.Graph
 
             var bomOpersWithoutMatl = new List<AMBomOper>();
             var includeOpersWithoutMatl = false;
-            var includeOperations = Filter?.Current?.IncludeOperations == true;
+            var includeOperations = bomFilter?.IncludeOperations == true;
             var lastOperationCD = string.Empty;
             if (includeOperations)
             {
@@ -170,20 +170,20 @@ namespace LUMCustomizations.Graph
                 var invItem   = (InventoryItem)result;
                 var itemCost  = (INItemCost)result;
 
-                if (ExcludeMaterial(amBomMatl, invItem, amBomItem, amBomOper, Filter.Current?.BOMDate ?? Accessinfo.BusinessDate.GetValueOrDefault()))
+                if (ExcludeMaterial(amBomMatl, invItem, amBomItem, amBomOper, bomFilter?.BOMDate ?? Accessinfo.BusinessDate.GetValueOrDefault()))
                 {
                     continue;
                 }
 
                 var row = CreateDetailRow(amBomMatl, amBomOper, amBomItem, invItem, parentBomItem, multiLevelBomRecs.Count + 1, level.GetValueOrDefault(), 
-                                          totalQtyReq.GetValueOrDefault(), Filter.Current, levelBomid, levelRevisionID);
+                                          totalQtyReq.GetValueOrDefault(), bomFilter, levelBomid, levelRevisionID);
                 
                 if (row == null)
                 {
                     continue;
                 }
 
-                if (itemCost != null && Filter.Current.UseCurrentInventoryCost.GetValueOrDefault())
+                if (itemCost != null && bomFilter.UseCurrentInventoryCost.GetValueOrDefault())
                 {
                     row.UnitCost = BOMCostRoll.GetUnitCostFromINItemCostTable(itemCost) ?? amBomMatl.UnitCost.GetValueOrDefault();
                 }
@@ -223,7 +223,7 @@ namespace LUMCustomizations.Graph
                 if (!string.IsNullOrWhiteSpace(row.ManufBOMID) &&
                     !string.IsNullOrWhiteSpace(row.ManufRevisionID))
                 {
-                    LoadDataRecords(row.ManufBOMID, row.ManufRevisionID, level + 1, row.TotalQtyReq.GetValueOrDefault(), parentBomItem, multiLevelBomRecs);
+                    LoadDataRecords(row.ManufBOMID, row.ManufRevisionID, level + 1, row.TotalQtyReq.GetValueOrDefault(), parentBomItem, multiLevelBomRecs, bomFilter);
                 }
 
                 lastOperationCD = row.OperationCD;
