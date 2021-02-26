@@ -10,12 +10,14 @@
 	</px:PXDataSource>
 </asp:Content>
 <asp:Content ID="cont2" ContentPlaceHolderID="phF" Runat="Server">
-	<px:PXFormView ID="form" runat="server" DataSourceID="ds" DataMember="Filter" Width="100%" Height="100px" AllowAutoHide="false">
+	<px:PXFormView ID="form" runat="server" DataSourceID="ds" DataMember="Filter" Width="100%" Height="75px" AllowAutoHide="false">
 		<Template>
 			<px:PXLayoutRule ID="PXLayoutRule1" runat="server" StartRow="True"></px:PXLayoutRule>
-			<px:PXSelector runat="server" ID="CstPXSelector2" DataField="BOMID" CommitChanges="True" />
+			<px:PXSelector runat="server" ID="CstPXSelector2" DataField="BOMID" CommitChanges="True" ></px:PXSelector>
+			<px:PXSegmentMask CommitChanges="True" runat="server" ID="CstPXSegmentMask3" DataField="InventoryID" ></px:PXSegmentMask>
+			<px:PXLayoutRule runat="server" ID="CstPXLayoutRule12" StartColumn="True" ></px:PXLayoutRule>
 			<px:PXDateTimeEdit CommitChanges="True" runat="server" ID="CstPXDateTimeEdit1" DataField="BOMDate" ></px:PXDateTimeEdit>
-			<px:PXSegmentMask CommitChanges="True" runat="server" ID="CstPXSegmentMask3" DataField="InventoryID" ></px:PXSegmentMask></Template>
+			<px:PXCheckBox CommitChanges="True" runat="server" ID="CstPXCheckBox13" DataField="UsrEnblItemRoundUp" ></px:PXCheckBox></Template>
 	</px:PXFormView>
 </asp:Content>
 <asp:Content ID="cont3" ContentPlaceHolderID="phG" Runat="Server">
@@ -33,7 +35,7 @@
 				<px:PXGridColumn DataField="EffStartDate" Width="90" ></px:PXGridColumn>
 				<px:PXGridColumn DataField="EffEndDate" Width="90" ></px:PXGridColumn>
 				<px:PXGridColumn DataField="CompInventoryID" Width="70" ></px:PXGridColumn>
-				<px:PXGridColumn DataField="CompSubItemID" Width="140" />
+				<px:PXGridColumn DataField="CompSubItemID" Width="140" ></px:PXGridColumn>
 				<px:PXGridColumn DataField="CompUnitCost" Width="100" ></px:PXGridColumn>
 				<px:PXGridColumn DataField="CompQtyReq" Width="100" ></px:PXGridColumn>
 				<px:PXGridColumn DataField="CompMatlCost" Width="100" ></px:PXGridColumn>
@@ -45,7 +47,7 @@
 				<px:PXGridColumn DataField="CompMachineCost" Width="100" ></px:PXGridColumn>
 				<px:PXGridColumn DataField="CompExtCost" Width="100" ></px:PXGridColumn>
 				<px:PXGridColumn DataField="CompTotalExtCost" Width="100" ></px:PXGridColumn>
-				<px:PXGridColumn DataField="BomOvdCost" Width="100" ></px:PXGridColumn>
+				<px:PXGridColumn DataField="OperationCD" Width="120" />
 				<px:PXGridColumn DataField="MatlCost" Width="100" ></px:PXGridColumn>
 				<px:PXGridColumn DataField="LotSize" Width="100" ></px:PXGridColumn>
 				<px:PXGridColumn DataField="VariableLaborCost" Width="100" ></px:PXGridColumn>
@@ -64,7 +66,7 @@
 					<px:PXSegmentMask runat="server" ID="CstPXSegmentMask7" DataField="InventoryID" AllowEdit="True" ></px:PXSegmentMask>
 					<px:PXSegmentMask AllowEdit="True" runat="server" ID="CstPXSegmentMask9" DataField="SiteID" ></px:PXSegmentMask>
 					<px:PXSegmentMask AllowEdit="True" runat="server" ID="CstPXSegmentMask10" DataField="SubItemID" ></px:PXSegmentMask>
-								<px:PXSegmentMask runat="server" ID="CstPXSegmentMask11" DataField="CompSubItemID" AllowEdit="True" /></RowTemplate></px:PXGridLevel>
+								<px:PXSegmentMask runat="server" ID="CstPXSegmentMask11" DataField="CompSubItemID" AllowEdit="True" ></px:PXSegmentMask></RowTemplate></px:PXGridLevel>
 		</Levels>
 		<AutoSize Container="Window" Enabled="True" MinHeight="150" ></AutoSize>
 		<ActionBar >

@@ -36,7 +36,6 @@
   <col name="CompMachineCost" type="Decimal(19,6)" nullable="true" />
   <col name="CompExtCost" type="Decimal(19,6)" nullable="true" />
   <col name="CompTotalExtCost" type="Decimal(19,6)" nullable="true" />
-  <col name="BomOvdCost" type="Decimal(19,6)" nullable="true" />
   <col name="MatlCost" type="Decimal(19,6)" nullable="true" />
   <col name="LotSize" type="Decimal(25,6)" nullable="true" />
   <col name="VariableLaborCost" type="Decimal(19,6)" nullable="true" />
@@ -48,12 +47,12 @@
   <col name="SubcontractCost" type="Decimal(19,6)" nullable="true" />
   <col name="UnitCost" type="Decimal(19,6)" nullable="true" />
   <col name="TotalCost" type="Decimal(19,6)" nullable="true" />
-  <col name="CreatedByID" type="UniqueIdentifier" nullable="true" />
-  <col name="CreatedByScreenID" type="Char(8)" nullable="true" />
-  <col name="CreatedDateTime" type="DateTime" nullable="true" />
-  <col name="LastModifiedByID" type="UniqueIdentifier" nullable="true" />
-  <col name="LastModifiedByScreenID" type="Char(8)" nullable="true" />
-  <col name="LastModifiedDateTime" type="DateTime" nullable="true" />
+  <col name="CreatedByID" type="UniqueIdentifier" />
+  <col name="CreatedByScreenID" type="Char(8)" />
+  <col name="CreatedDateTime" type="DateTime" />
+  <col name="LastModifiedByID" type="UniqueIdentifier" />
+  <col name="LastModifiedByScreenID" type="Char(8)" />
+  <col name="LastModifiedDateTime" type="DateTime" />
   <col name="tstamp" type="Timestamp" />
   <col name="NoteID" type="UniqueIdentifier" nullable="true" />
   <index name="LUMStdBomCost_NoteID" unique="true">

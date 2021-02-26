@@ -2,6 +2,7 @@
 using JAMS;
 using JAMS.AM;
 using JAMS.AM.Attributes;
+using LumCustomizations.DAC;
 using PX.Data;
 using PX.Objects.IN;
 
@@ -9,7 +10,21 @@ namespace LUMCustomizations.Graph
 {
     public class LUMMultiLevelBomInq : MultiLevelBomInq
     {
-        #region Method
+        #region Event Handler
+        protected void _(Events.RowSelected<AMMultiLevelBomFilter> e)
+        {
+            var row = e.Row;
+
+            if (row != null)
+            {
+                bool enabled = PXSelect<LifeSyncPreference>.Select(this).TopFirst.EnableProdCostAnlys ?? false;
+
+                PXUIFieldAttribute.SetEnabled<AMMultiLevelBomFilterExt.usrEnblItemRoundUp>(e.Cache, null, enabled);
+            }
+        }
+        #endregion
+
+        #region Override Method
         protected override AMMultiLevelBomData CreateDetailRow(AMBomMatl amBomMatl, AMBomOper amBomOper, AMBomItem amBomItem, InventoryItem inventoryItem, AMBomItem parentBomItem,
                                                                int lineID, int level, decimal totalQtyReq, AMMultiLevelBomFilter filter, string levelBomid, string levelRevisionID)
         {
