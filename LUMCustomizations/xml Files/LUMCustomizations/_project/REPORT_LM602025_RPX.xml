@@ -3965,8 +3965,8 @@
                     </TextBox>
                     <TextBox Name="textBox41">
                         <CanGrow>True</CanGrow>
-                        <Location>64px, 0px</Location>
-                        <Size>112px, 64px</Size>
+                        <Location>64px, 24px</Location>
+                        <Size>112px, 40px</Size>
                         <Style>
                             <BorderStyle>
                                 <Right>Solid</Right>
@@ -3981,7 +3981,7 @@
                             <Padding>
                                 <Left>2px</Left>
                             </Padding>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Top</VerticalAlign>
                         </Style>
                         <Value>=[SOLine.TranDesc]</Value>
                     </TextBox>
@@ -4135,6 +4135,26 @@
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <Value>=[SOLine.UsrPIUnitPrice]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox53">
+                        <CanGrow>True</CanGrow>
+                        <Location>64px, 0px</Location>
+                        <Size>112px, 24px</Size>
+                        <Style>
+                            <BorderStyle>
+                                <Right>Solid</Right>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Right>1px</Right>
+                            </BorderWidth>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                                <Size>10px</Size>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>=[SOLine.AlternateID]</Value>
                     </TextBox>
                 </Items>
             </Detail>
