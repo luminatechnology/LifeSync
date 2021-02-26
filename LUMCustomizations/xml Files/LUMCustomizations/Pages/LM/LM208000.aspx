@@ -1,10 +1,10 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/FormDetail.master" AutoEventWireup="true"
-ValidateRequest="false" CodeFile="LM208000.aspx.cs" Inherits="Page_LM208000" Title="Untitled Page" %>
+ValidateRequest="false" CodeFile="LM208000.aspx.cs" Inherits="Pages_LM208000" Title="Untitled Page" %>
 
 <%@ MasterType VirtualPath="~/MasterPages/FormDetail.master" %>
 <asp:Content ID="cont1" ContentPlaceHolderID="phDS" Runat="Server">
 	<px:PXDataSource ID="ds" runat="server" Visible="True" Width="100%"
-        TypeName="LUMCustomizations.Graph.LUMUpdateBOMQty"
+        TypeName="LumCustomizations.Graph.LUMUpdateBOMQty"
         PrimaryView="Bom">
 		<CallbackCommands>
 

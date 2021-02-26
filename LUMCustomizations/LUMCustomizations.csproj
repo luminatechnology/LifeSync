@@ -116,6 +116,7 @@
     <Compile Include="Graph\LumItemsCOCMaint.cs" />
     <Compile Include="Graph\LUMMultiLevelBomInq.cs" />
     <Compile Include="Graph\LUMMultiLevelBomProc.cs" />
+    <Compile Include="Graph\LumPIUnitPriceMaint.cs" />
     <Compile Include="Graph\LumShipmentPlanMaint.cs" />
     <Compile Include="Graph\LUMUpdateBOMQty.cs" />
     <Compile Include="Graph_Extensions\AMReleaseProcess_Extension.cs" />

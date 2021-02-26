@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using JAMS.AM.Attributes;
 
-namespace LUMCustomizations.Graph
+namespace LumCustomizations.Graph
 {
     public class LUMUpdateBOMQty : PXGraph<LUMUpdateBOMQty>
     {

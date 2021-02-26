@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Pages_LM208000 : PX.Web.UI.PXPage
+public partial class Pages_LM201001 : PX.Web.UI.PXPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
