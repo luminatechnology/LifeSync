@@ -116,7 +116,8 @@ namespace LumCustomizations.Graph
 
             Dictionary<string, string> parameters = new Dictionary<string, string>
             {
-                ["ShipmentPlanID"] = _CurrentRow.ShipmentPlanID
+                ["ShipmentPlanID"] = _CurrentRow.ShipmentPlanID,
+                ["ShipmentNbr"] = _CurrentRow.ShipmentNbr
             };
 
             if (parameters.Values.Count > 0)
