@@ -151,15 +151,15 @@ namespace LumCustomizations.Graph
         [PXUIField(DisplayName = "Print Commerical Invoice Report", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable commericalInvoice(PXAdapter adapter)
         {
-            var _reportID = "lm611002";
+            var _reportID = "LM602025";
             if (string.IsNullOrEmpty(this.GetCacheCurrent<LumShipmentPlan>().Current.ShipmentNbr))
                 throw new PXException("ShipmentNbr Can Not be null");
             var parameters = new Dictionary<string, string>()
             {
-                ["ShipmentNbr"] = this.GetCacheCurrent<LumShipmentPlan>().Current.ShipmentNbr,
-                ["ShipmentPlanID"] = this.GetCacheCurrent<LumShipmentPlan>().Current.ShipmentPlanID
+
+                ["ShipmentNbr"] = this.GetCacheCurrent<LumShipmentPlan>().Current.ShipmentNbr
             };
-            if (parameters["ShipmentNbr"] != null && parameters["ShipmentPlanID"] != null)
+            if (parameters["ShipmentNbr"] != null)
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
             return adapter.Get<SOShipment>().ToList();
         }
@@ -170,14 +170,14 @@ namespace LumCustomizations.Graph
         [PXUIField(DisplayName = "DG to HK Invoice Report", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable dGcommericalInvoice(PXAdapter adapter)
         {
-            var _reportID = "LM602020";
+            var _reportID = "LM602030";
             if (string.IsNullOrEmpty(this.GetCacheCurrent<LumShipmentPlan>().Current.ShipmentNbr))
                 throw new PXException("ShipmentNbr Can Not be null");
             var parameters = new Dictionary<string, string>()
             {
-                ["ShipmentNbr"] = this.GetCacheCurrent<LumShipmentPlan>().Current.ShipmentNbr
+                ["RefNbr"] = this.GetCacheCurrent<LumShipmentPlan>().Current.ShipmentNbr
             };
-            if (parameters["ShipmentNbr"] != null)
+            if (parameters["RefNbr"] != null)
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
             return adapter.Get<SOShipment>().ToList();
             
