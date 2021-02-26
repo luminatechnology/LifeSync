@@ -17,11 +17,15 @@
         <LayoutUnit>Inch</LayoutUnit>
         <MailSettings>
             <ActivitySource>SOShipment.NoteID</ActivitySource>
+            <Bcc>
+            </Bcc>
             <Body>='Dear Customer,#010;#010;This is an automatic email to notify you that Order #'+' '+[SOOrder.OrderNbr]+' '+'has been shipped with Shipment #'+' '+[SOShipment.ShipmentNbr]+'. You can find a copy of the shipment confirmation attached to this email.#010;#010;Track your shipment at [Tracking Link]#010;#010;If you have any questions, please don’t hesitate to contact us at email.  #010;#010;Thank you for choosing'+' '+[CompanyContact.FullName]+'.'</Body>
+            <Cc>
+            </Cc>
+            <Format>
+            </Format>
             <ParentSource>Customer.NoteID</ParentSource>
             <Subject>=[CompanyContact.FullName]+' '+'Shipment #'+' '+[SOShipment.ShipmentNbr]+' '+'has been shipped.'</Subject>
-            <TemplateID>
-            </TemplateID>
             <To>=IsNull([ShippingContact.EMail],'')</To>
         </MailSettings>
         <PageSettings>
@@ -185,7 +189,7 @@
                 <ParentName>BAccount</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>https://healthedge.acumatica.com</SchemaUrl>
+        <SchemaUrl>http://localhost/ABA_AcumaticaDB1/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>SOShipment.ShipmentNbr</DataField>
@@ -5045,7 +5049,7 @@
                         <CanGrow>True</CanGrow>
                         <CanSplit>True</CanSplit>
                         <Location>54px, 4px</Location>
-                        <Size>210px, 48px</Size>
+                        <Size>198px, 48px</Size>
                         <Style>
                             <Font>
                                 <Size>9.5pt</Size>
@@ -5056,8 +5060,8 @@
                         <Value>=IIf([SOLine.AlternateID] &lt;&gt; NULL,[SOLine.AlternateID] + '{br}', '') + [SOLine.TranDesc]</Value>
                     </TextBox>
                     <TextBox Name="textBox5">
-                        <Location>264px, 4px</Location>
-                        <Size>65px, 48px</Size>
+                        <Location>252px, 4px</Location>
+                        <Size>77px, 48px</Size>
                         <Style>
                             <Font>
                                 <Size>9.5pt</Size>
@@ -5065,7 +5069,7 @@
                             <TextAlign>Center</TextAlign>
                         </Style>
                         <StyleName>Item Normal</StyleName>
-                        <Value>=[LumShipmentPlan.PlannedShipQty]</Value>
+                        <Value>=[LumShipmentPlan.PlannedShipQty]+'{br}'+[SOLine.UOM]</Value>
                     </TextBox>
                     <TextBox Name="textBox7">
                         <Location>0px, 4px</Location>
@@ -5138,7 +5142,7 @@
                                 <Items>
                                     <TextBox Name="textBox10">
                                         <Location>50px, 8px</Location>
-                                        <Size>210px, 16px</Size>
+                                        <Size>198px, 16px</Size>
                                         <Style>
                                             <Color>Blue</Color>
                                             <TextAlign>Center</TextAlign>
@@ -5157,8 +5161,8 @@
                                         <Value>Carton Qty.</Value>
                                     </TextBox>
                                     <TextBox Name="textBox13">
-                                        <Location>260px, 8px</Location>
-                                        <Size>65px, 16px</Size>
+                                        <Location>248px, 8px</Location>
+                                        <Size>77px, 16px</Size>
                                         <Style>
                                             <Color>Blue</Color>
                                             <TextAlign>Center</TextAlign>

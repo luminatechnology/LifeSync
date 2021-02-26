@@ -117,6 +117,7 @@
     <Compile Include="Graph\LUMMultiLevelBomInq.cs" />
     <Compile Include="Graph\LUMMultiLevelBomProc.cs" />
     <Compile Include="Graph\LumShipmentPlanMaint.cs" />
+    <Compile Include="Graph\LUMUpdateBOMQty.cs" />
     <Compile Include="Graph_Extensions\AMReleaseProcess_Extension.cs" />
     <Compile Include="Graph_Extensions\APInvoiceEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\ARInvoiceEntry_Extension.cs" />
