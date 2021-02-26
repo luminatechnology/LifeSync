@@ -30,10 +30,6 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 <Value>@ShipmentPlanID</Value>
             </FilterExp>
             <FilterExp>
-                <DataField>_Title.MYNumber</DataField>
-                <Value>1</Value>
-            </FilterExp>
-            <FilterExp>
                 <DataField>_Title.ProdOrdID</DataField>
                 <Value>@ProdOrdID</Value>
             </FilterExp>
