@@ -68,16 +68,6 @@
                 <ParentName>Branch</ParentName>
             </ReportRelation>
             <ReportRelation>
-                <ChildName>Address</ChildName>
-                <Links>
-                    <RelationRow>
-                        <ChildField>AddressID</ChildField>
-                        <ParentField>DefAddressID</ParentField>
-                    </RelationRow>
-                </Links>
-                <ParentName>BAccount</ParentName>
-            </ReportRelation>
-            <ReportRelation>
                 <ChildAlias>
                 </ChildAlias>
                 <ChildName>Customer</ChildName>
@@ -95,6 +85,16 @@
                     <RelationRow>
                         <ChildField>BAccountID</ChildField>
                         <ParentField>BAccountID</ParentField>
+                    </RelationRow>
+                </Links>
+                <ParentName>Customer</ParentName>
+            </ReportRelation>
+            <ReportRelation>
+                <ChildName>Address</ChildName>
+                <Links>
+                    <RelationRow>
+                        <ChildField>AddressID</ChildField>
+                        <ParentField>DefAddressID</ParentField>
                     </RelationRow>
                 </Links>
                 <ParentName>Customer</ParentName>
@@ -3817,9 +3817,24 @@
                         </Style>
                         <Value>=[ContactR.Fax]</Value>
                     </TextBox>
+                    <TextBox Name="textBox3">
+                        <Location>96px, 184px</Location>
+                        <Size>152px, 32px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>10px</Size>
+                            </Font>
+                            <Padding>
+                                <Top>2px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <Value>=[Address.AddressLine1]</Value>
+                    </TextBox>
                     <TextBox Name="textBox58">
                         <Location>96px, 160px</Location>
-                        <Size>152px, 48px</Size>
+                        <Size>152px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -3926,7 +3941,7 @@
                 </Items>
             </PageHeader>
             <Detail Name="detailSection1">
-                <Height>1.69312cm</Height>
+                <Height>2.1164cm</Height>
                 <Variables>
                     <ReportVariable>
                         <Name>LineNbr</Name>
@@ -3944,7 +3959,7 @@
                 <Items>
                     <TextBox Name="textBox33">
                         <Location>16px, 0px</Location>
-                        <Size>48px, 64px</Size>
+                        <Size>48px, 80px</Size>
                         <Style>
                             <BorderStyle>
                                 <Left>Solid</Left>
@@ -3966,7 +3981,7 @@
                     <TextBox Name="textBox41">
                         <CanGrow>True</CanGrow>
                         <Location>64px, 24px</Location>
-                        <Size>112px, 40px</Size>
+                        <Size>112px, 56px</Size>
                         <Style>
                             <BorderStyle>
                                 <Right>Solid</Right>
@@ -3988,7 +4003,7 @@
                     <TextBox Name="textBox42">
                         <Format>='N2'</Format>
                         <Location>616px, 0px</Location>
-                        <Size>72px, 64px</Size>
+                        <Size>72px, 80px</Size>
                         <Style>
                             <BorderStyle>
                                 <Right>Solid</Right>
@@ -4031,7 +4046,7 @@
                     </TextBox>
                     <TextBox Name="textBox44">
                         <Location>176px, 24px</Location>
-                        <Size>128px, 40px</Size>
+                        <Size>128px, 56px</Size>
                         <Style>
                             <BorderStyle>
                                 <Right>Solid</Right>
@@ -4052,7 +4067,7 @@
                     </TextBox>
                     <TextBox Name="textBox45">
                         <Location>304px, 0px</Location>
-                        <Size>120px, 64px</Size>
+                        <Size>120px, 80px</Size>
                         <Style>
                             <BorderStyle>
                                 <Right>Solid</Right>
@@ -4074,7 +4089,7 @@
                     </TextBox>
                     <TextBox Name="textBox49">
                         <Location>424px, 0px</Location>
-                        <Size>64px, 64px</Size>
+                        <Size>64px, 80px</Size>
                         <Style>
                             <BorderStyle>
                                 <Right>Solid</Right>
@@ -4094,7 +4109,7 @@
                     <TextBox Name="textBox50">
                         <Format>='N2'</Format>
                         <Location>488px, 0px</Location>
-                        <Size>64px, 64px</Size>
+                        <Size>64px, 80px</Size>
                         <Style>
                             <BorderStyle>
                                 <Right>Solid</Right>
@@ -4116,7 +4131,7 @@
                     </TextBox>
                     <TextBox Name="textBox51">
                         <Location>552px, 0px</Location>
-                        <Size>64px, 64px</Size>
+                        <Size>64px, 80px</Size>
                         <Style>
                             <BorderStyle>
                                 <Right>Solid</Right>
