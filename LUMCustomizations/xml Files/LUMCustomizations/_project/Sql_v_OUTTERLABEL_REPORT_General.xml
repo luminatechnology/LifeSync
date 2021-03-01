@@ -35,17 +35,19 @@ INNER JOIN (
 			   ShipmentPlanID, 
 			   plannedshipDate,
 			   InventoryID,
+			   CustomerOrderNbr,
 			   max(ISNULL(EndLabelNbr,1)) as EndLabelNbr,
 			   sum(ISNULL(PlannedShipQty,0)) AS PlannedShipQty
 		from LumShipmentPlan 
-		group by CompanyID, ShipmentPlanID,plannedshipDate,InventoryID) m on m.CompanyID = t.CompanyID
-																		 and m.ShipmentPlanID = t.ShipmentPlanID
-																		 and m.plannedshipDate = t.PlannedShipDate
-																		 and m.InventoryID = t.InventoryID
+		group by CompanyID, ShipmentPlanID,plannedshipDate,InventoryID,CustomerOrderNbr) m on m.CompanyID = t.CompanyID
+																						  and m.ShipmentPlanID = t.ShipmentPlanID
+																						  and m.plannedshipDate = t.PlannedShipDate
+																						  and m.InventoryID = t.InventoryID
+																						  and m.CustomerOrderNbr = t.CustomerOrderNbr
 CROSS JOIN(
 	    SELECT DISTINCT NUMBER AS NowNbr
 		FROM master.dbo.spt_values
 		WHERE name IS NULL
 ) NumberPool
-WHERE NowNbr BETWEEN t.StartLabelNbr AND t.EndLabelNbr]]></CDATA>
+WHERE NowNbr BETWEEN t.StartLabelNbr AND t.EndLabelNbr --and t.CompanyID = 2 and t.ShipmentPlanID = '20210223003' and ShipmentNbr = '20210300003']]></CDATA>
 </Sql>
