@@ -3071,7 +3071,7 @@
                 </Items>
             </PageHeader>
             <Detail Name="detailSection1">
-                <Height>1.69312cm</Height>
+                <Height>2.1164cm</Height>
                 <Variables>
                     <ReportVariable>
                         <Name>LineNbr</Name>
@@ -3089,7 +3089,7 @@
                 <Items>
                     <TextBox Name="textBox33">
                         <Location>16px, 0px</Location>
-                        <Size>48px, 64px</Size>
+                        <Size>48px, 80px</Size>
                         <Style>
                             <BorderStyle>
                                 <Left>Solid</Left>
@@ -3111,7 +3111,7 @@
                     <TextBox Name="textBox41">
                         <CanGrow>True</CanGrow>
                         <Location>64px, 0px</Location>
-                        <Size>104px, 64px</Size>
+                        <Size>104px, 80px</Size>
                         <Style>
                             <BorderStyle>
                                 <Right>Solid</Right>
@@ -3130,7 +3130,7 @@
                     <TextBox Name="textBox42">
                         <Format>='N0'</Format>
                         <Location>616px, 0px</Location>
-                        <Size>72px, 64px</Size>
+                        <Size>72px, 80px</Size>
                         <Style>
                             <BorderStyle>
                                 <Right>Solid</Right>
@@ -3170,7 +3170,7 @@
                     </TextBox>
                     <TextBox Name="textBox44">
                         <Location>168px, 24px</Location>
-                        <Size>104px, 40px</Size>
+                        <Size>104px, 56px</Size>
                         <Style>
                             <BorderStyle>
                                 <Right>Solid</Right>
@@ -3188,7 +3188,7 @@
                     </TextBox>
                     <TextBox Name="textBox45">
                         <Location>272px, 0px</Location>
-                        <Size>152px, 64px</Size>
+                        <Size>152px, 80px</Size>
                         <Style>
                             <BorderStyle>
                                 <Right>Solid</Right>
@@ -3207,7 +3207,7 @@
                     </TextBox>
                     <TextBox Name="textBox49">
                         <Location>424px, 0px</Location>
-                        <Size>64px, 64px</Size>
+                        <Size>64px, 80px</Size>
                         <Style>
                             <BorderStyle>
                                 <Right>Solid</Right>
@@ -3227,7 +3227,7 @@
                     <TextBox Name="textBox50">
                         <Format>='0.00'</Format>
                         <Location>488px, 0px</Location>
-                        <Size>64px, 64px</Size>
+                        <Size>64px, 80px</Size>
                         <Style>
                             <BorderStyle>
                                 <Right>Solid</Right>
@@ -3249,7 +3249,7 @@
                     </TextBox>
                     <TextBox Name="textBox51">
                         <Location>552px, 0px</Location>
-                        <Size>64px, 64px</Size>
+                        <Size>64px, 80px</Size>
                         <Style>
                             <BorderStyle>
                                 <Right>Solid</Right>
