@@ -1,7 +1,0 @@
-﻿<Sql TableName="UpdateShipmentPlanDimWeight" CustomScript="#CDATA">
-    <CDATA name="CustomScript"><![CDATA[UPDATE LumShipmentPlan 
-SET DimWeight = t.CartonQty * i.BaseItemVolume * 1000000 / 5000
-FROM LumShipmentPlan t inner join InventoryItem i on t.CompanyID = i.CompanyID and t.InventoryID = i.InventoryID
-WHERE t.CompanyID = 3
-GO]]></CDATA>
-</Sql>
