@@ -4272,15 +4272,15 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <Value>Form number: FSA-010 /Rev.00</Value>
                     </TextBox>
                     <TextBox Name="textBox55">
-                        <Location>392px, 144px</Location>
-                        <Size>264px, 16px</Size>
+                        <Location>368px, 144px</Location>
+                        <Size>320px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial Black</Name>
                                 <Size>10px</Size>
                             </Font>
                         </Style>
-                        <Value>=[BAccount.LegalName]</Value>
+                        <Value>American Biosurgical Asia Medical Technology Limited</Value>
                     </TextBox>
                     <TextBox Name="textBox56">
                         <Format>='N3'</Format>
