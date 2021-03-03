@@ -5446,7 +5446,7 @@
                         <Value>=[SOLine.TranDesc]</Value>
                     </TextBox>
                     <TextBox Name="textBox42">
-                        <Format>='N0'</Format>
+                        <Format>='N2'</Format>
                         <Location>616px, 0px</Location>
                         <Size>72px, 80px</Size>
                         <Style>
