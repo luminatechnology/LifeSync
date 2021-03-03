@@ -5545,7 +5545,7 @@
                         <Value>=[SOLine.UOM]</Value>
                     </TextBox>
                     <TextBox Name="textBox50">
-                        <Format>=IIF([SOLine.Qty] - Floor([SOLine.Qty]) &gt; 0, 'N2', 'N0')</Format>
+                        <Format>=IIF([LumShipmentPlan.PlannedShipQty] - Floor([LumShipmentPlan.PlannedShipQty]) &gt; 0, 'N2', 'N0')</Format>
                         <Location>488px, 0px</Location>
                         <Size>64px, 80px</Size>
                         <Style>
