@@ -28,15 +28,11 @@
         <LayoutUnit>Inch</LayoutUnit>
         <MailSettings>
             <ActivitySource>SOShipment.NoteID</ActivitySource>
-            <Bcc>
-            </Bcc>
             <Body>='Dear Customer,#010;#010;This is an automatic email to notify you that Order #'+' '+[SOOrder.OrderNbr]+' '+'has been shipped with Shipment #'+' '+[SOShipment.ShipmentNbr]+'. You can find a copy of the shipment confirmation attached to this email.#010;#010;Track your shipment at [Tracking Link]#010;#010;If you have any questions, please don’t hesitate to contact us at email.  #010;#010;Thank you for choosing'+' '+[CompanyContact.FullName]+'.'</Body>
-            <Cc>
-            </Cc>
-            <Format>
-            </Format>
             <ParentSource>Customer.NoteID</ParentSource>
             <Subject>=[CompanyContact.FullName]+' '+'Shipment #'+' '+[SOShipment.ShipmentNbr]+' '+'has been shipped.'</Subject>
+            <TemplateID>
+            </TemplateID>
             <To>=IsNull([ShippingContact.EMail],'')</To>
         </MailSettings>
         <PageSettings>
@@ -4977,7 +4973,7 @@
             </PageHeader>
             <Detail Name="detailSection1">
                 <GridSize>4px, 4px</GridSize>
-                <Height>0.58in</Height>
+                <Height>0.75in</Height>
                 <Variables>
                     <ReportVariable>
                         <Name>LineNbr</Name>
@@ -4989,7 +4985,7 @@
                     <TextBox Name="textBox14">
                         <Format>N0</Format>
                         <Location>490px, 4px</Location>
-                        <Size>60px, 48px</Size>
+                        <Size>60px, 68px</Size>
                         <Style>
                             <Font>
                                 <Size>9.5pt</Size>
@@ -5002,7 +4998,7 @@
                     <TextBox Name="textBox15">
                         <Format>N2</Format>
                         <Location>550px, 4px</Location>
-                        <Size>70px, 48px</Size>
+                        <Size>70px, 68px</Size>
                         <Style>
                             <Font>
                                 <Size>9.5pt</Size>
@@ -5015,7 +5011,7 @@
                     <TextBox Name="textBox16">
                         <Format>N2</Format>
                         <Location>620px, 4px</Location>
-                        <Size>70px, 48px</Size>
+                        <Size>70px, 68px</Size>
                         <Style>
                             <Font>
                                 <Size>9.5pt</Size>
@@ -5028,7 +5024,7 @@
                     <TextBox Name="textBox24">
                         <Format>N2</Format>
                         <Location>690px, 4px</Location>
-                        <Size>70px, 48px</Size>
+                        <Size>70px, 68px</Size>
                         <Style>
                             <Font>
                                 <Size>9.5pt</Size>
@@ -5041,7 +5037,7 @@
                     <TextBox Name="textBox25">
                         <Format>N3</Format>
                         <Location>760px, 4px</Location>
-                        <Size>104px, 48px</Size>
+                        <Size>104px, 68px</Size>
                         <Style>
                             <Font>
                                 <Size>9.5pt</Size>
@@ -5053,7 +5049,7 @@
                     </TextBox>
                     <TextBox Name="textBox26">
                         <Location>864px, 4px</Location>
-                        <Size>160px, 48px</Size>
+                        <Size>160px, 68px</Size>
                         <Style>
                             <Font>
                                 <Size>9.5pt</Size>
@@ -5067,7 +5063,7 @@
                         <CanGrow>True</CanGrow>
                         <CanSplit>True</CanSplit>
                         <Location>54px, 4px</Location>
-                        <Size>198px, 48px</Size>
+                        <Size>198px, 68px</Size>
                         <Style>
                             <Font>
                                 <Size>9.5pt</Size>
@@ -5079,7 +5075,7 @@
                     </TextBox>
                     <TextBox Name="textBox5">
                         <Location>252px, 4px</Location>
-                        <Size>77px, 48px</Size>
+                        <Size>77px, 68px</Size>
                         <Style>
                             <Font>
                                 <Size>9.5pt</Size>
@@ -5091,7 +5087,7 @@
                     </TextBox>
                     <TextBox Name="textBox7">
                         <Location>0px, 4px</Location>
-                        <Size>50px, 48px</Size>
+                        <Size>50px, 68px</Size>
                         <Style>
                             <Font>
                                 <Size>9.5pt</Size>
@@ -5105,7 +5101,7 @@
                         <CanGrow>True</CanGrow>
                         <CanSplit>True</CanSplit>
                         <Location>330px, 4px</Location>
-                        <Size>160px, 48px</Size>
+                        <Size>160px, 68px</Size>
                         <Style>
                             <Font>
                                 <Size>9.5pt</Size>
@@ -5364,7 +5360,6 @@
                     <Footer Name="groupFooterSection1">
                         <Height>0.58333in</Height>
                         <PrintAtBottom>True</PrintAtBottom>
-                        <PrintOnEveryPage>True</PrintOnEveryPage>
                         <ProcessOrder>Always</ProcessOrder>
                         <ResetPageNumber>True</ResetPageNumber>
                         <Items>
