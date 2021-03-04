@@ -33,6 +33,12 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                 <Prompt>Actual Shipment Nbr</Prompt>
                 <Required>True</Required>
             </ReportParameter>
+            <ReportParameter>
+                <ColumnSpan>2</ColumnSpan>
+                <Name>ManualOwner</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Manual Owner</Prompt>
+            </ReportParameter>
         </Parameters>
         <Relations>
             <ReportRelation>
@@ -88,8 +94,6 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                 <ParentName>Branch</ParentName>
             </ReportRelation>
             <ReportRelation>
-                <ChildAlias>
-                </ChildAlias>
                 <ChildName>Customer</ChildName>
                 <Links>
                     <RelationRow>
@@ -4516,7 +4520,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                             </Padding>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>=[SOOrder.CreatedByID_Creator_displayName]</Value>
+                        <Value>=IIF([@ManualOwner] &lt;&gt; Null, [@ManualOwner], [SOOrder.OwnerID_EPEmployee_acctName])</Value>
                     </TextBox>
                     <TextBox Name="textBox24">
                         <Location>24px, 248px</Location>
