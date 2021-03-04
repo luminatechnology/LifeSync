@@ -33,6 +33,12 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                 <Prompt>Actual Shipment Nbr</Prompt>
                 <Required>True</Required>
             </ReportParameter>
+            <ReportParameter>
+                <ColumnSpan>2</ColumnSpan>
+                <Name>ManualOwner</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Manual Owner</Prompt>
+            </ReportParameter>
         </Parameters>
         <Relations>
             <ReportRelation>
@@ -88,8 +94,6 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                 <ParentName>Branch</ParentName>
             </ReportRelation>
             <ReportRelation>
-                <ChildAlias>
-                </ChildAlias>
                 <ChildName>Customer</ChildName>
                 <Links>
                     <RelationRow>
@@ -4516,7 +4520,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                             </Padding>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>=[SOOrder.CreatedByID_Creator_displayName]</Value>
+                        <Value>=IIF([@ManualOwner] &lt;&gt; Null, [@ManualOwner], [SOOrder.OwnerID_EPEmployee_acctName])</Value>
                     </TextBox>
                     <TextBox Name="textBox24">
                         <Location>24px, 248px</Location>
@@ -4749,6 +4753,10 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <Name>TotalAmount</Name>
                         <ValueExpr>=[LumShipmentPlan.PlannedShipQty] * [SOLine.UsrPIUnitPrice] + $TotalAmount</ValueExpr>
                     </ReportVariable>
+                    <ReportVariable>
+                        <Name>Remark</Name>
+                        <ValueExpr>=IIF([LumShipmentPlan.Customer] = 'MASIMO'#010;	, 'CPT-electrical cable, unfinished\nDII: 1061133\nThere are unfinished cables that are going to be Completed\nin Mexico, CPT-electrical cable'#010;	, IIF(([SOOrder.CustomerID] = 'OSI' Or [LumShipmentPlan.Customer] = 'OSI')#010;		  , ''#010;		  , IIF(([SOOrder.CustomerID] = 'ABI' And Left([SOLine.AlternateID], 4) = 'AB 1')#010;				 , 'USFDA Affirmation of compliance (A of C) codes:\nDll : 1061133\nLST : D075463\nDEV : 3007648309\n510(k) : K953889\nThe items being imported are comported cables\nand final destination is USA'#010;				 , IIF(([SOOrder.CustomerID] = 'ABI' And Left([SOLine.AlternateID], 4) = 'AB 2')#010;						, 'USFDA Affirmation of compliance (A of C) codes:\nDll : 1061133\nLST : D075461\nDEV : 3007648309\n510(k) : K972901\nThe items being imported are comported cables\nand final destination is USA'#010;						, IIF(([SOOrder.CustomerID] = 'ABI' And (Left([SOLine.AlternateID], 5) = 'AB 2' Or Left([SOLine.AlternateID], 4) = 'AB 6'))#010;							   , 'USFDA Affirmation of compliance (A of C) codes:\nDll : 1061133\nLST : D075462\nDEV : 3007648309\n510(k) : K971540\nThe items being imported are comported cables\nand final destination is USA'#010;							   , 'Bank information\n●Bank Name：The Hongkong and Shanghai Banking Corporation Limited\n●Company Name：American Biosurgical Asia Medical Technology Ltd\n●Account Number：809-435084-838\n●SWIFT Code：HSBCHKHHHKH'#010;							 )#010;					  )#010;			   )#010;	    )#010;   )</ValueExpr>
+                    </ReportVariable>
                 </Variables>
                 <Items>
                     <TextBox Name="textBox33">
@@ -4975,18 +4983,18 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <Size>264px, 8px</Size>
                     </Line>
                     <TextBox Name="textBox2">
-                        <Location>32px, 80px</Location>
-                        <Size>280px, 56px</Size>
+                        <Location>16px, 72px</Location>
+                        <Size>344px, 96px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
                                 <Size>10px</Size>
                             </Font>
                         </Style>
-                        <Value>CPT-electrical cable, unfinished#010;DII: 1061133#010;There are unfinished cables that are going to be Completed#010;in Mexico, CPT-electrical cable</Value>
+                        <Value>=$Remark</Value>
                     </TextBox>
                     <TextBox Name="textBox46">
-                        <Location>32px, 24px</Location>
+                        <Location>16px, 24px</Location>
                         <Size>96px, 16px</Size>
                         <Style>
                             <Font>
@@ -5008,7 +5016,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <Value>='Total Sales Amount: '</Value>
                     </TextBox>
                     <TextBox Name="textBox52">
-                        <Location>32px, 48px</Location>
+                        <Location>16px, 48px</Location>
                         <Size>120px, 16px</Size>
                         <Style>
                             <Font>
@@ -5017,6 +5025,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                             </Font>
                         </Style>
                         <Value>Remark:</Value>
+                        <VisibleExpr>=IIF([LumShipmentPlan.Customer] = 'OSI', false, true)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox54">
                         <Location>448px, 200px</Location>
@@ -5042,7 +5051,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                     </TextBox>
                     <TextBox Name="textBox56">
                         <Format>='N3'</Format>
-                        <Location>128px, 24px</Location>
+                        <Location>112px, 24px</Location>
                         <Size>120px, 16px</Size>
                         <Style>
                             <Font>
