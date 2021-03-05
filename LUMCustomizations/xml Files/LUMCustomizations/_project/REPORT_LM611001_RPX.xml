@@ -30,10 +30,6 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 <Value>@ShipmentPlanID</Value>
             </FilterExp>
             <FilterExp>
-                <DataField>_Title.MYNumber</DataField>
-                <Value>1</Value>
-            </FilterExp>
-            <FilterExp>
                 <DataField>_Title.ProdOrdID</DataField>
                 <Value>@ProdOrdID</Value>
             </FilterExp>
@@ -3860,7 +3856,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             </Font>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=[SOLine.AlternateID]+'{br}'+[IT.HTS_Attributes]#010;</Value>
+                        <Value>=IIF([SOLine.AlternateID] = null, ' ', [SOLine.AlternateID]) + '{br}'+#010;IIF([IT.HTS_Attributes] = null, ' ' , [IT.HTS_Attributes])#010;</Value>
                     </TextBox>
                     <TextBox Name="textBox42">
                         <Format>='N1'</Format>
