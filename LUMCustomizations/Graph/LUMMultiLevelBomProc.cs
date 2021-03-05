@@ -27,6 +27,8 @@ namespace LUMCustomizations.Graph
         {
             Results.SetProcessVisible(false);
             Results.SetProcessAllCaption(PX.Objects.IN.Messages.Generate);
+
+            if (BOMCost.Select().Count == 0) { InsertWrkTableRecs(this); }
         }
         #endregion
 
@@ -75,6 +77,22 @@ namespace LUMCustomizations.Graph
         {
             PXDatabase.Delete<LUMStdBomCost>(new PXDataFieldRestrict<LUMStdBomCost.createdByID>(userID));
         }
+
+        /// <summary>
+        /// If the table data is empty, the database record is inserted according to each user.
+        /// </summary>
+        /// <param name="graph"></param>
+        protected static void InsertWrkTableRecs(PXGraph graph)
+        {
+            string screenIDWODot = graph.Accessinfo.ScreenID.ToString().Replace(".", "");
+
+            PXDatabase.Insert<LUMStdBomCost>(new PXDataFieldAssign<LUMStdBomCost.createdByID>(graph.Accessinfo.UserID),
+                                             new PXDataFieldAssign<LUMStdBomCost.createdByScreenID>(screenIDWODot),
+                                             new PXDataFieldAssign<LUMStdBomCost.createdDateTime>(graph.Accessinfo.BusinessDate),
+                                             new PXDataFieldAssign<LUMStdBomCost.lastModifiedByID>(graph.Accessinfo.UserID),
+                                             new PXDataFieldAssign<LUMStdBomCost.lastModifiedByScreenID>(screenIDWODot),
+                                             new PXDataFieldAssign<LUMStdBomCost.lastModifiedDateTime>(graph.Accessinfo.BusinessDate));
+        }
         #endregion
 
         #region Methods
@@ -82,28 +100,30 @@ namespace LUMCustomizations.Graph
         {
             DeleteWrkTableRecs(this.Accessinfo.UserID);
 
+            Filter.Current = bomFilter;
+
             var multiLevelBomRecs = new List<LUMStdBomCost>();
 
             PXSelectBase<AMBomItem> cmdBOM = new PXSelect<AMBomItem>(this);
 
+            if (bomFilter.BOMDate != null)
+            {
+                cmdBOM.WhereAnd<Where<Current<AMMultiLevelBomFilter.bOMDate>, Between<AMBomItem.effStartDate, AMBomItem.effEndDate>,
+                                        Or<Where<AMBomItem.effStartDate, LessEqual<Current<AMMultiLevelBomFilter.bOMDate>>,
+                                                And<AMBomItem.effEndDate, IsNull>>>>>();
+            }
+
             if (bomFilter.BOMID != null)
             {
-                cmdBOM.WhereAnd<Where<AMBomItem.bOMID, Equal<Required<AMMultiLevelBomFilter.bOMID>>>>();
+                cmdBOM.WhereAnd<Where<AMBomItem.bOMID, Equal<Current<AMMultiLevelBomFilter.bOMID>>>>();
             }
 
             if (bomFilter.InventoryID != null)
             {
-                cmdBOM.WhereAnd<Where<AMBomItem.inventoryID, Equal<Required<AMMultiLevelBomFilter.inventoryID>>>>();
+                cmdBOM.WhereAnd<Where<AMBomItem.inventoryID, Equal<Current<AMMultiLevelBomFilter.inventoryID>>>>();
             }
 
-            if (bomFilter.BOMDate != null)
-            {
-                cmdBOM.WhereAnd<Where<Required<AMMultiLevelBomFilter.bOMDate>, Between<AMBomItem.effStartDate, AMBomItem.effEndDate>,
-                                        Or<Where<AMBomItem.effStartDate, LessEqual<Required<AMMultiLevelBomFilter.bOMDate>>,
-                                                And<AMBomItem.effEndDate, IsNull>>>>>();
-            }
-
-            foreach (AMBomItem bomitem in cmdBOM.Select(bomFilter.BOMID, bomFilter.InventoryID, bomFilter.BOMDate))
+            foreach (AMBomItem bomitem in cmdBOM.Select())
             {
                 LoadDataRecords(bomitem.BOMID, bomitem.RevisionID, 0, 1, bomitem, multiLevelBomRecs, bomFilter);
             }
@@ -266,7 +286,7 @@ namespace LUMCustomizations.Graph
                 rollBomList.Add(bomItem, multiLevelRecord.Level.GetValueOrDefault(), false);
             }
 
-            var costRollGraph = CreateInstance<BOMCostRoll>();
+            var costRollGraph = CreateInstance<LumCostRoll>();
             var costRollFilter = new RollupSettings
             {
                 SnglMlti = "M",
@@ -282,8 +302,9 @@ namespace LUMCustomizations.Graph
                 UsePending = false,
                 IgnoreMinMaxLotSizeValues = Filter.Current.IgnoreMinMaxLotSizeValues
             };
+
             costRollGraph.Settings.Current = costRollFilter;
-            costRollGraph.RollCosts(rollBomList);
+            costRollGraph.RollCosts(rollBomList, Filter.Current.GetExtension<AMMultiLevelBomFilterExt>().UsrEnblItemRoundUp.GetValueOrDefault());
 
             foreach (var mutliLevelRecord in multiLevelBomRecs)
             {
@@ -491,9 +512,9 @@ namespace LUMCustomizations.Graph
                 if (string.IsNullOrWhiteSpace(levelBomid))
                 {
                     var bomItem = filter.IncludeBomsOnHold == false 
-                                  ? PrimaryBomIDManager.GetActiveRevisionBomItemByDate(this, new PrimaryBomIDManager(this).GetPrimaryAllLevels(row.InventoryID,
+                                  ? PrimaryBomIDManager.GetActiveRevisionBomItemByDate(this, new PrimaryBomIDManager(this).GetPrimaryAllLevels(row.CompInventoryID,
                                                                                        materialSiteID, row.SubItemID), filter.BOMDate.GetValueOrDefault()) 
-                                  : PrimaryBomIDManager.GetNotArchivedRevisionBomItemByDate(this, new PrimaryBomIDManager(this).GetPrimaryAllLevels(row.InventoryID,
+                                  : PrimaryBomIDManager.GetNotArchivedRevisionBomItemByDate(this, new PrimaryBomIDManager(this).GetPrimaryAllLevels(row.CompInventoryID,
                                                                                             materialSiteID, row.SubItemID), filter.BOMDate.GetValueOrDefault());
 
                     if (bomItem == null)
