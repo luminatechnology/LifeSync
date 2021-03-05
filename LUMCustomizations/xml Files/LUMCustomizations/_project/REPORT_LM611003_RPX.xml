@@ -1178,18 +1178,18 @@
         </Tables>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
-                <Height>3.38624cm</Height>
+                <Height>5.71429cm</Height>
                 <Items>
                     <Line Name="line1">
-                        <Location>0px, 118px</Location>
-                        <Size>1016px, 8px</Size>
+                        <Location>32px, 200px</Location>
+                        <Size>984px, 8px</Size>
                     </Line>
                     <TextBox Name="textBox1">
-                        <Location>416px, 0px</Location>
-                        <Size>232px, 40px</Size>
+                        <Location>400px, 16px</Location>
+                        <Size>280px, 40px</Size>
                         <Style>
                             <Font>
-                                <Size>16px</Size>
+                                <Size>24px</Size>
                                 <Style>Bold</Style>
                             </Font>
                             <TextAlign>Center</TextAlign>
@@ -1199,8 +1199,8 @@
                         <Value>美 博 电 子 有 限 公 司</Value>
                     </TextBox>
                     <TextBox Name="textBox10">
-                        <Location>776px, 88px</Location>
-                        <Size>72px, 24px</Size>
+                        <Location>800px, 168px</Location>
+                        <Size>80px, 24px</Size>
                         <Style>
                             <Font>
                                 <Size>16px</Size>
@@ -1211,7 +1211,7 @@
                     </TextBox>
                     <TextBox Name="textBox11">
                         <Format>='0.0000'</Format>
-                        <Location>848px, 40px</Location>
+                        <Location>880px, 104px</Location>
                         <Size>128px, 24px</Size>
                         <Style>
                             <Font>
@@ -1223,7 +1223,7 @@
                     </TextBox>
                     <TextBox Name="textBox12">
                         <Format>='yyyy-MM-dd'</Format>
-                        <Location>848px, 64px</Location>
+                        <Location>880px, 136px</Location>
                         <Size>128px, 24px</Size>
                         <Style>
                             <Font>
@@ -1234,7 +1234,7 @@
                         <Value>=[AMVendorShipment.ShipmentDate]</Value>
                     </TextBox>
                     <TextBox Name="textBox13">
-                        <Location>848px, 88px</Location>
+                        <Location>880px, 168px</Location>
                         <Size>128px, 24px</Size>
                         <Style>
                             <Font>
@@ -1245,11 +1245,11 @@
                         <Value>=[WIPShipLine.OperationID]</Value>
                     </TextBox>
                     <TextBox Name="textBox14">
-                        <Location>488px, 40px</Location>
-                        <Size>96px, 24px</Size>
+                        <Location>472px, 56px</Location>
+                        <Size>128px, 40px</Size>
                         <Style>
                             <Font>
-                                <Size>16px</Size>
+                                <Size>20px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -1258,7 +1258,7 @@
                         <Value>外发领料单</Value>
                     </TextBox>
                     <TextBox Name="textBox15">
-                        <Location>944px, 16px</Location>
+                        <Location>960px, 72px</Location>
                         <Size>56px, 24px</Size>
                         <Style>
                             <Font>
@@ -1269,19 +1269,19 @@
                         <Value>=[PageIndex]+'/'+[PageCount]</Value>
                     </TextBox>
                     <TextBox Name="textBox2">
-                        <Location>32px, 40px</Location>
-                        <Size>72px, 24px</Size>
+                        <Location>32px, 104px</Location>
+                        <Size>80px, 24px</Size>
                         <Style>
                             <Font>
                                 <Size>16px</Size>
                             </Font>
                         </Style>
                         <StyleName>ChineseFont</StyleName>
-                        <Value>领料工单：</Value>
+                        <Value>领料单号：</Value>
                     </TextBox>
                     <TextBox Name="textBox3">
-                        <Location>32px, 64px</Location>
-                        <Size>72px, 24px</Size>
+                        <Location>32px, 136px</Location>
+                        <Size>80px, 24px</Size>
                         <Style>
                             <Font>
                                 <Size>16px</Size>
@@ -1291,8 +1291,8 @@
                         <Value>工单单号：</Value>
                     </TextBox>
                     <TextBox Name="textBox4">
-                        <Location>32px, 88px</Location>
-                        <Size>72px, 24px</Size>
+                        <Location>32px, 168px</Location>
+                        <Size>80px, 24px</Size>
                         <Style>
                             <Font>
                                 <Size>16px</Size>
@@ -1302,7 +1302,7 @@
                         <Value>产品型号：</Value>
                     </TextBox>
                     <TextBox Name="textBox5">
-                        <Location>104px, 40px</Location>
+                        <Location>112px, 104px</Location>
                         <Size>128px, 24px</Size>
                         <Style>
                             <Font>
@@ -1313,7 +1313,7 @@
                         <Value>=[AMVendorShipment.ShipmentNbr]</Value>
                     </TextBox>
                     <TextBox Name="textBox6">
-                        <Location>104px, 64px</Location>
+                        <Location>112px, 136px</Location>
                         <Size>128px, 24px</Size>
                         <Style>
                             <Font>
@@ -1324,7 +1324,7 @@
                         <Value>=[WIPShipLine.ProdOrdID]</Value>
                     </TextBox>
                     <TextBox Name="textBox7">
-                        <Location>104px, 88px</Location>
+                        <Location>112px, 168px</Location>
                         <Size>128px, 24px</Size>
                         <Style>
                             <Font>
@@ -1335,8 +1335,8 @@
                         <Value>=[WIPShipLine.InventoryID]</Value>
                     </TextBox>
                     <TextBox Name="textBox8">
-                        <Location>776px, 40px</Location>
-                        <Size>72px, 24px</Size>
+                        <Location>800px, 104px</Location>
+                        <Size>80px, 24px</Size>
                         <Style>
                             <Font>
                                 <Size>16px</Size>
@@ -1346,8 +1346,8 @@
                         <Value>生产套数：</Value>
                     </TextBox>
                     <TextBox Name="textBox9">
-                        <Location>776px, 64px</Location>
-                        <Size>72px, 24px</Size>
+                        <Location>800px, 136px</Location>
+                        <Size>80px, 24px</Size>
                         <Style>
                             <Font>
                                 <Size>16px</Size>
@@ -1470,7 +1470,7 @@
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <StyleName>ChineseFont</StyleName>
-                        <Value>=[MATShipLine.NoteText]</Value>
+                        <Value>=[MATShipLine.LotSerialNbr]</Value>
                     </TextBox>
                 </Items>
             </Detail>
@@ -1521,7 +1521,7 @@
                         <Value>批准：</Value>
                     </TextBox>
                     <TextBox Name="textBox37">
-                        <Location>64px, 48px</Location>
+                        <Location>64px, 72px</Location>
                         <Size>448px, 24px</Size>
                         <Style>
                             <Font>
