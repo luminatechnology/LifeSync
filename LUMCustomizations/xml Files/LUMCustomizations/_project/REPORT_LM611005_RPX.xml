@@ -30,8 +30,16 @@
                 <ChildName>SOLine</ChildName>
                 <Links>
                     <RelationRow>
-                        <ChildField>SOLine.OrderNbr</ChildField>
-                        <ParentField>SOShipLine.OrigOrderNbr</ParentField>
+                        <ChildField>OrderNbr</ChildField>
+                        <ParentField>OrigOrderNbr</ParentField>
+                    </RelationRow>
+                    <RelationRow>
+                        <ChildField>OrderType</ChildField>
+                        <ParentField>OrigOrderType</ParentField>
+                    </RelationRow>
+                    <RelationRow>
+                        <ChildField>LineNbr</ChildField>
+                        <ParentField>OrigLineNbr</ParentField>
                     </RelationRow>
                 </Links>
                 <ParentName>SOShipLine</ParentName>
@@ -42,6 +50,10 @@
                     <RelationRow>
                         <ChildField>SOOrder.OrderNbr</ChildField>
                         <ParentField>SOShipLine.OrigOrderNbr</ParentField>
+                    </RelationRow>
+                    <RelationRow>
+                        <ChildField>OrderType</ChildField>
+                        <ParentField>OrigOrderType</ParentField>
                     </RelationRow>
                 </Links>
                 <ParentName>SOShipLine</ParentName>

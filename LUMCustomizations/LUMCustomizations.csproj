@@ -100,7 +100,6 @@
     <Compile Include="DAC_Extensions\AMMPSExtension.cs" />
     <Compile Include="DAC_Extensions\AMMTranExtension.cs" />
     <Compile Include="DAC_Extensions\AMPordMatlExtension.cs" />
-    <Compile Include="DAC_Extensions\AMProdEvntExtension.cs" />
     <Compile Include="DAC_Extensions\AMProdItemExtensions.cs" />
     <Compile Include="DAC_Extensions\ARAdjustExtension.cs" />
     <Compile Include="DAC_Extensions\BatchExtensions.cs" />
@@ -116,7 +115,9 @@
     <Compile Include="Graph\LumItemsCOCMaint.cs" />
     <Compile Include="Graph\LUMMultiLevelBomInq.cs" />
     <Compile Include="Graph\LUMMultiLevelBomProc.cs" />
+    <Compile Include="Graph\LumPIUnitPriceMaint.cs" />
     <Compile Include="Graph\LumShipmentPlanMaint.cs" />
+    <Compile Include="Graph\LUMUpdateBOMQty.cs" />
     <Compile Include="Graph_Extensions\AMReleaseProcess_Extension.cs" />
     <Compile Include="Graph_Extensions\APInvoiceEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\ARInvoiceEntry_Extension.cs" />
