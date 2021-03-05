@@ -3225,7 +3225,7 @@
                         <Value>=[ARTran.UOM]</Value>
                     </TextBox>
                     <TextBox Name="textBox50">
-                        <Format>='0.00'</Format>
+                        <Format>='N2'</Format>
                         <Location>488px, 0px</Location>
                         <Size>64px, 80px</Size>
                         <Style>
