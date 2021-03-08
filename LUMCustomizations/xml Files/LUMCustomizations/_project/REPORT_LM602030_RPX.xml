@@ -13,6 +13,24 @@
                 <Prompt>Actual Shipment Nbr</Prompt>
                 <Required>True</Required>
             </ReportParameter>
+            <ReportParameter>
+                <ColumnSpan>2</ColumnSpan>
+                <Name>ManualOwner</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Manual Owner</Prompt>
+            </ReportParameter>
+            <ReportParameter>
+                <ColumnSpan>2</ColumnSpan>
+                <Name>ManualTel</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Manual Tel</Prompt>
+            </ReportParameter>
+            <ReportParameter>
+                <ColumnSpan>2</ColumnSpan>
+                <Name>ManualFax</Name>
+                <Nullable>True</Nullable>
+                <Prompt>Manual Fax</Prompt>
+            </ReportParameter>
         </Parameters>
         <Relations>
             <ReportRelation>
@@ -76,7 +94,7 @@
                 <Links>
                     <RelationRow>
                         <ChildField>UserID</ChildField>
-                        <ParentField>CreatedByID</ParentField>
+                        <ParentField>OwnerID</ParentField>
                     </RelationRow>
                 </Links>
                 <ParentName>SOOrder</ParentName>
@@ -4943,7 +4961,7 @@
                     </TextBox>
                     <TextBox Name="textBox12">
                         <Location>96px, 112px</Location>
-                        <Size>152px, 24px</Size>
+                        <Size>200px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
@@ -4981,6 +4999,7 @@
                             <TextAlign>Left</TextAlign>
                         </Style>
                         <Value>=[SOOrder.TermsID]</Value>
+                        <VisibleExpr>=IIF([SOOrder.CustomerID_BAccountR_acctName] = 'OSI', False, True)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox16">
                         <Location>640px, 144px</Location>
@@ -5051,7 +5070,7 @@
                             </Padding>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>=[ContactR.Fax]</Value>
+                        <Value>=IIF([@ManualFax] &lt;&gt; Null, [@ManualFax], [ContactR.Fax])</Value>
                     </TextBox>
                     <TextBox Name="textBox20">
                         <Location>352px, 248px</Location>
@@ -5107,7 +5126,7 @@
                             </Padding>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>=[ContactR.FirstName]</Value>
+                        <Value>=IIF([@ManualOwner] &lt;&gt; Null, [@ManualOwner], [ContactR.FirstName])</Value>
                     </TextBox>
                     <TextBox Name="textBox24">
                         <Location>24px, 248px</Location>
@@ -5200,7 +5219,7 @@
                             </Padding>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>=[ContactR.Phone1]</Value>
+                        <Value>=IIF([@ManualTel] &lt;&gt; Null, [@ManualTel], [ContactR.Phone1])</Value>
                     </TextBox>
                     <TextBox Name="textBox30">
                         <Location>480px, 144px</Location>
@@ -5212,6 +5231,7 @@
                             </Font>
                         </Style>
                         <Value>Tax:</Value>
+                        <VisibleExpr>=IIF([SOOrder.CustomerID_BAccountR_acctName] = 'OSI', False, True)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox31">
                         <Format>='N2'</Format>
@@ -5228,6 +5248,7 @@
                             <TextAlign>Right</TextAlign>
                         </Style>
                         <Value>=IIF([SOTaxTran.TaxRate] &gt; 0, [SOTaxTran.TaxRate], '免税 0%')</Value>
+                        <VisibleExpr>=IIF([SOOrder.CustomerID_BAccountR_acctName] = 'OSI', False, True)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox4">
                         <Location>352px, 280px</Location>
@@ -5277,11 +5298,11 @@
                         </Style>
                         <Value>%</Value>
                         <Visible>False</Visible>
-                        <VisibleExpr>=IIF([SOTaxTran.TaxRate] &gt; 0, True, False)</VisibleExpr>
+                        <VisibleExpr>=IIF([SOOrder.CustomerID_BAccountR_acctName] = 'OSI', False, True)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox58">
                         <Location>96px, 160px</Location>
-                        <Size>152px, 48px</Size>
+                        <Size>200px, 32px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
@@ -5296,7 +5317,7 @@
                     </TextBox>
                     <TextBox Name="textBox59">
                         <Location>96px, 144px</Location>
-                        <Size>152px, 16px</Size>
+                        <Size>200px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
@@ -5351,6 +5372,18 @@
                             </Font>
                         </Style>
                         <Value>Office Address:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox63">
+                        <Location>96px, 192px</Location>
+                        <Size>200px, 40px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                                <Size>10px</Size>
+                            </Font>
+                        </Style>
+                        <Value>='Plot No. 16(Part)&amp;17(Part), Kancha#010;Imarat, Hardware Hyderabad, 500005, India'</Value>
+                        <VisibleExpr>=IIF([SOOrder.CustomerID_BAccountR_acctName] = 'OSI', True, False)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox7">
                         <Location>352px, 144px</Location>
@@ -5613,6 +5646,7 @@
             </Detail>
             <PageFooter Name="pageFooterSection1">
                 <Height>3.59788cm</Height>
+                <PrintAtBottom>False</PrintAtBottom>
                 <Items>
                     <Line Name="line2">
                         <Location>392px, 112px</Location>
@@ -5628,6 +5662,7 @@
                             </Font>
                         </Style>
                         <Value>Remark :</Value>
+                        <VisibleExpr>=IIF([SOOrder.CustomerID_BAccountR_acctName] = 'OSI', False, True)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox46">
                         <Location>24px, 0px</Location>
@@ -5709,6 +5744,7 @@
                             </Font>
                         </Style>
                         <Value>邹香玲</Value>
+                        <VisibleExpr>=IIF([SOOrder.CustomerID_BAccountR_acctName] = 'OSI', False, True)</VisibleExpr>
                     </TextBox>
                 </Items>
             </PageFooter>
