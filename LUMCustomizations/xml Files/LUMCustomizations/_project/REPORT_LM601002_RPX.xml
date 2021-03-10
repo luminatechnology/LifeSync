@@ -1,5 +1,8 @@
 ﻿<Report Name="lm601002.rpx">
     <Report Name="report1">
+        <CommonSettings>
+            <ViewPdf>True</ViewPdf>
+        </CommonSettings>
         <EmbeddedImages>
             <EmbeddedImage>
                 <ImageData>iVBORw0KGgoAAAANSUhEUgAAAj0AAAGACAIAAADJT0RgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAABFsSURBVHhe7d19bNX1vcBx2tIWlILlKfjAQwWWpZTIkzILmyxEHGwMM3XbH5oRTdD4xDQSXbxRE29UducCLJvB+M+NJlORgNmkiZNMXQBF0CsoagvyDMMHoEB5LO392vOTy+Vy78Yu57Qf9nr9cfj29/txTs8f57zzaX/9naLW1tZOABBEcfYvAESgWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEolsARKJbAESiWwBEUtTa2potgbBaWlqam5vTyzktktwid1vUpri4+OTbpHPnzmmd/X+IQ7cgpKNHjzY2Nu7bty/d/vWvf21oaNi2bduBAwf279+fbk9IX5aUlFRUVHT7Wlqff/75F1xwwaBBgwYPHty7d+8ePXp079493aaYZfcOHZhuQRjp1bpp06YPP/xw/fr1mzdv3vK1L7/88vjx49lBf7c0bKWR68ILLxwwYED//v0HDhyYSvaNb3xj2LBhffv2zQ6C
@@ -191,7 +194,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                 <ParentName>AMProdItem</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>https://healthedge.acumatica.com</SchemaUrl>
+        <SchemaUrl>http://localhost/ABA_AcumaticaDB1/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>inner.Container</DataField>
