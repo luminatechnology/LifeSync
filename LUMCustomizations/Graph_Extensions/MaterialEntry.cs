@@ -19,6 +19,11 @@ namespace JAMS.AM
             }
         }
 
+        #region Override transactions view
+        [PXImport(typeof(AMBatch))]
+        public PXSelect<AMMTran, Where<AMMTran.docType, Equal<Current<AMBatch.docType>>, And<AMMTran.batNbr, Equal<Current<AMBatch.batNbr>>>>, OrderBy<Asc<AMMTran.inventoryID>>> transactions;
+        #endregion
+
         #region Override Attribute
         [PXDBQuantity(2, typeof(AMMTran.uOM), typeof(AMMTran.baseQty), HandleEmptyKey = true)]
         [PXDefault(TypeCode.Decimal, "0")]
