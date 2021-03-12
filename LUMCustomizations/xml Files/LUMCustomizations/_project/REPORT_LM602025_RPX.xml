@@ -4438,7 +4438,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                             </Padding>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>=[SOOrder.TermsID]</Value>
+                        <Value>=[Customer.TermsID]</Value>
                     </TextBox>
                     <TextBox Name="textBox16">
                         <Location>536px, 144px</Location>
