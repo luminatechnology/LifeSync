@@ -11,7 +11,7 @@ CREATE VIEW v_OUTTERLABEL_REPORT AS
 SELECT t.CompanyID,
 	   t.ShipmentPlanID,
 	   t.InventoryID,
-	   Customer,
+	   attr.Description AS Customer,
 	   p.UsrSOCustomerPO AS CustomerOrderNbr,
 	   t.LotSerialNbr,
 	   ProdLine,
@@ -28,6 +28,9 @@ INNER JOIN InventoryItem i ON t.CompanyID = i.CompanyID
 LEFT JOIN CSAnswers c ON t.CompanyID = c.CompanyID
 					 AND i.NoteID = c.RefNoteID
 					 AND c.AttributeID = 'QTYCARTON'
+LEFT JOIN CSAttributeDetail attr ON t.CompanyID = attr.CompanyID
+						        AND attr.AttributeID = 'ENDC'
+						        AND t.Customer = attr.valueID
 INNER JOIN AMProdItem p ON t.CompanyID = p.CompanyID
 				       AND t.ProdOrdID = p.ProdOrdID
 INNER JOIN (
@@ -49,5 +52,5 @@ CROSS JOIN(
 		FROM master.dbo.spt_values
 		WHERE name IS NULL
 ) NumberPool
-WHERE NowNbr BETWEEN t.StartLabelNbr AND t.EndLabelNbr --and t.CompanyID = 2 and t.ShipmentPlanID = '20210223003' and ShipmentNbr = '20210300003']]></CDATA>
+WHERE NowNbr BETWEEN t.StartLabelNbr AND t.EndLabelNbr]]></CDATA>
 </Sql>

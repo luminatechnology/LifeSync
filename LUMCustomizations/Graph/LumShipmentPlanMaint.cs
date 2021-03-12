@@ -362,11 +362,14 @@ namespace LumCustomizations.Graph
                     .And<AMProdItemExt.usrSOOrderType.IsEqual<SOLine.orderType>>>
                 .Where<AMProdItem.prodOrdID.IsEqual<P.AsString>>.View.Select(this, _CurrentRow.ProdOrdID);
 
+            var ENDCDescr = new PXGraph().Select<CSAttributeDetail>().Where(x => x.ValueID == _CurrentRow.Customer).FirstOrDefault()?.Description;
+            ENDCDescr = ENDCDescr ?? _CurrentRow.Customer;
+
             Dictionary<string, string> parameters = new Dictionary<string, string>
             {
                 ["ShipmentPlanID"] = _CurrentRow.ShipmentPlanID,
                 ["ProdOrdID"] = _CurrentRow.ProdOrdID,
-                ["Customer"] = _CurrentRow.Customer,
+                ["Customer"] = ENDCDescr,
                 ["CustomerPartNo"] = soData.GetItem<SOLine>()?.AlternateID,
                 ["Description"] = data.FirstOrDefault().GetItem<InventoryItem>().Descr,
                 ["Resistor"] = data.RowCast<CSAnswers>().Where(x => x.AttributeID == "RESISTOR").FirstOrDefault()?.Value,

@@ -128,11 +128,15 @@ namespace PX.Objects.SO
                             _CurrentRow.GetExtension<AMProdItemExt>().UsrSOOrderType,
                             _CurrentRow.GetExtension<AMProdItemExt>().UsrSOLineNbr);
 
+            var _customer = (soOrderData.Cache.GetValueExt(soData, PX.Objects.CS.Messages.Attribute + "ENDC") as PXFieldState).Value.ToString();
+            var ENDCDescr = new PXGraph().Select<CSAttributeDetail>().Where(x => x.ValueID == _customer).FirstOrDefault()?.Description;
+            ENDCDescr = ENDCDescr ?? _customer;
+
             Dictionary<string, string> parameters = new Dictionary<string, string>
             {
                 ["OrderType"] = _CurrentRow.OrderType,
                 ["ProdOrdID"] = _CurrentRow.ProdOrdID,
-                ["Customer"] = (soOrderData.Cache.GetValueExt(soData, PX.Objects.CS.Messages.Attribute + "ENDC") as PXFieldState).Value.ToString(),
+                ["Customer"] = ENDCDescr,
                 ["CustomerPartNo"] = soLineData?.AlternateID,
                 ["Description"] = data.FirstOrDefault().GetItem<InventoryItem>().Descr,
                 ["Resistor"] = data.RowCast<CSAnswers>().Where(x => x.AttributeID == "RESISTOR").FirstOrDefault()?.Value,

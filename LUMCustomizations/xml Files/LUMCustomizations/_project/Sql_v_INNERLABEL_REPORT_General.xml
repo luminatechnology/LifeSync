@@ -11,7 +11,7 @@ CREATE VIEW v_INNERLABEL_REPORT AS
 SELECT DISTINCT t.CompanyID,
 	   t.ShipmentPlanID,
 	   t.InventoryID,
-	   Customer,
+	   attr.Description AS Customer,
 	   p.UsrSOCustomerPO AS CustomerOrderNbr,
 	   t.LotSerialNbr,
 	   ProdLine,
@@ -28,6 +28,9 @@ INNER JOIN InventoryItem i ON t.CompanyID = i.CompanyID
 LEFT JOIN CSAnswers c ON t.CompanyID = c.CompanyID
 					 AND i.NoteID = c.RefNoteID
 					 AND c.AttributeID = 'QTYSBOX'
+LEFT JOIN CSAttributeDetail attr ON t.CompanyID = attr.CompanyID
+							    AND attr.AttributeID = 'ENDC'
+								AND attr.ValueID = t.Customer
 INNER JOIN AMProdItem p on t.CompanyID = p.CompanyID
 					   AND t.ProdOrdID = p.ProdOrdID
 INNER JOIN (
