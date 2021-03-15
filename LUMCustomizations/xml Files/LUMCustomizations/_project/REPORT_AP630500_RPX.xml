@@ -4713,7 +4713,7 @@
                         <ValueExpr>=Report.ExtToInt('APRegister.FinPeriodID', @PeriodID)</ValueExpr>
                     </ReportVariable>
                 </Variables>
-                <VisibleExpr>=([@Format]='D')</VisibleExpr>
+                <VisibleExpr>=([@Format]='D') And [@ShowAccountID] = 'False'</VisibleExpr>
                 <Items>
                     <TextBox Name="textBox66">
                         <Excel>
@@ -4730,6 +4730,185 @@
                         <Size>120px, 14px</Size>
                         <StyleName>Heading 1</StyleName>
                         <Value>Vendor</Value>
+                        <VisibleExpr>=([@Format]='D')</VisibleExpr>
+                    </TextBox>
+                </Items>
+            </PageHeader>
+            <PageHeader Name="CustDetailHeaderOnecs">
+                <GridSize>8px, 8px</GridSize>
+                <Height>0.42328cm</Height>
+                <VisibleExpr>=([@Format]='D') AND [@ShowAccountID] = 'True'</VisibleExpr>
+                <Items>
+                    <TextBox Name="textBox127">
+                        <Excel>
+                            <column>7</column>
+                            <row>2</row>
+                        </Excel>
+                        <Location>424px, 0px</Location>
+                        <Size>52px, 14px</Size>
+                        <Style>
+                            <TextAlign>Right</TextAlign>
+                        </Style>
+                        <StyleName>Heading 1</StyleName>
+                        <Value>Due Date</Value>
+                        <VisibleExpr>=([@Format]='D')</VisibleExpr>
+                    </TextBox>
+                    <TextBox Name="textBox158">
+                        <Excel>
+                            <column>6</column>
+                            <row>2</row>
+                        </Excel>
+                        <Location>352px, 0px</Location>
+                        <Size>64px, 14px</Size>
+                        <Style>
+                            <TextAlign>Right</TextAlign>
+                        </Style>
+                        <StyleName>Heading 1</StyleName>
+                        <Value>Branch</Value>
+                        <VisibleExpr>=([@Format]='D')</VisibleExpr>
+                    </TextBox>
+                    <TextBox Name="textBox159">
+                        <Excel>
+                            <column>5</column>
+                            <row>2</row>
+                        </Excel>
+                        <Location>264px, 0px</Location>
+                        <Size>88px, 14px</Size>
+                        <StyleName>Heading 1</StyleName>
+                        <Value>Vendor Ref.</Value>
+                        <VisibleExpr>=([@Format]='D')</VisibleExpr>
+                    </TextBox>
+                    <TextBox Name="textBox160">
+                        <Excel>
+                            <row>2</row>
+                        </Excel>
+                        <Location>0px, 0px</Location>
+                        <Size>56px, 14px</Size>
+                        <StyleName>Heading 1</StyleName>
+                        <Value>Vendor</Value>
+                    </TextBox>
+                    <TextBox Name="textBox161">
+                        <Excel>
+                            <column>2</column>
+                            <row>2</row>
+                        </Excel>
+                        <Location>80px, 0px</Location>
+                        <Size>44px, 14px</Size>
+                        <StyleName>Heading 1</StyleName>
+                        <Value>Name</Value>
+                    </TextBox>
+                    <TextBox Name="textBox162">
+                        <Excel>
+                            <column>14</column>
+                            <row>2</row>
+                        </Excel>
+                        <Location>944px, 0px</Location>
+                        <Size>68px, 14px</Size>
+                        <Style>
+                            <TextAlign>Right</TextAlign>
+                        </Style>
+                        <StyleName>Heading 1</StyleName>
+                        <Value>Balance</Value>
+                    </TextBox>
+                    <TextBox Name="textBox163">
+                        <Excel>
+                            <column>13</column>
+                            <row>2</row>
+                        </Excel>
+                        <Location>864px, 0px</Location>
+                        <Size>80px, 14px</Size>
+                        <Style>
+                            <TextAlign>Right</TextAlign>
+                        </Style>
+                        <StyleName>Heading 1</StyleName>
+                        <Value>=$Age03</Value>
+                    </TextBox>
+                    <TextBox Name="textBox164">
+                        <Excel>
+                            <column>12</column>
+                            <row>2</row>
+                        </Excel>
+                        <Location>784px, 0px</Location>
+                        <Size>80px, 14px</Size>
+                        <Style>
+                            <TextAlign>Right</TextAlign>
+                        </Style>
+                        <StyleName>Heading 1</StyleName>
+                        <Value>=$Age02</Value>
+                    </TextBox>
+                    <TextBox Name="textBox165">
+                        <Excel>
+                            <column>11</column>
+                            <row>2</row>
+                        </Excel>
+                        <Location>688px, 0px</Location>
+                        <Size>96px, 14px</Size>
+                        <Style>
+                            <TextAlign>Right</TextAlign>
+                        </Style>
+                        <StyleName>Heading 1</StyleName>
+                        <Value>=$Age01</Value>
+                    </TextBox>
+                    <TextBox Name="textBox166">
+                        <Excel>
+                            <column>10</column>
+                            <row>2</row>
+                        </Excel>
+                        <Location>624px, 0px</Location>
+                        <Size>64px, 14px</Size>
+                        <Style>
+                            <TextAlign>Right</TextAlign>
+                        </Style>
+                        <StyleName>Heading 1</StyleName>
+                        <Value>=$Age00</Value>
+                    </TextBox>
+                    <TextBox Name="textBox167">
+                        <Excel>
+                            <column>9</column>
+                            <row>2</row>
+                        </Excel>
+                        <Location>546px, 0px</Location>
+                        <Size>76px, 14px</Size>
+                        <Style>
+                            <TextAlign>Right</TextAlign>
+                        </Style>
+                        <StyleName>Heading 1</StyleName>
+                        <Value>=$Current</Value>
+                    </TextBox>
+                    <TextBox Name="textBox168">
+                        <Excel>
+                            <column>4</column>
+                            <row>2</row>
+                        </Excel>
+                        <Location>192px, 0px</Location>
+                        <Size>72px, 14px</Size>
+                        <StyleName>Heading 1</StyleName>
+                        <Value>Ref. Number</Value>
+                        <VisibleExpr>=([@Format]='D')</VisibleExpr>
+                    </TextBox>
+                    <TextBox Name="textBox169">
+                        <Excel>
+                            <column>8</column>
+                            <row>2</row>
+                        </Excel>
+                        <Location>488px, 0px</Location>
+                        <Size>56px, 14px</Size>
+                        <Style>
+                            <TextAlign>Right</TextAlign>
+                        </Style>
+                        <StyleName>Heading 1</StyleName>
+                        <Value>Doc. Date</Value>
+                        <VisibleExpr>=([@Format]='D')</VisibleExpr>
+                    </TextBox>
+                    <TextBox Name="textBox170">
+                        <Excel>
+                            <column>3</column>
+                            <row>2</row>
+                        </Excel>
+                        <Location>128px, 0px</Location>
+                        <Size>58px, 14px</Size>
+                        <StyleName>Heading 1</StyleName>
+                        <Value>Doc. Type</Value>
                         <VisibleExpr>=([@Format]='D')</VisibleExpr>
                     </TextBox>
                 </Items>
@@ -5066,7 +5245,7 @@
                                 <ValueExpr>=Report.ExtToInt('APRegister.FinPeriodID', @PeriodID)</ValueExpr>
                             </ReportVariable>
                         </Variables>
-                        <VisibleExpr>=([@Format]='D')</VisibleExpr>
+                        <VisibleExpr>=([@Format]='D') And [@ShowAccountID] = 'False'</VisibleExpr>
                         <Items>
                             <TextBox Name="textBox105">
                                 <Excel>
@@ -5105,7 +5284,7 @@
                         </ExcelMargin>
                         <GridSize>8px, 8px</GridSize>
                         <Height>20px</Height>
-                        <VisibleExpr>=([@Format] = 'D')</VisibleExpr>
+                        <VisibleExpr>=([@Format] = 'D') And [@ShowAccountID] = 'False'</VisibleExpr>
                         <Items>
                             <Line Name="line3">
                                 <Excel>
@@ -5483,7 +5662,7 @@
                     <Header Name="groupHeaderSection6">
                         <GridSize>8px, 8px</GridSize>
                         <Height>38px</Height>
-                        <VisibleExpr>=([@Format]='D') And [FeaturesSet.VendorRelations] = 1 And [APInvoice.SuppliedByVendorID] &lt;&gt; Null</VisibleExpr>
+                        <VisibleExpr>=([@Format]='D') And [FeaturesSet.VendorRelations] = 1 And [APInvoice.SuppliedByVendorID] &lt;&gt; Null#010; And [@ShowAccountID] = 'False'</VisibleExpr>
                         <Items>
                             <TextBox Name="textBox116">
                                 <Excel>
@@ -5715,33 +5894,10 @@
                         </Items>
                     </Header>
                     <Header Name="CustDetailHeader">
-                        <Expanded>False</Expanded>
                         <GridSize>8px, 8px</GridSize>
                         <Height>0.95238cm</Height>
-                        <VisibleExpr>=([@Format]='D') AND [@ShowAccountID] = 'True'</VisibleExpr>
+                        <Visible>False</Visible>
                         <Items>
-                            <Line Name="line10">
-                                <Excel>
-                                    <column>7</column>
-                                    <width>2</width>
-                                </Excel>
-                                <Location>532px, 12px</Location>
-                                <Size>124px, 4px</Size>
-                                <Style>
-                                    <VerticalAlign>Top</VerticalAlign>
-                                </Style>
-                            </Line>
-                            <Line Name="line11">
-                                <Excel>
-                                    <column>7</column>
-                                    <width>2</width>
-                                </Excel>
-                                <Location>756px, 12px</Location>
-                                <Size>160px, 4px</Size>
-                                <Style>
-                                    <VerticalAlign>Top</VerticalAlign>
-                                </Style>
-                            </Line>
                             <TextBox Name="textBox124">
                                 <Excel>
                                     <column>3</column>
@@ -5777,19 +5933,6 @@
                                 <StyleName>Heading 1</StyleName>
                                 <Value>Ref. Number</Value>
                                 <VisibleExpr>=([@Format]='D')</VisibleExpr>
-                            </TextBox>
-                            <TextBox Name="textBox127">
-                                <Excel>
-                                    <column>7</column>
-                                    <width>5</width>
-                                </Excel>
-                                <Location>656px, 4px</Location>
-                                <Size>100px, 14px</Size>
-                                <Style>
-                                    <TextAlign>Center</TextAlign>
-                                </Style>
-                                <StyleName>Heading 1</StyleName>
-                                <Value>Past Due</Value>
                             </TextBox>
                             <TextBox Name="textBox128">
                                 <Excel>
@@ -5869,6 +6012,25 @@
                                 <StyleName>Heading 1</StyleName>
                                 <Value>Balance</Value>
                             </TextBox>
+                            <TextBox Name="textBox153">
+                                <Excel>
+                                    <column>2</column>
+                                    <row>2</row>
+                                </Excel>
+                                <Location>80px, 20px</Location>
+                                <Size>44px, 14px</Size>
+                                <StyleName>Heading 1</StyleName>
+                                <Value>Name</Value>
+                            </TextBox>
+                            <TextBox Name="textBox157">
+                                <Excel>
+                                    <row>2</row>
+                                </Excel>
+                                <Location>0px, 20px</Location>
+                                <Size>56px, 14px</Size>
+                                <StyleName>Heading 1</StyleName>
+                                <Value>Vendor</Value>
+                            </TextBox>
                             <TextBox Name="textBox18">
                                 <Excel>
                                     <column>5</column>
@@ -5915,7 +6077,7 @@
                     <Footer Name="groupFooterSection5">
                         <GridSize>8px, 8px</GridSize>
                         <Height>28px</Height>
-                        <VisibleExpr>=([@Format]='D') And [FeaturesSet.VendorRelations] = 1 And [APInvoice.SuppliedByVendorID] &lt;&gt; Null</VisibleExpr>
+                        <VisibleExpr>=([@Format]='D') And [FeaturesSet.VendorRelations] = 1 And [APInvoice.SuppliedByVendorID] &lt;&gt; Null #010;And [@ShowAccountID] = 'False'</VisibleExpr>
                         <Items>
                             <Line Name="line8_045">
                                 <Excel>
@@ -6322,7 +6484,6 @@
                         </Items>
                     </Header>
                     <Header Name="CustDetailResult">
-                        <Expanded>False</Expanded>
                         <GridSize>8px, 8px</GridSize>
                         <Height>0.42328cm</Height>
                         <Variables>
