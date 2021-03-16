@@ -3795,7 +3795,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 </Items>
             </PageHeader>
             <Detail Name="detailSection1">
-                <Height>1.69312cm</Height>
+                <Height>2.53968cm</Height>
                 <PrintEmpty>False</PrintEmpty>
                 <Style>
                     <BorderStyle>
@@ -3820,7 +3820,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 <Items>
                     <TextBox Name="textBox33">
                         <Location>16px, 0px</Location>
-                        <Size>48px, 64px</Size>
+                        <Size>48px, 96px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3842,7 +3842,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                     </TextBox>
                     <TextBox Name="textBox41">
                         <Location>64px, 0px</Location>
-                        <Size>104px, 64px</Size>
+                        <Size>104px, 96px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3860,8 +3860,8 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                     </TextBox>
                     <TextBox Name="textBox42">
                         <Format>='N1'</Format>
-                        <Location>624px, 0px</Location>
-                        <Size>64px, 64px</Size>
+                        <Location>616px, 0px</Location>
+                        <Size>72px, 96px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3879,7 +3879,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                     </TextBox>
                     <TextBox Name="textBox43">
                         <Location>168px, 0px</Location>
-                        <Size>128px, 64px</Size>
+                        <Size>128px, 96px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3897,7 +3897,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                     </TextBox>
                     <TextBox Name="textBox45">
                         <Location>296px, 0px</Location>
-                        <Size>128px, 64px</Size>
+                        <Size>128px, 96px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3916,7 +3916,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                     </TextBox>
                     <TextBox Name="textBox49">
                         <Location>424px, 0px</Location>
-                        <Size>64px, 64px</Size>
+                        <Size>64px, 96px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3936,7 +3936,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                     <TextBox Name="textBox50">
                         <Format>='N0'</Format>
                         <Location>488px, 0px</Location>
-                        <Size>64px, 64px</Size>
+                        <Size>64px, 96px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3956,7 +3956,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                     <TextBox Name="textBox51">
                         <Format>='N3'</Format>
                         <Location>552px, 0px</Location>
-                        <Size>64px, 64px</Size>
+                        <Size>64px, 96px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
