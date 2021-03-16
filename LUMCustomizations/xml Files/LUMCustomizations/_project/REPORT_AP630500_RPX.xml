@@ -5274,7 +5274,7 @@
                         <Expanded>False</Expanded>
                         <GridSize>8px, 8px</GridSize>
                         <Height>8px</Height>
-                        <VisibleExpr>=([@Format]='D')</VisibleExpr>
+                        <VisibleExpr>=([@Format]='D') AND [@ShowAccountID] = 'False'</VisibleExpr>
                     </Header>
                 </Headers>
                 <Footers>
@@ -5391,7 +5391,7 @@
                         <Expanded>False</Expanded>
                         <GridSize>8px, 8px</GridSize>
                         <Height>8px</Height>
-                        <VisibleExpr>=([@Format] = 'D')</VisibleExpr>
+                        <VisibleExpr>=([@Format] = 'D') AND [@ShowAccountID] = 'False'</VisibleExpr>
                     </Footer>
                     <Footer Name="SummaryResult">
                         <GridSize>8px, 8px</GridSize>
@@ -6658,6 +6658,7 @@
                 <Footers>
                     <Footer Name="groupFooterSection2">
                         <ExcelVisible>False</ExcelVisible>
+                        <Expanded>False</Expanded>
                         <GridSize>8px, 8px</GridSize>
                         <Height>8px</Height>
                         <Visible>False</Visible>
