@@ -317,7 +317,7 @@
                 <ParentName>POAccrualStatus</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
+        <SchemaUrl>https://healthedge.acumatica.com/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>POAccrualStatus.AcctID</DataField>
@@ -3848,7 +3848,7 @@
                     </Line>
                     <TextBox Name="textBox35">
                         <Excel>
-                            <column>15</column>
+                            <column>16</column>
                         </Excel>
                         <Format>=[POReceiptLine.TranCost.Format]</Format>
                         <Location>944px, 1px</Location>
@@ -3861,7 +3861,7 @@
                     </TextBox>
                     <TextBox Name="textBox36">
                         <Excel>
-                            <column>13</column>
+                            <column>14</column>
                         </Excel>
                         <Format>=[POReceiptLine.ReceiptQty.Format]</Format>
                         <Location>808px, 1px</Location>
@@ -3874,7 +3874,7 @@
                     </TextBox>
                     <TextBox Name="textBox37">
                         <Excel>
-                            <column>14</column>
+                            <column>15</column>
                         </Excel>
                         <Format>=[POReceiptLine.TranCost.Format]</Format>
                         <Location>872px, 1px</Location>
@@ -3887,7 +3887,7 @@
                     </TextBox>
                     <TextBox Name="textBox38">
                         <Excel>
-                            <column>11</column>
+                            <column>12</column>
                         </Excel>
                         <Format>=[POReceiptLine.ReceiptQty.Format]</Format>
                         <Location>648px, 1px</Location>
@@ -3900,7 +3900,7 @@
                     </TextBox>
                     <TextBox Name="textBox39">
                         <Excel>
-                            <column>9</column>
+                            <column>10</column>
                         </Excel>
                         <Location>384px, 1px</Location>
                         <Size>120px, 14px</Size>
@@ -3909,7 +3909,7 @@
                     </TextBox>
                     <TextBox Name="textBox83">
                         <Excel>
-                            <column>12</column>
+                            <column>13</column>
                         </Excel>
                         <Format>=[POReceiptLine.TranCost.Format]</Format>
                         <Location>728px, 1px</Location>
@@ -3922,7 +3922,7 @@
                     </TextBox>
                     <TextBox Name="textBox85">
                         <Excel>
-                            <column>10</column>
+                            <column>11</column>
                         </Excel>
                         <Format>=[POReceiptLine.ReceiptQty.Format]</Format>
                         <Location>584px, 1px</Location>
@@ -4558,7 +4558,7 @@
                             </Line>
                             <TextBox Name="textBox19">
                                 <Excel>
-                                    <column>9</column>
+                                    <column>10</column>
                                     <row>2</row>
                                 </Excel>
                                 <Location>384px, 16px</Location>
@@ -4568,7 +4568,7 @@
                             </TextBox>
                             <TextBox Name="textBox25">
                                 <Excel>
-                                    <column>15</column>
+                                    <column>16</column>
                                 </Excel>
                                 <Format>=[POReceiptLine.TranCost.Format]</Format>
                                 <Location>944px, 1px</Location>
@@ -4581,7 +4581,7 @@
                             </TextBox>
                             <TextBox Name="textBox26">
                                 <Excel>
-                                    <column>13</column>
+                                    <column>14</column>
                                 </Excel>
                                 <Format>=[POReceiptLine.ReceiptQty.Format]</Format>
                                 <Location>808px, 1px</Location>
@@ -4594,7 +4594,7 @@
                             </TextBox>
                             <TextBox Name="textBox27">
                                 <Excel>
-                                    <column>14</column>
+                                    <column>15</column>
                                 </Excel>
                                 <Format>=[POReceiptLine.TranCost.Format]</Format>
                                 <Location>872px, 1px</Location>
@@ -4607,7 +4607,7 @@
                             </TextBox>
                             <TextBox Name="textBox33">
                                 <Excel>
-                                    <column>11</column>
+                                    <column>12</column>
                                 </Excel>
                                 <Format>=[POReceiptLine.ReceiptQty.Format]</Format>
                                 <Location>648px, 1px</Location>
@@ -4620,7 +4620,7 @@
                             </TextBox>
                             <TextBox Name="textBox34">
                                 <Excel>
-                                    <column>9</column>
+                                    <column>10</column>
                                 </Excel>
                                 <Location>384px, 1px</Location>
                                 <Size>200px, 14px</Size>
@@ -4629,7 +4629,7 @@
                             </TextBox>
                             <TextBox Name="textBox72">
                                 <Excel>
-                                    <column>15</column>
+                                    <column>16</column>
                                     <row>2</row>
                                 </Excel>
                                 <Format>=[POReceiptLine.TranCost.Format]</Format>
@@ -4643,7 +4643,7 @@
                             </TextBox>
                             <TextBox Name="textBox82">
                                 <Excel>
-                                    <column>12</column>
+                                    <column>13</column>
                                 </Excel>
                                 <Format>=[POReceiptLine.TranCost.Format]</Format>
                                 <Location>728px, 1px</Location>
@@ -4656,7 +4656,7 @@
                             </TextBox>
                             <TextBox Name="textBox84">
                                 <Excel>
-                                    <column>10</column>
+                                    <column>11</column>
                                 </Excel>
                                 <Format>=[POReceiptLine.ReceiptQty.Format]</Format>
                                 <Location>584px, 1px</Location>
