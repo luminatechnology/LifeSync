@@ -23,17 +23,6 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
         <ExportFileName>=Format( 'Packing List {0}', [SOShipment.ShipmentNbr])</ExportFileName>
         <Filters>
             <FilterExp>
-                <DataField>LumShipmentPlan.ShipmentPlanID</DataField>
-                <OpenBraces>1</OpenBraces>
-                <Operator>Or</Operator>
-                <Value>@ShipmentPlanID</Value>
-            </FilterExp>
-            <FilterExp>
-                <CloseBraces>1</CloseBraces>
-                <Condition>IsNull</Condition>
-                <DataField>@ShipmentPlanID</DataField>
-            </FilterExp>
-            <FilterExp>
                 <DataField>LumShipmentPlan.ShipmentNbr</DataField>
                 <OpenBraces>1</OpenBraces>
                 <Operator>Or</Operator>
@@ -48,15 +37,11 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
         <LayoutUnit>Inch</LayoutUnit>
         <MailSettings>
             <ActivitySource>SOShipment.NoteID</ActivitySource>
-            <Bcc>
-            </Bcc>
             <Body>='Dear Customer,#010;#010;This is an automatic email to notify you that Order #'+' '+[SOOrder.OrderNbr]+' '+'has been shipped with Shipment #'+' '+[SOShipment.ShipmentNbr]+'. You can find a copy of the shipment confirmation attached to this email.#010;#010;Track your shipment at [Tracking Link]#010;#010;If you have any questions, please don’t hesitate to contact us at email.  #010;#010;Thank you for choosing'+' '+[CompanyContact.FullName]+'.'</Body>
-            <Cc>
-            </Cc>
-            <Format>
-            </Format>
             <ParentSource>Customer.NoteID</ParentSource>
             <Subject>=[CompanyContact.FullName]+' '+'Shipment #'+' '+[SOShipment.ShipmentNbr]+' '+'has been shipped.'</Subject>
+            <TemplateID>
+            </TemplateID>
             <To>=IsNull([ShippingContact.EMail],'')</To>
         </MailSettings>
         <PageSettings>
@@ -4997,7 +4982,6 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                 <Visible>False</Visible>
             </PageHeader>
             <Detail Name="detailSection1">
-                <GridSize>4px, 4px</GridSize>
                 <Height>0.75in</Height>
                 <Variables>
                     <ReportVariable>
@@ -5165,7 +5149,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
             <Group Name="groupShipPlan">
                 <Grouping>
                     <GroupExp>
-                        <DataField>=[LumShipmentPlan.ShipmentPlanID]</DataField>
+                        <DataField>=[LumShipmentPlan.ShipmentNbr]</DataField>
                     </GroupExp>
                 </Grouping>
                 <Headers>
@@ -5363,11 +5347,6 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                                 <Size>256px, 56px</Size>
                                 <Sizing>Fit</Sizing>
                                 <Source>Embedded</Source>
-                                <Style>
-                                    <BackImage>
-                                        <MimeType />
-                                    </BackImage>
-                                </Style>
                                 <Value>aba_hk_logo</Value>
                             </PictureBox>
                             <TextBox Name="textBox2">
