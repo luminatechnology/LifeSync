@@ -2591,13 +2591,24 @@
                 <Visible>False</Visible>
             </PageFooter>
             <ReportFooter Name="reportFooterSection1">
-                <Height>0.42328cm</Height>
+                <Height>0.84656cm</Height>
                 <PrintAtBottom>True</PrintAtBottom>
                 <Items>
                     <Panel Name="panel4">
                         <Location>0px, 0px</Location>
-                        <Size>720px, 16px</Size>
+                        <Size>720px, 32px</Size>
                         <Items>
+                            <TextBox Name="textBox28">
+                                <Location>0px, 16px</Location>
+                                <Size>160px, 16px</Size>
+                                <Style>
+                                    <Font>
+                                        <Name>Microsoft JhengHei UI</Name>
+                                        <Size>10px</Size>
+                                    </Font>
+                                </Style>
+                                <Value>Form Number: FWH-002/Rev. 01</Value>
+                            </TextBox>
                             <TextBox Name="textBox38">
                                 <Location>344px, 0px</Location>
                                 <Size>40px, 16px</Size>
