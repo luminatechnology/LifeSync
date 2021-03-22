@@ -23,17 +23,6 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
         <ExportFileName>=Format( 'Packing List {0}', [SOShipment.ShipmentNbr])</ExportFileName>
         <Filters>
             <FilterExp>
-                <DataField>LumShipmentPlan.ShipmentPlanID</DataField>
-                <OpenBraces>1</OpenBraces>
-                <Operator>Or</Operator>
-                <Value>@ShipmentPlanID</Value>
-            </FilterExp>
-            <FilterExp>
-                <CloseBraces>1</CloseBraces>
-                <Condition>IsNull</Condition>
-                <DataField>@ShipmentPlanID</DataField>
-            </FilterExp>
-            <FilterExp>
                 <DataField>LumShipmentPlan.ShipmentNbr</DataField>
                 <OpenBraces>1</OpenBraces>
                 <Operator>Or</Operator>
@@ -4997,7 +4986,6 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                 <Visible>False</Visible>
             </PageHeader>
             <Detail Name="detailSection1">
-                <GridSize>4px, 4px</GridSize>
                 <Height>0.75in</Height>
                 <Variables>
                     <ReportVariable>
@@ -5082,7 +5070,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                             <TextAlign>Left</TextAlign>
                         </Style>
                         <StyleName>Item Normal</StyleName>
-                        <Value>=[SOOrder.CustomerOrderNbr]#010;+ IsNull('{br}' + [LumShipmentPlan.LotSerialNbr], '')#010;+ IsNull('{br}' + [LumShipmentPlan.BRNbr], '')</Value>
+                        <Value>=[SOOrder.CustomerOrderNbr]#010;+ IIF([SOOrder.CustomerRefNbr] &lt;&gt; null , ' / ' + [SOOrder.CustomerRefNbr],'')#010;+ IsNull('{br}' + [LumShipmentPlan.LotSerialNbr], '')#010;+ IsNull('{br}' + [LumShipmentPlan.BRNbr], '')</Value>
                     </TextBox>
                     <TextBox Name="textBox4">
                         <CanGrow>True</CanGrow>
@@ -5165,7 +5153,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
             <Group Name="groupShipPlan">
                 <Grouping>
                     <GroupExp>
-                        <DataField>=[LumShipmentPlan.ShipmentPlanID]</DataField>
+                        <DataField>=[LumShipmentPlan.ShipmentNbr]</DataField>
                     </GroupExp>
                 </Grouping>
                 <Headers>
@@ -5363,11 +5351,6 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                                 <Size>256px, 56px</Size>
                                 <Sizing>Fit</Sizing>
                                 <Source>Embedded</Source>
-                                <Style>
-                                    <BackImage>
-                                        <MimeType />
-                                    </BackImage>
-                                </Style>
                                 <Value>aba_hk_logo</Value>
                             </PictureBox>
                             <TextBox Name="textBox2">
