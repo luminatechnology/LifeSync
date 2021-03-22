@@ -3897,7 +3897,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                     </TextBox>
                     <TextBox Name="textBox45">
                         <Location>296px, 0px</Location>
-                        <Size>128px, 96px</Size>
+                        <Size>144px, 96px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -3912,11 +3912,11 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=IIF([SOLine.OrderNbr] &lt;&gt; null,[SOLine.OrderNbr],'')+#010;'{br}'+#010;IIF([SO.CustomerOrderNbr] &lt;&gt; null,[SO.CustomerOrderNbr],'')+#010;'{br}'+#010;IIF([lum.LotSerialNbr] &lt;&gt; null, [lum.LotSerialNbr],'')</Value>
+                        <Value>=IIF([SOLine.OrderNbr] &lt;&gt; null,[SOLine.OrderNbr],'')+#010;'{br}'+#010;IIF([SO.CustomerOrderNbr] &lt;&gt; null,[SO.CustomerOrderNbr],'')+#010;IIF([SO.CustomerRefNbr] &lt;&gt; null, ' / '+[SO.CustomerRefNbr],'') +#010;'{br}'+#010;IIF([lum.LotSerialNbr] &lt;&gt; null, [lum.LotSerialNbr],'')</Value>
                     </TextBox>
                     <TextBox Name="textBox49">
-                        <Location>424px, 0px</Location>
-                        <Size>64px, 96px</Size>
+                        <Location>440px, 0px</Location>
+                        <Size>48px, 96px</Size>
                         <Style>
                             <BorderColor>
                                 <Default>Black</Default>
@@ -4323,7 +4323,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             </TextBox>
                             <TextBox Name="textBox36">
                                 <Location>296px, 0px</Location>
-                                <Size>128px, 48px</Size>
+                                <Size>144px, 48px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
@@ -4352,8 +4352,8 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                 <Value>='Order Number #010;PO Number #010;Lot Number'</Value>
                             </TextBox>
                             <TextBox Name="textBox37">
-                                <Location>424px, 0px</Location>
-                                <Size>64px, 48px</Size>
+                                <Location>440px, 0px</Location>
+                                <Size>48px, 48px</Size>
                                 <Style>
                                     <BorderColor>
                                         <Bottom>Black</Bottom>
