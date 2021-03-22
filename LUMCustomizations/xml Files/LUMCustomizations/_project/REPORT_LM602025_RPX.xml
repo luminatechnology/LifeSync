@@ -4887,7 +4887,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=IIF([SOOrder.CustomerOrderNbr] &lt;&gt; null,[SOOrder.CustomerOrderNbr],'')+#010;'{br}'+#010;IIF([LumShipmentPlan.OrderNbr] &lt;&gt; null,[LumShipmentPlan.OrderNbr],'')+#010;'{br}'+#010;IIF([LumShipmentPlan.LotSerialNbr] &lt;&gt; null,[LumShipmentPlan.LotSerialNbr],'')#010;</Value>
+                        <Value>=IIF([SOOrder.CustomerOrderNbr] &lt;&gt; null,[SOOrder.CustomerOrderNbr],'') +#010;IIF([SOOrder.CustomerRefNbr] &lt;&gt; null, ' / ' + [SOOrder.CustomerRefNbr], '') +#010;'{br}'+#010;IIF([LumShipmentPlan.OrderNbr] &lt;&gt; null,[LumShipmentPlan.OrderNbr],'') +#010;'{br}'+#010;IIF([LumShipmentPlan.LotSerialNbr] &lt;&gt; null,[LumShipmentPlan.LotSerialNbr],'')#010;</Value>
                     </TextBox>
                     <TextBox Name="textBox49">
                         <Location>424px, 0px</Location>
