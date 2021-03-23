@@ -135,6 +135,11 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
             </ReportRelation>
         </Relations>
         <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
+        <Sorting>
+            <SortExp>
+                <DataField>InventoryItem.InventoryCD</DataField>
+            </SortExp>
+        </Sorting>
         <Tables>
             <ReportTable Name="SOShipment">
                 <Fields>
