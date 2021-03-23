@@ -155,6 +155,11 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
             </ReportRelation>
         </Relations>
         <SchemaUrl>http://localhost/ABA_AcumaticaDB1/</SchemaUrl>
+        <Sorting>
+            <SortExp>
+                <DataField>IT.InventoryCD</DataField>
+            </SortExp>
+        </Sorting>
         <Style>
             <Font>
                 <Name>Arial Black</Name>

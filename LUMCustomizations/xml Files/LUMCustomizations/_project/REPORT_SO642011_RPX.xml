@@ -58,15 +58,11 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
         <LayoutUnit>Inch</LayoutUnit>
         <MailSettings>
             <ActivitySource>SOShipment.NoteID</ActivitySource>
-            <Bcc>
-            </Bcc>
             <Body>='Dear Customer,#010;#010;This is an automatic email to notify you that Order #'+' '+[SOOrder.OrderNbr]+' '+'has been shipped with Shipment #'+' '+[SOShipment.ShipmentNbr]+'. You can find a copy of the shipment confirmation attached to this email.#010;#010;Track your shipment at [Tracking Link]#010;#010;If you have any questions, please don’t hesitate to contact us at email.  #010;#010;Thank you for choosing'+' '+[CompanyContact.FullName]+'.'</Body>
-            <Cc>
-            </Cc>
-            <Format>
-            </Format>
             <ParentSource>Customer.NoteID</ParentSource>
             <Subject>=[CompanyContact.FullName]+' '+'Shipment #'+' '+[SOShipment.ShipmentNbr]+' '+'has been shipped.'</Subject>
+            <TemplateID>
+            </TemplateID>
             <To>=IsNull([ShippingContact.EMail],'')</To>
         </MailSettings>
         <PageSettings>
@@ -243,6 +239,9 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
         <Sorting>
             <SortExp>
                 <DataField>SOShipment.ShipmentNbr</DataField>
+            </SortExp>
+            <SortExp>
+                <DataField>LumShipmentPlan.InventoryID</DataField>
             </SortExp>
         </Sorting>
         <StylesTemplate>TemplateForm.rpx</StylesTemplate>
