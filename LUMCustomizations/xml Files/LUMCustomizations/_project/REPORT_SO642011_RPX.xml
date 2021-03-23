@@ -1,5 +1,8 @@
 ﻿<Report Name="so642011.rpx">
     <Report Name="report1">
+        <CommonSettings>
+            <ViewPdf>True</ViewPdf>
+        </CommonSettings>
         <EmbeddedImages>
             <EmbeddedImage>
                 <ImageData>iVBORw0KGgoAAAANSUhEUgAAARwAAABWCAIAAACSIr4JAAAAAXNSR0IArs4c6QAAJkNJREFUeF7tXQdYVNcSZhd2WdgFhKUjTUQRREHFFiLYscRYY0k0GGPN0xRLojF5aix5iUle4kuiefEZe4ktosaCMZbY0BhF6V2RXpctbH3/evR63aXs4tLiPezHd8ucOXPm3LlnztyZOSyNRmOmV2q8qA/2d73CYrH+rl1j+tUEHGA3QRtMEwwHnisOMEL1XA0309mm4AAjVE3BZaaN54oDLV2ojh6JmfLK5G83fPtcjQrT2VbNgZYuVIWFRbdv3crJzmnVXGaIf6440KKFqrS0tKS4WCyR5Oc9eK5Ghelsq+ZAixYqUaWoorKyWiaDdLVqLjPEP1ccaNFCJZNJZRIJxkOlUkseHjCF4UDL50CLFqry0rLSEu0cJZfLC/ILTM5NSc69spu3JPdzTY6ZQfg8c6BFC1WVuKqqSoThUSoUJSUlJh+n+wcOxS//OO/4CZNjZhA+zxxo0UIlLiwS5efDaYhtzlarVCYfp2qRqFpUZSDaPXv29O3b10DghoF9+OGHaKIxXh8No4ep1TAOtGihqlSpKpQqe3t7H2+fzLT0hvXQVLX2799/+fLlc+fOmQohg+fvyoEWLVSyigppRTlYr1Aqi8vLmnEMIEsPHmjN+pivGo+MNWvWXLp0SSgUNl4TDOYm4ECLFqpS6GZcSx9fXzCieR3nk5OToZuBjI0bN+bkPPoSDYMkVFMU6GzHjh0jx9QBjqlpDQfjx4/HFYIEBVVIxRs3buD/3Llz169fTzDgCgCAnLqCWjhF+eGHHwgMaQhgACangEGhN9EETw/TRI0caLlCVYkiEpmxWBwORyqVpqemNdcQQoo8PDz69+/fp08f0IDJhFBibW19/fp1HEAtdHV1/f3333GM2QYXyfGGDRvwPykpKTIysnfv3mKx+OzZs2SuI7dQYIohkjZv3jx6B4Fn8eLFiYmJ
@@ -18,6 +21,24 @@ Miz5GKLApjF27RpQ//cBG+mTxYtuRYXd+qjf15c/0XBtThkSstXKDgODlHDoup9ehoA0HHUSLyQYIOib
 WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAAHGCEinkMGA6YmAOMUJmYoQw6hgOMUDHPAMMBE3OgZkOFiRth0DEceJ448H8jsCgvkHIDVQAAAABJRU5ErkJggg==</ImageData>
                 <MimeType>image/png</MimeType>
                 <Name>aba_hk_logo</Name>
+            </EmbeddedImage>
+            <EmbeddedImage>
+                <ImageData>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</ImageData>
+                <MimeType>image/jpeg</MimeType>
+                <Name>aba_dg_logo</Name>
             </EmbeddedImage>
         </EmbeddedImages>
         <ExportFileName>=Format( 'Packing List {0}', [SOShipment.ShipmentNbr])</ExportFileName>
@@ -51,6 +72,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
         <PageSettings>
             <Landscape>True</Landscape>
             <Margins>
+                <Bottom>0.2in</Bottom>
                 <Top>0.2in</Top>
             </Margins>
         </PageSettings>
@@ -4981,9 +5003,32 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
             </ViewerField>
         </ViewerFields>
         <Sections>
-            <PageHeader Name="pageHeaderSection1">
-                <Height>0px</Height>
-                <Visible>False</Visible>
+            <PageHeader Name="HK Logo">
+                <Height>0.58333in</Height>
+                <VisibleExpr>=[LumShipmentPlan.Customer] &lt;&gt; 'OSI'</VisibleExpr>
+                <Items>
+                    <PictureBox Name="pictureBox2">
+                        <Location>0px, 0px</Location>
+                        <MimeType>image/png</MimeType>
+                        <QRCodeSettings />
+                        <Size>256px, 56px</Size>
+                        <Sizing>Fit</Sizing>
+                        <Source>Embedded</Source>
+                        <Value>aba_hk_logo</Value>
+                    </PictureBox>
+                    <TextBox Name="textBox39">
+                        <Location>360px, 24px</Location>
+                        <Size>273px, 30px</Size>
+                        <Style>
+                            <Font>
+                                <Size>24px</Size>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                        </Style>
+                        <StyleName>Heading 3</StyleName>
+                        <Value>PACKING LIST</Value>
+                    </TextBox>
+                </Items>
             </PageHeader>
             <Detail Name="detailSection1">
                 <Height>0.75in</Height>
@@ -5126,8 +5171,9 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                     </TextBox>
                 </Items>
             </Detail>
-            <PageFooter Name="pageFooterSection1">
+            <PageFooter Name="HK Footer">
                 <Height>0.33333in</Height>
+                <VisibleExpr>=[LumShipmentPlan.Customer] &lt;&gt; 'OSI'</VisibleExpr>
                 <Items>
                     <Panel Name="panel8">
                         <Location>0px, 0px</Location>
@@ -5147,6 +5193,72 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                     </Panel>
                 </Items>
             </PageFooter>
+            <PageHeader Name="DG Logo">
+                <Height>0.58333in</Height>
+                <Visible>False</Visible>
+                <VisibleExpr>=[LumShipmentPlan.Customer] = 'OSI'</VisibleExpr>
+                <Items>
+                    <PictureBox Name="pictureBox1">
+                        <Location>0px, 0px</Location>
+                        <MimeType>image/jpeg</MimeType>
+                        <QRCodeSettings />
+                        <Size>256px, 56px</Size>
+                        <Sizing>Fit</Sizing>
+                        <Source>Embedded</Source>
+                        <Value>aba_dg_logo</Value>
+                    </PictureBox>
+                    <TextBox Name="textBox2">
+                        <Location>360px, 24px</Location>
+                        <Size>273px, 30px</Size>
+                        <Style>
+                            <Font>
+                                <Size>24px</Size>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                        </Style>
+                        <StyleName>Heading 3</StyleName>
+                        <Value>PACKING LIST</Value>
+                    </TextBox>
+                </Items>
+            </PageHeader>
+            <PageFooter Name="DG Footer">
+                <Height>0.91667in</Height>
+                <VisibleExpr>=[LumShipmentPlan.Customer] = 'OSI'</VisibleExpr>
+                <Items>
+                    <Panel Name="panel4">
+                        <Location>0px, 0px</Location>
+                        <Size>1024px, 80px</Size>
+                        <StyleName>Top Line</StyleName>
+                        <Items>
+                            <Line Name="line1">
+                                <Location>672px, 70px</Location>
+                                <Size>344px, 8px</Size>
+                            </Line>
+                            <TextBox Name="textBox40">
+                                <Location>8px, 56px</Location>
+                                <Size>248px, 24px</Size>
+                                <Style>
+                                    <TextAlign>Left</TextAlign>
+                                </Style>
+                                <StyleName>Item Normal</StyleName>
+                                <Value>Form number:FSA-016/Rev. 00</Value>
+                            </TextBox>
+                            <TextBox Name="textBox41">
+                                <Location>664px, 24px</Location>
+                                <Size>360px, 24px</Size>
+                                <Style>
+                                    <Font>
+                                        <Style>Bold</Style>
+                                    </Font>
+                                    <TextAlign>Left</TextAlign>
+                                </Style>
+                                <StyleName>Item Normal</StyleName>
+                                <Value>ABA MEDICAL TECHNOLOGY(DONGGUAN)CO.,LTD</Value>
+                            </TextBox>
+                        </Items>
+                    </Panel>
+                </Items>
+            </PageFooter>
         </Sections>
         <Items />
         <Groups>
@@ -5158,12 +5270,12 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                 </Grouping>
                 <Headers>
                     <Header Name="groupHeaderSection1">
-                        <Height>3.08333in</Height>
+                        <Height>2.5in</Height>
                         <PrintForEmptyGroup>True</PrintForEmptyGroup>
                         <PrintOnEveryPage>True</PrintOnEveryPage>
                         <Items>
                             <Panel Name="panel1">
-                                <Location>0px, 240px</Location>
+                                <Location>0px, 184px</Location>
                                 <Size>1024px, 56px</Size>
                                 <StyleName>Bottom Line</StyleName>
                                 <Items>
@@ -5270,7 +5382,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                                 </Items>
                             </Panel>
                             <Panel Name="panel5">
-                                <Location>0px, 56px</Location>
+                                <Location>0px, 0px</Location>
                                 <Size>1024px, 48px</Size>
                                 <StyleName>Top-Bottom Line</StyleName>
                                 <Items>
@@ -5302,7 +5414,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                                 </Items>
                             </Panel>
                             <Panel Name="panel6">
-                                <Location>0px, 104px</Location>
+                                <Location>0px, 48px</Location>
                                 <Size>1024px, 136px</Size>
                                 <StyleName>Bottom Line</StyleName>
                                 <Items>
@@ -5344,27 +5456,6 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                                     </TextBox>
                                 </Items>
                             </Panel>
-                            <PictureBox Name="pictureBox1">
-                                <Location>0px, 0px</Location>
-                                <MimeType>image/png</MimeType>
-                                <QRCodeSettings />
-                                <Size>256px, 56px</Size>
-                                <Sizing>Fit</Sizing>
-                                <Source>Embedded</Source>
-                                <Value>aba_hk_logo</Value>
-                            </PictureBox>
-                            <TextBox Name="textBox2">
-                                <Location>360px, 24px</Location>
-                                <Size>273px, 30px</Size>
-                                <Style>
-                                    <Font>
-                                        <Size>24px</Size>
-                                    </Font>
-                                    <TextAlign>Center</TextAlign>
-                                </Style>
-                                <StyleName>Heading 3</StyleName>
-                                <Value>PACKING LIST</Value>
-                            </TextBox>
                         </Items>
                     </Header>
                 </Headers>

@@ -203,7 +203,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 <ParentName>AMProdItem</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/ABA_AcumaticaDB1/</SchemaUrl>
+        <SchemaUrl>https://healthedge.acumatica.com</SchemaUrl>
         <Tables>
             <ReportTable Name="InventoryItem">
                 <Fields>
@@ -4713,7 +4713,6 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="SJM">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = 'SJM' Or @Customer = 'SJM')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
@@ -4735,7 +4734,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox172">
                         <Localizable>False</Localizable>
                         <Location>0px, 0px</Location>
-                        <Size>328px, 18px</Size>
+                        <Size>328px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -4791,8 +4790,8 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     </TextBox>
                     <TextBox Name="textBox176">
                         <Localizable>False</Localizable>
-                        <Location>0px, 18px</Location>
-                        <Size>360px, 16px</Size>
+                        <Location>0px, 16px</Location>
+                        <Size>360px, 18px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
