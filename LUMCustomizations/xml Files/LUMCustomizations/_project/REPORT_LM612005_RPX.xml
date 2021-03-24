@@ -2696,7 +2696,7 @@
                                     </Font>
                                 </Style>
                                 <Value>货仓:</Value>
-                                <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;False,#010;True)</VisibleExpr>
+                                <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP' Or [INRegister.AttributeREASON] = 'Importmtrl',#010;False,#010;True)</VisibleExpr>
                             </TextBox>
                             <TextBox Name="textBox36">
                                 <Excel>
@@ -2710,13 +2710,13 @@
                                     </Font>
                                 </Style>
                                 <Value>领料:</Value>
-                                <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;False,#010;True)</VisibleExpr>
+                                <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP' Or [INRegister.AttributeREASON] = 'Importmtrl',#010;False,#010;True)</VisibleExpr>
                             </TextBox>
                             <TextBox Name="textBox37">
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>712px, 8px</Location>
+                                <Location>648px, 8px</Location>
                                 <Size>40px, 14px</Size>
                                 <Style>
                                     <Font>
@@ -2725,13 +2725,13 @@
                                 </Style>
                                 <Value>审批:</Value>
                                 <Visible>False</Visible>
-                                <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;True,#010;False)</VisibleExpr>
+                                <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP' Or [INRegister.AttributeREASON] = 'Importmtrl',#010;True,#010;False)</VisibleExpr>
                             </TextBox>
                             <TextBox Name="textBox38">
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>560px, 8px</Location>
+                                <Location>496px, 8px</Location>
                                 <Size>64px, 16px</Size>
                                 <Style>
                                     <Font>
@@ -2740,13 +2740,13 @@
                                 </Style>
                                 <Value>部门主管:</Value>
                                 <Visible>False</Visible>
-                                <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;True,#010;False)</VisibleExpr>
+                                <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP' Or [INRegister.AttributeREASON] = 'Importmtrl',#010;True,#010;False)</VisibleExpr>
                             </TextBox>
                             <TextBox Name="textBox39">
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>440px, 8px</Location>
+                                <Location>376px, 8px</Location>
                                 <Size>40px, 14px</Size>
                                 <Style>
                                     <Font>
@@ -2755,7 +2755,7 @@
                                 </Style>
                                 <Value>倉管:</Value>
                                 <Visible>False</Visible>
-                                <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;True,#010;False)</VisibleExpr>
+                                <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP' Or [INRegister.AttributeREASON] = 'Importmtrl',#010;True,#010;False)</VisibleExpr>
                             </TextBox>
                             <TextBox Name="textBox40">
                                 <Excel>
@@ -2769,13 +2769,13 @@
                                     </Font>
                                 </Style>
                                 <Value>生管:</Value>
-                                <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;False,#010;True)</VisibleExpr>
+                                <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP' Or [INRegister.AttributeREASON] = 'Importmtrl',#010;False,#010;True)</VisibleExpr>
                             </TextBox>
                             <TextBox Name="textBox41">
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>328px, 8px</Location>
+                                <Location>264px, 8px</Location>
                                 <Size>32px, 14px</Size>
                                 <Style>
                                     <Font>
@@ -2784,7 +2784,7 @@
                                 </Style>
                                 <Value>生管:</Value>
                                 <Visible>False</Visible>
-                                <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;True,#010;False)</VisibleExpr>
+                                <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP' Or [INRegister.AttributeREASON] = 'Importmtrl',#010;True,#010;False)</VisibleExpr>
                             </TextBox>
                             <TextBox Name="textBox42">
                                 <Excel>
@@ -2799,7 +2799,7 @@
                                 </Style>
                                 <Value>品管:</Value>
                                 <Visible>False</Visible>
-                                <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;True,#010;False)</VisibleExpr>
+                                <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP' Or [INRegister.AttributeREASON] = 'Importmtrl',#010;True,#010;False)</VisibleExpr>
                             </TextBox>
                             <TextBox Name="textBox43">
                                 <Excel>
@@ -2814,7 +2814,7 @@
                                 </Style>
                                 <Value>申请人:</Value>
                                 <Visible>False</Visible>
-                                <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;True,#010;False)</VisibleExpr>
+                                <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP' Or [INRegister.AttributeREASON] = 'Importmtrl',#010;True,#010;False)</VisibleExpr>
                             </TextBox>
                             <TextBox Name="textBox44">
                                 <Excel>
@@ -2828,7 +2828,7 @@
                                     </Font>
                                 </Style>
                                 <Value>核准:</Value>
-                                <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;False,#010;True)</VisibleExpr>
+                                <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP' Or [INRegister.AttributeREASON] = 'Importmtrl',#010;False,#010;True)</VisibleExpr>
                             </TextBox>
                             <TextBox Name="textBox45">
                                 <Excel>
