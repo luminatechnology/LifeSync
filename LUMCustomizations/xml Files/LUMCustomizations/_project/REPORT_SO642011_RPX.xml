@@ -58,11 +58,15 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
         <LayoutUnit>Inch</LayoutUnit>
         <MailSettings>
             <ActivitySource>SOShipment.NoteID</ActivitySource>
+            <Bcc>
+            </Bcc>
             <Body>='Dear Customer,#010;#010;This is an automatic email to notify you that Order #'+' '+[SOOrder.OrderNbr]+' '+'has been shipped with Shipment #'+' '+[SOShipment.ShipmentNbr]+'. You can find a copy of the shipment confirmation attached to this email.#010;#010;Track your shipment at [Tracking Link]#010;#010;If you have any questions, please don’t hesitate to contact us at email.  #010;#010;Thank you for choosing'+' '+[CompanyContact.FullName]+'.'</Body>
+            <Cc>
+            </Cc>
+            <Format>
+            </Format>
             <ParentSource>Customer.NoteID</ParentSource>
             <Subject>=[CompanyContact.FullName]+' '+'Shipment #'+' '+[SOShipment.ShipmentNbr]+' '+'has been shipped.'</Subject>
-            <TemplateID>
-            </TemplateID>
             <To>=IsNull([ShippingContact.EMail],'')</To>
         </MailSettings>
         <PageSettings>
@@ -5004,7 +5008,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
         <Sections>
             <PageHeader Name="HK Logo">
                 <Height>0.58333in</Height>
-                <VisibleExpr>=[LumShipmentPlan.Customer] &lt;&gt; 'OSI'</VisibleExpr>
+                <VisibleExpr>=[SOOrder.CustomerID] = '0001'</VisibleExpr>
                 <Items>
                     <PictureBox Name="pictureBox2">
                         <Location>0px, 0px</Location>
@@ -5172,7 +5176,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
             </Detail>
             <PageFooter Name="HK Footer">
                 <Height>0.33333in</Height>
-                <VisibleExpr>=[LumShipmentPlan.Customer] &lt;&gt; 'OSI'</VisibleExpr>
+                <VisibleExpr>=[SOOrder.CustomerID] = '0001'</VisibleExpr>
                 <Items>
                     <Panel Name="panel8">
                         <Location>0px, 0px</Location>
@@ -5195,7 +5199,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
             <PageHeader Name="DG Logo">
                 <Height>0.58333in</Height>
                 <Visible>False</Visible>
-                <VisibleExpr>=[LumShipmentPlan.Customer] = 'OSI'</VisibleExpr>
+                <VisibleExpr>=[SOOrder.CustomerID] &lt;&gt; '0001'</VisibleExpr>
                 <Items>
                     <PictureBox Name="pictureBox1">
                         <Location>0px, 0px</Location>
@@ -5222,7 +5226,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
             </PageHeader>
             <PageFooter Name="DG Footer">
                 <Height>0.91667in</Height>
-                <VisibleExpr>=[LumShipmentPlan.Customer] = 'OSI'</VisibleExpr>
+                <VisibleExpr>=[SOOrder.CustomerID] &lt;&gt; '0001'</VisibleExpr>
                 <Items>
                     <Panel Name="panel4">
                         <Location>0px, 0px</Location>
