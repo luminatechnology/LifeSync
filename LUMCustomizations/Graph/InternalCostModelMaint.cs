@@ -95,8 +95,8 @@ namespace LumCustomizations.Graph
                                    on t.InventoryID equals v.InventoryID into result
                                   from r in result.DefaultIfEmpty()
                                   join x in _TaxInfo
-                                    on r.VendorID equals x.vendorID into taxResult
-                                  from _tax in taxResult
+                                    on r?.VendorID ?? -1 equals x.vendorID into taxResult
+                                  from _tax in taxResult.DefaultIfEmpty()
                                   orderby i.InventoryCD
                                   select new
                                   {
