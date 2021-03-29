@@ -3746,6 +3746,18 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Name>SumOfOrderqty</Name>
                         <ValueExpr>=$SumOfOrderqty+[POLine.OrderQty]</ValueExpr>
                     </ReportVariable>
+                    <ReportVariable>
+                        <Name>LenTranDesc</Name>
+                        <ValueExpr>=Len([POLine.TranDesc])</ValueExpr>
+                    </ReportVariable>
+                    <ReportVariable>
+                        <Name>CutLength</Name>
+                        <ValueExpr>=IIF($LenTranDesc &gt; 15, 15, 0)</ValueExpr>
+                    </ReportVariable>
+                    <ReportVariable>
+                        <Name>SplitCount</Name>
+                        <ValueExpr>=IIF($LenTranDesc &lt; $CutLength,0,$LenTranDesc / $CutLength)</ValueExpr>
+                    </ReportVariable>
                 </Variables>
                 <Items>
                     <TextBox Name="textBox58">
@@ -3814,7 +3826,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             <TextAlign>Left</TextAlign>
                         </Style>
                         <StyleName>ChineseFont</StyleName>
-                        <Value>=[POLine.TranDesc]</Value>
+                        <Value>=IIF($SplitCount &gt; 0,#010;Substring([POLine.TranDesc],0,CINT(1 * $CutLength)) + '{br}' + #010;Substring([POLine.TranDesc], CINT(1 * $CutLength + 1) , CINT($LenTranDesc - (1 * $CutLength + 1))),#010;Substring([POLine.TranDesc],0, CINT($LenTranDesc)))</Value>
                     </TextBox>
                     <TextBox Name="textBox61">
                         <Location>320px, 0px</Location>
