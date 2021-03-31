@@ -31,12 +31,27 @@
                 <Condition>IsNull</Condition>
                 <DataField>INItemLotSerial.ExpireDate</DataField>
             </FilterExp>
+            <FilterExp>
+                <Condition>IsNotNull</Condition>
+                <DataField>InventoryItem.INSPDAY_Attributes</DataField>
+            </FilterExp>
+            <FilterExp>
+                <DataField>INLotSerialStatus.SiteID</DataField>
+                <OpenBraces>1</OpenBraces>
+                <Operator>Or</Operator>
+                <Value>@SiteCD</Value>
+            </FilterExp>
+            <FilterExp>
+                <CloseBraces>1</CloseBraces>
+                <Condition>IsNull</Condition>
+                <DataField>@SiteCD</DataField>
+            </FilterExp>
         </Filters>
         <PageSettings>
             <Margins>
                 <Bottom>0.5cm</Bottom>
-                <Left>1cm</Left>
-                <Right>1cm</Right>
+                <Left>0.2cm</Left>
+                <Right>0.2cm</Right>
                 <Top>0.5cm</Top>
             </Margins>
         </PageSettings>
@@ -65,6 +80,12 @@
                 <Prompt>Item Class</Prompt>
                 <Visible>False</Visible>
             </ReportParameter>
+            <ReportParameter>
+                <ColumnSpan>2</ColumnSpan>
+                <Name>SiteCD</Name>
+                <Prompt>Warehouse</Prompt>
+                <ViewName>=Report.GetFieldSchema('INTran.SiteID')</ViewName>
+            </ReportParameter>
         </Parameters>
         <Relations>
             <ReportRelation>
@@ -87,6 +108,20 @@
                     </RelationRow>
                 </Links>
                 <ParentName>InventoryItem</ParentName>
+            </ReportRelation>
+            <ReportRelation>
+                <ChildName>INLotSerialStatus</ChildName>
+                <Links>
+                    <RelationRow>
+                        <ChildField>InventoryID</ChildField>
+                        <ParentField>InventoryID</ParentField>
+                    </RelationRow>
+                    <RelationRow>
+                        <ChildField>LotSerialNbr</ChildField>
+                        <ParentField>LotSerialNbr</ParentField>
+                    </RelationRow>
+                </Links>
+                <ParentName>INItemLotSerial</ParentName>
             </ReportRelation>
         </Relations>
         <SchemaUrl>http://localhost/LifeSync</SchemaUrl>
@@ -1113,6 +1148,234 @@
                 </Fields>
                 <FullName>PX.Objects.IN.INItemClass</FullName>
             </ReportTable>
+            <ReportTable Name="INLotSerialStatus">
+                <Fields>
+                    <ReportField Name="CostID">
+                        <DataType>Int64</DataType>
+                    </ReportField>
+                    <ReportField Name="ExpireDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="ExpireDate_Day">
+                    </ReportField>
+                    <ReportField Name="ExpireDate_Hour">
+                    </ReportField>
+                    <ReportField Name="ExpireDate_Month">
+                    </ReportField>
+                    <ReportField Name="ExpireDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="InventoryID">
+                    </ReportField>
+                    <ReportField Name="InventoryID_description">
+                    </ReportField>
+                    <ReportField Name="InventoryID_InventoryItem_descr">
+                    </ReportField>
+                    <ReportField Name="InventoryID_Segment1">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="LocationID">
+                    </ReportField>
+                    <ReportField Name="LocationID_description">
+                    </ReportField>
+                    <ReportField Name="LocationID_INLocation_descr">
+                    </ReportField>
+                    <ReportField Name="LocationID_Segment1">
+                    </ReportField>
+                    <ReportField Name="LotSerialNbr">
+                    </ReportField>
+                    <ReportField Name="LotSerTrack">
+                    </ReportField>
+                    <ReportField Name="QtyActual">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyAvail">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyExpired">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyFixedFSSrvOrd">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyFSSrvOrdAllocated">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyFSSrvOrdBooked">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyFSSrvOrdPrepared">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyHardAvail">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyINAssemblyDemand">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyINAssemblySupply">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyINIssues">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyINReceipts">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyINReplaned">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyInTransit">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyInTransitToProduction">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyInTransitToSO">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyNotAvail">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyOnHand">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyPODropShipOrders">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyPODropShipPrepared">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyPODropShipReceipts">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyPOFixedFSSrvOrd">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyPOFixedFSSrvOrdPrepared">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyPOFixedFSSrvOrdReceipts">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyPOFixedOrders">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyPOFixedPrepared">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyPOFixedProductionOrders">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyPOFixedProductionPrepared">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyPOFixedReceipts">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyPOOrders">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyPOPrepared">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyPOReceipts">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyProdFixedProdOrders">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyProdFixedProdOrdersPrepared">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyProdFixedProduction">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyProdFixedPurchase">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyProdFixedSalesOrders">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyProdFixedSalesOrdersPrepared">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyProductionAllocated">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyProductionDemand">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyProductionDemandPrepared">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyProductionSupply">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtyProductionSupplyPrepared">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtySOBackOrdered">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtySOBooked">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtySODropShip">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtySOFixed">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtySOFixedProduction">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtySOPrepared">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtySOShipped">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="QtySOShipping">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="ReceiptDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="ReceiptDate_Day">
+                    </ReportField>
+                    <ReportField Name="ReceiptDate_Hour">
+                    </ReportField>
+                    <ReportField Name="ReceiptDate_Month">
+                    </ReportField>
+                    <ReportField Name="ReceiptDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="SiteID">
+                    </ReportField>
+                    <ReportField Name="SiteID_description">
+                    </ReportField>
+                    <ReportField Name="SiteID_INSite_descr">
+                    </ReportField>
+                    <ReportField Name="SiteID_Segment1">
+                    </ReportField>
+                    <ReportField Name="SubItemID">
+                    </ReportField>
+                    <ReportField Name="SubItemID_Segment1">
+                    </ReportField>
+                    <ReportField Name="tstamp">
+                    </ReportField>
+                </Fields>
+                <FullName>PX.Objects.IN.INLotSerialStatus</FullName>
+            </ReportTable>
         </Tables>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
@@ -1120,7 +1383,7 @@
                 <Items>
                     <TextBox Name="textBox1">
                         <Location>0px, 0px</Location>
-                        <Size>720px, 32px</Size>
+                        <Size>776px, 32px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -1133,7 +1396,7 @@
                         <Value>=Year([@FromDate]) + '年' + Month([@FromDate]) + '月复检明细'</Value>
                     </TextBox>
                     <TextBox Name="textBox18">
-                        <Location>0px, 40px</Location>
+                        <Location>1px, 40px</Location>
                         <Size>0.65in, 0.16667in</Size>
                         <Style>
                             <Font>
@@ -1155,7 +1418,7 @@
                         <Value>=[@FromDate]</Value>
                     </TextBox>
                     <TextBox Name="textBox2">
-                        <Location>76px, 80px</Location>
+                        <Location>68px, 80px</Location>
                         <Size>0.8in, 0.16667in</Size>
                         <Style>
                             <Font>
@@ -1167,7 +1430,7 @@
                         <Value>品号</Value>
                     </TextBox>
                     <TextBox Name="textBox20">
-                        <Location>0px, 56px</Location>
+                        <Location>1px, 56px</Location>
                         <Size>0.65in, 0.16667in</Size>
                         <Style>
                             <Font>
@@ -1188,8 +1451,32 @@
                         <StyleName>Report Params</StyleName>
                         <Value>=[@ToDate]</Value>
                     </TextBox>
+                    <TextBox Name="textBox22">
+                        <Location>349px, 80px</Location>
+                        <Size>0.6in, 0.16667in</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                        </Style>
+                        <StyleName>Heading1BCColored</StyleName>
+                        <Value>储位</Value>
+                    </TextBox>
+                    <TextBox Name="textBox23">
+                        <Location>292px, 80px</Location>
+                        <Size>0.6in, 0.16667in</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                        </Style>
+                        <StyleName>Heading1BCColored</StyleName>
+                        <Value>仓库</Value>
+                    </TextBox>
                     <TextBox Name="textBox25">
-                        <Location>640px, 56px</Location>
+                        <Location>696px, 56px</Location>
                         <Size>0.8in, 0.16667in</Size>
                         <Style>
                             <Font>
@@ -1201,8 +1488,8 @@
                         <Value>=[PageOf]</Value>
                     </TextBox>
                     <TextBox Name="textBox3">
-                        <Location>0px, 80px</Location>
-                        <Size>0.8in, 0.16667in</Size>
+                        <Location>1px, 80px</Location>
+                        <Size>0.7in, 0.16667in</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -1213,7 +1500,7 @@
                         <Value>品号</Value>
                     </TextBox>
                     <TextBox Name="textBox4">
-                        <Location>650px, 80px</Location>
+                        <Location>712px, 80px</Location>
                         <Size>0.7in, 0.16667in</Size>
                         <Style>
                             <Font>
@@ -1225,7 +1512,7 @@
                         <Value>有效天数</Value>
                     </TextBox>
                     <TextBox Name="textBox5">
-                        <Location>583px, 80px</Location>
+                        <Location>645px, 80px</Location>
                         <Size>0.7in, 0.16667in</Size>
                         <Style>
                             <Font>
@@ -1237,7 +1524,7 @@
                         <Value>复检日期</Value>
                     </TextBox>
                     <TextBox Name="textBox6">
-                        <Location>516px, 80px</Location>
+                        <Location>578px, 80px</Location>
                         <Size>0.7in, 0.16667in</Size>
                         <Style>
                             <Font>
@@ -1249,7 +1536,7 @@
                         <Value>有效日期</Value>
                     </TextBox>
                     <TextBox Name="textBox7">
-                        <Location>420px, 80px</Location>
+                        <Location>482px, 80px</Location>
                         <Size>1in, 0.16667in</Size>
                         <Style>
                             <Font>
@@ -1261,8 +1548,8 @@
                         <Value>批号</Value>
                     </TextBox>
                     <TextBox Name="textBox8">
-                        <Location>324px, 80px</Location>
-                        <Size>1in, 0.16667in</Size>
+                        <Location>406px, 80px</Location>
+                        <Size>0.8in, 0.16667in</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -1273,8 +1560,8 @@
                         <Value>库存数量</Value>
                     </TextBox>
                     <TextBox Name="textBox9">
-                        <Location>152px, 80px</Location>
-                        <Size>172px, 0.16667in</Size>
+                        <Location>144px, 80px</Location>
+                        <Size>148px, 0.16667in</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -1305,8 +1592,8 @@
                 <VisibleExpr>=$RecevingDate &gt;= [@FromDate] And $RecevingDate &lt;= [@ToDate]</VisibleExpr>
                 <Items>
                     <TextBox Name="textBox10">
-                        <Location>0px, 8px</Location>
-                        <Size>0.8in, 0.16667in</Size>
+                        <Location>1px, 8px</Location>
+                        <Size>0.7in, 0.16667in</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -1318,7 +1605,7 @@
                     </TextBox>
                     <TextBox Name="textBox11">
                         <CanGrow>True</CanGrow>
-                        <Location>76px, 8px</Location>
+                        <Location>68px, 8px</Location>
                         <Size>0.8in, 0.16667in</Size>
                         <Style>
                             <Font>
@@ -1331,8 +1618,8 @@
                     </TextBox>
                     <TextBox Name="textBox12">
                         <CanGrow>True</CanGrow>
-                        <Location>152px, 8px</Location>
-                        <Size>172px, 0.16667in</Size>
+                        <Location>144px, 8px</Location>
+                        <Size>148px, 0.16667in</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -1344,8 +1631,8 @@
                     </TextBox>
                     <TextBox Name="textBox13">
                         <Format>N4</Format>
-                        <Location>324px, 8px</Location>
-                        <Size>1in, 0.16667in</Size>
+                        <Location>406px, 8px</Location>
+                        <Size>0.8in, 0.16667in</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -1356,7 +1643,7 @@
                         <Value>=[INItemLotSerial.QtyOnHand]</Value>
                     </TextBox>
                     <TextBox Name="textBox14">
-                        <Location>420px, 8px</Location>
+                        <Location>482px, 8px</Location>
                         <Size>1in, 0.16667in</Size>
                         <Style>
                             <Font>
@@ -1368,7 +1655,7 @@
                         <Value>=[INItemLotSerial.LotSerialNbr]</Value>
                     </TextBox>
                     <TextBox Name="textBox15">
-                        <Location>516px, 8px</Location>
+                        <Location>578px, 8px</Location>
                         <Size>0.7in, 0.16667in</Size>
                         <Style>
                             <Font>
@@ -1380,7 +1667,7 @@
                         <Value>=[INItemLotSerial.ExpireDate]</Value>
                     </TextBox>
                     <TextBox Name="textBox16">
-                        <Location>584px, 8px</Location>
+                        <Location>645px, 8px</Location>
                         <Size>0.7in, 0.16667in</Size>
                         <Style>
                             <Font>
@@ -1392,7 +1679,7 @@
                         <Value>=IsNull([INItemLotSerial.ExpireDate], $RecevingDate)</Value>
                     </TextBox>
                     <TextBox Name="textBox17">
-                        <Location>652px, 8px</Location>
+                        <Location>712px, 8px</Location>
                         <Size>0.7in, 0.16667in</Size>
                         <Style>
                             <Font>
@@ -1403,6 +1690,30 @@
                         <StyleName>Normal</StyleName>
                         <Value>=[InventoryItem.INSPDAY_Attributes]</Value>
                     </TextBox>
+                    <TextBox Name="textBox24">
+                        <Location>349px, 8px</Location>
+                        <Size>0.6in, 0.16667in</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                        </Style>
+                        <StyleName>Normal</StyleName>
+                        <Value>=[INLotSerialStatus.LocationID]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox26">
+                        <Location>292px, 8px</Location>
+                        <Size>0.6in, 0.16667in</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                        </Style>
+                        <StyleName>Normal</StyleName>
+                        <Value>=[INLotSerialStatus.SiteID]</Value>
+                    </TextBox>
                 </Items>
             </Detail>
             <PageFooter Name="pageFooterSection1">
@@ -1411,6 +1722,5 @@
                 <Visible>False</Visible>
             </PageFooter>
         </Sections>
-        <Items />
     </Report>
 </Report>
