@@ -5100,7 +5100,6 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                 <Headers>
                     <Header Name="groupHeaderSection1">
                         <Height>1.0582cm</Height>
-                        <PrintOnEveryPage>True</PrintOnEveryPage>
                         <Items>
                             <TextBox Name="textBox32">
                                 <Location>16px, 0px</Location>
@@ -5343,7 +5342,6 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                 <Footers>
                     <Footer Name="groupFooterSection1">
                         <Height>0.21164cm</Height>
-                        <PrintOnEveryPage>True</PrintOnEveryPage>
                         <Items>
                             <Line Name="line1">
                                 <Location>16px, 0px</Location>
