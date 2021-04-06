@@ -25,7 +25,7 @@
         </layout>
         <data>
             <SiteMap>
-                <row Title="Material Cycle Inspection" Url="~/Frames/ReportLauncher.aspx?ID=LM657000.rpx" ScreenID="LM657000" NodeID="8d60b04a-ffb4-4d89-9d1f-e090ef601fd7" ParentID="00000000-0000-0000-0000-000000000000">
+                <row Title="Material Cycle Inspection" Url="~/Frames/ReportLauncher.aspx?ID=LM657000.rpx" ScreenID="LM657000" NodeID="151fe4af-7763-4c58-b73b-dd37fc1e53a7" ParentID="00000000-0000-0000-0000-000000000000">
                     <MUIScreen IsPortal="0" WorkspaceID="6557c1c6-747e-45bb-9072-54f096598d61" Order="100" SubcategoryID="0b491e12-c58d-4e47-8a0d-96dd3a8ab395" />
                 </row>
             </SiteMap>

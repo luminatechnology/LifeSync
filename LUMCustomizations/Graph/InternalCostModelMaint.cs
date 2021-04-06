@@ -16,12 +16,10 @@ using NPOI.XSSF.UserModel;
 using PX.Data;
 using PX.Data.BQL;
 using PX.Data.BQL.Fluent;
-using PX.Objects.AP;
 using PX.Objects.CM;
 using PX.Objects.CS;
 using PX.Objects.IN;
 using PX.Objects.PO;
-using PX.Objects.TX;
 
 namespace LumCustomizations.Graph
 {
@@ -43,6 +41,17 @@ namespace LumCustomizations.Graph
         [PXRestrictorAttribute(typeof(Where<AMOrderType.active, Equal<True>>), "Order Type is inactive.")]
         public virtual void _(Events.CacheAttached<AMProdItem.orderType> e) { }
         #endregion
+
+
+        public void _(Events.RowInserting<AMProdEvnt> e)
+        {
+            var temp = (AMProdEvnt)e.Row;
+        }
+
+        public void _(Events.RowInserted<AMProdEvnt> r)
+        {
+            var temp = (AMProdEvnt)r.Row;
+        }
 
         #region PXAction
 
@@ -68,22 +77,8 @@ namespace LumCustomizations.Graph
             var _POvenderDetail = PXGraph.CreateInstance<InternalCostModelMaint>()
                                          .Select<POVendorInventory>()
                                          .ToList()
-                                         .Where(x => x.IsDefault ?? false)
-                                         .GroupBy(x => new { x.InventoryID })
+                                         .GroupBy(x => new { x.InventoryID})
                                          .Select(x => x.OrderByDescending(y => y.LastModifiedDateTime).FirstOrDefault());
-            var _TaxInfo = (from v in new PXGraph().Select<Vendor>()
-                           join t in new PXGraph().Select<VendorClass>()
-                             on v.VendorClassID equals t.VendorClassID
-                           join z in new PXGraph().Select<TaxZoneDet>()
-                             on t.TaxZoneID equals z.TaxZoneID
-                           join r in new PXGraph().Select<TaxRev>()
-                             on z.TaxID equals r.TaxID
-                           where r.TaxType == "P"
-                           select new
-                           {
-                               vendorID = v.BAccountID,
-                               taxRate = r.TaxRate
-                           }).ToList().GroupBy(x => x.vendorID).Select(x => x.First());
             // Get All Material Data
             var _materialData = from t in PXGraph.CreateInstance<InternalCostModelMaint>().Select<AMProdMatl>()
                                 where t.OrderType == row.OrderType && t.ProdOrdID == row.ProdOrdID
@@ -94,10 +89,6 @@ namespace LumCustomizations.Graph
                                   join v in _POvenderDetail
                                    on t.InventoryID equals v.InventoryID into result
                                   from r in result.DefaultIfEmpty()
-                                  join x in _TaxInfo
-                                    on r?.VendorID ?? -1 equals x.vendorID into taxResult
-                                  from _tax in taxResult.DefaultIfEmpty()
-                                  orderby i.InventoryCD
                                   select new
                                   {
                                       t.InventoryID,
@@ -108,8 +99,7 @@ namespace LumCustomizations.Graph
                                       t.ScrapFactor,
                                       t.QtyReq,
                                       i.InventoryCD,
-                                      venderDetail = r,
-                                      taxInfo = _tax
+                                      venderDetail = r
                                   };
             var _AMProdOper = base.ProdOperRecords.Select().FirstTableItems;
 
@@ -324,23 +314,21 @@ namespace LumCustomizations.Graph
 
                     if (matl.venderDetail.CuryID == "CNY")
                     {
-                        // 不含Tax
-                        _venderLastPrice = (_venderLastPrice / (1 + (matl.taxInfo.taxRate ?? 0) / 100));
                         sheet.GetRow(rowNum).GetCell(4).SetCellValue($"{_venderLastPrice.ToString("N4")}");
-                        _materailCost = _venderLastPrice * Math.Round((matl.QtyReq * (1 + matl.ScrapFactor)) ?? 1 ,4)
+                        _materailCost = _venderLastPrice * matl.UnitCost * matl.TotalQtyRequired * (1 + matl.ScrapFactor)
                                         * (_EffectCuryRate.Where(x => x.FromCuryID == "USD" && x.ToCuryID == "CNY").FirstOrDefault()?.RateReciprocal ?? 1);
                     }
                     else if (matl.venderDetail.CuryID == "HKD")
                     {
                         sheet.GetRow(rowNum).GetCell(5).SetCellValue($"{_venderLastPrice.ToString("N4")}");
-                        _materailCost = _venderLastPrice * Math.Round((matl.QtyReq * (1 + matl.ScrapFactor)) ?? 1, 4)
+                        _materailCost = _venderLastPrice * matl.UnitCost * matl.TotalQtyRequired * (1 + matl.ScrapFactor)
                                         * (_EffectCuryRate.Where(x => x.FromCuryID == "HKD" && x.ToCuryID == "CNY").FirstOrDefault()?.CuryRate ?? 1)
                                         * (_EffectCuryRate.Where(x => x.FromCuryID == "USD" && x.ToCuryID == "CNY").FirstOrDefault()?.RateReciprocal ?? 1);
                     }
                     else if (matl.venderDetail.CuryID == "USD")
                     {
                         sheet.GetRow(rowNum).GetCell(6).SetCellValue($"{_venderLastPrice.ToString("N4")}");
-                        _materailCost = _venderLastPrice * Math.Round((matl.QtyReq * (1 + matl.ScrapFactor)) ?? 1, 4);
+                        _materailCost = _venderLastPrice * matl.UnitCost * matl.TotalQtyRequired * (1 + matl.ScrapFactor);
                     }
                 }
                 else
@@ -375,13 +363,13 @@ namespace LumCustomizations.Graph
             sheet.CreateRow(rowNum);
             sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"material sum");
             sheet.GetRow(rowNum).GetCell(7).CellStyle = NormalStyle;
-            sheet.GetRow(rowNum).CreateCell(9).CellFormula = $"SUM(J10:J{rowNum - 1})";
+            sheet.GetRow(rowNum).CreateCell(9).CellFormula = $"SUM(J10:J{rowNum-1})";
             //sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{materialSum.ToString("N4")}");
             sheet.GetRow(rowNum).GetCell(9).CellStyle = GreyCellStyle;
             _SetUpSum += materialSum;
             // Green Cell
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
+                        excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
             #endregion
 
             #region 2.Labor Cost
@@ -433,7 +421,7 @@ namespace LumCustomizations.Graph
 
             // Green Cells
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
+                        excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
 
             #endregion
 
@@ -486,7 +474,7 @@ namespace LumCustomizations.Graph
 
             // Green Cells
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
+                        excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
 
             #endregion
 
@@ -539,7 +527,7 @@ namespace LumCustomizations.Graph
 
             // Green Cells
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
+                        excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
 
             #endregion
 
@@ -584,7 +572,7 @@ namespace LumCustomizations.Graph
             // Green Cells
             sheet.CreateRow(++rowNum);
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
+                        excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
 
             #endregion
 
@@ -617,7 +605,7 @@ namespace LumCustomizations.Graph
 
             // Green Cells
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
+                        excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
 
             #endregion
 
@@ -663,7 +651,7 @@ namespace LumCustomizations.Graph
 
             // Green Cells
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
+                        excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
 
             #endregion
 
@@ -708,7 +696,7 @@ namespace LumCustomizations.Graph
             sheet.GetRow(rowNum).GetCell(9).CellStyle = GreyCellStyle;
             // Green Cells
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
+                        excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
 
             #endregion
 
@@ -747,7 +735,7 @@ namespace LumCustomizations.Graph
 
             // Green Cells
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
+                        excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
 
             #endregion
 
@@ -787,7 +775,7 @@ namespace LumCustomizations.Graph
             sheet.CreateRow(++rowNum);
             sheet.CreateRow(++rowNum);
             sheet.CreateRow(++rowNum);
-            excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
+                        excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
 
             #endregion
 
@@ -856,9 +844,9 @@ namespace LumCustomizations.Graph
             excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"exchange rate :");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
-            sheet.GetRow(rowNum).CreateCell(4).SetCellValue($"HKD:USD");
+            sheet.GetRow(rowNum).CreateCell(4).SetCellValue($"RMB:USD");
             sheet.GetRow(rowNum).GetCell(4).CellStyle = TableHeaderStyle;
-            sheet.GetRow(rowNum).CreateCell(5).SetCellValue($"RMB:USD");
+            sheet.GetRow(rowNum).CreateCell(5).SetCellValue($"HKD:USD");
             sheet.GetRow(rowNum).GetCell(5).CellStyle = TableHeaderStyle;
 
             sheet.CreateRow(++rowNum);

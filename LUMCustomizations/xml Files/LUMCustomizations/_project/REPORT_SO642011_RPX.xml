@@ -239,7 +239,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 <ParentName>BAccount</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/ABA_AcumaticaDB1/</SchemaUrl>
+        <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>SOShipment.ShipmentNbr</DataField>
@@ -5054,7 +5054,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             <TextAlign>Center</TextAlign>
                         </Style>
                         <StyleName>Item Normal</StyleName>
-                        <Value>=[LumShipmentPlan.CartonQty]</Value>
+                        <Value>=Ceiling([LumShipmentPlan.CartonQty])</Value>
                     </TextBox>
                     <TextBox Name="textBox15">
                         <Format>N2</Format>
@@ -5482,7 +5482,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                             <TextAlign>Center</TextAlign>
                                         </Style>
                                         <StyleName>Item Normal</StyleName>
-                                        <Value>=Sum(Round([LumShipmentPlan.CartonQty], 0 ))</Value>
+                                        <Value>=Sum(Round(Ceiling([LumShipmentPlan.CartonQty]), 0 ))</Value>
                                     </TextBox>
                                     <TextBox Name="textBox29">
                                         <Format>N2</Format>

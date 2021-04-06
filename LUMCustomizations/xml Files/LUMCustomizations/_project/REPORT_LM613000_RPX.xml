@@ -1,8 +1,5 @@
 ﻿<Report Name="lm613000.rpx">
     <Report Name="report1">
-        <CommonSettings>
-            <ViewPdf>True</ViewPdf>
-        </CommonSettings>
         <EmbeddedImages>
             <EmbeddedImage>
                 <ImageData>/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCABKAVADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9UKKKKACiiigAoPSiigDxKb9oG4T9rC1+EaWVu1nLob6o14WPmiRT9wDpjBr22vz1tdWmm/4Kb3Ws/M9nFs0WOQdAzRksD+VfoUaBvQKKKKBBRRSFgvU0ALRSBw3Q0tABRTS6gjJo3r60AOoo60m4Zx3oAWik3j1oJAoAWik3
@@ -152,7 +149,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 <ParentName>POOrder</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>https://abamedical.acumatica.com/</SchemaUrl>
+        <SchemaUrl>http://localhost/ABA_AcumaticaDB1/</SchemaUrl>
         <StyleName>ChineseFont</StyleName>
         <StylesTemplate>TemplateReport.rpx</StylesTemplate>
         <Tables>
@@ -3749,22 +3746,6 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Name>SumOfOrderqty</Name>
                         <ValueExpr>=$SumOfOrderqty+[POLine.OrderQty]</ValueExpr>
                     </ReportVariable>
-                    <ReportVariable>
-                        <Name>LenTranDesc</Name>
-                        <ValueExpr>=Len([POLine.TranDesc])</ValueExpr>
-                    </ReportVariable>
-                    <ReportVariable>
-                        <Name>CutLength</Name>
-                        <ValueExpr>=IIF($LenTranDesc &gt; 15, 15, 0)</ValueExpr>
-                    </ReportVariable>
-                    <ReportVariable>
-                        <Name>SplitCount</Name>
-                        <ValueExpr>=IIF($LenTranDesc &lt; $CutLength,0,$LenTranDesc / $CutLength)</ValueExpr>
-                    </ReportVariable>
-                    <ReportVariable>
-                        <Name>CutLength2</Name>
-                        <ValueExpr>=IIF(Len([InventoryItem.RMTYPE_Attributes]) &gt; 7, 7, 0)</ValueExpr>
-                    </ReportVariable>
                 </Variables>
                 <Items>
                     <TextBox Name="textBox58">
@@ -3810,7 +3791,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             </Font>
                         </Style>
                         <StyleName>ChineseFont</StyleName>
-                        <Value>=[InventoryItem.InventoryCD]+'{br}'+#010;IIF(Len([InventoryItem.RMTYPE_Attributes]) / 7 &gt; 0,#010;Substring([InventoryItem.RMTYPE_Attributes],0,CINT(1 * $CutLength2)) + '{br}' + #010;Substring([InventoryItem.RMTYPE_Attributes], CINT(1 * $CutLength2 + 1) , #010;0),#010;Substring([InventoryItem.RMTYPE_Attributes],0, CINT(Len([InventoryItem.RMTYPE_Attributes]))))#010;</Value>
+                        <Value>=[InventoryItem.InventoryCD]+'{br}'+[InventoryItem.RMTYPE_Attributes]</Value>
                     </TextBox>
                     <TextBox Name="textBox60">
                         <CanGrow>True</CanGrow>
@@ -3833,7 +3814,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             <TextAlign>Left</TextAlign>
                         </Style>
                         <StyleName>ChineseFont</StyleName>
-                        <Value>=IIF($SplitCount &gt; 0,#010;Substring([POLine.TranDesc],0,CINT(1 * $CutLength)) + '{br}' + #010;Substring([POLine.TranDesc], CINT(1 * $CutLength) , CINT($LenTranDesc - (1 * $CutLength))),#010;Substring([POLine.TranDesc],0, CINT($LenTranDesc)))</Value>
+                        <Value>=[POLine.TranDesc]</Value>
                     </TextBox>
                     <TextBox Name="textBox61">
                         <Location>320px, 0px</Location>
