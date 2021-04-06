@@ -1,0 +1,68 @@
+﻿<Graph ClassName="v_LumCuryQuery" Source="#CDATA" IsNew="True" FileType="NewDac">
+    <CDATA name="Source"><![CDATA[using System;
+using PX.Data;
+
+namespace LUMCustomizations
+{
+  [Serializable]
+  [PXCacheName("v_LumCuryQuery")]
+  public class v_LumCuryQuery : IBqlTable
+  {
+    #region FromCuryID
+    [PXDBString(5, IsUnicode = true, InputMask = "")]
+    [PXUIField(DisplayName = "From Cury ID")]
+    public virtual string FromCuryID { get; set; }
+    public abstract class fromCuryID : PX.Data.BQL.BqlString.Field<fromCuryID> { }
+    #endregion
+
+    #region CuryRateType
+    [PXDBString(6, IsUnicode = true, InputMask = "")]
+    [PXUIField(DisplayName = "Cury Rate Type")]
+    public virtual string CuryRateType { get; set; }
+    public abstract class curyRateType : PX.Data.BQL.BqlString.Field<curyRateType> { }
+    #endregion
+
+    #region CuryMultDiv
+    [PXDBString(1, IsFixed = true, InputMask = "")]
+    [PXUIField(DisplayName = "Cury Mult Div")]
+    public virtual string CuryMultDiv { get; set; }
+    public abstract class curyMultDiv : PX.Data.BQL.BqlString.Field<curyMultDiv> { }
+    #endregion
+
+    #region CuryRate
+    [PXDBDecimal]
+    [PXUIField(DisplayName = "Cury Rate")]
+    public virtual Decimal? CuryRate { get; set; }
+    public abstract class curyRate : PX.Data.BQL.BqlDecimal.Field<curyRate> { }
+    #endregion
+
+    #region RateReciprocal
+    [PXDBDecimal()]
+    [PXUIField(DisplayName = "Rate Reciprocal")]
+    public virtual Decimal? RateReciprocal { get; set; }
+    public abstract class rateReciprocal : PX.Data.BQL.BqlDecimal.Field<rateReciprocal> { }
+    #endregion
+
+    #region Tocuryid
+    [PXDBString(5, IsUnicode = true, InputMask = "")]
+    [PXUIField(DisplayName = "Tocuryid")]
+    public virtual string Tocuryid { get; set; }
+    public abstract class tocuryid : PX.Data.BQL.BqlString.Field<tocuryid> { }
+    #endregion
+
+    #region CuryEffDate
+    [PXDBDate()]
+    [PXUIField(DisplayName = "Cury Eff Date")]
+    public virtual DateTime? CuryEffDate { get; set; }
+    public abstract class curyEffDate : PX.Data.BQL.BqlDateTime.Field<curyEffDate> { }
+    #endregion
+
+    #region EndCuryEffDate
+    [PXDBDate()]
+    [PXUIField(DisplayName = "End Cury Eff Date")]
+    public virtual DateTime? EndCuryEffDate { get; set; }
+    public abstract class endCuryEffDate : PX.Data.BQL.BqlDateTime.Field<endCuryEffDate> { }
+    #endregion
+  }
+}]]></CDATA>
+</Graph>
