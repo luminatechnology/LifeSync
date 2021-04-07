@@ -92,6 +92,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAC\LifeSyncPreference.cs" />
+    <Compile Include="DAC\LumDeadStockEnqFilter.cs" />
+    <Compile Include="DAC\LumDeadStockEnqResult.cs" />
     <Compile Include="DAC\LumItemsCOC.cs" />
     <Compile Include="DAC\LumShipmentPlan.cs" />
     <Compile Include="DAC\LUMStdBomCost.cs" />
@@ -113,6 +115,7 @@
     <Compile Include="Graph\InternalCostModelMaint.cs" />
     <Compile Include="Graph\LifeSyncPreferenceMaint.cs" />
     <Compile Include="Graph\LumCostRoll.cs" />
+    <Compile Include="Graph\LumDeadStockEnq.cs" />
     <Compile Include="Graph\LumItemsCOCMaint.cs" />
     <Compile Include="Graph\LUMMultiLevelBomInq.cs" />
     <Compile Include="Graph\LUMMultiLevelBomProc.cs" />
@@ -141,39 +144,6 @@
     <Compile Include="Graph_Extensions\VendorShipmentEntry_Extension.cs" />
     <Compile Include="Library\LumLibrary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="xml Files\LUMCustomizations\CstPublished\Pages_am\AM209000.aspx.cs">
-      <DependentUpon>AM209000.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="xml Files\LUMCustomizations\CstPublished\pages_ap\AP301000.aspx.cs">
-      <DependentUpon>AP301000.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="xml Files\LUMCustomizations\Pages\LM\LM201000.aspx.cs">
-      <DependentUpon>LM201000.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="xml Files\LUMCustomizations\Pages\LM\LM201001.aspx.cs">
-      <DependentUpon>LM201001.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="xml Files\LUMCustomizations\Pages\LM\LM202000.aspx.cs">
-      <DependentUpon>LM202000.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="xml Files\LUMCustomizations\Pages\LM\LM203000.aspx.cs">
-      <DependentUpon>LM203000.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="xml Files\LUMCustomizations\Pages\LM\LM208000.aspx.cs">
-      <DependentUpon>LM208000.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="xml Files\LUMCustomizations\Pages\LM\LM209000.aspx.cs">
-      <DependentUpon>LM209000.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="xml Files\LUMCustomizations\Pages\LM\LM413000.aspx.cs">
-      <DependentUpon>LM413000.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="xml Files\LUMCustomizations\Pages\LM\LM508000.aspx.cs">
-      <DependentUpon>LM508000.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="xml Files\LUMCustomizations\Pages\LM\LM513000.aspx.cs">
-      <DependentUpon>LM513000.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -183,166 +153,6 @@
       <Project>{effc735d-d0ec-400a-9149-1735779be9fb}</Project>
       <Name>LuminaExcelLibrary</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="xml Files\LUMCustomizations\Bin\BouncyCastle.Crypto.dll" />
-    <Content Include="xml Files\LUMCustomizations\Bin\DeepCloner.dll" />
-    <Content Include="xml Files\LUMCustomizations\Bin\ICSharpCode.SharpZipLib.dll" />
-    <Content Include="xml Files\LUMCustomizations\Bin\LumCustomizations.dll" />
-    <Content Include="xml Files\LUMCustomizations\Bin\LumCustomizations.pdb" />
-    <Content Include="xml Files\LUMCustomizations\Bin\LuminaExcelLibrary.dll" />
-    <Content Include="xml Files\LUMCustomizations\Bin\NPOI.dll" />
-    <Content Include="xml Files\LUMCustomizations\Bin\NPOI.OOXML.dll" />
-    <Content Include="xml Files\LUMCustomizations\Bin\NPOI.OpenXml4Net.dll" />
-    <Content Include="xml Files\LUMCustomizations\Bin\NPOI.OpenXmlFormats.dll" />
-    <Content Include="xml Files\LUMCustomizations\Bin\NReco.ImageGenerator.dll" />
-    <Content Include="xml Files\LUMCustomizations\CstPublished\Pages_am\AM209000.aspx" />
-    <Content Include="xml Files\LUMCustomizations\CstPublished\pages_ap\AP301000.aspx" />
-    <Content Include="xml Files\LUMCustomizations\Pages\LM\LM201000.aspx" />
-    <Content Include="xml Files\LUMCustomizations\Pages\LM\LM201001.aspx" />
-    <Content Include="xml Files\LUMCustomizations\Pages\LM\LM202000.aspx" />
-    <Content Include="xml Files\LUMCustomizations\Pages\LM\LM203000.aspx" />
-    <Content Include="xml Files\LUMCustomizations\Pages\LM\LM208000.aspx" />
-    <Content Include="xml Files\LUMCustomizations\Pages\LM\LM209000.aspx" />
-    <Content Include="xml Files\LUMCustomizations\Pages\LM\LM413000.aspx" />
-    <Content Include="xml Files\LUMCustomizations\Pages\LM\LM508000.aspx" />
-    <Content Include="xml Files\LUMCustomizations\Pages\LM\LM513000.aspx" />
-    <Content Include="xml Files\LUMCustomizations\_project\Actions_LM201000.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\AMBatch.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\AMMPS.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\AMProdItem.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Automation_AM201000.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Automation_AM302000.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Automation_AR302000.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Automation_LM201000.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Automation_PO301000.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Automation_SO301000.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Automation_SO303000.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Code_v_COCReport.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Code_v_INNERLABEL_REPORT.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Code_v_INNERLABEL_REPORT_PO.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Code_v_OUTTERLABEL_REPORT.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Code_v_OUTTERLABEL_REPORT_AMC.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Code_v_ProformaInvoiceHeader.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Code_v_ProformaInvoiceHeader_shippmentPlan.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Fields_AM201000.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Fields_AM302000.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Fields_AR302000.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Fields_LM201000.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Fields_PO301000.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Fields_SO301000.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Fields_SO303000.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\pages_am_am201000_aspx.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\pages_am_am201500_aspx.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\pages_am_am300000_aspx.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\pages_am_am302000_aspx.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\pages_am_am310000_aspx.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\pages_ar_ar301000_aspx.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\pages_ar_ar302000_aspx.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\pages_lm_lm201000_aspx.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\pages_lm_lm202000_aspx.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\pages_lm_lm413000_aspx.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\pages_lm_lm513000_aspx.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\pages_po_po301000_aspx.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\pages_so_so301000_aspx.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\pages_so_so302000_aspx.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\pages_so_so303000_aspx.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\POLine.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\ProjectMetadata.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_AM625000_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_AP630500_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_AR630500_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM206100_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM206105_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM601000_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM601001_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM601002_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM601100_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM602000_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM602005_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM602010_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM602015_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM602020_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM602025_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM602030_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM603010_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM603020_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM611000_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM611001_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM611002_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM611003_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM611005_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM612000_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM612005_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM612010_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM613000_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM615000_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM621005_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM625000_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM644005_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM644010_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM646000_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM646005_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_LM657000_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_PO631000_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_SO642010_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_SO642011_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\REPORT_TEMPLATEREPORT_RPX.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_01c1f35c_3742_4a7b_80ce_c90c8e8f3e80.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_052e0e50_9fcc_45ab_b283_99de28f7b8b0.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_07977e59_9919_44f5_a905_3fd5babcea34.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_136a7788_0b6e_400b_a745_7b0e69fd8253.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_151fe4af_7763_4c58_b73b_dd37fc1e53a7.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_18b54827_1020_4119_be3d_230e22e906d0.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_25a0911e_1c97_4b3e_8d84_99d37a427dd2.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_30fff0f7_0f53_4788_97ec_6bcf6cbfcda3.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_380bcb6f_cf99_48b3_b600_6c31d4c166a3.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_494f2031_03f1_41f9_9421_a1e4711bad0e.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_4e0e6744_b693_46f9_ab33_91fbc8405be4.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_5460484a_3695_4685_8aee_ffd5c01a2ec0.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_579ce4b2_408f_4929_ad22_93ccd60998d1.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_62f5e6df_9f01_4602_8571_e07bc983a07b.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_68012af4_c98f_4903_bde4_42f8e86cb807.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_6db4b52b_2834_4887_b879_2a28fa20d8ad.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_70a9897b_1913_4e5c_806f_c64b22c1f85a.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_7477fab1_a27c_40e7_bcb9_899a8fa6c609.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_77379df1_f1f3_486e_97d4_aa17e2caa959.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_77d6d129_0232_44a8_b55f_678074595d41.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_7b3b94e0_ec99_4924_ae81_37758b86cc8a.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_7d0a8b16_198c_4a86_9dfb_07d230581bf9.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_849d94f1_abac_4fab_a7ae_7d0823ed9564.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_857406d8_c157_4842_a97f_9d2e15f50969.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_88666f2a_a2b5_4114_bfba_b4edee70d2a9.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_973fc96b_c5b0_4c4c_ab63_7b6b03511f8f.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_97f96c58_6af9_45a7_84e2_5cd10e2cc04a.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_a5958f7b_b760_411e_9c90_8dcd7bc4beda.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_b0134519_8289_48dc_ae0d_c1eb814a2792.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_b303a632_72cc_4b0b_96fe_83af804fc1df.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_bc53c223_6213_44f3_953c_e597985b6808.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_bd8f1213_d5b8_4b79_9f56_5023b8e2db24.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_be184731_7b3c_40ce_8226_ae3640f4bf5f.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_bf8244f2_ce63_415e_9508_80e041753d80.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_bfd8f2ed_f730_4d3f_bfc2_7cdfe20ba17b.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_c12def64_e592_45c5_ae9b_f9b15b01ed2c.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_c1be7639_b203_4f92_81b3_7028afd6ea40.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_dc7bc449_e10b_4ddd_ae8a_1c3cafceecbf.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_def80a0b_3c64_4133_88b0_8156d15f5eeb.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_ede2b845_d1a8_4846_a9f3_e25e11edc6d6.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SiteMapNode_f0f537b9_4b60_4257_872a_b94a0f7f03b1.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SOLine.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SOOrder.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SOShipLine.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\SOShipment.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Sql_LifeSyncPreference.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Sql_LumItemsCOC.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Sql_LumShipmentPlan.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Sql_LUMStdBomCost.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Sql_v_COCReport_Report.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Sql_v_INNERLABEL_REPORT_General.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Sql_v_INNERLABEL_REPORT_PO.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Sql_v_OUTTERLABEL_REPORT_General.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Sql_v_ProformaInvoiceHeader_Report.xml" />
-    <Content Include="xml Files\LUMCustomizations\_project\Sql_v_ProformaInvoiceHeader_shippmentPlan_Report.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
