@@ -1,5 +1,5 @@
 ﻿using System;
-using JAMS;
+using System.Collections.Generic;
 using JAMS.AM;
 using JAMS.AM.Attributes;
 using LumCustomizations.DAC;
@@ -25,6 +25,9 @@ namespace LUMCustomizations.Graph
         #endregion
 
         #region Override Method
+        /// <summary>
+        /// Override the parent method to add additional conditions to control the quantity round-up logic.
+        /// </summary>
         protected override AMMultiLevelBomData CreateDetailRow(AMBomMatl amBomMatl, AMBomOper amBomOper, AMBomItem amBomItem, InventoryItem inventoryItem, AMBomItem parentBomItem,
                                                                int lineID, int level, decimal totalQtyReq, AMMultiLevelBomFilter filter, string levelBomid, string levelRevisionID)
         {
@@ -167,6 +170,110 @@ namespace LUMCustomizations.Graph
             }
 
             return row;
+        }
+
+        /// <summary>
+        /// Override the parent method to add additional conditions to control the cost round-up logic.
+        /// </summary>
+        public override List<AMMultiLevelBomData> RollCostUpdate(List<AMMultiLevelBomData> multiLevelBomRecs)
+        {
+            List<AMMultiLevelBomData> list = new List<AMMultiLevelBomData>();
+            RollBomList rollBomList = new RollBomList();
+            HashSet<string> hashSet = new HashSet<string>();
+
+            using (List<AMMultiLevelBomData>.Enumerator enumerator = multiLevelBomRecs.GetEnumerator())
+            {
+                for (; ; )
+                {
+                    AMMultiLevelBomData ammultiLevelBomData;
+                    if (4 != 0)
+                    {
+                        if (!enumerator.MoveNext())
+                        {
+                            break;
+                        }
+                        ammultiLevelBomData = enumerator.Current;
+                        string item = string.Join(":", new string[]
+                        {
+                            ammultiLevelBomData.LineBOMID,
+                            ammultiLevelBomData.LineRevisionID
+                        });
+                        if (!hashSet.Add(item))
+                        {
+                            continue;
+                        }
+                    }
+                    bool? isHeaderRecord = ammultiLevelBomData.IsHeaderRecord;
+                    bool flag = true;
+                    bool flag2 = isHeaderRecord.GetValueOrDefault() == flag & isHeaderRecord != null;
+                    while (!flag2 && ammultiLevelBomData.InventoryID != null)
+                    {
+                        AMBomItem ambomItem = (AMBomItem)this.Caches<AMBomItem>().Locate(new AMBomItem
+                        {
+                            BOMID = ammultiLevelBomData.LineBOMID,
+                            RevisionID = ammultiLevelBomData.LineRevisionID
+                        });
+                        if (ambomItem == null)
+                        {
+                            if (false)
+                            {
+                                goto IL_136;
+                            }
+                            ambomItem = PXSelect<AMBomItem, Where<AMBomItem.bOMID, Equal<Required<AMBomItem.bOMID>>, 
+                                                                  And<AMBomItem.revisionID, Equal<Required<AMBomItem.revisionID>>>>>.Select(this, new object[] {
+                                                                                                                                                                   ammultiLevelBomData.LineBOMID,
+                                                                                                                                                                   ammultiLevelBomData.LineRevisionID
+                                                                                                                                                               });
+                        }
+                        flag2 = rollBomList.Add(ambomItem, ammultiLevelBomData.Level.GetValueOrDefault(), false);
+                        if (!false)
+                        {
+                            break;
+                        }
+                    }
+                }
+            IL_136:;
+            }
+            LumCostRoll bomcostRoll = PXGraph.CreateInstance<LumCostRoll>();
+
+            RollupSettings value = new RollupSettings
+            {
+                SnglMlti = "M",
+                SiteID = null,
+                InventoryID = this.Filter.Current.InventoryID,
+                SubItemID = null,
+                BOMID = this.Filter.Current.BOMID,
+                RevisionID = this.Filter.Current.RevisionID,
+                EffectiveDate = this.Filter.Current.BOMDate,
+                IncMatScrp = new bool?(true),
+                IncFixed = new bool?(true),
+                UpdateMaterial = new bool?(false),
+                UsePending = new bool?(false),
+                IgnoreMinMaxLotSizeValues = this.Filter.Current.IgnoreMinMaxLotSizeValues
+            };
+            bomcostRoll.Settings.Current = value;
+            bomcostRoll.RollCosts(rollBomList, Filter.Current.GetExtension<AMMultiLevelBomFilterExt>().UsrEnblItemRoundUp.GetValueOrDefault());
+
+            foreach (AMMultiLevelBomData ammultiLevelBomData2 in multiLevelBomRecs)
+            {
+                AMBomCost bomCostRec = null;
+                if (!string.IsNullOrWhiteSpace(ammultiLevelBomData2.ManufacturingBOMID) && (6 == 0 || !string.IsNullOrWhiteSpace(ammultiLevelBomData2.ManufacturingRevisionID)))
+                {
+                    bomCostRec = (AMBomCost)bomcostRoll.Caches<AMBomCost>().Locate(new AMBomCost
+                    {
+                        BOMID = ammultiLevelBomData2.ManufacturingBOMID,
+                        RevisionID = ammultiLevelBomData2.ManufacturingRevisionID,
+                        UserID = new Guid?(bomcostRoll.Accessinfo.UserID)
+                    });
+                }
+                AMMultiLevelBomData ammultiLevelBomData3 = this.RollCostUpdate(ammultiLevelBomData2, bomCostRec);
+
+                if (ammultiLevelBomData3 != null)
+                {
+                    list.Add(ammultiLevelBomData3);
+                }
+            }
+            return list;
         }
         #endregion
     }
