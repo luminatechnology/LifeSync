@@ -92,6 +92,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAC\LifeSyncPreference.cs" />
+    <Compile Include="DAC\LumDeadStockEnqFilter.cs" />
+    <Compile Include="DAC\LumDeadStockEnqResult.cs" />
     <Compile Include="DAC\LumItemsCOC.cs" />
     <Compile Include="DAC\LumShipmentPlan.cs" />
     <Compile Include="DAC\LUMStdBomCost.cs" />
@@ -113,6 +115,7 @@
     <Compile Include="Graph\InternalCostModelMaint.cs" />
     <Compile Include="Graph\LifeSyncPreferenceMaint.cs" />
     <Compile Include="Graph\LumCostRoll.cs" />
+    <Compile Include="Graph\LumDeadStockEnq.cs" />
     <Compile Include="Graph\LumItemsCOCMaint.cs" />
     <Compile Include="Graph\LUMMultiLevelBomInq.cs" />
     <Compile Include="Graph\LUMMultiLevelBomProc.cs" />
