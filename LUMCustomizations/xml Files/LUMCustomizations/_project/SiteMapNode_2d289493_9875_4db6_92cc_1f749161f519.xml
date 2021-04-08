@@ -25,7 +25,7 @@
         </layout>
         <data>
             <SiteMap>
-                <row Title="Lum Dead Stock" Url="~/Pages/LM/LM405500.aspx" ScreenID="LM405500" NodeID="2d289493-9875-4db6-92cc-1f749161f519" ParentID="00000000-0000-0000-0000-000000000000">
+                <row Title="Dead Stock" Url="~/Pages/LM/LM405500.aspx" ScreenID="LM405500" NodeID="2d289493-9875-4db6-92cc-1f749161f519" ParentID="00000000-0000-0000-0000-000000000000">
                     <MUIScreen IsPortal="0" WorkspaceID="6557c1c6-747e-45bb-9072-54f096598d61" Order="150" SubcategoryID="98e86774-69e3-41ea-b94f-eb2c7a8426d4" />
                 </row>
             </SiteMap>
