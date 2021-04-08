@@ -164,6 +164,7 @@
                             <GIOn LineNbr="13" ParentField="SOLine.OrderType" Condition="E " ChildField="SOOrder.OrderType" Operation="A" />
                         </GIRelation>
                         <GIRelation LineNbr="5" ChildTable="INItemXRef" IsActive="1" JoinType="L">
+                            <GIOn LineNbr="17" ParentField="SOLine.UOM" Condition="E " ChildField="INItemXRef.UOM" Operation="A" />
                             <GIOn LineNbr="9" ParentField="SOLine.CustomerID" Condition="E " ChildField="INItemXRef.BAccountID" Operation="A" />
                             <GIOn LineNbr="8" ParentField="SOLine.InventoryID" Condition="E " ChildField="INItemXRef.InventoryID" Operation="A" />
                             <GIOn LineNbr="7" ParentField="='0CPN'" Condition="E " ChildField="=cstr([INItemXRef.AlternateType])" Operation="A" />
