@@ -7,6 +7,9 @@ namespace PX.Objects.IN
     public class INItemLotSerialExt : PXCacheExtension<PX.Objects.IN.INItemLotSerial>
     {
         #region UsrPurchReceivingDate
+        /// <summary>
+        /// Get transaction date from receipt.
+        /// </summary>
         [PXDate]
         [PXUIField(DisplayName = "Purchase Receiving Date", Enabled = false)]
         [PXDBScalar(typeof(Search<INTran.tranDate, Where<INTran.inventoryID, Equal<INItemLotSerial.inventoryID>,  
