@@ -83,6 +83,7 @@
             </ReportParameter>
             <ReportParameter>
                 <ColumnSpan>2</ColumnSpan>
+                <DefaultValue>W001</DefaultValue>
                 <Name>SiteCD</Name>
                 <Prompt>Warehouse</Prompt>
                 <ViewName>=Report.GetFieldSchema('INTran.SiteID')</ViewName>
@@ -2004,7 +2005,7 @@
                     </ReportVariable>
                     <ReportVariable>
                         <Name>RecevingDate</Name>
-                        <ValueExpr>=DateAdd($LotNbr2Date, 'd', IIf($DiffDays &gt; $InspectionDays, Round(($DiffDays / $InspectionDays) *$InspectionDays, 0), $InspectionDays) )</ValueExpr>
+                        <ValueExpr>=DateAdd($LotNbr2Date, 'd', IIf($DiffDays &gt; $InspectionDays, (Round($DiffDays / $InspectionDays, 0) * $InspectionDays ) + 1, $InspectionDays) )</ValueExpr>
                     </ReportVariable>
                 </Variables>
                 <VisibleExpr>=$RecevingDate &gt;= [@FromDate] And $RecevingDate &lt;=[@ToDate]</VisibleExpr>
