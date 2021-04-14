@@ -229,7 +229,7 @@ namespace LumCustomizations.Graph
             sheet.GetRow(2).GetCell(1).CellStyle = NormalStyle;
             sheet.GetRow(2).CreateCell(4).SetCellValue($"Revision No :01");
             sheet.GetRow(2).GetCell(4).CellStyle = NormalStyle;
-            sheet.GetRow(2).CreateCell(6).SetCellValue($"Date :{_AMProdItem.ProdDate.Value.ToString("yyyy-MM-dd")}");
+            sheet.GetRow(2).CreateCell(6).SetCellValue($"Date :{DateTime.Now.ToString("yyyy-MM-dd")}");
             sheet.GetRow(2).GetCell(6).CellStyle = NormalStyle;
 
             sheet.CreateRow(3);
