@@ -229,7 +229,7 @@ namespace LumCustomizations.Graph
             sheet.GetRow(2).GetCell(1).CellStyle = NormalStyle;
             sheet.GetRow(2).CreateCell(4).SetCellValue($"Revision No :01");
             sheet.GetRow(2).GetCell(4).CellStyle = NormalStyle;
-            sheet.GetRow(2).CreateCell(6).SetCellValue($"Date :{_AMProdItem.ProdDate.Value.ToString("yyyy-MM-dd")}");
+            sheet.GetRow(2).CreateCell(6).SetCellValue($"Date :{DateTime.Now.ToString("yyyy-MM-dd")}");
             sheet.GetRow(2).GetCell(6).CellStyle = NormalStyle;
 
             sheet.CreateRow(3);
@@ -652,7 +652,8 @@ namespace LumCustomizations.Graph
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
             sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{_ABADGSELL}");
             sheet.GetRow(rowNum).GetCell(3).CellStyle = TANCellStyle;
-            sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{(_TotalCost * (decimal.Parse(_ABADGSELL) / 100)).ToString("N4")}");
+            //sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{(_TotalCost * (decimal.Parse(_ABADGSELL) / 100)).ToString("N4")}");
+            sheet.GetRow(rowNum).CreateCell(9).SetCellFormula($"D{rowNum + 1}*J{rowNum - 2}");
             sheet.GetRow(rowNum).GetCell(9).CellStyle = TANCellStyle;
 
             // Sum
@@ -742,7 +743,8 @@ namespace LumCustomizations.Graph
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
             sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{_HKOHSCCost}");
             sheet.GetRow(rowNum).GetCell(3).CellStyle = TANCellStyle;
-            sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{(_abaDGPrice * (decimal.Parse(_HKOHSCCost) / 100)).ToString("N4")}");
+            //sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{(_abaDGPrice * (decimal.Parse(_HKOHSCCost) / 100)).ToString("N4")}");
+            sheet.GetRow(rowNum).CreateCell(9).SetCellFormula($"D{rowNum + 1} * J{rowNum - 2}");
             sheet.GetRow(rowNum).GetCell(9).CellStyle = TANCellStyle;
 
             // Sum
