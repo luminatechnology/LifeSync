@@ -143,19 +143,18 @@ namespace LUMCustomizations.Graph
 
         public virtual void LoadDataRecords(string levelBomid, string levelRevisionID, int? level, decimal? totalQtyReq, AMBomItem parentBomItem, List<LUMStdBomCost> multiLevelBomRecs, AMMultiLevelBomFilter bomFilter)
         {
-            if (level == null || level > LowLevel.MaxLowLevel || string.IsNullOrWhiteSpace(levelBomid) || bomFilter == null)
-            {
-                return;
-            }
+            if (level == null || level > LowLevel.MaxLowLevel || string.IsNullOrWhiteSpace(levelBomid) || bomFilter == null) { return; }
 
             // We need a Header for each new level to add the costs from the Cost Roll and to Insert the record as material
             var headerRow = CreateHeaderRow(parentBomItem, multiLevelBomRecs.Count + 1, level.GetValueOrDefault(), totalQtyReq);
-            if (headerRow == null)
-            {
-                return;
-            }
+            
+            if (headerRow == null) { return; }
 
-            multiLevelBomRecs.Add(headerRow);
+            // Simulate report [AM614000] grouping conditions.
+            if (multiLevelBomRecs.Exists(rec => rec.ManufBOMID == parentBomItem.BOMID && rec.ManufRevisionID == parentBomItem.RevisionID) == false)
+            {
+                multiLevelBomRecs.Add(headerRow);
+            }
 
             var bomOpersWithoutMatl = new List<AMBomOper>();
             var includeOpersWithoutMatl = false;
