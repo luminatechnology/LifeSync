@@ -151,7 +151,8 @@ namespace LUMCustomizations.Graph
             if (headerRow == null) { return; }
 
             // Simulate report [AM614000] grouping conditions.
-            if (multiLevelBomRecs.Exists(rec => rec.ManufBOMID == parentBomItem.BOMID && rec.ManufRevisionID == parentBomItem.RevisionID) == false)
+            if (multiLevelBomRecs.Exists(rec => rec.ManufBOMID == parentBomItem.BOMID && rec.ManufRevisionID == parentBomItem.RevisionID) == false && 
+                parentBomItem.Status == AMBomStatus.Active)
             {
                 multiLevelBomRecs.Add(headerRow);
             }
