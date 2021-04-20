@@ -124,6 +124,7 @@
                 <ParentName>INItemLotSerial</ParentName>
             </ReportRelation>
         </Relations>
+        <SchemaUrl>https://abamedical.acumatica.com/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>InventoryItem.InventoryCD</DataField>
@@ -1380,42 +1381,21 @@
             <PageHeader Name="pageHeaderSection1">
                 <Height>2.5cm</Height>
                 <Items>
-                    <TextBox Name="textBox1">
-                        <Location>0px, 0px</Location>
+                    <TextBox Name="textBox18">
+                        <Location>712px, 80px</Location>
+                        <Size>0.7in, 0.16667in</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
-                                <Size>26px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Bottom</VerticalAlign>
                         </Style>
-                        <StyleName>Report Name</StyleName>
-                        <Value>=Year([@FromDate]) + '年' + Month([@FromDate]) + '月复检明细'</Value>
-                    </TextBox>
-                    <TextBox Name="textBox18">
-                        <Size>0.65in, 0.16667in</Size>
-                        <Style>
-                            <Font>
-                                <Name>Microsoft YaHei UI</Name>
-                            </Font>
-                        </Style>
-                        <StyleName>Report Params</StyleName>
-                        <Value>From Date:</Value>
+                        <StyleName>Heading1BCColored</StyleName>
+                        <Value>有效天数</Value>
                     </TextBox>
                     <TextBox Name="textBox19">
-                        <Location>64px, 40px</Location>
-                        <Size>0.8in, 0.16667in</Size>
-                        <Style>
-                            <Font>
-                                <Name>Microsoft YaHei UI</Name>
-                            </Font>
-                        </Style>
-                        <StyleName>Report Params</StyleName>
-                        <Value>=[@FromDate]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox2">
-                        <Size>0.8in, 0.16667in</Size>
+                        <Location>1px, 80px</Location>
+                        <Size>0.7in, 0.16667in</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -1425,7 +1405,20 @@
                         <StyleName>Heading1BCColored</StyleName>
                         <Value>品号</Value>
                     </TextBox>
+                    <TextBox Name="textBox2">
+                        <Location>144px, 80px</Location>
+                        <Size>148px, 0.16667in</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                        </Style>
+                        <StyleName>Heading1BCColored</StyleName>
+                        <Value>规格</Value>
+                    </TextBox>
                     <TextBox Name="textBox20">
+                        <Location>1px, 56px</Location>
                         <Size>0.65in, 0.16667in</Size>
                         <Style>
                             <Font>
@@ -1471,6 +1464,7 @@
                         <Value>仓库</Value>
                     </TextBox>
                     <TextBox Name="textBox25">
+                        <Location>696px, 56px</Location>
                         <Size>0.8in, 0.16667in</Size>
                         <Style>
                             <Font>
@@ -1481,7 +1475,9 @@
                         <StyleName>Report Params</StyleName>
                         <Value>=[PageOf]</Value>
                     </TextBox>
-                    <TextBox Name="textBox3">
+                    <TextBox Name="textBox27">
+                        <Location>68px, 80px</Location>
+                        <Size>0.8in, 0.16667in</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -1491,8 +1487,45 @@
                         <StyleName>Heading1BCColored</StyleName>
                         <Value>品号</Value>
                     </TextBox>
+                    <TextBox Name="textBox28">
+                        <Location>64px, 40px</Location>
+                        <Size>0.8in, 0.16667in</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                            </Font>
+                        </Style>
+                        <StyleName>Report Params</StyleName>
+                        <Value>=[@FromDate]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox29">
+                        <Location>1px, 40px</Location>
+                        <Size>0.65in, 0.16667in</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                            </Font>
+                        </Style>
+                        <StyleName>Report Params</StyleName>
+                        <Value>From Date:</Value>
+                    </TextBox>
+                    <TextBox Name="textBox30">
+                        <Location>0px, 0px</Location>
+                        <Size>776px, 32px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                                <Size>26px</Size>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Bottom</VerticalAlign>
+                        </Style>
+                        <StyleName>Report Name</StyleName>
+                        <Value>=Year([@FromDate]) + '年' + Month([@FromDate]) + '月复检明細'</Value>
+                    </TextBox>
                     <TextBox Name="textBox4">
-                        <Size>0.7in, 0.16667in</Size>
+                        <Location>406px, 80px</Location>
+                        <Size>0.8in, 0.16667in</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -1500,9 +1533,10 @@
                             <TextAlign>Center</TextAlign>
                         </Style>
                         <StyleName>Heading1BCColored</StyleName>
-                        <Value>有效天数</Value>
+                        <Value>库存数量</Value>
                     </TextBox>
                     <TextBox Name="textBox5">
+                        <Location>645px, 80px</Location>
                         <Size>0.7in, 0.16667in</Size>
                         <Style>
                             <Font>
@@ -1514,6 +1548,7 @@
                         <Value>复检日期</Value>
                     </TextBox>
                     <TextBox Name="textBox6">
+                        <Location>578px, 80px</Location>
                         <Size>0.7in, 0.16667in</Size>
                         <Style>
                             <Font>
@@ -1525,6 +1560,7 @@
                         <Value>有效日期</Value>
                     </TextBox>
                     <TextBox Name="textBox7">
+                        <Location>482px, 80px</Location>
                         <Size>1in, 0.16667in</Size>
                         <Style>
                             <Font>
@@ -1534,26 +1570,6 @@
                         </Style>
                         <StyleName>Heading1BCColored</StyleName>
                         <Value>批号</Value>
-                    </TextBox>
-                    <TextBox Name="textBox8">
-                        <Style>
-                            <Font>
-                                <Name>Microsoft YaHei UI</Name>
-                            </Font>
-                            <TextAlign>Center</TextAlign>
-                        </Style>
-                        <StyleName>Heading1BCColored</StyleName>
-                        <Value>库存数量</Value>
-                    </TextBox>
-                    <TextBox Name="textBox9">
-                        <Style>
-                            <Font>
-                                <Name>Microsoft YaHei UI</Name>
-                            </Font>
-                            <TextAlign>Center</TextAlign>
-                        </Style>
-                        <StyleName>Heading1BCColored</StyleName>
-                        <Value>规格</Value>
                     </TextBox>
                 </Items>
             </PageHeader>
@@ -1570,46 +1586,14 @@
                     </ReportVariable>
                     <ReportVariable>
                         <Name>RecevingDate</Name>
-                        <ValueExpr>=DateAdd([INItemLotSerial.UsrPurchReceivingDate], 'd', IIf($DiffDays &gt; $InspectionDays, Floor($DiffDays / $InspectionDays) * $InspectionDays, $InspectionDays) )</ValueExpr>
+                        <ValueExpr>=DateAdd([INItemLotSerial.UsrPurchReceivingDate], 'd', IIf($DiffDays &gt; $InspectionDays, (Round($DiffDays / $InspectionDays, 0) * $InspectionDays ) + 1, $InspectionDays) )</ValueExpr>
                     </ReportVariable>
                 </Variables>
-                <VisibleExpr>=$RecevingDate &gt;= [@FromDate] And $RecevingDate &lt;= [@ToDate]</VisibleExpr>
                 <Items>
-                    <TextBox Name="textBox10">
-                        <Style>
-                            <Font>
-                                <Name>Microsoft YaHei UI</Name>
-                            </Font>
-                            <TextAlign>Center</TextAlign>
-                        </Style>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[InventoryItem.InventoryCD]</Value>
-                    </TextBox>
                     <TextBox Name="textBox11">
-                        <CanGrow>True</CanGrow>
-                        <Size>0.8in, 0.16667in</Size>
-                        <Style>
-                            <Font>
-                                <Name>Microsoft YaHei UI</Name>
-                            </Font>
-                            <TextAlign>Center</TextAlign>
-                        </Style>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[InventoryItem.RMTYPE_Attributes]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox12">
-                        <CanGrow>True</CanGrow>
-                        <Style>
-                            <Font>
-                                <Name>Microsoft YaHei UI</Name>
-                            </Font>
-                            <TextAlign>Center</TextAlign>
-                        </Style>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[InventoryItem.Descr]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox13">
                         <Format>N4</Format>
+                        <Location>406px, 8px</Location>
+                        <Size>0.8in, 0.16667in</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -1620,6 +1604,7 @@
                         <Value>=[INItemLotSerial.QtyOnHand]</Value>
                     </TextBox>
                     <TextBox Name="textBox14">
+                        <Location>482px, 8px</Location>
                         <Size>1in, 0.16667in</Size>
                         <Style>
                             <Font>
@@ -1631,6 +1616,7 @@
                         <Value>=[INItemLotSerial.LotSerialNbr]</Value>
                     </TextBox>
                     <TextBox Name="textBox15">
+                        <Location>578px, 8px</Location>
                         <Size>0.7in, 0.16667in</Size>
                         <Style>
                             <Font>
@@ -1642,6 +1628,7 @@
                         <Value>=[INItemLotSerial.ExpireDate]</Value>
                     </TextBox>
                     <TextBox Name="textBox16">
+                        <Location>645px, 8px</Location>
                         <Size>0.7in, 0.16667in</Size>
                         <Style>
                             <Font>
@@ -1653,6 +1640,7 @@
                         <Value>=IsNull([INItemLotSerial.ExpireDate], $RecevingDate)</Value>
                     </TextBox>
                     <TextBox Name="textBox17">
+                        <Location>712px, 8px</Location>
                         <Size>0.7in, 0.16667in</Size>
                         <Style>
                             <Font>
@@ -1686,6 +1674,44 @@
                         </Style>
                         <StyleName>Normal</StyleName>
                         <Value>=[INLotSerialStatus.SiteID]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox31">
+                        <CanGrow>True</CanGrow>
+                        <Location>144px, 8px</Location>
+                        <Size>148px, 0.16667in</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                        </Style>
+                        <StyleName>Normal</StyleName>
+                        <Value>=[InventoryItem.Descr]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox32">
+                        <CanGrow>True</CanGrow>
+                        <Location>68px, 8px</Location>
+                        <Size>0.8in, 0.16667in</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                        </Style>
+                        <StyleName>Normal</StyleName>
+                        <Value>=[InventoryItem.RMTYPE_Attributes]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox33">
+                        <Location>1px, 8px</Location>
+                        <Size>0.7in, 0.16667in</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft YaHei UI</Name>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                        </Style>
+                        <StyleName>Normal</StyleName>
+                        <Value>=[InventoryItem.InventoryCD]</Value>
                     </TextBox>
                 </Items>
             </Detail>

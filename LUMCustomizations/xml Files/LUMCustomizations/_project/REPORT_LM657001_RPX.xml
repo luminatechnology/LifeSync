@@ -32,10 +32,6 @@
                 <DataField>INItemLotSerial.ExpireDate</DataField>
             </FilterExp>
             <FilterExp>
-                <Condition>IsNotNull</Condition>
-                <DataField>InventoryItem.INSPDAY_Attributes</DataField>
-            </FilterExp>
-            <FilterExp>
                 <Condition>Like</Condition>
                 <DataField>INSite.SiteCD</DataField>
                 <OpenBraces>1</OpenBraces>
@@ -46,6 +42,10 @@
                 <CloseBraces>1</CloseBraces>
                 <Condition>IsNull</Condition>
                 <DataField>@SiteCD</DataField>
+            </FilterExp>
+            <FilterExp>
+                <Condition>IsNotNull</Condition>
+                <DataField>InventoryItem.INSPDAY_Attributes</DataField>
             </FilterExp>
         </Filters>
         <PageSettings>
@@ -83,7 +83,6 @@
             </ReportParameter>
             <ReportParameter>
                 <ColumnSpan>2</ColumnSpan>
-                <DefaultValue>W001</DefaultValue>
                 <Name>SiteCD</Name>
                 <Prompt>Warehouse</Prompt>
                 <ViewName>=Report.GetFieldSchema('INTran.SiteID')</ViewName>
@@ -1992,12 +1991,16 @@
                 <Height>0.84656cm</Height>
                 <Variables>
                     <ReportVariable>
+                        <Name>LotNbr</Name>
+                        <ValueExpr>=IIf(InStr([INItemLotSerial.LotSerialNbr], 'Z') = 0, Substring([INItemLotSerial.LotSerialNbr], 1, Len([INItemLotSerial.LotSerialNbr]) - 1), [INItemLotSerial.LotSerialNbr])</ValueExpr>
+                    </ReportVariable>
+                    <ReportVariable>
                         <Name>LotNbr2Date</Name>
-                        <ValueExpr>=CDate(Format('{0}/{1}/{2}', Substring([INItemLotSerial.LotSerialNbr], 0, 4),#010;		             Substring([INItemLotSerial.LotSerialNbr], 4, 2),#010;                             Substring([INItemLotSerial.LotSerialNbr], 6, 2)) )</ValueExpr>
+                        <ValueExpr>=CDate(Format('{0}/{1}/{2}', Substring($LotNbr, 0, 4),#010;		             Substring($LotNbr, 4, 2),#010;                             IIf(Substring($LotNbr, 6, 2) = '00', '01', Substring($LotNbr, 6, 2))) )</ValueExpr>
                     </ReportVariable>
                     <ReportVariable>
                         <Name>InspectionDays</Name>
-                        <ValueExpr>=CInt(IsNull([InventoryItem.INSPDAY_Attributes], 1) )</ValueExpr>
+                        <ValueExpr>=CDec([InventoryItem.INSPDAY_Attributes])</ValueExpr>
                     </ReportVariable>
                     <ReportVariable>
                         <Name>DiffDays</Name>
@@ -2108,6 +2111,7 @@
                         </Style>
                         <StyleName>Normal</StyleName>
                         <Value>=[InventoryItem.INSPDAY_Attributes]</Value>
+                        <VisibleExpr>=$RecevingDate &gt;= [@FromDate] And $RecevingDate &lt;=[@ToDate]</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox24">
                         <Location>349px, 8px</Location>

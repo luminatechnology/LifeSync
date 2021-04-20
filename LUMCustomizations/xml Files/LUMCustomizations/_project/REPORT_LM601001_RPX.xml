@@ -203,7 +203,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 <ParentName>AMProdItem</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>https://healthedge.acumatica.com</SchemaUrl>
+        <SchemaUrl>http://localhost/ABA_AcumaticaDB1/</SchemaUrl>
         <Tables>
             <ReportTable Name="InventoryItem">
                 <Fields>
@@ -2327,7 +2327,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
+                        <Value>='Customer Part NO. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
                     </TextBox>
                     <TextBox Name="textBox24">
                         <Localizable>False</Localizable>
@@ -2735,7 +2735,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
+                        <Value>='Customer Part NO. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
                     </TextBox>
                 </Items>
             </Detail>
@@ -2881,7 +2881,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
+                        <Value>='Customer Part NO. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
                     </TextBox>
                     <TextBox Name="textBox48">
                         <Localizable>False</Localizable>
@@ -3184,7 +3184,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
+                        <Value>='Customer Part NO. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
                     </TextBox>
                     <TextBox Name="textBox69">
                         <Localizable>False</Localizable>
@@ -3326,7 +3326,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
+                        <Value>='Customer Part NO. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
                     </TextBox>
                     <TextBox Name="textBox78">
                         <CanGrow>True</CanGrow>
@@ -3797,7 +3797,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
+                        <Value>='Customer Part NO. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
                     </TextBox>
                     <TextBox Name="textBox96">
                         <Localizable>False</Localizable>
@@ -3883,7 +3883,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold, Underline</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
+                        <Value>='Customer Part NO. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
                     </TextBox>
                     <TextBox Name="textBox116">
                         <Localizable>False</Localizable>
@@ -4173,7 +4173,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold, Underline</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
+                        <Value>='Customer Part NO. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
                     </TextBox>
                     <TextBox Name="textBox135">
                         <Localizable>False</Localizable>
@@ -4599,7 +4599,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
+                        <Value>='Customer Part NO. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
                     </TextBox>
                     <TextBox Name="textBox163">
                         <CanGrow>True</CanGrow>
@@ -4986,7 +4986,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
+                        <Value>='Customer Part NO. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
                     </TextBox>
                 </Items>
             </Detail>
@@ -5011,7 +5011,6 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </PageFooter>
             <Detail Name="General-Resistor">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF([outter.Customer] &lt;&gt; 'OSI' #010;And [outter.Customer] &lt;&gt; 'AMC'#010;And [outter.Customer] &lt;&gt; 'SJM'#010;And [outter.Customer] &lt;&gt; 'MASIMO'#010;And [outter.Customer] &lt;&gt; '科曼'#010;And @Customer &lt;&gt; 'OSI'#010;And @Customer &lt;&gt; 'AMC'#010;And @Customer &lt;&gt; 'SJM'#010;And @Customer &lt;&gt; 'MASIMO'#010;And @Customer &lt;&gt; '科曼'#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null OR @Resistor &lt;&gt; null ) ,true,false)</VisibleExpr>
@@ -5159,7 +5158,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
-                        <Value>='Customer Part No. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
+                        <Value>='Customer Part NO. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
                     </TextBox>
                     <TextBox Name="textBox201">
                         <Localizable>False</Localizable>
