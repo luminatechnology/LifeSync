@@ -1,4 +1,4 @@
-﻿<Report Name="lm646000.rpx">
+<Report Name="lm646000.rpx">
     <Report Name="report1">
         <Filters>
             <FilterExp>
@@ -4502,7 +4502,7 @@
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=[POReceiptLine.LocationID_INLocation_descr]</Value>
+                        <Value>=[InventoryItem.BIN_Attributes]</Value>
                     </TextBox>
                     <TextBox Name="textBox84">
                         <Location>568px, 0px</Location>
