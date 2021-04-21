@@ -3763,7 +3763,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                     </ReportVariable>
                     <ReportVariable>
                         <Name>CutLength2</Name>
-                        <ValueExpr>=IIF(Len([InventoryItem.RMTYPE_Attributes]) &gt; 7, 7, 0)</ValueExpr>
+                        <ValueExpr>=IIF(Len([InventoryItem.RMTYPE_Attributes]) &gt; 6, 6, 0)</ValueExpr>
                     </ReportVariable>
                 </Variables>
                 <Items>
@@ -3792,6 +3792,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                         <Value>=PadLeft(CStr($LineNbr), 4, '0')</Value>
                     </TextBox>
                     <TextBox Name="textBox59">
+                        <CanGrow>True</CanGrow>
                         <Location>64px, 0px</Location>
                         <Size>72px, 56px</Size>
                         <Style>
@@ -3810,7 +3811,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             </Font>
                         </Style>
                         <StyleName>ChineseFont</StyleName>
-                        <Value>=[InventoryItem.InventoryCD]+'{br}'+#010;IIF(Len([InventoryItem.RMTYPE_Attributes]) / 7 &gt; 0,#010;Substring([InventoryItem.RMTYPE_Attributes],0,CINT(1 * $CutLength2)) + '{br}' + #010;Substring([InventoryItem.RMTYPE_Attributes], CINT(1 * $CutLength2 + 1) , #010;0),#010;Substring([InventoryItem.RMTYPE_Attributes],0, CINT(Len([InventoryItem.RMTYPE_Attributes]))))#010;</Value>
+                        <Value>=[InventoryItem.InventoryCD]+'{br}'+#010;IIF(Len([InventoryItem.RMTYPE_Attributes]) / $CutLength2 &gt; 0,#010;Substring([InventoryItem.RMTYPE_Attributes],0,CINT(1 * $CutLength2)) + '{br}' + #010;Substring([InventoryItem.RMTYPE_Attributes], CINT(1 * $CutLength2) , #010;CINT(Len([InventoryItem.RMTYPE_Attributes])-CINT(1 * $CutLength2))),#010;Substring([InventoryItem.RMTYPE_Attributes],0, CINT(Len([InventoryItem.RMTYPE_Attributes]))))#010;</Value>
                     </TextBox>
                     <TextBox Name="textBox60">
                         <CanGrow>True</CanGrow>

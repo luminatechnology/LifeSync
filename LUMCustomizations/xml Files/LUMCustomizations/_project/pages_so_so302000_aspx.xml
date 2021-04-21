@@ -11,4 +11,15 @@
             <PXLayoutRule OriginalIndex="16" />
         </Children>
     </PXFormView>
+    <PXGridLevel DataMember="Transactions" ParentId="phG_tab_Items#0_grid_Levels#0" TypeFullName="PX.Web.UI.PXGridLevel">
+        <Children Key="Columns">
+            <AddItem>
+                <PXGridColumn TypeFullName="PX.Web.UI.PXGridColumn">
+                    <Prop Key="DataField" Value="UsrBRNbr" />
+                    <Prop Key="Width" Value="280" />
+                </PXGridColumn>
+            </AddItem>
+            <PXGridColumn DataField="TranDesc" OriginalIndex="24" />
+        </Children>
+    </PXGridLevel>
 </Page>
