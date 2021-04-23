@@ -247,7 +247,7 @@
                 <ParentName>InventoryItem</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/LifeSync</SchemaUrl>
+        <SchemaUrl>http://dev01.clouderp.com.tw/LifeSync</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>ARTran.BranchID</DataField>
@@ -1838,6 +1838,11 @@
                         <ResetGroup>BOMCostGrp</ResetGroup>
                         <ValueExpr>=IIf([LUMStdBomCost.IdentityID] = Max([LUMStdBomCost.IdentityID]), [ARTran.Margin] + $TotalMargin, 0)</ValueExpr>
                     </ReportVariable>
+                    <ReportVariable>
+                        <Name>TotalSalesQty</Name>
+                        <ResetGroup>BOMCostGrp</ResetGroup>
+                        <ValueExpr>=IIf([LUMStdBomCost.IdentityID] = Max([LUMStdBomCost.IdentityID]), [ARTran.BaseQty] + $TotalSalesQty, 0)</ValueExpr>
+                    </ReportVariable>
                 </Variables>
                 <Visible>False</Visible>
             </Detail>
@@ -2881,15 +2886,15 @@
                             </ReportVariable>
                             <ReportVariable>
                                 <Name>TotalLabor</Name>
-                                <ValueExpr>=[LUMStdBomCost.TotalQtyReq] * $UnitLabor</ValueExpr>
+                                <ValueExpr>=$TotalSalesQty * $UnitLabor</ValueExpr>
                             </ReportVariable>
                             <ReportVariable>
                                 <Name>TotalOverhead</Name>
-                                <ValueExpr>=[LUMStdBomCost.TotalQtyReq] * $UnitOverhead</ValueExpr>
+                                <ValueExpr>=$TotalSalesQty * $UnitOverhead</ValueExpr>
                             </ReportVariable>
                             <ReportVariable>
                                 <Name>STDMaterial</Name>
-                                <ValueExpr>=[LUMStdBomCost.TotalQtyReq] * [LUMStdBomCost.CompPurchMatl]</ValueExpr>
+                                <ValueExpr>=$TotalSalesQty * [LUMStdBomCost.CompPurchMatl]</ValueExpr>
                             </ReportVariable>
                             <ReportVariable>
                                 <Name>TotalNet_Grp2</Name>
@@ -2950,7 +2955,7 @@
                                     <TextAlign>Right</TextAlign>
                                 </Style>
                                 <StyleName>Normal</StyleName>
-                                <Value>=[ARTran.Cost] - $TotalLabor + $TotalOverhead + $STDMaterial</Value>
+                                <Value>=$TotalCost - ($TotalLabor + $TotalOverhead + $STDMaterial)</Value>
                             </TextBox>
                             <TextBox Name="textBox111">
                                 <Excel>
@@ -3017,13 +3022,14 @@
                                 <Value>=[Branch.BaseCuryID]</Value>
                             </TextBox>
                             <TextBox Name="textBox116">
+                                <CanGrow>True</CanGrow>
                                 <Excel>
                                     <column>2</column>
                                 </Excel>
                                 <Location>70px, 4px</Location>
                                 <Size>100px, 14px</Size>
                                 <StyleName>Normal</StyleName>
-                                <Value>=[LUMStdBomCost.IdentityID]#010;/*[InventoryItem.Descr]*/</Value>
+                                <Value>=[InventoryItem.Descr]</Value>
                             </TextBox>
                             <TextBox Name="textBox117">
                                 <Location>4px, 4px</Location>
@@ -3035,13 +3041,14 @@
                                 <Excel>
                                     <column>4</column>
                                 </Excel>
+                                <Format>=[ARTran.TranCost.Format]</Format>
                                 <Location>230px, 4px</Location>
                                 <Size>80px, 14px</Size>
                                 <Style>
                                     <TextAlign>Right</TextAlign>
                                 </Style>
                                 <StyleName>Normal</StyleName>
-                                <Value>=[LUMStdBomCost.TotalQtyReq]</Value>
+                                <Value>=$TotalSalesQty</Value>
                             </TextBox>
                             <TextBox Name="textBox90">
                                 <Excel>
@@ -3054,7 +3061,7 @@
                                     <TextAlign>Right</TextAlign>
                                 </Style>
                                 <StyleName>Normal</StyleName>
-                                <Value>=[ARTran.Cost] - $TotalLabor - $TotalOverhead</Value>
+                                <Value>=$TotalCost - $TotalLabor - $TotalOverhead</Value>
                             </TextBox>
                             <TextBox Name="textBox91">
                                 <Excel>
