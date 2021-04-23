@@ -91,7 +91,8 @@ namespace LUMCustomizations.Graph
                                              new PXDataFieldAssign<LUMStdBomCost.createdDateTime>(graph.Accessinfo.BusinessDate),
                                              new PXDataFieldAssign<LUMStdBomCost.lastModifiedByID>(graph.Accessinfo.UserID),
                                              new PXDataFieldAssign<LUMStdBomCost.lastModifiedByScreenID>(screenIDWODot),
-                                             new PXDataFieldAssign<LUMStdBomCost.lastModifiedDateTime>(graph.Accessinfo.BusinessDate));
+                                             new PXDataFieldAssign<LUMStdBomCost.lastModifiedDateTime>(graph.Accessinfo.BusinessDate),
+                                             new PXDataFieldAssign<LUMStdBomCost.noteID>(Guid.NewGuid()) );
         }
         #endregion
 
