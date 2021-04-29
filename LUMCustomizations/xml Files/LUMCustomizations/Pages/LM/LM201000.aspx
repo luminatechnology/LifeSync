@@ -24,7 +24,7 @@
                     <px:PXGridColumn CommitChanges="True" DataField="SOLineNoteID" Width="70"></px:PXGridColumn>
                     <px:PXGridColumn DataField="OrderNbr" Width="140"></px:PXGridColumn>
                     <px:PXGridColumn DataField="OrderType" Width="70"></px:PXGridColumn>
-                    <px:PXGridColumn DataField="Customer" Width="180"></px:PXGridColumn>
+                    <px:PXGridColumn DataField="Customer" Width="180" DisplayMode="Hint"></px:PXGridColumn>
                     <px:PXGridColumn DataField="CustomerLocationID" Width="70"></px:PXGridColumn>
                     <px:PXGridColumn DataField="CustomerOrderNbr" Width="180"></px:PXGridColumn>
                     <px:PXGridColumn DataField="UOM" Width="70"></px:PXGridColumn>
@@ -67,6 +67,7 @@
                     <px:PXSelector AllowEdit="True" runat="server" ID="CstPXSelector11" DataField="ShipVia"></px:PXSelector>
                     <px:PXSelector AutoRefresh="True" runat="server" ID="CstPXSelector12" DataField="ProdOrdID" AllowEdit="True"></px:PXSelector>
                     <px:PXSelector runat="server" ID="CstPXSelector13" DataField="ShipmentNbr" AllowEdit="True" AutoRefresh="True"></px:PXSelector>
+                    <px:PXSelector runat="server" ID="edCustomer" DataField="Customer"></px:PXSelector>
                 </RowTemplate>
             </px:PXGridLevel>
         </Levels>

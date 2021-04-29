@@ -40,7 +40,7 @@ namespace LumCustomizations.DAC
         [PXSelector(typeof(SelectFrom<LumShipmentPlan>.
                            AggregateTo<GroupBy<LumShipmentPlan.shipmentPlanID>>.
                            SearchFor<LumShipmentPlan.shipmentPlanID>),
-                    typeof(LumShipmentPlan.shipmentPlanID),ValidateValue =false)]
+                    typeof(LumShipmentPlan.shipmentPlanID), ValidateValue = false)]
         //[AutoNumber(typeof(SOSetup.shipmentNumberingID), typeof(AccessInfo.businessDate))]
         public virtual string ShipmentPlanID { get; set; }
         public abstract class shipmentPlanID : PX.Data.BQL.BqlString.Field<LumShipmentPlan.shipmentPlanID> { }
@@ -89,6 +89,7 @@ namespace LumCustomizations.DAC
         [PXUIField(DisplayName = "Customer", Enabled = true)]
         [PXSelector(typeof(Search<CSAttributeDetail.valueID, Where<CSAttributeDetail.attributeID, Equal<LumShipmentPlanMaint.ENDCAttr>>>),
                     typeof(CSAttributeDetail.description),
+                    DescriptionField = typeof(CSAttributeDetail.description),
                     ValidateValue = false)]
         public virtual string Customer { get; set; }
         public abstract class customer : PX.Data.BQL.BqlString.Field<LumShipmentPlan.customer> { }
@@ -96,8 +97,8 @@ namespace LumCustomizations.DAC
 
         #region CustomerLocationID
         [PXUIField(DisplayName = "Customer Location", Enabled = false)]
-        [LocationID(typeof(Where<Location.bAccountID, Equal<Current<SOShipment.customerID>>, And<Location.isActive, Equal<True>, And<MatchWithBranch<Location.cBranchID>>>>), 
-                    DescriptionField = typeof(Location.descr), 
+        [LocationID(typeof(Where<Location.bAccountID, Equal<Current<SOShipment.customerID>>, And<Location.isActive, Equal<True>, And<MatchWithBranch<Location.cBranchID>>>>),
+                    DescriptionField = typeof(Location.descr),
                     Visibility = PXUIVisibility.SelectorVisible)]
         public virtual int? CustomerLocationID { get; set; }
         public abstract class customerLocationID : PX.Data.BQL.BqlInt.Field<LumShipmentPlan.customerLocationID> { }
@@ -291,7 +292,7 @@ namespace LumCustomizations.DAC
         [PXDefault(TypeCode.Decimal, "0.0", PersistingCheck = PXPersistingCheck.Nothing)]
         [PXUIField(DisplayName = "Gross Weight")]
         public virtual decimal? GrossWeight { get; set; }
-        public abstract class  grossWeight : PX.Data.BQL.BqlDecimal.Field<grossWeight> { }
+        public abstract class grossWeight : PX.Data.BQL.BqlDecimal.Field<grossWeight> { }
         #endregion
 
         #region PalletWeight
