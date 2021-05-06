@@ -32,7 +32,6 @@
                 <DataField>INItemLotSerial.ExpireDate</DataField>
             </FilterExp>
             <FilterExp>
-                <Condition>Like</Condition>
                 <DataField>INSite.SiteCD</DataField>
                 <OpenBraces>1</OpenBraces>
                 <Operator>Or</Operator>
@@ -136,7 +135,7 @@
                 <ParentName>INLotSerialStatus</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/LifeSync</SchemaUrl>
+        <SchemaUrl>https://abamedical.acumatica.com/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>InventoryItem.InventoryCD</DataField>
@@ -2040,6 +2039,7 @@
                     </TextBox>
                     <TextBox Name="textBox12">
                         <CanGrow>True</CanGrow>
+                        <CanSplit>True</CanSplit>
                         <Location>144px, 8px</Location>
                         <Size>148px, 0.16667in</Size>
                         <Style>
