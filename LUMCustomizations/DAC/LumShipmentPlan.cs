@@ -89,7 +89,6 @@ namespace LumCustomizations.DAC
         [PXUIField(DisplayName = "Customer", Enabled = true)]
         [PXSelector(typeof(Search<CSAttributeDetail.valueID, Where<CSAttributeDetail.attributeID, Equal<LumShipmentPlanMaint.ENDCAttr>>>),
                     typeof(CSAttributeDetail.description),
-                    DescriptionField = typeof(CSAttributeDetail.description),
                     ValidateValue = false)]
         public virtual string Customer { get; set; }
         public abstract class customer : PX.Data.BQL.BqlString.Field<LumShipmentPlan.customer> { }
