@@ -1,4 +1,4 @@
-<Report Name="lm206100.rpx">
+﻿<Report Name="lm206100.rpx">
     <Report Name="report1">
         <Filters>
             <FilterExp>
@@ -2697,7 +2697,7 @@
                 <Visible>False</Visible>
             </Detail>
             <PageFooter Name="pageFooterSection1">
-                <Height>0px</Height>
+                <Height>0cm</Height>
                 <Style>
                     <Font>
                         <Name>Microsoft JhengHei UI</Name>
@@ -2792,15 +2792,15 @@
                 </Headers>
                 <Footers>
                     <Footer Name="groupFooterSection1">
-                        <Height>1.26984cm</Height>
+                        <Height>44px</Height>
                         <Items>
                             <Panel Name="panel2">
                                 <Location>0px, 0px</Location>
-                                <Size>720px, 48px</Size>
+                                <Size>720px, 44px</Size>
                                 <Items>
                                     <TextBox Name="textBox10">
                                         <Location>104px, 0px</Location>
-                                        <Size>184px, 48px</Size>
+                                        <Size>184px, 44px</Size>
                                         <Style>
                                             <BorderStyle>
                                                 <Bottom>Solid</Bottom>
@@ -2824,7 +2824,7 @@
                                     <TextBox Name="textBox11">
                                         <Format>=IIF([AMMTran.Qty] - Floor([AMMTran.Qty]) &gt; 0,'N2','N0')</Format>
                                         <Location>288px, 0px</Location>
-                                        <Size>64px, 48px</Size>
+                                        <Size>64px, 44px</Size>
                                         <Style>
                                             <BorderStyle>
                                                 <Bottom>Solid</Bottom>
@@ -2844,7 +2844,7 @@
                                     </TextBox>
                                     <TextBox Name="textBox30">
                                         <Location>656px, 0px</Location>
-                                        <Size>64px, 48px</Size>
+                                        <Size>64px, 44px</Size>
                                         <Style>
                                             <BorderStyle>
                                                 <Bottom>Solid</Bottom>
@@ -2864,7 +2864,7 @@
                                     <TextBox Name="textBox42">
                                         <Format>#.00</Format>
                                         <Location>352px, 0px</Location>
-                                        <Size>64px, 48px</Size>
+                                        <Size>64px, 44px</Size>
                                         <Style>
                                             <BorderStyle>
                                                 <Bottom>Solid</Bottom>
@@ -2883,7 +2883,7 @@
                                     </TextBox>
                                     <TextBox Name="textBox43">
                                         <Location>416px, 0px</Location>
-                                        <Size>48px, 48px</Size>
+                                        <Size>48px, 44px</Size>
                                         <Style>
                                             <BorderStyle>
                                                 <Bottom>Solid</Bottom>
@@ -2903,7 +2903,7 @@
                                     </TextBox>
                                     <TextBox Name="textBox44">
                                         <Location>464px, 0px</Location>
-                                        <Size>40px, 48px</Size>
+                                        <Size>40px, 44px</Size>
                                         <Style>
                                             <BorderStyle>
                                                 <Bottom>Solid</Bottom>
@@ -2924,7 +2924,7 @@
                                     </TextBox>
                                     <TextBox Name="textBox45">
                                         <Location>504px, 0px</Location>
-                                        <Size>32px, 48px</Size>
+                                        <Size>32px, 44px</Size>
                                         <Style>
                                             <BorderStyle>
                                                 <Bottom>Solid</Bottom>
@@ -2945,7 +2945,7 @@
                                     </TextBox>
                                     <TextBox Name="textBox46">
                                         <Location>536px, 0px</Location>
-                                        <Size>120px, 48px</Size>
+                                        <Size>120px, 44px</Size>
                                         <Style>
                                             <BorderStyle>
                                                 <Bottom>Solid</Bottom>
@@ -2966,7 +2966,7 @@
                                     </TextBox>
                                     <TextBox Name="textBox8">
                                         <Location>0px, 0px</Location>
-                                        <Size>32px, 48px</Size>
+                                        <Size>32px, 44px</Size>
                                         <Style>
                                             <BorderStyle>
                                                 <Bottom>Solid</Bottom>
@@ -2988,7 +2988,7 @@
                                     </TextBox>
                                     <TextBox Name="textBox9">
                                         <Location>32px, 0px</Location>
-                                        <Size>72px, 48px</Size>
+                                        <Size>72px, 44px</Size>
                                         <Style>
                                             <BorderStyle>
                                                 <Bottom>Solid</Bottom>

@@ -15,16 +15,5 @@ namespace JAMS.AM
                     OrderBy<Asc<AMProdMatl.inventoryID, Asc<AMProdMatl.sortOrder, Asc<AMProdMatl.lineID>>>>> ProdMatlRecords;
         #endregion
 
-        public virtual void _(Events.RowPersisting<AMProdOper> e, PXRowPersisting baseMethod)
-        {
-            baseMethod?.Invoke(e.Cache, e.Args);
-            var row = (AMProdOper)e.Row;
-            if (e.Row != null && (row.RunUnitTime == 0 || !row.RunUnitTime.HasValue))
-            {
-                e.Cache.RaiseExceptionHandling<AMProdOper.runUnitTime>(e.Row, row.RunUnitTime,
-                   new PXSetPropertyException<AMProdOper.runUnitTime>("Run Time can not be 0 or null"));
-            }
-        }
-
     }
 }
