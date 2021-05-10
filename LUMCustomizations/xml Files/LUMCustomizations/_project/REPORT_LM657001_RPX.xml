@@ -6,7 +6,7 @@
         <Filters>
             <FilterExp>
                 <Condition>Greater</Condition>
-                <DataField>INItemLotSerial.QtyOnHand</DataField>
+                <DataField>INLotSerialStatus.QtyOnHand</DataField>
                 <Value>0</Value>
             </FilterExp>
             <FilterExp>
@@ -32,6 +32,10 @@
                 <DataField>INItemLotSerial.ExpireDate</DataField>
             </FilterExp>
             <FilterExp>
+                <Condition>IsNotNull</Condition>
+                <DataField>InventoryItem.INSPDAY_Attributes</DataField>
+            </FilterExp>
+            <FilterExp>
                 <DataField>INSite.SiteCD</DataField>
                 <OpenBraces>1</OpenBraces>
                 <Operator>Or</Operator>
@@ -41,10 +45,6 @@
                 <CloseBraces>1</CloseBraces>
                 <Condition>IsNull</Condition>
                 <DataField>@SiteCD</DataField>
-            </FilterExp>
-            <FilterExp>
-                <Condition>IsNotNull</Condition>
-                <DataField>InventoryItem.INSPDAY_Attributes</DataField>
             </FilterExp>
         </Filters>
         <PageSettings>
@@ -89,6 +89,32 @@
         </Parameters>
         <Relations>
             <ReportRelation>
+                <ChildName>INSite</ChildName>
+                <JoinType>Inner</JoinType>
+                <Links>
+                    <RelationRow>
+                        <ChildField>SiteID</ChildField>
+                        <ParentField>SiteID</ParentField>
+                    </RelationRow>
+                </Links>
+                <ParentName>INLotSerialStatus</ParentName>
+            </ReportRelation>
+            <ReportRelation>
+                <ChildName>INItemLotSerial</ChildName>
+                <JoinType>Inner</JoinType>
+                <Links>
+                    <RelationRow>
+                        <ChildField>InventoryID</ChildField>
+                        <ParentField>InventoryID</ParentField>
+                    </RelationRow>
+                    <RelationRow>
+                        <ChildField>LotSerialNbr</ChildField>
+                        <ParentField>LotSerialNbr</ParentField>
+                    </RelationRow>
+                </Links>
+                <ParentName>INLotSerialStatus</ParentName>
+            </ReportRelation>
+            <ReportRelation>
                 <ChildName>InventoryItem</ChildName>
                 <JoinType>Inner</JoinType>
                 <Links>
@@ -101,6 +127,7 @@
             </ReportRelation>
             <ReportRelation>
                 <ChildName>INItemClass</ChildName>
+                <JoinType>Inner</JoinType>
                 <Links>
                     <RelationRow>
                         <ChildField>ItemClassID</ChildField>
@@ -109,33 +136,8 @@
                 </Links>
                 <ParentName>InventoryItem</ParentName>
             </ReportRelation>
-            <ReportRelation>
-                <ChildName>INLotSerialStatus</ChildName>
-                <Links>
-                    <RelationRow>
-                        <ChildField>InventoryID</ChildField>
-                        <ParentField>InventoryID</ParentField>
-                    </RelationRow>
-                    <RelationRow>
-                        <ChildField>LotSerialNbr</ChildField>
-                        <ParentField>LotSerialNbr</ParentField>
-                    </RelationRow>
-                </Links>
-                <ParentName>INItemLotSerial</ParentName>
-            </ReportRelation>
-            <ReportRelation>
-                <ChildName>INSite</ChildName>
-                <JoinType>Inner</JoinType>
-                <Links>
-                    <RelationRow>
-                        <ChildField>SiteID</ChildField>
-                        <ParentField>SiteID</ParentField>
-                    </RelationRow>
-                </Links>
-                <ParentName>INLotSerialStatus</ParentName>
-            </ReportRelation>
         </Relations>
-        <SchemaUrl>https://abamedical.acumatica.com/</SchemaUrl>
+        <SchemaUrl>http://localhost/LifeSync</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>InventoryItem.InventoryCD</DataField>
@@ -1790,6 +1792,30 @@
                 <FullName>PX.Objects.IN.INSite</FullName>
             </ReportTable>
         </Tables>
+        <ViewerFields>
+            <ViewerField Name="InventoryItem.InventoryCD">
+            </ViewerField>
+            <ViewerField Name="INItemLotSerial.LotSerialNbr">
+            </ViewerField>
+            <ViewerField Name="INItemLotSerial.QtyOnHand">
+            </ViewerField>
+            <ViewerField Name="INItemClass.ItemClassCD">
+            </ViewerField>
+            <ViewerField Name="INItemLotSerial.ExpireDate">
+            </ViewerField>
+            <ViewerField Name="InventoryItem.INSPDAY_Attributes">
+            </ViewerField>
+            <ViewerField Name="INSite.SiteCD">
+            </ViewerField>
+            <ViewerField Name="InventoryItem.RMTYPE_Attributes">
+            </ViewerField>
+            <ViewerField Name="InventoryItem.Descr">
+            </ViewerField>
+            <ViewerField Name="INLotSerialStatus.LocationID">
+            </ViewerField>
+            <ViewerField Name="INLotSerialStatus.SiteID">
+            </ViewerField>
+        </ViewerFields>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
                 <Height>2.5cm</Height>
