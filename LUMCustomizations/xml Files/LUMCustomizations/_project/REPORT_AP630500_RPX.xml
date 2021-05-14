@@ -4120,6 +4120,7 @@
                 <ExcelMargin>
                     <bottom>1</bottom>
                 </ExcelMargin>
+                <GridSize>8px, 8px</GridSize>
                 <Height>54px</Height>
                 <Items>
                     <TextBox Name="textBox11">
@@ -4282,6 +4283,7 @@
             <Detail Name="detailSection1">
                 <ExcelVisible>False</ExcelVisible>
                 <Expanded>False</Expanded>
+                <GridSize>8px, 8px</GridSize>
                 <Height>0.42328cm</Height>
                 <VisibleExpr>=False</VisibleExpr>
                 <Items>
@@ -4318,12 +4320,14 @@
             </Detail>
             <PageFooter Name="pageFooterSection1">
                 <Expanded>False</Expanded>
+                <GridSize>8px, 8px</GridSize>
                 <Height>0.21164cm</Height>
                 <Visible>False</Visible>
             </PageFooter>
             <Detail Name="detailSection2">
                 <ExcelVisible>False</ExcelVisible>
                 <Expanded>False</Expanded>
+                <GridSize>8px, 8px</GridSize>
                 <Height>0.42328cm</Height>
                 <VisibleExpr>=False</VisibleExpr>
                 <Items>
@@ -4360,6 +4364,7 @@
             </Detail>
             <PageHeader Name="pageHeaderSection2">
                 <Expanded>False</Expanded>
+                <GridSize>8px, 8px</GridSize>
                 <Height>36px</Height>
                 <StyleName>ColumnsHeaderSection</StyleName>
                 <Variables>
@@ -4505,6 +4510,7 @@
                 </Items>
             </PageHeader>
             <ReportFooter Name="reportFooterSection1">
+                <GridSize>8px, 8px</GridSize>
                 <Height>24px</Height>
                 <Items>
                     <Line Name="line4">
@@ -4610,6 +4616,7 @@
             <ReportHeader Name="reportHeaderSection1">
                 <ExcelVisible>False</ExcelVisible>
                 <Expanded>False</Expanded>
+                <GridSize>8px, 8px</GridSize>
                 <Height>0.42328cm</Height>
                 <Variables>
                     <ReportVariable>
@@ -4697,6 +4704,7 @@
             </ReportHeader>
             <PageHeader Name="pageHeaderSection3">
                 <Expanded>False</Expanded>
+                <GridSize>8px, 8px</GridSize>
                 <Height>24px</Height>
                 <StyleName>ColumnsHeaderSection</StyleName>
                 <Variables>
@@ -4727,6 +4735,7 @@
                 </Items>
             </PageHeader>
             <PageHeader Name="CustDetailHeaderOnecs">
+                <GridSize>8px, 8px</GridSize>
                 <Height>0.42328cm</Height>
                 <VisibleExpr>=([@Format]='D') AND [@ShowAccountID] = 'True'</VisibleExpr>
                 <Items>
@@ -4772,7 +4781,6 @@
                     <TextBox Name="textBox160">
                         <Excel>
                             <row>2</row>
-                            <width>1000px</width>
                         </Excel>
                         <Location>0px, 0px</Location>
                         <Size>56px, 14px</Size>
@@ -5605,7 +5613,6 @@
                             <TextBox Name="textBox154">
                                 <Excel>
                                     <column>3</column>
-                                    <width>100</width>
                                 </Excel>
                                 <Location>124px, 0px</Location>
                                 <Size>124px, 14px</Size>
@@ -6022,7 +6029,7 @@
                                 <Location>0px, 20px</Location>
                                 <Size>56px, 14px</Size>
                                 <StyleName>Heading 1</StyleName>
-                                <Value>GG12345</Value>
+                                <Value>Vendor</Value>
                             </TextBox>
                             <TextBox Name="textBox18">
                                 <Excel>

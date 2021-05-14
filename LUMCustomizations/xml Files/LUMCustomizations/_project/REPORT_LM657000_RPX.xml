@@ -1677,6 +1677,7 @@
                     </TextBox>
                     <TextBox Name="textBox31">
                         <CanGrow>True</CanGrow>
+                        <CanSplit>True</CanSplit>
                         <Location>144px, 8px</Location>
                         <Size>148px, 0.16667in</Size>
                         <Style>
