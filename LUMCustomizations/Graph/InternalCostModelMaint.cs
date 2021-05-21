@@ -327,26 +327,26 @@ namespace LumCustomizations.Graph
                         // 不含Tax
                         _venderLastPrice = (_venderLastPrice / (1 + (matl.taxInfo.taxRate ?? 0) / 100));
                         sheet.GetRow(rowNum).GetCell(4).SetCellValue($"{_venderLastPrice.ToString("N4")}");
-                        _materailCost = _venderLastPrice * Math.Round((matl.QtyReq * (1 + matl.ScrapFactor)) ?? 1, 4)
+                        _materailCost = _venderLastPrice * Math.Round((matl.QtyReq * 1) ?? 1, 4)
                                         * (_EffectCuryRate.Where(x => x.FromCuryID == "USD" && x.ToCuryID == "CNY").FirstOrDefault()?.RateReciprocal ?? 1);
                     }
                     else if (matl.venderDetail.CuryID == "HKD")
                     {
                         sheet.GetRow(rowNum).GetCell(5).SetCellValue($"{_venderLastPrice.ToString("N4")}");
-                        _materailCost = _venderLastPrice * Math.Round((matl.QtyReq * (1 + matl.ScrapFactor)) ?? 1, 4)
+                        _materailCost = _venderLastPrice * Math.Round((matl.QtyReq * 1) ?? 1, 4)
                                         * (_EffectCuryRate.Where(x => x.FromCuryID == "HKD" && x.ToCuryID == "CNY").FirstOrDefault()?.CuryRate ?? 1)
                                         * (_EffectCuryRate.Where(x => x.FromCuryID == "USD" && x.ToCuryID == "CNY").FirstOrDefault()?.RateReciprocal ?? 1);
                     }
                     else if (matl.venderDetail.CuryID == "USD")
                     {
                         sheet.GetRow(rowNum).GetCell(6).SetCellValue($"{_venderLastPrice.ToString("N4")}");
-                        _materailCost = _venderLastPrice * Math.Round((matl.QtyReq * (1 + matl.ScrapFactor)) ?? 1, 4);
+                        _materailCost = _venderLastPrice * Math.Round((matl.QtyReq * 1) ?? 1, 4);
                     }
                 }
                 else
                 {
                     sheet.GetRow(rowNum).GetCell(4).SetCellValue($"{(matl.UnitCost.HasValue ? matl.UnitCost.Value.ToString("N4") : "")}");
-                    _materailCost = (matl.UnitCost * matl.TotalQtyRequired * (1 + matl.ScrapFactor)).Value;
+                    _materailCost = (matl.UnitCost * matl.QtyReq * 1).Value;
                 }
 
                 sheet.GetRow(rowNum).GetCell(4).CellStyle = TableContentStyle;
@@ -356,7 +356,7 @@ namespace LumCustomizations.Graph
                 sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"{matl.UOM}");
                 sheet.GetRow(rowNum).GetCell(7).CellStyle = TableContentStyle;
                 // QPA
-                sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"{(matl.QtyReq * (1 + matl.ScrapFactor)).Value.ToString("N4")}");
+                sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"{(matl.QtyReq * 1).Value.ToString("N4")}");
                 sheet.GetRow(rowNum).GetCell(8).CellStyle = TableContentStyle;
                 // Materail Cost(US$)
                 sheet.GetRow(rowNum).CreateCell(9).SetCellValue(double.Parse(_materailCost.Value.ToString("N5")));
@@ -367,7 +367,7 @@ namespace LumCustomizations.Graph
                 sheet.GetRow(rowNum).CreateCell(10).SetCellValue($"");
                 sheet.GetRow(rowNum).GetCell(10).CellStyle = TableContentStyle;
 
-                materialSum += (matl.UnitCost * matl.TotalQtyRequired * (1 + matl.ScrapFactor)).Value;
+                materialSum += (matl.UnitCost * matl.TotalQtyRequired * 1).Value;
             }
 
             // Materail Sum
