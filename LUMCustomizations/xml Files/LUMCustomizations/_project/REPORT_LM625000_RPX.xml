@@ -31,22 +31,6 @@
         <GridSize>4px, 4px</GridSize>
         <MailSettings>
             <ActivitySource>AMProdItem.NoteID</ActivitySource>
-            <Bcc>
-            </Bcc>
-            <Body>
-            </Body>
-            <Cc>
-            </Cc>
-            <Format>
-            </Format>
-            <ParentSource>
-            </ParentSource>
-            <Subject>
-            </Subject>
-            <TemplateID>
-            </TemplateID>
-            <To>
-            </To>
         </MailSettings>
         <PageSettings>
             <Margins>
@@ -192,7 +176,7 @@
                 <ParentName>AMProdMatl</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/ABA_AcumaticaDB1/</SchemaUrl>
+        <SchemaUrl>https://abamedical.acumatica.com/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>AMProdItem.OrderType</DataField>
@@ -3961,6 +3945,7 @@
         </ViewerFields>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
+                <GridSize>8px, 8px</GridSize>
                 <Height>5.29101cm</Height>
                 <Items>
                     <Panel Name="panel1">
@@ -4172,7 +4157,7 @@
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=IIF([AMOrderType.OrderType] = 'MO', '生产指令单','') +#010;IIF([AMOrderType.OrderType] = 'RO', '国内生产指令单','')</Value>
+                        <Value>=IIF([AMOrderType.OrderType] = 'MO', '生产指令单','') +#010;IIF([AMOrderType.OrderType] = 'RO', '国内生产指令单','') + #010;IIF([AMOrderType.OrderType] = 'NO', '返工工单','')</Value>
                     </TextBox>
                     <TextBox Name="textBox14">
                         <Location>16px, 40px</Location>
@@ -4228,6 +4213,7 @@
                 </Items>
             </PageHeader>
             <Detail Name="detailSection1">
+                <GridSize>8px, 8px</GridSize>
                 <Height>0.84656cm</Height>
                 <Variables>
                     <ReportVariable>
@@ -4449,10 +4435,12 @@
                 </Items>
             </Detail>
             <PageFooter Name="pageFooterSection1">
+                <GridSize>8px, 8px</GridSize>
                 <Height>0px</Height>
                 <Visible>False</Visible>
             </PageFooter>
             <ReportFooter Name="reportFooterSection1">
+                <GridSize>8px, 8px</GridSize>
                 <Height>0.42328cm</Height>
                 <PrintAtBottom>True</PrintAtBottom>
                 <Items>
