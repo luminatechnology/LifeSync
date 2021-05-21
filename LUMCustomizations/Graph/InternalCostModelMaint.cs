@@ -290,11 +290,11 @@ namespace LumCustomizations.Graph
             {
                 decimal? _materailCost = 0;
                 var _ReplenishmentSource = _InventoryItem.Where(x => x.InventoryID == matl.InventoryID)
-                    .FirstOrDefault()?.ReplenishmentSource;
+                    .FirstOrDefault()?.ReplenishmentSource ?? "";
 
                 sheet.CreateRow(++rowNum);
                 // NO
-                sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"{(_ReplenishmentSource.Equals("P") ? ".1" : _ReplenishmentSource.Equals("M") ? "..2" : "")}");
+                sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"{(_ReplenishmentSource.Equals("P") ? ".1" : _ReplenishmentSource.Equals("M") ? "..2" : "..3")}");
                 sheet.GetRow(rowNum).GetCell(1).CellStyle = TableContentStyle;
                 // Part No
                 sheet.GetRow(rowNum).CreateCell(2).SetCellValue($"{matl.InventoryCD}");
