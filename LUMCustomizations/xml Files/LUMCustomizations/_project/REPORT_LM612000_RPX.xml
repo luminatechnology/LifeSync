@@ -2662,7 +2662,6 @@
                 <ExcelMargin>
                     <bottom>1</bottom>
                 </ExcelMargin>
-                <GridSize>8px, 8px</GridSize>
                 <Height>2.75132cm</Height>
                 <Items>
                     <TextBox Name="textBox1">
@@ -2714,8 +2713,8 @@
                         <Value>单别单号:</Value>
                     </TextBox>
                     <TextBox Name="textBox16">
-                        <Location>312px, 40px</Location>
-                        <Size>96px, 24px</Size>
+                        <Location>240px, 40px</Location>
+                        <Size>240px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
@@ -2819,7 +2818,6 @@
                 </Items>
             </PageHeader>
             <Detail Name="Receipt">
-                <GridSize>8px, 8px</GridSize>
                 <Height>0.95238cm</Height>
                 <Variables>
                     <ReportVariable>
@@ -3023,12 +3021,10 @@
                 </Items>
             </Detail>
             <PageFooter Name="pageFooterSection1">
-                <GridSize>8px, 8px</GridSize>
                 <Height>0px</Height>
                 <Visible>False</Visible>
             </PageFooter>
             <ReportFooter Name="reportFooterSection1">
-                <GridSize>8px, 8px</GridSize>
                 <Height>1.0582cm</Height>
                 <PrintAtBottom>True</PrintAtBottom>
                 <Items>
@@ -3044,7 +3040,7 @@
                                 <Size>10px</Size>
                             </Font>
                         </Style>
-                        <Value>Form number: FWH-004/Rev.01</Value>
+                        <Value>=IIF([INRegister.AttributeREASON] = 'SCRAP', 'Form number: FWH-004/Rev.01', 'Form number: FWH-024/Rev.01')#010;#010;</Value>
                     </TextBox>
                     <TextBox Name="textBox13">
                         <Excel>

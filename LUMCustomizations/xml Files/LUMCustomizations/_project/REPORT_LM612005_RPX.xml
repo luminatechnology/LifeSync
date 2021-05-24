@@ -2117,7 +2117,6 @@
                 <ExcelMargin>
                     <bottom>1</bottom>
                 </ExcelMargin>
-                <GridSize>8px, 8px</GridSize>
                 <Height>2.75132cm</Height>
                 <Items>
                     <TextBox Name="textBox11">
@@ -2210,8 +2209,8 @@
                         <Value>单别单号:</Value>
                     </TextBox>
                     <TextBox Name="textBox27">
-                        <Location>344px, 40px</Location>
-                        <Size>96px, 24px</Size>
+                        <Location>288px, 40px</Location>
+                        <Size>176px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
@@ -2236,7 +2235,6 @@
                 </Items>
             </PageHeader>
             <Detail Name="Issue">
-                <GridSize>8px, 8px</GridSize>
                 <Height>0.84656cm</Height>
                 <Variables>
                     <ReportVariable>
@@ -2447,7 +2445,6 @@
                 </Items>
             </Detail>
             <PageFooter Name="pageFooterSection1">
-                <GridSize>8px, 8px</GridSize>
                 <Height>0px</Height>
                 <Visible>False</Visible>
             </PageFooter>
@@ -2842,7 +2839,7 @@
                                         <Size>10px</Size>
                                     </Font>
                                 </Style>
-                                <Value>=IIF([INRegister.AttributeREASON] = 'SCRAP',#010;'Form number: FWH-004/Rev.01',#010;'Form number: FWH-008/Rev.01')</Value>
+                                <Value>=IIF([INRegister.AttributeREASON] = 'SCRAP', 'Form number: FWH-004/Rev.01', #010;(IIF([INRegister.AttributeREASON] = 'PISCRAP', 'Form number: FWH-028/Rev.01', #010;(IIF([INRegister.AttributeREASON] = 'IMSCRAP', 'Form number: FWH-029/Rev.01', 'Form number: FWH-008/Rev.01')))))</Value>
                             </TextBox>
                         </Items>
                     </Footer>
