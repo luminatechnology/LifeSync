@@ -18,6 +18,7 @@ using PX.Data.BQL;
 using PX.Data.BQL.Fluent;
 using PX.Objects.AP;
 using PX.Objects.CM;
+using PX.Objects.CR;
 using PX.Objects.CS;
 using PX.Objects.IN;
 using PX.Objects.PO;
@@ -72,10 +73,10 @@ namespace LumCustomizations.Graph
                                          .GroupBy(x => new { x.InventoryID })
                                          .Select(x => x.OrderByDescending(y => y.LastModifiedDateTime).FirstOrDefault());
             var _TaxInfo = (from v in new PXGraph().Select<Vendor>()
-                            join t in new PXGraph().Select<VendorClass>()
-                              on v.VendorClassID equals t.VendorClassID
+                            join t in new PXGraph().Select<Location>()
+                              on v.BAccountID equals t.BAccountID
                             join z in new PXGraph().Select<TaxZoneDet>()
-                              on t.TaxZoneID equals z.TaxZoneID
+                              on t.VTaxZoneID equals z.TaxZoneID
                             join r in new PXGraph().Select<TaxRev>()
                               on z.TaxID equals r.TaxID
                             where r.TaxType == "P"
@@ -237,7 +238,7 @@ namespace LumCustomizations.Graph
             sheet.GetRow(3).GetCell(1).CellStyle = NormalStyle;
             sheet.GetRow(3).CreateCell(4).SetCellValue($"Project Name :");
             sheet.GetRow(3).GetCell(4).CellStyle = NormalStyle;
-            sheet.GetRow(3).CreateCell(6).SetCellValue($"Porject No :{_AMProdAttribute.Where(x => x.AttributeID.Equals("PROJECTNO")).FirstOrDefault()?.Value}");
+            sheet.GetRow(3).CreateCell(6).SetCellValue($"Porject No :{new PXGraph().Select<InventoryItem>().FirstOrDefault(x => x.InventoryID == _AMProdItem.InventoryID)?.InventoryCD}");
             sheet.GetRow(3).GetCell(6).CellStyle = NormalStyle;
 
             sheet.CreateRow(4);
@@ -325,7 +326,7 @@ namespace LumCustomizations.Graph
                     if (matl.venderDetail.CuryID == "CNY")
                     {
                         // 不含Tax
-                        _venderLastPrice = (_venderLastPrice / (1 + (matl.taxInfo.taxRate ?? 0) / 100));
+                        _venderLastPrice = (_venderLastPrice / (1 + (matl?.taxInfo?.taxRate ?? 0) / 100));
                         sheet.GetRow(rowNum).GetCell(4).SetCellValue($"{_venderLastPrice.ToString("N4")}");
                         _materailCost = _venderLastPrice * Math.Round((matl.QtyReq * 1) ?? 1, 4)
                                         * (_EffectCuryRate.Where(x => x.FromCuryID == "USD" && x.ToCuryID == "CNY").FirstOrDefault()?.RateReciprocal ?? 1);
@@ -346,7 +347,9 @@ namespace LumCustomizations.Graph
                 else
                 {
                     sheet.GetRow(rowNum).GetCell(4).SetCellValue($"{(matl.UnitCost.HasValue ? matl.UnitCost.Value.ToString("N4") : "")}");
-                    _materailCost = (matl.UnitCost * matl.QtyReq * 1).Value;
+
+                    _materailCost = (matl.UnitCost.HasValue ? matl.UnitCost.Value : 0) * Math.Round((matl.QtyReq * 1) ?? 1, 4)
+                                                     * (_EffectCuryRate.Where(x => x.FromCuryID == "USD" && x.ToCuryID == "CNY").FirstOrDefault()?.RateReciprocal ?? 1);
                 }
 
                 sheet.GetRow(rowNum).GetCell(4).CellStyle = TableContentStyle;
