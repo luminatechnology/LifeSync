@@ -295,7 +295,9 @@ namespace LumCustomizations.Graph
 
                 sheet.CreateRow(++rowNum);
                 // NO
-                sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"{(_ReplenishmentSource.Equals("P") ? ".1" : _ReplenishmentSource.Equals("M") ? "..2" : "..3")}");
+                //sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"{(_ReplenishmentSource.Equals("P") ? ".1" : _ReplenishmentSource.Equals("M") ? "..2" : "..3")}");
+                sheet.GetRow(rowNum).CreateCell(1).SetCellValue($".1");
+
                 sheet.GetRow(rowNum).GetCell(1).CellStyle = TableContentStyle;
                 // Part No
                 sheet.GetRow(rowNum).CreateCell(2).SetCellValue($"{matl.InventoryCD}");
