@@ -18,10 +18,15 @@ namespace PX.Objects.PO
     public class POOrderEntry_Extensions : PXGraphExtension<POOrderEntry>
     {
         private const string bubbleNumber = "BUBBLENO";
+
+        // Valid Field for exist data
+        private List<bool> errList = new List<bool>();
+
         public class constBubbleNumber : PX.Data.BQL.BqlString.Constant<constBubbleNumber>
         {
             public constBubbleNumber() : base(bubbleNumber) { }
         }
+
         public override void Initialize()
         {
             base.Initialize();
@@ -39,6 +44,46 @@ namespace PX.Objects.PO
             var BaseCuryID = _library.GetCompanyBaseCuryID();
             PXUIFieldAttribute.SetDisplayName<POOrder.orderTotal>(e.Cache, $"Total in {BaseCuryID}");
             PXUIFieldAttribute.SetVisible<POOrder.orderTotal>(e.Cache, null, _library.GetShowingTotalInHome);
+        }
+
+        /// <summary> Events.RowPersisting POOrder </summary>
+        public virtual void _(Events.RowPersisting<POOrder> e, PXRowPersisting baseMethod)
+        {
+            baseMethod?.Invoke(e.Cache, e.Args);
+            var poType =
+                (string)(Base.Document.Cache.GetValueExt(Base.Document.Current, PX.Objects.CS.Messages.Attribute + "POTYPE") as
+                    PXFieldState)?.Value;
+            // Valid UsrCapexTrackingNbr
+            if (e.Row != null || poType == "CPEX")
+            {
+                foreach (var trans in Base.Transactions.Select().RowCast<POLine>())
+                    Base.Transactions.Cache.RaiseRowPersisting(trans, PXDBOperation.Update);
+            }
+            if (errList.Any(x => !x))
+                throw new PXException("Capex Tracking Nbr is mandatory for this PO");
+        }
+
+        /// <summary> Events.RowPersisting POLine </summary>
+        public virtual void _(Events.RowPersisting<POLine> e, PXRowPersisting baseMethod)
+        {
+            baseMethod?.Invoke(e.Cache, e.Args);
+
+            var row = e.Row;
+            var poType =
+                (string)(Base.Document.Cache.GetValueExt(Base.Document.Current,
+                        PX.Objects.CS.Messages.Attribute + "POTYPE") as
+                    PXFieldState)?.Value;
+            if (row == null || string.IsNullOrEmpty(poType))
+                return;
+            // Valid UsrCapexTrackingNbr
+            if (poType == "CPEX" && string.IsNullOrEmpty(row.GetExtension<POLineExt>().UsrCapexTrackingNbr))
+            {
+                this.errList.Add(e.Cache.RaiseExceptionHandling<POLineExt.usrCapexTrackingNbr>(
+                    row,
+                    row.GetExtension<POLineExt>().UsrCapexTrackingNbr,
+                    new PXSetPropertyException<POLineExt.usrCapexTrackingNbr>(
+                        "Capex Tracking Nbr is mandatory for this PO", PXErrorLevel.Error)));
+            }
         }
 
 
@@ -68,7 +113,7 @@ namespace PX.Objects.PO
             throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
         }
         #endregion
-        
+
         #region Bubble Number Setting Event
         protected virtual void _(Events.RowSelected<POLine> e)
         {
@@ -76,7 +121,7 @@ namespace PX.Objects.PO
             var _graph = PXGraph.CreateInstance<POOrderEntry>();
             var _PIPreference = from t in _graph.Select<LifeSyncPreference>()
                                 select t;
-            var _visible = _PIPreference.FirstOrDefault() == null ? false : 
+            var _visible = _PIPreference.FirstOrDefault() == null ? false :
                            _PIPreference.FirstOrDefault().BubbleNumberPrinting.HasValue ? _PIPreference.FirstOrDefault().BubbleNumberPrinting.Value : false;
 
             PXUIFieldAttribute.SetVisible<POLineExt.usrBubbleNumber>(e.Cache, null, _visible);

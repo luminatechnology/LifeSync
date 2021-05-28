@@ -8,6 +8,12 @@
                 </PXGridColumn>
             </AddItem>
             <PXGridColumn DataField="TranDesc" OriginalIndex="5" />
+            <AddItem>
+                <PXGridColumn TypeFullName="PX.Web.UI.PXGridColumn">
+                    <Prop Key="DataField" Value="UsrCapexTrackingNbr" />
+                    <Prop Key="Width" Value="140" />
+                </PXGridColumn>
+            </AddItem>
         </Children>
     </PXGridLevel>
     <PXFormView ID="form" ParentId="phF_form" TypeFullName="PX.Web.UI.PXFormView">
