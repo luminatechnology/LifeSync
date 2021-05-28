@@ -132,6 +132,7 @@
     <Compile Include="Graph_Extensions\INIssueEntry.cs" />
     <Compile Include="Graph_Extensions\INPIReview_Extension.cs" />
     <Compile Include="Graph_Extensions\INReceiptEntry_Extension.cs" />
+    <Compile Include="Graph_Extensions\INTransferEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\JournalEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\ProdDetail.cs" />
     <Compile Include="Graph_Extensions\MaterialEntry.cs" />
