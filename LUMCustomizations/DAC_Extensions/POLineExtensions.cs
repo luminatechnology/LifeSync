@@ -32,7 +32,7 @@ namespace PX.Objects.PO
 
         #region UsrCapexTrackingNbr
         [PXDBString(30)]
-        [PXUIField(DisplayName = "Capex Tracking Nbr",Required = true)]
+        [PXUIField(DisplayName = "Capex Tracking Nbr")]
         public virtual string UsrCapexTrackingNbr { get; set; }
         public abstract class usrCapexTrackingNbr : PX.Data.BQL.BqlString.Field<usrCapexTrackingNbr> { }
         #endregion
