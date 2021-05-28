@@ -1,4 +1,4 @@
-﻿<Report Name="po631000.rpx">
+<Report Name="po631000.rpx">
     <Report Name="report1">
         <ExcelColumns>
             <item>7</item>
@@ -3569,7 +3569,6 @@
                 <ExcelMargin>
                     <bottom>1</bottom>
                 </ExcelMargin>
-                <GridSize>8px, 8px</GridSize>
                 <Height>1.42857cm</Height>
                 <Items>
                     <TextBox Name="textBox63">
@@ -3668,7 +3667,6 @@
                 </Items>
             </PageHeader>
             <Detail Name="detailsWithoutPayToVendor">
-                <GridSize>8px, 8px</GridSize>
                 <Height>0.37037cm</Height>
                 <VisibleExpr>=[FeaturesSet.VendorRelations]&lt;&gt;1</VisibleExpr>
                 <Items>
@@ -3836,7 +3834,6 @@
                 </Items>
             </Detail>
             <ReportFooter Name="reportFooterSection1">
-                <GridSize>8px, 8px</GridSize>
                 <Height>0.47619cm</Height>
                 <Items>
                     <Line Name="line3">
@@ -3936,7 +3933,6 @@
                 </Items>
             </ReportFooter>
             <PageHeader Name="pageHeaderSection2">
-                <GridSize>8px, 8px</GridSize>
                 <Height>0.63492cm</Height>
                 <StyleName>ColumnsHeaderSection</StyleName>
                 <Items>
@@ -3961,7 +3957,6 @@
                 </Items>
             </PageHeader>
             <Detail Name="detailsWithPayToVendor">
-                <GridSize>8px, 8px</GridSize>
                 <Height>0.37037cm</Height>
                 <VisibleExpr>=[FeaturesSet.VendorRelations]=1</VisibleExpr>
                 <Items>
@@ -4088,7 +4083,7 @@
                         <Location>336px, 0px</Location>
                         <Size>80px, 14px</Size>
                         <StyleName>Normal</StyleName>
-                        <Value>=[PayToVendor.AcctCD]</Value>
+                        <Value>=[Vendor.AcctName]</Value>
                     </TextBox>
                     <TextBox Name="textBox79">
                         <Excel>
@@ -4437,7 +4432,7 @@
                                 <Location>336px, 4px</Location>
                                 <Size>80px, 14px</Size>
                                 <StyleName>Heading 1</StyleName>
-                                <Value>Pay-to Vendor</Value>
+                                <Value>Vendor Name</Value>
                             </TextBox>
                             <TextBox Name="textBox6">
                                 <Excel>
