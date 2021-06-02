@@ -164,6 +164,20 @@
                 </Links>
                 <ParentName>INTran</ParentName>
             </ReportRelation>
+            <ReportRelation>
+                <ChildName>INUnit</ChildName>
+                <Links>
+                    <RelationRow>
+                        <ChildField>InventoryID</ChildField>
+                        <ParentField>InventoryID</ParentField>
+                    </RelationRow>
+                    <RelationRow>
+                        <ChildField>FromUnit</ChildField>
+                        <ParentField>UOM</ParentField>
+                    </RelationRow>
+                </Links>
+                <ParentName>INTran</ParentName>
+            </ReportRelation>
         </Relations>
         <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
         <Style>
@@ -2111,6 +2125,81 @@
                 </Fields>
                 <FullName>PX.Objects.IN.InventoryItem</FullName>
             </ReportTable>
+            <ReportTable Name="INUnit">
+                <Fields>
+                    <ReportField Name="CreatedByID">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_displayName">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_Username">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_description">
+                    </ReportField>
+                    <ReportField Name="CreatedByScreenID">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="FromUnit">
+                    </ReportField>
+                    <ReportField Name="InventoryID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="ItemClassID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_description">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_displayName">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_Username">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByScreenID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="PriceAdjustmentMultiplier">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="RecordID">
+                        <DataType>Int64</DataType>
+                    </ReportField>
+                    <ReportField Name="SampleToUnit">
+                    </ReportField>
+                    <ReportField Name="ToUnit">
+                    </ReportField>
+                    <ReportField Name="tstamp">
+                    </ReportField>
+                    <ReportField Name="UnitMultDiv">
+                    </ReportField>
+                    <ReportField Name="UnitRate">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="UnitType">
+                        <DataType>Int16</DataType>
+                    </ReportField>
+                </Fields>
+                <FullName>PX.Objects.IN.INUnit</FullName>
+            </ReportTable>
         </Tables>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
@@ -2119,6 +2208,14 @@
                 </ExcelMargin>
                 <Height>2.75132cm</Height>
                 <Items>
+                    <TextBox Name="textBox1">
+                        <Format>='yyyy-MM-dd'</Format>
+                        <Location>632px, 88px</Location>
+                        <Size>120px, 16px</Size>
+                        <Value>=[INRegister.TranDate]</Value>
+                        <Visible>False</Visible>
+                        <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'PISCRAP' Or [INRegister.AttributeREASON] = 'IMSCRAP', True, False)</VisibleExpr>
+                    </TextBox>
                     <TextBox Name="textBox11">
                         <Location>632px, 88px</Location>
                         <Size>120px, 16px</Size>
@@ -2128,6 +2225,7 @@
                             </Font>
                         </Style>
                         <Value>=[INRegister.AttributePRODLINE]</Value>
+                        <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'PISCRAP' Or [INRegister.AttributeREASON] = 'IMSCRAP', False, True)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox12">
                         <Location>576px, 88px</Location>
@@ -2138,6 +2236,7 @@
                             </Font>
                         </Style>
                         <Value>工作中心:</Value>
+                        <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'PISCRAP' Or [INRegister.AttributeREASON] = 'IMSCRAP', False, True)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox14">
                         <Location>352px, 88px</Location>
@@ -2178,12 +2277,14 @@
                             </Font>
                         </Style>
                         <Value>日      期:</Value>
+                        <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'PISCRAP' Or [INRegister.AttributeREASON] = 'IMSCRAP', False, True)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox18">
                         <Format>='yyyy-MM-dd'</Format>
                         <Location>632px, 72px</Location>
                         <Size>120px, 16px</Size>
                         <Value>=[INRegister.TranDate]</Value>
+                        <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'PISCRAP' Or [INRegister.AttributeREASON] = 'IMSCRAP', False, True)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox19">
                         <Location>0px, 0px</Location>
@@ -2219,6 +2320,18 @@
                             <TextAlign>Center</TextAlign>
                         </Style>
                         <Value>=[INRegister.AttributeREASON]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox5">
+                        <Location>576px, 88px</Location>
+                        <Size>56px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                            </Font>
+                        </Style>
+                        <Value>日      期:</Value>
+                        <Visible>False</Visible>
+                        <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'PISCRAP' Or [INRegister.AttributeREASON] = 'IMSCRAP', True, False)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox9">
                         <Excel>
@@ -2284,7 +2397,7 @@
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=[INTranSplit.Qty]</Value>
+                        <Value>=IIF([INUnit.UnitRate] &lt;&gt; Null And [INUnit.UnitMultDiv] = 'M',#010;[INTranSplit.Qty] / [INUnit.UnitRate],#010;IIF([INUnit.UnitRate] &lt;&gt; Null And [INUnit.UnitMultDiv] = 'D',#010;[INTranSplit.Qty] * [INUnit.UnitRate],#010;[INTranSplit.Qty]))</Value>
                     </TextBox>
                     <TextBox Name="textBox2">
                         <Location>616px, 0px</Location>
@@ -2707,7 +2820,7 @@
                                     </Font>
                                 </Style>
                                 <Value>领料:</Value>
-                                <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP' Or [INRegister.AttributeREASON] = 'Importmtrl',#010;False,#010;True)</VisibleExpr>
+                                <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP' Or [INRegister.AttributeREASON] = 'Importmtrl' Or [INRegister.AttributeREASON] = 'PISCRAP' Or [INRegister.AttributeREASON] = 'IMSCRAP',#010;False,#010;True)</VisibleExpr>
                             </TextBox>
                             <TextBox Name="textBox37">
                                 <Excel>
@@ -2766,7 +2879,7 @@
                                     </Font>
                                 </Style>
                                 <Value>生管:</Value>
-                                <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP' Or [INRegister.AttributeREASON] = 'Importmtrl',#010;False,#010;True)</VisibleExpr>
+                                <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'SCRAP' Or [INRegister.AttributeREASON] = 'Importmtrl' Or [INRegister.AttributeREASON] = 'PISCRAP' Or [INRegister.AttributeREASON] = 'IMSCRAP',#010;False,#010;True)</VisibleExpr>
                             </TextBox>
                             <TextBox Name="textBox41">
                                 <Excel>
@@ -2839,7 +2952,7 @@
                                         <Size>10px</Size>
                                     </Font>
                                 </Style>
-                                <Value>=IIF([INRegister.AttributeREASON] = 'SCRAP', 'Form number: FWH-004/Rev.01', #010;(IIF([INRegister.AttributeREASON] = 'PISCRAP', 'Form number: FWH-028/Rev.01', #010;(IIF([INRegister.AttributeREASON] = 'IMSCRAP', 'Form number: FWH-029/Rev.01', 'Form number: FWH-008/Rev.01')))))</Value>
+                                <Value>=IIF([INRegister.AttributeREASON] = 'SCRAP', 'Form number: FWH-004/Rev.01', #010;(IIF([INRegister.AttributeREASON] = 'PISCRAP', 'Form number: FWH-028/Rev.00', #010;(IIF([INRegister.AttributeREASON] = 'IMSCRAP', 'Form number: FWH-029/Rev.00', 'Form number: FWH-008/Rev.01')))))</Value>
                             </TextBox>
                         </Items>
                     </Footer>
