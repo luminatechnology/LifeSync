@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PX.Objects.CM;
 
 namespace LUMCustomizations.Library
 {
@@ -73,6 +74,29 @@ namespace LUMCustomizations.Library
         {
             var curCoutryID = (PXSelect<Branch>.Select(new PXGraph(), PX.Data.Update.PXInstanceHelper.CurrentCompany)).TopFirst?.CountryID;
             return (curCoutryID == "CN" || curCoutryID == "HK") ? true : false;
+        }
+
+        /// <summary> Get Effect Currency Rate </summary>
+        public IEnumerable<CurrencyRate2> GetCuryRateRecordEffData(PXGraph graph)
+        {
+            PXSelectBase<CurrencyRate2> sel = new PXSelect<CurrencyRate2,
+                Where<CurrencyRate2.toCuryID, Equal<Required<CurrencyRate2.toCuryID>>,
+                    And<CurrencyRate2.fromCuryID, Equal<Required<CurrencyRate2.fromCuryID>>,
+                        And<CurrencyRate2.curyRateType, Equal<Required<CurrencyRate2.curyRateType>>,
+                            And<CurrencyRate2.curyEffDate, Equal<Required<CurrencyRate2.curyEffDate>>>>>>>(graph);
+
+            List<CurrencyRate2> ret = new List<CurrencyRate2>();
+
+            foreach (CurrencyRate2 r in PXSelectGroupBy<CurrencyRate2,
+                Where<CurrencyRate2.toCuryID, Equal<Current<CuryRateFilter.toCurrency>>,
+                    And<CurrencyRate2.curyEffDate, LessEqual<Current<CuryRateFilter.effDate>>>>,
+                Aggregate<Max<CurrencyRate2.curyEffDate,
+                    GroupBy<CurrencyRate2.curyRateType,
+                        GroupBy<CurrencyRate2.fromCuryID>>>>>.Select(graph))
+            {
+                ret.Add((CurrencyRate2)sel.Select("CNY", r.FromCuryID, r.CuryRateType, r.CuryEffDate));
+            }
+            return ret;
         }
     }
 }

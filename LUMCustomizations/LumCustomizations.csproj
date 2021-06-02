@@ -91,6 +91,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAC\ICMSummary.cs" />
     <Compile Include="DAC\LumINItemCostHist.cs" />
     <Compile Include="DAC\LifeSyncPreference.cs" />
     <Compile Include="DAC\LumDeadStockEnqFilter.cs" />
@@ -114,6 +115,7 @@
     <Compile Include="DAC_Extensions\SOShipLineExtensions.cs" />
     <Compile Include="DAC_Extensions\SOShipmentExtensions.cs" />
     <Compile Include="Descriptor\Attribute.cs" />
+    <Compile Include="Graph\ICMSummaryMaint.cs" />
     <Compile Include="Graph\InternalCostModelMaint.cs" />
     <Compile Include="Graph\LumINItemCostHistMaint.cs" />
     <Compile Include="Graph\LifeSyncPreferenceMaint.cs" />

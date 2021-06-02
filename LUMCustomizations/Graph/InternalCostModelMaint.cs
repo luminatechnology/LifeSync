@@ -3,13 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using JAMS.AM;
 using JAMS.AM.Attributes;
 using LumCustomizations.DAC;
+using LUMCustomizations.Library;
 using LuminaExcelLibrary;
-using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
 using NPOI.SS.Util;
 using NPOI.XSSF.UserModel;
@@ -18,8 +16,8 @@ using PX.Data.BQL;
 using PX.Data.BQL.Fluent;
 using PX.Objects.AP;
 using PX.Objects.CM;
+using PX.Objects.Common.Extensions;
 using PX.Objects.CR;
-using PX.Objects.CS;
 using PX.Objects.IN;
 using PX.Objects.PO;
 using PX.Objects.TX;
@@ -28,6 +26,13 @@ namespace LumCustomizations.Graph
 {
     public class InternalCostModelMaint : ProdDetail
     {
+
+        private IEnumerable<AMBomItem> _amBomItems;
+        private IEnumerable<VendorTaxInfo> _vendorTaxInfos;
+        private IEnumerable<POVendorInventory> _poVendorInventories;
+        private IEnumerable<InventoryItem> _inventoryItems;
+        private IEnumerable<CurrencyRate2> _effectCuryRate;
+
         #region Initialize
 
         public InternalCostModelMaint()
@@ -62,79 +67,59 @@ namespace LumCustomizations.Graph
             decimal materialSum = 0;
             var row = this.GetCacheCurrent<AMProdItem>().Current;
             // Currency Rate Type of ICM
-            var _ICMRateType = PXGraph.CreateInstance<InternalCostModelMaint>().Select<LifeSyncPreference>().Select(x => x.InternalCostModelRateType).FirstOrDefault();
-            var _AMProdAttribute = base.ProductionAttributes.Select().FirstTableItems;
-            var _AMProdItem = base.ProdItemRecords.Select().FirstTableItems.Where(x => x.ProdOrdID == ((AMProdItem)this.Caches[typeof(AMProdItem)].Current).ProdOrdID).FirstOrDefault();
+            var icmRateType = PXGraph.CreateInstance<InternalCostModelMaint>().Select<LifeSyncPreference>().Select(x => x.InternalCostModelRateType).FirstOrDefault();
+            var amProdAttribute = base.ProductionAttributes.Select().FirstTableItems;
+            var amProdItem = base.ProdItemRecords.Select().FirstTableItems.Where(x => x.ProdOrdID == ((AMProdItem)this.Caches[typeof(AMProdItem)].Current).ProdOrdID).FirstOrDefault();
+            this._amBomItems = SelectFrom<AMBomItem>.View.Select(this).RowCast<AMBomItem>().ToList();
+            this._inventoryItems = SelectFrom<InventoryItem>.View.Select(this).RowCast<InventoryItem>().ToList();
             // Get Stock Item Vendor Details By LastModifierTime
-            var _POvenderDetail = PXGraph.CreateInstance<InternalCostModelMaint>()
+            this._poVendorInventories = PXGraph.CreateInstance<InternalCostModelMaint>()
                                          .Select<POVendorInventory>()
                                          .ToList()
                                          .Where(x => x.IsDefault ?? false)
                                          .GroupBy(x => new { x.InventoryID })
                                          .Select(x => x.OrderByDescending(y => y.LastModifiedDateTime).FirstOrDefault());
-            var _TaxInfo = (from v in new PXGraph().Select<Vendor>()
-                            join t in new PXGraph().Select<Location>()
-                              on v.BAccountID equals t.BAccountID
-                            join z in new PXGraph().Select<TaxZoneDet>()
-                              on t.VTaxZoneID equals z.TaxZoneID
-                            join r in new PXGraph().Select<TaxRev>()
-                              on z.TaxID equals r.TaxID
-                            where r.TaxType == "P"
-                            select new
-                            {
-                                vendorID = v.BAccountID,
-                                taxRate = r.TaxRate
-                            }).ToList().GroupBy(x => x.vendorID).Select(x => x.First());
+            this._vendorTaxInfos = (from v in new PXGraph().Select<Vendor>()
+                                    join t in new PXGraph().Select<Location>()
+                                      on v.BAccountID equals t.BAccountID
+                                    join z in new PXGraph().Select<TaxZoneDet>()
+                                      on t.VTaxZoneID equals z.TaxZoneID
+                                    join r in new PXGraph().Select<TaxRev>()
+                                      on z.TaxID equals r.TaxID
+                                    where r.TaxType == "P"
+                                    select new VendorTaxInfo()
+                                    {
+                                        VendorID = v.BAccountID,
+                                        TaxRate = r.TaxRate
+                                    }).ToList().GroupBy(x => x.VendorID).Select(x => x.First());
             // Get All Material Data
-            var _materialData = from t in PXGraph.CreateInstance<InternalCostModelMaint>().Select<AMProdMatl>()
-                                where t.OrderType == row.OrderType && t.ProdOrdID == row.ProdOrdID
-                                select t;
-            var _AMProdMaterail = from t in _materialData.ToList()
-                                  join i in PXGraph.CreateInstance<InternalCostModelMaint>().Select<InventoryItem>()
-                                   on t.InventoryID equals i.InventoryID
-                                  join v in _POvenderDetail
-                                   on t.InventoryID equals v.InventoryID into result
-                                  from r in result.DefaultIfEmpty()
-                                  join x in _TaxInfo
-                                    on r?.VendorID ?? -1 equals x.vendorID into taxResult
-                                  from _tax in taxResult.DefaultIfEmpty()
-                                  orderby i.InventoryCD
-                                  select new
-                                  {
-                                      t.InventoryID,
-                                      t.Descr,
-                                      t.UnitCost,
-                                      t.UOM,
-                                      t.TotalQtyRequired,
-                                      t.ScrapFactor,
-                                      t.QtyReq,
-                                      i.InventoryCD,
-                                      venderDetail = r,
-                                      taxInfo = _tax
-                                  };
+            var materialData = from t in PXGraph.CreateInstance<InternalCostModelMaint>().Select<AMProdMatl>()
+                               join i in _inventoryItems on t.InventoryID equals i.InventoryID
+                               where t.OrderType == row.OrderType && t.ProdOrdID == row.ProdOrdID
+                               select new { material = t, inventoryCD = i.InventoryCD };
             var _AMProdOper = base.ProdOperRecords.Select().FirstTableItems;
 
             // ReplenishmentSource From Inventory 
             var _InventoryItem = PXGraph.CreateInstance<InternalCostModelMaint>().Select<INItemSite>().Select(x => new { x.InventoryID, x.ReplenishmentSource });
             // Effect Curry Rate
-            var _EffectCuryRate = GetCuryRateRecordEffData().Where(x => x.CuryRateType == _ICMRateType).ToList();
-            if (_EffectCuryRate.Count == 0)
+            this._effectCuryRate = new LumLibrary().GetCuryRateRecordEffData(this).Where(x => x.CuryRateType == icmRateType).ToList();
+            if (this._effectCuryRate.Count() == 0)
                 throw new PXException("Please Select ICM Rate Type !!");
 
             decimal _SetUpSum = 0;
             decimal _TotalCost = 0;
             var _StandardWorkingTime = (_AMProdOper.FirstOrDefault().RunUnitTime / _AMProdOper.FirstOrDefault().RunUnits).Value;
             // AMProdAttribute 
-            var _ENDC = _AMProdAttribute.Where(x => x.AttributeID.Equals("ENDC")).FirstOrDefault()?.Value;
-            var _EAU = _AMProdAttribute.Where(x => x.AttributeID.Equals("EAU")).FirstOrDefault()?.Value;
-            var _LBSCCost = _AMProdAttribute.Where(x => x.AttributeID == "LBSC").FirstOrDefault()?.Value ?? "0";
-            var _MFSCCost = _AMProdAttribute.Where(x => x.AttributeID == "MFSC").FirstOrDefault()?.Value ?? "0";
-            var _OHSCCost = _AMProdAttribute.Where(x => x.AttributeID == "OHSC").FirstOrDefault()?.Value ?? "0";
-            var _SETUPSCCost = _AMProdAttribute.Where(x => x.AttributeID == "SETUPSC").FirstOrDefault()?.Value ?? "0";
-            var _PRODYIELD = _AMProdAttribute.Where(x => x.AttributeID == "PRODYIELD").FirstOrDefault()?.Value ?? "0";
-            var _ABADGSELL = _AMProdAttribute.Where(x => x.AttributeID == "ABADGSELL").FirstOrDefault()?.Value ?? "0";
-            var _HKOHSCCost = _AMProdAttribute.Where(x => x.AttributeID == "HKOHSC").FirstOrDefault()?.Value ?? "0";
-            var _ABISELLCost = _AMProdAttribute.Where(x => x.AttributeID == "ABISELL").FirstOrDefault()?.Value ?? "0";
+            var attrENDC = amProdAttribute.FirstOrDefault(x => x.AttributeID.Equals("ENDC"))?.Value;
+            var attrEAU = amProdAttribute.FirstOrDefault(x => x.AttributeID.Equals("EAU"))?.Value;
+            var attrLBSC = amProdAttribute.FirstOrDefault(x => x.AttributeID == "LBSC")?.Value ?? "0";
+            var attrMFSC = amProdAttribute.FirstOrDefault(x => x.AttributeID == "MFSC")?.Value ?? "0";
+            var _OHSCCost = amProdAttribute.FirstOrDefault(x => x.AttributeID == "OHSC")?.Value ?? "0";
+            var _SETUPSCCost = amProdAttribute.FirstOrDefault(x => x.AttributeID == "SETUPSC")?.Value ?? "0";
+            var _PRODYIELD = amProdAttribute.FirstOrDefault(x => x.AttributeID == "PRODYIELD")?.Value ?? "0";
+            var _ABADGSELL = amProdAttribute.FirstOrDefault(x => x.AttributeID == "ABADGSELL")?.Value ?? "0";
+            var _HKOHSCCost = amProdAttribute.FirstOrDefault(x => x.AttributeID == "HKOHSC")?.Value ?? "0";
+            var _ABISELLCost = amProdAttribute.FirstOrDefault(x => x.AttributeID == "ABISELL")?.Value ?? "0";
             #endregion
 
             #region Excel
@@ -226,7 +211,7 @@ namespace LumCustomizations.Graph
             sheet.AddMergedRegion(new CellRangeAddress(0, 0, 0, 10));
 
             sheet.CreateRow(2);
-            sheet.GetRow(2).CreateCell(1).SetCellValue($"Quotation No :{_AMProdItem.ProdOrdID}");
+            sheet.GetRow(2).CreateCell(1).SetCellValue($"Quotation No :{amProdItem.ProdOrdID}");
             sheet.GetRow(2).GetCell(1).CellStyle = NormalStyle;
             sheet.GetRow(2).CreateCell(4).SetCellValue($"Revision No :01");
             sheet.GetRow(2).GetCell(4).CellStyle = NormalStyle;
@@ -234,21 +219,21 @@ namespace LumCustomizations.Graph
             sheet.GetRow(2).GetCell(6).CellStyle = NormalStyle;
 
             sheet.CreateRow(3);
-            sheet.GetRow(3).CreateCell(1).SetCellValue($"Customer :{_ENDC}");
+            sheet.GetRow(3).CreateCell(1).SetCellValue($"Customer :{attrENDC}");
             sheet.GetRow(3).GetCell(1).CellStyle = NormalStyle;
             sheet.GetRow(3).CreateCell(4).SetCellValue($"Project Name :");
             sheet.GetRow(3).GetCell(4).CellStyle = NormalStyle;
-            sheet.GetRow(3).CreateCell(6).SetCellValue($"Porject No :{new PXGraph().Select<InventoryItem>().FirstOrDefault(x => x.InventoryID == _AMProdItem.InventoryID)?.InventoryCD}");
+            sheet.GetRow(3).CreateCell(6).SetCellValue($"Porject No :{new PXGraph().Select<InventoryItem>().FirstOrDefault(x => x.InventoryID == amProdItem.InventoryID)?.InventoryCD}");
             sheet.GetRow(3).GetCell(6).CellStyle = NormalStyle;
 
             sheet.CreateRow(4);
             sheet.GetRow(4).CreateCell(1).SetCellValue($"Customer contact person :");
             sheet.GetRow(4).GetCell(1).CellStyle = NormalStyle;
-            sheet.GetRow(4).CreateCell(6).SetCellValue($"Drawing :{_AMProdAttribute.Where(x => x.AttributeID.Equals("DRAWING")).FirstOrDefault()?.Value}");
+            sheet.GetRow(4).CreateCell(6).SetCellValue($"Drawing :{amProdAttribute.FirstOrDefault(x => x.AttributeID.Equals("DRAWING"))?.Value}");
             sheet.GetRow(4).GetCell(6).CellStyle = NormalStyle;
 
             sheet.CreateRow(5);
-            sheet.GetRow(5).CreateCell(1).SetCellValue($"EAU :{_EAU}");
+            sheet.GetRow(5).CreateCell(1).SetCellValue($"EAU :{attrEAU}");
             sheet.GetRow(5).GetCell(1).CellStyle = NormalStyle;
 
             sheet.CreateRow(6);
@@ -287,92 +272,55 @@ namespace LumCustomizations.Graph
 
             #endregion
             rowNum = 8;
-            foreach (var matl in _AMProdMaterail)
+
+            foreach (var amMaterial in materialData.OrderBy(x => x.inventoryCD))
             {
-                decimal? _materailCost = 0;
-                var _ReplenishmentSource = _InventoryItem.Where(x => x.InventoryID == matl.InventoryID)
-                    .FirstOrDefault()?.ReplenishmentSource ?? "";
-
-                sheet.CreateRow(++rowNum);
-                // NO
-                //sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"{(_ReplenishmentSource.Equals("P") ? ".1" : _ReplenishmentSource.Equals("M") ? "..2" : "..3")}");
-                sheet.GetRow(rowNum).CreateCell(1).SetCellValue($".1");
-
-                sheet.GetRow(rowNum).GetCell(1).CellStyle = TableContentStyle;
-                // Part No
-                sheet.GetRow(rowNum).CreateCell(2).SetCellValue($"{matl.InventoryCD}");
-                sheet.GetRow(rowNum).GetCell(2).CellStyle = TableContentStyle_Left;
-                // Name
-                sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{matl.Descr}");
-                sheet.GetRow(rowNum).GetCell(3).CellStyle = TableContentStyle_Left;
-                // U/P(RMB/HKD/USD)
-                sheet.GetRow(rowNum).CreateCell(4);
-                sheet.GetRow(rowNum).CreateCell(5);
-                sheet.GetRow(rowNum).CreateCell(6);
-                // IF Purchase Unit != Matailes UOM
-                if (matl.venderDetail != null && (matl.venderDetail.LastPrice ?? 0) > 0)
+                System.Collections.Stack visualBOM = new Stack();
+                visualBOM = GetVisualBOM(visualBOM, amMaterial.material, 1);
+                decimal? materailCost = 0;
+                // Material Details
+                foreach (BomNode node in visualBOM)
                 {
-                    var _venderLastPrice = matl.venderDetail.LastPrice.Value;
-                    if (matl.venderDetail.PurchaseUnit != matl.UOM)
-                    {
-                        var _INUnit = from t in PXGraph.CreateInstance<InternalCostModelMaint>().Select<INUnit>()
-                                      where t.InventoryID == matl.InventoryID &&
-                                            t.FromUnit == matl.venderDetail.PurchaseUnit &&
-                                            t.ToUnit == matl.UOM
-                                      select t;
-                        _venderLastPrice = _INUnit == null ? _venderLastPrice
-                                                           : _INUnit.FirstOrDefault().UnitMultDiv == "M" ? _venderLastPrice / (_INUnit.FirstOrDefault()?.UnitRate ?? 1)
-                                                                                                         : _venderLastPrice * (_INUnit.FirstOrDefault()?.UnitRate ?? 1);
-                    }
+                    sheet.CreateRow(++rowNum);
+                    // NO
+                    //sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"{(_ReplenishmentSource.Equals("P") ? ".1" : _ReplenishmentSource.Equals("M") ? "..2" : "..3")}");
+                    sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"{node.NodeLevel}");
 
-                    if (matl.venderDetail.CuryID == "CNY")
-                    {
-                        // 不含Tax
-                        _venderLastPrice = (_venderLastPrice / (1 + (matl?.taxInfo?.taxRate ?? 0) / 100));
-                        sheet.GetRow(rowNum).GetCell(4).SetCellValue($"{_venderLastPrice.ToString("N4")}");
-                        _materailCost = _venderLastPrice * Math.Round((matl.QtyReq * 1) ?? 1, 4)
-                                        * (_EffectCuryRate.Where(x => x.FromCuryID == "USD" && x.ToCuryID == "CNY").FirstOrDefault()?.RateReciprocal ?? 1);
-                    }
-                    else if (matl.venderDetail.CuryID == "HKD")
-                    {
-                        sheet.GetRow(rowNum).GetCell(5).SetCellValue($"{_venderLastPrice.ToString("N4")}");
-                        _materailCost = _venderLastPrice * Math.Round((matl.QtyReq * 1) ?? 1, 4)
-                                        * (_EffectCuryRate.Where(x => x.FromCuryID == "HKD" && x.ToCuryID == "CNY").FirstOrDefault()?.CuryRate ?? 1)
-                                        * (_EffectCuryRate.Where(x => x.FromCuryID == "USD" && x.ToCuryID == "CNY").FirstOrDefault()?.RateReciprocal ?? 1);
-                    }
-                    else if (matl.venderDetail.CuryID == "USD")
-                    {
-                        sheet.GetRow(rowNum).GetCell(6).SetCellValue($"{_venderLastPrice.ToString("N4")}");
-                        _materailCost = _venderLastPrice * Math.Round((matl.QtyReq * 1) ?? 1, 4);
-                    }
+                    sheet.GetRow(rowNum).GetCell(1).CellStyle = TableContentStyle;
+                    // Part No
+                    sheet.GetRow(rowNum).CreateCell(2).SetCellValue($"{node.PartNo}");
+                    sheet.GetRow(rowNum).GetCell(2).CellStyle = TableContentStyle_Left;
+                    // Name
+                    sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{node.Name}");
+                    sheet.GetRow(rowNum).GetCell(3).CellStyle = TableContentStyle_Left;
+                    // U/P(RMB/HKD/USD)
+                    sheet.GetRow(rowNum).CreateCell(4);
+                    sheet.GetRow(rowNum).CreateCell(5);
+                    sheet.GetRow(rowNum).CreateCell(6);
+
+                    sheet.GetRow(rowNum).GetCell(4).SetCellValue($"{node.RMB}");
+                    sheet.GetRow(rowNum).GetCell(5).SetCellValue($"{node.HKD}");
+                    sheet.GetRow(rowNum).GetCell(6).SetCellValue($"{node.USD}");
+
+                    sheet.GetRow(rowNum).GetCell(4).CellStyle = TableContentStyle;
+                    sheet.GetRow(rowNum).GetCell(5).CellStyle = TableContentStyle;
+                    sheet.GetRow(rowNum).GetCell(6).CellStyle = TableContentStyle;
+
+                    // Unit
+                    sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"{node.Unit}");
+                    sheet.GetRow(rowNum).GetCell(7).CellStyle = TableContentStyle;
+                    // QPA
+                    sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"{node.QPA}");
+                    sheet.GetRow(rowNum).GetCell(8).CellStyle = TableContentStyle;
+                    // Materail Cost(US$)
+                    sheet.GetRow(rowNum).CreateCell(9).SetCellValue(node.Cost == null ? 0 : double.Parse(node.Cost?.ToString("N5")));
+                    //sheet.GetRow(rowNum).CreateCell(9).SetCellType(CellType.Numeric);
+                    //sheet.GetRow(rowNum).CreateCell(9).CellStyle.DataFormat = workBook.CreateDataFormat().GetFormat("0.0000");
+                    sheet.GetRow(rowNum).GetCell(9).CellStyle = TableContentStyle;
+                    // Materail MOQ
+                    sheet.GetRow(rowNum).CreateCell(10).SetCellValue($"");
+                    sheet.GetRow(rowNum).GetCell(10).CellStyle = TableContentStyle;
                 }
-                else
-                {
-                    sheet.GetRow(rowNum).GetCell(4).SetCellValue($"{(matl.UnitCost.HasValue ? matl.UnitCost.Value.ToString("N4") : "")}");
-
-                    _materailCost = (matl.UnitCost.HasValue ? matl.UnitCost.Value : 0) * Math.Round((matl.QtyReq * 1) ?? 1, 4)
-                                                     * (_EffectCuryRate.Where(x => x.FromCuryID == "USD" && x.ToCuryID == "CNY").FirstOrDefault()?.RateReciprocal ?? 1);
-                }
-
-                sheet.GetRow(rowNum).GetCell(4).CellStyle = TableContentStyle;
-                sheet.GetRow(rowNum).GetCell(5).CellStyle = TableContentStyle;
-                sheet.GetRow(rowNum).GetCell(6).CellStyle = TableContentStyle;
-                // Unit
-                sheet.GetRow(rowNum).CreateCell(7).SetCellValue($"{matl.UOM}");
-                sheet.GetRow(rowNum).GetCell(7).CellStyle = TableContentStyle;
-                // QPA
-                sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"{(matl.QtyReq * 1).Value.ToString("N4")}");
-                sheet.GetRow(rowNum).GetCell(8).CellStyle = TableContentStyle;
-                // Materail Cost(US$)
-                sheet.GetRow(rowNum).CreateCell(9).SetCellValue(double.Parse(_materailCost.Value.ToString("N5")));
-                //sheet.GetRow(rowNum).CreateCell(9).SetCellType(CellType.Numeric);
-                //sheet.GetRow(rowNum).CreateCell(9).CellStyle.DataFormat = workBook.CreateDataFormat().GetFormat("0.0000");
-                sheet.GetRow(rowNum).GetCell(9).CellStyle = TableContentStyle;
-                // Materail MOQ
-                sheet.GetRow(rowNum).CreateCell(10).SetCellValue($"");
-                sheet.GetRow(rowNum).GetCell(10).CellStyle = TableContentStyle;
-
-                materialSum += (matl.UnitCost * matl.TotalQtyRequired * 1).Value;
             }
 
             // Materail Sum
@@ -384,6 +332,7 @@ namespace LumCustomizations.Graph
             //sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{materialSum.ToString("N4")}");
             sheet.GetRow(rowNum).GetCell(9).CellStyle = GreyCellStyle;
             _SetUpSum += materialSum;
+
             // Green Cell
             sheet.CreateRow(++rowNum);
             excelHelper.CreateBlankCell(sheet, rowNum, 0, 10, GreenCellStyle.ExcelStyle);
@@ -418,7 +367,7 @@ namespace LumCustomizations.Graph
             excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"Standard cost");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
-            sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{_LBSCCost}");
+            sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{attrLBSC}");
             sheet.GetRow(rowNum).GetCell(3).CellStyle = YellowCellStyle;
             sheet.GetRow(rowNum).CreateCell(4).SetCellValue($"RMB/minute");
             sheet.GetRow(rowNum).GetCell(4).CellStyle = TableHeaderStyle;
@@ -436,7 +385,7 @@ namespace LumCustomizations.Graph
             //sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{(_StandardWorkingTime * decimal.Parse(_LBSCCost) * _EffectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault().RateReciprocal).Value.ToString("N4")}");
             sheet.GetRow(rowNum).CreateCell(9).SetCellFormula($"I{rowNum + 1}/F{rowNum + 55}");
             sheet.GetRow(rowNum).GetCell(9).CellStyle = GreyCellStyle;
-            _SetUpSum += (_StandardWorkingTime * decimal.Parse(_LBSCCost) * _EffectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault().RateReciprocal).Value;
+            _SetUpSum += (_StandardWorkingTime * decimal.Parse(attrLBSC) * this._effectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault().RateReciprocal).Value;
 
             // Green Cells
             sheet.CreateRow(++rowNum);
@@ -473,7 +422,7 @@ namespace LumCustomizations.Graph
             excelHelper.CreateBlankCell(sheet, rowNum, 1, 10);
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"Standard cost");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
-            sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{_MFSCCost}");
+            sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{attrMFSC}");
             sheet.GetRow(rowNum).GetCell(3).CellStyle = YellowCellStyle;
             sheet.GetRow(rowNum).CreateCell(4).SetCellValue($"RMB/minute");
             sheet.GetRow(rowNum).GetCell(4).CellStyle = TableHeaderStyle;
@@ -491,7 +440,7 @@ namespace LumCustomizations.Graph
             //sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{(_StandardWorkingTime * decimal.Parse(_MFSCCost) * _EffectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault().RateReciprocal).Value.ToString("N4")}");
             sheet.GetRow(rowNum).CreateCell(9).SetCellFormula($"I{rowNum + 1}/F{rowNum + 50}");
             sheet.GetRow(rowNum).GetCell(9).CellStyle = GreyCellStyle;
-            _SetUpSum += (_StandardWorkingTime * decimal.Parse(_MFSCCost) * _EffectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault().RateReciprocal).Value;
+            _SetUpSum += (_StandardWorkingTime * decimal.Parse(attrMFSC) * this._effectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault().RateReciprocal).Value;
 
             // Green Cells
             sheet.CreateRow(++rowNum);
@@ -546,7 +495,7 @@ namespace LumCustomizations.Graph
             //sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{(_StandardWorkingTime * decimal.Parse(_OHSCCost) * _EffectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault().RateReciprocal).Value.ToString("N4")}");
             sheet.GetRow(rowNum).CreateCell(9).SetCellFormula($"I{rowNum + 1}/F{rowNum + 45}");
             sheet.GetRow(rowNum).GetCell(9).CellStyle = GreyCellStyle;
-            _SetUpSum += (_StandardWorkingTime * decimal.Parse(_OHSCCost) * _EffectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault().RateReciprocal).Value;
+            _SetUpSum += (_StandardWorkingTime * decimal.Parse(_OHSCCost) * this._effectCuryRate.FirstOrDefault(x => x.FromCuryID == "USD").RateReciprocal).Value;
 
             // Green Cells
             sheet.CreateRow(++rowNum);
@@ -580,7 +529,7 @@ namespace LumCustomizations.Graph
             sheet.GetRow(rowNum).GetCell(5).CellStyle = TableHeaderStyle;
             sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"2-4 total * rate");
             sheet.GetRow(rowNum).GetCell(8).CellStyle = TableHeaderStyle;
-            sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{(decimal.Parse(_EAU ?? "0") * decimal.Parse(_SETUPSCCost)).ToString("N4")}");
+            sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{(decimal.Parse(attrEAU ?? "0") * decimal.Parse(_SETUPSCCost)).ToString("N4")}");
             sheet.GetRow(rowNum).GetCell(9).CellStyle = TableHeaderStyle;
 
             // sum 1-5
@@ -662,8 +611,8 @@ namespace LumCustomizations.Graph
             sheet.GetRow(rowNum).GetCell(9).CellStyle = TANCellStyle;
 
             // Sum
-            var _abaDGPrice = _TotalCost + (_TotalCost * (decimal.Parse(_ABADGSELL) / 100));
-            var _abaDGPrice_HKD = _abaDGPrice * _EffectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault()?.CuryRate * _EffectCuryRate.Where(x => x.FromCuryID == "HKD").FirstOrDefault()?.RateReciprocal;
+            var abaDGPrice = _TotalCost + (_TotalCost * (decimal.Parse(_ABADGSELL) / 100));
+            var abaDGPrice_HKD = abaDGPrice * this._effectCuryRate.FirstOrDefault(x => x.FromCuryID == "USD")?.CuryRate * this._effectCuryRate.FirstOrDefault(x => x.FromCuryID == "HKD")?.RateReciprocal;
             sheet.CreateRow(++rowNum);
             excelHelper.CreateBlankCell(sheet, rowNum, 1, 11);
             sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"ABA DG Price");
@@ -753,7 +702,7 @@ namespace LumCustomizations.Graph
             sheet.GetRow(rowNum).GetCell(9).CellStyle = TANCellStyle;
 
             // Sum
-            var _hkPrice = (_StandardWorkingTime * decimal.Parse(_HKOHSCCost)) + (_abaDGPrice * (decimal.Parse(_HKOHSCCost) / 100)) + _abaDGPrice;
+            var _hkPrice = (_StandardWorkingTime * decimal.Parse(_HKOHSCCost)) + (abaDGPrice * (decimal.Parse(_HKOHSCCost) / 100)) + abaDGPrice;
             sheet.CreateRow(++rowNum);
             excelHelper.CreateBlankCell(sheet, rowNum, 1, 11);
             sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"ABA HK Price");
@@ -868,9 +817,9 @@ namespace LumCustomizations.Graph
             #region Currency Rate
 
             var _CuryUSDToHKD =
-                _EffectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault()?.CuryRate /
-                _EffectCuryRate.Where(x => x.FromCuryID == "HKD").FirstOrDefault()?.CuryRate;
-            var _CuryUSDToRMB = _EffectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault()?.CuryRate;
+                this._effectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault()?.CuryRate /
+                this._effectCuryRate.Where(x => x.FromCuryID == "HKD").FirstOrDefault()?.CuryRate;
+            var _CuryUSDToRMB = this._effectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault()?.CuryRate;
 
             // Title
             sheet.CreateRow(++rowNum);
@@ -931,27 +880,138 @@ namespace LumCustomizations.Graph
 
         #region Function
 
-        /// <summary> Get Effect Currency Rate </summary>
-        protected IEnumerable<CurrencyRate2> GetCuryRateRecordEffData()
+        public System.Collections.Stack GetVisualBOM(System.Collections.Stack stackNode, AMProdMatl material, int level)
         {
-            PXSelectBase<CurrencyRate2> sel = new PXSelect<CurrencyRate2,
-                Where<CurrencyRate2.toCuryID, Equal<Required<CurrencyRate2.toCuryID>>,
-                And<CurrencyRate2.fromCuryID, Equal<Required<CurrencyRate2.fromCuryID>>,
-                And<CurrencyRate2.curyRateType, Equal<Required<CurrencyRate2.curyRateType>>,
-                And<CurrencyRate2.curyEffDate, Equal<Required<CurrencyRate2.curyEffDate>>>>>>>(this);
+            var materailCost = (decimal)0.0;
+            BomNode node = new BomNode();
 
-            List<CurrencyRate2> ret = new List<CurrencyRate2>();
-
-            foreach (CurrencyRate2 r in PXSelectGroupBy<CurrencyRate2,
-                Where<CurrencyRate2.toCuryID, Equal<Current<CuryRateFilter.toCurrency>>,
-                And<CurrencyRate2.curyEffDate, LessEqual<Current<CuryRateFilter.effDate>>>>,
-                Aggregate<Max<CurrencyRate2.curyEffDate,
-                GroupBy<CurrencyRate2.curyRateType,
-                GroupBy<CurrencyRate2.fromCuryID>>>>>.Select(this))
+            var icmMaterialInfo = (from inv in this._inventoryItems.Where(x => x.InventoryID == material.InventoryID)
+                                   join vendor in this._poVendorInventories
+                                       on inv.InventoryID equals vendor.InventoryID into rs1
+                                   from r1 in rs1.DefaultIfEmpty()
+                                   join tax in this._vendorTaxInfos
+                                       on r1?.VendorID ?? -1 equals tax.VendorID into rs2
+                                   from r2 in rs2.DefaultIfEmpty()
+                                   select new
+                                   {
+                                       inv.InventoryID,
+                                       inv.Descr,
+                                       material.UnitCost,
+                                       material.UOM,
+                                       material.TotalQtyRequired,
+                                       material.QtyReq,
+                                       inv.InventoryCD,
+                                       venderDetail = r1,
+                                       taxInfo = r2
+                                   }).FirstOrDefault();
+            // setting Node Value
+            node.NodeLevel = GetLevelNodeString(level);
+            node.PartNo = icmMaterialInfo?.InventoryCD;
+            node.Name = icmMaterialInfo?.Descr;
+            node.Unit = icmMaterialInfo?.UOM;
+            node.QPA = icmMaterialInfo?.QtyReq?.ToString("N4");
+            if (icmMaterialInfo.venderDetail != null && (icmMaterialInfo.venderDetail.LastPrice ?? 0) > 0)
             {
-                ret.Add((CurrencyRate2)sel.Select("CNY", r.FromCuryID, r.CuryRateType, r.CuryEffDate));
+                var venderLastPrice = icmMaterialInfo.venderDetail.LastPrice.Value;
+                // 調整vendor price by UOM
+                if (icmMaterialInfo.venderDetail.PurchaseUnit != icmMaterialInfo.UOM)
+                {
+                    var INUnit = from t in PXGraph.CreateInstance<InternalCostModelMaint>().Select<INUnit>()
+                                 where t.InventoryID == icmMaterialInfo.InventoryID &&
+                                       t.FromUnit == icmMaterialInfo.venderDetail.PurchaseUnit &&
+                                       t.ToUnit == icmMaterialInfo.UOM
+                                 select t;
+                    venderLastPrice = INUnit == null ? venderLastPrice
+                                                            : INUnit.FirstOrDefault()?.UnitMultDiv == "M" ? venderLastPrice / (INUnit.FirstOrDefault()?.UnitRate ?? 1)
+                                                                                                          : venderLastPrice * (INUnit.FirstOrDefault()?.UnitRate ?? 1);
+                }
+
+                if (icmMaterialInfo.venderDetail.CuryID == "CNY")
+                {
+                    // 不含Tax
+                    venderLastPrice = (venderLastPrice / (1 + (icmMaterialInfo?.taxInfo?.TaxRate ?? 0) / 100));
+                    node.RMB = venderLastPrice.ToString("N4");
+                    materailCost = venderLastPrice * Math.Round((icmMaterialInfo.QtyReq * 1) ?? 1, 4)
+                                                     * (this._effectCuryRate.FirstOrDefault(x => x.FromCuryID == "USD" && x.ToCuryID == "CNY")?.RateReciprocal ?? 1);
+                }
+                else if (icmMaterialInfo.venderDetail.CuryID == "HKD")
+                {
+                    node.HKD = venderLastPrice.ToString("N4");
+                    materailCost = venderLastPrice * Math.Round((icmMaterialInfo.QtyReq * 1) ?? 1, 4)
+                                                    * (this._effectCuryRate.FirstOrDefault(x => x.FromCuryID == "HKD" && x.ToCuryID == "CNY")?.CuryRate ?? 1)
+                                                    * (this._effectCuryRate.FirstOrDefault(x => x.FromCuryID == "USD" && x.ToCuryID == "CNY")?.RateReciprocal ?? 1);
+                }
+                else if (icmMaterialInfo.venderDetail.CuryID == "USD")
+                {
+                    node.USD = venderLastPrice.ToString("N4");
+                    materailCost = venderLastPrice * Math.Round((icmMaterialInfo.QtyReq * 1) ?? 1, 4);
+                }
             }
-            return ret;
+            else
+            {
+                node.RMB = (icmMaterialInfo.UnitCost.HasValue ? icmMaterialInfo.UnitCost.Value.ToString("N4") : "");
+                materailCost = (icmMaterialInfo.UnitCost.HasValue ? icmMaterialInfo.UnitCost.Value : 0) * Math.Round((icmMaterialInfo.QtyReq * 1) ?? 1, 4)
+                                                 * (this._effectCuryRate.Where(x => x.FromCuryID == "USD" && x.ToCuryID == "CNY").FirstOrDefault()?.RateReciprocal ?? 1);
+            }
+
+            if (this._amBomItems.Any(x => x.BOMID.Trim() == GetInventoryCD(material.InventoryID)?.Trim()))
+            {
+                var childBOMMaterial = SelectFrom<AMBomMatl>.Where<AMBomMatl.bOMID.IsEqual<P.AsString>>
+                    .View.Select(this, GetInventoryCD(material.InventoryID)?.Trim()).RowCast<AMBomMatl>();
+                foreach (var child in childBOMMaterial)
+                {
+                    GetVisualBOM(
+                        stackNode,
+                        new AMProdMatl()
+                        {
+                            InventoryID = child.InventoryID,
+                            UnitCost = child.UnitCost,
+                            UOM = child.UOM,
+                            TotalQtyRequired = child.QtyReq,
+                            QtyReq = child.QtyReq
+                        }, level + 1);
+                }
+            }
+            else
+                node.Cost = materailCost;
+            stackNode.Push(node);
+            return stackNode;
+        }
+
+        protected string GetLevelNodeString(int level)
+        {
+            string strLevel = string.Empty;
+            for (int i = 0; i < level; i++)
+                strLevel += ".";
+            return strLevel + level;
+        }
+
+        protected string GetInventoryCD(int? ID)
+        {
+            return this._inventoryItems.FirstOrDefault(x => x.InventoryID == ID)?.InventoryCD;
+        }
+
+        #endregion
+
+        #region Entity
+
+        protected class VendorTaxInfo
+        {
+            public int? VendorID { get; set; }
+            public decimal? TaxRate { get; set; }
+        }
+
+        protected class BomNode
+        {
+            public string NodeLevel { get; set; }
+            public string PartNo { get; set; }
+            public string Name { get; set; }
+            public string RMB { get; set; }
+            public string HKD { get; set; }
+            public string USD { get; set; }
+            public string Unit { get; set; }
+            public string QPA { get; set; }
+            public decimal? Cost { get; set; }
         }
 
         #endregion

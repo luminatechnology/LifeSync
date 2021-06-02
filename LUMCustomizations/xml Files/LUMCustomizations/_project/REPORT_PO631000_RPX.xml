@@ -1,4 +1,4 @@
-<Report Name="po631000.rpx">
+﻿<Report Name="po631000.rpx">
     <Report Name="report1">
         <ExcelColumns>
             <item>7</item>
@@ -99,11 +99,6 @@
                 <DataField>POAccrualStatus.LineType</DataField>
                 <Operator>Or</Operator>
                 <Value>='GF'</Value>
-            </FilterExp>
-            <FilterExp>
-                <DataField>POAccrualStatus.LineType</DataField>
-                <Operator>Or</Operator>
-                <Value>='NM'</Value>
             </FilterExp>
             <FilterExp>
                 <CloseBraces>1</CloseBraces>
@@ -317,7 +312,7 @@
                 <ParentName>POAccrualStatus</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>https://healthedge.acumatica.com/</SchemaUrl>
+        <SchemaUrl>http://localhost/ABA_AcumaticaDB1/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>POAccrualStatus.AcctID</DataField>
