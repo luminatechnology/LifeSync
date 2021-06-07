@@ -900,16 +900,18 @@ namespace LumCustomizations.Graph
                                        material.UOM,
                                        material.TotalQtyRequired,
                                        material.QtyReq,
+                                       material.BatchSize,
                                        inv.InventoryCD,
                                        venderDetail = r1,
                                        taxInfo = r2
                                    }).FirstOrDefault();
             // setting Node Value
+            var QPA = (icmMaterialInfo?.QtyReq / icmMaterialInfo.BatchSize) ?? 1;
             node.NodeLevel = GetLevelNodeString(level);
             node.PartNo = icmMaterialInfo?.InventoryCD;
             node.Name = icmMaterialInfo?.Descr;
             node.Unit = icmMaterialInfo?.UOM;
-            node.QPA = icmMaterialInfo?.QtyReq?.ToString("N4");
+            node.QPA = QPA.ToString("N4");
             if (icmMaterialInfo.venderDetail != null && (icmMaterialInfo.venderDetail.LastPrice ?? 0) > 0)
             {
                 var venderLastPrice = icmMaterialInfo.venderDetail.LastPrice.Value;
@@ -931,26 +933,26 @@ namespace LumCustomizations.Graph
                     // 不含Tax
                     venderLastPrice = (venderLastPrice / (1 + (icmMaterialInfo?.taxInfo?.TaxRate ?? 0) / 100));
                     node.RMB = venderLastPrice.ToString("N4");
-                    materailCost = venderLastPrice * Math.Round((icmMaterialInfo.QtyReq * 1) ?? 1, 4)
-                                                     * (this._effectCuryRate.FirstOrDefault(x => x.FromCuryID == "USD" && x.ToCuryID == "CNY")?.RateReciprocal ?? 1);
+                    materailCost = venderLastPrice * Math.Round(QPA ,4)
+                                                   * (this._effectCuryRate.FirstOrDefault(x => x.FromCuryID == "USD" && x.ToCuryID == "CNY")?.RateReciprocal ?? 1);
                 }
                 else if (icmMaterialInfo.venderDetail.CuryID == "HKD")
                 {
                     node.HKD = venderLastPrice.ToString("N4");
-                    materailCost = venderLastPrice * Math.Round((icmMaterialInfo.QtyReq * 1) ?? 1, 4)
+                    materailCost = venderLastPrice * Math.Round(QPA, 4)
                                                     * (this._effectCuryRate.FirstOrDefault(x => x.FromCuryID == "HKD" && x.ToCuryID == "CNY")?.CuryRate ?? 1)
                                                     * (this._effectCuryRate.FirstOrDefault(x => x.FromCuryID == "USD" && x.ToCuryID == "CNY")?.RateReciprocal ?? 1);
                 }
                 else if (icmMaterialInfo.venderDetail.CuryID == "USD")
                 {
                     node.USD = venderLastPrice.ToString("N4");
-                    materailCost = venderLastPrice * Math.Round((icmMaterialInfo.QtyReq * 1) ?? 1, 4);
+                    materailCost = venderLastPrice * Math.Round(QPA, 4);
                 }
             }
             else
             {
                 node.RMB = (icmMaterialInfo.UnitCost.HasValue ? icmMaterialInfo.UnitCost.Value.ToString("N4") : "");
-                materailCost = (icmMaterialInfo.UnitCost.HasValue ? icmMaterialInfo.UnitCost.Value : 0) * Math.Round((icmMaterialInfo.QtyReq * 1) ?? 1, 4)
+                materailCost = (icmMaterialInfo.UnitCost.HasValue ? icmMaterialInfo.UnitCost.Value : 0) * Math.Round(QPA, 4)
                                                  * (this._effectCuryRate.Where(x => x.FromCuryID == "USD" && x.ToCuryID == "CNY").FirstOrDefault()?.RateReciprocal ?? 1);
             }
 
@@ -968,6 +970,7 @@ namespace LumCustomizations.Graph
                             UnitCost = child.UnitCost,
                             UOM = child.UOM,
                             TotalQtyRequired = child.QtyReq,
+                            BatchSize = child.BatchSize,
                             QtyReq = child.QtyReq
                         }, level + 1);
                 }

@@ -26,6 +26,11 @@ namespace LUMCustomizations.DAC
         public abstract class inventoryCD : PX.Data.BQL.BqlString.Field<inventoryCD> { }
 
         [PXString]
+        [PXUIField(DisplayName = "Customer P/N")]
+        public virtual string CustomerPN { get; set; }
+        public abstract class customerPN : PX.Data.BQL.BqlString.Field<customerPN> { }
+
+        [PXString]
         [PXUIField(DisplayName = "Description")]
         public virtual string Description { get; set; }
         public abstract class description : PX.Data.BQL.BqlString.Field<description> { }
@@ -76,7 +81,7 @@ namespace LUMCustomizations.DAC
         public abstract class abiPrice : PX.Data.BQL.BqlDecimal.Field<abiPrice> { }
 
         [PXDecimal(6)]
-        [PXUIField(DisplayName = "ABA DG to ABA HK (HKD)")]
+        [PXUIField(DisplayName = "ABA DG to ABA HK (USD)")]
         public virtual decimal? DGtoHKPrice { get; set; }
         public abstract class dgtoHKPrice : PX.Data.BQL.BqlDecimal.Field<dgtoHKPrice> { }
 

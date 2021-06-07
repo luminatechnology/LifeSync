@@ -26,6 +26,7 @@
                     <px:PXGridColumn DataField="LineNbr"></px:PXGridColumn>
                     <px:PXGridColumn DataField="ProdOrdID"></px:PXGridColumn>
                     <px:PXGridColumn DataField="InventoryCD"></px:PXGridColumn>
+                    <px:PXGridColumn DataField="CustomerPN"></px:PXGridColumn>
                     <px:PXGridColumn DataField="Description"></px:PXGridColumn>
                     <px:PXGridColumn DataField="StandardTime"></px:PXGridColumn>
                     <px:PXGridColumn DataField="MaterialCost"></px:PXGridColumn>

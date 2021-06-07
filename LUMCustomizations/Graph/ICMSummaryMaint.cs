@@ -57,6 +57,7 @@ namespace LUMCustomizations.Graph
                 amProdItem = new List<AMProdItem>();
             }
             var inventoryData = SelectFrom<InventoryItem>.View.Select(this).RowCast<InventoryItem>().ToList();
+            var initemXRef = SelectFrom<INItemXRef>.View.Select(this).RowCast<INItemXRef>().ToList();
             int lineNbr = 1;
             foreach (var item in amProdItem)
             {
@@ -65,6 +66,7 @@ namespace LUMCustomizations.Graph
                 summary.ProdOrdID = item.ProdOrdID;
                 summary.InventoryCD = inventoryData.FirstOrDefault(x => x.InventoryID == item.InventoryID).InventoryCD;
                 summary.Description = inventoryData.FirstOrDefault(x => x.InventoryID == item.InventoryID).Descr;
+                summary.CustomerPN = initemXRef.FirstOrDefault(x => x.InventoryID == item.InventoryID).AlternateID;
                 yield return summary;
             }
 
@@ -127,6 +129,7 @@ namespace LUMCustomizations.Graph
                                      t.ScrapFactor,
                                      t.QtyReq,
                                      i.InventoryCD,
+                                     t.BatchSize,
                                      venderDetail = r,
                                      taxInfo = _tax
                                  };
@@ -159,6 +162,7 @@ namespace LUMCustomizations.Graph
             #region 1.Material Cost Row(7~rowNum)
             foreach (var matl in aMProdMaterail)
             {
+                var QPA = (matl?.QtyReq / matl?.BatchSize) ?? 1;
                 decimal? _materailCost = 0;
                 var _ReplenishmentSource = _InventoryItem.Where(x => x.InventoryID == matl.InventoryID)
                     .FirstOrDefault()?.ReplenishmentSource ?? "";
@@ -183,23 +187,23 @@ namespace LUMCustomizations.Graph
                     {
                         // 不含Tax
                         _venderLastPrice = (_venderLastPrice / (1 + (matl?.taxInfo?.taxRate ?? 0) / 100));
-                        _materailCost = _venderLastPrice * Math.Round((matl.QtyReq * 1) ?? 1, 4)
+                        _materailCost = _venderLastPrice * Math.Round(QPA, 4)
                                         * (_EffectCuryRate.Where(x => x.FromCuryID == "USD" && x.ToCuryID == "CNY").FirstOrDefault()?.RateReciprocal ?? 1);
                     }
                     else if (matl.venderDetail.CuryID == "HKD")
                     {
-                        _materailCost = _venderLastPrice * Math.Round((matl.QtyReq * 1) ?? 1, 4)
+                        _materailCost = _venderLastPrice * Math.Round(QPA, 4)
                                         * (_EffectCuryRate.Where(x => x.FromCuryID == "HKD" && x.ToCuryID == "CNY").FirstOrDefault()?.CuryRate ?? 1)
                                         * (_EffectCuryRate.Where(x => x.FromCuryID == "USD" && x.ToCuryID == "CNY").FirstOrDefault()?.RateReciprocal ?? 1);
                     }
                     else if (matl.venderDetail.CuryID == "USD")
                     {
-                        _materailCost = _venderLastPrice * Math.Round((matl.QtyReq * 1) ?? 1, 4);
+                        _materailCost = _venderLastPrice * Math.Round(QPA, 4);
                     }
                 }
                 else
                 {
-                    _materailCost = (matl.UnitCost.HasValue ? matl.UnitCost.Value : 0) * Math.Round((matl.QtyReq * 1) ?? 1, 4)
+                    _materailCost = (matl.UnitCost.HasValue ? matl.UnitCost.Value : 0) * Math.Round(QPA, 4)
                                                      * (_EffectCuryRate.Where(x => x.FromCuryID == "USD" && x.ToCuryID == "CNY").FirstOrDefault()?.RateReciprocal ?? 1);
                 }
                 materialSum += _materailCost ?? 0;
@@ -212,7 +216,7 @@ namespace LUMCustomizations.Graph
 
             #region 2.Labor Cost
 
-            summaryResult.StandardTime = decimal.Parse(_LBSCCost);
+            summaryResult.StandardTime = _StandardWorkingTime;
             summaryResult.LabourCost = (_StandardWorkingTime * decimal.Parse(_LBSCCost) *
                                         _EffectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault()
                                             .RateReciprocal).Value; ;
@@ -238,16 +242,16 @@ namespace LUMCustomizations.Graph
             _TotalCost = (summaryResult.MaterialCost + summaryResult.LabourCost +
                           summaryResult.ManufactureCost + summaryResult.Overhead).Value /
                          (1 - decimal.Parse(_PRODYIELD) / 100);
-            summaryResult.Lumyield = _TotalCost; ;
+            summaryResult.DGPrice = _TotalCost;
+            summaryResult.Lumyield = _TotalCost - (summaryResult.MaterialCost + summaryResult.LabourCost +
+                          summaryResult.ManufactureCost + summaryResult.Overhead).Value;
             #endregion
 
             #region 7.ABA DG Sell price
             // Sum
             var _abaDGPrice = _TotalCost + (_TotalCost * (decimal.Parse(_ABADGSELL) / 100));
             var _abaDGPrice_HKD = _abaDGPrice * _EffectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault()?.CuryRate * _EffectCuryRate.Where(x => x.FromCuryID == "HKD").FirstOrDefault()?.RateReciprocal;
-            summaryResult.DGPrice = (decimal.Parse(_ABADGSELL) + summaryResult.Lumyield);
-            summaryResult.DGtoHKPrice = (summaryResult.DGPrice * _EffectCuryRate.FirstOrDefault(x => x.FromCuryID == "USD")?.CuryRate /
-                                         _EffectCuryRate.FirstOrDefault(x => x.FromCuryID == "HKD")?.CuryRate).Value;
+            summaryResult.DGtoHKPrice = (decimal.Parse(_ABADGSELL) + summaryResult.DGPrice);
             #endregion
 
             #region 9.ABA HK Sell Price
