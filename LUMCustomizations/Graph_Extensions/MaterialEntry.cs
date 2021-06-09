@@ -122,7 +122,7 @@ namespace JAMS.AM
                 if ((decimal?)e.NewValue > overIssueQty)
                 {
                     e.NewValue = overIssueQty;
-                    e.Cancel = true;
+                    e.Cache.SetValue<AMMTran.qty>(row, overIssueQty);
                     throw new PXSetPropertyException<AMMTran.qty>($"Material Quantity {inputValue} to be issued is greater then maximum allowed over issue {overIssueQty}");
                 }
             }
@@ -136,7 +136,7 @@ namespace JAMS.AM
             var duplicateData = amTran.GroupBy(x => new { x.ProdOrdID, x.InventoryID })
                                       .Where(g => g.Count() > 1)
                                       .Select(x => new { x.Key.ProdOrdID, x.Key.InventoryID });
-            if(duplicateData.Count() > 0)
+            if (duplicateData.Count() > 0)
                 throw new PXException($"You cannot add the material twice for one production order , and not allow users to save");
         }
 
