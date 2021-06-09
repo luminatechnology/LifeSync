@@ -108,7 +108,7 @@ namespace LumCustomizations.Graph
 
             decimal _SetUpSum = 0;
             decimal _TotalCost = 0;
-            var _StandardWorkingTime = (_AMProdOper.FirstOrDefault().RunUnitTime / _AMProdOper.FirstOrDefault().RunUnits).Value;
+            var _StandardWorkingTime = (_AMProdOper.Sum(x=> x.RunUnitTime) / _AMProdOper.Sum(x => x.RunUnits)).Value;
             // AMProdAttribute 
             var attrENDC = amProdAttribute.FirstOrDefault(x => x.AttributeID.Equals("ENDC"))?.Value;
             var attrEAU = amProdAttribute.FirstOrDefault(x => x.AttributeID.Equals("EAU"))?.Value;

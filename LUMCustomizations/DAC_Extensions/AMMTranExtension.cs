@@ -19,5 +19,14 @@ namespace JAMS.AM
                                                  .And<AMProdOper.prodOrdID.IsEqual<AMMTran.prodOrdID>>>.SearchFor<AMProdOper.wcID>))]
         public virtual string WcID { get; set; }
         public abstract class wcID : BqlType<IBqlGuid, string>.Field<AMMTranExt.wcID> { }
+
+        #region UsrOverIssue
+        [PXDBBool]
+        [PXDefault(false,PersistingCheck = PXPersistingCheck.Nothing)]
+        [PXUIField(DisplayName = "Over Issue")]
+        public virtual bool? UsrOverIssue { get;set;}
+        public abstract class usrOverIssue : PX.Data.BQL.BqlBool.Field<usrOverIssue> { }
+        #endregion
+
     }
 }

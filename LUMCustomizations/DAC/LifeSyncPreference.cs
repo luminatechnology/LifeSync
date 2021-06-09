@@ -75,5 +75,14 @@ namespace LumCustomizations.DAC
         public virtual bool? EnableProdCostAnlys { get; set; }
         public abstract class enableProdCostAnlys : PX.Data.BQL.BqlBool.Field<enableProdCostAnlys> { }
         #endregion
+
+        #region MaxOverIssue
+        [PXDBDecimal]
+        [PXDefault(10.00,PersistingCheck = PXPersistingCheck.Nothing)]
+        [PXUIField(DisplayName = "Max Over Issue Material %")]
+        public virtual decimal? MaxOverIssue { get;set;}
+        public abstract class maxOverIssue : PX.Data.BQL.BqlDecimal.Field<maxOverIssue> { }
+        #endregion
+
     }
 }

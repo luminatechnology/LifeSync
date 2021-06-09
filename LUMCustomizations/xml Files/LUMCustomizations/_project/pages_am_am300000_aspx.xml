@@ -18,4 +18,17 @@
             </AddItem>
         </Children>
     </PXFormView>
+    <PXGridLevel DataMember="transactions" ParentId="phG_grid_Levels#0" TypeFullName="PX.Web.UI.PXGridLevel">
+        <Children Key="Columns">
+            <AddItem>
+                <PXGridColumn TypeFullName="PX.Web.UI.PXGridColumn">
+                    <Prop Key="DataField" Value="UsrOverIssue" />
+                    <Prop Key="Width" Value="60" />
+                    <Prop Key="Type" Value="CheckBox" />
+                    <Prop Key="CommitChanges" Value="True" />
+                </PXGridColumn>
+            </AddItem>
+            <PXGridColumn DataField="Qty" OriginalIndex="8" />
+        </Children>
+    </PXGridLevel>
 </Page>

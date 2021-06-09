@@ -8,6 +8,7 @@
   <col name="CrossRateOverride" type="Bit" default="Zero" />
   <col name="EnableJournalEnhance" type="Bit" nullable="true" default="Zero" />
   <col name="EnableProdCostAnlys" type="Bit" nullable="true" />
+  <col name="MaxOverIssue" type="Decimal(10,4)" nullable="true" />
   <col name="CreatedByID" type="UniqueIdentifier" />
   <col name="CreatedByScreenID" type="Char(8)" />
   <col name="CreatedDateTime" type="DateTime" />

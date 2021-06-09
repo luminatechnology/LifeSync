@@ -1,8 +1,12 @@
+using LumCustomizations.DAC;
 using LUMCustomizations.Library;
 using PX.Data;
+using PX.Data.BQL;
+using PX.Data.BQL.Fluent;
 using PX.Objects.IN;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace JAMS.AM
 {
@@ -50,7 +54,7 @@ namespace JAMS.AM
         {
             var curAMBatchCache = (AMBatch)Base.batch.Cache.Current;
             var _printCount = curAMBatchCache.GetExtension<AMBatchExt>().UsrPrintCount ?? 0;
-            
+
             //Calculate Print Count
             PXUpdate<Set<AMBatchExt.usrPrintCount, Required<AMBatchExt.usrPrintCount>>,
                          AMBatch,
@@ -99,5 +103,42 @@ namespace JAMS.AM
             }
         }
         #endregion
+
+        public virtual void _(Events.FieldVerifying<AMMTran.qty> e, PXFieldVerifying baseMethod)
+        {
+            var row = e.Row as AMMTran;
+            var inputValue = e.NewValue;
+            if (!(row.GetExtension<AMMTranExt>().UsrOverIssue ?? false))
+                baseMethod?.Invoke(e.Cache, e.Args);
+            // valid over Issue
+            else
+            {
+                var amProdMatl = SelectFrom<AMProdMatl>
+                                 .Where<AMProdMatl.prodOrdID.IsEqual<P.AsString>
+                                    .And<AMProdMatl.inventoryID.IsEqual<P.AsInt>>>.View.Select(Base, row.ProdOrdID, row.InventoryID)
+                                 .RowCast<AMProdMatl>().FirstOrDefault();
+                var maxOverIssue = SelectFrom<LifeSyncPreference>.View.Select(Base).RowCast<LifeSyncPreference>().FirstOrDefault().MaxOverIssue;
+                var overIssueQty = Math.Round((amProdMatl?.TotalQtyRequired ?? 0) * (1 + (maxOverIssue ?? 0) / 100), 4);
+                if ((decimal?)e.NewValue > overIssueQty)
+                {
+                    e.NewValue = overIssueQty;
+                    e.Cancel = true;
+                    throw new PXSetPropertyException<AMMTran.qty>($"Material Quantity {inputValue} to be issued is greater then maximum allowed over issue {overIssueQty}");
+                }
+            }
+        }
+
+        public virtual void _(Events.RowPersisting<AMMTran> e, PXRowPersisting baseMethod)
+        {
+            baseMethod?.Invoke(e.Cache, e.Args);
+
+            var amTran = Base.transactions.Select().RowCast<AMMTran>().ToList();
+            var duplicateData = amTran.GroupBy(x => new { x.ProdOrdID, x.InventoryID })
+                                      .Where(g => g.Count() > 1)
+                                      .Select(x => new { x.Key.ProdOrdID, x.Key.InventoryID });
+            if(duplicateData.Count() > 0)
+                throw new PXException($"You cannot add the material twice for one production order , and not allow users to save");
+        }
+
     }
 }
