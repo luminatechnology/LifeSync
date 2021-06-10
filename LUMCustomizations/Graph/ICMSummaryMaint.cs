@@ -256,7 +256,7 @@ namespace LUMCustomizations.Graph
 
             #region 9.ABA HK Sell Price
             // Sum
-            var _hkPrice = summaryResult.DGPrice + (decimal.Parse(_HKOHSCCost) * _StandardWorkingTime) + (decimal.Parse(_HKOHSCCost) * (decimal.Parse(_HKOHSCCost) * _StandardWorkingTime));
+            var _hkPrice = summaryResult.DGPrice + decimal.Parse(_HKOHSCCost) + (decimal.Parse(_HKOHSCCost)  * _StandardWorkingTime);
             summaryResult.HKPrice = _hkPrice.Value;
 
             #endregion
