@@ -254,17 +254,15 @@ namespace LUMCustomizations.Graph
             summaryResult.DGtoHKPrice = (decimal.Parse(_ABADGSELL) + summaryResult.DGPrice);
             #endregion
 
-            #region 9.ABA HK Sell Price
+            #region 8.HKOverhead
             // Sum
-            var _hkPrice = summaryResult.DGPrice + decimal.Parse(_HKOHSCCost) + (decimal.Parse(_HKOHSCCost)  * _StandardWorkingTime);
-            summaryResult.HKPrice = _hkPrice.Value;
+            summaryResult.HKOverhead = (decimal.Parse(_HKOHSCCost) * _StandardWorkingTime);
 
             #endregion
 
-            #region 10.ABI Sell Price
+            #region 9.HK To ABI
             // Sum
-            summaryResult.ABIPrice = (summaryResult.Lumyield + (decimal.Parse(_HKOHSCCost) * _StandardWorkingTime)) /
-                                     (1 - decimal.Parse(_ABISELLCost) / 100);
+            summaryResult.ABIPrice = summaryResult.DGPrice + decimal.Parse(_HKOHSCCost) + (decimal.Parse(_HKOHSCCost) * _StandardWorkingTime);
             #endregion
 
             return summaryResult;

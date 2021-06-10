@@ -72,8 +72,8 @@ namespace LUMCustomizations.DAC
 
         [PXDecimal(6)]
         [PXUIField(DisplayName = "ABA HK overhead（USD）")]
-        public virtual decimal? HKPrice { get; set; }
-        public abstract class hkPrice : PX.Data.BQL.BqlDecimal.Field<hkPrice> { }
+        public virtual decimal? HKOverhead { get; set; }
+        public abstract class hKoverhead : PX.Data.BQL.BqlDecimal.Field<hKoverhead> { }
 
         [PXDecimal(6)]
         [PXUIField(DisplayName = "ABA HK to ABI (USD)")]
