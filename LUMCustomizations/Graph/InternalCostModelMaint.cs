@@ -27,11 +27,11 @@ namespace LumCustomizations.Graph
     public class InternalCostModelMaint : ProdDetail
     {
 
-        private IEnumerable<AMBomItem> _amBomItems;
-        private IEnumerable<VendorTaxInfo> _vendorTaxInfos;
-        private IEnumerable<POVendorInventory> _poVendorInventories;
-        private IEnumerable<InventoryItem> _inventoryItems;
-        private IEnumerable<CurrencyRate2> _effectCuryRate;
+        public IEnumerable<AMBomItem> _amBomItems;
+        public IEnumerable<VendorTaxInfo> _vendorTaxInfos;
+        public IEnumerable<POVendorInventory> _poVendorInventories;
+        public IEnumerable<InventoryItem> _inventoryItems;
+        public IEnumerable<CurrencyRate2> _effectCuryRate;
 
         #region Initialize
 
@@ -66,32 +66,12 @@ namespace LumCustomizations.Graph
             int rowNum = 0;
             decimal materialSum = 0;
             var row = this.GetCacheCurrent<AMProdItem>().Current;
+            // Setting Calc ojb
+            SettingCalaObject();
             // Currency Rate Type of ICM
-            var icmRateType = PXGraph.CreateInstance<InternalCostModelMaint>().Select<LifeSyncPreference>().Select(x => x.InternalCostModelRateType).FirstOrDefault();
             var amProdAttribute = base.ProductionAttributes.Select().FirstTableItems;
             var amProdItem = base.ProdItemRecords.Select().FirstTableItems.Where(x => x.ProdOrdID == ((AMProdItem)this.Caches[typeof(AMProdItem)].Current).ProdOrdID).FirstOrDefault();
-            this._amBomItems = SelectFrom<AMBomItem>.View.Select(this).RowCast<AMBomItem>().ToList();
-            this._inventoryItems = SelectFrom<InventoryItem>.View.Select(this).RowCast<InventoryItem>().ToList();
-            // Get Stock Item Vendor Details By LastModifierTime
-            this._poVendorInventories = PXGraph.CreateInstance<InternalCostModelMaint>()
-                                         .Select<POVendorInventory>()
-                                         .ToList()
-                                         .Where(x => x.IsDefault ?? false)
-                                         .GroupBy(x => new { x.InventoryID })
-                                         .Select(x => x.OrderByDescending(y => y.LastModifiedDateTime).FirstOrDefault());
-            this._vendorTaxInfos = (from v in new PXGraph().Select<Vendor>()
-                                    join t in new PXGraph().Select<Location>()
-                                      on v.BAccountID equals t.BAccountID
-                                    join z in new PXGraph().Select<TaxZoneDet>()
-                                      on t.VTaxZoneID equals z.TaxZoneID
-                                    join r in new PXGraph().Select<TaxRev>()
-                                      on z.TaxID equals r.TaxID
-                                    where r.TaxType == "P"
-                                    select new VendorTaxInfo()
-                                    {
-                                        VendorID = v.BAccountID,
-                                        TaxRate = r.TaxRate
-                                    }).ToList().GroupBy(x => x.VendorID).Select(x => x.First());
+           
             // Get All Material Data
             var materialData = from t in PXGraph.CreateInstance<InternalCostModelMaint>().Select<AMProdMatl>()
                                join i in _inventoryItems on t.InventoryID equals i.InventoryID
@@ -102,14 +82,15 @@ namespace LumCustomizations.Graph
             // ReplenishmentSource From Inventory 
             var _InventoryItem = PXGraph.CreateInstance<InternalCostModelMaint>().Select<INItemSite>().Select(x => new { x.InventoryID, x.ReplenishmentSource });
             // Effect Curry Rate
-            this._effectCuryRate = new LumLibrary().GetCuryRateRecordEffData(this).Where(x => x.CuryRateType == icmRateType).ToList();
+           
             if (this._effectCuryRate.Count() == 0)
                 throw new PXException("Please Select ICM Rate Type !!");
 
             decimal _SetUpSum = 0;
             decimal _TotalCost = 0;
             var _StandardWorkingTime = (_AMProdOper.Sum(x=> x.RunUnitTime) / _AMProdOper.Sum(x => x.RunUnits)).Value;
-            // AMProdAttribute 
+
+            #region AMProdAttribute 
             var attrENDC = amProdAttribute.FirstOrDefault(x => x.AttributeID.Equals("ENDC"))?.Value;
             var attrEAU = amProdAttribute.FirstOrDefault(x => x.AttributeID.Equals("EAU"))?.Value;
             var attrLBSC = amProdAttribute.FirstOrDefault(x => x.AttributeID == "LBSC")?.Value ?? "0";
@@ -119,7 +100,9 @@ namespace LumCustomizations.Graph
             var _PRODYIELD = amProdAttribute.FirstOrDefault(x => x.AttributeID == "PRODYIELD")?.Value ?? "0";
             var _ABADGSELL = amProdAttribute.FirstOrDefault(x => x.AttributeID == "ABADGSELL")?.Value ?? "0";
             var _HKOHSCCost = amProdAttribute.FirstOrDefault(x => x.AttributeID == "HKOHSC")?.Value ?? "0";
-            var _ABISELLCost = amProdAttribute.FirstOrDefault(x => x.AttributeID == "ABISELL")?.Value ?? "0";
+            var _ABISELLCost = amProdAttribute.FirstOrDefault(x => x.AttributeID == "ABISELL")?.Value ?? "0"; 
+            #endregion
+
             #endregion
 
             #region Excel
@@ -880,6 +863,35 @@ namespace LumCustomizations.Graph
 
         #region Function
 
+        public void SettingCalaObject()
+        {
+            _amBomItems = SelectFrom<AMBomItem>.View.Select(this).RowCast<AMBomItem>().ToList();
+            _inventoryItems = SelectFrom<InventoryItem>.View.Select(this).RowCast<InventoryItem>().ToList();
+            // Get Stock Item Vendor Details By LastModifierTime
+            _poVendorInventories = PXGraph.CreateInstance<InternalCostModelMaint>()
+                                         .Select<POVendorInventory>()
+                                         .ToList()
+                                         .Where(x => x.IsDefault ?? false)
+                                         .GroupBy(x => new { x.InventoryID })
+                                         .Select(x => x.OrderByDescending(y => y.LastModifiedDateTime).FirstOrDefault());
+            _vendorTaxInfos = (from v in new PXGraph().Select<Vendor>()
+                               join t in new PXGraph().Select<Location>()
+                                 on v.BAccountID equals t.BAccountID
+                               join z in new PXGraph().Select<TaxZoneDet>()
+                                 on t.VTaxZoneID equals z.TaxZoneID
+                               join r in new PXGraph().Select<TaxRev>()
+                                 on z.TaxID equals r.TaxID
+                               where r.TaxType == "P"
+                               select new VendorTaxInfo()
+                               {
+                                   VendorID = v.BAccountID,
+                                   TaxRate = r.TaxRate
+                               }).ToList().GroupBy(x => x.VendorID).Select(x => x.First());
+
+            var icmRateType = PXGraph.CreateInstance<InternalCostModelMaint>().Select<LifeSyncPreference>().Select(x => x.InternalCostModelRateType).FirstOrDefault();
+            _effectCuryRate = new LumLibrary().GetCuryRateRecordEffData(this).Where(x => x.CuryRateType == icmRateType).ToList();
+        }
+
         public System.Collections.Stack GetVisualBOM(System.Collections.Stack stackNode, AMProdMatl material, int level)
         {
             var materailCost = (decimal)0.0;
@@ -998,13 +1010,13 @@ namespace LumCustomizations.Graph
 
         #region Entity
 
-        protected class VendorTaxInfo
+        public class VendorTaxInfo
         {
             public int? VendorID { get; set; }
             public decimal? TaxRate { get; set; }
         }
 
-        protected class BomNode
+        public class BomNode
         {
             public string NodeLevel { get; set; }
             public string PartNo { get; set; }

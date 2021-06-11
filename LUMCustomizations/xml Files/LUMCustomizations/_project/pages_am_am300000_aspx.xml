@@ -31,4 +31,7 @@
             <PXGridColumn DataField="Qty" OriginalIndex="8" />
         </Children>
     </PXGridLevel>
+    <PXGridColumn DataField="Qty" ParentId="phG_grid_Levels#0_Columns#8" TypeFullName="PX.Web.UI.PXGridColumn">
+        <Prop Key="CommitChanges" Value="True" />
+    </PXGridColumn>
 </Page>

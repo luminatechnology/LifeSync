@@ -35,7 +35,7 @@
                     <px:PXGridColumn DataField="Overhead"></px:PXGridColumn>
                     <px:PXGridColumn DataField="Lumyield"></px:PXGridColumn>
                     <px:PXGridColumn DataField="DGPrice"></px:PXGridColumn>
-                    <px:PXGridColumn DataField="HKPrice"></px:PXGridColumn>
+                    <px:PXGridColumn DataField="HKOverhead"></px:PXGridColumn>
                     <px:PXGridColumn DataField="ABIPrice"></px:PXGridColumn>
                     <px:PXGridColumn DataField="DGtoHKPrice"></px:PXGridColumn>
                 </Columns>

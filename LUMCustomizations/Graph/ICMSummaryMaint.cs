@@ -56,12 +56,13 @@ namespace LUMCustomizations.Graph
             {
                 amProdItem = new List<AMProdItem>();
             }
+            var icmGraph = PXGraph.CreateInstance<InternalCostModelMaint>();
             var inventoryData = SelectFrom<InventoryItem>.View.Select(this).RowCast<InventoryItem>().ToList();
             var initemXRef = SelectFrom<INItemXRef>.View.Select(this).RowCast<INItemXRef>().ToList();
             int lineNbr = 1;
             foreach (var item in amProdItem)
             {
-                var summary = GetICMData(item);
+                var summary = GetICMData(item, icmGraph);
                 summary.LineNbr = lineNbr++;
                 summary.ProdOrdID = item.ProdOrdID;
                 summary.InventoryCD = inventoryData.FirstOrDefault(x => x.InventoryID == item.InventoryID).InventoryCD;
@@ -73,71 +74,29 @@ namespace LUMCustomizations.Graph
             yield return null;
         }
 
-        public ICMSummary GetICMData(AMProdItem row)
+        public ICMSummary GetICMData(AMProdItem row, InternalCostModelMaint icmGraph)
         {
             #region Varaible
             int rowNum = 0;
             decimal materialSum = 0;
-
+          
             ICMSummary summaryResult = new ICMSummary();
+            icmGraph.SettingCalaObject();
             // Currency Rate Type of ICM
             var graphProdDetail = PXGraph.CreateInstance<ProdDetail>();
             var iCMRateType = PXGraph.CreateInstance<InternalCostModelMaint>().Select<LifeSyncPreference>().Select(x => x.InternalCostModelRateType).FirstOrDefault();
             var aMProdAttribute = SelectFrom<AMProdAttribute>.Where<AMProdAttribute.orderType.IsEqual<P.AsString>
                 .And<AMProdAttribute.prodOrdID.IsEqual<P.AsString>>>.View.Select(this, row.OrderType, row.ProdOrdID).RowCast<AMProdAttribute>().ToList();
             // Get Stock Item Vendor Details By LastModifierTime
-            var pOvenderDetail = PXGraph.CreateInstance<InternalCostModelMaint>()
-                                         .Select<POVendorInventory>()
-                                         .ToList()
-                                         .Where(x => x.IsDefault ?? false)
-                                         .GroupBy(x => new { x.InventoryID })
-                                         .Select(x => x.OrderByDescending(y => y.LastModifiedDateTime).FirstOrDefault());
-            var taxInfo = (from v in new PXGraph().Select<Vendor>()
-                           join t in new PXGraph().Select<PX.Objects.CR.Location>()
-                             on v.BAccountID equals t.BAccountID
-                           join z in new PXGraph().Select<TaxZoneDet>()
-                             on t.VTaxZoneID equals z.TaxZoneID
-                           join r in new PXGraph().Select<TaxRev>()
-                             on z.TaxID equals r.TaxID
-                           where r.TaxType == "P"
-                           select new
-                           {
-                               vendorID = v.BAccountID,
-                               taxRate = r.TaxRate
-                           }).ToList().GroupBy(x => x.vendorID).Select(x => x.First());
+
             // Get All Material Data
             var materialData = from t in PXGraph.CreateInstance<InternalCostModelMaint>().Select<AMProdMatl>()
+                               join i in icmGraph._inventoryItems on t.InventoryID equals i.InventoryID
                                where t.OrderType == row.OrderType && t.ProdOrdID == row.ProdOrdID
-                               select t;
-            var aMProdMaterail = from t in materialData.ToList()
-                                 join i in PXGraph.CreateInstance<InternalCostModelMaint>().Select<InventoryItem>()
-                                  on t.InventoryID equals i.InventoryID
-                                 join v in pOvenderDetail
-                                  on t.InventoryID equals v.InventoryID into result
-                                 from r in result.DefaultIfEmpty()
-                                 join x in taxInfo
-                                   on r?.VendorID ?? -1 equals x.vendorID into taxResult
-                                 from _tax in taxResult.DefaultIfEmpty()
-                                 orderby i.InventoryCD
-                                 select new
-                                 {
-                                     t.InventoryID,
-                                     t.Descr,
-                                     t.UnitCost,
-                                     t.UOM,
-                                     t.TotalQtyRequired,
-                                     t.ScrapFactor,
-                                     t.QtyReq,
-                                     i.InventoryCD,
-                                     t.BatchSize,
-                                     venderDetail = r,
-                                     taxInfo = _tax
-                                 };
+                               select new { material = t, inventoryCD = i.InventoryCD };
             var _AMProdOper = SelectFrom<AMProdOper>.Where<AMProdOper.orderType.IsEqual<P.AsString>
                 .And<AMProdOper.prodOrdID.IsEqual<P.AsString>>>.View.Select(this, row.OrderType, row.ProdOrdID).RowCast<AMProdOper>().ToList();
 
-            // ReplenishmentSource From Inventory 
-            var _InventoryItem = PXGraph.CreateInstance<InternalCostModelMaint>().Select<INItemSite>().Select(x => new { x.InventoryID, x.ReplenishmentSource });
             // Effect Curry Rate
             var _EffectCuryRate = new LumLibrary().GetCuryRateRecordEffData(this).Where(x => x.CuryRateType == iCMRateType).ToList();
             if (_EffectCuryRate.Count == 0)
@@ -146,7 +105,9 @@ namespace LUMCustomizations.Graph
             decimal _SetUpSum = 0;
             decimal _TotalCost = 0;
             var _StandardWorkingTime = (_AMProdOper.Sum(x => x.RunUnitTime) / _AMProdOper.Sum(x => x.RunUnits)).Value;
-            // AMProdAttribute 
+
+            #region AMProdAttribute 
+
             var _ENDC = aMProdAttribute.Where(x => x.AttributeID.Equals("ENDC")).FirstOrDefault()?.Value;
             var _EAU = aMProdAttribute.Where(x => x.AttributeID.Equals("EAU")).FirstOrDefault()?.Value;
             var _LBSCCost = aMProdAttribute.Where(x => x.AttributeID == "LBSC").FirstOrDefault()?.Value ?? "0";
@@ -157,56 +118,24 @@ namespace LUMCustomizations.Graph
             var _ABADGSELL = aMProdAttribute.Where(x => x.AttributeID == "ABADGSELL").FirstOrDefault()?.Value ?? "0";
             var _HKOHSCCost = aMProdAttribute.Where(x => x.AttributeID == "HKOHSC").FirstOrDefault()?.Value ?? "0";
             var _ABISELLCost = aMProdAttribute.Where(x => x.AttributeID == "ABISELL").FirstOrDefault()?.Value ?? "0";
+
+            #endregion
+
             #endregion
 
             #region 1.Material Cost Row(7~rowNum)
-            foreach (var matl in aMProdMaterail)
+
+            foreach (var amMaterial in materialData.OrderBy(x => x.inventoryCD))
             {
-                var QPA = (matl?.QtyReq / matl?.BatchSize) ?? 1;
-                decimal? _materailCost = 0;
-                var _ReplenishmentSource = _InventoryItem.Where(x => x.InventoryID == matl.InventoryID)
-                    .FirstOrDefault()?.ReplenishmentSource ?? "";
-
-                // IF Purchase Unit != Matailes UOM
-                if (matl.venderDetail != null && (matl.venderDetail.LastPrice ?? 0) > 0)
+                System.Collections.Stack visualBOM = new Stack();
+                visualBOM = icmGraph.GetVisualBOM(visualBOM, amMaterial.material, 1);
+                decimal? materailCost = 0;
+                // Material Details
+                foreach (InternalCostModelMaint.BomNode node in visualBOM)
                 {
-                    var _venderLastPrice = matl.venderDetail.LastPrice.Value;
-                    if (matl.venderDetail.PurchaseUnit != matl.UOM)
-                    {
-                        var _INUnit = from t in PXGraph.CreateInstance<InternalCostModelMaint>().Select<INUnit>()
-                                      where t.InventoryID == matl.InventoryID &&
-                                            t.FromUnit == matl.venderDetail.PurchaseUnit &&
-                                            t.ToUnit == matl.UOM
-                                      select t;
-                        _venderLastPrice = _INUnit == null ? _venderLastPrice
-                                                           : _INUnit.FirstOrDefault().UnitMultDiv == "M" ? _venderLastPrice / (_INUnit.FirstOrDefault()?.UnitRate ?? 1)
-                                                                                                         : _venderLastPrice * (_INUnit.FirstOrDefault()?.UnitRate ?? 1);
-                    }
-
-                    if (matl.venderDetail.CuryID == "CNY")
-                    {
-                        // 不含Tax
-                        _venderLastPrice = (_venderLastPrice / (1 + (matl?.taxInfo?.taxRate ?? 0) / 100));
-                        _materailCost = _venderLastPrice * Math.Round(QPA, 4)
-                                        * (_EffectCuryRate.Where(x => x.FromCuryID == "USD" && x.ToCuryID == "CNY").FirstOrDefault()?.RateReciprocal ?? 1);
-                    }
-                    else if (matl.venderDetail.CuryID == "HKD")
-                    {
-                        _materailCost = _venderLastPrice * Math.Round(QPA, 4)
-                                        * (_EffectCuryRate.Where(x => x.FromCuryID == "HKD" && x.ToCuryID == "CNY").FirstOrDefault()?.CuryRate ?? 1)
-                                        * (_EffectCuryRate.Where(x => x.FromCuryID == "USD" && x.ToCuryID == "CNY").FirstOrDefault()?.RateReciprocal ?? 1);
-                    }
-                    else if (matl.venderDetail.CuryID == "USD")
-                    {
-                        _materailCost = _venderLastPrice * Math.Round(QPA, 4);
-                    }
+                    // Materail Cost(US$)
+                    materialSum += node.Cost == null ? 0 : decimal.Parse(node.Cost?.ToString("N5"));
                 }
-                else
-                {
-                    _materailCost = (matl.UnitCost.HasValue ? matl.UnitCost.Value : 0) * Math.Round(QPA, 4)
-                                                     * (_EffectCuryRate.Where(x => x.FromCuryID == "USD" && x.ToCuryID == "CNY").FirstOrDefault()?.RateReciprocal ?? 1);
-                }
-                materialSum += _materailCost ?? 0;
             }
 
             // Materail Sum
@@ -262,7 +191,7 @@ namespace LUMCustomizations.Graph
 
             #region 9.HK To ABI
             // Sum
-            summaryResult.ABIPrice = summaryResult.DGPrice + decimal.Parse(_HKOHSCCost) + (decimal.Parse(_HKOHSCCost) * _StandardWorkingTime);
+            summaryResult.ABIPrice = summaryResult.DGtoHKPrice + decimal.Parse(_HKOHSCCost) + summaryResult.HKOverhead;
             #endregion
 
             return summaryResult;

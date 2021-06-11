@@ -131,14 +131,33 @@ namespace JAMS.AM
         public virtual void _(Events.RowPersisting<AMMTran> e, PXRowPersisting baseMethod)
         {
             baseMethod?.Invoke(e.Cache, e.Args);
-
+            var row = e.Row;
             var amTran = Base.transactions.Select().RowCast<AMMTran>().ToList();
             var duplicateData = amTran.GroupBy(x => new { x.ProdOrdID, x.InventoryID })
                                       .Where(g => g.Count() > 1)
                                       .Select(x => new { x.Key.ProdOrdID, x.Key.InventoryID });
             if (duplicateData.Count() > 0)
                 throw new PXException($"You cannot add the material twice for one production order , and not allow users to save");
+
+            if (!(row.GetExtension<AMMTranExt>().UsrOverIssue ?? false))
+            {
+                object qty = row.Qty;
+                var valid = e.Cache.RaiseFieldVerifying<AMMTran.qty>(e.Row, ref qty);
+                if (!valid)
+                    throw new PXException("You cannot save, please check error message");
+            }
         }
 
+        public virtual void _(Events.FieldUpdated<AMMTranExt.usrOverIssue> e)
+        {
+            var row = e.Row as AMMTran;
+            object qty = ((AMMTran)e.Row).Qty;
+            var matl = SelectFrom<AMProdMatl>
+                       .Where<AMProdMatl.prodOrdID.IsEqual<P.AsString>
+                            .And<AMProdMatl.inventoryID.IsEqual<P.AsInt>>>
+                       .View.Select(Base, row.ProdOrdID, row.InventoryID).RowCast<AMProdMatl>().FirstOrDefault();
+            if (!(bool)e.NewValue)
+                e.Cache.RaiseFieldVerifying<AMMTran.qty>(e.Row, ref qty);
+        }
     }
 }
