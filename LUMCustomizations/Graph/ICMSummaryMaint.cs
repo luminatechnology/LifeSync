@@ -191,7 +191,7 @@ namespace LUMCustomizations.Graph
 
             #region 9.HK To ABI
             // Sum
-            summaryResult.ABIPrice = summaryResult.DGtoHKPrice + decimal.Parse(_HKOHSCCost) + summaryResult.HKOverhead;
+            summaryResult.ABIPrice = summaryResult.DGtoHKPrice + (decimal.Parse(_HKOHSCCost) * summaryResult.HKOverhead) + summaryResult.HKOverhead;
             #endregion
 
             return summaryResult;
