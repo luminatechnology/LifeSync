@@ -76,7 +76,7 @@ namespace PX.Objects.PO
             if (row == null || string.IsNullOrEmpty(poType))
                 return;
             // Valid UsrCapexTrackingNbr
-            if (poType == "CPEX" && string.IsNullOrEmpty(row.GetExtension<POLineExt>().UsrCapexTrackingNbr))
+            if ((poType == "CPEX" || poType == "CUSTPUR") && string.IsNullOrEmpty(row.GetExtension<POLineExt>().UsrCapexTrackingNbr))
             {
                 this.errList.Add(e.Cache.RaiseExceptionHandling<POLineExt.usrCapexTrackingNbr>(
                     row,
