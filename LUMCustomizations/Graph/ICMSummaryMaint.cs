@@ -116,6 +116,7 @@ namespace LUMCustomizations.Graph
             var _SETUPSCCost = aMProdAttribute.Where(x => x.AttributeID == "SETUPSC").FirstOrDefault()?.Value ?? "0";
             var _PRODYIELD = aMProdAttribute.Where(x => x.AttributeID == "PRODYIELD").FirstOrDefault()?.Value ?? "0";
             var _ABADGSELL = aMProdAttribute.Where(x => x.AttributeID == "ABADGSELL").FirstOrDefault()?.Value ?? "0";
+            var _ABAHKSELL = aMProdAttribute.FirstOrDefault(x => x.AttributeID == "ABAHKSELL")?.Value ?? "0";
             var _HKOHSCCost = aMProdAttribute.Where(x => x.AttributeID == "HKOHSC").FirstOrDefault()?.Value ?? "0";
             var _ABISELLCost = aMProdAttribute.Where(x => x.AttributeID == "ABISELL").FirstOrDefault()?.Value ?? "0";
 
@@ -180,7 +181,8 @@ namespace LUMCustomizations.Graph
             // Sum
             var _abaDGPrice = _TotalCost + (_TotalCost * (decimal.Parse(_ABADGSELL) / 100));
             var _abaDGPrice_HKD = _abaDGPrice * _EffectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault()?.CuryRate * _EffectCuryRate.Where(x => x.FromCuryID == "HKD").FirstOrDefault()?.RateReciprocal;
-            summaryResult.DGtoHKPrice = (decimal.Parse(_ABADGSELL) + summaryResult.DGPrice);
+            var temp = (decimal.Parse(_ABADGSELL) * _TotalCost / 100) + _TotalCost;
+            summaryResult.DGtoHKPrice = temp;
             #endregion
 
             #region 8.HKOverhead
@@ -191,7 +193,7 @@ namespace LUMCustomizations.Graph
 
             #region 9.HK To ABI
             // Sum
-            summaryResult.ABIPrice = summaryResult.DGtoHKPrice + (decimal.Parse(_HKOHSCCost) * summaryResult.HKOverhead) + summaryResult.HKOverhead;
+            summaryResult.ABIPrice = summaryResult.DGtoHKPrice + (decimal.Parse(_ABAHKSELL) * summaryResult.HKOverhead) + summaryResult.HKOverhead;
             #endregion
 
             return summaryResult;

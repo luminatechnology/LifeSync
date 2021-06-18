@@ -99,6 +99,7 @@ namespace LumCustomizations.Graph
             var _SETUPSCCost = amProdAttribute.FirstOrDefault(x => x.AttributeID == "SETUPSC")?.Value ?? "0";
             var _PRODYIELD = amProdAttribute.FirstOrDefault(x => x.AttributeID == "PRODYIELD")?.Value ?? "0";
             var _ABADGSELL = amProdAttribute.FirstOrDefault(x => x.AttributeID == "ABADGSELL")?.Value ?? "0";
+            var _ABAHKSELL = amProdAttribute.FirstOrDefault(x => x.AttributeID == "ABAHKSELL")?.Value ?? "0";
             var _HKOHSCCost = amProdAttribute.FirstOrDefault(x => x.AttributeID == "HKOHSC")?.Value ?? "0";
             var _ABISELLCost = amProdAttribute.FirstOrDefault(x => x.AttributeID == "ABISELL")?.Value ?? "0"; 
             #endregion
@@ -559,6 +560,7 @@ namespace LumCustomizations.Graph
             //sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{_TotalCost.ToString("N4")}");
             var formulaYieldSum = $"J{rowNum - 4}/(1-D{rowNum})";
             sheet.GetRow(rowNum).CreateCell(9).SetCellFormula($"J{rowNum - 4}/(1-D{rowNum})");
+            sheet.GetRow(rowNum).GetCell(9).CellStyle.DataFormat = workBook.CreateDataFormat().GetFormat("0.0000");
             sheet.GetRow(rowNum).GetCell(9).CellStyle = GreyCellStyle;
 
             // Green Cells
@@ -594,7 +596,8 @@ namespace LumCustomizations.Graph
             var formulaGrossMargin = $"D{rowNum + 1}*J{rowNum - 2}/100";
             sheet.GetRow(rowNum).CreateCell(9).SetCellFormula($"D{rowNum + 1}*J{rowNum - 2}/100");
             sheet.GetRow(rowNum).GetCell(9).CellStyle = TANCellStyle;
-             
+            sheet.GetRow(rowNum).GetCell(9).CellStyle.DataFormat = workBook.CreateDataFormat().GetFormat("0.0000");
+
             // Sum
             var abaDGPrice = _TotalCost + (_TotalCost * (decimal.Parse(_ABADGSELL) / 100));
             var abaDGPrice_HKD = abaDGPrice * this._effectCuryRate.FirstOrDefault(x => x.FromCuryID == "USD")?.CuryRate * this._effectCuryRate.FirstOrDefault(x => x.FromCuryID == "HKD")?.RateReciprocal;
@@ -605,6 +608,7 @@ namespace LumCustomizations.Graph
             //sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{_abaDGPrice.ToString("N4")}");
             sheet.GetRow(rowNum).CreateCell(9).SetCellFormula($"{formulaGrossMargin}+{formulaYieldSum}");
             sheet.GetRow(rowNum).GetCell(9).CellStyle = ROSECellStyle;
+            sheet.GetRow(rowNum).GetCell(9).CellStyle.DataFormat = workBook.CreateDataFormat().GetFormat("0.0000");
             //sheet.GetRow(rowNum).CreateCell(10).SetCellValue($"{_abaDGPrice_HKD.Value.ToString("N4")}");
             sheet.GetRow(rowNum).CreateCell(10).SetCellFormula($"J{rowNum + 1}*E{rowNum + 27}");
             sheet.GetRow(rowNum).GetCell(10).CellStyle = ROSECellStyle;
@@ -656,6 +660,7 @@ namespace LumCustomizations.Graph
             sheet.GetRow(rowNum).GetCell(8).CellStyle = TableHeaderStyle;
             //sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{(_StandardWorkingTime * decimal.Parse(_HKOHSCCost)).ToString("N4")}");
             sheet.GetRow(rowNum).CreateCell(9).SetCellFormula($"D{rowNum - 1} * D{rowNum}");
+            sheet.GetRow(rowNum).GetCell(9).CellStyle.DataFormat = workBook.CreateDataFormat().GetFormat("0.0000");
             sheet.GetRow(rowNum).GetCell(9).CellStyle = GreyCellStyle;
             // Green Cells
             sheet.CreateRow(++rowNum);
@@ -680,7 +685,7 @@ namespace LumCustomizations.Graph
             excelHelper.CreateBlankCell(sheet, rowNum, 1, 10, TableContentStyle);
             sheet.GetRow(rowNum).CreateCell(1).SetCellValue($"Add gross margin");
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
-            sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{_HKOHSCCost}");
+            sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{_ABAHKSELL}");
             sheet.GetRow(rowNum).GetCell(3).CellStyle = TANCellStyle;
             //sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{(_abaDGPrice * (decimal.Parse(_HKOHSCCost) / 100)).ToString("N4")}");
             sheet.GetRow(rowNum).CreateCell(9).SetCellFormula($"D{rowNum + 1} * J{rowNum - 2}");
