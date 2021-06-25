@@ -106,6 +106,7 @@
     <Compile Include="DAC_Extensions\AMMTranExtension.cs" />
     <Compile Include="DAC_Extensions\AMPordMatlExtension.cs" />
     <Compile Include="DAC_Extensions\AMProdItemExtensions.cs" />
+    <Compile Include="DAC_Extensions\AMWrkMatlExtension.cs" />
     <Compile Include="DAC_Extensions\ARAdjustExtension.cs" />
     <Compile Include="DAC_Extensions\BatchExtensions.cs" />
     <Compile Include="DAC_Extensions\INItemLotSerialExtensions.cs" />
@@ -136,6 +137,7 @@
     <Compile Include="Graph_Extensions\INReceiptEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\INTransferEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\JournalEntry_Extension.cs" />
+    <Compile Include="Graph_Extensions\MatlWizard2_Extension.cs" />
     <Compile Include="Graph_Extensions\ProdDetail.cs" />
     <Compile Include="Graph_Extensions\MaterialEntry.cs" />
     <Compile Include="Graph_Extensions\MatlWizard1_Extension.cs" />

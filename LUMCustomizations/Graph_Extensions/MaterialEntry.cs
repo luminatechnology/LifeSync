@@ -113,17 +113,18 @@ namespace JAMS.AM
             // valid over Issue
             else
             {
+                var inventoryItem = SelectFrom<InventoryItem>.View.Select(Base).RowCast<InventoryItem>().ToList();
                 var amProdMatl = SelectFrom<AMProdMatl>
-                                 .Where<AMProdMatl.prodOrdID.IsEqual<P.AsString>
-                                    .And<AMProdMatl.inventoryID.IsEqual<P.AsInt>>>.View.Select(Base, row.ProdOrdID, row.InventoryID)
-                                 .RowCast<AMProdMatl>().FirstOrDefault();
+                     .Where<AMProdMatl.prodOrdID.IsEqual<P.AsString>
+                        .And<AMProdMatl.inventoryID.IsEqual<P.AsInt>>>.View.Select(Base, row.ProdOrdID, row.InventoryID)
+                     .RowCast<AMProdMatl>().FirstOrDefault();
                 var maxOverIssue = SelectFrom<LifeSyncPreference>.View.Select(Base).RowCast<LifeSyncPreference>().FirstOrDefault().MaxOverIssue;
                 var overIssueQty = Math.Round((amProdMatl?.TotalQtyRequired ?? 0) * (1 + (maxOverIssue ?? 0) / 100), 4);
                 if ((decimal?)e.NewValue > overIssueQty)
                 {
                     e.NewValue = overIssueQty;
                     e.Cache.SetValue<AMMTran.qty>(row, overIssueQty);
-                    throw new PXSetPropertyException<AMMTran.qty>($"Material Quantity {inputValue} to be issued is greater then maximum allowed over issue {overIssueQty}");
+                    throw new PXSetPropertyException<AMMTran.qty>($"Material Quantity {inputValue} to be issued is greater then maximum allowed over issue {overIssueQty} ({amProdMatl.ProdOrdID}-{inventoryItem.FirstOrDefault(x => x.InventoryID == amProdMatl.InventoryID).InventoryCD})");
                 }
             }
         }
@@ -133,11 +134,38 @@ namespace JAMS.AM
             baseMethod?.Invoke(e.Cache, e.Args);
             var row = e.Row;
             var amTran = Base.transactions.Select().RowCast<AMMTran>().ToList();
+            var inventoryItem = SelectFrom<InventoryItem>.View.Select(Base).RowCast<InventoryItem>().ToList();
             var duplicateData = amTran.GroupBy(x => new { x.ProdOrdID, x.InventoryID })
                                       .Where(g => g.Count() > 1)
-                                      .Select(x => new { x.Key.ProdOrdID, x.Key.InventoryID });
-            if (duplicateData.Count() > 0)
-                throw new PXException($"You cannot add the material twice for one production order , and not allow users to save");
+                                      .Select(x => new
+                                      {
+                                          x.Key.ProdOrdID,
+                                          x.Key.InventoryID,
+                                          sumQty = x.Sum(y => y.Qty)
+                                      });
+
+            var duplicateDataWithWH = amTran.GroupBy(x => new { x.ProdOrdID, x.InventoryID, x.SiteID })
+                                      .Where(g => g.Count() > 1)
+                                      .Select(x => new
+                                      {
+                                          x.Key.ProdOrdID,
+                                          x.Key.InventoryID,
+                                          x.Key.SiteID
+                                      });
+
+            if (duplicateDataWithWH.Any())
+                throw new PXException($"Duplicated Materials {inventoryItem.Where(x => x.InventoryID == duplicateDataWithWH.FirstOrDefault()?.InventoryID).FirstOrDefault()?.InventoryCD} in Production Order {duplicateDataWithWH.FirstOrDefault()?.ProdOrdID}");
+
+
+            foreach (var item in duplicateData)
+            {
+                object qty = item.sumQty;
+                var temp = amTran.Where(x => x.ProdOrdID == item.ProdOrdID && x.InventoryID.Value == x.InventoryID);
+                temp.ToList().ForEach(x =>
+                {
+                    Base.transactions.Cache.RaiseFieldVerifying<AMMTran.qty>(x, ref qty);
+                });
+            }
 
             if (!(row.GetExtension<AMMTranExt>().UsrOverIssue ?? false))
             {
@@ -159,5 +187,6 @@ namespace JAMS.AM
             if (!(bool)e.NewValue)
                 e.Cache.RaiseFieldVerifying<AMMTran.qty>(e.Row, ref qty);
         }
+
     }
 }
