@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -106,7 +106,6 @@
     <Compile Include="DAC_Extensions\AMMTranExtension.cs" />
     <Compile Include="DAC_Extensions\AMPordMatlExtension.cs" />
     <Compile Include="DAC_Extensions\AMProdItemExtensions.cs" />
-    <Compile Include="DAC_Extensions\AMWrkMatlExtension.cs" />
     <Compile Include="DAC_Extensions\ARAdjustExtension.cs" />
     <Compile Include="DAC_Extensions\BatchExtensions.cs" />
     <Compile Include="DAC_Extensions\INItemLotSerialExtensions.cs" />
@@ -137,7 +136,6 @@
     <Compile Include="Graph_Extensions\INReceiptEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\INTransferEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\JournalEntry_Extension.cs" />
-    <Compile Include="Graph_Extensions\MatlWizard2_Extension.cs" />
     <Compile Include="Graph_Extensions\ProdDetail.cs" />
     <Compile Include="Graph_Extensions\MaterialEntry.cs" />
     <Compile Include="Graph_Extensions\MatlWizard1_Extension.cs" />
