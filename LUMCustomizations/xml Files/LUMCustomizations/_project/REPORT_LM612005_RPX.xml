@@ -44,12 +44,12 @@
         <GridSize>4px, 4px</GridSize>
         <NavigationDepth>1</NavigationDepth>
         <PageSettings>
-            <Landscape>True</Landscape>
             <Margins>
-                <Left>0.5cm</Left>
-                <Right>0.5cm</Right>
+                <Bottom>1cm</Bottom>
+                <Left>1cm</Left>
+                <Right>1cm</Right>
+                <Top>1cm</Top>
             </Margins>
-            <PaperKind>A5</PaperKind>
         </PageSettings>
         <Parameters>
             <ReportParameter>
@@ -2206,18 +2206,18 @@
                 <ExcelMargin>
                     <bottom>1</bottom>
                 </ExcelMargin>
-                <Height>2.75132cm</Height>
+                <Height>2.32804cm</Height>
                 <Items>
                     <TextBox Name="textBox1">
                         <Format>='yyyy-MM-dd'</Format>
-                        <Location>632px, 88px</Location>
+                        <Location>596px, 68px</Location>
                         <Size>120px, 16px</Size>
                         <Value>=[INRegister.TranDate]</Value>
                         <Visible>False</Visible>
                         <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'PISCRAP' Or [INRegister.AttributeREASON] = 'IMSCRAP', True, False)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox11">
-                        <Location>632px, 88px</Location>
+                        <Location>596px, 68px</Location>
                         <Size>120px, 16px</Size>
                         <Style>
                             <Font>
@@ -2228,7 +2228,7 @@
                         <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'PISCRAP' Or [INRegister.AttributeREASON] = 'IMSCRAP', False, True)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox12">
-                        <Location>576px, 88px</Location>
+                        <Location>540px, 68px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
@@ -2239,7 +2239,7 @@
                         <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'PISCRAP' Or [INRegister.AttributeREASON] = 'IMSCRAP', False, True)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox14">
-                        <Location>352px, 88px</Location>
+                        <Location>352px, 68px</Location>
                         <Size>120px, 16px</Size>
                         <Style>
                             <Font>
@@ -2249,7 +2249,7 @@
                         <Value>=[INRegister.AttributeDEPARTMENT]</Value>
                     </TextBox>
                     <TextBox Name="textBox15">
-                        <Location>296px, 88px</Location>
+                        <Location>296px, 68px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
@@ -2259,7 +2259,7 @@
                         <Value>部       门:</Value>
                     </TextBox>
                     <TextBox Name="textBox16">
-                        <Location>56px, 88px</Location>
+                        <Location>56px, 68px</Location>
                         <Size>120px, 16px</Size>
                         <Style>
                             <Font>
@@ -2269,7 +2269,7 @@
                         <Value>=[INRegister.RefNbr]</Value>
                     </TextBox>
                     <TextBox Name="textBox17">
-                        <Location>576px, 72px</Location>
+                        <Location>540px, 52px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
@@ -2281,14 +2281,14 @@
                     </TextBox>
                     <TextBox Name="textBox18">
                         <Format>='yyyy-MM-dd'</Format>
-                        <Location>632px, 72px</Location>
+                        <Location>596px, 52px</Location>
                         <Size>120px, 16px</Size>
                         <Value>=[INRegister.TranDate]</Value>
                         <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'PISCRAP' Or [INRegister.AttributeREASON] = 'IMSCRAP', False, True)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox19">
                         <Location>0px, 0px</Location>
-                        <Size>752px, 32px</Size>
+                        <Size>712px, 32px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
@@ -2300,7 +2300,7 @@
                         <Value>美博电子有限公司</Value>
                     </TextBox>
                     <TextBox Name="textBox22">
-                        <Location>0px, 88px</Location>
+                        <Location>0px, 68px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
@@ -2311,7 +2311,7 @@
                     </TextBox>
                     <TextBox Name="textBox27">
                         <Location>288px, 40px</Location>
-                        <Size>176px, 24px</Size>
+                        <Size>176px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
@@ -2322,7 +2322,7 @@
                         <Value>=[INRegister.AttributeREASON]</Value>
                     </TextBox>
                     <TextBox Name="textBox5">
-                        <Location>576px, 88px</Location>
+                        <Location>540px, 68px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
@@ -2337,7 +2337,7 @@
                         <Excel>
                             <column>10</column>
                         </Excel>
-                        <Location>664px, 40px</Location>
+                        <Location>628px, 36px</Location>
                         <Size>84px, 14px</Size>
                         <Style>
                             <TextAlign>Right</TextAlign>
@@ -2348,7 +2348,7 @@
                 </Items>
             </PageHeader>
             <Detail Name="Issue">
-                <Height>0.84656cm</Height>
+                <Height>36px</Height>
                 <Variables>
                     <ReportVariable>
                         <Name>LineNbr</Name>
@@ -2357,8 +2357,8 @@
                 </Variables>
                 <Items>
                     <TextBox Name="textBox10">
-                        <Location>464px, 0px</Location>
-                        <Size>48px, 32px</Size>
+                        <Location>448px, 0px</Location>
+                        <Size>48px, 36px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2379,8 +2379,8 @@
                     </TextBox>
                     <TextBox Name="textBox13">
                         <Format>=IIF([INTranSplit.Qty] - Floor([INTranSplit.Qty]) &gt; 0,'N2','N0')</Format>
-                        <Location>320px, 0px</Location>
-                        <Size>64px, 32px</Size>
+                        <Location>304px, 0px</Location>
+                        <Size>64px, 36px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2400,8 +2400,8 @@
                         <Value>=IIF([INUnit.UnitRate] &lt;&gt; Null And [INUnit.UnitMultDiv] = 'M',#010;[INTranSplit.Qty] / [INUnit.UnitRate],#010;IIF([INUnit.UnitRate] &lt;&gt; Null And [INUnit.UnitMultDiv] = 'D',#010;[INTranSplit.Qty] * [INUnit.UnitRate],#010;[INTranSplit.Qty]))</Value>
                     </TextBox>
                     <TextBox Name="textBox2">
-                        <Location>616px, 0px</Location>
-                        <Size>136px, 32px</Size>
+                        <Location>592px, 0px</Location>
+                        <Size>120px, 36px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2425,7 +2425,7 @@
                     </TextBox>
                     <TextBox Name="textBox20">
                         <Location>112px, 0px</Location>
-                        <Size>208px, 32px</Size>
+                        <Size>192px, 36px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2449,7 +2449,7 @@
                     </TextBox>
                     <TextBox Name="textBox21">
                         <Location>40px, 0px</Location>
-                        <Size>72px, 32px</Size>
+                        <Size>72px, 36px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2471,7 +2471,7 @@
                     </TextBox>
                     <TextBox Name="textBox23">
                         <Location>0px, 0px</Location>
-                        <Size>40px, 32px</Size>
+                        <Size>40px, 36px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2493,8 +2493,8 @@
                         <Value>=PadLeft(CStr($LineNbr), 4, '0')</Value>
                     </TextBox>
                     <TextBox Name="textBox24">
-                        <Location>384px, 0px</Location>
-                        <Size>80px, 32px</Size>
+                        <Location>368px, 0px</Location>
+                        <Size>80px, 36px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2514,8 +2514,8 @@
                         <Value>=[INTranSplit.LotSerialNbr]</Value>
                     </TextBox>
                     <TextBox Name="textBox3">
-                        <Location>568px, 0px</Location>
-                        <Size>48px, 32px</Size>
+                        <Location>552px, 0px</Location>
+                        <Size>40px, 36px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2535,8 +2535,8 @@
                         <Value>=[InventoryItem.BIN_Attributes]</Value>
                     </TextBox>
                     <TextBox Name="textBox4">
-                        <Location>512px, 0px</Location>
-                        <Size>56px, 32px</Size>
+                        <Location>496px, 0px</Location>
+                        <Size>56px, 36px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2624,7 +2624,7 @@
                             </TextBox>
                             <TextBox Name="textBox28">
                                 <Location>112px, 0px</Location>
-                                <Size>208px, 24px</Size>
+                                <Size>192px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
@@ -2646,7 +2646,7 @@
                                 <Value>品名规格</Value>
                             </TextBox>
                             <TextBox Name="textBox29">
-                                <Location>320px, 0px</Location>
+                                <Location>304px, 0px</Location>
                                 <Size>64px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2669,7 +2669,7 @@
                                 <Value>数量</Value>
                             </TextBox>
                             <TextBox Name="textBox30">
-                                <Location>464px, 0px</Location>
+                                <Location>448px, 0px</Location>
                                 <Size>48px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2692,7 +2692,7 @@
                                 <Value>单位</Value>
                             </TextBox>
                             <TextBox Name="textBox31">
-                                <Location>512px, 0px</Location>
+                                <Location>496px, 0px</Location>
                                 <Size>56px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2715,8 +2715,8 @@
                                 <Value>仓库</Value>
                             </TextBox>
                             <TextBox Name="textBox32">
-                                <Location>568px, 0px</Location>
-                                <Size>48px, 24px</Size>
+                                <Location>552px, 0px</Location>
+                                <Size>40px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
@@ -2738,8 +2738,8 @@
                                 <Value>库位</Value>
                             </TextBox>
                             <TextBox Name="textBox33">
-                                <Location>616px, 0px</Location>
-                                <Size>136px, 24px</Size>
+                                <Location>592px, 0px</Location>
+                                <Size>120px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
@@ -2761,7 +2761,7 @@
                                 <Value>备注</Value>
                             </TextBox>
                             <TextBox Name="textBox34">
-                                <Location>384px, 0px</Location>
+                                <Location>368px, 0px</Location>
                                 <Size>80px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2792,13 +2792,13 @@
                             <bottom>1</bottom>
                         </ExcelMargin>
                         <GridSize>8px, 8px</GridSize>
-                        <Height>1.16402cm</Height>
+                        <Height>0.84656cm</Height>
                         <Items>
                             <TextBox Name="textBox35">
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>0px, 8px</Location>
+                                <Location>0px, 0px</Location>
                                 <Size>32px, 16px</Size>
                                 <Style>
                                     <Font>
@@ -2812,7 +2812,7 @@
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>232px, 8px</Location>
+                                <Location>224px, 0px</Location>
                                 <Size>32px, 16px</Size>
                                 <Style>
                                     <Font>
@@ -2826,7 +2826,7 @@
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>648px, 8px</Location>
+                                <Location>632px, 0px</Location>
                                 <Size>40px, 14px</Size>
                                 <Style>
                                     <Font>
@@ -2841,7 +2841,7 @@
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>496px, 8px</Location>
+                                <Location>488px, 0px</Location>
                                 <Size>64px, 16px</Size>
                                 <Style>
                                     <Font>
@@ -2856,7 +2856,7 @@
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>376px, 8px</Location>
+                                <Location>368px, 0px</Location>
                                 <Size>40px, 14px</Size>
                                 <Style>
                                     <Font>
@@ -2871,7 +2871,7 @@
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>448px, 8px</Location>
+                                <Location>440px, 0px</Location>
                                 <Size>32px, 16px</Size>
                                 <Style>
                                     <Font>
@@ -2885,7 +2885,7 @@
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>264px, 8px</Location>
+                                <Location>256px, 0px</Location>
                                 <Size>32px, 14px</Size>
                                 <Style>
                                     <Font>
@@ -2900,7 +2900,7 @@
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>136px, 8px</Location>
+                                <Location>128px, 0px</Location>
                                 <Size>40px, 14px</Size>
                                 <Style>
                                     <Font>
@@ -2915,7 +2915,7 @@
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>0px, 8px</Location>
+                                <Location>0px, 0px</Location>
                                 <Size>48px, 14px</Size>
                                 <Style>
                                     <Font>
@@ -2930,7 +2930,7 @@
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>640px, 8px</Location>
+                                <Location>624px, 0px</Location>
                                 <Size>32px, 16px</Size>
                                 <Style>
                                     <Font>
@@ -2944,7 +2944,7 @@
                                 <Excel>
                                     <row>3</row>
                                 </Excel>
-                                <Location>0px, 32px</Location>
+                                <Location>0px, 16px</Location>
                                 <Size>168px, 14px</Size>
                                 <Style>
                                     <Font>

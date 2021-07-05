@@ -48,12 +48,10 @@
         <GridSize>4px, 4px</GridSize>
         <NavigationDepth>1</NavigationDepth>
         <PageSettings>
-            <Landscape>True</Landscape>
             <Margins>
                 <Left>0.5cm</Left>
                 <Right>0.5cm</Right>
             </Margins>
-            <PaperKind>A5</PaperKind>
         </PageSettings>
         <Parameters>
             <ReportParameter>
@@ -1975,10 +1973,10 @@
                 <ExcelMargin>
                     <bottom>1</bottom>
                 </ExcelMargin>
-                <Height>3.1746cm</Height>
+                <Height>2.96296cm</Height>
                 <Items>
                     <TextBox Name="textBox11">
-                        <Location>632px, 88px</Location>
+                        <Location>632px, 80px</Location>
                         <Size>120px, 16px</Size>
                         <Style>
                             <Font>
@@ -1988,7 +1986,7 @@
                         <Value>=[INRegister.ToSiteID_description]</Value>
                     </TextBox>
                     <TextBox Name="textBox12">
-                        <Location>576px, 88px</Location>
+                        <Location>576px, 80px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
@@ -1998,7 +1996,7 @@
                         <Value>目的仓库:</Value>
                     </TextBox>
                     <TextBox Name="textBox14">
-                        <Location>352px, 88px</Location>
+                        <Location>352px, 80px</Location>
                         <Size>120px, 16px</Size>
                         <Style>
                             <Font>
@@ -2008,7 +2006,7 @@
                         <Value>=[INRegister.SiteID_description]</Value>
                     </TextBox>
                     <TextBox Name="textBox15">
-                        <Location>296px, 88px</Location>
+                        <Location>296px, 80px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
@@ -2018,7 +2016,7 @@
                         <Value>来源仓库:</Value>
                     </TextBox>
                     <TextBox Name="textBox16">
-                        <Location>56px, 88px</Location>
+                        <Location>56px, 80px</Location>
                         <Size>120px, 16px</Size>
                         <Style>
                             <Font>
@@ -2028,7 +2026,7 @@
                         <Value>=[INRegister.RefNbr]</Value>
                     </TextBox>
                     <TextBox Name="textBox17">
-                        <Location>576px, 72px</Location>
+                        <Location>576px, 64px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
@@ -2039,7 +2037,7 @@
                     </TextBox>
                     <TextBox Name="textBox18">
                         <Format>='yyyy-MM-dd'</Format>
-                        <Location>632px, 72px</Location>
+                        <Location>632px, 64px</Location>
                         <Size>120px, 16px</Size>
                         <Value>=[INRegister.TranDate]</Value>
                     </TextBox>
@@ -2057,7 +2055,7 @@
                         <Value>美博电子有限公司</Value>
                     </TextBox>
                     <TextBox Name="textBox22">
-                        <Location>0px, 88px</Location>
+                        <Location>0px, 80px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
@@ -2079,7 +2077,7 @@
                         <Value>调拨单</Value>
                     </TextBox>
                     <TextBox Name="textBox5">
-                        <Location>0px, 104px</Location>
+                        <Location>0px, 96px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
@@ -2089,7 +2087,7 @@
                         <Value>调拨原因:</Value>
                     </TextBox>
                     <TextBox Name="textBox6">
-                        <Location>56px, 104px</Location>
+                        <Location>56px, 96px</Location>
                         <Size>696px, 16px</Size>
                         <Style>
                             <Font>
