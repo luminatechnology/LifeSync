@@ -160,11 +160,13 @@ namespace JAMS.AM
             foreach (var item in duplicateData)
             {
                 object qty = item.sumQty;
-                var temp = amTran.Where(x => x.ProdOrdID == item.ProdOrdID && x.InventoryID.Value == x.InventoryID);
-                temp.ToList().ForEach(x =>
+                var temp = amTran.Where(x => x.ProdOrdID == item.ProdOrdID && x.InventoryID.Value == item.InventoryID);
+                foreach (var aa in temp)
                 {
-                    Base.transactions.Cache.RaiseFieldVerifying<AMMTran.qty>(x, ref qty);
-                });
+                    var checkResult = Base.transactions.Cache.RaiseFieldVerifying<AMMTran.qty>(aa, ref qty);
+                    if (!checkResult)
+                        throw new PXException("You cannot save, please check error message");
+                }
             }
 
             if (!(row.GetExtension<AMMTranExt>().UsrOverIssue ?? false))
@@ -186,6 +188,31 @@ namespace JAMS.AM
                        .View.Select(Base, row.ProdOrdID, row.InventoryID).RowCast<AMProdMatl>().FirstOrDefault();
             if (!(bool)e.NewValue)
                 e.Cache.RaiseFieldVerifying<AMMTran.qty>(e.Row, ref qty);
+        }
+
+        public virtual void _(Events.FieldVerifying<AMMTranSplit.qty> e, PXFieldVerifying baseMethod)
+        {
+            var row = e.Row as AMMTranSplit;
+            var amTranRow = Base.transactions.Cache.Current as AMMTran;
+            var inputValue = e.NewValue;
+            if (!(amTranRow.GetExtension<AMMTranExt>().UsrOverIssue ?? false))
+                baseMethod?.Invoke(e.Cache, e.Args);
+            else
+            {
+                var inventoryItem = SelectFrom<InventoryItem>.View.Select(Base).RowCast<InventoryItem>().ToList();
+                var amProdMatl = SelectFrom<AMProdMatl>
+                     .Where<AMProdMatl.prodOrdID.IsEqual<P.AsString>
+                        .And<AMProdMatl.inventoryID.IsEqual<P.AsInt>>>.View.Select(Base, amTranRow.ProdOrdID, amTranRow.InventoryID)
+                     .RowCast<AMProdMatl>().FirstOrDefault();
+                var maxOverIssue = SelectFrom<LifeSyncPreference>.View.Select(Base).RowCast<LifeSyncPreference>().FirstOrDefault().MaxOverIssue;
+                var overIssueQty = Math.Round((amProdMatl?.TotalQtyRequired ?? 0) * (1 + (maxOverIssue ?? 0) / 100), 4);
+                if ((decimal?)e.NewValue > overIssueQty)
+                {
+                    e.NewValue = overIssueQty;
+                    e.Cache.SetValue<AMMTranSplit.qty>(row, overIssueQty);
+                    throw new PXSetPropertyException<AMMTranSplit.qty>($"Material Quantity {inputValue} to be issued is greater then maximum allowed over issue {overIssueQty} ({amProdMatl.ProdOrdID}-{inventoryItem.FirstOrDefault(x => x.InventoryID == amProdMatl.InventoryID).InventoryCD})");
+                }
+            }
         }
 
     }
