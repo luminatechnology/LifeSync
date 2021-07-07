@@ -21,7 +21,7 @@ namespace PX.Objects.AP
         {
             public VendorCrossRateAttr() : base("CROSSRATE") { }
         }
-
+        /*
         public IEnumerable Adjustments()
         {
             var newAdjustments = SelectFrom<APAdjust>.
@@ -43,38 +43,38 @@ namespace PX.Objects.AP
                 APAdjust aPAdjust = adjustment;
                 APInvoice aPInvoice = adjustment;
 
-                if (row.CuryID != aPInvoice.CuryID && aPPaymentVendorCrossRateAttr == "1" && Convert.ToDecimal(aPAdjust.AdjdCuryRate) != 1.00m)
+                if (row.CuryID != aPInvoice.CuryID && aPPaymentVendorCrossRateAttr == "1" && Convert.ToDecimal(aPAdjust.AdjdCuryRate) != 1.00m && aPInvoice.CuryInfoID != null)
                 {
-                    var curyInfoID = SelectFrom<CurrencyInfo>.Where<CurrencyInfo.curyInfoID.IsEqual<@P.AsInt>>.View.Select(Base, aPInvoice.CuryInfoID).TopFirst?.CuryRate;
-                    aPAdjust.AdjdCuryRate = curyInfoID == null ? aPAdjust.AdjdCuryRate : curyInfoID;
+                    var curyInfo = SelectFrom<CurrencyInfo>.Where<CurrencyInfo.curyInfoID.IsEqual<@P.AsInt>>.View.Select(Base, aPInvoice.CuryInfoID).TopFirst;
+                    var curyInfoCuryRate = curyInfo?.CuryMultDiv == "M" ? curyInfo?.CuryRate : curyInfo?.RecipRate;
+                    aPAdjust.AdjdCuryRate = curyInfoCuryRate == null ? aPAdjust.AdjdCuryRate : curyInfoCuryRate;
                 }
             }
-
-
             return newAdjustments;
         }
-
+        
         protected void _(Events.FieldUpdated<APAdjust.adjdRefNbr> e)
         {
             if (e.NewValue != null)
             {
 
                 var row = Base.Document.Current;
+                row.CuryOrigDocAmt = 0m;
                 var aPPaymentVendorCrossRateAttr = SelectFrom<CSAnswers>.
                                                     LeftJoin<BAccountR>.On<CSAnswers.refNoteID.IsEqual<BAccountR.noteID>>.
                                                     LeftJoin<APPayment>.On<BAccountR.bAccountID.IsEqual<APPayment.vendorID>>.
                                                     Where<APPayment.vendorID.IsEqual<@P.AsInt>.And<CSAnswers.attributeID.IsEqual<VendorCrossRateAttr>>>.
                                                     View.Select(Base, row.VendorID).TopFirst?.Value;
-                var aPInvoiceCur = SelectFrom<APInvoice>.Where<APInvoice.docType.IsEqual<@P.AsString>.And<APInvoice.refNbr.IsEqual<@P.AsString>>>.
-                                    View.Select(Base, e.Cache.GetValue<APAdjust.adjdDocType>(e.Row), e.Cache.GetValue<APAdjust.adjdRefNbr>(e.Row));
-                var aPInvoiceCuryInfoID = aPInvoiceCur.TopFirst?.CuryInfoID;
-
-                if (row.CuryID != aPInvoiceCur.TopFirst?.CuryID && aPPaymentVendorCrossRateAttr == "1" && Convert.ToDecimal(e.Cache.GetValue<APAdjust.adjdCuryRate>(e.Row)) != 1.00m && aPInvoiceCuryInfoID != null)
+                var apRow = e.Row as APAdjust;
+                var aPInvoiceCurData = SelectFrom<APInvoice>.View.Select(Base).RowCast<APInvoice>().ToList().FirstOrDefault(x => x.DocType == apRow.AdjdDocType && x.RefNbr == apRow.AdjdRefNbr);
+                if (row.CuryID != aPInvoiceCurData?.CuryID && aPPaymentVendorCrossRateAttr == "1" && Convert.ToDecimal(apRow.AdjdCuryRate) != 1.00m && aPInvoiceCurData?.CuryInfoID != null)
                 {
-                    var curyInfoCuryRate = SelectFrom<CurrencyInfo>.Where<CurrencyInfo.curyInfoID.IsEqual<@P.AsInt>>.View.Select(Base, aPInvoiceCuryInfoID).TopFirst?.CuryRate;
-                    e.Cache.SetValueExt<APAdjust.adjdCuryRate>(e.Row, curyInfoCuryRate == null ? Base.Adjustments.Current.AdjdCuryRate : curyInfoCuryRate);
+                    var curyInfo = SelectFrom<CurrencyInfo>.Where<CurrencyInfo.curyInfoID.IsEqual<@P.AsInt>>.View.Select(Base, aPInvoiceCurData?.CuryInfoID).TopFirst;
+                    var curyInfoCuryRate = curyInfo?.CuryMultDiv == "M" ? curyInfo?.CuryRate : curyInfo?.RecipRate;
+                    e.Cache.SetValueExt<APAdjust.adjdCuryRate>(e.Row, curyInfoCuryRate == null ? apRow.AdjdCuryRate : curyInfoCuryRate);
                 }
             }
         }
+        */
     }
 }
