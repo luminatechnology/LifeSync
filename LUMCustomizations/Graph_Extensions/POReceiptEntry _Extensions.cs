@@ -24,6 +24,17 @@ namespace PX.Objects.PO
         [PXUIField(DisplayName = "Print PO Receipt", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable pOReceipt(PXAdapter adapter)
         {
+            var curPOReceiptCache = (POReceipt)Base.Document.Cache.Current;
+            var _printCount = curPOReceiptCache.GetExtension<POReceiptExt>().UsrPrintCount ?? 0;
+
+            //Calculate Print Count
+            PXUpdate<Set<POReceiptExt.usrPrintCount, Required<POReceiptExt.usrPrintCount>>,
+                         POReceipt,
+                         Where<POReceipt.receiptNbr, Equal<Required<POReceipt.receiptNbr>>,
+                           And<POReceipt.receiptType, Equal<Required<POReceipt.receiptType>>>
+                     >>.Update(Base, ++_printCount, curPOReceiptCache.ReceiptNbr, curPOReceiptCache.ReceiptType);
+
+            // create the parameter for report
             var _reportID = "LM646000";
             Dictionary<string, string> parameters = new Dictionary<string, string>();
             parameters["ReceiptNbr"] = Base.Document.Current.ReceiptNbr;
