@@ -14,6 +14,7 @@
                     <Prop Key="ID" Value="CstPXNumberEdit2" />
                     <Prop Key="DataField" Value="UsrPrintCount" />
                     <Prop Key="AllowNull" Value="True" />
+                    <Prop Key="Enabled" Value="False" />
                 </PXNumberEdit>
             </AddItem>
         </Children>
