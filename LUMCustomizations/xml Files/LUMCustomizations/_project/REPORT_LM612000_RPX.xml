@@ -2951,7 +2951,7 @@
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=[INTranSplit.Qty]</Value>
+                        <Value>=[INTran.Qty]</Value>
                     </TextBox>
                     <TextBox Name="textBox37">
                         <Location>168px, 0px</Location>
