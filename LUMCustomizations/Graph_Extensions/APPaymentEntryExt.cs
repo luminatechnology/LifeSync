@@ -21,7 +21,7 @@ namespace PX.Objects.AP
         {
             public VendorCrossRateAttr() : base("CROSSRATE") { }
         }
-        /*
+        
         public IEnumerable Adjustments()
         {
             var newAdjustments = SelectFrom<APAdjust>.
@@ -75,6 +75,5 @@ namespace PX.Objects.AP
                 }
             }
         }
-        */
     }
 }

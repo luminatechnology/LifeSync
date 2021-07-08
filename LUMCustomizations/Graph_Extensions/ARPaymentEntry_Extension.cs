@@ -22,7 +22,7 @@ namespace PX.Objects.AR
         {
             public VendorCrossRateAttr() : base("CROSSRATE") { }
         }
-        /*
+        
         // Delegate
         public IEnumerable Adjustments()
         {
@@ -55,7 +55,7 @@ namespace PX.Objects.AR
             }
             return newAdjustments;
         }
-        */
+        
         #region Override DAC
         [PXUIField(Enabled = false)]
         [PXDBDecimal(2)]
@@ -83,7 +83,7 @@ namespace PX.Objects.AR
             var _curyAdjdAmt = e.Cache.GetValue<ARAdjust.curyAdjdAmt>(e.Row) ?? 0;
             e.ReturnValue = _refBalance - (Decimal?)_curyAdjdAmt;
         }
-        /*
+
         protected void _(Events.FieldUpdated<ARAdjust.adjdRefNbr> e)
         {
             if (e.NewValue != null)
@@ -104,7 +104,6 @@ namespace PX.Objects.AR
                 }
             }
         }
-        */
         #endregion
     }
 }
