@@ -36,7 +36,6 @@ namespace PX.Objects.AP
 			if (Base.Filter.Current.CuryID == "USD")
 			{
 				var aPInvoiceCurData = SelectFrom<APInvoice>.View.Select(Base).RowCast<APInvoice>().ToList().FirstOrDefault(x => x.DocType == apRow.AdjdDocType && x.RefNbr == apRow.AdjdRefNbr);
-				var tt = apRow.VendorID;
 				var aPPaymentVendorCrossRateAttr = SelectFrom<CSAnswers>.
 														LeftJoin<BAccountR>.On<CSAnswers.refNoteID.IsEqual<BAccountR.noteID>>.
 														LeftJoin<APAdjust>.On<BAccountR.bAccountID.IsEqual<APAdjust.vendorID>>.
