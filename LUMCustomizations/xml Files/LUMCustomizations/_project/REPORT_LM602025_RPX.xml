@@ -133,6 +133,41 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                 </Links>
                 <ParentName>LumShipmentPlan</ParentName>
             </ReportRelation>
+            <ReportRelation>
+                <ChildName>SOShipment</ChildName>
+                <Links>
+                    <RelationRow>
+                        <ChildField>SOShipment.ShipmentNbr</ChildField>
+                        <ParentField>ShipmentNbr</ParentField>
+                    </RelationRow>
+                </Links>
+                <ParentName>LumShipmentPlan</ParentName>
+            </ReportRelation>
+            <ReportRelation>
+                <ChildName>Location</ChildName>
+                <Links>
+                    <RelationRow>
+                        <ChildField>BAccountID</ChildField>
+                        <ParentField>CustomerID</ParentField>
+                    </RelationRow>
+                    <RelationRow>
+                        <ChildField>LocationID</ChildField>
+                        <ParentField>UsrShipToID</ParentField>
+                    </RelationRow>
+                </Links>
+                <ParentName>SOShipment</ParentName>
+            </ReportRelation>
+            <ReportRelation>
+                <ChildAlias>ShipToAddr</ChildAlias>
+                <ChildName>Address</ChildName>
+                <Links>
+                    <RelationRow>
+                        <ChildField>AddressID</ChildField>
+                        <ParentField>DefAddressID</ParentField>
+                    </RelationRow>
+                </Links>
+                <ParentName>Location</ParentName>
+            </ReportRelation>
         </Relations>
         <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
         <Sorting>
@@ -4357,10 +4392,676 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                 </Fields>
                 <FullName>PX.Objects.IN.InventoryItem</FullName>
             </ReportTable>
+            <ReportTable Name="Location">
+                <Fields>
+                    <ReportField Name="APAccountID">
+                    </ReportField>
+                    <ReportField Name="APAccountID_Account_description">
+                    </ReportField>
+                    <ReportField Name="APAccountID_description">
+                    </ReportField>
+                    <ReportField Name="APAccountID_Segment1">
+                    </ReportField>
+                    <ReportField Name="APRetainageAcctID">
+                    </ReportField>
+                    <ReportField Name="APRetainageAcctID_Account_description">
+                    </ReportField>
+                    <ReportField Name="APRetainageAcctID_description">
+                    </ReportField>
+                    <ReportField Name="APRetainageAcctID_Segment1">
+                    </ReportField>
+                    <ReportField Name="APRetainageSubID">
+                    </ReportField>
+                    <ReportField Name="APRetainageSubID_description">
+                    </ReportField>
+                    <ReportField Name="APRetainageSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="APRetainageSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="APRetainageSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="APSubID">
+                    </ReportField>
+                    <ReportField Name="APSubID_description">
+                    </ReportField>
+                    <ReportField Name="APSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="APSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="APSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="ARAccountID">
+                    </ReportField>
+                    <ReportField Name="ARAccountID_Account_description">
+                    </ReportField>
+                    <ReportField Name="ARAccountID_description">
+                    </ReportField>
+                    <ReportField Name="ARAccountID_Segment1">
+                    </ReportField>
+                    <ReportField Name="ARRetainageAcctID">
+                    </ReportField>
+                    <ReportField Name="ARRetainageAcctID_Account_description">
+                    </ReportField>
+                    <ReportField Name="ARRetainageAcctID_description">
+                    </ReportField>
+                    <ReportField Name="ARRetainageAcctID_Segment1">
+                    </ReportField>
+                    <ReportField Name="ARRetainageSubID">
+                    </ReportField>
+                    <ReportField Name="ARRetainageSubID_description">
+                    </ReportField>
+                    <ReportField Name="ARRetainageSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="ARRetainageSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="ARRetainageSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="ARSubID">
+                    </ReportField>
+                    <ReportField Name="ARSubID_description">
+                    </ReportField>
+                    <ReportField Name="ARSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="ARSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="ARSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="BAccountBAccountID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="BAccountID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="CARAccountID">
+                    </ReportField>
+                    <ReportField Name="CARAccountID_Account_description">
+                    </ReportField>
+                    <ReportField Name="CARAccountID_description">
+                    </ReportField>
+                    <ReportField Name="CARAccountID_Segment1">
+                    </ReportField>
+                    <ReportField Name="CARAccountLocationID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="CARSubID">
+                    </ReportField>
+                    <ReportField Name="CARSubID_description">
+                    </ReportField>
+                    <ReportField Name="CARSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="CARSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="CARSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="CashAccountID">
+                    </ReportField>
+                    <ReportField Name="CashAccountID_CashAccount_descr">
+                    </ReportField>
+                    <ReportField Name="CashAccountID_description">
+                    </ReportField>
+                    <ReportField Name="CashAccountID_Segment1">
+                    </ReportField>
+                    <ReportField Name="CAvalaraCustomerUsageType">
+                    </ReportField>
+                    <ReportField Name="CAvalaraExemptionNumber">
+                    </ReportField>
+                    <ReportField Name="CBranchID">
+                    </ReportField>
+                    <ReportField Name="CBranchID_Branch_acctName">
+                    </ReportField>
+                    <ReportField Name="CBranchID_description">
+                    </ReportField>
+                    <ReportField Name="CBranchID_Segment1">
+                    </ReportField>
+                    <ReportField Name="CCalendarID">
+                    </ReportField>
+                    <ReportField Name="CCalendarID_CSCalendar_description">
+                    </ReportField>
+                    <ReportField Name="CCalendarID_description">
+                    </ReportField>
+                    <ReportField Name="CCarrierID">
+                    </ReportField>
+                    <ReportField Name="CCarrierID_Carrier_description">
+                    </ReportField>
+                    <ReportField Name="CCarrierID_description">
+                    </ReportField>
+                    <ReportField Name="CDefProjectID">
+                    </ReportField>
+                    <ReportField Name="CDefProjectID_description">
+                    </ReportField>
+                    <ReportField Name="CDefProjectID_PMProject_description">
+                    </ReportField>
+                    <ReportField Name="CDefProjectID_Segment1">
+                    </ReportField>
+                    <ReportField Name="CDiscountAcctID">
+                    </ReportField>
+                    <ReportField Name="CDiscountAcctID_Account_description">
+                    </ReportField>
+                    <ReportField Name="CDiscountAcctID_description">
+                    </ReportField>
+                    <ReportField Name="CDiscountAcctID_Segment1">
+                    </ReportField>
+                    <ReportField Name="CDiscountSubID">
+                    </ReportField>
+                    <ReportField Name="CDiscountSubID_description">
+                    </ReportField>
+                    <ReportField Name="CDiscountSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="CDiscountSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="CDiscountSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="CFOBPointID">
+                    </ReportField>
+                    <ReportField Name="CFOBPointID_description">
+                    </ReportField>
+                    <ReportField Name="CFOBPointID_FOBPoint_description">
+                    </ReportField>
+                    <ReportField Name="CFreightAcctID">
+                    </ReportField>
+                    <ReportField Name="CFreightAcctID_Account_description">
+                    </ReportField>
+                    <ReportField Name="CFreightAcctID_description">
+                    </ReportField>
+                    <ReportField Name="CFreightAcctID_Segment1">
+                    </ReportField>
+                    <ReportField Name="CFreightSubID">
+                    </ReportField>
+                    <ReportField Name="CFreightSubID_description">
+                    </ReportField>
+                    <ReportField Name="CFreightSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="CFreightSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="CFreightSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="CGroundCollect">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="CInsurance">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="CLeadTime">
+                        <DataType>Int16</DataType>
+                    </ReportField>
+                    <ReportField Name="CMPDiscountSubID">
+                    </ReportField>
+                    <ReportField Name="CMPDiscountSubID_description">
+                    </ReportField>
+                    <ReportField Name="CMPDiscountSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="CMPDiscountSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="CMPDiscountSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="CMPExpenseSubID">
+                    </ReportField>
+                    <ReportField Name="CMPExpenseSubID_description">
+                    </ReportField>
+                    <ReportField Name="CMPExpenseSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="CMPExpenseSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="CMPExpenseSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="CMPFreightSubID">
+                    </ReportField>
+                    <ReportField Name="CMPFreightSubID_description">
+                    </ReportField>
+                    <ReportField Name="CMPFreightSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="CMPFreightSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="CMPFreightSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="CMPGainLossSubID">
+                    </ReportField>
+                    <ReportField Name="CMPGainLossSubID_description">
+                    </ReportField>
+                    <ReportField Name="CMPGainLossSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="CMPGainLossSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="CMPGainLossSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="CMPSalesSubID">
+                    </ReportField>
+                    <ReportField Name="CMPSalesSubID_description">
+                    </ReportField>
+                    <ReportField Name="CMPSalesSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="CMPSalesSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="CMPSalesSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="CMPSiteID">
+                    </ReportField>
+                    <ReportField Name="CMPSiteID_description">
+                    </ReportField>
+                    <ReportField Name="CMPSiteID_INSite_descr">
+                    </ReportField>
+                    <ReportField Name="CMPSiteID_Segment1">
+                    </ReportField>
+                    <ReportField Name="COrderPriority">
+                        <DataType>Int16</DataType>
+                    </ReportField>
+                    <ReportField Name="CPriceClassID">
+                    </ReportField>
+                    <ReportField Name="CreatedByID">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_displayName">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_Username">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_description">
+                    </ReportField>
+                    <ReportField Name="CreatedByScreenID">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="CResedential">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="CRetainageAcctID">
+                    </ReportField>
+                    <ReportField Name="CRetainageAcctID_Account_description">
+                    </ReportField>
+                    <ReportField Name="CRetainageAcctID_description">
+                    </ReportField>
+                    <ReportField Name="CRetainageAcctID_Segment1">
+                    </ReportField>
+                    <ReportField Name="CRetainageSubID">
+                    </ReportField>
+                    <ReportField Name="CRetainageSubID_description">
+                    </ReportField>
+                    <ReportField Name="CRetainageSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="CRetainageSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="CRetainageSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="CSalesAcctID">
+                    </ReportField>
+                    <ReportField Name="CSalesAcctID_Account_description">
+                    </ReportField>
+                    <ReportField Name="CSalesAcctID_description">
+                    </ReportField>
+                    <ReportField Name="CSalesAcctID_Segment1">
+                    </ReportField>
+                    <ReportField Name="CSalesSubID">
+                    </ReportField>
+                    <ReportField Name="CSalesSubID_description">
+                    </ReportField>
+                    <ReportField Name="CSalesSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="CSalesSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="CSalesSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="CSaturdayDelivery">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="CShipComplete">
+                    </ReportField>
+                    <ReportField Name="CShipTermsID">
+                    </ReportField>
+                    <ReportField Name="CShipTermsID_description">
+                    </ReportField>
+                    <ReportField Name="CShipTermsID_ShipTerms_description">
+                    </ReportField>
+                    <ReportField Name="CShipZoneID">
+                    </ReportField>
+                    <ReportField Name="CShipZoneID_description">
+                    </ReportField>
+                    <ReportField Name="CShipZoneID_ShippingZone_description">
+                    </ReportField>
+                    <ReportField Name="CSiteID">
+                    </ReportField>
+                    <ReportField Name="CSiteID_description">
+                    </ReportField>
+                    <ReportField Name="CSiteID_INSite_descr">
+                    </ReportField>
+                    <ReportField Name="CSiteID_Segment1">
+                    </ReportField>
+                    <ReportField Name="CTaxCalcMode">
+                    </ReportField>
+                    <ReportField Name="CTaxZoneID">
+                    </ReportField>
+                    <ReportField Name="CTaxZoneID_description">
+                    </ReportField>
+                    <ReportField Name="CTaxZoneID_TaxZone_descr">
+                    </ReportField>
+                    <ReportField Name="DefAddressID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="DefContactID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="Descr">
+                    </ReportField>
+                    <ReportField Name="IsActive">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="IsAddressSameAsMain">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="IsAPAccountSameAsMain">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="IsAPPaymentInfoSameAsMain">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="IsARAccountSameAsMain">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="IsContactSameAsMain">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="IsDefault">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="IsRemitAddressSameAsMain">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="IsRemitContactSameAsMain">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_description">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_displayName">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_Username">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByScreenID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="LocationAPAccountSubBAccountID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="LocationAPPaymentInfoBAccountID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="LocationARAccountSubBAccountID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="LocationCD">
+                    </ReportField>
+                    <ReportField Name="LocationCD_Segment1">
+                    </ReportField>
+                    <ReportField Name="LocationID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="LocType">
+                    </ReportField>
+                    <ReportField Name="NoteActivity">
+                    </ReportField>
+                    <ReportField Name="NoteFiles">
+                    </ReportField>
+                    <ReportField Name="NoteID">
+                        <DataType>Object</DataType>
+                    </ReportField>
+                    <ReportField Name="NoteImages">
+                    </ReportField>
+                    <ReportField Name="NoteText">
+                    </ReportField>
+                    <ReportField Name="PaymentByType">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="PaymentLeadTime">
+                        <DataType>Int16</DataType>
+                    </ReportField>
+                    <ReportField Name="PaymentMethodID">
+                    </ReportField>
+                    <ReportField Name="PseudonymizationStatus">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="RemitAddressID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="RemitContactID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="SeparateCheck">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="TaxRegistrationID">
+                    </ReportField>
+                    <ReportField Name="tstamp">
+                    </ReportField>
+                    <ReportField Name="VAllowAPBillBeforeReceipt">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="VAPAccountID">
+                    </ReportField>
+                    <ReportField Name="VAPAccountID_Account_description">
+                    </ReportField>
+                    <ReportField Name="VAPAccountID_description">
+                    </ReportField>
+                    <ReportField Name="VAPAccountID_Segment1">
+                    </ReportField>
+                    <ReportField Name="VAPAccountLocationID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="VAPSubID">
+                    </ReportField>
+                    <ReportField Name="VAPSubID_description">
+                    </ReportField>
+                    <ReportField Name="VAPSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="VAPSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="VAPSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="VBranchID">
+                    </ReportField>
+                    <ReportField Name="VBranchID_Branch_acctName">
+                    </ReportField>
+                    <ReportField Name="VBranchID_description">
+                    </ReportField>
+                    <ReportField Name="VBranchID_Segment1">
+                    </ReportField>
+                    <ReportField Name="VCarrierID">
+                    </ReportField>
+                    <ReportField Name="VCarrierID_Carrier_description">
+                    </ReportField>
+                    <ReportField Name="VCarrierID_description">
+                    </ReportField>
+                    <ReportField Name="VCashAccountID">
+                    </ReportField>
+                    <ReportField Name="VCashAccountID_CashAccount_descr">
+                    </ReportField>
+                    <ReportField Name="VCashAccountID_description">
+                    </ReportField>
+                    <ReportField Name="VCashAccountID_Segment1">
+                    </ReportField>
+                    <ReportField Name="VDefAddressID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="VDefContactID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="VDefProjectID">
+                    </ReportField>
+                    <ReportField Name="VDefProjectID_description">
+                    </ReportField>
+                    <ReportField Name="VDefProjectID_PMProject_description">
+                    </ReportField>
+                    <ReportField Name="VDefProjectID_Segment1">
+                    </ReportField>
+                    <ReportField Name="VDiscountAcctID">
+                    </ReportField>
+                    <ReportField Name="VDiscountAcctID_Account_description">
+                    </ReportField>
+                    <ReportField Name="VDiscountAcctID_description">
+                    </ReportField>
+                    <ReportField Name="VDiscountAcctID_Segment1">
+                    </ReportField>
+                    <ReportField Name="VDiscountSubID">
+                    </ReportField>
+                    <ReportField Name="VDiscountSubID_description">
+                    </ReportField>
+                    <ReportField Name="VDiscountSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="VDiscountSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="VDiscountSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="VEmailOrder">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="VExpenseAcctID">
+                    </ReportField>
+                    <ReportField Name="VExpenseAcctID_Account_description">
+                    </ReportField>
+                    <ReportField Name="VExpenseAcctID_description">
+                    </ReportField>
+                    <ReportField Name="VExpenseAcctID_Segment1">
+                    </ReportField>
+                    <ReportField Name="VExpenseSubID">
+                    </ReportField>
+                    <ReportField Name="VExpenseSubID_description">
+                    </ReportField>
+                    <ReportField Name="VExpenseSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="VExpenseSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="VExpenseSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="VFOBPointID">
+                    </ReportField>
+                    <ReportField Name="VFOBPointID_description">
+                    </ReportField>
+                    <ReportField Name="VFOBPointID_FOBPoint_description">
+                    </ReportField>
+                    <ReportField Name="VFreightAcctID">
+                    </ReportField>
+                    <ReportField Name="VFreightAcctID_Account_description">
+                    </ReportField>
+                    <ReportField Name="VFreightAcctID_description">
+                    </ReportField>
+                    <ReportField Name="VFreightAcctID_Segment1">
+                    </ReportField>
+                    <ReportField Name="VFreightSubID">
+                    </ReportField>
+                    <ReportField Name="VFreightSubID_description">
+                    </ReportField>
+                    <ReportField Name="VFreightSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="VFreightSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="VFreightSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="VLeadTime">
+                        <DataType>Int16</DataType>
+                    </ReportField>
+                    <ReportField Name="VPaymentByType">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="VPaymentInfoLocationID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="VPaymentLeadTime">
+                        <DataType>Int16</DataType>
+                    </ReportField>
+                    <ReportField Name="VPaymentMethodID">
+                    </ReportField>
+                    <ReportField Name="VPaymentMethodID_description">
+                    </ReportField>
+                    <ReportField Name="VPaymentMethodID_PaymentMethod_descr">
+                    </ReportField>
+                    <ReportField Name="VPrepaymentPct">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="VPrintOrder">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="VRcptQtyAction">
+                    </ReportField>
+                    <ReportField Name="VRcptQtyMax">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="VRcptQtyMin">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="VRcptQtyThreshold">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="VRemitAddressID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="VRemitContactID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="VRetainageAcctID">
+                    </ReportField>
+                    <ReportField Name="VRetainageAcctID_Account_description">
+                    </ReportField>
+                    <ReportField Name="VRetainageAcctID_description">
+                    </ReportField>
+                    <ReportField Name="VRetainageAcctID_Segment1">
+                    </ReportField>
+                    <ReportField Name="VRetainageSubID">
+                    </ReportField>
+                    <ReportField Name="VRetainageSubID_description">
+                    </ReportField>
+                    <ReportField Name="VRetainageSubID_Segment1">
+                    </ReportField>
+                    <ReportField Name="VRetainageSubID_Segment2">
+                    </ReportField>
+                    <ReportField Name="VRetainageSubID_Sub_description">
+                    </ReportField>
+                    <ReportField Name="VSeparateCheck">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="VShipTermsID">
+                    </ReportField>
+                    <ReportField Name="VShipTermsID_description">
+                    </ReportField>
+                    <ReportField Name="VShipTermsID_ShipTerms_description">
+                    </ReportField>
+                    <ReportField Name="VSiteID">
+                    </ReportField>
+                    <ReportField Name="VSiteID_description">
+                    </ReportField>
+                    <ReportField Name="VSiteID_INSite_descr">
+                    </ReportField>
+                    <ReportField Name="VSiteID_Segment1">
+                    </ReportField>
+                    <ReportField Name="VSiteIDIsNull">
+                        <DataType>Int16</DataType>
+                    </ReportField>
+                    <ReportField Name="VTaxCalcMode">
+                    </ReportField>
+                    <ReportField Name="VTaxZoneID">
+                    </ReportField>
+                </Fields>
+                <FullName>PX.Objects.CR.Location</FullName>
+            </ReportTable>
         </Tables>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
-                <Height>7.83069cm</Height>
+                <Height>8.67725cm</Height>
                 <Items>
                     <PictureBox Name="pictureBox2">
                         <Location>0px, 0px</Location>
@@ -4429,6 +5130,23 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                             </Font>
                         </Style>
                         <Value>Invoice No.: </Value>
+                    </TextBox>
+                    <TextBox Name="textBox14">
+                        <Location>80px, 224px</Location>
+                        <Size>224px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>10px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <Padding>
+                                <Top>2px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <Value>=[Location.Descr]</Value>
+                        <VisibleExpr>=IIF([SOShipment.UsrShipToID] &lt;&gt; Null, True, False)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox15">
                         <Location>384px, 144px</Location>
@@ -4502,7 +5220,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <Value>13/F GLOUCESTER TOWER THE LANDMARK#010;15 QUEEN'S ROAD CENTRAL HK</Value>
                     </TextBox>
                     <TextBox Name="textBox20">
-                        <Location>336px, 248px</Location>
+                        <Location>336px, 280px</Location>
                         <Size>40px, 16px</Size>
                         <Style>
                             <Font>
@@ -4512,8 +5230,37 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         </Style>
                         <Value>From:</Value>
                     </TextBox>
+                    <TextBox Name="textBox21">
+                        <Location>80px, 240px</Location>
+                        <Size>224px, 32px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>10px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <Padding>
+                                <Top>2px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <Value>=[ShipToAddr.AddressLine1]</Value>
+                        <VisibleExpr>=IIF([SOShipment.UsrShipToID] &lt;&gt; Null, True, False)</VisibleExpr>
+                    </TextBox>
+                    <TextBox Name="textBox22">
+                        <Location>24px, 224px</Location>
+                        <Size>56px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial Black</Name>
+                                <Size>10px</Size>
+                            </Font>
+                        </Style>
+                        <Value>Ship To:</Value>
+                        <VisibleExpr>=IIF([SOShipment.UsrShipToID] &lt;&gt; Null, True, False)</VisibleExpr>
+                    </TextBox>
                     <TextBox Name="textBox23">
-                        <Location>384px, 248px</Location>
+                        <Location>384px, 280px</Location>
                         <Size>136px, 16px</Size>
                         <Style>
                             <Font>
@@ -4528,7 +5275,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <Value>=IIF([@ManualOwner] &lt;&gt; Null, [@ManualOwner], [SOOrder.OwnerID_EPEmployee_acctName])</Value>
                     </TextBox>
                     <TextBox Name="textBox24">
-                        <Location>24px, 248px</Location>
+                        <Location>24px, 280px</Location>
                         <Size>40px, 16px</Size>
                         <Style>
                             <Font>
@@ -4539,7 +5286,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <Value>Attn:</Value>
                     </TextBox>
                     <TextBox Name="textBox25">
-                        <Location>24px, 264px</Location>
+                        <Location>24px, 296px</Location>
                         <Size>40px, 16px</Size>
                         <Style>
                             <Font>
@@ -4550,7 +5297,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <Value>Tel:</Value>
                     </TextBox>
                     <TextBox Name="textBox26">
-                        <Location>24px, 280px</Location>
+                        <Location>24px, 312px</Location>
                         <Size>40px, 16px</Size>
                         <Style>
                             <Font>
@@ -4561,7 +5308,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <Value>Fax:</Value>
                     </TextBox>
                     <TextBox Name="textBox27">
-                        <Location>64px, 248px</Location>
+                        <Location>64px, 280px</Location>
                         <Size>240px, 16px</Size>
                         <Style>
                             <Font>
@@ -4576,7 +5323,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <Value>=[ContactR.Attention]</Value>
                     </TextBox>
                     <TextBox Name="textBox28">
-                        <Location>64px, 264px</Location>
+                        <Location>64px, 296px</Location>
                         <Size>128px, 16px</Size>
                         <Style>
                             <Font>
@@ -4591,7 +5338,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <Value>=[ContactR.Phone1]</Value>
                     </TextBox>
                     <TextBox Name="textBox29">
-                        <Location>64px, 280px</Location>
+                        <Location>64px, 312px</Location>
                         <Size>128px, 16px</Size>
                         <Style>
                             <Font>
