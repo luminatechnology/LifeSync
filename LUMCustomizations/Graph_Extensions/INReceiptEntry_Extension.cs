@@ -48,6 +48,17 @@ namespace PX.Objects.IN
         {
             if (Base.receipt.Current != null)
             {
+                var curPOReceiptCache = (INRegister)Base.receipt.Cache.Current;
+                var _printCount = curPOReceiptCache.GetExtension<INRegisterExt>().UsrPrintCount ?? 0;
+
+                //Calculate Print Count
+                PXUpdate<Set<INRegisterExt.usrPrintCount, Required<INRegisterExt.usrPrintCount>>,
+                             INRegister,
+                             Where<INRegister.refNbr, Equal<Required<INRegister.refNbr>>,
+                               And<INRegister.docType, Equal<Required<INRegister.docType>>>
+                         >>.Update(Base, ++_printCount, curPOReceiptCache.RefNbr, curPOReceiptCache.DocType);
+
+                // create the parameter for report
                 Dictionary<string, string> parameters = new Dictionary<string, string>();
                 parameters["DocType"] = Base.receipt.Current.DocType;
                 parameters["RefNbr"] = Base.receipt.Current.RefNbr;
@@ -65,6 +76,17 @@ namespace PX.Objects.IN
         {
             if (Base.receipt.Current != null)
             {
+                var curPOReceiptCache = (INRegister)Base.receipt.Cache.Current;
+                var _printCount = curPOReceiptCache.GetExtension<INRegisterExt>().UsrPrintCount ?? 0;
+
+                //Calculate Print Count
+                PXUpdate<Set<INRegisterExt.usrPrintCount, Required<INRegisterExt.usrPrintCount>>,
+                             INRegister,
+                             Where<INRegister.refNbr, Equal<Required<INRegister.refNbr>>,
+                               And<INRegister.docType, Equal<Required<INRegister.docType>>>
+                         >>.Update(Base, ++_printCount, curPOReceiptCache.RefNbr, curPOReceiptCache.DocType);
+
+                // create the parameter for report
                 Dictionary<string, string> parameters = new Dictionary<string, string>();
                 parameters["DocType"] = Base.receipt.Current.DocType;
                 parameters["RefNbr"] = Base.receipt.Current.RefNbr;

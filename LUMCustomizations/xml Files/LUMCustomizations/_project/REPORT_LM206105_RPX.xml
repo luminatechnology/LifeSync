@@ -2641,225 +2641,14 @@
                 </Items>
             </PageHeader>
             <Detail Name="detailSection1">
-                <Height>36px</Height>
+                <Height>0cm</Height>
                 <Variables>
                     <ReportVariable>
                         <Name>LineNbr</Name>
                         <ValueExpr>=$LineNbr+1</ValueExpr>
                     </ReportVariable>
                 </Variables>
-                <Items>
-                    <TextBox Name="textBox28">
-                        <Location>0px, 0px</Location>
-                        <Size>32px, 36px</Size>
-                        <Style>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Left>Solid</Left>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Bottom>1px</Bottom>
-                                <Left>1px</Left>
-                                <Right>1px</Right>
-                            </BorderWidth>
-                            <Font>
-                                <Size>11px</Size>
-                            </Font>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <Value>=PadLeft(CStr($LineNbr), 4, '0')</Value>
-                    </TextBox>
-                    <TextBox Name="textBox29">
-                        <Location>32px, 0px</Location>
-                        <Size>88px, 36px</Size>
-                        <Style>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Bottom>1px</Bottom>
-                                <Right>1px</Right>
-                            </BorderWidth>
-                            <Font>
-                                <Size>11px</Size>
-                            </Font>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <Value>=[AMMTran.OrderType] + ' ' + [AMMTran.ProdOrdID]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox30">
-                        <Location>176px, 0px</Location>
-                        <Size>160px, 36px</Size>
-                        <Style>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Bottom>1px</Bottom>
-                                <Right>1px</Right>
-                            </BorderWidth>
-                            <Font>
-                                <Name>Microsoft JhengHei UI</Name>
-                                <Size>10.5px</Size>
-                            </Font>
-                            <Padding>
-                                <Left>3px</Left>
-                            </Padding>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <Value>=[AMMTran.InventoryID_description]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox31">
-                        <Location>336px, 0px</Location>
-                        <Size>72px, 36px</Size>
-                        <Style>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Bottom>1px</Bottom>
-                                <Right>1px</Right>
-                            </BorderWidth>
-                            <Font>
-                                <Size>11px</Size>
-                            </Font>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <Value>=[AMMTran.LotSerialNbr]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox32">
-                        <Location>120px, 0px</Location>
-                        <Size>56px, 36px</Size>
-                        <Style>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Bottom>1px</Bottom>
-                                <Right>1px</Right>
-                            </BorderWidth>
-                            <Font>
-                                <Size>11px</Size>
-                            </Font>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <Value>=[AMMTran.InventoryID]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox33">
-                        <Location>472px, 0px</Location>
-                        <Size>48px, 36px</Size>
-                        <Style>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Bottom>1px</Bottom>
-                                <Right>1px</Right>
-                            </BorderWidth>
-                            <Font>
-                                <Size>11px</Size>
-                            </Font>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <Value>=[AMMTran.UOM]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox34">
-                        <Location>520px, 0px</Location>
-                        <Size>40px, 36px</Size>
-                        <Style>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Bottom>1px</Bottom>
-                                <Right>1px</Right>
-                            </BorderWidth>
-                            <Font>
-                                <Name>Microsoft JhengHei UI</Name>
-                                <Size>11px</Size>
-                            </Font>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <Value>=[AMMTran.SiteID]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox35">
-                        <Location>560px, 0px</Location>
-                        <Size>72px, 36px</Size>
-                        <Style>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Bottom>1px</Bottom>
-                                <Right>1px</Right>
-                            </BorderWidth>
-                            <Font>
-                                <Name>Microsoft JhengHei UI</Name>
-                                <Size>8px</Size>
-                            </Font>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <Value>=[AMMTran.SiteID_description]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox36">
-                        <Location>632px, 0px</Location>
-                        <Size>80px, 36px</Size>
-                        <Style>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Bottom>1px</Bottom>
-                                <Right>1px</Right>
-                            </BorderWidth>
-                            <Font>
-                                <Name>Microsoft JhengHei UI</Name>
-                                <Size>11px</Size>
-                            </Font>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <Value>=[AMMTran.NoteText]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox39">
-                        <Format>=IIF([AMMTranSplit.Qty] - Floor([AMMTranSplit.Qty]) &gt; 0,'N2','N0')</Format>
-                        <Location>408px, 0px</Location>
-                        <Size>64px, 36px</Size>
-                        <Style>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Bottom>1px</Bottom>
-                                <Right>1px</Right>
-                            </BorderWidth>
-                            <Font>
-                                <Size>11px</Size>
-                            </Font>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <Value>=[AMMTranSplit.Qty]</Value>
-                    </TextBox>
-                </Items>
+                <Visible>False</Visible>
             </Detail>
             <PageFooter Name="pageFooterSection1">
                 <Height>0px</Height>
@@ -2930,6 +2719,11 @@
         <Items />
         <Groups>
             <Group Name="materials">
+                <Grouping>
+                    <GroupExp>
+                        <DataField>InventoryItem.InventoryCD</DataField>
+                    </GroupExp>
+                </Grouping>
                 <Headers>
                     <Header Name="groupHeaderSection1">
                         <Height>0px</Height>
@@ -2939,9 +2733,219 @@
                 </Headers>
                 <Footers>
                     <Footer Name="groupFooterSection1">
-                        <Height>0px</Height>
-                        <PrintAtBottom>True</PrintAtBottom>
-                        <Visible>False</Visible>
+                        <Height>40px</Height>
+                        <Items>
+                            <TextBox Name="textBox28">
+                                <Location>0px, 0px</Location>
+                                <Size>32px, 40px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Left>Solid</Left>
+                                        <Right>Solid</Right>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Left>1px</Left>
+                                        <Right>1px</Right>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Size>11px</Size>
+                                    </Font>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>=PadLeft(CStr($LineNbr), 4, '0')</Value>
+                            </TextBox>
+                            <TextBox Name="textBox29">
+                                <Location>32px, 0px</Location>
+                                <Size>88px, 40px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Right>Solid</Right>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Size>11px</Size>
+                                    </Font>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>=[AMMTran.OrderType] + ' ' + [AMMTran.ProdOrdID]</Value>
+                            </TextBox>
+                            <TextBox Name="textBox30">
+                                <Location>176px, 0px</Location>
+                                <Size>160px, 40px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Right>Solid</Right>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Name>Microsoft JhengHei UI</Name>
+                                        <Size>10.5px</Size>
+                                    </Font>
+                                    <Padding>
+                                        <Left>3px</Left>
+                                    </Padding>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>=[AMMTran.InventoryID_description]</Value>
+                            </TextBox>
+                            <TextBox Name="textBox31">
+                                <Location>336px, 0px</Location>
+                                <Size>72px, 40px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Right>Solid</Right>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Size>11px</Size>
+                                    </Font>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>=[AMMTran.LotSerialNbr]</Value>
+                            </TextBox>
+                            <TextBox Name="textBox32">
+                                <Location>120px, 0px</Location>
+                                <Size>56px, 40px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Right>Solid</Right>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Size>11px</Size>
+                                    </Font>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>=[AMMTran.InventoryID]</Value>
+                            </TextBox>
+                            <TextBox Name="textBox33">
+                                <Location>472px, 0px</Location>
+                                <Size>48px, 40px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Right>Solid</Right>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Size>11px</Size>
+                                    </Font>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>=[AMMTran.UOM]</Value>
+                            </TextBox>
+                            <TextBox Name="textBox34">
+                                <Location>520px, 0px</Location>
+                                <Size>40px, 40px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Right>Solid</Right>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Name>Microsoft JhengHei UI</Name>
+                                        <Size>11px</Size>
+                                    </Font>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>=[AMMTran.SiteID]</Value>
+                            </TextBox>
+                            <TextBox Name="textBox35">
+                                <Location>560px, 0px</Location>
+                                <Size>72px, 40px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Right>Solid</Right>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Name>Microsoft JhengHei UI</Name>
+                                        <Size>8px</Size>
+                                    </Font>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>=[AMMTran.SiteID_description]</Value>
+                            </TextBox>
+                            <TextBox Name="textBox36">
+                                <Location>632px, 0px</Location>
+                                <Size>80px, 40px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Right>Solid</Right>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Name>Microsoft JhengHei UI</Name>
+                                        <Size>11px</Size>
+                                    </Font>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>=[AMMTran.NoteText]</Value>
+                            </TextBox>
+                            <TextBox Name="textBox39">
+                                <Format>=IIF([AMMTranSplit.Qty] - Floor([AMMTranSplit.Qty]) &gt; 0,'N2','N0')</Format>
+                                <Location>408px, 0px</Location>
+                                <Size>64px, 40px</Size>
+                                <Style>
+                                    <BorderStyle>
+                                        <Bottom>Solid</Bottom>
+                                        <Right>Solid</Right>
+                                    </BorderStyle>
+                                    <BorderWidth>
+                                        <Bottom>1px</Bottom>
+                                        <Right>1px</Right>
+                                    </BorderWidth>
+                                    <Font>
+                                        <Size>11px</Size>
+                                    </Font>
+                                    <TextAlign>Center</TextAlign>
+                                    <VerticalAlign>Middle</VerticalAlign>
+                                </Style>
+                                <Value>=[AMMTranSplit.Qty]</Value>
+                            </TextBox>
+                        </Items>
                     </Footer>
                 </Footers>
             </Group>

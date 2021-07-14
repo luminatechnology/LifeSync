@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -101,6 +101,8 @@
     <Compile Include="DAC\LumShipmentPlan.cs" />
     <Compile Include="DAC\LUMStdBomCost.cs" />
     <Compile Include="DAC\PrintParameters.cs" />
+    <Compile Include="DAC_Extensions\INRegisterExtension.cs" />
+    <Compile Include="DAC_Extensions\POReceiptExtension.cs" />
     <Compile Include="DAC_Extensions\AMBatchExtension.cs" />
     <Compile Include="DAC_Extensions\AMBomMatlExtensions.cs" />
     <Compile Include="DAC_Extensions\AMMPSExtension.cs" />
@@ -131,6 +133,7 @@
     <Compile Include="Graph\LumShipmentPlanMaint.cs" />
     <Compile Include="Graph\LUMUpdateBOMQty.cs" />
     <Compile Include="Graph_Extensions\AMReleaseProcess_Extension.cs" />
+    <Compile Include="Graph_Extensions\APPayBills_Extension.cs" />
     <Compile Include="Graph_Extensions\APPaymentEntryExt.cs" />
     <Compile Include="Graph_Extensions\APInvoiceEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\ARInvoiceEntry_Extension.cs" />
@@ -160,7 +163,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LuminaExcelLibrary\LuminaExcelLibrary.csproj">
+    <ProjectReference Include="..\..\LuminaExcelLibrary\LuminaExcelLibrary.csproj">
       <Project>{effc735d-d0ec-400a-9149-1735779be9fb}</Project>
       <Name>LuminaExcelLibrary</Name>
     </ProjectReference>

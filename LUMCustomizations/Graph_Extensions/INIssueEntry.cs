@@ -50,6 +50,17 @@ namespace PX.Objects.SO
         [PXUIField(DisplayName = "Inventory Issue Report", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable inventoryIssueReport(PXAdapter adapter)
         {
+            var curPOReceiptCache = (INRegister)Base.issue.Cache.Current;
+            var _printCount = curPOReceiptCache.GetExtension<INRegisterExt>().UsrPrintCount ?? 0;
+
+            //Calculate Print Count
+            PXUpdate<Set<INRegisterExt.usrPrintCount, Required<INRegisterExt.usrPrintCount>>,
+                         INRegister,
+                         Where<INRegister.refNbr, Equal<Required<INRegister.refNbr>>,
+                           And<INRegister.docType, Equal<Required<INRegister.docType>>>
+                     >>.Update(Base, ++_printCount, curPOReceiptCache.RefNbr, curPOReceiptCache.DocType);
+
+            // create the parameter for report
             var _reportID = "lm612005";
             if (Base.issue.Current != null)
             {
