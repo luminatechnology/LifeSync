@@ -91,8 +91,8 @@ namespace PX.Objects.SO
             PXUpdate<Set<AMProdItemExt.usrPrintCount, Required<AMProdItemExt.usrPrintCount>>,
                          AMProdItem,
                          Where<AMProdItem.prodOrdID, Equal<Required<AMProdItem.prodOrdID>>,
-                           And<AMProdItem.orderType,Equal<Required<AMProdItem.orderType>>>
-                     >>.Update(Base, _printCount == null ? 1 : _printCount.Value + 1, row.ProdOrdID,row.OrderType);
+                           And<AMProdItem.orderType, Equal<Required<AMProdItem.orderType>>>
+                     >>.Update(Base, _printCount == null ? 1 : _printCount.Value + 1, row.ProdOrdID, row.OrderType);
 
             Dictionary<string, string> parameters = new Dictionary<string, string>();
             parameters["Production_Nbr"] = Base.ProdMaintRecords.Current.ProdOrdID;
@@ -131,13 +131,17 @@ namespace PX.Objects.SO
             var _customer = (soOrderData.Cache.GetValueExt(soData, PX.Objects.CS.Messages.Attribute + "ENDC") as PXFieldState).Value.ToString();
             var ENDCDescr = new PXGraph().Select<CSAttributeDetail>().Where(x => x.ValueID == _customer).FirstOrDefault()?.Description;
             ENDCDescr = ENDCDescr ?? _customer;
+            var tempCustomerPartNo = soLineData?.AlternateID ?? string.Empty;
+            var idx = tempCustomerPartNo.LastIndexOf(' ');
+            if (idx != -1)
+                tempCustomerPartNo = tempCustomerPartNo.Substring(0, idx) + " (REV." + tempCustomerPartNo.Substring(idx + 1) + ")";
 
             Dictionary<string, string> parameters = new Dictionary<string, string>
             {
                 ["OrderType"] = _CurrentRow.OrderType,
                 ["ProdOrdID"] = _CurrentRow.ProdOrdID,
                 ["Customer"] = ENDCDescr,
-                ["CustomerPartNo"] = soLineData?.AlternateID,
+                ["CustomerPartNo"] = tempCustomerPartNo,
                 ["Description"] = data.FirstOrDefault().GetItem<InventoryItem>().Descr,
                 ["Resistor"] = data.RowCast<CSAnswers>().Where(x => x.AttributeID == "RESISTOR").FirstOrDefault()?.Value,
                 ["DATE"] = null
