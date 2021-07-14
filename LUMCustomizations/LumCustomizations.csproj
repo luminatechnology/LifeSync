@@ -163,7 +163,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\LuminaExcelLibrary\LuminaExcelLibrary.csproj">
+    <ProjectReference Include="..\LuminaExcelLibrary\LuminaExcelLibrary.csproj">
       <Project>{effc735d-d0ec-400a-9149-1735779be9fb}</Project>
       <Name>LuminaExcelLibrary</Name>
     </ProjectReference>
