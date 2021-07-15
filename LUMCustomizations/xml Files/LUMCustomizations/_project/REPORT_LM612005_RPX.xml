@@ -2400,7 +2400,6 @@
                         <Value>=IIF([INUnit.UnitRate] &lt;&gt; Null And [INUnit.UnitMultDiv] = 'M',#010;[INTranSplit.Qty] / [INUnit.UnitRate],#010;IIF([INUnit.UnitRate] &lt;&gt; Null And [INUnit.UnitMultDiv] = 'D',#010;[INTranSplit.Qty] * [INUnit.UnitRate],#010;[INTranSplit.Qty]))</Value>
                     </TextBox>
                     <TextBox Name="textBox2">
-                        <CanGrow>True</CanGrow>
                         <Location>576px, 0px</Location>
                         <Size>136px, 36px</Size>
                         <Style>
@@ -2421,7 +2420,7 @@
                             </Padding>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>=[INTran.TranDesc]</Value>
+                        <Value>=Replace(Replace([INTran.TranDesc], '、', ','), '，', ', ')</Value>
                     </TextBox>
                     <TextBox Name="textBox20">
                         <Location>104px, 0px</Location>
