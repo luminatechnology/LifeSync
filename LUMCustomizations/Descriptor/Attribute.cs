@@ -27,7 +27,8 @@ namespace LumCustomizations.Descriptor
         {
             this._inventoryType = inventorType;
             PXAggregateAttribute.AggregatedAttributesCollection attributes = this._Attributes;
-            System.Type type = BqlCommand.Compose(typeof(Search2<,,>), typeof(SOLine.noteID), typeof(InnerJoin<,>), typeof(SOOrder), typeof(On<,,>), typeof(SOOrder.orderType), typeof(Equal<SOLine.orderType>), typeof(And<,>), typeof(SOOrder.orderNbr), typeof(Equal<SOLine.orderNbr>), typeof(Where<,>), typeof(SOLine.inventoryID), typeof(Equal<>), typeof(Optional<>), this._inventoryType);
+            //System.Type type = BqlCommand.Compose(typeof(Search2<,,>), typeof(SOLine.noteID), typeof(InnerJoin<,>), typeof(SOOrder), typeof(On<,,>), typeof(SOOrder.orderType), typeof(Equal<SOLine.orderType>), typeof(And<,>), typeof(SOOrder.orderNbr), typeof(Equal<SOLine.orderNbr>), typeof(Where<,>), typeof(SOLine.inventoryID), typeof(Equal<>), typeof(Optional<>), this._inventoryType);
+            System.Type type = BqlCommand.Compose(typeof(Search2<,,>), typeof(SOLine.noteID), typeof(InnerJoin<,>), typeof(SOOrder), typeof(On<,,>), typeof(SOOrder.orderType), typeof(Equal<SOLine.orderType>), typeof(And<,>), typeof(SOOrder.orderNbr), typeof(Equal<SOLine.orderNbr>), typeof(Where<,,>), typeof(SOLine.openQty), typeof(Greater<Zero>), typeof(And<,>), typeof(SOLine.inventoryID), typeof(Equal<>), typeof(Optional<>), this._inventoryType);
             System.Type[] typeArray = new System.Type[6]
             {
         typeof (SOOrder.orderNbr),

@@ -152,7 +152,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 <ParentName>POOrder</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>https://abamedical.acumatica.com/</SchemaUrl>
+        <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
         <StyleName>ChineseFont</StyleName>
         <StylesTemplate>TemplateReport.rpx</StylesTemplate>
         <Tables>
@@ -3436,7 +3436,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                     <TextAlign>Left</TextAlign>
                                 </Style>
                                 <StyleName>ChineseFont</StyleName>
-                                <Value>东莞塘厦镇桥陇沙不工业区32号</Value>
+                                <Value>东莞塘厦镇桥陇沙布工业区32号</Value>
                             </TextBox>
                             <TextBox Name="textBox20">
                                 <Location>80px, 104px</Location>

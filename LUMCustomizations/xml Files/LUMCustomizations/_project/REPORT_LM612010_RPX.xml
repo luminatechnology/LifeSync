@@ -43,10 +43,6 @@
         </Filters>
         <GridSize>4px, 4px</GridSize>
         <NavigationDepth>1</NavigationDepth>
-        <PageSettings>
-            <Landscape>True</Landscape>
-            <PaperKind>A5</PaperKind>
-        </PageSettings>
         <Parameters>
             <ReportParameter>
                 <ColumnSpan>2</ColumnSpan>
@@ -2154,11 +2150,10 @@
                 <ExcelMargin>
                     <bottom>1</bottom>
                 </ExcelMargin>
-                <GridSize>8px, 8px</GridSize>
-                <Height>2.32804cm</Height>
+                <Height>1.69312cm</Height>
                 <Items>
                     <TextBox Name="textBox1">
-                        <Location>616px, 32px</Location>
+                        <Location>616px, 28px</Location>
                         <Size>72px, 16px</Size>
                         <Style>
                             <TextAlign>Right</TextAlign>
@@ -2167,7 +2162,7 @@
                         <Value>=[PageIndex] + '/' + [PageCount]</Value>
                     </TextBox>
                     <TextBox Name="textBox11">
-                        <Location>528px, 72px</Location>
+                        <Location>560px, 48px</Location>
                         <Size>40px, 16px</Size>
                         <Style>
                             <Font>
@@ -2178,13 +2173,13 @@
                     </TextBox>
                     <TextBox Name="textBox12">
                         <Format>='yyyy-MM-dd'</Format>
-                        <Location>568px, 72px</Location>
-                        <Size>120px, 16px</Size>
+                        <Location>600px, 48px</Location>
+                        <Size>88px, 16px</Size>
                         <Value>=[INRegister.TranDate]</Value>
                     </TextBox>
                     <TextBox Name="textBox14">
-                        <Location>224px, 0px</Location>
-                        <Size>248px, 32px</Size>
+                        <Location>0px, 0px</Location>
+                        <Size>696px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
@@ -2196,7 +2191,7 @@
                         <Value>美  博  电  子  有  限  公  司</Value>
                     </TextBox>
                     <TextBox Name="textBox15">
-                        <Location>0px, 72px</Location>
+                        <Location>0px, 48px</Location>
                         <Size>32px, 16px</Size>
                         <Style>
                             <Font>
@@ -2206,8 +2201,8 @@
                         <Value>单号:</Value>
                     </TextBox>
                     <TextBox Name="textBox16">
-                        <Location>296px, 40px</Location>
-                        <Size>96px, 24px</Size>
+                        <Location>296px, 28px</Location>
+                        <Size>96px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
@@ -2219,7 +2214,7 @@
                         <Value>=IIF([INRegister.AttributeREASON] &lt;&gt; NULL, [INRegister.AttributeREASON], '其他入库单')</Value>
                     </TextBox>
                     <TextBox Name="textBox6">
-                        <Location>304px, 72px</Location>
+                        <Location>304px, 48px</Location>
                         <Size>120px, 16px</Size>
                         <Style>
                             <Font>
@@ -2229,7 +2224,7 @@
                         <Value>=[INRegister.AttributeDEPARTMENT]</Value>
                     </TextBox>
                     <TextBox Name="textBox7">
-                        <Location>272px, 72px</Location>
+                        <Location>272px, 48px</Location>
                         <Size>32px, 16px</Size>
                         <Style>
                             <Font>
@@ -2239,7 +2234,7 @@
                         <Value>部门:</Value>
                     </TextBox>
                     <TextBox Name="textBox8">
-                        <Location>32px, 72px</Location>
+                        <Location>32px, 48px</Location>
                         <Size>120px, 16px</Size>
                         <Style>
                             <Font>
@@ -2251,8 +2246,7 @@
                 </Items>
             </PageHeader>
             <Detail Name="Receipt">
-                <GridSize>8px, 8px</GridSize>
-                <Height>0.84656cm</Height>
+                <Height>36px</Height>
                 <Variables>
                     <ReportVariable>
                         <Name>LineNbr</Name>
@@ -2262,7 +2256,7 @@
                 <Items>
                     <TextBox Name="textBox21">
                         <Location>512px, 0px</Location>
-                        <Size>56px, 32px</Size>
+                        <Size>56px, 36px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2283,7 +2277,7 @@
                     </TextBox>
                     <TextBox Name="textBox26">
                         <Location>448px, 0px</Location>
-                        <Size>64px, 32px</Size>
+                        <Size>64px, 36px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2304,7 +2298,7 @@
                     </TextBox>
                     <TextBox Name="textBox3">
                         <Location>568px, 0px</Location>
-                        <Size>120px, 32px</Size>
+                        <Size>120px, 36px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2325,7 +2319,7 @@
                     </TextBox>
                     <TextBox Name="textBox35">
                         <Location>408px, 0px</Location>
-                        <Size>40px, 32px</Size>
+                        <Size>40px, 36px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2347,7 +2341,7 @@
                     <TextBox Name="textBox36">
                         <Format>=IIF([INTranSplit.Qty] - Floor([INTranSplit.Qty]) &gt; 0,'N2','N0')</Format>
                         <Location>272px, 0px</Location>
-                        <Size>64px, 32px</Size>
+                        <Size>64px, 36px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2368,7 +2362,7 @@
                     </TextBox>
                     <TextBox Name="textBox37">
                         <Location>88px, 0px</Location>
-                        <Size>184px, 32px</Size>
+                        <Size>184px, 36px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2389,7 +2383,7 @@
                     </TextBox>
                     <TextBox Name="textBox38">
                         <Location>32px, 0px</Location>
-                        <Size>56px, 32px</Size>
+                        <Size>56px, 36px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2410,7 +2404,7 @@
                     </TextBox>
                     <TextBox Name="textBox39">
                         <Location>0px, 0px</Location>
-                        <Size>32px, 32px</Size>
+                        <Size>32px, 36px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2433,7 +2427,7 @@
                     </TextBox>
                     <TextBox Name="textBox40">
                         <Location>336px, 0px</Location>
-                        <Size>72px, 32px</Size>
+                        <Size>72px, 36px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -2455,13 +2449,11 @@
                 </Items>
             </Detail>
             <PageFooter Name="pageFooterSection1">
-                <GridSize>8px, 8px</GridSize>
                 <Height>0px</Height>
                 <Visible>False</Visible>
             </PageFooter>
             <ReportFooter Name="reportFooterSection1">
-                <GridSize>8px, 8px</GridSize>
-                <Height>0.74074cm</Height>
+                <Height>0.84656cm</Height>
                 <PrintAtBottom>True</PrintAtBottom>
                 <Items>
                     <TextBox Name="textBox10">
@@ -2469,7 +2461,7 @@
                             <row>3</row>
                         </Excel>
                         <Location>0px, 16px</Location>
-                        <Size>168px, 12px</Size>
+                        <Size>168px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>

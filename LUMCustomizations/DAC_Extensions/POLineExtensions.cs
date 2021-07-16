@@ -26,9 +26,16 @@ namespace PX.Objects.PO
         #region UsrBubbleNumber
         [PXDBString(20)]
         [PXUIField(DisplayName = "Bubble Number")]
-
         public virtual string UsrBubbleNumber { get; set; }
         public abstract class usrBubbleNumber : PX.Data.BQL.BqlString.Field<usrBubbleNumber> { }
         #endregion
+
+        #region UsrCapexTrackingNbr
+        [PXDBString(30)]
+        [PXUIField(DisplayName = "Capex Tracking Nbr")]
+        public virtual string UsrCapexTrackingNbr { get; set; }
+        public abstract class usrCapexTrackingNbr : PX.Data.BQL.BqlString.Field<usrCapexTrackingNbr> { }
+        #endregion
+
     }
 }

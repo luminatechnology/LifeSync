@@ -1,6 +1,10 @@
 ﻿using System;
 using PX.Data;
+using PX.Data.BQL;
+using PX.Data.BQL.Fluent;
 using PX.Objects.IN;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace JAMS.AM
 {
@@ -11,12 +15,17 @@ namespace JAMS.AM
         [PXOverride]
         public void ProcessMatlWrk(AMProdItem amproditem, AMProdMatl amprodmatl, InventoryItem inventoryItem, ProcessMatlWrkDelegate baseMethod)
         {
+            // Verifing QtytoProd
+            object qty = amproditem.QtytoProd;
+            Base.OpenOrders.Cache.RaiseFieldVerifying<AMProdItem.qtytoProd>(amproditem,ref qty);
+
             baseMethod(amproditem, amprodmatl, inventoryItem);
 
             var wrkMatl = Base.MatlXref.Current;
-
             if (wrkMatl != null)
             {
+                // 紀錄在Wizard1 輸入的Qty to Produce
+                wrkMatl.GetExtension<AMWrkMatlExt>().UsrTempProdQty = amproditem.QtytoProd;
                 var qtyReqWOScrap = GetQtyReqWOScrap(amprodmatl, amproditem.BaseQtytoProd);
 
                 // Avoid the system from performing several processing for different product material inventory and update the wrong material inventory quantity request.
@@ -27,6 +36,23 @@ namespace JAMS.AM
                 }
             }
         }
+        #endregion
+
+        #region Event
+
+        public virtual void _(Events.FieldVerifying<AMProdItem.qtytoProd> e, PXFieldVerifying baseMehod)
+        {
+            baseMehod?.Invoke(e.Cache,e.Args);
+            var row = e.Row as AMProdItem;
+            var dbAMprodItem = SelectFrom<AMProdItem>.Where<AMProdItem.prodOrdID.IsEqual<P.AsString>>
+                               .View.Select(new PXGraph(),row.ProdOrdID).RowCast<AMProdItem>().FirstOrDefault();
+            if((decimal)(e.NewValue ?? 0) > dbAMprodItem.QtytoProd)
+            {
+                e.NewValue = row.QtytoProd;
+                throw new PXSetPropertyException<AMProdItem.qtytoProd>($"Qty to Produce 數量不得大於工單生產量");
+            }
+        }
+
         #endregion
 
         #region Static method

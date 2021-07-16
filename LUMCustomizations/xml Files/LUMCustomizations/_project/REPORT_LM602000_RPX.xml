@@ -57,15 +57,19 @@
                 <ChildName>SOLine</ChildName>
                 <Links>
                     <RelationRow>
-                        <ChildField>OrderNbr</ChildField>
-                        <ParentField>OrderNbr</ParentField>
+                        <ChildField>LineNbr</ChildField>
+                        <ParentField>SOOrderLineNbr</ParentField>
                     </RelationRow>
                     <RelationRow>
                         <ChildField>OrderType</ChildField>
-                        <ParentField>OrderType</ParentField>
+                        <ParentField>SOOrderType</ParentField>
+                    </RelationRow>
+                    <RelationRow>
+                        <ChildField>OrderNbr</ChildField>
+                        <ParentField>SOOrderNbr</ParentField>
                     </RelationRow>
                 </Links>
-                <ParentName>SOOrder</ParentName>
+                <ParentName>ARTran</ParentName>
             </ReportRelation>
             <ReportRelation>
                 <ChildName>Branch</ChildName>

@@ -365,12 +365,17 @@ namespace LumCustomizations.Graph
             var ENDCDescr = new PXGraph().Select<CSAttributeDetail>().Where(x => x.ValueID == _CurrentRow.Customer).FirstOrDefault()?.Description;
             ENDCDescr = ENDCDescr ?? _CurrentRow.Customer;
 
+            var tempCustomerPartNo = soData.GetItem<SOLine>()?.AlternateID ?? string.Empty;
+            var idx = tempCustomerPartNo.LastIndexOf(' ');
+            if (idx != -1)
+                tempCustomerPartNo = tempCustomerPartNo.Substring(0, idx) + " (REV." + tempCustomerPartNo.Substring(idx + 1) + ")";
+
             Dictionary<string, string> parameters = new Dictionary<string, string>
             {
                 ["ShipmentPlanID"] = _CurrentRow.ShipmentPlanID,
                 ["ProdOrdID"] = _CurrentRow.ProdOrdID,
                 ["Customer"] = ENDCDescr,
-                ["CustomerPartNo"] = soData.GetItem<SOLine>()?.AlternateID,
+                ["CustomerPartNo"] = tempCustomerPartNo,
                 ["Description"] = data.FirstOrDefault().GetItem<InventoryItem>().Descr,
                 ["Resistor"] = data.RowCast<CSAnswers>().Where(x => x.AttributeID == "RESISTOR").FirstOrDefault()?.Value,
                 ["DATE"] = _CurrentRow.PlannedShipDate?.ToString("yyyy/MM/dd")

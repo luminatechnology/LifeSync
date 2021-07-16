@@ -91,6 +91,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAC\ICMBasedOnIN.cs" />
+    <Compile Include="DAC\ICMSummary.cs" />
     <Compile Include="DAC\LumINItemCostHist.cs" />
     <Compile Include="DAC\LifeSyncPreference.cs" />
     <Compile Include="DAC\LumDeadStockEnqFilter.cs" />
@@ -99,12 +101,15 @@
     <Compile Include="DAC\LumShipmentPlan.cs" />
     <Compile Include="DAC\LUMStdBomCost.cs" />
     <Compile Include="DAC\PrintParameters.cs" />
+    <Compile Include="DAC_Extensions\INRegisterExtension.cs" />
+    <Compile Include="DAC_Extensions\POReceiptExtension.cs" />
     <Compile Include="DAC_Extensions\AMBatchExtension.cs" />
     <Compile Include="DAC_Extensions\AMBomMatlExtensions.cs" />
     <Compile Include="DAC_Extensions\AMMPSExtension.cs" />
     <Compile Include="DAC_Extensions\AMMTranExtension.cs" />
     <Compile Include="DAC_Extensions\AMPordMatlExtension.cs" />
     <Compile Include="DAC_Extensions\AMProdItemExtensions.cs" />
+    <Compile Include="DAC_Extensions\AMWrkMatlExtension.cs" />
     <Compile Include="DAC_Extensions\ARAdjustExtension.cs" />
     <Compile Include="DAC_Extensions\BatchExtensions.cs" />
     <Compile Include="DAC_Extensions\INItemLotSerialExtensions.cs" />
@@ -114,6 +119,8 @@
     <Compile Include="DAC_Extensions\SOShipLineExtensions.cs" />
     <Compile Include="DAC_Extensions\SOShipmentExtensions.cs" />
     <Compile Include="Descriptor\Attribute.cs" />
+    <Compile Include="Graph\ICMBasedOnINMaint.cs" />
+    <Compile Include="Graph\ICMSummaryMaint.cs" />
     <Compile Include="Graph\InternalCostModelMaint.cs" />
     <Compile Include="Graph\LumINItemCostHistMaint.cs" />
     <Compile Include="Graph\LifeSyncPreferenceMaint.cs" />
@@ -126,13 +133,17 @@
     <Compile Include="Graph\LumShipmentPlanMaint.cs" />
     <Compile Include="Graph\LUMUpdateBOMQty.cs" />
     <Compile Include="Graph_Extensions\AMReleaseProcess_Extension.cs" />
+    <Compile Include="Graph_Extensions\APPayBills_Extension.cs" />
+    <Compile Include="Graph_Extensions\APPaymentEntryExt.cs" />
     <Compile Include="Graph_Extensions\APInvoiceEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\ARInvoiceEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\ARPaymentEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\INIssueEntry.cs" />
     <Compile Include="Graph_Extensions\INPIReview_Extension.cs" />
     <Compile Include="Graph_Extensions\INReceiptEntry_Extension.cs" />
+    <Compile Include="Graph_Extensions\INTransferEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\JournalEntry_Extension.cs" />
+    <Compile Include="Graph_Extensions\MatlWizard2_Extension.cs" />
     <Compile Include="Graph_Extensions\ProdDetail.cs" />
     <Compile Include="Graph_Extensions\MaterialEntry.cs" />
     <Compile Include="Graph_Extensions\MatlWizard1_Extension.cs" />

@@ -56,5 +56,9 @@ namespace JAMS.AM
         public virtual int? UsrPrintCount { get; set; }
         public abstract class usrPrintCount : BqlType<IBqlInt, int>.Field<AMProdItemExt.usrPrintCount> { }
 
+        [PXDBDecimal]
+        [PXUIField(DisplayName = "Qty been Issued", Enabled = false)]
+        public virtual decimal? UsrQtyIssued { get;set;}
+        public abstract class usrQtyIssued : PX.Data.BQL.BqlDecimal.Field<usrQtyIssued> { }
     }
 }

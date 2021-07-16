@@ -1,0 +1,13 @@
+﻿<Page path="~/pages/am/am300010.aspx" pageSource="pVhbc+I2FH5OZ/ofPO7kNSbJQ7c7kCmBkNCGhAJJ+rYjbAU0kSWvLCewD/3tPUe2YwG+AJsZJrJ89J1PR+cmt0//dMZkQZ17IhYJDDpu7zfXGZFYU4UvBozD3H9eMRN7A6nCPtWE8bPQTLtON9Hy5p0K/cIUTaKOq1VCXeeZcBYQTSf0e0Jj3XFfCY9hvieDDLk7umy1WuetMxJHqzM/dp2hWFLFdNxxUdu3XMB1ZkzjiiehcRAY3q5zevXrL23YRUpwto6o88yUTggfE73cgzoCAATo/9qTQsMenGG/4/owPkemZmrMiU/vJA+owpfRsj91nUkiCOxpStU7AAGMA3/taPV1/G+faDKVifKpAQtgXyqVjlNpIBmzOe5nZiz1wgJke95qnbrOtVSgaKrX+P5B6inVrjNWLCRq/czoR8d9jKh4RCEAxj0/kBBE/+qOpmfd0dmIaP7CfhAVnCOtk5N2j3A+J/5bT4YhEUGcznpl021vawdoYM8yz1WFtS6qrTWoNRYeCm7LIL3Cw46xCjK5NTfsha9HNJxTBesZ14UCo6Tra/bO9Nq5Y4slh5/uSS5B1nWmlFNf0+BzIsN1nTuKgjC6ans5gA06o2HEwbWtuWJH92QtEz1JON3eyVQTheqTUORHf0/mlMeZ4lFqRCX5lP2g5tk7RsWtkhiGqQbz0CORZlKg7+D/uAq4t6T+27VcmdOgwc3K50lAn4QCU5GYBtdE+8t/9Lr0kAaM8qDj1izqwgGIe/qqM3I2ibZnWTV3xNw79nXDy2o3vK11w1vFAoOygMGhLjh9YwJfDMX3BFIgRCWZD0VAVx0X8hc8wsakgvgdGP/8PIz00elGEWcUtKaBeU/fwSXM+KQgZ2YNkb/pGiMec6SSASSCYX8zCuz8kMKYfU7kh23hdLawQBoNUmVHbwAwu9QdtSXU5Vx+3ASs7Gh3/WxLmbWRamWW0KHKFiF4BJSCt0zfUGC5kmpdr3FDDKvchL4qGi/z0NqmsRNUTTymyXyoaVjPwhI6yKhTpmkDciZRZs4d/3hI0LtQKsOHiNYSD6VORSF0EPenx1EdKr6uxytjC4Uu4lTXerQttrcZJjQkTDCxaEAu5OrJwyo6YyG1tKAJcbopQIxMKfG+klFffojcOzTRSdzgH7lMOeAuS1N9mmgWQvvC3ojGvecipZC7gddLYi1DLA11oJZUKe6MrrRFE5IT5kJIEg05M5eqILudhx/mqgEQJfYBGxMFdtgrte+I7pUkqvQ1ZHZb7Cg94PmJv+fGdmR/TmNz0SrkDqtbW+5lVaNvAY19xUwbsWcB21xyIwjcP0BiYO5kZTzaXmnD0E7717iWOTYsqdxG4Gf9NjZEK216QYgxIIis8SjgKes/Pxus31vRqsFM5cqs8z1mudVs5K3eJVI5Cmyjj9iAOwbN6gcyrC/nx0JlDcBPc7J6AbxOMt1bErHAHjVtjKwDn+DVymqgvxypMu8BdiK1kmFR/2vo5BbYH9aq/hsou1oOwC3qfYb5x4HE6mt35Zq8fB+p9bNSH7nersu5MS8OxGgqsJWrKqtoxRFtVcij0oxV+Q70jo0adtTaw3RW1pLsnC5aVcmj7RU1A++03ualNvscZV1723jXwk8g5jIPwYW32hcmAvlhla40s4yYyL/WXOBd28sQfCR3TeB2bUYxBmO2JlP4KWJ9b0BSJd8a/gc=">
+    <PXGridLevel DataMember="OpenOrders" ParentId="phG_grid_Levels#0" TypeFullName="PX.Web.UI.PXGridLevel">
+        <Children Key="Columns">
+            <AddItem>
+                <PXGridColumn TypeFullName="PX.Web.UI.PXGridColumn">
+                    <Prop Key="DataField" Value="UsrQtyIssued" />
+                    <Prop Key="Width" Value="100" />
+                </PXGridColumn>
+            </AddItem>
+            <PXGridColumn DataField="QtytoProd" OriginalIndex="6" />
+        </Children>
+    </PXGridLevel>
+</Page>
