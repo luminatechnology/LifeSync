@@ -174,6 +174,11 @@
                 <Prompt>Location</Prompt>
                 <ViewName>=Report.GetFieldSchema('InventoryTranDetEnqFilter.LocationID,SiteID')</ViewName>
             </ReportParameter>
+            <ReportParameter>
+                <DefaultValue>0001</DefaultValue>
+                <Name>ABAHK</Name>
+                <Visible>False</Visible>
+            </ReportParameter>
         </Parameters>
         <Relations>
             <ReportRelation>
@@ -298,8 +303,26 @@
                 <ParentAlias>INSite_1</ParentAlias>
                 <ParentName>INSite</ParentName>
             </ReportRelation>
+            <ReportRelation>
+                <ChildName>INItemXRef</ChildName>
+                <Links>
+                    <RelationRow>
+                        <ChildField>InventoryID</ChildField>
+                        <ParentField>InventoryID</ParentField>
+                    </RelationRow>
+                    <RelationRow>
+                        <ChildField>SubItemID</ChildField>
+                        <ParentField>INSubItem.SubItemID</ParentField>
+                    </RelationRow>
+                    <RelationRow>
+                        <ChildField>@ABAHK</ChildField>
+                        <ParentField>INItemXRef.BAccountID</ParentField>
+                    </RelationRow>
+                </Links>
+                <ParentName>InventoryItem</ParentName>
+            </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/ABA_AcumaticaDB1/</SchemaUrl>
+        <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>INTranCost.CreatedDateTime</DataField>
@@ -2151,6 +2174,83 @@
                 </Fields>
                 <FullName>PX.Objects.GL.Branch</FullName>
             </ReportTable>
+            <ReportTable Name="INItemXRef">
+                <Fields>
+                    <ReportField Name="AlternateID">
+                    </ReportField>
+                    <ReportField Name="AlternateType">
+                    </ReportField>
+                    <ReportField Name="BAccountID">
+                    </ReportField>
+                    <ReportField Name="BAccountID_BAccountR_acctName">
+                    </ReportField>
+                    <ReportField Name="BAccountID_description">
+                    </ReportField>
+                    <ReportField Name="BAccountID_Segment1">
+                    </ReportField>
+                    <ReportField Name="CreatedByID">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_displayName">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_Username">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_description">
+                    </ReportField>
+                    <ReportField Name="CreatedByScreenID">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="Descr">
+                    </ReportField>
+                    <ReportField Name="InventoryID">
+                    </ReportField>
+                    <ReportField Name="InventoryID_description">
+                    </ReportField>
+                    <ReportField Name="InventoryID_InventoryItem_descr">
+                    </ReportField>
+                    <ReportField Name="InventoryID_Segment1">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_description">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_displayName">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_Username">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByScreenID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="SubItemID">
+                    </ReportField>
+                    <ReportField Name="SubItemID_Segment1">
+                    </ReportField>
+                    <ReportField Name="tstamp">
+                    </ReportField>
+                    <ReportField Name="UOM">
+                    </ReportField>
+                </Fields>
+                <FullName>PX.Objects.IN.INItemXRef</FullName>
+            </ReportTable>
         </Tables>
         <ViewerFields>
             <ViewerField Name="INCostStatus.ReceiptNbr">
@@ -2615,8 +2715,8 @@
                                 <Excel>
                                     <column>4</column>
                                 </Excel>
-                                <Location>320px, 4px</Location>
-                                <Size>228px, 14px</Size>
+                                <Location>192px, 4px</Location>
+                                <Size>356px, 14px</Size>
                                 <StyleName>Heading 1</StyleName>
                                 <Value>Description</Value>
                             </TextBox>
@@ -2625,19 +2725,9 @@
                                     <column>2</column>
                                 </Excel>
                                 <Location>104px, 4px</Location>
-                                <Size>104px, 14px</Size>
+                                <Size>88px, 14px</Size>
                                 <StyleName>Heading 1</StyleName>
                                 <Value>Inventory ID</Value>
-                            </TextBox>
-                            <TextBox Name="textBox52">
-                                <Excel>
-                                    <column>3</column>
-                                </Excel>
-                                <Location>212px, 4px</Location>
-                                <Size>104px, 14px</Size>
-                                <StyleName>Heading 1</StyleName>
-                                <Value>Subitem</Value>
-                                <VisibleExpr>= ([FeaturesSet.SubItem] = 1)</VisibleExpr>
                             </TextBox>
                             <TextBox Name="textBox53">
                                 <Excel>
@@ -2667,7 +2757,7 @@
                                 <Location>640px, 4px</Location>
                                 <Size>120px, 14px</Size>
                                 <StyleName>Heading 1</StyleName>
-                                <Value>Lot/Serial Nbr.</Value>
+                                <Value>Customer Part No.</Value>
                             </TextBox>
                         </Items>
                     </Header>
@@ -2721,22 +2811,12 @@
                                 <StyleName>Heading 1</StyleName>
                                 <Value>Total Cost</Value>
                             </TextBox>
-                            <TextBox Name="textBox21">
-                                <Excel>
-                                    <column>3</column>
-                                </Excel>
-                                <Location>212px, 4px</Location>
-                                <Size>104px, 14px</Size>
-                                <StyleName>Heading 1</StyleName>
-                                <Value>Subitem</Value>
-                                <VisibleExpr>= ([FeaturesSet.SubItem] = 1)</VisibleExpr>
-                            </TextBox>
                             <TextBox Name="textBox22">
                                 <Excel>
                                     <column>2</column>
                                 </Excel>
                                 <Location>104px, 4px</Location>
-                                <Size>104px, 14px</Size>
+                                <Size>88px, 14px</Size>
                                 <StyleName>Heading 1</StyleName>
                                 <Value>Inventory ID</Value>
                             </TextBox>
@@ -2744,8 +2824,8 @@
                                 <Excel>
                                     <column>4</column>
                                 </Excel>
-                                <Location>320px, 4px</Location>
-                                <Size>228px, 14px</Size>
+                                <Location>192px, 4px</Location>
+                                <Size>356px, 14px</Size>
                                 <StyleName>Heading 1</StyleName>
                                 <Value>Description</Value>
                             </TextBox>
@@ -2783,7 +2863,7 @@
                                 <Location>640px, 4px</Location>
                                 <Size>120px, 14px</Size>
                                 <StyleName>Heading 1</StyleName>
-                                <Value>Lot/Serial Nbr.</Value>
+                                <Value>Customer Part No.</Value>
                             </TextBox>
                             <TextBox Name="textBox55">
                                 <Excel>
@@ -2809,7 +2889,7 @@
                                     <column>2</column>
                                 </Excel>
                                 <Location>104px, 0px</Location>
-                                <Size>104px, 14px</Size>
+                                <Size>88px, 14px</Size>
                                 <StyleName>Normal</StyleName>
                                 <Value>=[INCostStatus.InventoryID]</Value>
                             </TextBox>
@@ -2827,15 +2907,6 @@
                                 <Size>84px, 14px</Size>
                                 <StyleName>Normal</StyleName>
                                 <Value>=[INLocation.LocationCD]</Value>
-                            </TextBox>
-                            <TextBox Name="textBox40">
-                                <Excel>
-                                    <column>3</column>
-                                </Excel>
-                                <Location>212px, 0px</Location>
-                                <Size>104px, 14px</Size>
-                                <StyleName>Normal</StyleName>
-                                <Value>=[INSubItem.SubItemCD]</Value>
                             </TextBox>
                             <TextBox Name="textBox41">
                                 <Excel>
@@ -2869,8 +2940,8 @@
                                 <Excel>
                                     <column>4</column>
                                 </Excel>
-                                <Location>320px, 0px</Location>
-                                <Size>228px, 14px</Size>
+                                <Location>192px, 0px</Location>
+                                <Size>356px, 14px</Size>
                                 <StyleName>Normal</StyleName>
                                 <Value>=[InventoryItem.Descr]</Value>
                             </TextBox>
@@ -2881,7 +2952,7 @@
                                 <Location>640px, 0px</Location>
                                 <Size>120px, 14px</Size>
                                 <StyleName>Normal</StyleName>
-                                <Value>=[INCostStatus.LotSerialNbr]</Value>
+                                <Value>=[INItemXRef.AlternateID]</Value>
                             </TextBox>
                             <TextBox Name="textBox56">
                                 <Excel>
