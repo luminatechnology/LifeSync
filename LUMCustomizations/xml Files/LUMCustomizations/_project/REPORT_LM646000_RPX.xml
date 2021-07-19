@@ -1,4 +1,4 @@
-﻿<Report Name="lm646000.rpx">
+<Report Name="lm646000.rpx">
     <Report Name="report1">
         <Filters>
             <FilterExp>
@@ -21,7 +21,6 @@
                 <DataField>Vendor.BAccountID</DataField>
             </FilterExp>
         </Filters>
-        <LayoutUnit>Inch</LayoutUnit>
         <MailSettings>
             <ActivitySource>POReceipt.NoteID</ActivitySource>
             <Body>='Dear Customer,#010;#010;This is an automatic email to notify you that you have a new Purchase Receipt available on your account.  #010;You will find a copy of'+' '+[POReceipt.ReceiptType]+' '+'#'+' '+[POReceipt.ReceiptNbr]+' '+'attached to this email.  #010;#010;If you have any questions, please don’t hesitate to contact us at Email.  #010;#010;Thank you for choosing'+' '+[CompanyContact.FullName]+'.'</Body>
@@ -34,6 +33,10 @@
         <PageSettings>
             <Landscape>True</Landscape>
             <Margins>
+                <Bottom>1cm</Bottom>
+                <Left>0.2cm</Left>
+                <Right>0.2cm</Right>
+                <Top>1cm</Top>
             </Margins>
             <PaperKind>A5</PaperKind>
         </PageSettings>
@@ -4196,10 +4199,10 @@
         </ViewerFields>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
-                <Height>0.83333in</Height>
+                <Height>2.11639cm</Height>
                 <Items>
                     <TextBox Name="textBox1">
-                        <Location>184px, 64px</Location>
+                        <Location>216px, 64px</Location>
                         <Size>32px, 16px</Size>
                         <Style>
                             <Font>
@@ -4209,7 +4212,7 @@
                         <Value>备注:</Value>
                     </TextBox>
                     <TextBox Name="textBox11">
-                        <Location>392px, 64px</Location>
+                        <Location>472px, 64px</Location>
                         <Size>120px, 16px</Size>
                         <Style>
                             <Font>
@@ -4219,7 +4222,7 @@
                         <Value>=[POReceipt.VendorID_Vendor_acctName]</Value>
                     </TextBox>
                     <TextBox Name="textBox13">
-                        <Location>8px, 64px</Location>
+                        <Location>0px, 64px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
@@ -4229,7 +4232,7 @@
                         <Value>进货单号:</Value>
                     </TextBox>
                     <TextBox Name="textBox14">
-                        <Location>352px, 64px</Location>
+                        <Location>432px, 64px</Location>
                         <Size>40px, 16px</Size>
                         <Style>
                             <Font>
@@ -4239,7 +4242,7 @@
                         <Value>供应商:</Value>
                     </TextBox>
                     <TextBox Name="textBox2">
-                        <Location>64px, 64px</Location>
+                        <Location>56px, 64px</Location>
                         <Size>112px, 16px</Size>
                         <Style>
                             <Font>
@@ -4249,7 +4252,7 @@
                         <Value>=[POReceipt.ReceiptNbr]</Value>
                     </TextBox>
                     <TextBox Name="textBox23">
-                        <Location>544px, 64px</Location>
+                        <Location>648px, 64px</Location>
                         <Size>40px, 16px</Size>
                         <Style>
                             <Font>
@@ -4259,7 +4262,7 @@
                         <Value>日  期:</Value>
                     </TextBox>
                     <TextBox Name="textBox28">
-                        <Location>216px, 64px</Location>
+                        <Location>248px, 64px</Location>
                         <Size>120px, 16px</Size>
                         <Style>
                             <Font>
@@ -4270,13 +4273,13 @@
                     </TextBox>
                     <TextBox Name="textBox3">
                         <Format>='yyyy-MM-dd'</Format>
-                        <Location>584px, 64px</Location>
-                        <Size>104px, 16px</Size>
+                        <Location>688px, 64px</Location>
+                        <Size>88px, 16px</Size>
                         <Value>=[POReceipt.ReceiptDate]</Value>
                     </TextBox>
                     <TextBox Name="textBox4">
                         <Location>0px, 0px</Location>
-                        <Size>696px, 32px</Size>
+                        <Size>792px, 32px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
@@ -4289,7 +4292,7 @@
                     </TextBox>
                     <TextBox Name="textBox5">
                         <Location>0px, 32px</Location>
-                        <Size>696px, 24px</Size>
+                        <Size>792px, 24px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
@@ -4303,7 +4306,7 @@
                 </Items>
             </PageHeader>
             <Detail Name="detailSection1">
-                <Height>0.41667in</Height>
+                <Height>1.05821cm</Height>
                 <Variables>
                     <ReportVariable>
                         <Name>LineNbr</Name>
@@ -4314,8 +4317,8 @@
                 <Items>
                     <TextBox Name="textBox16">
                         <Format>#0.00</Format>
-                        <Location>216px, 0px</Location>
-                        <Size>64px, 40px</Size>
+                        <Location>264px, 0px</Location>
+                        <Size>96px, 40px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -4327,7 +4330,7 @@
                             </BorderWidth>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
-                                <Size>10px</Size>
+                                <Size>12px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -4335,7 +4338,7 @@
                         <Value>=[POReceiptLine.ReceiptQty]</Value>
                     </TextBox>
                     <TextBox Name="textBox77">
-                        <Location>8px, 0px</Location>
+                        <Location>0px, 0px</Location>
                         <Size>32px, 40px</Size>
                         <Style>
                             <BorderStyle>
@@ -4350,7 +4353,7 @@
                             </BorderWidth>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
-                                <Size>10px</Size>
+                                <Size>11px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -4358,49 +4361,7 @@
                         <Value>=PadLeft(CStr($LineNbr), 4, '0')</Value>
                     </TextBox>
                     <TextBox Name="textBox78">
-                        <Location>40px, 0px</Location>
-                        <Size>56px, 40px</Size>
-                        <Style>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Bottom>1px</Bottom>
-                                <Right>1px</Right>
-                            </BorderWidth>
-                            <Font>
-                                <Name>Microsoft JhengHei UI</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <Value>=[POReceiptLine.InventoryID]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox79">
-                        <Location>96px, 0px</Location>
-                        <Size>120px, 40px</Size>
-                        <Style>
-                            <BorderStyle>
-                                <Bottom>Solid</Bottom>
-                                <Right>Solid</Right>
-                            </BorderStyle>
-                            <BorderWidth>
-                                <Bottom>1px</Bottom>
-                                <Right>1px</Right>
-                            </BorderWidth>
-                            <Font>
-                                <Name>Microsoft JhengHei UI</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <TextAlign>Left</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <Value>=[POReceiptLine.TranDesc]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox8">
-                        <Location>336px, 0px</Location>
+                        <Location>32px, 0px</Location>
                         <Size>72px, 40px</Size>
                         <Style>
                             <BorderStyle>
@@ -4413,17 +4374,16 @@
                             </BorderWidth>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
-                                <Size>10px</Size>
+                                <Size>12px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=[POReceiptLine.LotSerialNbr]</Value>
+                        <Value>=[POReceiptLine.InventoryID]</Value>
                     </TextBox>
-                    <TextBox Name="textBox80">
-                        <Format>#0.00</Format>
-                        <Location>280px, 0px</Location>
-                        <Size>56px, 40px</Size>
+                    <TextBox Name="textBox79">
+                        <Location>104px, 0px</Location>
+                        <Size>160px, 40px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -4435,14 +4395,57 @@
                             </BorderWidth>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
-                                <Size>10px</Size>
+                                <Size>11px</Size>
+                            </Font>
+                            <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>=[POReceiptLine.TranDesc]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox8">
+                        <Location>432px, 0px</Location>
+                        <Size>88px, 40px</Size>
+                        <Style>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
+                            </BorderWidth>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                                <Size>12px</Size>
+                            </Font>
+                            <TextAlign>Center</TextAlign>
+                            <VerticalAlign>Middle</VerticalAlign>
+                        </Style>
+                        <Value>=[POReceiptLine.LotSerialNbr]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox80">
+                        <Format>#0.00</Format>
+                        <Location>360px, 0px</Location>
+                        <Size>72px, 40px</Size>
+                        <Style>
+                            <BorderStyle>
+                                <Bottom>Solid</Bottom>
+                                <Right>Solid</Right>
+                            </BorderStyle>
+                            <BorderWidth>
+                                <Bottom>1px</Bottom>
+                                <Right>1px</Right>
+                            </BorderWidth>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                                <Size>11px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                     </TextBox>
                     <TextBox Name="textBox81">
-                        <Location>408px, 0px</Location>
+                        <Location>520px, 0px</Location>
                         <Size>40px, 40px</Size>
                         <Style>
                             <BorderStyle>
@@ -4455,7 +4458,7 @@
                             </BorderWidth>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
-                                <Size>10px</Size>
+                                <Size>11px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -4463,8 +4466,8 @@
                         <Value>=[POReceiptLine.UOM]</Value>
                     </TextBox>
                     <TextBox Name="textBox82">
-                        <Location>448px, 0px</Location>
-                        <Size>64px, 40px</Size>
+                        <Location>560px, 0px</Location>
+                        <Size>72px, 40px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -4476,7 +4479,7 @@
                             </BorderWidth>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
-                                <Size>10px</Size>
+                                <Size>11px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -4484,8 +4487,8 @@
                         <Value>=[POReceiptLine.SiteID_INSite_descr]</Value>
                     </TextBox>
                     <TextBox Name="textBox83">
-                        <Location>512px, 0px</Location>
-                        <Size>56px, 40px</Size>
+                        <Location>632px, 0px</Location>
+                        <Size>40px, 40px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -4497,7 +4500,7 @@
                             </BorderWidth>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
-                                <Size>10px</Size>
+                                <Size>11px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -4505,8 +4508,8 @@
                         <Value>=[InventoryItem.BIN_Attributes]</Value>
                     </TextBox>
                     <TextBox Name="textBox84">
-                        <Location>568px, 0px</Location>
-                        <Size>120px, 40px</Size>
+                        <Location>672px, 0px</Location>
+                        <Size>104px, 40px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -4518,7 +4521,7 @@
                             </BorderWidth>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
-                                <Size>10px</Size>
+                                <Size>12px</Size>
                             </Font>
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -4528,7 +4531,7 @@
                 </Items>
             </Detail>
             <PageFooter Name="pageFooterSection1">
-                <Height>0px</Height>
+                <Height>0cm</Height>
             </PageFooter>
         </Sections>
         <Items />
@@ -4536,13 +4539,13 @@
             <Group Name="groupInvoice">
                 <Headers>
                     <Header Name="groupHeaderSection1">
-                        <Height>0.25in</Height>
+                        <Height>0.63492cm</Height>
                         <PrintForEmptyGroup>True</PrintForEmptyGroup>
                         <PrintOnEveryPage>True</PrintOnEveryPage>
                         <Items>
                             <TextBox Name="textBox15">
-                                <Location>216px, 0px</Location>
-                                <Size>64px, 24px</Size>
+                                <Location>264px, 0px</Location>
+                                <Size>96px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
@@ -4564,8 +4567,8 @@
                                 <Value>进货数量</Value>
                             </TextBox>
                             <TextBox Name="textBox68">
-                                <Location>568px, 0px</Location>
-                                <Size>120px, 24px</Size>
+                                <Location>672px, 0px</Location>
+                                <Size>104px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
@@ -4587,8 +4590,8 @@
                                 <Value>采购单号</Value>
                             </TextBox>
                             <TextBox Name="textBox69">
-                                <Location>512px, 0px</Location>
-                                <Size>56px, 24px</Size>
+                                <Location>632px, 0px</Location>
+                                <Size>40px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
@@ -4610,8 +4613,8 @@
                                 <Value>库位</Value>
                             </TextBox>
                             <TextBox Name="textBox7">
-                                <Location>336px, 0px</Location>
-                                <Size>72px, 24px</Size>
+                                <Location>432px, 0px</Location>
+                                <Size>88px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
@@ -4633,8 +4636,8 @@
                                 <Value>批号</Value>
                             </TextBox>
                             <TextBox Name="textBox70">
-                                <Location>448px, 0px</Location>
-                                <Size>64px, 24px</Size>
+                                <Location>560px, 0px</Location>
+                                <Size>72px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
@@ -4656,7 +4659,7 @@
                                 <Value>仓库</Value>
                             </TextBox>
                             <TextBox Name="textBox71">
-                                <Location>408px, 0px</Location>
+                                <Location>520px, 0px</Location>
                                 <Size>40px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -4679,8 +4682,8 @@
                                 <Value>单位</Value>
                             </TextBox>
                             <TextBox Name="textBox72">
-                                <Location>280px, 0px</Location>
-                                <Size>56px, 24px</Size>
+                                <Location>360px, 0px</Location>
+                                <Size>72px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
@@ -4702,8 +4705,8 @@
                                 <Value>合格数量</Value>
                             </TextBox>
                             <TextBox Name="textBox74">
-                                <Location>96px, 0px</Location>
-                                <Size>120px, 24px</Size>
+                                <Location>104px, 0px</Location>
+                                <Size>160px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
@@ -4725,8 +4728,8 @@
                                 <Value>品名规格</Value>
                             </TextBox>
                             <TextBox Name="textBox75">
-                                <Location>40px, 0px</Location>
-                                <Size>56px, 24px</Size>
+                                <Location>32px, 0px</Location>
+                                <Size>72px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
@@ -4748,7 +4751,7 @@
                                 <Value>物料品号</Value>
                             </TextBox>
                             <TextBox Name="textBox76">
-                                <Location>8px, 0px</Location>
+                                <Location>0px, 0px</Location>
                                 <Size>32px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -4777,13 +4780,13 @@
                 </Headers>
                 <Footers>
                     <Footer Name="groupFooterSection1">
-                        <Height>0.33333in</Height>
+                        <Height>0.84655cm</Height>
                         <PrintAtBottom>True</PrintAtBottom>
                         <ProcessOrder>Always</ProcessOrder>
                         <ResetPageNumber>True</ResetPageNumber>
                         <Items>
                             <TextBox Name="textBox10">
-                                <Location>8px, 16px</Location>
+                                <Location>0px, 16px</Location>
                                 <Size>176px, 14px</Size>
                                 <Style>
                                     <Font>
@@ -4794,7 +4797,7 @@
                                 <Value>Form number: FWH-001/Rev.01</Value>
                             </TextBox>
                             <TextBox Name="textBox51">
-                                <Location>8px, 0px</Location>
+                                <Location>0px, 0px</Location>
                                 <Size>64px, 16px</Size>
                                 <Style>
                                     <Font>
@@ -4804,7 +4807,7 @@
                                 <Value>品管确认:</Value>
                             </TextBox>
                             <TextBox Name="textBox62">
-                                <Location>456px, 0px</Location>
+                                <Location>504px, 0px</Location>
                                 <Size>48px, 16px</Size>
                                 <Style>
                                     <Font>
