@@ -211,6 +211,9 @@ namespace LumCustomizations.Graph
 
             AMProdItem prodItem = SelectFrom<AMProdItem>.Where<AMProdItem.prodOrdID.IsEqual<@P.AsString>>.View.Select(this, row.ProdOrdID);
 
+            if(prodItem == null)
+                return;
+
             row.QtyToProd = prodItem.QtytoProd;
             row.QtyComplete = prodItem.QtyComplete;
 
