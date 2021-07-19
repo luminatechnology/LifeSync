@@ -1,6 +1,5 @@
 ﻿<Automation screen="IN302000">
     <Fields ScreenID="IN302000">
         <Field IsActive="True" DisplayName="Description" FieldName="TranDesc" RequiredCondition="True" ObjectName="PX.Objects.IN.INRegister" />
-        <Field IsActive="True" DisplayName="Reason Code" FieldName="ReasonCode" RequiredCondition="True" ObjectName="PX.Objects.IN.INTran" />
     </Fields>
 </Automation>

@@ -27,10 +27,11 @@ namespace PX.Objects.SO
             }
         }
 
-        public virtual void _(Events.RowPersisting<INRegister> e)
+        public virtual void _(Events.RowPersisting<INRegister> e,PXRowPersisting baseMethod)
         {
+            baseMethod?.Invoke(e.Cache,e.Args);
             INRegister row = e.Row;
-            if (new LumLibrary().GetJournalEnhance)
+            if (new LumLibrary().GetJournalEnhance && row != null)
             {
                 if (!string.IsNullOrEmpty(row.SOShipmentNbr) && !string.IsNullOrEmpty(row.SOShipmentType) && string.IsNullOrEmpty(row.TranDesc))
                 {
