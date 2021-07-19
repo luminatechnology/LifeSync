@@ -3,7 +3,9 @@ using PX.Data;
 using PX.Data.BQL;
 using PX.Data.BQL.Fluent;
 using PX.Objects.AR;
+using PX.Objects.CR;
 using PX.Objects.IN;
+using PX.Objects.PO;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -30,7 +32,7 @@ namespace PX.Objects.SO
             INRegister row = e.Row;
             if (new LumLibrary().GetJournalEnhance)
             {
-                if (!string.IsNullOrEmpty(row.SOShipmentNbr) && !string.IsNullOrEmpty(row.SOShipmentType))
+                if (!string.IsNullOrEmpty(row.SOShipmentNbr) && !string.IsNullOrEmpty(row.SOShipmentType) && string.IsNullOrEmpty(row.TranDesc))
                 {
                     var CustomerID = SelectFrom<SOShipment>
                                     .Where<SOShipment.shipmentNbr.IsEqual<P.AsString>
@@ -40,6 +42,18 @@ namespace PX.Objects.SO
                                        .Where<Customer.bAccountID.IsEqual<P.AsInt>>
                                        .View.Select(Base, CustomerID)?.TopFirst?.AcctName;
                     row.TranDesc = $"{row.SOShipmentNbr} {CustomerName}";
+                }
+                else if(row.POReceiptType == "RN" && !string.IsNullOrEmpty(row.POReceiptNbr) && string.IsNullOrEmpty(row.TranDesc))
+                {
+                    var poData = SelectFrom<POReceipt>
+                                .Where<POReceipt.receiptNbr.IsEqual<P.AsString>.And<POReceipt.receiptType.IsEqual<P.AsString>>>
+                                .View.Select(Base,row.POReceiptNbr,row.POReceiptType).RowCast<POReceipt>().FirstOrDefault();
+                    if(poData != null && poData.VendorID.HasValue)
+                    {
+                        var vendorName = SelectFrom<BAccount2>.Where<BAccount2.bAccountID.IsEqual<P.AsInt>>
+                                         .View.Select(Base,poData.VendorID).RowCast<BAccount2>().FirstOrDefault().AcctName;
+                        row.TranDesc = $"{row.POReceiptNbr} {vendorName}";
+                    }
                 }
             }
         }
