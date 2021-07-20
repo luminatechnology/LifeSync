@@ -2239,7 +2239,7 @@
                         <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'PISCRAP' Or [INRegister.AttributeREASON] = 'IMSCRAP', False, True)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox14">
-                        <Location>352px, 68px</Location>
+                        <Location>400px, 68px</Location>
                         <Size>120px, 16px</Size>
                         <Style>
                             <Font>
@@ -2249,7 +2249,7 @@
                         <Value>=[INRegister.AttributeDEPARTMENT]</Value>
                     </TextBox>
                     <TextBox Name="textBox15">
-                        <Location>296px, 68px</Location>
+                        <Location>344px, 68px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
@@ -2260,13 +2260,13 @@
                     </TextBox>
                     <TextBox Name="textBox16">
                         <Location>56px, 68px</Location>
-                        <Size>120px, 16px</Size>
+                        <Size>280px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
                             </Font>
                         </Style>
-                        <Value>=[INRegister.RefNbr]</Value>
+                        <Value>=[INRegister.RefNbr] + ' ' + [INRegister.TranDesc]</Value>
                     </TextBox>
                     <TextBox Name="textBox17">
                         <Location>540px, 52px</Location>
