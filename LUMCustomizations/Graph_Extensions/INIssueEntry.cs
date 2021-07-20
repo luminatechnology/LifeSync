@@ -27,9 +27,8 @@ namespace PX.Objects.SO
             }
         }
 
-        public virtual void _(Events.RowPersisting<INRegister> e,PXRowPersisting baseMethod)
+        public virtual void _(Events.RowPersisting<INRegister> e, PXRowPersisting baseMethod)
         {
-            baseMethod?.Invoke(e.Cache,e.Args);
             INRegister row = e.Row;
             if (new LumLibrary().GetJournalEnhance && row != null)
             {
@@ -57,7 +56,12 @@ namespace PX.Objects.SO
                     }
                 }
             }
+            baseMethod?.Invoke(e.Cache,e.Args);
         }
+
+        [PXDefault]
+        [PXMergeAttributes(Method = MergeMethod.Append)]
+        public virtual void _(Events.CacheAttached<INRegister.tranDesc> e) { }
 
         #region Action
         public PXAction<INRegister> InventoryIssueReport;

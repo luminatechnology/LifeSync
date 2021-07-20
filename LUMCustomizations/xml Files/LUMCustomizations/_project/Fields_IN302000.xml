@@ -1,3 +1,0 @@
-﻿<Fields ScreenID="IN302000">
-    <Field IsActive="True" DisplayName="Description" FieldName="TranDesc" RequiredCondition="True" ObjectName="PX.Objects.IN.INRegister" />
-</Fields>
