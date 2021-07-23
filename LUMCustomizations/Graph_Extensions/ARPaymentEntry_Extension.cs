@@ -83,26 +83,27 @@ namespace PX.Objects.AR
             var _curyAdjdAmt = e.Cache.GetValue<ARAdjust.curyAdjdAmt>(e.Row) ?? 0;
             e.ReturnValue = _refBalance - (Decimal?)_curyAdjdAmt;
         }
-
-        protected void _(Events.FieldUpdated<ARAdjust.adjdRefNbr> e)
+        
+        protected virtual void ARAdjust_RowInserted(PXCache sender, PXRowInsertedEventArgs e)
         {
-            if (e.NewValue != null)
+            var row = Base.Document.Current;
+            var aPPaymentVendorCrossRateAttr = SelectFrom<CSAnswers>.
+                                                LeftJoin<BAccountR>.On<CSAnswers.refNoteID.IsEqual<BAccountR.noteID>>.
+                                                LeftJoin<ARPayment>.On<BAccountR.bAccountID.IsEqual<ARPayment.customerID>>.
+                                                Where<ARPayment.customerID.IsEqual<@P.AsInt>.And<CSAnswers.attributeID.IsEqual<VendorCrossRateAttr>>>.
+                                                View.Select(Base, row.CustomerID).TopFirst?.Value;
+            var arRow = e.Row as ARAdjust;
+            var aRInvoiceCurData = SelectFrom<ARInvoice>.View.Select(Base).RowCast<ARInvoice>().ToList().FirstOrDefault(x => x.DocType == arRow.AdjdDocType && x.RefNbr == arRow.AdjdRefNbr);
+            if (row.CuryID != aRInvoiceCurData?.CuryID && aPPaymentVendorCrossRateAttr == "1" && Convert.ToDecimal(arRow.AdjdCuryRate) != 1.00m && aRInvoiceCurData?.CuryInfoID != null)
             {
-                var row = Base.Document.Current;
-                var aPPaymentVendorCrossRateAttr = SelectFrom<CSAnswers>.
-                                                    LeftJoin<BAccountR>.On<CSAnswers.refNoteID.IsEqual<BAccountR.noteID>>.
-                                                    LeftJoin<ARPayment>.On<BAccountR.bAccountID.IsEqual<ARPayment.customerID>>.
-                                                    Where<ARPayment.customerID.IsEqual<@P.AsInt>.And<CSAnswers.attributeID.IsEqual<VendorCrossRateAttr>>>.
-                                                    View.Select(Base, row.CustomerID).TopFirst?.Value;
-                var arRow = e.Row as ARAdjust;
-                var aRInvoiceCurData = SelectFrom<ARInvoice>.View.Select(Base).RowCast<ARInvoice>().ToList().FirstOrDefault(x => x.DocType == arRow.AdjdDocType && x.RefNbr == arRow.AdjdRefNbr);
-                if (row.CuryID != aRInvoiceCurData?.CuryID && aPPaymentVendorCrossRateAttr == "1" && Convert.ToDecimal(arRow.AdjdCuryRate) != 1.00m && aRInvoiceCurData?.CuryInfoID != null)
-                {
-                    var curyInfo = SelectFrom<CurrencyInfo>.Where<CurrencyInfo.curyInfoID.IsEqual<@P.AsInt>>.View.Select(Base, aRInvoiceCurData?.CuryInfoID).TopFirst;
-                    var curyInfoCuryRate = curyInfo?.CuryMultDiv == "M" ? curyInfo?.CuryRate : curyInfo?.RecipRate;
-                    e.Cache.SetValueExt<ARAdjust.adjdCuryRate>(e.Row, curyInfoCuryRate == null ? arRow.AdjdCuryRate : curyInfoCuryRate);
-                }
+                var curyInfo = SelectFrom<CurrencyInfo>.Where<CurrencyInfo.curyInfoID.IsEqual<@P.AsInt>>.View.Select(Base, aRInvoiceCurData?.CuryInfoID).TopFirst;
+                var curyInfoCuryRate = curyInfo?.CuryMultDiv == "M" ? curyInfo?.CuryRate : curyInfo?.RecipRate;
+                sender.SetValueExt<ARAdjust.adjdCuryRate>(e.Row, curyInfoCuryRate == null ? arRow.AdjdCuryRate : curyInfoCuryRate);
             }
+
+            var sumAmountPaid = Base.Adjustments.Cache.Cached.RowCast<ARAdjust>().Select(x => x.CuryAdjgAmt).Sum();
+            row.CuryUnappliedBal = -sumAmountPaid;
+            row.CuryApplAmt = sumAmountPaid;
         }
         #endregion
     }
