@@ -314,10 +314,6 @@
                         <ChildField>SubItemID</ChildField>
                         <ParentField>INSubItem.SubItemID</ParentField>
                     </RelationRow>
-                    <RelationRow>
-                        <ChildField>@ABAHK</ChildField>
-                        <ParentField>INItemXRef.BAccountID</ParentField>
-                    </RelationRow>
                 </Links>
                 <ParentName>InventoryItem</ParentName>
             </ReportRelation>
@@ -326,6 +322,10 @@
         <Sorting>
             <SortExp>
                 <DataField>INTranCost.CreatedDateTime</DataField>
+            </SortExp>
+            <SortExp>
+                <DataField>INItemXRef.BAccountID</DataField>
+                <SortOrder>Descending</SortOrder>
             </SortExp>
         </Sorting>
         <StylesTemplate>TemplateReport.rpx</StylesTemplate>
