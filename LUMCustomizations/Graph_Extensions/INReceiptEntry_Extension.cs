@@ -71,7 +71,7 @@ namespace PX.Objects.IN
 
         public PXAction<INRegister> InventoryReceiptReportruku;
         [PXButton]
-        [PXUIField(DisplayName = "Inventory Receipt Report - rukudan", MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Inventory Receipt Report - 入庫單", MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable inventoryReceiptReportruku(PXAdapter adapter)
         {
             if (Base.receipt.Current != null)
