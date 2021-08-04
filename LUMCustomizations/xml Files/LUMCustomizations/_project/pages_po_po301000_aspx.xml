@@ -29,4 +29,7 @@
             <PXNumberEdit DataField="CuryControlTotal" OriginalIndex="28" />
         </Children>
     </PXFormView>
+    <PXSelector DataField="OrderNbr" ParentId="phF_form_edOrderNbr" TypeFullName="PX.Web.UI.PXSelector">
+        <Prop Key="Width" Value="130px" />
+    </PXSelector>
 </Page>

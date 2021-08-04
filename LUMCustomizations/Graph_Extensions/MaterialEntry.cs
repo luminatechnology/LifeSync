@@ -119,7 +119,7 @@ namespace JAMS.AM
                         .And<AMProdMatl.inventoryID.IsEqual<P.AsInt>>>.View.Select(Base, row.ProdOrdID, row.InventoryID)
                      .RowCast<AMProdMatl>().FirstOrDefault();
                 var maxOverIssue = SelectFrom<LifeSyncPreference>.View.Select(Base).RowCast<LifeSyncPreference>().FirstOrDefault().MaxOverIssue;
-                var overIssueQty = Math.Round((amProdMatl?.TotalQtyRequired ?? 0) * (1 + (maxOverIssue ?? 0) / 100), 4);
+                var overIssueQty = Math.Round((amProdMatl?.TotalQtyRequired ?? 0) * (1 + (maxOverIssue ?? 0) / 100), 4) - amProdMatl?.QtyActual;
                 if ((decimal?)e.NewValue > overIssueQty)
                 {
                     e.NewValue = overIssueQty;
@@ -205,7 +205,7 @@ namespace JAMS.AM
                         .And<AMProdMatl.inventoryID.IsEqual<P.AsInt>>>.View.Select(Base, amTranRow.ProdOrdID, amTranRow.InventoryID)
                      .RowCast<AMProdMatl>().FirstOrDefault();
                 var maxOverIssue = SelectFrom<LifeSyncPreference>.View.Select(Base).RowCast<LifeSyncPreference>().FirstOrDefault().MaxOverIssue;
-                var overIssueQty = Math.Round((amProdMatl?.TotalQtyRequired ?? 0) * (1 + (maxOverIssue ?? 0) / 100), 4);
+                var overIssueQty = Math.Round((amProdMatl?.TotalQtyRequired ?? 0) * (1 + (maxOverIssue ?? 0) / 100), 4) - amProdMatl?.QtyActual;
                 if ((decimal?)e.NewValue > overIssueQty)
                 {
                     e.NewValue = overIssueQty;
