@@ -181,7 +181,7 @@ namespace LUMCustomizations.Graph
             // Sum
             var _abaDGPrice = _TotalCost + (_TotalCost * (decimal.Parse(_ABADGSELL) / 100));
             var _abaDGPrice_HKD = _abaDGPrice * _EffectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault()?.CuryRate * _EffectCuryRate.Where(x => x.FromCuryID == "HKD").FirstOrDefault()?.RateReciprocal;
-            var temp = decimal.Parse(_ABADGSELL) + _TotalCost;
+            var temp = (decimal.Parse(_ABADGSELL) * _TotalCost / 100) + _TotalCost;
             summaryResult.DGtoHKPrice = temp;
             #endregion
 

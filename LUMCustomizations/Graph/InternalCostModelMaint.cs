@@ -606,7 +606,7 @@ namespace LumCustomizations.Graph
             sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"ABA DG Price");
             sheet.GetRow(rowNum).GetCell(8).CellStyle = NormaStyle_Bold_Right;
             //sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{_abaDGPrice.ToString("N4")}");
-            sheet.GetRow(rowNum).CreateCell(9).SetCellFormula($"{_ABADGSELL}+{formulaYieldSum}");
+            sheet.GetRow(rowNum).CreateCell(9).SetCellFormula($"{formulaGrossMargin}+{formulaYieldSum}");
             sheet.GetRow(rowNum).GetCell(9).CellStyle = ROSECellStyle;
             sheet.GetRow(rowNum).GetCell(9).CellStyle.DataFormat = workBook.CreateDataFormat().GetFormat("0.0000");
             //sheet.GetRow(rowNum).CreateCell(10).SetCellValue($"{_abaDGPrice_HKD.Value.ToString("N4")}");

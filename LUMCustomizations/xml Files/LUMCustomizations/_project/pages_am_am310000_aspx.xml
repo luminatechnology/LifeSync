@@ -11,4 +11,7 @@
             </AddItem>
         </Children>
     </PXFormView>
+    <PXSelector DataField="ShipmentNbr" ParentId="phF_form_edShipmentNbr" TypeFullName="PX.Web.UI.PXSelector">
+        <Prop Key="Width" Value="130px" />
+    </PXSelector>
 </Page>
