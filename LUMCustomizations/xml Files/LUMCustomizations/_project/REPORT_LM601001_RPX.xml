@@ -4718,7 +4718,6 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="SJM">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = 'SJM' Or @Customer = 'SJM')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
@@ -4744,7 +4743,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
-                                <Size>16px</Size>
+                                <Size>15.5px</Size>
                                 <Style>Bold</Style>
                             </Font>
                         </Style>
@@ -5017,6 +5016,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </PageFooter>
             <Detail Name="General-Resistor">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF([outter.Customer] &lt;&gt; 'OSI' #010;And [outter.Customer] &lt;&gt; 'AMC'#010;And [outter.Customer] &lt;&gt; 'SJM'#010;And [outter.Customer] &lt;&gt; 'MASIMO'#010;And [outter.Customer] &lt;&gt; '科曼'#010;And @Customer &lt;&gt; 'OSI'#010;And @Customer &lt;&gt; 'AMC'#010;And @Customer &lt;&gt; 'SJM'#010;And @Customer &lt;&gt; 'MASIMO'#010;And @Customer &lt;&gt; '科曼'#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null OR @Resistor &lt;&gt; null ) ,true,false)</VisibleExpr>
