@@ -4253,7 +4253,6 @@
                     <bottom>1</bottom>
                 </ExcelMargin>
                 <Expanded>False</Expanded>
-                <GridSize>8px, 8px</GridSize>
                 <Height>56px</Height>
                 <Items>
                     <TextBox Name="lCustomerClass">
@@ -4440,7 +4439,6 @@
             </PageHeader>
             <Detail Name="detailSection1">
                 <Expanded>False</Expanded>
-                <GridSize>8px, 8px</GridSize>
                 <Height>14px</Height>
                 <VisibleExpr>=False</VisibleExpr>
                 <Items>
@@ -4470,13 +4468,11 @@
                 </Items>
             </Detail>
             <PageFooter Name="pageFooterSection1">
-                <GridSize>8px, 8px</GridSize>
                 <Height>0px</Height>
                 <Visible>False</Visible>
             </PageFooter>
             <Detail Name="detailSection2">
                 <Expanded>False</Expanded>
-                <GridSize>8px, 8px</GridSize>
                 <Height>14px</Height>
                 <VisibleExpr>=False</VisibleExpr>
                 <Items>
@@ -4506,7 +4502,6 @@
                 </Items>
             </Detail>
             <ReportFooter Name="reportFooterSection1">
-                <GridSize>8px, 8px</GridSize>
                 <Height>18px</Height>
                 <Items>
                     <Line Name="line7">
@@ -4607,7 +4602,6 @@
                 </Items>
             </ReportFooter>
             <ReportHeader Name="reportHeaderSection1">
-                <GridSize>8px, 8px</GridSize>
                 <Height>0px</Height>
                 <Variables>
                     <ReportVariable>
@@ -4639,7 +4633,6 @@
             </ReportHeader>
             <PageHeader Name="pageHeaderSection2">
                 <Expanded>False</Expanded>
-                <GridSize>8px, 8px</GridSize>
                 <Height>24px</Height>
                 <StyleName>ColumnsHeaderSection</StyleName>
                 <Items>
@@ -6360,7 +6353,7 @@
                                 <ValueExpr>=$StCycCustomerTot+$DocBal</ValueExpr>
                             </ReportVariable>
                             <ReportVariable>
-                                <Name>CurrTot</Name>
+                                <Name>LumCurrTot</Name>
                                 <ValueExpr>=$LumCurrTot+$CurrBal</ValueExpr>
                             </ReportVariable>
                             <ReportVariable>
@@ -6586,7 +6579,6 @@
                                 <Value>=[ARRegister.DocDate]</Value>
                             </TextBox>
                             <TextBox Name="textBox132">
-                                <Excel />
                                 <Location>184px, 0px</Location>
                                 <Size>66px, 14px</Size>
                                 <StyleName>Normal</StyleName>
@@ -6669,7 +6661,6 @@
                                 <Value>=$CurrBal</Value>
                             </TextBox>
                             <TextBox Name="textBox139">
-                                <Excel />
                                 <Location>4px, 0px</Location>
                                 <NavigateMethod>Server</NavigateMethod>
                                 <Size>76px, 14px</Size>
