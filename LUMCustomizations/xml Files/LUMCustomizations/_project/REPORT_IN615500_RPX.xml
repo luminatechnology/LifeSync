@@ -1,4 +1,4 @@
-﻿<Report Name="in615500.rpx">
+<Report Name="in615500.rpx">
     <Report Name="report1">
         <ExcelColumns>
             <item>17</item>
@@ -313,6 +313,10 @@
                     <RelationRow>
                         <ChildField>SubItemID</ChildField>
                         <ParentField>INSubItem.SubItemID</ParentField>
+                    </RelationRow>
+                    <RelationRow>
+                        <ChildField>@ABAHK</ChildField>
+                        <ParentField>INItemXRef.BAccountID</ParentField>
                     </RelationRow>
                 </Links>
                 <ParentName>InventoryItem</ParentName>
