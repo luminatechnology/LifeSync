@@ -22,4 +22,7 @@
             <PXGridColumn DataField="ARInvoice__InvoiceNbr" OriginalIndex="24" />
         </Children>
     </PXGridLevel>
+    <PXSelector DataField="RefNbr" ParentId="phF_form_edRefNbr" TypeFullName="PX.Web.UI.PXSelector">
+        <Prop Key="Width" Value="130px" />
+    </PXSelector>
 </Page>
