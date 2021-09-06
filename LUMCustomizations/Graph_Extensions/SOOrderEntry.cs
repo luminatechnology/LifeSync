@@ -59,7 +59,11 @@ namespace PX.Objects.SO
                 else
                     e.Cache.SetDefaultExt<SOOrderExt.usrPICuryID>(e.Row);
             }
-            Base.Transactions.Cache.SetDefaultExt<SOLineExt.usrPIUnitPrice>(Base.Transactions.Current);
+            foreach (SOLine line in Base.Transactions.Select())
+            {
+                Base.Transactions.Cache.SetDefaultExt<SOLineExt.usrPIUnitPrice>(line);
+                Base.Transactions.Cache.MarkUpdated(line);
+            }
         }
 
         /// <summary> SOLine.curyUnitPrice FieldDefaulting Event </summary>
