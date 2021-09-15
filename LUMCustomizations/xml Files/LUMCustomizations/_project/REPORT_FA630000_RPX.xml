@@ -166,7 +166,7 @@
                 <ParentName>FADetails</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>https://abamedical.acumatica.com/</SchemaUrl>
+        <SchemaUrl>http://localhost/ABA_AcumaticaDB1/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>FixedAsset.AssetCD</DataField>
@@ -955,7 +955,7 @@
                 <Items>
                     <TextBox Name="textBox1">
                         <Excel>
-                            <column>5</column>
+                            <column>6</column>
                         </Excel>
                         <Location>360px, 0px</Location>
                         <Size>63px, 14px</Size>
@@ -965,7 +965,7 @@
                     <TextBox Name="textBox2">
                         <CanGrow>True</CanGrow>
                         <Excel>
-                            <column>3</column>
+                            <column>4</column>
                         </Excel>
                         <Location>252px, 0px</Location>
                         <Size>60px, 14px</Size>
@@ -987,7 +987,7 @@
                     </TextBox>
                     <TextBox Name="textBox31">
                         <Excel>
-                            <column>7</column>
+                            <column>2</column>
                         </Excel>
                         <Location>76px, 0px</Location>
                         <Size>100px, 14px</Size>
@@ -1003,7 +1003,7 @@
                     </TextBox>
                     <TextBox Name="textBox41">
                         <Excel>
-                            <column>2</column>
+                            <column>3</column>
                         </Excel>
                         <Location>180px, 0px</Location>
                         <Size>70px, 14px</Size>
@@ -1012,7 +1012,7 @@
                     </TextBox>
                     <TextBox Name="textBox42">
                         <Excel>
-                            <column>10</column>
+                            <column>11</column>
                         </Excel>
                         <Location>752px, 0px</Location>
                         <Size>88px, 14px</Size>
@@ -1024,7 +1024,7 @@
                     </TextBox>
                     <TextBox Name="textBox44">
                         <Excel>
-                            <column>6</column>
+                            <column>7</column>
                         </Excel>
                         <Location>424px, 0px</Location>
                         <Size>70px, 14px</Size>
@@ -1033,7 +1033,7 @@
                     </TextBox>
                     <TextBox Name="textBox45">
                         <Excel>
-                            <column>11</column>
+                            <column>12</column>
                         </Excel>
                         <Location>844px, 0px</Location>
                         <Size>88px, 14px</Size>
@@ -1045,7 +1045,7 @@
                     </TextBox>
                     <TextBox Name="textBox46">
                         <Excel>
-                            <column>4</column>
+                            <column>5</column>
                         </Excel>
                         <Format>#0.0</Format>
                         <Location>316px, 0px</Location>
@@ -1058,7 +1058,7 @@
                     </TextBox>
                     <TextBox Name="textBox47">
                         <Excel>
-                            <column>12</column>
+                            <column>13</column>
                         </Excel>
                         <Location>936px, 0px</Location>
                         <Size>88px, 14px</Size>
@@ -1070,7 +1070,7 @@
                     </TextBox>
                     <TextBox Name="textBox6">
                         <Excel>
-                            <column>9</column>
+                            <column>10</column>
                         </Excel>
                         <Format>=[FABookBalance.AcquisitionCost.Format]</Format>
                         <Location>660px, 0px</Location>
@@ -1083,7 +1083,7 @@
                     </TextBox>
                     <TextBox Name="textBox7">
                         <Excel>
-                            <column>7</column>
+                            <column>8</column>
                         </Excel>
                         <Location>496px, 0px</Location>
                         <Size>70px, 14px</Size>
@@ -1123,7 +1123,7 @@
                     </TextBox>
                     <TextBox Name="textBox20">
                         <Excel>
-                            <column>9</column>
+                            <column>10</column>
                         </Excel>
                         <Format>=[FABookBalance.AcquisitionCost.Format]</Format>
                         <Location>660px, 4px</Location>
@@ -1148,7 +1148,7 @@
                     </TextBox>
                     <TextBox Name="textBox43">
                         <Excel>
-                            <column>10</column>
+                            <column>11</column>
                         </Excel>
                         <Format>=[FABookBalance.AcquisitionCost.Format]</Format>
                         <Location>752px, 4px</Location>
@@ -1161,7 +1161,7 @@
                     </TextBox>
                     <TextBox Name="textBox48">
                         <Excel>
-                            <column>11</column>
+                            <column>12</column>
                         </Excel>
                         <Format>=[FABookBalance.AcquisitionCost.Format]</Format>
                         <Location>844px, 4px</Location>
@@ -1174,7 +1174,7 @@
                     </TextBox>
                     <TextBox Name="textBox49">
                         <Excel>
-                            <column>12</column>
+                            <column>13</column>
                         </Excel>
                         <Format>=[FABookBalance.AcquisitionCost.Format]</Format>
                         <Location>936px, 4px</Location>
@@ -1194,7 +1194,7 @@
                     <TextBox Name="textBox11">
                         <CanGrow>True</CanGrow>
                         <Excel>
-                            <column>2</column>
+                            <column>3</column>
                         </Excel>
                         <Location>180px, 4px</Location>
                         <Size>70px, 14px</Size>
@@ -1204,7 +1204,7 @@
                     <TextBox Name="textBox12">
                         <CanGrow>True</CanGrow>
                         <Excel>
-                            <column>7</column>
+                            <column>8</column>
                         </Excel>
                         <Location>496px, 4px</Location>
                         <Size>70px, 14px</Size>
@@ -1214,7 +1214,7 @@
                     <TextBox Name="textBox16">
                         <CanGrow>True</CanGrow>
                         <Excel>
-                            <column>4</column>
+                            <column>5</column>
                         </Excel>
                         <Location>316px, 4px</Location>
                         <Size>39px, 14px</Size>
@@ -1234,7 +1234,7 @@
                     <TextBox Name="textBox22">
                         <CanGrow>True</CanGrow>
                         <Excel>
-                            <column>11</column>
+                            <column>12</column>
                         </Excel>
                         <Location>844px, 4px</Location>
                         <Size>88px, 14px</Size>
@@ -1247,7 +1247,7 @@
                     <TextBox Name="textBox27">
                         <CanGrow>True</CanGrow>
                         <Excel>
-                            <column>5</column>
+                            <column>2</column>
                         </Excel>
                         <Location>76px, 4px</Location>
                         <Size>100px, 14px</Size>
@@ -1257,7 +1257,7 @@
                     <TextBox Name="textBox5">
                         <CanGrow>True</CanGrow>
                         <Excel>
-                            <column>9</column>
+                            <column>10</column>
                         </Excel>
                         <Location>660px, 4px</Location>
                         <Size>88px, 14px</Size>
@@ -1270,7 +1270,7 @@
                     <TextBox Name="textBox50">
                         <CanGrow>True</CanGrow>
                         <Excel>
-                            <column>10</column>
+                            <column>11</column>
                         </Excel>
                         <Location>752px, 4px</Location>
                         <Size>88px, 14px</Size>
@@ -1283,7 +1283,7 @@
                     <TextBox Name="textBox52">
                         <CanGrow>True</CanGrow>
                         <Excel>
-                            <column>12</column>
+                            <column>13</column>
                         </Excel>
                         <Location>936px, 4px</Location>
                         <Size>88px, 14px</Size>
@@ -1309,7 +1309,7 @@
                     <TextBox Name="textBox54">
                         <CanGrow>True</CanGrow>
                         <Excel>
-                            <column>3</column>
+                            <column>4</column>
                         </Excel>
                         <Location>252px, 4px</Location>
                         <Size>60px, 14px</Size>
@@ -1319,7 +1319,7 @@
                     <TextBox Name="textBox55">
                         <CanGrow>True</CanGrow>
                         <Excel>
-                            <column>5</column>
+                            <column>6</column>
                         </Excel>
                         <Location>360px, 4px</Location>
                         <Size>62px, 14px</Size>
@@ -1329,7 +1329,7 @@
                     <TextBox Name="textBox56">
                         <CanGrow>True</CanGrow>
                         <Excel>
-                            <column>6</column>
+                            <column>7</column>
                         </Excel>
                         <Location>424px, 4px</Location>
                         <Size>70px, 14px</Size>
