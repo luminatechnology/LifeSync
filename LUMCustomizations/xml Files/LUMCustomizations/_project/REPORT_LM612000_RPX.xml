@@ -205,11 +205,15 @@
                         <ChildField>ProdOrdID</ChildField>
                         <ParentField>AttributePRODORDNBR</ParentField>
                     </RelationRow>
+                    <RelationRow>
+                        <ChildField>OrderType</ChildField>
+                        <ParentField>AttributePDORDERTYP</ParentField>
+                    </RelationRow>
                 </Links>
                 <ParentName>INRegister</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
+        <SchemaUrl>https://abamedical.acumatica.com/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>InventoryItem.InventoryCD</DataField>
@@ -1260,201 +1264,6 @@
                     </ReportField>
                 </Fields>
                 <FullName>PX.Objects.CS.ReasonCode</FullName>
-            </ReportTable>
-            <ReportTable Name="INRegister">
-                <Fields>
-                    <ReportField Name="AMBatNbr">
-                    </ReportField>
-                    <ReportField Name="AMDocType">
-                    </ReportField>
-                    <ReportField Name="AttributeDEPARTMENT">
-                    </ReportField>
-                    <ReportField Name="AttributePRODLINE">
-                    </ReportField>
-                    <ReportField Name="AttributePRODORDNBR">
-                    </ReportField>
-                    <ReportField Name="AttributeREASON">
-                    </ReportField>
-                    <ReportField Name="BatchNbr">
-                    </ReportField>
-                    <ReportField Name="BranchID">
-                    </ReportField>
-                    <ReportField Name="BranchID_Branch_acctName">
-                    </ReportField>
-                    <ReportField Name="BranchID_description">
-                    </ReportField>
-                    <ReportField Name="BranchID_Segment1">
-                    </ReportField>
-                    <ReportField Name="ControlAmount">
-                        <DataType>Decimal</DataType>
-                    </ReportField>
-                    <ReportField Name="ControlCost">
-                        <DataType>Decimal</DataType>
-                    </ReportField>
-                    <ReportField Name="ControlQty">
-                        <DataType>Decimal</DataType>
-                    </ReportField>
-                    <ReportField Name="CreatedByID">
-                    </ReportField>
-                    <ReportField Name="CreatedByID_Creator_displayName">
-                    </ReportField>
-                    <ReportField Name="CreatedByID_Creator_Username">
-                    </ReportField>
-                    <ReportField Name="CreatedByID_description">
-                    </ReportField>
-                    <ReportField Name="CreatedByScreenID">
-                    </ReportField>
-                    <ReportField Name="CreatedDateTime">
-                        <DataType>DateTime</DataType>
-                    </ReportField>
-                    <ReportField Name="CreatedDateTime_Day">
-                    </ReportField>
-                    <ReportField Name="CreatedDateTime_Hour">
-                    </ReportField>
-                    <ReportField Name="CreatedDateTime_Month">
-                    </ReportField>
-                    <ReportField Name="CreatedDateTime_Quarter">
-                    </ReportField>
-                    <ReportField Name="DocType">
-                    </ReportField>
-                    <ReportField Name="ExtRefNbr">
-                    </ReportField>
-                    <ReportField Name="FinPeriodID">
-                    </ReportField>
-                    <ReportField Name="Hold">
-                        <DataType>Boolean</DataType>
-                    </ReportField>
-                    <ReportField Name="IsPPVTran">
-                        <DataType>Boolean</DataType>
-                    </ReportField>
-                    <ReportField Name="KitInventoryID">
-                    </ReportField>
-                    <ReportField Name="KitInventoryID_description">
-                    </ReportField>
-                    <ReportField Name="KitInventoryID_InventoryItem_descr">
-                    </ReportField>
-                    <ReportField Name="KitInventoryID_Segment1">
-                    </ReportField>
-                    <ReportField Name="KitLineNbr">
-                        <DataType>Int32</DataType>
-                    </ReportField>
-                    <ReportField Name="KitRevisionID">
-                    </ReportField>
-                    <ReportField Name="LastModifiedByID">
-                    </ReportField>
-                    <ReportField Name="LastModifiedByID_description">
-                    </ReportField>
-                    <ReportField Name="LastModifiedByID_Modifier_displayName">
-                    </ReportField>
-                    <ReportField Name="LastModifiedByID_Modifier_Username">
-                    </ReportField>
-                    <ReportField Name="LastModifiedByScreenID">
-                    </ReportField>
-                    <ReportField Name="LastModifiedDateTime">
-                        <DataType>DateTime</DataType>
-                    </ReportField>
-                    <ReportField Name="LastModifiedDateTime_Day">
-                    </ReportField>
-                    <ReportField Name="LastModifiedDateTime_Hour">
-                    </ReportField>
-                    <ReportField Name="LastModifiedDateTime_Month">
-                    </ReportField>
-                    <ReportField Name="LastModifiedDateTime_Quarter">
-                    </ReportField>
-                    <ReportField Name="LineCntr">
-                        <DataType>Int32</DataType>
-                    </ReportField>
-                    <ReportField Name="NoteActivity">
-                    </ReportField>
-                    <ReportField Name="NoteFiles">
-                    </ReportField>
-                    <ReportField Name="NoteID">
-                        <DataType>Object</DataType>
-                    </ReportField>
-                    <ReportField Name="NoteImages">
-                    </ReportField>
-                    <ReportField Name="NoteText">
-                    </ReportField>
-                    <ReportField Name="OrigModule">
-                    </ReportField>
-                    <ReportField Name="OrigRefNbr">
-                    </ReportField>
-                    <ReportField Name="PIID">
-                    </ReportField>
-                    <ReportField Name="POReceiptNbr">
-                    </ReportField>
-                    <ReportField Name="POReceiptType">
-                    </ReportField>
-                    <ReportField Name="RefNbr">
-                    </ReportField>
-                    <ReportField Name="Released">
-                        <DataType>Boolean</DataType>
-                    </ReportField>
-                    <ReportField Name="Selected">
-                        <DataType>Boolean</DataType>
-                    </ReportField>
-                    <ReportField Name="SiteID">
-                    </ReportField>
-                    <ReportField Name="SiteID_description">
-                    </ReportField>
-                    <ReportField Name="SiteID_INSite_descr">
-                    </ReportField>
-                    <ReportField Name="SiteID_Segment1">
-                    </ReportField>
-                    <ReportField Name="SOOrderNbr">
-                    </ReportField>
-                    <ReportField Name="SOOrderType">
-                    </ReportField>
-                    <ReportField Name="SOShipmentNbr">
-                    </ReportField>
-                    <ReportField Name="SOShipmentType">
-                    </ReportField>
-                    <ReportField Name="SrcDocType">
-                    </ReportField>
-                    <ReportField Name="SrcRefNbr">
-                    </ReportField>
-                    <ReportField Name="Status">
-                    </ReportField>
-                    <ReportField Name="ToSiteID">
-                    </ReportField>
-                    <ReportField Name="ToSiteID_description">
-                    </ReportField>
-                    <ReportField Name="ToSiteID_INSite_descr">
-                    </ReportField>
-                    <ReportField Name="ToSiteID_Segment1">
-                    </ReportField>
-                    <ReportField Name="TotalAmount">
-                        <DataType>Decimal</DataType>
-                    </ReportField>
-                    <ReportField Name="TotalCost">
-                        <DataType>Decimal</DataType>
-                    </ReportField>
-                    <ReportField Name="TotalQty">
-                        <DataType>Decimal</DataType>
-                    </ReportField>
-                    <ReportField Name="TranDate">
-                        <DataType>DateTime</DataType>
-                    </ReportField>
-                    <ReportField Name="TranDate_Day">
-                    </ReportField>
-                    <ReportField Name="TranDate_Hour">
-                    </ReportField>
-                    <ReportField Name="TranDate_Month">
-                    </ReportField>
-                    <ReportField Name="TranDate_Quarter">
-                    </ReportField>
-                    <ReportField Name="TranDesc">
-                    </ReportField>
-                    <ReportField Name="TranPeriodID">
-                    </ReportField>
-                    <ReportField Name="TransferNbr">
-                    </ReportField>
-                    <ReportField Name="TransferType">
-                    </ReportField>
-                    <ReportField Name="tstamp">
-                    </ReportField>
-                </Fields>
-                <FullName>PX.Objects.IN.INRegister</FullName>
             </ReportTable>
             <ReportTable Name="AMProdItem">
                 <Fields>
@@ -2655,6 +2464,209 @@
                     </ReportField>
                 </Fields>
                 <FullName>PX.Objects.IN.InventoryItem</FullName>
+            </ReportTable>
+            <ReportTable Name="INRegister">
+                <Fields>
+                    <ReportField Name="AMBatNbr">
+                    </ReportField>
+                    <ReportField Name="AMDocType">
+                    </ReportField>
+                    <ReportField Name="AttributeDEPARTMENT">
+                    </ReportField>
+                    <ReportField Name="AttributePDORDERTYP">
+                    </ReportField>
+                    <ReportField Name="AttributePRODLINE">
+                    </ReportField>
+                    <ReportField Name="AttributePRODORDNBR">
+                    </ReportField>
+                    <ReportField Name="AttributeREASON">
+                    </ReportField>
+                    <ReportField Name="BatchNbr">
+                    </ReportField>
+                    <ReportField Name="BranchID">
+                    </ReportField>
+                    <ReportField Name="BranchID_Branch_acctName">
+                    </ReportField>
+                    <ReportField Name="BranchID_description">
+                    </ReportField>
+                    <ReportField Name="BranchID_Segment1">
+                    </ReportField>
+                    <ReportField Name="ControlAmount">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="ControlCost">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="ControlQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="CreatedByID">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_displayName">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_Username">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_description">
+                    </ReportField>
+                    <ReportField Name="CreatedByScreenID">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="DocType">
+                    </ReportField>
+                    <ReportField Name="ExtRefNbr">
+                    </ReportField>
+                    <ReportField Name="FinPeriodID">
+                    </ReportField>
+                    <ReportField Name="Hold">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="IsPPVTran">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="IsTaxAdjustmentTran">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="KitInventoryID">
+                    </ReportField>
+                    <ReportField Name="KitInventoryID_description">
+                    </ReportField>
+                    <ReportField Name="KitInventoryID_InventoryItem_descr">
+                    </ReportField>
+                    <ReportField Name="KitInventoryID_Segment1">
+                    </ReportField>
+                    <ReportField Name="KitLineNbr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="KitRevisionID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_description">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_displayName">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_Username">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByScreenID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="LineCntr">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="NoteActivity">
+                    </ReportField>
+                    <ReportField Name="NoteFiles">
+                    </ReportField>
+                    <ReportField Name="NoteID">
+                        <DataType>Object</DataType>
+                    </ReportField>
+                    <ReportField Name="NoteImages">
+                    </ReportField>
+                    <ReportField Name="NoteText">
+                    </ReportField>
+                    <ReportField Name="OrigModule">
+                    </ReportField>
+                    <ReportField Name="OrigRefNbr">
+                    </ReportField>
+                    <ReportField Name="PIID">
+                    </ReportField>
+                    <ReportField Name="POReceiptNbr">
+                    </ReportField>
+                    <ReportField Name="POReceiptType">
+                    </ReportField>
+                    <ReportField Name="RefNbr">
+                    </ReportField>
+                    <ReportField Name="Released">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="Selected">
+                        <DataType>Boolean</DataType>
+                    </ReportField>
+                    <ReportField Name="SiteID">
+                    </ReportField>
+                    <ReportField Name="SiteID_description">
+                    </ReportField>
+                    <ReportField Name="SiteID_INSite_descr">
+                    </ReportField>
+                    <ReportField Name="SiteID_Segment1">
+                    </ReportField>
+                    <ReportField Name="SOOrderNbr">
+                    </ReportField>
+                    <ReportField Name="SOOrderType">
+                    </ReportField>
+                    <ReportField Name="SOShipmentNbr">
+                    </ReportField>
+                    <ReportField Name="SOShipmentType">
+                    </ReportField>
+                    <ReportField Name="SrcDocType">
+                    </ReportField>
+                    <ReportField Name="SrcRefNbr">
+                    </ReportField>
+                    <ReportField Name="Status">
+                    </ReportField>
+                    <ReportField Name="ToSiteID">
+                    </ReportField>
+                    <ReportField Name="ToSiteID_description">
+                    </ReportField>
+                    <ReportField Name="ToSiteID_INSite_descr">
+                    </ReportField>
+                    <ReportField Name="ToSiteID_Segment1">
+                    </ReportField>
+                    <ReportField Name="TotalAmount">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="TotalCost">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="TotalQty">
+                        <DataType>Decimal</DataType>
+                    </ReportField>
+                    <ReportField Name="TranDate">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="TranDate_Day">
+                    </ReportField>
+                    <ReportField Name="TranDate_Hour">
+                    </ReportField>
+                    <ReportField Name="TranDate_Month">
+                    </ReportField>
+                    <ReportField Name="TranDate_Quarter">
+                    </ReportField>
+                    <ReportField Name="TranDesc">
+                    </ReportField>
+                    <ReportField Name="TranPeriodID">
+                    </ReportField>
+                    <ReportField Name="TransferNbr">
+                    </ReportField>
+                    <ReportField Name="TransferType">
+                    </ReportField>
+                    <ReportField Name="tstamp">
+                    </ReportField>
+                    <ReportField Name="UsrPrintCount">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                </Fields>
+                <FullName>PX.Objects.IN.INRegister</FullName>
             </ReportTable>
         </Tables>
         <Sections>
