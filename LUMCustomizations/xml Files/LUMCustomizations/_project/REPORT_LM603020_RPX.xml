@@ -60,6 +60,10 @@
                         <ChildField>@AttributeID</ChildField>
                         <ParentField>AMProdAttribute.AttributeID</ParentField>
                     </RelationRow>
+                    <RelationRow>
+                        <ChildField>AMProdAttribute.OrderType</ChildField>
+                        <ParentField>AMMTran.OrderType</ParentField>
+                    </RelationRow>
                 </Links>
                 <ParentName>AMMTran</ParentName>
             </ReportRelation>
@@ -82,7 +86,7 @@
                 <ParentName>AMMTran</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
+        <SchemaUrl>https://abamedical.acumatica.com/</SchemaUrl>
         <Tables>
             <ReportTable Name="AMBatch">
                 <Fields>
