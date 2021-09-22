@@ -1,16 +1,14 @@
-<Report Name="po631000.rpx">
+﻿<Report Name="po630500.rpx">
     <Report Name="report1">
         <ExcelColumns>
             <item>7</item>
             <item>15</item>
             <item>7</item>
             <item>15</item>
-            <item>6</item>
-            <item>9</item>
-            <item>10</item>
-            <item>6</item>
-            <item>10</item>
-            <item>10</item>
+            <item>16</item>
+            <item>12</item>
+            <item>15</item>
+            <item>12</item>
             <item>10</item>
             <item>10</item>
             <item>10</item>
@@ -103,6 +101,7 @@
             <FilterExp>
                 <DataField>POAccrualStatus.LineType</DataField>
                 <OpenBraces>1</OpenBraces>
+                <Operator>Or</Operator>
                 <Value>='NM'</Value>
             </FilterExp>
             <FilterExp>
@@ -128,6 +127,10 @@
                 <DataField>@AccountID</DataField>
             </FilterExp>
             <FilterExp>
+                <Condition>IsNotNull</Condition>
+                <DataField>POAccrualStatus.AcctID</DataField>
+            </FilterExp>
+            <FilterExp>
                 <DataField>POAccrualStatus.SubID</DataField>
                 <OpenBraces>1</OpenBraces>
                 <Operator>Or</Operator>
@@ -137,10 +140,6 @@
                 <CloseBraces>1</CloseBraces>
                 <Condition>IsNull</Condition>
                 <DataField>@SubID</DataField>
-            </FilterExp>
-            <FilterExp>
-                <Condition>IsNotNull</Condition>
-                <DataField>POAccrualStatus.AcctID</DataField>
             </FilterExp>
         </Filters>
         <GridSize>4px, 4px</GridSize>
@@ -234,17 +233,6 @@
                     <RelationRow>
                         <ChildField>BAccountID</ChildField>
                         <ParentField>VendorID</ParentField>
-                    </RelationRow>
-                </Links>
-                <ParentName>POAccrualStatus</ParentName>
-            </ReportRelation>
-            <ReportRelation>
-                <ChildAlias>PayToVendor</ChildAlias>
-                <ChildName>BAccount</ChildName>
-                <Links>
-                    <RelationRow>
-                        <ChildField>BAccountID</ChildField>
-                        <ParentField>PayToVendorID</ParentField>
                     </RelationRow>
                 </Links>
                 <ParentName>POAccrualStatus</ParentName>
@@ -3581,11 +3569,11 @@
                         <Location>4px, 0px</Location>
                         <Size>332px, 18px</Size>
                         <StyleName>Report Name</StyleName>
-                        <Value>Purchase Accrual Details</Value>
+                        <Value>Purchase Accrual Summary</Value>
                     </TextBox>
                     <TextBox Name="textBox64">
                         <Excel>
-                            <column>15</column>
+                            <column>13</column>
                             <row>2</row>
                             <width>2</width>
                         </Excel>
@@ -3610,7 +3598,7 @@
                     </TextBox>
                     <TextBox Name="textBox66">
                         <Excel>
-                            <column>15</column>
+                            <column>13</column>
                             <row>3</row>
                             <width>2</width>
                         </Excel>
@@ -3633,7 +3621,7 @@
                     </TextBox>
                     <TextBox Name="textBox68">
                         <Excel>
-                            <column>14</column>
+                            <column>12</column>
                             <row>3</row>
                         </Excel>
                         <Location>880px, 36px</Location>
@@ -3643,7 +3631,7 @@
                     </TextBox>
                     <TextBox Name="textBox69">
                         <Excel>
-                            <column>14</column>
+                            <column>12</column>
                             <row>2</row>
                         </Excel>
                         <Location>880px, 20px</Location>
@@ -3672,172 +3660,10 @@
                     </TextBox>
                 </Items>
             </PageHeader>
-            <Detail Name="detailsWithoutPayToVendor">
-                <Height>0.37037cm</Height>
-                <VisibleExpr>=[FeaturesSet.VendorRelations]&lt;&gt;1</VisibleExpr>
-                <Items>
-                    <TextBox Name="textBox1">
-                        <Excel>
-                            <column>4</column>
-                        </Excel>
-                        <Location>120px, 0px</Location>
-                        <NavigateMethod>Server</NavigateMethod>
-                        <Size>80px, 14px</Size>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[POReceipt.ReceiptNbr]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox20">
-                        <Excel>
-                            <column>14</column>
-                        </Excel>
-                        <Format>=[POReceiptLine.TranCost.Format]</Format>
-                        <Location>872px, 0px</Location>
-                        <Size>72px, 14px</Size>
-                        <Style>
-                            <TextAlign>Right</TextAlign>
-                        </Style>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[POAccrualStatus.BilledCost]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox22">
-                        <Excel>
-                            <column>5</column>
-                        </Excel>
-                        <Location>200px, 0px</Location>
-                        <Size>31px, 14px</Size>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[POAccrualStatus.LineNbr]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox24">
-                        <Excel>
-                            <column>7</column>
-                        </Excel>
-                        <Location>384px, 0px</Location>
-                        <Size>80px, 14px</Size>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[POAccrualStatus.InventoryID]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox4">
-                        <Excel>
-                            <column>11</column>
-                        </Excel>
-                        <Format>=[POReceiptLine.ReceiptQty.Format]</Format>
-                        <Location>648px, 0px</Location>
-                        <Size>80px, 14px</Size>
-                        <Style>
-                            <TextAlign>Right</TextAlign>
-                        </Style>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[POAccrualStatus.BaseReceivedQty]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox42">
-                        <Excel>
-                            <column>8</column>
-                        </Excel>
-                        <Location>464px, 0px</Location>
-                        <Size>40px, 14px</Size>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[InventoryItem.BaseUnit]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox43">
-                        <Excel>
-                            <column>9</column>
-                        </Excel>
-                        <Location>504px, 0px</Location>
-                        <Size>80px, 14px</Size>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[POAccrualStatus.SiteID]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox45">
-                        <Excel>
-                            <column>3</column>
-                        </Excel>
-                        <Location>72px, 0px</Location>
-                        <Size>48px, 14px</Size>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[POReceipt.ReceiptType]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox5">
-                        <Excel>
-                            <column>6</column>
-                        </Excel>
-                        <Location>304px, 0px</Location>
-                        <Size>80px, 14px</Size>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[POAccrualStatus.VendorID]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox7">
-                        <Excel>
-                            <column>13</column>
-                        </Excel>
-                        <Format>=[POReceiptLine.ReceiptQty.Format]</Format>
-                        <Location>808px, 0px</Location>
-                        <Size>64px, 14px</Size>
-                        <Style>
-                            <TextAlign>Right</TextAlign>
-                        </Style>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[POAccrualStatus.BaseBilledQty]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox73">
-                        <Excel>
-                            <column>12</column>
-                        </Excel>
-                        <Format>=[POReceiptLine.TranCost.Format]</Format>
-                        <Location>728px, 0px</Location>
-                        <Size>80px, 14px</Size>
-                        <Style>
-                            <TextAlign>Right</TextAlign>
-                        </Style>
-                        <StyleName>Normal</StyleName>
-                        <Value>=IIF([POAccrualStatus.LineType]='NM', [POAccrualStatus.ReceivedCost], [POAccrualStatus.OrigCost])</Value>
-                    </TextBox>
-                    <TextBox Name="textBox74">
-                        <Excel>
-                            <column>10</column>
-                        </Excel>
-                        <Format>=[POReceiptLine.ReceiptQty.Format]</Format>
-                        <Location>584px, 0px</Location>
-                        <Size>64px, 14px</Size>
-                        <Style>
-                            <TextAlign>Right</TextAlign>
-                        </Style>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[POAccrualStatus.BaseOrigQty]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox75">
-                        <Excel>
-                            <column>2</column>
-                        </Excel>
-                        <Location>0px, 0px</Location>
-                        <NavigateMethod>Server</NavigateMethod>
-                        <Size>72px, 14px</Size>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[POOrder.OrderNbr]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox8">
-                        <Excel>
-                            <column>15</column>
-                        </Excel>
-                        <Format>=[POReceiptLine.TranCost.Format]</Format>
-                        <Location>944px, 0px</Location>
-                        <Size>80px, 14px</Size>
-                        <Style>
-                            <TextAlign>Right</TextAlign>
-                        </Style>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[POAccrualStatus.PPVAmt]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox88">
-                        <Excel>
-                            <column>5</column>
-                        </Excel>
-                        <Location>232px, 0px</Location>
-                        <Size>72px, 14px</Size>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[POReceipt.ReceiptDate]</Value>
-                    </TextBox>
-                </Items>
+            <Detail Name="details">
+                <Expanded>False</Expanded>
+                <Height>0.21164cm</Height>
+                <Visible>False</Visible>
             </Detail>
             <ReportFooter Name="reportFooterSection1">
                 <Height>0.47619cm</Height>
@@ -3846,12 +3672,12 @@
                         <Excel>
                             <column>9</column>
                         </Excel>
-                        <Location>384px, 0px</Location>
-                        <Size>642px, 1px</Size>
+                        <Location>448px, 0px</Location>
+                        <Size>578px, 1px</Size>
                     </Line>
                     <TextBox Name="textBox35">
                         <Excel>
-                            <column>16</column>
+                            <column>14</column>
                         </Excel>
                         <Format>=[POReceiptLine.TranCost.Format]</Format>
                         <Location>944px, 1px</Location>
@@ -3864,7 +3690,7 @@
                     </TextBox>
                     <TextBox Name="textBox36">
                         <Excel>
-                            <column>14</column>
+                            <column>12</column>
                         </Excel>
                         <Format>=[POReceiptLine.ReceiptQty.Format]</Format>
                         <Location>808px, 1px</Location>
@@ -3877,7 +3703,7 @@
                     </TextBox>
                     <TextBox Name="textBox37">
                         <Excel>
-                            <column>15</column>
+                            <column>13</column>
                         </Excel>
                         <Format>=[POReceiptLine.TranCost.Format]</Format>
                         <Location>872px, 1px</Location>
@@ -3890,7 +3716,7 @@
                     </TextBox>
                     <TextBox Name="textBox38">
                         <Excel>
-                            <column>12</column>
+                            <column>10</column>
                         </Excel>
                         <Format>=[POReceiptLine.ReceiptQty.Format]</Format>
                         <Location>648px, 1px</Location>
@@ -3903,16 +3729,16 @@
                     </TextBox>
                     <TextBox Name="textBox39">
                         <Excel>
-                            <column>10</column>
+                            <column>8</column>
                         </Excel>
-                        <Location>384px, 1px</Location>
-                        <Size>120px, 14px</Size>
+                        <Location>448px, 1px</Location>
+                        <Size>136px, 14px</Size>
                         <StyleName>Heading 1</StyleName>
                         <Value>Total:</Value>
                     </TextBox>
                     <TextBox Name="textBox83">
                         <Excel>
-                            <column>13</column>
+                            <column>11</column>
                         </Excel>
                         <Format>=[POReceiptLine.TranCost.Format]</Format>
                         <Location>728px, 1px</Location>
@@ -3925,7 +3751,7 @@
                     </TextBox>
                     <TextBox Name="textBox85">
                         <Excel>
-                            <column>11</column>
+                            <column>9</column>
                         </Excel>
                         <Format>=[POReceiptLine.ReceiptQty.Format]</Format>
                         <Location>584px, 1px</Location>
@@ -3962,182 +3788,6 @@
                     </TextBox>
                 </Items>
             </PageHeader>
-            <Detail Name="detailsWithPayToVendor">
-                <Height>0.37037cm</Height>
-                <VisibleExpr>=[FeaturesSet.VendorRelations]=1</VisibleExpr>
-                <Items>
-                    <TextBox Name="textBox48">
-                        <Excel>
-                            <column>16</column>
-                        </Excel>
-                        <Format>=[POReceiptLine.TranCost.Format]</Format>
-                        <Location>944px, 0px</Location>
-                        <Size>80px, 14px</Size>
-                        <Style>
-                            <TextAlign>Right</TextAlign>
-                        </Style>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[POAccrualStatus.PPVAmt]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox49">
-                        <Excel>
-                            <column>14</column>
-                        </Excel>
-                        <Format>=[POReceiptLine.ReceiptQty.Format]</Format>
-                        <Location>808px, 0px</Location>
-                        <Size>64px, 14px</Size>
-                        <Style>
-                            <TextAlign>Right</TextAlign>
-                        </Style>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[POAccrualStatus.BaseBilledQty]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox50">
-                        <Excel>
-                            <column>6</column>
-                        </Excel>
-                        <Location>264px, 0px</Location>
-                        <Size>72px, 14px</Size>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[POAccrualStatus.VendorID]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox51">
-                        <Excel>
-                            <column>2</column>
-                        </Excel>
-                        <Location>72px, 0px</Location>
-                        <Size>40px, 14px</Size>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[POReceipt.ReceiptType]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox52">
-                        <Excel>
-                            <column>10</column>
-                        </Excel>
-                        <Location>520px, 0px</Location>
-                        <Size>64px, 14px</Size>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[POAccrualStatus.SiteID]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox53">
-                        <Excel>
-                            <column>9</column>
-                        </Excel>
-                        <Location>488px, 0px</Location>
-                        <Size>32px, 14px</Size>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[InventoryItem.BaseUnit]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox54">
-                        <Excel>
-                            <column>12</column>
-                        </Excel>
-                        <Format>=[POReceiptLine.ReceiptQty.Format]</Format>
-                        <Location>648px, 0px</Location>
-                        <Size>80px, 14px</Size>
-                        <Style>
-                            <TextAlign>Right</TextAlign>
-                        </Style>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[POAccrualStatus.BaseReceivedQty]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox55">
-                        <Excel>
-                            <column>8</column>
-                        </Excel>
-                        <Location>416px, 0px</Location>
-                        <Size>72px, 14px</Size>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[POAccrualStatus.InventoryID]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox56">
-                        <Excel>
-                            <column>5</column>
-                        </Excel>
-                        <Location>176px, 0px</Location>
-                        <Size>32px, 14px</Size>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[POAccrualStatus.LineNbr]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox57">
-                        <Excel>
-                            <column>15</column>
-                        </Excel>
-                        <Format>=[POReceiptLine.TranCost.Format]</Format>
-                        <Location>872px, 0px</Location>
-                        <Size>72px, 14px</Size>
-                        <Style>
-                            <TextAlign>Right</TextAlign>
-                        </Style>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[POAccrualStatus.BilledCost]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox58">
-                        <Excel>
-                            <column>4</column>
-                        </Excel>
-                        <Location>112px, 0px</Location>
-                        <NavigateMethod>Server</NavigateMethod>
-                        <Size>64px, 14px</Size>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[POReceipt.ReceiptNbr]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox60">
-                        <Excel>
-                            <column>7</column>
-                        </Excel>
-                        <Location>336px, 0px</Location>
-                        <Size>80px, 14px</Size>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[Vendor.AcctName]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox79">
-                        <Excel>
-                            <column>13</column>
-                        </Excel>
-                        <Format>=[POReceiptLine.TranCost.Format]</Format>
-                        <Location>728px, 0px</Location>
-                        <Size>80px, 14px</Size>
-                        <Style>
-                            <TextAlign>Right</TextAlign>
-                        </Style>
-                        <StyleName>Normal</StyleName>
-                        <Value>=IIF([POAccrualStatus.LineType]='NM', [POAccrualStatus.ReceivedCost], [POAccrualStatus.OrigCost])</Value>
-                    </TextBox>
-                    <TextBox Name="textBox80">
-                        <Excel>
-                            <column>11</column>
-                        </Excel>
-                        <Format>=[POReceiptLine.ReceiptQty.Format]</Format>
-                        <Location>584px, 0px</Location>
-                        <Size>64px, 14px</Size>
-                        <Style>
-                            <TextAlign>Right</TextAlign>
-                        </Style>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[POAccrualStatus.BaseOrigQty]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox81">
-                        <Excel>
-                            <column>2</column>
-                        </Excel>
-                        <Location>0px, 0px</Location>
-                        <NavigateMethod>Server</NavigateMethod>
-                        <Size>72px, 14px</Size>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[POOrder.OrderNbr]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox89">
-                        <Excel>
-                            <column>5</column>
-                        </Excel>
-                        <Location>208px, 0px</Location>
-                        <Size>56px, 14px</Size>
-                        <StyleName>Normal</StyleName>
-                        <Value>=[POReceipt.ReceiptDate]</Value>
-                    </TextBox>
-                </Items>
-            </Detail>
         </Sections>
         <Items />
         <Groups>
@@ -4177,34 +3827,14 @@
                             </TextBox>
                         </Items>
                     </Header>
-                    <Header Name="groupHeaderWithoutPayToVendor">
+                    <Header Name="groupHeader">
                         <GridSize>8px, 8px</GridSize>
                         <Height>0.5291cm</Height>
                         <StyleName>GroupL1Highlight</StyleName>
-                        <VisibleExpr>=[FeaturesSet.VendorRelations]&lt;&gt;1</VisibleExpr>
                         <Items>
-                            <TextBox Name="textBox10">
-                                <Excel>
-                                    <column>7</column>
-                                </Excel>
-                                <Location>384px, 4px</Location>
-                                <Size>80px, 14px</Size>
-                                <StyleName>Heading 1</StyleName>
-                                <Value>Inventory ID</Value>
-                            </TextBox>
-                            <TextBox Name="textBox15">
-                                <Excel>
-                                    <column>3</column>
-                                    <width>2</width>
-                                </Excel>
-                                <Location>232px, 4px</Location>
-                                <Size>72px, 14px</Size>
-                                <StyleName>Heading 1</StyleName>
-                                <Value>Receipt Date.</Value>
-                            </TextBox>
                             <TextBox Name="textBox16">
                                 <Excel>
-                                    <column>13</column>
+                                    <column>12</column>
                                 </Excel>
                                 <Location>808px, 4px</Location>
                                 <Size>64px, 14px</Size>
@@ -4216,7 +3846,7 @@
                             </TextBox>
                             <TextBox Name="textBox17">
                                 <Excel>
-                                    <column>12</column>
+                                    <column>11</column>
                                 </Excel>
                                 <Location>728px, 4px</Location>
                                 <Size>80px, 14px</Size>
@@ -4228,7 +3858,7 @@
                             </TextBox>
                             <TextBox Name="textBox18">
                                 <Excel>
-                                    <column>11</column>
+                                    <column>10</column>
                                 </Excel>
                                 <Location>648px, 4px</Location>
                                 <Size>80px, 14px</Size>
@@ -4240,12 +3870,12 @@
                             </TextBox>
                             <TextBox Name="textBox2">
                                 <Excel>
-                                    <column>5</column>
+                                    <column>7</column>
                                 </Excel>
-                                <Location>200px, 4px</Location>
-                                <Size>32px, 14px</Size>
+                                <Location>384px, 4px</Location>
+                                <Size>120px, 14px</Size>
                                 <StyleName>Heading 1</StyleName>
-                                <Value>Line Nbr.</Value>
+                                <Value>Vendor Name</Value>
                             </TextBox>
                             <TextBox Name="textBox28">
                                 <Excel>
@@ -4256,19 +3886,28 @@
                                 <StyleName>Heading 1</StyleName>
                                 <Value>Vendor ID</Value>
                             </TextBox>
+                            <TextBox Name="textBox3">
+                                <Excel>
+                                    <column>5</column>
+                                </Excel>
+                                <Location>240px, 4px</Location>
+                                <Size>64px, 14px</Size>
+                                <StyleName>Heading 1</StyleName>
+                                <Value>Date</Value>
+                            </TextBox>
                             <TextBox Name="textBox31">
                                 <Excel>
                                     <column>3</column>
                                     <width>2</width>
                                 </Excel>
-                                <Location>72px, 4px</Location>
+                                <Location>112px, 4px</Location>
                                 <Size>128px, 14px</Size>
                                 <StyleName>Heading 1</StyleName>
                                 <Value>Receipt Nbr.</Value>
                             </TextBox>
                             <TextBox Name="textBox32">
                                 <Excel>
-                                    <column>15</column>
+                                    <column>14</column>
                                 </Excel>
                                 <Location>944px, 4px</Location>
                                 <Size>80px, 14px</Size>
@@ -4278,18 +3917,9 @@
                                 <StyleName>Heading 1</StyleName>
                                 <Value>PPV Amount</Value>
                             </TextBox>
-                            <TextBox Name="textBox40">
-                                <Excel>
-                                    <column>8</column>
-                                </Excel>
-                                <Location>464px, 4px</Location>
-                                <Size>40px, 14px</Size>
-                                <StyleName>Heading 1</StyleName>
-                                <Value>UOM</Value>
-                            </TextBox>
                             <TextBox Name="textBox41">
                                 <Excel>
-                                    <column>9</column>
+                                    <column>8</column>
                                 </Excel>
                                 <Location>504px, 4px</Location>
                                 <Size>80px, 14px</Size>
@@ -4298,7 +3928,7 @@
                             </TextBox>
                             <TextBox Name="textBox61">
                                 <Excel>
-                                    <column>14</column>
+                                    <column>13</column>
                                 </Excel>
                                 <Location>872px, 4px</Location>
                                 <Size>72px, 14px</Size>
@@ -4310,7 +3940,7 @@
                             </TextBox>
                             <TextBox Name="textBox62">
                                 <Excel>
-                                    <column>10</column>
+                                    <column>9</column>
                                 </Excel>
                                 <Location>584px, 4px</Location>
                                 <Size>64px, 14px</Size>
@@ -4325,170 +3955,7 @@
                                     <width>2</width>
                                 </Excel>
                                 <Location>0px, 4px</Location>
-                                <Size>72px, 14px</Size>
-                                <StyleName>Heading 1</StyleName>
-                                <Value>PO Nbr.</Value>
-                            </TextBox>
-                        </Items>
-                    </Header>
-                    <Header Name="groupHeaderWithPayToVendor">
-                        <GridSize>8px, 8px</GridSize>
-                        <Height>0.5291cm</Height>
-                        <StyleName>GroupL1Highlight</StyleName>
-                        <VisibleExpr>=[FeaturesSet.VendorRelations]=1</VisibleExpr>
-                        <Items>
-                            <TextBox Name="textBox13">
-                                <Excel>
-                                    <column>16</column>
-                                </Excel>
-                                <Location>944px, 4px</Location>
-                                <Size>80px, 14px</Size>
-                                <Style>
-                                    <TextAlign>Right</TextAlign>
-                                </Style>
-                                <StyleName>Heading 1</StyleName>
-                                <Value>PPV Amount</Value>
-                            </TextBox>
-                            <TextBox Name="textBox21">
-                                <Excel>
-                                    <column>6</column>
-                                </Excel>
-                                <Location>264px, 4px</Location>
-                                <Size>72px, 14px</Size>
-                                <StyleName>Heading 1</StyleName>
-                                <Value>Vendor ID</Value>
-                            </TextBox>
-                            <TextBox Name="textBox23">
-                                <Excel>
-                                    <column>5</column>
-                                </Excel>
-                                <Location>176px, 4px</Location>
-                                <Size>32px, 14px</Size>
-                                <StyleName>Heading 1</StyleName>
-                                <Value>Line Nbr.</Value>
-                            </TextBox>
-                            <TextBox Name="textBox29">
-                                <Excel>
-                                    <column>12</column>
-                                </Excel>
-                                <Location>648px, 4px</Location>
-                                <Size>80px, 14px</Size>
-                                <Style>
-                                    <TextAlign>Right</TextAlign>
-                                </Style>
-                                <StyleName>Heading 1</StyleName>
-                                <Value>Received Qty.</Value>
-                            </TextBox>
-                            <TextBox Name="textBox3">
-                                <Excel>
-                                    <column>10</column>
-                                </Excel>
-                                <Location>520px, 4px</Location>
-                                <Size>64px, 14px</Size>
-                                <StyleName>Heading 1</StyleName>
-                                <Value>Warehouse</Value>
-                            </TextBox>
-                            <TextBox Name="textBox30">
-                                <Excel>
-                                    <column>13</column>
-                                </Excel>
-                                <Location>728px, 4px</Location>
-                                <Size>80px, 14px</Size>
-                                <Style>
-                                    <TextAlign>Right</TextAlign>
-                                </Style>
-                                <StyleName>Heading 1</StyleName>
-                                <Value>Received Cost</Value>
-                            </TextBox>
-                            <TextBox Name="textBox44">
-                                <Excel>
-                                    <column>14</column>
-                                </Excel>
-                                <Location>808px, 4px</Location>
-                                <Size>64px, 14px</Size>
-                                <Style>
-                                    <TextAlign>Right</TextAlign>
-                                </Style>
-                                <StyleName>Heading 1</StyleName>
-                                <Value>Billed Qty.</Value>
-                            </TextBox>
-                            <TextBox Name="textBox46">
-                                <Excel>
-                                    <column>3</column>
-                                    <width>2</width>
-                                </Excel>
-                                <Location>72px, 4px</Location>
-                                <Size>104px, 14px</Size>
-                                <StyleName>Heading 1</StyleName>
-                                <Value>Receipt Nbr.</Value>
-                            </TextBox>
-                            <TextBox Name="textBox47">
-                                <Excel>
-                                    <column>8</column>
-                                </Excel>
-                                <Location>416px, 4px</Location>
-                                <Size>72px, 14px</Size>
-                                <StyleName>Heading 1</StyleName>
-                                <Value>Inventory ID</Value>
-                            </TextBox>
-                            <TextBox Name="textBox59">
-                                <Excel>
-                                    <column>7</column>
-                                </Excel>
-                                <Location>336px, 4px</Location>
-                                <Size>80px, 14px</Size>
-                                <StyleName>Heading 1</StyleName>
-                                <Value>Vendor Name</Value>
-                            </TextBox>
-                            <TextBox Name="textBox6">
-                                <Excel>
-                                    <column>9</column>
-                                </Excel>
-                                <Location>488px, 4px</Location>
-                                <Size>32px, 14px</Size>
-                                <StyleName>Heading 1</StyleName>
-                                <Value>UOM</Value>
-                            </TextBox>
-                            <TextBox Name="textBox76">
-                                <Excel>
-                                    <column>15</column>
-                                </Excel>
-                                <Location>872px, 4px</Location>
-                                <Size>72px, 14px</Size>
-                                <Style>
-                                    <TextAlign>Right</TextAlign>
-                                </Style>
-                                <StyleName>Heading 1</StyleName>
-                                <Value>Billed Cost</Value>
-                            </TextBox>
-                            <TextBox Name="textBox77">
-                                <Excel>
-                                    <column>11</column>
-                                </Excel>
-                                <Location>584px, 4px</Location>
-                                <Size>64px, 14px</Size>
-                                <Style>
-                                    <TextAlign>Right</TextAlign>
-                                </Style>
-                                <StyleName>Heading 1</StyleName>
-                                <Value>Order Qty.</Value>
-                            </TextBox>
-                            <TextBox Name="textBox78">
-                                <Excel>
-                                    <column>3</column>
-                                    <width>2</width>
-                                </Excel>
-                                <Location>208px, 4px</Location>
-                                <Size>56px, 14px</Size>
-                                <StyleName>Heading 1</StyleName>
-                                <Value>Receipt Date.</Value>
-                            </TextBox>
-                            <TextBox Name="textBox87">
-                                <Excel>
-                                    <width>2</width>
-                                </Excel>
-                                <Location>0px, 4px</Location>
-                                <Size>72px, 14px</Size>
+                                <Size>112px, 14px</Size>
                                 <StyleName>Heading 1</StyleName>
                                 <Value>PO Nbr.</Value>
                             </TextBox>
@@ -4554,22 +4021,36 @@
                                 <Excel>
                                     <column>9</column>
                                 </Excel>
-                                <Location>384px, 0px</Location>
-                                <Size>642px, 1px</Size>
+                                <Location>448px, 0px</Location>
+                                <Size>578px, 1px</Size>
                             </Line>
-                            <TextBox Name="textBox19">
+                            <TextBox Name="textBox13">
                                 <Excel>
-                                    <column>10</column>
+                                    <column>8</column>
                                     <row>2</row>
                                 </Excel>
-                                <Location>384px, 16px</Location>
-                                <Size>120px, 14px</Size>
+                                <Location>448px, 16px</Location>
+                                <Size>136px, 14px</Size>
                                 <StyleName>Heading 1</StyleName>
                                 <Value>Balance</Value>
                             </TextBox>
+                            <TextBox Name="textBox15">
+                                <Excel>
+                                    <column>14</column>
+                                    <row>2</row>
+                                </Excel>
+                                <Format>=[POReceiptLine.TranCost.Format]</Format>
+                                <Location>944px, 16px</Location>
+                                <Size>80px, 14px</Size>
+                                <Style>
+                                    <TextAlign>Right</TextAlign>
+                                </Style>
+                                <StyleName>Normal</StyleName>
+                                <Value>=$BilledCost+$PPVAmt-$ReceivedCost</Value>
+                            </TextBox>
                             <TextBox Name="textBox25">
                                 <Excel>
-                                    <column>16</column>
+                                    <column>14</column>
                                 </Excel>
                                 <Format>=[POReceiptLine.TranCost.Format]</Format>
                                 <Location>944px, 1px</Location>
@@ -4582,7 +4063,7 @@
                             </TextBox>
                             <TextBox Name="textBox26">
                                 <Excel>
-                                    <column>14</column>
+                                    <column>12</column>
                                 </Excel>
                                 <Format>=[POReceiptLine.ReceiptQty.Format]</Format>
                                 <Location>808px, 1px</Location>
@@ -4595,7 +4076,7 @@
                             </TextBox>
                             <TextBox Name="textBox27">
                                 <Excel>
-                                    <column>15</column>
+                                    <column>13</column>
                                 </Excel>
                                 <Format>=[POReceiptLine.TranCost.Format]</Format>
                                 <Location>872px, 1px</Location>
@@ -4608,7 +4089,7 @@
                             </TextBox>
                             <TextBox Name="textBox33">
                                 <Excel>
-                                    <column>12</column>
+                                    <column>10</column>
                                 </Excel>
                                 <Format>=[POReceiptLine.ReceiptQty.Format]</Format>
                                 <Location>648px, 1px</Location>
@@ -4621,30 +4102,16 @@
                             </TextBox>
                             <TextBox Name="textBox34">
                                 <Excel>
-                                    <column>10</column>
+                                    <column>8</column>
                                 </Excel>
-                                <Location>384px, 1px</Location>
-                                <Size>200px, 14px</Size>
+                                <Location>448px, 1px</Location>
+                                <Size>136px, 14px</Size>
                                 <StyleName>Heading 1</StyleName>
                                 <Value>=Format('Subtotal {0}-{1}', [Account.AccountCD], [Sub.SubCD])</Value>
                             </TextBox>
-                            <TextBox Name="textBox72">
-                                <Excel>
-                                    <column>16</column>
-                                    <row>2</row>
-                                </Excel>
-                                <Format>=[POReceiptLine.TranCost.Format]</Format>
-                                <Location>944px, 16px</Location>
-                                <Size>80px, 14px</Size>
-                                <Style>
-                                    <TextAlign>Right</TextAlign>
-                                </Style>
-                                <StyleName>Normal</StyleName>
-                                <Value>=$BilledCost+$PPVAmt-$ReceivedCost</Value>
-                            </TextBox>
                             <TextBox Name="textBox82">
                                 <Excel>
-                                    <column>13</column>
+                                    <column>11</column>
                                 </Excel>
                                 <Format>=[POReceiptLine.TranCost.Format]</Format>
                                 <Location>728px, 1px</Location>
@@ -4657,7 +4124,7 @@
                             </TextBox>
                             <TextBox Name="textBox84">
                                 <Excel>
-                                    <column>11</column>
+                                    <column>9</column>
                                 </Excel>
                                 <Format>=[POReceiptLine.ReceiptQty.Format]</Format>
                                 <Location>584px, 1px</Location>
@@ -4676,6 +4143,185 @@
                         </ExcelMargin>
                         <GridSize>8px, 8px</GridSize>
                         <Height>0.18519cm</Height>
+                        <Visible>False</Visible>
+                    </Footer>
+                </Footers>
+            </Group>
+            <Group Name="groupOrderReceipt">
+                <Grouping>
+                    <GroupExp>
+                        <DataField>=[POAccrualStatus.OrderType]</DataField>
+                    </GroupExp>
+                    <GroupExp>
+                        <DataField>=[POAccrualStatus.OrderNbr]</DataField>
+                    </GroupExp>
+                    <GroupExp>
+                        <DataField>=[POAccrualStatus.ReceiptNbr]</DataField>
+                    </GroupExp>
+                </Grouping>
+                <Headers>
+                    <Header Name="groupHeaderSection2">
+                        <Expanded>False</Expanded>
+                        <GridSize>8px, 8px</GridSize>
+                        <Height>0.21164cm</Height>
+                        <Visible>False</Visible>
+                    </Header>
+                </Headers>
+                <Footers>
+                    <Footer Name="groupFooterSection3">
+                        <GridSize>8px, 8px</GridSize>
+                        <Height>0.42328cm</Height>
+                        <Items>
+                            <TextBox Name="textBox1">
+                                <Excel>
+                                    <column>4</column>
+                                </Excel>
+                                <Location>160px, 0px</Location>
+                                <NavigateMethod>Server</NavigateMethod>
+                                <Size>80px, 14px</Size>
+                                <StyleName>Normal</StyleName>
+                                <Value>=[POReceipt.ReceiptNbr]</Value>
+                            </TextBox>
+                            <TextBox Name="textBox10">
+                                <Excel>
+                                    <column>7</column>
+                                </Excel>
+                                <Location>384px, 0px</Location>
+                                <Size>120px, 14px</Size>
+                                <StyleName>Normal</StyleName>
+                                <Value>=[BAccount.AcctName]</Value>
+                            </TextBox>
+                            <TextBox Name="textBox20">
+                                <Excel>
+                                    <column>13</column>
+                                </Excel>
+                                <Format>=[POReceiptLine.TranCost.Format]</Format>
+                                <Location>872px, 0px</Location>
+                                <Size>72px, 14px</Size>
+                                <Style>
+                                    <TextAlign>Right</TextAlign>
+                                </Style>
+                                <StyleName>Normal</StyleName>
+                                <Value>=Sum([POAccrualStatus.BilledCost])</Value>
+                            </TextBox>
+                            <TextBox Name="textBox4">
+                                <Excel>
+                                    <column>10</column>
+                                </Excel>
+                                <Format>=[POReceiptLine.ReceiptQty.Format]</Format>
+                                <Location>648px, 0px</Location>
+                                <Size>80px, 14px</Size>
+                                <Style>
+                                    <TextAlign>Right</TextAlign>
+                                </Style>
+                                <StyleName>Normal</StyleName>
+                                <Value>=Sum([POAccrualStatus.BaseReceivedQty])</Value>
+                            </TextBox>
+                            <TextBox Name="textBox43">
+                                <Excel>
+                                    <column>8</column>
+                                </Excel>
+                                <Location>504px, 0px</Location>
+                                <Size>80px, 14px</Size>
+                                <StyleName>Normal</StyleName>
+                                <Value>=[POAccrualStatus.SiteID]</Value>
+                            </TextBox>
+                            <TextBox Name="textBox45">
+                                <Excel>
+                                    <column>3</column>
+                                </Excel>
+                                <Location>112px, 0px</Location>
+                                <Size>48px, 14px</Size>
+                                <StyleName>Normal</StyleName>
+                                <Value>=[POReceipt.ReceiptType]</Value>
+                            </TextBox>
+                            <TextBox Name="textBox5">
+                                <Excel>
+                                    <column>6</column>
+                                </Excel>
+                                <Location>304px, 0px</Location>
+                                <Size>80px, 14px</Size>
+                                <StyleName>Normal</StyleName>
+                                <Value>=[POAccrualStatus.VendorID]</Value>
+                            </TextBox>
+                            <TextBox Name="textBox6">
+                                <Excel>
+                                    <column>5</column>
+                                </Excel>
+                                <Location>240px, 0px</Location>
+                                <Size>63px, 14px</Size>
+                                <StyleName>Normal</StyleName>
+                                <Value>= IsNull([POReceipt.ReceiptDate], [POOrder.OrderDate])</Value>
+                            </TextBox>
+                            <TextBox Name="textBox7">
+                                <Excel>
+                                    <column>12</column>
+                                </Excel>
+                                <Format>=[POReceiptLine.ReceiptQty.Format]</Format>
+                                <Location>808px, 0px</Location>
+                                <Size>64px, 14px</Size>
+                                <Style>
+                                    <TextAlign>Right</TextAlign>
+                                </Style>
+                                <StyleName>Normal</StyleName>
+                                <Value>=Sum([POAccrualStatus.BaseBilledQty])</Value>
+                            </TextBox>
+                            <TextBox Name="textBox73">
+                                <Excel>
+                                    <column>11</column>
+                                </Excel>
+                                <Format>=[POReceiptLine.TranCost.Format]</Format>
+                                <Location>728px, 0px</Location>
+                                <Size>80px, 14px</Size>
+                                <Style>
+                                    <TextAlign>Right</TextAlign>
+                                </Style>
+                                <StyleName>Normal</StyleName>
+                                <Value>=Sum([POAccrualStatus.ReceivedCost])</Value>
+                            </TextBox>
+                            <TextBox Name="textBox74">
+                                <Excel>
+                                    <column>9</column>
+                                </Excel>
+                                <Format>=[POReceiptLine.ReceiptQty.Format]</Format>
+                                <Location>584px, 0px</Location>
+                                <Size>64px, 14px</Size>
+                                <Style>
+                                    <TextAlign>Right</TextAlign>
+                                </Style>
+                                <StyleName>Normal</StyleName>
+                                <Value>=Sum([POAccrualStatus.BaseOrigQty])</Value>
+                            </TextBox>
+                            <TextBox Name="textBox75">
+                                <Excel>
+                                    <column>2</column>
+                                </Excel>
+                                <Location>40px, 0px</Location>
+                                <NavigateMethod>Server</NavigateMethod>
+                                <Size>72px, 14px</Size>
+                                <StyleName>Normal</StyleName>
+                                <Value>=[POOrder.OrderNbr]</Value>
+                            </TextBox>
+                            <TextBox Name="textBox8">
+                                <Excel>
+                                    <column>14</column>
+                                </Excel>
+                                <Format>=[POReceiptLine.TranCost.Format]</Format>
+                                <Location>944px, 0px</Location>
+                                <Size>80px, 14px</Size>
+                                <Style>
+                                    <TextAlign>Right</TextAlign>
+                                </Style>
+                                <StyleName>Normal</StyleName>
+                                <Value>=Sum([POAccrualStatus.PPVAmt])</Value>
+                            </TextBox>
+                            <TextBox Name="textBox88">
+                                <Location>0px, 0px</Location>
+                                <Size>40px, 14px</Size>
+                                <StyleName>Normal</StyleName>
+                                <Value>=[POOrder.OrderType]</Value>
+                            </TextBox>
+                        </Items>
                     </Footer>
                 </Footers>
             </Group>
