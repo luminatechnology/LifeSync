@@ -31,6 +31,22 @@
         <GridSize>4px, 4px</GridSize>
         <MailSettings>
             <ActivitySource>AMProdItem.NoteID</ActivitySource>
+            <Bcc>
+            </Bcc>
+            <Body>
+            </Body>
+            <Cc>
+            </Cc>
+            <Format>
+            </Format>
+            <ParentSource>
+            </ParentSource>
+            <Subject>
+            </Subject>
+            <TemplateID>
+            </TemplateID>
+            <To>
+            </To>
         </MailSettings>
         <PageSettings>
             <Margins>
@@ -129,28 +145,6 @@
                 <ParentName>AMProdItem</ParentName>
             </ReportRelation>
             <ReportRelation>
-                <ChildName>INItemXRef</ChildName>
-                <Links>
-                    <RelationRow>
-                        <ChildField>InventoryID</ChildField>
-                        <ParentField>SOLine.InventoryID</ParentField>
-                    </RelationRow>
-                    <RelationRow>
-                        <ChildField>AlternateType</ChildField>
-                        <ParentField>='0CPN'</ParentField>
-                    </RelationRow>
-                    <RelationRow>
-                        <ChildField>BAccountID</ChildField>
-                        <ParentField>SOLine.CustomerID</ParentField>
-                    </RelationRow>
-                    <RelationRow>
-                        <ChildField>UOM</ChildField>
-                        <ParentField>SOLine.UOM</ParentField>
-                    </RelationRow>
-                </Links>
-                <ParentName>SOLine</ParentName>
-            </ReportRelation>
-            <ReportRelation>
                 <ChildName>SOOrder</ChildName>
                 <Links>
                     <RelationRow>
@@ -176,7 +170,7 @@
                 <ParentName>AMProdMatl</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>https://abamedical.acumatica.com/</SchemaUrl>
+        <SchemaUrl>http://localhost/ABA_AcumaticaDB1/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>AMProdItem.OrderType</DataField>
@@ -3945,7 +3939,6 @@
         </ViewerFields>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
-                <GridSize>8px, 8px</GridSize>
                 <Height>5.29101cm</Height>
                 <Items>
                     <Panel Name="panel1">
@@ -4038,7 +4031,7 @@
                                 <Location>64px, 80px</Location>
                                 <Size>312px, 16px</Size>
                                 <StyleName>ChineseFont</StyleName>
-                                <Value>=IIF([SOLine.AlternateID] = null, [INItemXRef.AlternateID], [SOLine.AlternateID])</Value>
+                                <Value>=[SOLine.AlternateID]</Value>
                             </TextBox>
                             <TextBox Name="textBox22">
                                 <Location>64px, 104px</Location>
@@ -4213,7 +4206,6 @@
                 </Items>
             </PageHeader>
             <Detail Name="detailSection1">
-                <GridSize>8px, 8px</GridSize>
                 <Height>0.84656cm</Height>
                 <Variables>
                     <ReportVariable>
@@ -4435,12 +4427,10 @@
                 </Items>
             </Detail>
             <PageFooter Name="pageFooterSection1">
-                <GridSize>8px, 8px</GridSize>
                 <Height>0px</Height>
                 <Visible>False</Visible>
             </PageFooter>
             <ReportFooter Name="reportFooterSection1">
-                <GridSize>8px, 8px</GridSize>
                 <Height>0.42328cm</Height>
                 <PrintAtBottom>True</PrintAtBottom>
                 <Items>
