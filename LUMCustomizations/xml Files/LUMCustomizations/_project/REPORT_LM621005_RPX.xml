@@ -49,6 +49,63 @@
                 <DataField>@BatchNbr</DataField>
             </FilterExp>
             <FilterExp>
+                <DataField>GLTran.CreatedByID</DataField>
+                <OpenBraces>1</OpenBraces>
+                <Operator>Or</Operator>
+                <Value>@CreatedUser</Value>
+            </FilterExp>
+            <FilterExp>
+                <CloseBraces>1</CloseBraces>
+                <Condition>IsNull</Condition>
+                <DataField>@CreatedUser</DataField>
+            </FilterExp>
+            <FilterExp>
+                <DataField>GLTran.Module</DataField>
+                <OpenBraces>1</OpenBraces>
+                <Operator>Or</Operator>
+                <Value>@Module</Value>
+            </FilterExp>
+            <FilterExp>
+                <CloseBraces>1</CloseBraces>
+                <Condition>IsNull</Condition>
+                <DataField>@Module</DataField>
+            </FilterExp>
+            <FilterExp>
+                <DataField>Batch.LedgerID</DataField>
+                <OpenBraces>1</OpenBraces>
+                <Operator>Or</Operator>
+                <Value>@LedgerID</Value>
+            </FilterExp>
+            <FilterExp>
+                <CloseBraces>1</CloseBraces>
+                <Condition>IsNull</Condition>
+                <DataField>@LedgerID</DataField>
+            </FilterExp>
+            <FilterExp>
+                <Condition>GreaterOrEqual</Condition>
+                <DataField>GLTran.CreatedDateTime</DataField>
+                <OpenBraces>1</OpenBraces>
+                <Operator>Or</Operator>
+                <Value>@CreatedFrom</Value>
+            </FilterExp>
+            <FilterExp>
+                <CloseBraces>1</CloseBraces>
+                <Condition>IsNull</Condition>
+                <DataField>@CreatedFrom</DataField>
+            </FilterExp>
+            <FilterExp>
+                <Condition>LessOrEqual</Condition>
+                <DataField>GLTran.CreatedDateTime</DataField>
+                <OpenBraces>1</OpenBraces>
+                <Operator>Or</Operator>
+                <Value>@CreatedTo</Value>
+            </FilterExp>
+            <FilterExp>
+                <CloseBraces>1</CloseBraces>
+                <Condition>IsNull</Condition>
+                <DataField>@CreatedTo</DataField>
+            </FilterExp>
+            <FilterExp>
                 <Condition>GreaterOrEqual</Condition>
                 <DataField>Batch.FinPeriodID</DataField>
                 <OpenBraces>1</OpenBraces>
@@ -134,11 +191,9 @@
                 <Prompt>Ledger</Prompt>
                 <Required>True</Required>
                 <ViewName>=Report.GetFieldSchema('OrganizationBranchReportParameters.NotBudgetLedgerIDByBAccount,OrgBAccountID')</ViewName>
-                <Visible>False</Visible>
             </ReportParameter>
             <ReportParameter>
                 <ColumnSpan>2</ColumnSpan>
-                <DefaultValue>=Report.GetDefExt('OrganizationBranchReportParameters.FinPeriodID')</DefaultValue>
                 <Name>PeriodFrom</Name>
                 <Nullable>True</Nullable>
                 <Prompt>From Period</Prompt>
@@ -146,7 +201,6 @@
             </ReportParameter>
             <ReportParameter>
                 <ColumnSpan>2</ColumnSpan>
-                <DefaultValue>=Report.GetDefExt('OrganizationBranchReportParameters.FinPeriodID')</DefaultValue>
                 <Name>PeriodTo</Name>
                 <Nullable>True</Nullable>
                 <Prompt>To Period</Prompt>
@@ -176,6 +230,34 @@
                 <Name>Documentation</Name>
                 <Nullable>True</Nullable>
                 <Prompt>制单 :</Prompt>
+            </ReportParameter>
+            <ReportParameter>
+                <ColumnSpan>2</ColumnSpan>
+                <Name>CreatedUser</Name>
+                <Nullable>True</Nullable>
+                <Prompt>录入人 :</Prompt>
+                <ViewName>=Report.GetFieldSchema('Users.Username')</ViewName>
+            </ReportParameter>
+            <ReportParameter>
+                <ColumnSpan>2</ColumnSpan>
+                <Name>Module</Name>
+                <Nullable>True</Nullable>
+                <Prompt>模块 :</Prompt>
+                <ViewName>=[Batch.Module]</ViewName>
+            </ReportParameter>
+            <ReportParameter>
+                <ColumnSpan>2</ColumnSpan>
+                <Name>CreatedFrom</Name>
+                <Nullable>True</Nullable>
+                <Prompt>From Date</Prompt>
+                <Type>DateTime</Type>
+            </ReportParameter>
+            <ReportParameter>
+                <ColumnSpan>2</ColumnSpan>
+                <Name>CreatedTo</Name>
+                <Nullable>True</Nullable>
+                <Prompt>To Date</Prompt>
+                <Type>DateTime</Type>
             </ReportParameter>
             <ReportParameter>
                 <ColumnSpan>2</ColumnSpan>
@@ -244,7 +326,7 @@
                 <ParentName>GLTran</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
+        <SchemaUrl>https://abamedical.acumatica.com/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>GLTran.LineNbr</DataField>
@@ -1786,12 +1868,10 @@
                 <ExcelMargin>
                     <bottom>1</bottom>
                 </ExcelMargin>
-                <GridSize>8px, 8px</GridSize>
-                <Height>0px</Height>
+                <Height>0in</Height>
                 <Visible>False</Visible>
             </PageHeader>
             <Detail Name="detailSection1">
-                <GridSize>8px, 8px</GridSize>
                 <Height>40px</Height>
                 <PrintEmpty>False</PrintEmpty>
                 <Variables>
@@ -1892,7 +1972,6 @@
                             </BorderWidth>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
-                                <Size>9px</Size>
                             </Font>
                             <Padding>
                                 <Left>5px</Left>
@@ -1905,7 +1984,6 @@
             </Detail>
             <PageFooter Name="pageFooterSection1">
                 <Expanded>False</Expanded>
-                <GridSize>8px, 8px</GridSize>
                 <Height>7.99999px</Height>
                 <Visible>False</Visible>
             </PageFooter>
@@ -1926,6 +2004,7 @@
                     <Header Name="groupHeaderSection1">
                         <GridSize>8px, 8px</GridSize>
                         <Height>88px</Height>
+                        <PrintOnEveryPage>True</PrintOnEveryPage>
                         <ProcessOrder>Always</ProcessOrder>
                         <Variables>
                             <ReportVariable>
@@ -2124,39 +2203,8 @@
                 <Footers>
                     <Footer Name="groupFooterSection1">
                         <GridSize>8px, 8px</GridSize>
-                        <Height>76px</Height>
-                        <PageBreak>After</PageBreak>
+                        <Height>56px</Height>
                         <Items>
-                            <TextBox Name="textBox23">
-                                <Location>360px, 56px</Location>
-                                <Size>80px, 16px</Size>
-                                <Style>
-                                    <Font>
-                                        <Name>Microsoft JhengHei UI</Name>
-                                    </Font>
-                                </Style>
-                                <Value>=IIF([@PostBy] = Null, '过帐 :', '过帐 : ' + [@PostBy])</Value>
-                            </TextBox>
-                            <TextBox Name="textBox24">
-                                <Location>200px, 56px</Location>
-                                <Size>88px, 16px</Size>
-                                <Style>
-                                    <Font>
-                                        <Name>Microsoft JhengHei UI</Name>
-                                    </Font>
-                                </Style>
-                                <Value>=IIF([@ApprovedBy] = Null, '审核 :', '审核 : ' + [@ApprovedBy])</Value>
-                            </TextBox>
-                            <TextBox Name="textBox25">
-                                <Location>8px, 56px</Location>
-                                <Size>32px, 16px</Size>
-                                <Style>
-                                    <Font>
-                                        <Name>Microsoft JhengHei UI</Name>
-                                    </Font>
-                                </Style>
-                                <Value>核准 :</Value>
-                            </TextBox>
                             <TextBox Name="textBox76">
                                 <Location>8px, 0px</Location>
                                 <Size>472px, 48px</Size>
@@ -2230,8 +2278,46 @@
                                 </Style>
                                 <Value>=[Batch.CuryDebitTotal]</Value>
                             </TextBox>
+                        </Items>
+                    </Footer>
+                    <Footer Name="groupFooterSection2">
+                        <GridSize>8px, 8px</GridSize>
+                        <Height>32px</Height>
+                        <PageBreak>After</PageBreak>
+                        <PrintAtBottom>True</PrintAtBottom>
+                        <Items>
+                            <TextBox Name="textBox23">
+                                <Location>360px, 8px</Location>
+                                <Size>80px, 16px</Size>
+                                <Style>
+                                    <Font>
+                                        <Name>Microsoft JhengHei UI</Name>
+                                    </Font>
+                                </Style>
+                                <Value>=IIF([@PostBy] = Null, '过帐 :', '过帐 : ' + [@PostBy])</Value>
+                            </TextBox>
+                            <TextBox Name="textBox24">
+                                <Location>200px, 8px</Location>
+                                <Size>88px, 16px</Size>
+                                <Style>
+                                    <Font>
+                                        <Name>Microsoft JhengHei UI</Name>
+                                    </Font>
+                                </Style>
+                                <Value>=IIF([@ApprovedBy] = Null, '审核 :', '审核 : ' + [@ApprovedBy])</Value>
+                            </TextBox>
+                            <TextBox Name="textBox25">
+                                <Location>8px, 8px</Location>
+                                <Size>32px, 16px</Size>
+                                <Style>
+                                    <Font>
+                                        <Name>Microsoft JhengHei UI</Name>
+                                    </Font>
+                                </Style>
+                                <Value>核准 :</Value>
+                            </TextBox>
                             <TextBox Name="textBox8">
-                                <Location>528px, 56px</Location>
+                                <Location>528px, 8px</Location>
                                 <Size>88px, 16px</Size>
                                 <Style>
                                     <Font>
