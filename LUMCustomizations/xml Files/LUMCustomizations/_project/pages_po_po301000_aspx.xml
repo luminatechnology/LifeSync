@@ -10,6 +10,13 @@
             <PXGridColumn DataField="TranDesc" OriginalIndex="5" />
             <AddItem>
                 <PXGridColumn TypeFullName="PX.Web.UI.PXGridColumn">
+                    <Prop Key="DataField" Value="BaseReceivedQty" />
+                    <Prop Key="Width" Value="100" />
+                </PXGridColumn>
+            </AddItem>
+            <PXGridColumn DataField="ReceivedQty" OriginalIndex="9" />
+            <AddItem>
+                <PXGridColumn TypeFullName="PX.Web.UI.PXGridColumn">
                     <Prop Key="DataField" Value="UsrCapexTrackingNbr" />
                     <Prop Key="Width" Value="140" />
                 </PXGridColumn>
