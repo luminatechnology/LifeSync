@@ -71,7 +71,7 @@ namespace LumCustomizations.Graph
             // Currency Rate Type of ICM
             var amProdAttribute = base.ProductionAttributes.Select().FirstTableItems;
             var amProdItem = base.ProdItemRecords.Select().FirstTableItems.Where(x => x.ProdOrdID == ((AMProdItem)this.Caches[typeof(AMProdItem)].Current).ProdOrdID).FirstOrDefault();
-           
+
             // Get All Material Data
             var materialData = from t in PXGraph.CreateInstance<InternalCostModelMaint>().Select<AMProdMatl>()
                                join i in _inventoryItems on t.InventoryID equals i.InventoryID
@@ -82,13 +82,13 @@ namespace LumCustomizations.Graph
             // ReplenishmentSource From Inventory 
             var _InventoryItem = PXGraph.CreateInstance<InternalCostModelMaint>().Select<INItemSite>().Select(x => new { x.InventoryID, x.ReplenishmentSource });
             // Effect Curry Rate
-           
+
             if (this._effectCuryRate.Count() == 0)
                 throw new PXException("Please Select ICM Rate Type !!");
 
             decimal _SetUpSum = 0;
             decimal _TotalCost = 0;
-            var _StandardWorkingTime = (_AMProdOper.Sum(x=> x.RunUnitTime) / _AMProdOper.Sum(x => x.RunUnits)).Value;
+            var _StandardWorkingTime = (_AMProdOper.Sum(x => x.RunUnitTime) / _AMProdOper.Sum(x => x.RunUnits)).Value;
 
             #region AMProdAttribute 
             var attrENDC = amProdAttribute.FirstOrDefault(x => x.AttributeID.Equals("ENDC"))?.Value;
@@ -101,7 +101,7 @@ namespace LumCustomizations.Graph
             var _ABADGSELL = amProdAttribute.FirstOrDefault(x => x.AttributeID == "ABADGSELL")?.Value ?? "0";
             var _ABAHKSELL = amProdAttribute.FirstOrDefault(x => x.AttributeID == "ABAHKSELL")?.Value ?? "0";
             var _HKOHSCCost = amProdAttribute.FirstOrDefault(x => x.AttributeID == "HKOHSC")?.Value ?? "0";
-            var _ABISELLCost = amProdAttribute.FirstOrDefault(x => x.AttributeID == "ABISELL")?.Value ?? "0"; 
+            var _ABISELLCost = amProdAttribute.FirstOrDefault(x => x.AttributeID == "ABISELL")?.Value ?? "0";
             #endregion
 
             #endregion
@@ -952,7 +952,7 @@ namespace LumCustomizations.Graph
                     // 不含Tax
                     venderLastPrice = (venderLastPrice / (1 + (icmMaterialInfo?.taxInfo?.TaxRate ?? 0) / 100));
                     node.RMB = venderLastPrice.ToString("N4");
-                    materailCost = venderLastPrice * Math.Round(QPA ,4)
+                    materailCost = venderLastPrice * Math.Round(QPA, 4)
                                                    * (this._effectCuryRate.FirstOrDefault(x => x.FromCuryID == "USD" && x.ToCuryID == "CNY")?.RateReciprocal ?? 1);
                 }
                 else if (icmMaterialInfo.venderDetail.CuryID == "HKD")
@@ -977,8 +977,13 @@ namespace LumCustomizations.Graph
 
             if (this._amBomItems.Any(x => x.BOMID.Trim() == GetInventoryCD(material.InventoryID)?.Trim()))
             {
-                var childBOMMaterial = SelectFrom<AMBomMatl>.Where<AMBomMatl.bOMID.IsEqual<P.AsString>>
-                    .View.Select(this, GetInventoryCD(material.InventoryID)?.Trim()).RowCast<AMBomMatl>();
+                var activeVersion = SelectFrom<AMBomItem>
+                                    .Where<AMBomItem.bOMID.IsEqual<P.AsString>
+                                          .And<AMBomItem.hold.IsEqual<P.AsBool>>>
+                                    .View.Select(this, GetInventoryCD(material.InventoryID)?.Trim(), false)
+                                    .RowCast<AMBomItem>().ToList().FirstOrDefault()?.RevisionID;
+                var childBOMMaterial = SelectFrom<AMBomMatl>.Where<AMBomMatl.bOMID.IsEqual<P.AsString>.And<AMBomMatl.revisionID.IsEqual<P.AsString>>>
+                    .View.Select(this, GetInventoryCD(material.InventoryID)?.Trim(), activeVersion).RowCast<AMBomMatl>();
                 foreach (var child in childBOMMaterial)
                 {
                     GetVisualBOM(
