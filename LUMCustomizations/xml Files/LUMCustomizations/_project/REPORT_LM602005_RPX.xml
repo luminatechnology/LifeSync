@@ -4711,7 +4711,7 @@
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=IIF([Address.CountryID] = 'HK', [ARInvoice.InvoiceNbr], [SOOrder.CustomerOrderNbr])</Value>
+                        <Value>=IIF([Address.CountryID] = 'HK',#010;	IsNull([ARInvoice.InvoiceNbr], '') + IIF([SOOrder.CustomerRefNbr] &lt;&gt; Null,#010;	'{br}' + [SOOrder.CustomerRefNbr],#010;	''#010;	), 	#010;	IsNull([SOOrder.CustomerOrderNbr], '') + IIF([SOOrder.CustomerRefNbr] &lt;&gt; Null,#010;	'{br}' + [SOOrder.CustomerRefNbr],#010;	''#010;	)#010;)</Value>
                     </TextBox>
                 </Items>
             </Detail>
