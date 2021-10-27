@@ -592,9 +592,8 @@ namespace LumCustomizations.Graph
             sheet.GetRow(rowNum).GetCell(1).CellStyle = NormalStyle_Bold_Left_Border;
             sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{_ABADGSELL}");
             sheet.GetRow(rowNum).GetCell(3).CellStyle = TANCellStyle;
-            //sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{(_TotalCost * (decimal.Parse(_ABADGSELL) / 100)).ToString("N4")}");
-            var formulaGrossMargin = $"D{rowNum + 1}*J{rowNum - 2}/100";
-            sheet.GetRow(rowNum).CreateCell(9).SetCellFormula($"D{rowNum + 1}*J{rowNum - 2}/100");
+            var formulaGrossMargin = $"D{rowNum + 1}*(J{rowNum - 21}+J{rowNum - 26}+J{rowNum - 31})/100";
+            sheet.GetRow(rowNum).CreateCell(9).SetCellFormula($"D{rowNum + 1}*(J{rowNum - 21}+J{rowNum - 26}+J{rowNum - 31})/100");
             sheet.GetRow(rowNum).GetCell(9).CellStyle = TANCellStyle;
             sheet.GetRow(rowNum).GetCell(9).CellStyle.DataFormat = workBook.CreateDataFormat().GetFormat("0.0000");
 
@@ -606,7 +605,7 @@ namespace LumCustomizations.Graph
             sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"ABA DG Price");
             sheet.GetRow(rowNum).GetCell(8).CellStyle = NormaStyle_Bold_Right;
             //sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{_abaDGPrice.ToString("N4")}");
-            sheet.GetRow(rowNum).CreateCell(9).SetCellFormula($"{formulaGrossMargin}+{formulaYieldSum}");
+            sheet.GetRow(rowNum).CreateCell(9).SetCellFormula($"{formulaGrossMargin}+(J{rowNum - 22}+J{rowNum - 27}+J{rowNum - 32})");
             sheet.GetRow(rowNum).GetCell(9).CellStyle = ROSECellStyle;
             sheet.GetRow(rowNum).GetCell(9).CellStyle.DataFormat = workBook.CreateDataFormat().GetFormat("0.0000");
             //sheet.GetRow(rowNum).CreateCell(10).SetCellValue($"{_abaDGPrice_HKD.Value.ToString("N4")}");
@@ -688,7 +687,7 @@ namespace LumCustomizations.Graph
             sheet.GetRow(rowNum).CreateCell(3).SetCellValue($"{_ABAHKSELL}");
             sheet.GetRow(rowNum).GetCell(3).CellStyle = TANCellStyle;
             //sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{(_abaDGPrice * (decimal.Parse(_HKOHSCCost) / 100)).ToString("N4")}");
-            sheet.GetRow(rowNum).CreateCell(9).SetCellFormula($"D{rowNum + 1} * J{rowNum - 2}");
+            sheet.GetRow(rowNum).CreateCell(9).SetCellFormula($"D{rowNum + 1} * (J{rowNum-7} / 100)");
             sheet.GetRow(rowNum).GetCell(9).CellStyle = TANCellStyle;
 
             // Sum
@@ -698,7 +697,7 @@ namespace LumCustomizations.Graph
             sheet.GetRow(rowNum).CreateCell(8).SetCellValue($"ABA HK Price");
             sheet.GetRow(rowNum).GetCell(8).CellStyle = NormaStyle_Bold_Right;
             //sheet.GetRow(rowNum).CreateCell(9).SetCellValue($"{_hkPrice.ToString("N4")}");
-            sheet.GetRow(rowNum).CreateCell(9).SetCellFormula($"J{rowNum}+J{rowNum - 3}+J{rowNum - 8}");
+            sheet.GetRow(rowNum).CreateCell(9).SetCellFormula($"J{rowNum}+J{rowNum - 8}");
             sheet.GetRow(rowNum).GetCell(9).CellStyle = ROSECellStyle;
             sheet.GetRow(rowNum).CreateCell(11).SetCellValue($"（ABA HK price to ABI, in USD)");
             sheet.GetRow(rowNum).GetCell(11).CellStyle = NormalStyle_Bold_Left;
