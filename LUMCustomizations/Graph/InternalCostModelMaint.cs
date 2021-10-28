@@ -933,6 +933,8 @@ namespace LumCustomizations.Graph
             if (icmMaterialInfo.venderDetail != null && (icmMaterialInfo.venderDetail.LastPrice ?? 0) > 0)
             {
                 var venderLastPrice = icmMaterialInfo.venderDetail.LastPrice.Value;
+                // 顯示供應商採購時的單位
+                node.Unit = icmMaterialInfo.venderDetail.PurchaseUnit;
                 // 調整vendor price by UOM
                 if (icmMaterialInfo.venderDetail.PurchaseUnit != icmMaterialInfo.UOM)
                 {
@@ -942,8 +944,10 @@ namespace LumCustomizations.Graph
                                        t.ToUnit == icmMaterialInfo.UOM
                                  select t;
                     venderLastPrice = INUnit == null ? venderLastPrice
-                                                            : INUnit.FirstOrDefault()?.UnitMultDiv == "M" ? venderLastPrice / (INUnit.FirstOrDefault()?.UnitRate ?? 1)
-                                                                                                          : venderLastPrice * (INUnit.FirstOrDefault()?.UnitRate ?? 1);
+                                                     : INUnit.FirstOrDefault()?.UnitMultDiv == "M" ? venderLastPrice * (INUnit.FirstOrDefault()?.UnitRate ?? 1)
+                                                                                                   : venderLastPrice / (INUnit.FirstOrDefault()?.UnitRate ?? 1);
+                    // 呈現轉換後的單位
+                    node.Unit = INUnit == null ? node.Unit : INUnit.FirstOrDefault().ToUnit;
                 }
 
                 if (icmMaterialInfo.venderDetail.CuryID == "CNY")
