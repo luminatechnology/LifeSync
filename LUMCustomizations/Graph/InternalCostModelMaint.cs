@@ -944,8 +944,8 @@ namespace LumCustomizations.Graph
                                        t.ToUnit == icmMaterialInfo.UOM
                                  select t;
                     venderLastPrice = INUnit == null ? venderLastPrice
-                                                     : INUnit.FirstOrDefault()?.UnitMultDiv == "M" ? venderLastPrice * (INUnit.FirstOrDefault()?.UnitRate ?? 1)
-                                                                                                   : venderLastPrice / (INUnit.FirstOrDefault()?.UnitRate ?? 1);
+                                                     : INUnit.FirstOrDefault()?.UnitMultDiv == "M" ? venderLastPrice / (INUnit.FirstOrDefault()?.UnitRate ?? 1)
+                                                                                                   : venderLastPrice * (INUnit.FirstOrDefault()?.UnitRate ?? 1);
                     // 呈現轉換後的單位
                     node.Unit = INUnit == null ? node.Unit : INUnit.FirstOrDefault().ToUnit;
                 }
