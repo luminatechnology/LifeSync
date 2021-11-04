@@ -11,4 +11,7 @@
             <PXCheckBox DataField="IsRUTROTDeductible" OriginalIndex="28" />
         </Children>
     </PXFormView>
+    <PXSelector DataField="RefNbr" ParentId="phF_form_edRefNbr" TypeFullName="PX.Web.UI.PXSelector">
+        <Prop Key="Width" Value="130px" />
+    </PXSelector>
 </Page>

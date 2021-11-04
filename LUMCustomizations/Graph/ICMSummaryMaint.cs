@@ -79,7 +79,7 @@ namespace LUMCustomizations.Graph
             #region Varaible
             int rowNum = 0;
             decimal materialSum = 0;
-          
+
             ICMSummary summaryResult = new ICMSummary();
             icmGraph.SettingCalaObject();
             // Currency Rate Type of ICM
@@ -179,10 +179,9 @@ namespace LUMCustomizations.Graph
 
             #region 7.ABA DG Sell price
             // Sum
-            var _abaDGPrice = _TotalCost + (_TotalCost * (decimal.Parse(_ABADGSELL) / 100));
+            var _abaDGPrice = (materialSum + summaryResult.LabourCost.Value + summaryResult.ManufactureCost.Value) + (decimal.Parse(_ABADGSELL) * (materialSum + summaryResult.LabourCost + summaryResult.ManufactureCost) / 100);
             var _abaDGPrice_HKD = _abaDGPrice * _EffectCuryRate.Where(x => x.FromCuryID == "USD").FirstOrDefault()?.CuryRate * _EffectCuryRate.Where(x => x.FromCuryID == "HKD").FirstOrDefault()?.RateReciprocal;
-            var temp = (decimal.Parse(_ABADGSELL) * _TotalCost / 100) + _TotalCost;
-            summaryResult.DGtoHKPrice = temp;
+            summaryResult.DGtoHKPrice = _abaDGPrice;
             #endregion
 
             #region 8.HKOverhead
@@ -193,7 +192,7 @@ namespace LUMCustomizations.Graph
 
             #region 9.HK To ABI
             // Sum
-            summaryResult.ABIPrice = summaryResult.DGtoHKPrice + (decimal.Parse(_ABAHKSELL) * summaryResult.HKOverhead) + summaryResult.HKOverhead;
+            summaryResult.ABIPrice = summaryResult.DGtoHKPrice + decimal.Parse(_ABAHKSELL) * (summaryResult.DGtoHKPrice / 100);
             #endregion
 
             return summaryResult;

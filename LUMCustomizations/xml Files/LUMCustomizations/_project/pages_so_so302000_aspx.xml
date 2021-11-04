@@ -22,4 +22,7 @@
             <PXGridColumn DataField="TranDesc" OriginalIndex="24" />
         </Children>
     </PXGridLevel>
+    <PXSelector DataField="ShipmentNbr" ParentId="phF_form_edShipmentNbr" TypeFullName="PX.Web.UI.PXSelector">
+        <Prop Key="Width" Value="130px" />
+    </PXSelector>
 </Page>
