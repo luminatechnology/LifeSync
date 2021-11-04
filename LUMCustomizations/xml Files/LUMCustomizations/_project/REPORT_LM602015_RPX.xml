@@ -1,4 +1,4 @@
-﻿<Report Name="lm602015.rpx">
+<Report Name="lm602015.rpx">
     <Report Name="report1">
         <Filters>
             <FilterExp>
@@ -4794,7 +4794,7 @@
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=$TotalAmount</Value>
+                        <Value>=[ARInvoice.CuryDocBal]</Value>
                     </TextBox>
                     <TextBox Name="textBox6">
                         <Location>488px, 88px</Location>
