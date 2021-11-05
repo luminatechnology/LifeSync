@@ -5936,7 +5936,7 @@
                     </ReportVariable>
                     <ReportVariable>
                         <Name>TotalAmount</Name>
-                        <ValueExpr>=[LumShipmentPlan.PlannedShipQty] * [SOLine.CuryUnitPrice] + $TotalAmount</ValueExpr>
+                        <ValueExpr>=Round([LumShipmentPlan.PlannedShipQty] * [SOLine.CuryUnitPrice], 2) + $TotalAmount</ValueExpr>
                     </ReportVariable>
                 </Variables>
                 <Items>
