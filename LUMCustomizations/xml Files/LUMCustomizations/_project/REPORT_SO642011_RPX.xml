@@ -1,4 +1,4 @@
-﻿<Report Name="so642011.rpx">
+<Report Name="so642011.rpx">
     <Report Name="report1">
         <CommonSettings>
             <ViewPdf>True</ViewPdf>
@@ -61,8 +61,6 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
             <Body>='Dear Customer,#010;#010;This is an automatic email to notify you that Order #'+' '+[SOOrder.OrderNbr]+' '+'has been shipped with Shipment #'+' '+[SOShipment.ShipmentNbr]+'. You can find a copy of the shipment confirmation attached to this email.#010;#010;Track your shipment at [Tracking Link]#010;#010;If you have any questions, please don’t hesitate to contact us at email.  #010;#010;Thank you for choosing'+' '+[CompanyContact.FullName]+'.'</Body>
             <ParentSource>Customer.NoteID</ParentSource>
             <Subject>=[CompanyContact.FullName]+' '+'Shipment #'+' '+[SOShipment.ShipmentNbr]+' '+'has been shipped.'</Subject>
-            <TemplateID>
-            </TemplateID>
             <To>=IsNull([ShippingContact.EMail],'')</To>
         </MailSettings>
         <PageSettings>
@@ -5442,7 +5440,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                         <Location>128px, 8px</Location>
                                         <Size>616px, 64px</Size>
                                         <StyleName>Item Normal</StyleName>
-                                        <Value>=IIf([PIAccount.LegalName]&lt;&gt;null,    [PIAccount.LegalName]+'{br}','') #010;+IIf([PIAddress.AddressLine1]&lt;&gt;null,[PIAddress.AddressLine1]+ ', ','')#010;+IIf([PIAddress.AddressLine2]&lt;&gt;null,[PIAddress.AddressLine2]  ,'')</Value>
+                                        <Value>=IIf([PIAccount.LegalName]&lt;&gt;null,    [PIAccount.LegalName]+'{br}','') #010;+IIf([PIAddress.AddressLine1]&lt;&gt;null,[PIAddress.AddressLine1]+ ', ','')#010;+IIf([PIAddress.AddressLine2]&lt;&gt;null,[PIAddress.AddressLine2]  ,'')#010;+IIf([PIAddress.AddressLine3]&lt;&gt;null,[PIAddress.AddressLine3]  ,'')</Value>
                                     </TextBox>
                                     <TextBox Name="textBox3">
                                         <Location>8px, 80px</Location>

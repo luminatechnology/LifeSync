@@ -1,4 +1,4 @@
-<Report Name="lm602025.rpx">
+﻿<Report Name="lm602025.rpx">
     <Report Name="report1">
         <EmbeddedImages>
             <EmbeddedImage>
@@ -5073,7 +5073,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <Value>aba_hk_logo</Value>
                     </PictureBox>
                     <TextBox Name="textBox1">
-                        <Location>312px, 88px</Location>
+                        <Location>312px, 80px</Location>
                         <Size>80px, 24px</Size>
                         <Style>
                             <Font>
@@ -5084,7 +5084,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <Value>INVOICE</Value>
                     </TextBox>
                     <TextBox Name="textBox10">
-                        <Location>336px, 128px</Location>
+                        <Location>336px, 120px</Location>
                         <Size>64px, 16px</Size>
                         <Style>
                             <Font>
@@ -5095,7 +5095,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <Value>Ship Date:</Value>
                     </TextBox>
                     <TextBox Name="textBox11">
-                        <Location>336px, 112px</Location>
+                        <Location>336px, 104px</Location>
                         <Size>80px, 16px</Size>
                         <Style>
                             <Font>
@@ -5106,8 +5106,8 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <Value>Invoice Date:</Value>
                     </TextBox>
                     <TextBox Name="textBox12">
-                        <Location>96px, 112px</Location>
-                        <Size>152px, 24px</Size>
+                        <Location>104px, 104px</Location>
+                        <Size>152px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -5121,8 +5121,8 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <Value>=[LumShipmentPlan.ShipmentNbr]</Value>
                     </TextBox>
                     <TextBox Name="textBox13">
-                        <Location>24px, 112px</Location>
-                        <Size>72px, 16px</Size>
+                        <Location>24px, 104px</Location>
+                        <Size>80px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial Black</Name>
@@ -5132,8 +5132,8 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <Value>Invoice No.: </Value>
                     </TextBox>
                     <TextBox Name="textBox14">
-                        <Location>80px, 224px</Location>
-                        <Size>224px, 16px</Size>
+                        <Location>80px, 232px</Location>
+                        <Size>232px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -5149,7 +5149,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <VisibleExpr>=IIF([SOShipment.UsrShipToID] &lt;&gt; Null, True, False)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox15">
-                        <Location>384px, 144px</Location>
+                        <Location>384px, 136px</Location>
                         <Size>72px, 16px</Size>
                         <Style>
                             <Font>
@@ -5164,7 +5164,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <Value>=[Customer.TermsID]</Value>
                     </TextBox>
                     <TextBox Name="textBox16">
-                        <Location>536px, 144px</Location>
+                        <Location>536px, 136px</Location>
                         <Size>96px, 16px</Size>
                         <Style>
                             <Font>
@@ -5179,7 +5179,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <Value>=[SOOrder.UsrPICuryID]</Value>
                     </TextBox>
                     <TextBox Name="textBox17">
-                        <Location>336px, 160px</Location>
+                        <Location>336px, 152px</Location>
                         <Size>48px, 16px</Size>
                         <Style>
                             <Font>
@@ -5190,7 +5190,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <Value>Seller:</Value>
                     </TextBox>
                     <TextBox Name="textBox18">
-                        <Location>384px, 160px</Location>
+                        <Location>384px, 152px</Location>
                         <Size>248px, 16px</Size>
                         <Style>
                             <Font>
@@ -5205,7 +5205,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <Value>American Biosurgical Asia Medical Technology Ltd</Value>
                     </TextBox>
                     <TextBox Name="textBox19">
-                        <Location>384px, 192px</Location>
+                        <Location>384px, 184px</Location>
                         <Size>248px, 40px</Size>
                         <Style>
                             <Font>
@@ -5231,8 +5231,8 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <Value>From:</Value>
                     </TextBox>
                     <TextBox Name="textBox21">
-                        <Location>80px, 240px</Location>
-                        <Size>224px, 32px</Size>
+                        <Location>80px, 248px</Location>
+                        <Size>232px, 32px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -5248,7 +5248,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <VisibleExpr>=IIF([SOShipment.UsrShipToID] &lt;&gt; Null, True, False)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox22">
-                        <Location>24px, 224px</Location>
+                        <Location>24px, 232px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
@@ -5353,8 +5353,8 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <Value>=[ContactR.Fax]</Value>
                     </TextBox>
                     <TextBox Name="textBox3">
-                        <Location>96px, 184px</Location>
-                        <Size>208px, 16px</Size>
+                        <Location>104px, 160px</Location>
+                        <Size>208px, 56px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -5365,25 +5365,10 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                             </Padding>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>=[Address.AddressLine1]</Value>
-                    </TextBox>
-                    <TextBox Name="textBox4">
-                        <Location>96px, 200px</Location>
-                        <Size>208px, 16px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Arial</Name>
-                                <Size>10px</Size>
-                            </Font>
-                            <Padding>
-                                <Top>2px</Top>
-                            </Padding>
-                            <TextAlign>Left</TextAlign>
-                        </Style>
-                        <Value>=[Address.AddressLine2]</Value>
+                        <Value>=IIf([Address.AddressLine1] &lt;&gt; null, [Address.AddressLine1]+ ', ', '') #010;+IIf([Address.AddressLine2] &lt;&gt; null, [Address.AddressLine2]+ ', ', '')#010;+IIf([Address.AddressLine3] &lt;&gt; null, [Address.AddressLine3], '')</Value>
                     </TextBox>
                     <TextBox Name="textBox58">
-                        <Location>96px, 160px</Location>
+                        <Location>104px, 136px</Location>
                         <Size>208px, 24px</Size>
                         <Style>
                             <Font>
@@ -5395,10 +5380,10 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                             </Padding>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>=[SOOrder.UsrPICustomerID_BAccountR_acctName]</Value>
+                        <Value>=IIF([SOOrder.UsrPICustomerID_BAccountR_acctName] &lt;&gt; 'OSI',#010;[SOOrder.UsrPICustomerID_BAccountR_acctName],#010;'OSI Systems Pvt. Ltd. (Optoelectronics Division)')</Value>
                     </TextBox>
                     <TextBox Name="textBox59">
-                        <Location>96px, 144px</Location>
+                        <Location>104px, 120px</Location>
                         <Size>152px, 16px</Size>
                         <Style>
                             <Font>
@@ -5414,7 +5399,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                     </TextBox>
                     <TextBox Name="textBox60">
                         <Format>='yyyy-MM-dd'</Format>
-                        <Location>416px, 128px</Location>
+                        <Location>416px, 120px</Location>
                         <Size>64px, 16px</Size>
                         <Style>
                             <Font>
@@ -5430,7 +5415,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                     </TextBox>
                     <TextBox Name="textBox61">
                         <Format>='yyyy-MM-dd'</Format>
-                        <Location>416px, 112px</Location>
+                        <Location>416px, 104px</Location>
                         <Size>64px, 16px</Size>
                         <Style>
                             <Font>
@@ -5445,7 +5430,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <Value>=[LumShipmentPlan.PlannedShipDate]</Value>
                     </TextBox>
                     <TextBox Name="textBox62">
-                        <Location>336px, 176px</Location>
+                        <Location>336px, 168px</Location>
                         <Size>96px, 16px</Size>
                         <Style>
                             <Font>
@@ -5456,7 +5441,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <Value>HongKong Office:</Value>
                     </TextBox>
                     <TextBox Name="textBox7">
-                        <Location>336px, 144px</Location>
+                        <Location>336px, 136px</Location>
                         <Size>48px, 16px</Size>
                         <Style>
                             <Font>
@@ -5467,8 +5452,8 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <Value>Terms:</Value>
                     </TextBox>
                     <TextBox Name="textBox8">
-                        <Location>24px, 144px</Location>
-                        <Size>72px, 16px</Size>
+                        <Location>24px, 120px</Location>
+                        <Size>80px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial Black</Name>
@@ -5478,7 +5463,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                         <Value>Customer:</Value>
                     </TextBox>
                     <TextBox Name="textBox9">
-                        <Location>472px, 144px</Location>
+                        <Location>472px, 136px</Location>
                         <Size>64px, 16px</Size>
                         <Style>
                             <Font>
