@@ -137,7 +137,7 @@
                 <ParentName>InventoryItem</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/LifeSync</SchemaUrl>
+        <SchemaUrl>http://localhost/ABAChina</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>InventoryItem.InventoryCD</DataField>
@@ -2020,8 +2020,16 @@
                         <ValueExpr>=IIf(InStr([INItemLotSerial.LotSerialNbr], 'Z') = 0, Substring([INItemLotSerial.LotSerialNbr], 1, Len([INItemLotSerial.LotSerialNbr]) - 1), [INItemLotSerial.LotSerialNbr])</ValueExpr>
                     </ReportVariable>
                     <ReportVariable>
+                        <Name>LotNbr2Month</Name>
+                        <ValueExpr>=IIf(CInt(Substring($LotNbr, 4, 2)) &gt;= 1 And CInt(Substring($LotNbr, 4, 2)) &lt;= 12,#010;    Substring($LotNbr, 4, 2),#010;    '01')</ValueExpr>
+                    </ReportVariable>
+                    <ReportVariable>
+                        <Name>LotNbr2Day</Name>
+                        <ValueExpr>=IIf(CInt(Substring($LotNbr, 6, 2)) &gt;= 1 And CInt(Substring($LotNbr, 6, 2)) &lt;= 31,#010;     Substring($LotNbr, 6, 2),#010;     '01')</ValueExpr>
+                    </ReportVariable>
+                    <ReportVariable>
                         <Name>LotNbr2Date</Name>
-                        <ValueExpr>=CDate(Format('{0}/{1}/{2}', Substring($LotNbr, 0, 4),#010;		             Substring($LotNbr, 4, 2),#010;                             IIf(Substring($LotNbr, 6, 2) = '00', '01', Substring($LotNbr, 6, 2))) )</ValueExpr>
+                        <ValueExpr>=CDate(Format('{0}/{1}/{2}', Substring($LotNbr, 0, 4), $LotNbr2Month, $LotNbr2Day) )</ValueExpr>
                     </ReportVariable>
                     <ReportVariable>
                         <Name>InspectionDays</Name>
