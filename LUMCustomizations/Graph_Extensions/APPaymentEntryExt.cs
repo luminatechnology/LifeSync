@@ -59,7 +59,6 @@ namespace PX.Objects.AP
             {
 
                 var row = Base.Document.Current;
-                row.CuryOrigDocAmt = 0m;
                 var aPPaymentVendorCrossRateAttr = SelectFrom<CSAnswers>.
                                                     LeftJoin<BAccountR>.On<CSAnswers.refNoteID.IsEqual<BAccountR.noteID>>.
                                                     LeftJoin<APPayment>.On<BAccountR.bAccountID.IsEqual<APPayment.vendorID>>.
@@ -69,6 +68,7 @@ namespace PX.Objects.AP
                 var aPInvoiceCurData = SelectFrom<APInvoice>.View.Select(Base).RowCast<APInvoice>().ToList().FirstOrDefault(x => x.DocType == apRow.AdjdDocType && x.RefNbr == apRow.AdjdRefNbr);
                 if (row.CuryID != aPInvoiceCurData?.CuryID && aPPaymentVendorCrossRateAttr == "1" && Convert.ToDecimal(apRow.AdjdCuryRate) != 1.00m && aPInvoiceCurData?.CuryInfoID != null)
                 {
+                    row.CuryOrigDocAmt = 0m;
                     var curyInfo = SelectFrom<CurrencyInfo>.Where<CurrencyInfo.curyInfoID.IsEqual<@P.AsInt>>.View.Select(Base, aPInvoiceCurData?.CuryInfoID).TopFirst;
                     var curyInfoCuryRate = curyInfo?.CuryMultDiv == "M" ? curyInfo?.CuryRate : curyInfo?.RecipRate;
                     e.Cache.SetValueExt<APAdjust.adjdCuryRate>(e.Row, curyInfoCuryRate == null ? apRow.AdjdCuryRate : curyInfoCuryRate);
