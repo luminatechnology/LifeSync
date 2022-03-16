@@ -83,7 +83,7 @@
             </FilterExp>
             <FilterExp>
                 <Condition>GreaterOrEqual</Condition>
-                <DataField>GLTran.CreatedDateTime</DataField>
+                <DataField>Batch.DateEntered</DataField>
                 <OpenBraces>1</OpenBraces>
                 <Operator>Or</Operator>
                 <Value>@CreatedFrom</Value>
@@ -95,7 +95,7 @@
             </FilterExp>
             <FilterExp>
                 <Condition>LessOrEqual</Condition>
-                <DataField>GLTran.CreatedDateTime</DataField>
+                <DataField>Batch.DateEntered</DataField>
                 <OpenBraces>1</OpenBraces>
                 <Operator>Or</Operator>
                 <Value>@CreatedTo</Value>
@@ -1992,9 +1992,6 @@
         <Groups>
             <Group Name="group1">
                 <Grouping>
-                    <GroupExp>
-                        <DataField>Batch.Module</DataField>
-                    </GroupExp>
                     <GroupExp>
                         <DataField>Batch.BatchNbr</DataField>
                     </GroupExp>
