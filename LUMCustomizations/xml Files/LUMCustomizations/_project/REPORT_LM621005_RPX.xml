@@ -1,4 +1,4 @@
-﻿<Report Name="lm621005.rpx">
+<Report Name="lm621005.rpx">
     <Report Name="report1">
         <ExcelColumns>
             <item>8</item>
@@ -1888,7 +1888,7 @@
                 <Items>
                     <TextBox Name="textBox72">
                         <Format>#0.00</Format>
-                        <Location>584px, 0px</Location>
+                        <Location>592px, 0px</Location>
                         <Size>104px, 40px</Size>
                         <Style>
                             <BorderStyle>
@@ -1912,7 +1912,7 @@
                     </TextBox>
                     <TextBox Name="textBox73">
                         <Format>#0.00</Format>
-                        <Location>480px, 0px</Location>
+                        <Location>488px, 0px</Location>
                         <Size>104px, 40px</Size>
                         <Style>
                             <BorderStyle>
@@ -1935,7 +1935,7 @@
                         <Value>=IIF([GLTran.CuryDebitAmt] = 0, '', [GLTran.CuryDebitAmt])</Value>
                     </TextBox>
                     <TextBox Name="textBox74">
-                        <Location>200px, 0px</Location>
+                        <Location>208px, 0px</Location>
                         <Size>280px, 40px</Size>
                         <Style>
                             <BorderStyle>
@@ -1957,8 +1957,8 @@
                         <Value>=Left([GLTran.AccountID], 3)#010;+ '.'#010;+ Right([GLTran.AccountID], 3)#010;+ ' － ' #010;+ [GLTran.AccountID_Account_description]</Value>
                     </TextBox>
                     <TextBox Name="textBox75">
-                        <Location>8px, 0px</Location>
-                        <Size>192px, 40px</Size>
+                        <Location>0px, 0px</Location>
+                        <Size>208px, 40px</Size>
                         <Style>
                             <BorderStyle>
                                 <Bottom>Solid</Bottom>
@@ -1972,6 +1972,7 @@
                             </BorderWidth>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
+                                <Size>11px</Size>
                             </Font>
                             <Padding>
                                 <Left>5px</Left>
@@ -2013,7 +2014,7 @@
                         </Variables>
                         <Items>
                             <TextBox Name="textBox11">
-                                <Location>296px, 48px</Location>
+                                <Location>288px, 48px</Location>
                                 <Size>32px, 16px</Size>
                                 <Style>
                                     <Font>
@@ -2025,7 +2026,7 @@
                                 <Value>日期:</Value>
                             </TextBox>
                             <TextBox Name="textBox13">
-                                <Location>8px, 48px</Location>
+                                <Location>0px, 48px</Location>
                                 <Size>56px, 16px</Size>
                                 <Style>
                                     <Font>
@@ -2042,7 +2043,7 @@
                                     <row>3</row>
                                 </Excel>
                                 <ExcelVisible>False</ExcelVisible>
-                                <Location>456px, 48px</Location>
+                                <Location>464px, 48px</Location>
                                 <ProcessOrder>WhilePrint</ProcessOrder>
                                 <Size>232px, 16px</Size>
                                 <Style>
@@ -2070,7 +2071,7 @@
                             </TextBox>
                             <TextBox Name="textBox65">
                                 <Format>='yyyy/MM/dd'</Format>
-                                <Location>328px, 48px</Location>
+                                <Location>320px, 48px</Location>
                                 <Size>88px, 16px</Size>
                                 <Style>
                                     <Font>
@@ -2081,7 +2082,7 @@
                                 <Value>=[Batch.DateEntered]</Value>
                             </TextBox>
                             <TextBox Name="textBox66">
-                                <Location>64px, 48px</Location>
+                                <Location>56px, 48px</Location>
                                 <Size>120px, 16px</Size>
                                 <Style>
                                     <Font>
@@ -2105,7 +2106,7 @@
                                 <Value>东莞美博电子有限公司</Value>
                             </TextBox>
                             <TextBox Name="textBox69">
-                                <Location>200px, 64px</Location>
+                                <Location>208px, 64px</Location>
                                 <Size>280px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2127,8 +2128,8 @@
                                 <Value>科目</Value>
                             </TextBox>
                             <TextBox Name="textBox70">
-                                <Location>8px, 64px</Location>
-                                <Size>192px, 24px</Size>
+                                <Location>0px, 64px</Location>
+                                <Size>208px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
@@ -2151,7 +2152,7 @@
                                 <Value>摘要</Value>
                             </TextBox>
                             <TextBox Name="textBox71">
-                                <Location>584px, 64px</Location>
+                                <Location>592px, 64px</Location>
                                 <Size>104px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2173,7 +2174,7 @@
                                 <Value>贷方</Value>
                             </TextBox>
                             <TextBox Name="textBox9">
-                                <Location>480px, 64px</Location>
+                                <Location>488px, 64px</Location>
                                 <Size>104px, 24px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2203,8 +2204,8 @@
                         <Height>56px</Height>
                         <Items>
                             <TextBox Name="textBox76">
-                                <Location>8px, 0px</Location>
-                                <Size>472px, 48px</Size>
+                                <Location>0px, 0px</Location>
+                                <Size>488px, 48px</Size>
                                 <Style>
                                     <BorderStyle>
                                         <Bottom>Solid</Bottom>
@@ -2229,7 +2230,7 @@
                             </TextBox>
                             <TextBox Name="textBox77">
                                 <Format>#0.00</Format>
-                                <Location>584px, 0px</Location>
+                                <Location>592px, 0px</Location>
                                 <Size>104px, 48px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2253,7 +2254,7 @@
                             </TextBox>
                             <TextBox Name="textBox78">
                                 <Format>#0.00</Format>
-                                <Location>480px, 0px</Location>
+                                <Location>488px, 0px</Location>
                                 <Size>104px, 48px</Size>
                                 <Style>
                                     <BorderStyle>
@@ -2294,7 +2295,7 @@
                                 <Value>=IIF([@PostBy] = Null, '过帐 :', '过帐 : ' + [@PostBy])</Value>
                             </TextBox>
                             <TextBox Name="textBox24">
-                                <Location>200px, 8px</Location>
+                                <Location>192px, 8px</Location>
                                 <Size>88px, 16px</Size>
                                 <Style>
                                     <Font>
@@ -2304,7 +2305,7 @@
                                 <Value>=IIF([@ApprovedBy] = Null, '审核 :', '审核 : ' + [@ApprovedBy])</Value>
                             </TextBox>
                             <TextBox Name="textBox25">
-                                <Location>8px, 8px</Location>
+                                <Location>0px, 8px</Location>
                                 <Size>32px, 16px</Size>
                                 <Style>
                                     <Font>
@@ -2314,7 +2315,7 @@
                                 <Value>核准 :</Value>
                             </TextBox>
                             <TextBox Name="textBox8">
-                                <Location>528px, 8px</Location>
+                                <Location>536px, 8px</Location>
                                 <Size>88px, 16px</Size>
                                 <Style>
                                     <Font>
