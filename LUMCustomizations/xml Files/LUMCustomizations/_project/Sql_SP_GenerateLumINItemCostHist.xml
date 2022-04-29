@@ -50,29 +50,30 @@ BEGIN
 		)
 		SET @LASTACTIVITYPERIOD = (SELECT MAX(FinPeriodID) as FinPeriodID FROM INItemCostHist
 			WHERE CompanyID = @companyID and InventoryID = @INVENTORYID and SiteID = @SITEID
-			GROUP BY InventoryID, SiteID
+			GROUP BY CompanyID, InventoryID, SiteID
 		)
 		--Compare @LASTACTIVITYPERIOD with @period
 		SET @CONDITIONPERIOD = IIF(datediff(MONTH, FORMAT(DATEADD(MONTH, -0, CONVERT(datetime, CONCAT(@LASTACTIVITYPERIOD, '01'))),'yyyyMMdd'), FORMAT(DATEADD(MONTH, -0, CONVERT(datetime, CONCAT(@period, '01'))),'yyyyMMdd')) > 0, 
 			@LASTACTIVITYPERIOD, 
 			@LASTACTIVITYFINPERIODID)
-		SET @EndingQty = ISNULL((SELECT FinYtdQty FROM INItemCostHist WHERE FinPeriodID = @period and SiteID = @SITEID and InventoryID = @INVENTORYID and CompanyID = @companyID), 
-								(SELECT FinYtdQty FROM INItemCostHist WHERE FinPeriodID = @CONDITIONPERIOD and SiteID = @SITEID and InventoryID = @INVENTORYID and CompanyID = @companyID))
-		SET @EndingCost = ISNULL((SELECT FinYtdCost FROM INItemCostHist WHERE FinPeriodID = @period and SiteID = @SITEID and InventoryID = @INVENTORYID and CompanyID = @companyID),
-								 (SELECT FinYtdCost FROM INItemCostHist WHERE FinPeriodID = @CONDITIONPERIOD and SiteID = @SITEID and InventoryID = @INVENTORYID and CompanyID = @companyID))
+		SET @EndingQty = ISNULL((SELECT SUM(FinYtdQty) FROM INItemCostHist WHERE FinPeriodID = @period and SiteID = @SITEID and InventoryID = @INVENTORYID and CompanyID = @companyID group by CompanyID, InventoryID, SiteID), 
+								(SELECT SUM(FinYtdQty) FROM INItemCostHist WHERE FinPeriodID = @CONDITIONPERIOD and SiteID = @SITEID and InventoryID = @INVENTORYID and CompanyID = @companyID group by CompanyID, InventoryID, SiteID))
+		SET @EndingCost = ISNULL((SELECT SUM(FinYtdCost) FROM INItemCostHist WHERE FinPeriodID = @period and SiteID = @SITEID and InventoryID = @INVENTORYID and CompanyID = @companyID group by CompanyID, InventoryID, SiteID),
+								 (SELECT SUM(FinYtdCost) FROM INItemCostHist WHERE FinPeriodID = @CONDITIONPERIOD and SiteID = @SITEID and InventoryID = @INVENTORYID and CompanyID = @companyID group by CompanyID, InventoryID, SiteID))
 		
 		/*Cost Part*/
 		-- Qty < 30 days
 		SET @PeriodQtyWithin30D = (select PeriodQtyWithin30D =
 			(CASE
-				WHEN (FinPtdQtyReceived is not null and FinPtdQtyTransferIn is not null) THEN
+				WHEN (SUM(FinPtdQtyReceived) is not null and SUM(FinPtdQtyTransferIn) is not null) THEN
 					(CASE
-						WHEN (FinPtdQtyReceived + FinPtdQtyTransferIn) >= @EndingQty THEN @EndingQty
-						ELSE (FinPtdQtyReceived + FinPtdQtyTransferIn)
+						WHEN (SUM(FinPtdQtyReceived) + SUM(FinPtdQtyTransferIn)) >= @EndingQty THEN @EndingQty
+						ELSE (SUM(FinPtdQtyReceived) + SUM(FinPtdQtyTransferIn))
 					END)
 				ELSE 0
 			END)
-		from INItemCostHist where FinPeriodID = FORMAT(DATEADD(MONTH, -0, CONVERT(datetime, CONCAT(@period, '01'))),'yyyyMM') and InventoryID = @INVENTORYID and SiteID = @SITEID and CompanyID = @companyID)
+		from INItemCostHist where FinPeriodID = FORMAT(DATEADD(MONTH, -0, CONVERT(datetime, CONCAT(@period, '01'))),'yyyyMM') and InventoryID = @INVENTORYID and SiteID = @SITEID and CompanyID = @companyID
+		group by CompanyID, InventoryID, SiteID)
 		SET @PeriodQtyWithin30D = IIF(@PeriodQtyWithin30D is null, 0, @PeriodQtyWithin30D)
 
 		-- Qty 30 ~ 60 days
@@ -80,13 +81,14 @@ BEGIN
 			(CASE
 				WHEN @PeriodQtyWithin30D <= @EndingQty THEN
 					(CASE 
-						WHEN (FinPtdQtyReceived + FinPtdQtyTransferIn) >= (@EndingQty - @PeriodQtyWithin30D) THEN (@EndingQty - @PeriodQtyWithin30D)
-						ELSE (FinPtdQtyReceived + FinPtdQtyTransferIn)
+						WHEN (SUM(FinPtdQtyReceived) + SUM(FinPtdQtyTransferIn)) >= (@EndingQty - @PeriodQtyWithin30D) THEN (@EndingQty - @PeriodQtyWithin30D)
+						ELSE (SUM(FinPtdQtyReceived) + SUM(FinPtdQtyTransferIn))
 					END)
 				ELSE 0
 			END)
 		from INItemCostHist
-		where FinPeriodID = FORMAT(DATEADD(MONTH, -1, CONVERT(datetime, CONCAT(@period, '01'))),'yyyyMM') and InventoryID = @INVENTORYID and SiteID = @SITEID and CompanyID = @companyID)
+		where FinPeriodID = FORMAT(DATEADD(MONTH, -1, CONVERT(datetime, CONCAT(@period, '01'))),'yyyyMM') and InventoryID = @INVENTORYID and SiteID = @SITEID and CompanyID = @companyID
+		group by CompanyID, InventoryID, SiteID)
 		SET @PeriodQtyFrom30Dto60D = IIF(@PeriodQtyFrom30Dto60D is null, 0, @PeriodQtyFrom30Dto60D)
 
 		-- Qty 60 ~ 90 days
@@ -94,13 +96,14 @@ BEGIN
 			(CASE
 				WHEN @PeriodQtyWithin30D + @PeriodQtyFrom30Dto60D <= @EndingQty THEN
 					(CASE 
-						WHEN (FinPtdQtyReceived + FinPtdQtyTransferIn) >= (@EndingQty - @PeriodQtyWithin30D - @PeriodQtyFrom30Dto60D) THEN (@EndingQty - @PeriodQtyWithin30D - @PeriodQtyFrom30Dto60D)
-						ELSE (FinPtdQtyReceived + FinPtdQtyTransferIn)
+						WHEN (SUM(FinPtdQtyReceived) + SUM(FinPtdQtyTransferIn)) >= (@EndingQty - @PeriodQtyWithin30D - @PeriodQtyFrom30Dto60D) THEN (@EndingQty - @PeriodQtyWithin30D - @PeriodQtyFrom30Dto60D)
+						ELSE (SUM(FinPtdQtyReceived) + SUM(FinPtdQtyTransferIn))
 					END)
 				ELSE 0
 			END)
 		from INItemCostHist
-		where FinPeriodID = FORMAT(DATEADD(MONTH, -2, CONVERT(datetime, CONCAT(@period, '01'))),'yyyyMM') and InventoryID = @INVENTORYID and SiteID = @SITEID and CompanyID = @companyID)
+		where FinPeriodID = FORMAT(DATEADD(MONTH, -2, CONVERT(datetime, CONCAT(@period, '01'))),'yyyyMM') and InventoryID = @INVENTORYID and SiteID = @SITEID and CompanyID = @companyID
+		group by CompanyID, InventoryID, SiteID)
 		SET @PeriodQtyFrom60Dto90D = IIF(@PeriodQtyFrom60Dto90D is null, 0, @PeriodQtyFrom60Dto90D)
 		
 		-- Qty 4 ~ 6 month
@@ -158,14 +161,15 @@ BEGIN
 		-- within 30 days
 		SET @PeriodCostWithin30D = (select PeriodCostWithin30D =
 			(CASE
-				WHEN (FinPtdCostReceived is not null and FinPtdCostTransferIn is not null) THEN
+				WHEN (SUM(FinPtdCostReceived) is not null and SUM(FinPtdCostTransferIn) is not null) THEN
 					(CASE
-						WHEN (FinPtdCostReceived + FinPtdCostTransferIn) >= @EndingCost THEN @EndingCost
-						ELSE (FinPtdCostReceived + FinPtdCostTransferIn)
+						WHEN (SUM(FinPtdCostReceived) + SUM(FinPtdCostTransferIn)) >= @EndingCost THEN @EndingCost
+						ELSE (SUM(FinPtdCostReceived) + SUM(FinPtdCostTransferIn))
 						END)
 					ELSE 0
 			END)
-		from INItemCostHist where FinPeriodID = FORMAT(DATEADD(MONTH, -0, CONVERT(datetime, CONCAT(@period, '01'))),'yyyyMM') and InventoryID = @INVENTORYID and SiteID = @SITEID and CompanyID = @companyID)
+		from INItemCostHist where FinPeriodID = FORMAT(DATEADD(MONTH, -0, CONVERT(datetime, CONCAT(@period, '01'))),'yyyyMM') and InventoryID = @INVENTORYID and SiteID = @SITEID and CompanyID = @companyID
+		group by CompanyID, InventoryID, SiteID)
 		SET @PeriodCostWithin30D = IIF(@PeriodCostWithin30D is null, 0, @PeriodCostWithin30D)
 
 		-- Cost 30 ~ 60 days
@@ -173,13 +177,14 @@ BEGIN
 			(CASE
 				WHEN @PeriodCostWithin30D <= @EndingCost THEN
 					(CASE 
-						WHEN (FinPtdCostReceived + FinPtdCostTransferIn) >= (@EndingCost - @PeriodCostWithin30D) THEN (@EndingCost - @PeriodCostWithin30D)
-						ELSE (FinPtdCostReceived + FinPtdCostTransferIn)
+						WHEN (SUM(FinPtdCostReceived) + SUM(FinPtdCostTransferIn)) >= (@EndingCost - @PeriodCostWithin30D) THEN (@EndingCost - @PeriodCostWithin30D)
+						ELSE (SUM(FinPtdCostReceived) + SUM(FinPtdCostTransferIn))
 					END)
 				ELSE 0
 			END)
 		from INItemCostHist
-		where FinPeriodID = FORMAT(DATEADD(MONTH, -1, CONVERT(datetime, CONCAT(@period, '01'))),'yyyyMM') and InventoryID = @INVENTORYID and SiteID = @SITEID and CompanyID = @companyID)
+		where FinPeriodID = FORMAT(DATEADD(MONTH, -1, CONVERT(datetime, CONCAT(@period, '01'))),'yyyyMM') and InventoryID = @INVENTORYID and SiteID = @SITEID and CompanyID = @companyID
+		group by CompanyID, InventoryID, SiteID)
 		SET @PeriodCostFrom30Dto60D = IIF(@PeriodCostFrom30Dto60D is null, 0, @PeriodCostFrom30Dto60D)
 
 		-- Cost 60 ~ 90 days
@@ -187,13 +192,14 @@ BEGIN
 			(CASE
 				WHEN @PeriodCostWithin30D + @PeriodCostFrom30Dto60D <= @EndingCost THEN
 					(CASE 
-						WHEN (FinPtdCostReceived + FinPtdCostTransferIn) >= (@EndingCost - @PeriodCostWithin30D - @PeriodCostFrom30Dto60D) THEN (@EndingCost - @PeriodCostWithin30D - @PeriodCostFrom30Dto60D)
-						ELSE (FinPtdCostReceived + FinPtdCostTransferIn)
+						WHEN (SUM(FinPtdCostReceived) + SUM(FinPtdCostTransferIn)) >= (@EndingCost - @PeriodCostWithin30D - @PeriodCostFrom30Dto60D) THEN (@EndingCost - @PeriodCostWithin30D - @PeriodCostFrom30Dto60D)
+						ELSE (SUM(FinPtdCostReceived) + SUM(FinPtdCostTransferIn))
 					END)
 				ELSE 0
 			END)
 		from INItemCostHist
-		where FinPeriodID = FORMAT(DATEADD(MONTH, -2, CONVERT(datetime, CONCAT(@period, '01'))),'yyyyMM') and InventoryID = @INVENTORYID and SiteID = @SITEID and CompanyID = @companyID)
+		where FinPeriodID = FORMAT(DATEADD(MONTH, -2, CONVERT(datetime, CONCAT(@period, '01'))),'yyyyMM') and InventoryID = @INVENTORYID and SiteID = @SITEID and CompanyID = @companyID
+		group by CompanyID, InventoryID, SiteID)
 		SET @PeriodCostFrom60Dto90D = IIF(@PeriodCostFrom60Dto90D is null, 0, @PeriodCostFrom60Dto90D)
 
 
